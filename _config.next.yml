@@ -1,0 +1,71 @@
+custom_file_path:
+  head: source/_data/head.njk
+  #header: source/_data/header.njk
+  #sidebar: source/_data/sidebar.njk
+  #postMeta: source/_data/post-meta.njk
+  #postBodyEnd: source/_data/post-body-end.njk
+  #footer: source/_data/footer.njk
+  #bodyEnd: source/_data/body-end.njk
+  #variable: source/_data/variables.styl
+  #mixin: source/_data/mixins.styl
+  #style: source/_data/styles.styl
+
+sidebar:
+  author: Echo Joy
+  display: always
+  position: right
+
+social:
+  GitHub: https://github.com/nyuzyt || fab fa-github
+  E-Mail: mailto:jstzzyt01@gmail.com || fa fa-envelope
+
+links:
+  Resume: https://nyuzyt.github.io/resume/
+
+font:
+  # Use custom fonts families or not.
+  # Depended options: `external` and `family`.
+  enable: true
+
+  # Uri of fonts host, e.g. https://fonts.googleapis.com (Default).
+  host:
+
+  # Font options:
+  # `external: true` will load this font family from `host` above.
+  # `family: Times New Roman`. Without any quotes.
+  # `size: x.x`. Use `em` as unit. Default: 1 (16px)
+
+  # Global font settings used for all elements inside <body>.
+  # global:
+  #   external: true
+  #   family: Monda
+  #   size: 0.85
+
+  # Font settings for site title (.site-title).
+  # title:
+  #   external: true
+  #   family: Monda
+  #   size: 0.85
+
+  # Font settings for headlines (<h1> to <h6>).
+  # headings:
+  #   external: true
+  #   family: Monda
+  #   size: 0.9
+
+  # Font settings for posts (.post-body).
+  posts:
+    external: true
+    family: Monda
+    size: 0.75
+
+  # Font settings for <code> and code blocks.
+  codes:
+    external: true
+    family: Monda
+    size: 0.75
+
+menu:
+  home: / || fa fa-home
+  archives: /archives/ || fa fa-archive
+  # about: /about/ || fa fa-user

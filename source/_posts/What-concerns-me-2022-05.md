@@ -20,7 +20,7 @@ The doc should be updated at least once per month. The first Sunday night of eac
 
 #### Long term:
 
-1. My pay is not good, SDE of 2~3 YOE should have 350~400K salary
+1. My pay is not good, SDE of 2\~3 YOE should have 350\~400K salary
 2. My rating is not good, I got Meets in 2021 rating, how to get exceeds in 2022?
 
 #### Short term:
@@ -33,7 +33,7 @@ The doc should be updated at least once per month. The first Sunday night of eac
 
 ### Life:
 
-1. I didn’t get enough sleep. I need 6.5 ~ 7 hours of sleep every day, but I cannot get that much sleep every day.
+1. I didn’t get enough sleep. I need 6.5 \~ 7 hours of sleep every day, but I cannot get that much sleep every day.
 2. I didn’t have the time to have all the entertainment every day. I want to:
     - Watch all the video updates
     - Watch all the Anime I am following
@@ -90,9 +90,9 @@ The doc should be updated at least once per month. The first Sunday night of eac
 
 1. I should go to sleep at 1:30 - 2:00, no later than that.
 2. The time for entertainment:
-    - I should try to spend time between 6~7 for BaiCiZhan
+    - I should try to spend time between 6\~7 for BaiCiZhan
     - Running time: about one hour, I can watch videos during this time, recommendation: 1.25 Asoul
-    - After running, shower and construction time, I have 9:00 ~ 11:00 myself
+    - After running, shower and construction time, I have 9:00 \~ 11:00 myself
     - Awei shower time: about 30 minutes, I can use it for Journal read, GongZhongHao
     - Weekends: I can have morning and evening for entertainment
 3. For Arknights:
@@ -112,7 +112,7 @@ The doc should be updated at least once per month. The first Sunday night of eac
 4. The Mint read takes 30 minutes, schedule the time in the morning (before lunch).
 5. To reduce the satiety, stand more!
 
-### Action items
+## Action items
 
 1. Have a planning section in the morning, depending on the meeting schedules:
     - Mint reading (30 minutes)

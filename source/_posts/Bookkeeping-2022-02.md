@@ -1,6 +1,6 @@
 ---
-title: Bookkeeping - 2022/01
-date: 2022-11-30 14:51:37
+title: Bookkeeping - 2022/02
+date: 2022-11-30 18:02:32
 tags: 财务
 hidden: true
 ---
@@ -11,36 +11,36 @@ hidden: true
 
 | Category         | Sum     |
 | ---------------- | ------- |
-| Paycheck         | 4741.41 |
+| Paycheck         | 3391.79 |
 
 ### Spending
 
 | Category         | Sum     | Section         | Sum     |
 | ---------------- | ------- | --------------- | ------- |
-| Restaurants      | 559.76  | Food            | 1802.25 |
-| Cake & Bread     | 157.19  | Food            |         |
-| Bubble Tea       | 225.15  | Food            |         |
-| Groceries        | 860.15  | Food            |         |
-| Pharmacy         | 86.89   | Health          | 86.89   |
-| Clothing         | 1.04    | Shopping        | 615.83  |
-| Home Improvement | 220.25  | Shopping        |         |
-| Electronics      | 394.54  | Shopping        |         |
-| Electricity      | 71.46   | Utilities       | 337.69  |
-| Gas              | 236     | Utilities       |         |
+| Restaurants      | 218.52  | Food            | 813.19  |
+| Cake & Bread     | 143.7   | Food            |         |
+| Bubble Tea       | 186.46  | Food            |         |
+| Groceries        | 264.51  | Food            |         |
+| Pharmacy         | 11.09   | Health          | 11.09   |
+| Hair & Skin      | 2.01    | Shopping        | 325.59  |
+| Home Improvement | 318.95  | Shopping        |         |
+| Office           | 4.63    | Shopping        |         |
+| Electricity      | 69.02   | Utilities       | 369.22  |
+| Gas              | 273.31  | Utilities       |         |
 | Phone Bill       | 3.13    | Utilities       |         |
-| Supply           | 13.11   | Utilities       |         |
+| Legal            | 6.75    | Utilities       |         |
+| Supply           | 3.02    | Utilities       |         |
 | Television       | 13.99   | Utilities       |         |
 | Mortgage         | 1518.07 | Mortgage & Rent | 1942.51 |
 | HOA              | 424.44  | Mortgage & Rent |         |
-| Ride Share       | 28.5    | Travel          | 28.5    |
-| IRA              | 6000    | Investment      | 6000    |
-| Paycheck         | 4741.41 | Income          | 4741.41 |
+| Stock            | 6000    | Investment      | 6000    |
+| Paycheck         | 3391.79 | Income          | 3391.79 |
 
 ### Balance
 
 | Income    | Spending  | Cash flow     |
 | --------- | --------- | ------------- |
-| 4741.41   | 10813.67  | -6072.26      |
+| 3391.79   | 9461.6    | -6069.81      |
 
 ## Chart
 
@@ -53,9 +53,9 @@ hidden: true
     legend: {
         orient: 'vertical',
         x: 'left',
-        data:['Food','Health','Shopping','Utilities','Mortgage & Rent','Travel','Investment','Restaurants','Cake & Bread',
-        'Bubble Tea','Groceries','Pharmacy','Clothing','Home Improvement','Electronics','Electricity','Gas','Phone Bill',
-        'Supply','Television','Mortgage','HOA','Ride Share','IRA']
+        data:['Food','Health','Shopping','Utilities','Mortgage & Rent','Investment','Restaurants','Cake & Bread','Bubble Tea',
+        'Groceries','Pharmacy','Hair & Skin','Home Improvement','Office','Electricity','Gas','Phone Bill','Legal',
+        'Supply','Television','Mortgage','HOA','Stock']
     },
     series: [
         {
@@ -76,12 +76,11 @@ hidden: true
                 }
             },
             data:[
-                {value:1802.25, name:'Food'},
-                {value:86.89, name:'Health'},
-                {value:615.83, name:'Shopping'},
-                {value:337.69, name:'Utilities'},
+                {value:813.19, name:'Food'},
+                {value:11.09, name:'Health'},
+                {value:325.59, name:'Shopping'},
+                {value:369.22, name:'Utilities'},
                 {value:1942.51, name:'Mortgage & Rent'},
-                {value:28.5, name:'Travel'},
                 {value:6000, name:'Investment'},
             ]
         },
@@ -137,23 +136,23 @@ hidden: true
                 },
             },
             data:[
-                {value:559.76, name:'Restaurants'},
-                {value:157.19, name:'Cake & Bread'},
-                {value:225.15, name:'Bubble Tea'},
-                {value:860.15, name:'Groceries'},
-                {value:86.89, name:'Pharmacy'},
-                {value:1.04, name:'Clothing'},
-                {value:220.25, name:'Home Improvement'},
-                {value:394.54, name:'Electronics'},
-                {value:71.46, name:'Electricity'},
-                {value:236, name:'Gas'},
+                {value:218.52, name:'Restaurants'},
+                {value:143.7, name:'Cake & Bread'},
+                {value:186.46, name:'Bubble Tea'},
+                {value:264.51, name:'Groceries'},
+                {value:11.09, name:'Pharmacy'},
+                {value:2.01, name:'Hair & Skin'},
+                {value:318.95, name:'Home Improvement'},
+                {value:4.63, name:'Office'},
+                {value:69.02, name:'Electricity'},
+                {value:273.31, name:'Gas'},
                 {value:3.13, name:'Phone Bill'},
-                {value:13.11, name:'Supply'},
+                {value:6.75, name:'Legal'},
+                {value:3.02, name:'Supply'},
                 {value:13.99, name:'Television'},
                 {value:1518.07, name:'Mortgage'},
                 {value:424.44, name:'HOA'},
-                {value:28.5, name:'Ride Share'},
-                {value:6000, name:'IRA'},
+                {value:6000, name:'Stock'},
             ]
         }
     ]

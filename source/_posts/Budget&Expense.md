@@ -1,7 +1,7 @@
 ---
 title: Budget & Expense
 date: 2022-11-20 22:54:23
-tags: 个人
+tags: 财务
 ---
 
 ## The accouting process
@@ -77,7 +77,7 @@ The second week's Sunday night, next time: 2022/12/11
 
 ### Income
 
-| 2                 |
+| Catagories        |
 | :--------         |
 | Paycheck          |
 | Reimbursement     |

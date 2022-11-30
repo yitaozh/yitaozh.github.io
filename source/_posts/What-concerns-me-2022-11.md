@@ -2,6 +2,7 @@
 title: What concerns me? - 2022/11
 date: 2022-11-18 12:37:38
 tags: 个人
+hidden: true
 ---
 
 ## Goal of this doc

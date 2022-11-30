@@ -28,59 +28,47 @@ The second week's Sunday night, next time: 2022/12/11
 2. The items take more than $100 should be listed
 3. The trend (need data for more than 6 months)
 
-## Transaction catagories
+### Transaction catagories
 
-### Spending
-
-| 1                 | 2                 |
-| :--------         | :--------         |
-| Mortgage & Rent   | Mortgage          |
-|                   | HOA               |
-| Utilities         | Electricity       |
-|                   | Gas               |
-|                   | Phone Bill        |
-|                   | VPN               |
-|                   | Legal             |
-|                   | Network           |
-|                   | Supply            |
-|                   | Television        |
-| Travel            | Air               |
-|                   | Ride Share        |
-|                   | Hotel             |
-|                   | Ticket            |
-|                   | Souvenir          |  
-| Food              | Restaurants       |
-|                   | Breakfast         |
-|                   | Bubble Tea        |
-|                   | Groceries         |
-| Shopping          | Clothing          |
-|                   | Hair & Skin       |
-|                   | Home Improvement  |
-|                   | China Ecommerce   |
-|                   | Electoronic       |
-|                   | Marriage          |
-|                   | Office            |
-| Investment        | IRA               |
-|                   | Stock             |
-| Health            | Medical           |
-|                   | Covid test        |
-|                   | Eyecare           |
-|                   | Pharmacy          |
-|                   | Control           |
-| Misc              | Cash & ATM        |
-|                   | Transfer          |
-|                   | Shipping          |
-|                   | Annual            |
-|                   | Visa              |
-
-
-
-### Income
-
-| Catagories        |
-| :--------         |
-| Paycheck          |
-| Reimbursement     |
-| Deposit           |
-| Federal Tax       |
-| State Tax         |
+| Category         | Section         |
+| ---------------- | --------------- |
+| Restaurants      | Food            |
+| Cake & Bread     | Food            |
+| Bubble Tea       | Food            |
+| Groceries        | Food            |
+| Medical          | Health          |
+| Covid test       | Health          |
+| Eyecare          | Health          |
+| Pharmacy         | Health          |
+| Control          | Health          |
+| Clothing         | Shopping        |
+| Hair & Skin      | Shopping        |
+| Home Improvement | Shopping        |
+| China Ecommerce  | Shopping        |
+| Electronics      | Shopping        |
+| Office           | Shopping        |
+| Electricity      | Utilities       |
+| Gas              | Utilities       |
+| Phone Bill       | Utilities       |
+| VPN              | Utilities       |
+| Legal            | Utilities       |
+| Network          | Utilities       |
+| Supply           | Utilities       |
+| Television       | Utilities       |
+| Mortgage         | Mortgage & Rent |
+| HOA              | Mortgage & Rent |
+| Air              | Travel          |
+| Ride Share       | Travel          |
+| Hotel            | Travel          |
+| Ticket           | Travel          |
+| Souvenir         | Travel          |
+| IRA              | Investment      |
+| Stock            | Investment      |
+| Cash & ATM       | Misc            |
+| Transfer         | Misc            |
+| Shipping         | Misc            |
+| Annual           | Misc            |
+| Visa             | Misc            |
+| Paycheck         | Income          |
+| Federal Tax      | Income          |
+| State Tax        | Income          |

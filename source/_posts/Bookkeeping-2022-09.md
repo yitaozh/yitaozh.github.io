@@ -1,6 +1,6 @@
 ---
-title: Bookkeeping - 2022/08
-date: 2022-12-01 16:20:39
+title: Bookkeeping - 2022/09
+date: 2022-12-01 16:40:16
 tags: 财务
 hidden: true
 ---
@@ -11,30 +11,29 @@ hidden: true
 
 | Category         | Sum     |
 | ---------------- | ------- |
-| Paycheck         | 8024.04 |
+| Paycheck         | 4086.16 |
 
 ### Spending
 
 | Category         | Sum     | Section         | Sum     |
 | ---------------- | ------- | --------------- | ------- |
-| China Ecommerce  | 177.83  | Shopping        | 177.83  |
-| Electricity      | 28.35   | Utilities       | 112.3   |
-| Gas              | 45.63   | Utilities       |         |
+| Pharmacy         | 5       | Health          | 5       |
+| China Ecommerce  | 391.13  | Shopping        | 391.13  |
+| Electricity      | 27.59   | Utilities       | 102.18  |
+| Gas              | 36.27   | Utilities       |         |
 | Phone Bill       | 3.13    | Utilities       |         |
 | VPN              | 12.95   | Utilities       |         |
 | Legal            | 6.75    | Utilities       |         |
 | Television       | 15.49   | Utilities       |         |
 | Mortgage         | 1650.46 | Mortgage & Rent | 2074.9  |
 | HOA              | 424.44  | Mortgage & Rent |         |
-| Pharmacy         | 5       | Health          | 5       |
-| Air              | 1706.14 | Travel          | 1706.14 |
-| Paycheck         | 8024.04 | Income          | 8024.04 |
+| Paycheck         | 4086.16 | Income          | 4086.16 |
 
 ### Balance
 
 | Income    | Spending  | Cash flow     |
 | --------- | --------- | ------------- |
-| 8024.04   | 4076.17   | 3947.87       |
+| 4086.16   | 2573.21   | 1512.95       |
 
 ## Chart
 
@@ -69,11 +68,10 @@ hidden: true
                 }
             },
             data:[
-                {value:177.83, name:'Shopping'},
-                {value:112.3, name:'Utilities'},
-                {value:2074.9, name:'Mortgage & Rent'},
                 {value:5, name:'Health'},
-                {value:1706.14, name:'Travel'},
+                {value:391.13, name:'Shopping'},
+                {value:102.18, name:'Utilities'},
+                {value:2074.9, name:'Mortgage & Rent'},
             ]
         },
         {
@@ -128,17 +126,16 @@ hidden: true
                 },
             },
             data:[
-                {value:177.83, name:'China Ecommerce'},
-                {value:28.35, name:'Electricity'},
-                {value:45.63, name:'Gas'},
+                {value:5, name:'Pharmacy'},
+                {value:391.13, name:'China Ecommerce'},
+                {value:27.59, name:'Electricity'},
+                {value:36.27, name:'Gas'},
                 {value:3.13, name:'Phone Bill'},
                 {value:12.95, name:'VPN'},
                 {value:6.75, name:'Legal'},
                 {value:15.49, name:'Television'},
                 {value:1650.46, name:'Mortgage'},
                 {value:424.44, name:'HOA'},
-                {value:5, name:'Pharmacy'},
-                {value:1706.14, name:'Air'},
             ]
         }
     ]

@@ -47,6 +47,7 @@ The second week's Sunday night, next time: 2022/12/11
 | China Ecommerce  | Shopping        |
 | Electronics      | Shopping        |
 | Office           | Shopping        |
+| Marriage         | Shopping        |
 | Electricity      | Utilities       |
 | Gas              | Utilities       |
 | Phone Bill       | Utilities       |

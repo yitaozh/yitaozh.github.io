@@ -167,7 +167,7 @@ When writing the new doc, all items from the old doc should be copied, and marke
 - Follow the schedule and start Leetcode + System design learning ASAP
 - Write a separate doc on how to overcome procrastination
 - Write a separate doc on how to write doc
-- Write a separate doc on how to start task sooner
+- Write a separate doc on how to manage time
 - Use weekend day time for entertainment and evening for learning
 - When there's an arknight eveent, use the entertainment time to tend to it ASAP.
 - Restart to find someone for repairing the heater next Monday.

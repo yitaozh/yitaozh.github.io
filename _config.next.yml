@@ -77,3 +77,8 @@ symbols_count_time:
   awl: 4
   wpm: 275
   suffix: "mins."
+
+copy_button:
+  enable: true
+  show_result: true
+  style: mac

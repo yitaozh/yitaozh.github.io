@@ -37,7 +37,7 @@ The second week's Sunday night, next time: 2022/12/11
 | Bubble Tea       | Food            |
 | Groceries        | Food            |
 | Medical          | Health          |
-| Covid test       | Health          |
+| Covid Test       | Health          |
 | Dental           | Health          |
 | Eyecare          | Health          |
 | Pharmacy         | Health          |

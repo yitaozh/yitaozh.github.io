@@ -26,8 +26,8 @@ hidden: true
 | Medical          | 287.21  | Health          | 314.53  |
 | Eyecare          | 10      | Health          |         |
 | Pharmacy         | 17.32   | Health          |         |
-| Clothing         | 994.52  | Shopping        | 4351.15 |
-| Hair & Skin      | 56.34   | Shopping        |         |
+| Clothing         | 994.52  | Shopping        | 4428.25 |
+| Hair & Skin      | 133.44  | Shopping        |         |
 | Home Improvement | 87.54   | Shopping        |         |
 | Electronics      | 112.41  | Shopping        |         |
 | Office           | 52.05   | Shopping        |         |
@@ -53,7 +53,7 @@ hidden: true
 
 | Income    | Spending  | Cash flow     |
 | --------- | --------- | ------------- |
-| 6290.52   | 9461.6    | -3293.23      |
+| 6290.52   | 9660.85   | -3370.33      |
 
 ## Chart
 
@@ -91,7 +91,7 @@ hidden: true
             data:[
                 {value:1207.9, name:'Food'},
                 {value:314.53, name:'Health'},
-                {value:4351.15, name:'Shopping'},
+                {value:4428.25, name:'Shopping'},
                 {value:444.48, name:'Utilities'},
                 {value:1942.51, name:'Mortgage & Rent'},
                 {value:308.18, name:'Travel'},
@@ -158,7 +158,7 @@ hidden: true
                 {value:10, name:'Eyecare'},
                 {value:17.32, name:'Pharmacy'},
                 {value:994.52, name:'Clothing'},
-                {value:56.34, name:'Hair & Skin'},
+                {value:133.44, name:'Hair & Skin'},
                 {value:87.54, name:'Home Improvement'},
                 {value:112.41, name:'Electronics'},
                 {value:52.05, name:'Office'},

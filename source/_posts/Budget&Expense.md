@@ -38,6 +38,7 @@ The second week's Sunday night, next time: 2022/12/11
 | Groceries        | Food            |
 | Medical          | Health          |
 | Covid test       | Health          |
+| Dental           | Health          |
 | Eyecare          | Health          |
 | Pharmacy         | Health          |
 | Control          | Health          |

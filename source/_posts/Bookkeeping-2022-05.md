@@ -22,7 +22,8 @@ hidden: true
 | Bubble Tea       | 309.99  | Food            |         |
 | Groceries        | 417.54  | Food            |         |
 | Pharmacy         | 51.06   | Health          | 51.06   |
-| Clothing         | 360.49  | Shopping        | 1040.78 |
+| Clothing         | 360.49  | Shopping        | 1470.26 |
+| Hair & Skin      | 429.48  | Shopping        |         |
 | Home Improvement | 463.68  | Shopping        |         |
 | Electronics      | 180.61  | Shopping        |         |
 | Marriage         | 36      | Shopping        |         |
@@ -44,7 +45,7 @@ hidden: true
 
 | Income    | Spending  | Cash flow     |
 | --------- | --------- | ------------- |
-| 4986.17   | 5941.71   | -955.54       |
+| 4986.17   | 6371.19   | -1385.02      |
 
 ## Chart
 
@@ -82,7 +83,7 @@ hidden: true
             data:[
                 {value:1543.5, name:'Food'},
                 {value:51.06, name:'Health'},
-                {value:1040.78, name:'Shopping'},
+                {value:1470.26, name:'Shopping'},
                 {value:315.63, name:'Utilities'},
                 {value:1942.51, name:'Mortgage & Rent'},
                 {value:998.23, name:'Travel'},
@@ -147,6 +148,7 @@ hidden: true
                 {value:417.54, name:'Groceries'},
                 {value:51.06, name:'Pharmacy'},
                 {value:360.49, name:'Clothing'},
+                {value:429.48, name:'Hair & Skin'},
                 {value:463.68, name:'Home Improvement'},
                 {value:180.61, name:'Electronics'},
                 {value:36, name:'Marriage'},

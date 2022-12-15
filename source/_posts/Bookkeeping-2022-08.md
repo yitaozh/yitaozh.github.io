@@ -149,7 +149,7 @@ hidden: true
 
 ### Spending Trend
 
-#### Tread of all categories
+#### Trend of all categories
 
 {% echarts %}
 {

@@ -37,6 +37,8 @@ hidden: true
 
 ## Chart
 
+### Detailed Spending
+
 {% echarts %}
 {
     tooltip: {
@@ -141,3 +143,143 @@ hidden: true
     ]
 };
 {% endecharts %}
+
+### Spending Trend
+
+#### Tread of all categories
+
+{% echarts %}
+{
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    legend: {
+        data: ['Food','Health','Shopping','Utilities','Mortgage & Rent','Travel','Investment','Misc']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis:  {
+        type: 'value'
+    },
+    yAxis: {
+        type: 'category',
+        data: ['2021/11','2021/12','2022/1','2022/2','2022/3','2022/4','2022/5','2022/6','2022/7','2022/8','2022/9']
+    },
+    series: [
+        {
+            name: 'Food',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: false,
+                    position: 'insideRight'
+                }
+            },
+            data: [1133.52, 1533.2, 1802.25, 813.19, 1207.9, 1161.14, 1543.5, 979.38, 0, 0, 0]
+        },
+        {
+            name: 'Health',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: false,
+                    position: 'insideRight'
+                }
+            },
+            data: [11.68, 90.59, 86.89, 11.09, 314.53, 5, 51.06, 352.78, 5, 5, 5]
+        },
+        {
+            name: 'Shopping',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: false,
+                    position: 'insideRight'
+                }
+            },
+            data: [783.8, 1850.21, 615.83, 325.59, 4428.25, 447.04, 1470.26, 680.5, 410.64, 177.83, 391.13]
+        },
+        {
+            name: 'Utilities',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: false,
+                    position: 'insideRight'
+                }
+            },
+            data: [138.74, 232.84, 337.69, 369.22, 444.48, 325.53, 315.63, 202.03, 165.16, 112.3, 102.18]
+        },
+        {
+            name: 'Mortgage & Rent',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: false,
+                    position: 'insideRight'
+                }
+            },
+            data: [1942.51, 1942.51, 1942.51, 1942.51, 1942.51, 1942.51, 1942.51, 1942.51, 2074.9, 2074.9, 2074.9]
+        },
+        {
+            name: 'Travel',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: false,
+                    position: 'insideRight'
+                }
+            },
+            data: [49.98, 0, 28.5, 0, 308.18, 3398.22, 998.23, 765.11, 0, 1706.14, 0]
+        },
+        {
+            name: 'Investment',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: false,
+                    position: 'insideRight'
+                }
+            },
+            data: [0, 0, 6000, 6000, 0, 0, 50, 0, 0, 0, 0]
+        },
+        {
+            name: 'Misc',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'right',
+                    formatter: function(params) {
+                        let val=0;
+                        this.option.series.forEach(s => {
+                            val+=s.data[params.dataIndex];
+                        } );
+                        return parseFloat(val).toFixed(2);
+                    }
+                }
+            },
+            data: [0, 200, 0, 0, 1015, 114.81, 0, 100, 95, 0, 0]
+        }
+    ]
+}
+{% endecharts %}
+
+#### Detailed analysis
+
+Not in U.S. this month, skip this part.

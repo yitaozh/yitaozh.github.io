@@ -49,6 +49,8 @@ hidden: true
 
 ## Chart
 
+### Detailed Spending
+
 {% echarts %}
 {
     tooltip: {
@@ -165,6 +167,219 @@ hidden: true
                 {value:111.31, name:'Cash & ATM'},
                 {value:3.5, name:'Visa'},
             ]
+        }
+    ]
+};
+{% endecharts %}
+
+### Spending Trend
+
+#### Tread of all categories
+
+{% echarts %}
+{
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    legend: {
+        data: ['Food','Health','Shopping','Utilities','Mortgage & Rent','Travel','Investment','Misc']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis:  {
+        type: 'value'
+    },
+    yAxis: {
+        type: 'category',
+        data: ['2021/11','2021/12','2022/1','2022/2','2022/3','2022/4']
+    },
+    series: [
+        {
+            name: 'Food',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: false,
+                    position: 'insideRight'
+                }
+            },
+            data: [1133.52, 1533.2, 1802.25, 813.19, 1207.9, 1161.14]
+        },
+        {
+            name: 'Health',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: false,
+                    position: 'insideRight'
+                }
+            },
+            data: [11.68, 90.59, 86.89, 11.09, 314.53, 5]
+        },
+        {
+            name: 'Shopping',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: false,
+                    position: 'insideRight'
+                }
+            },
+            data: [783.8, 1850.21, 615.83, 325.59, 4428.25, 447.04]
+        },
+        {
+            name: 'Utilities',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: false,
+                    position: 'insideRight'
+                }
+            },
+            data: [138.74, 232.84, 337.69, 369.22, 444.48, 325.53]
+        },
+        {
+            name: 'Mortgage & Rent',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: false,
+                    position: 'insideRight'
+                }
+            },
+            data: [1942.51, 1942.51, 1942.51, 1942.51, 1942.51, 1942.51]
+        },
+        {
+            name: 'Travel',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: false,
+                    position: 'insideRight'
+                }
+            },
+            data: [49.98, 0, 28.5, 0, 308.18, 3398.22]
+        },
+        {
+            name: 'Investment',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: false,
+                    position: 'insideRight'
+                }
+            },
+            data: [0, 0, 6000, 6000, 0, 0]
+        },
+        {
+            name: 'Misc',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: false,
+                    position: 'insideRight'
+                }
+            },
+            data: [0, 200, 0, 0, 1015, 114.81]
+        }
+    ]
+}
+{% endecharts %}
+
+#### Detailed analysis
+
+{% echarts %}
+{
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['Food','Shopping','Utilities']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            data: ['2021/11','2021/12','2022/1','2022/2','2022/3','2022/4']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'Food',
+            type:'bar',
+            data: [1133.52, 1533.2, 1802.25, 813.19, 1207.9, 1161.14],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'Shopping',
+            type:'bar',
+            data: [783.8, 1850.21, 615.83, 325.59, 4428.25, 447.04],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name : '平均值'}
+                ]
+            }
+        },
+        {
+            name:'Utilities',
+            type:'bar',
+            data: [138.74, 232.84, 337.69, 369.22, 444.48, 325.53],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name : '平均值'}
+                ]
+            }
         }
     ]
 };

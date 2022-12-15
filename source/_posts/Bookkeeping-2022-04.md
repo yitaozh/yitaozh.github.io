@@ -352,8 +352,15 @@ hidden: true
             },
             markLine : {
                 data : [
-                    {type : 'average', name: '平均值'}
-                ]
+                {
+                    type : 'average',
+                    name : '平均值',
+                    label : {
+                        normal: {
+                            position: 'left',
+                        }
+                    }
+                }]
             }
         },
         {

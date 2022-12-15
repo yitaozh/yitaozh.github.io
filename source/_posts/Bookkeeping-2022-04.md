@@ -291,8 +291,15 @@ hidden: true
             stack: '总量',
             label: {
                 normal: {
-                    show: false,
-                    position: 'insideRight'
+                    show: true,
+                    position: 'right',
+                    formatter: function(params) {
+                        let val=0;
+                        this.option.series.forEach(s => {
+                            val+=s.data[params.dataIndex];
+                        } );
+                        return parseFloat(val).toFixed(2);
+                    }
                 }
             },
             data: [0, 200, 0, 0, 1015, 114.81]

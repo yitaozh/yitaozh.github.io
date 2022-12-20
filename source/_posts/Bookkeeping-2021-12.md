@@ -7,6 +7,10 @@ hidden: true
 
 ## Overview
 
+### When
+
+The second week's Sunday night, next time: 2023/01/08
+
 ### Income
 
 | Category         | Sum     |

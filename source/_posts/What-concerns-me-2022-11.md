@@ -14,7 +14,7 @@ People are not productive under anxiety. In daily life, people have concerns abo
 3. (Can I address them and) How to address them?
 4. Get the Action Items from it.
 
-The doc should be updated at least once per month. The first Sunday night of each month is a good time. Next update: 12/04
+The doc should be updated quarterly. The first Sunday night of each quarter is a good time. Next time: 2023/01/02
 
 When writing the new doc, all items from the old doc should be copied, and marked as still or resolved.
 

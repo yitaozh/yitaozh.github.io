@@ -168,6 +168,7 @@ When writing the new doc, all items from the old doc should be copied, and marke
 - Write a separate doc on how to overcome procrastination
 - Write a separate doc on how to write doc
 - Write a separate doc on how to manage time
+- Write a separate doc on how to leetcode
 - Use weekend day time for entertainment and evening for learning
 - When there's an arknight eveent, use the entertainment time to tend to it ASAP.
 - Restart to find someone for repairing the heater next Monday.

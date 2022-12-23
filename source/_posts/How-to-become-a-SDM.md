@@ -1,5 +1,5 @@
 ---
-title: Time management
+title: How to become a SDM
 date: 2022-12-02 14:19:31
 tags: 随笔
 ---

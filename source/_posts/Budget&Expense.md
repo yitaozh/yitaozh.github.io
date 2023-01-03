@@ -8,7 +8,7 @@ tags: 财务
 
 ### When
 
-The second week's Sunday night, next time: 2022/12/11
+The second week's Sunday night, next time: 2023/01/08
 
 ### The steps to make monthly record
 

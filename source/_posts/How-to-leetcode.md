@@ -10,15 +10,19 @@ A good software developer doesn't necessarily need to be a good IOer, but in gen
 
 ### The daily routine
 
-In general, at least one hour per day should be dedicated to leecode practice. Current schedule is 5:00 ~ 6:00 P.M.
+In general, at least two hours per workday should be dedicated to leecode practice. Current schedule is 11:00 ~ 13:00.
 
 ### The environment
 
-I am currently using vscode leetcode plugin, it has a good integration with top comments and submit.
+I am currently using leetcode website.
 
 ### The order to solve problems
 
-The [Explore](https://leetcode.com/explore/featured/) is a great place to start. Finish all courses then continue to next step.
+1. Go through [LABULADONG 的算法网站](https://labuladong.github.io/algo/) once first.
+
+2. The [Explore](https://leetcode.com/explore/featured/) is a great place next. Finish all courses.
+
+3. Use the daily problem and study plan tool
 
 ### The steps to tackle one problem
 

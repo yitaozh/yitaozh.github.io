@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yitaozh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"author":"Echo Joy"},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Solution123456789101112131415161718192021222324252627282930313233343536373839&#x2F;** * Definition for singly-linked list. * struct ListNode &amp;#123; *     int val; *     ListNode *next; *     ListNode() : v">
+    <meta name="description" content="23. Merge k Sorted ListsDescriptionDifficulty: Hard">
 <meta property="og:type" content="article">
 <meta property="og:title" content="23. Merge k Sorted Lists">
 <meta property="og:url" content="https://yitaozh.github.io/2023/01/03/23-Merge-k-Sorted-Lists/index.html">
 <meta property="og:site_name" content="Echo&#39;s Home">
-<meta property="og:description" content="Solution123456789101112131415161718192021222324252627282930313233343536373839&#x2F;** * Definition for singly-linked list. * struct ListNode &amp;#123; *     int val; *     ListNode *next; *     ListNode() : v">
+<meta property="og:description" content="23. Merge k Sorted ListsDescriptionDifficulty: Hard">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-01-03T13:08:54.000Z">
-<meta property="article:modified_time" content="2023-01-04T17:27:08.276Z">
+<meta property="article:modified_time" content="2023-01-04T17:28:33.913Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="Linked List">
 <meta property="article:tag" content="Divide and Conquer">
@@ -117,7 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">1.</span> <span class="nav-text">Solution</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#23-Merge-k-Sorted-Lists"><span class="nav-number">1.</span> <span class="nav-text">23. Merge k Sorted Lists</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">1.2.</span> <span class="nav-text">Solution</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -224,7 +224,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-01-04 17:27:08" itemprop="dateModified" datetime="2023-01-04T17:27:08+00:00">2023-01-04</time>
+      <time title="Modified: 2023-01-04 17:28:33" itemprop="dateModified" datetime="2023-01-04T17:28:33+00:00">2023-01-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -243,14 +243,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>928</span>
+      <span>1.7k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
+      <span>2 mins.</span>
     </span>
 </div>
 
@@ -261,7 +261,30 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeKLists</span><span class="params">(vector&lt;ListNode*&gt;&amp; lists)</span> </span>&#123;</span><br><span class="line">        ListNode *dummy = <span class="keyword">new</span> <span class="built_in">ListNode</span>();</span><br><span class="line">        <span class="keyword">if</span> (lists.<span class="built_in">size</span>() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">auto</span> cmp = [](<span class="type">const</span> ListNode* l1, <span class="type">const</span> ListNode* l2) &#123; <span class="keyword">return</span> l1-&gt;val &gt; l2-&gt;val; &#125;;</span><br><span class="line">        priority_queue&lt;ListNode*, vector&lt;ListNode*&gt;, <span class="keyword">decltype</span>(cmp)&gt; <span class="built_in">pq</span>(cmp);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> head: lists) &#123;</span><br><span class="line">            <span class="keyword">if</span> (head) &#123;</span><br><span class="line">                pq.<span class="built_in">push</span>(head);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode *p = dummy;</span><br><span class="line">        <span class="keyword">while</span> (pq.<span class="built_in">size</span>() != <span class="number">0</span>) &#123;</span><br><span class="line">            ListNode *tmp = pq.<span class="built_in">top</span>();</span><br><span class="line">            p-&gt;next = tmp;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">            pq.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="keyword">if</span> (tmp-&gt;next) &#123;</span><br><span class="line">                pq.<span class="built_in">push</span>(tmp-&gt;next);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h1 id="23-Merge-k-Sorted-Lists"><a href="#23-Merge-k-Sorted-Lists" class="headerlink" title="23. Merge k Sorted Lists"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/merge-k-sorted-lists/">23. Merge k Sorted Lists</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Hard</strong></p>
+<p>Related Topics: <a target="_blank" rel="noopener" href="https://leetcode.com/tag/linked-list/">Linked List</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/divide-and-conquer/">Divide and Conquer</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/heap-priority-queue/">Heap (Priority Queue)</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/merge-sort/">Merge Sort</a></p>
+<p>You are given an array of <code>k</code> linked-lists <code>lists</code>, each linked-list is sorted in ascending order.</p>
+<p><em>Merge all the linked-lists into one sorted linked-list and return it.</em></p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Input: lists = [[1,4,5],[1,3,4],[2,6]]</span><br><span class="line">Output: [1,1,2,3,4,4,5,6]</span><br><span class="line">Explanation: The linked-lists are:</span><br><span class="line">[</span><br><span class="line">  1-&gt;4-&gt;5,</span><br><span class="line">  1-&gt;3-&gt;4,</span><br><span class="line">  2-&gt;6</span><br><span class="line">]</span><br><span class="line">merging them into one sorted list:</span><br><span class="line">1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: lists = []</span><br><span class="line">Output: []</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: lists = [[]]</span><br><span class="line">Output: []</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>k == lists.length</code></li>
+<li>0 &lt;&#x3D; k &lt;&#x3D; 10<sup>4</sup></li>
+<li><code>0 &lt;= lists[i].length &lt;= 500</code></li>
+<li>-10<sup>4</sup> &lt;&#x3D; lists[i][j] &lt;&#x3D; 10<sup>4</sup></li>
+<li><code>lists[i]</code> is sorted in <strong>ascending order</strong>.</li>
+<li>The sum of <code>lists[i].length</code> will not exceed 10<sup>4</sup>.</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: C++</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeKLists</span><span class="params">(vector&lt;ListNode*&gt;&amp; lists)</span> </span>&#123;</span><br><span class="line">        ListNode *dummy = <span class="keyword">new</span> <span class="built_in">ListNode</span>();</span><br><span class="line">        <span class="keyword">if</span> (lists.<span class="built_in">size</span>() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">auto</span> cmp = [](<span class="type">const</span> ListNode* l1, <span class="type">const</span> ListNode* l2) &#123; <span class="keyword">return</span> l1-&gt;val &gt; l2-&gt;val; &#125;;</span><br><span class="line">        priority_queue&lt;ListNode*, vector&lt;ListNode*&gt;, <span class="keyword">decltype</span>(cmp)&gt; <span class="built_in">pq</span>(cmp);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> head: lists) &#123;</span><br><span class="line">            <span class="keyword">if</span> (head) &#123;</span><br><span class="line">                pq.<span class="built_in">push</span>(head);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode *p = dummy;</span><br><span class="line">        <span class="keyword">while</span> (pq.<span class="built_in">size</span>() != <span class="number">0</span>) &#123;</span><br><span class="line">            ListNode *tmp = pq.<span class="built_in">top</span>();</span><br><span class="line">            p-&gt;next = tmp;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">            pq.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="keyword">if</span> (tmp-&gt;next) &#123;</span><br><span class="line">                pq.<span class="built_in">push</span>(tmp-&gt;next);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -319,13 +342,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">27k</span>
+    <span title="Word count total">28k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">25 mins.</span>
+    <span title="Reading time total">26 mins.</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>

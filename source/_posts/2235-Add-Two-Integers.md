@@ -1,11 +1,12 @@
 ---
 title: 2235. Add Two Integers
 date: 2022-12-27 14:16:40
-tags:
 categories: Leetcode
+tags:
+    - Math
 ---
 
-# [2383\. Add Two Integers](https://leetcode.com/problems/add-two-integers/)
+# [2235\. Add Two Integers](https://leetcode.com/problems/add-two-integers/)
 
 ## Description
 

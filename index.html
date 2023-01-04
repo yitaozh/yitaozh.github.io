@@ -208,7 +208,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-01-04 12:17:29 / Modified: 17:24:10" itemprop="dateCreated datePublished" datetime="2023-01-04T12:17:29+00:00">2023-01-04</time>
+      <time title="Created: 2023-01-04 12:17:29 / Modified: 17:27:08" itemprop="dateCreated datePublished" datetime="2023-01-04T12:17:29+00:00">2023-01-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -315,7 +315,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-01-04 17:24:10" itemprop="dateModified" datetime="2023-01-04T17:24:10+00:00">2023-01-04</time>
+      <time title="Modified: 2023-01-04 17:27:08" itemprop="dateModified" datetime="2023-01-04T17:27:08+00:00">2023-01-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -422,7 +422,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-01-04 17:24:10" itemprop="dateModified" datetime="2023-01-04T17:24:10+00:00">2023-01-04</time>
+      <time title="Modified: 2023-01-04 17:27:08" itemprop="dateModified" datetime="2023-01-04T17:27:08+00:00">2023-01-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -521,7 +521,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-01-04 17:24:10" itemprop="dateModified" datetime="2023-01-04T17:24:10+00:00">2023-01-04</time>
+      <time title="Modified: 2023-01-04 17:27:08" itemprop="dateModified" datetime="2023-01-04T17:27:08+00:00">2023-01-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -620,7 +620,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-01-04 17:24:10" itemprop="dateModified" datetime="2023-01-04T17:24:10+00:00">2023-01-04</time>
+      <time title="Modified: 2023-01-04 17:27:08" itemprop="dateModified" datetime="2023-01-04T17:27:08+00:00">2023-01-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -639,7 +639,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>756</span>
+      <span>1.3k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -657,7 +657,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* list1, ListNode* list2)</span> </span>&#123;</span><br><span class="line">        ListNode* dummy = <span class="keyword">new</span> <span class="built_in">ListNode</span>(); ListNode* p = dummy;</span><br><span class="line">        <span class="keyword">while</span> (list1 != <span class="literal">nullptr</span> &amp;&amp; list2 != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (list1-&gt;val &lt; list2-&gt;val) &#123;</span><br><span class="line">                p-&gt;next = list1;</span><br><span class="line">                list1 = list1-&gt;next;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                p-&gt;next = list2;</span><br><span class="line">                list2 = list2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (list1 != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            p-&gt;next = list1;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            p-&gt;next = list2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          <h1 id="21-Merge-Two-Sorted-Lists"><a href="#21-Merge-Two-Sorted-Lists" class="headerlink" title="21. Merge Two Sorted Lists"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/merge-two-sorted-lists/">21. Merge Two Sorted Lists</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/12/29/21-Merge-Two-Sorted-Lists/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -719,7 +727,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-01-04 17:24:10" itemprop="dateModified" datetime="2023-01-04T17:24:10+00:00">2023-01-04</time>
+      <time title="Modified: 2023-01-04 17:27:08" itemprop="dateModified" datetime="2023-01-04T17:27:08+00:00">2023-01-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -818,7 +826,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-01-04 17:24:10" itemprop="dateModified" datetime="2023-01-04T17:24:10+00:00">2023-01-04</time>
+      <time title="Modified: 2023-01-04 17:27:08" itemprop="dateModified" datetime="2023-01-04T17:27:08+00:00">2023-01-04</time>
     </span>
 
   
@@ -935,7 +943,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-01-04 17:24:10" itemprop="dateModified" datetime="2023-01-04T17:24:10+00:00">2023-01-04</time>
+      <time title="Modified: 2023-01-04 17:27:08" itemprop="dateModified" datetime="2023-01-04T17:27:08+00:00">2023-01-04</time>
     </span>
 
   
@@ -1041,7 +1049,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-01-04 17:24:10" itemprop="dateModified" datetime="2023-01-04T17:24:10+00:00">2023-01-04</time>
+      <time title="Modified: 2023-01-04 17:27:08" itemprop="dateModified" datetime="2023-01-04T17:27:08+00:00">2023-01-04</time>
     </span>
 
   
@@ -1140,7 +1148,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-01-04 17:24:10" itemprop="dateModified" datetime="2023-01-04T17:24:10+00:00">2023-01-04</time>
+      <time title="Modified: 2023-01-04 17:27:08" itemprop="dateModified" datetime="2023-01-04T17:27:08+00:00">2023-01-04</time>
     </span>
 
   
@@ -1225,7 +1233,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">24 mins.</span>
+    <span title="Reading time total">25 mins.</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>

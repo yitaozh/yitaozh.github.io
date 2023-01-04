@@ -46,9 +46,9 @@ Explanation: Since the list has two middle nodes with values 3 and 4, we return 
 
 ## Solution
 
-Language: ****
+Language: C++
 
-```
+```C++
 /**
  * Definition for singly-linked list.
  * struct ListNode {

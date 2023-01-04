@@ -52,7 +52,7 @@ Output: [0]
 
 ## Solution
 
-Language: C++
+Language: **C++**
 
 ```C++
 /**

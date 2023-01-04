@@ -46,7 +46,7 @@ Explanation: Since the list has two middle nodes with values 3 and 4, we return 
 
 ## Solution
 
-Language: C++
+Language: **C++**
 
 ```C++
 /**

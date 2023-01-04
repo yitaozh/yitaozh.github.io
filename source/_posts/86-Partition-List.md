@@ -43,7 +43,7 @@ Output: [1,2]
 
 ## Solution
 
-Language: C++
+Language: **C++**
 
 ```C++
 /**

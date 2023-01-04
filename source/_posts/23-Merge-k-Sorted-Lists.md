@@ -61,7 +61,7 @@ Output: []
 
 ## Solution
 
-Language: C++
+Language: **C++**
 
 ```C++
 /**

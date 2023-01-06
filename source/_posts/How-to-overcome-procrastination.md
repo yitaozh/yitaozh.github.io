@@ -1,7 +1,7 @@
 ---
 title: How to overcome procrastination
 date: 2022-12-02 12:59:51
-tags: 随笔
+categories: Thoughts
 ---
 
 ### What

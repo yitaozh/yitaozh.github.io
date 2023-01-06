@@ -1,7 +1,7 @@
 ---
 title: How to write a design doc/ORR
 date: 2022-12-02 13:35:43
-tags: 随笔
+categories: Thoughts
 ---
 
 ### The problem

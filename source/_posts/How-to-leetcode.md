@@ -1,7 +1,7 @@
 ---
 title: How to leetcode
 date: 2022-12-20 15:11:52
-tags: 随笔
+categories: Thoughts
 ---
 
 ### The motivation

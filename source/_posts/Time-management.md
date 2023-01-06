@@ -1,7 +1,9 @@
 ---
 title: Time management
 date: 2022-12-23 15:55:24
-tags: 摘录
+categories: Excerpt
+tags:
+    - Career
 ---
 
 ### How I Have Time For Everything

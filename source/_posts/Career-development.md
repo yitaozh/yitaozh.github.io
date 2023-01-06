@@ -1,7 +1,9 @@
 ---
 title: Career development
 date: 2022-12-23 16:08:28
-tags: 摘录
+categories: Excerpt
+tags:
+    - Career
 ---
 
 ### 3 Career Killers for Software Engineers

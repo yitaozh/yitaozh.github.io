@@ -1,7 +1,9 @@
 ---
 title: Manage up
 date: 2022-12-09 12:01:37
-tags: 摘录
+categories: Excerpt
+tags:
+    - Career
 ---
 
 市面上有很多讲Manage Up的书，但大多都注重在针对manager的缺点进行manage up（比如如何应对撒手不管的老板，如何应对micro-management，之类的）。我工作这几年碰上的几个老板都还不错，但依然需要actively manage up才能让合作效率最大化——这里想分享一下如何manage up才可以更好地leverage自己的老板，即便是很优秀的老板，可能主要适用湾区互联网公司偏tech的部门 (research, engineer, data)

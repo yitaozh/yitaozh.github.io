@@ -1,7 +1,7 @@
 ---
 title: Bookkeeping - 2022/10
 date: 2022-12-01 16:56:45
-tags: 财务
+tags: Finance
 hidden: true
 ---
 

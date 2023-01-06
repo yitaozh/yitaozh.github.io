@@ -1,7 +1,7 @@
 ---
 title: Budget & Expense
 date: 2022-11-20 22:54:23
-tags: 财务
+tags: Finance
 ---
 
 ## The accouting process

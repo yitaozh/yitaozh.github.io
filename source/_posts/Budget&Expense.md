@@ -74,3 +74,4 @@ The second week's Sunday night, next time: 2023/01/08
 | Paycheck         | Income          |
 | Federal Tax      | Income          |
 | State Tax        | Income          |
+| Deposit          | Income          |

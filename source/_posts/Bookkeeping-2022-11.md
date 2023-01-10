@@ -25,8 +25,8 @@ hidden: true
 | Covid Test       | 49.2    | Health          | 151.2   |
 | Dental           | 61.1    | Health          |         |
 | Pharmacy         | 40.9    | Health          |         |
-| Hair & Skin      | 8.49    | Shopping        | 2357.83 |
-| Home Improvement | 1209.91 | Shopping        |         |
+| Hair & Skin      | 8.49    | Shopping        | 2341.89 |
+| Home Improvement | 1193.97 | Shopping        |         |
 | China Ecommerce  | 289.44  | Shopping        |         |
 | Electronics      | 849.99  | Shopping        |         |
 | Electricity      | 33.46   | Utilities       | 168.02  |
@@ -47,7 +47,7 @@ hidden: true
 
 | Income    | Spending  | Cash flow     |
 | --------- | --------- | ------------- |
-| 5134.02   | 6057.2    | -923.18       |
+| 5134.02   | 6041.26   | -907.24       |
 
 ## Chart
 
@@ -87,7 +87,7 @@ hidden: true
             data:[
                 {value:1131.3, name:'Food'},
                 {value:151.2, name:'Health'},
-                {value:2357.83, name:'Shopping'},
+                {value:2341.89, name:'Shopping'},
                 {value:168.02, name:'Utilities'},
                 {value:2096.97, name:'Mortgage & Rent'},
                 {value:74.52, name:'Travel'},
@@ -154,7 +154,7 @@ hidden: true
                 {value:61.1, name:'Dental'},
                 {value:40.9, name:'Pharmacy'},
                 {value:8.49, name:'Hair & Skin'},
-                {value:1209.91, name:'Home Improvement'},
+                {value:1193.97, name:'Home Improvement'},
                 {value:289.44, name:'China Ecommerce'},
                 {value:849.99, name:'Electronics'},
                 {value:33.46, name:'Electricity'},
@@ -237,7 +237,7 @@ hidden: true
                     position: 'insideRight'
                 }
             },
-            data: [1850.21, 615.83, 325.59, 4428.25, 447.04, 1470.26, 680.5, 410.64, 177.83, 391.13, 463.61, 2357.83]
+            data: [1850.21, 615.83, 325.59, 4428.25, 447.04, 1470.26, 680.5, 410.64, 177.83, 391.13, 463.61, 2341.89]
         },
         {
             name: 'Utilities',
@@ -368,7 +368,7 @@ hidden: true
         {
             name:'Shopping',
             type:'bar',
-            data: [783.8, 1850.21, 615.83, 325.59, 4428.25, 447.04, 1470.26, 680.5, 463.61, 2357.83],
+            data: [783.8, 1850.21, 615.83, 325.59, 4428.25, 447.04, 1470.26, 680.5, 463.61, 2341.89],
             markPoint : {
                 data : [
                     {type : 'max', name: '最大值'},

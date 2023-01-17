@@ -8,7 +8,7 @@ tags: Finance
 
 ### When
 
-The second week's Sunday night, next time: 2023/01/08
+Use the first and second week to submit reimbursements, do the bookkeeping on the second week's Sunday night, next time: 2023/02/12
 
 ### The steps to make monthly record
 

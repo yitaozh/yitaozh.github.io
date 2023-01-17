@@ -71,9 +71,9 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 ## Solution
 
-Language: ****
+Language: **C++**
 
-```
+```C++
 class Solution {
 public:
     int removeElement(vector<int>& nums, int val) {

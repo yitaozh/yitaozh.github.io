@@ -19,32 +19,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yitaozh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"author":"Echo Joy"},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="876. Middle of the Linked ListDescriptionDifficulty: Easy">
+    <meta name="description" content="76. Minimum Window SubstringDescriptionDifficulty: Hard">
 <meta property="og:type" content="article">
-<meta property="og:title" content="876. Middle of the Linked List">
-<meta property="og:url" content="https://yitaozh.github.io/2023/01/04/876-Middle-of-the-Linked-List/index.html">
+<meta property="og:title" content="76. Minimum Window Substring">
+<meta property="og:url" content="https://yitaozh.github.io/2023/01/18/76-Minimum-Window-Substring/index.html">
 <meta property="og:site_name" content="Echo&#39;s Home">
-<meta property="og:description" content="876. Middle of the Linked ListDescriptionDifficulty: Easy">
+<meta property="og:description" content="76. Minimum Window SubstringDescriptionDifficulty: Hard">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://assets.leetcode.com/uploads/2021/07/23/lc-midlist1.jpg">
-<meta property="og:image" content="https://assets.leetcode.com/uploads/2021/07/23/lc-midlist2.jpg">
-<meta property="article:published_time" content="2023-01-04T12:17:29.000Z">
+<meta property="article:published_time" content="2023-01-18T18:15:02.000Z">
 <meta property="article:modified_time" content="2023-01-18T23:16:29.958Z">
 <meta property="article:author" content="Echo Joy">
-<meta property="article:tag" content="Linked List">
-<meta property="article:tag" content="Two Pointers">
+<meta property="article:tag" content="Hash Table">
+<meta property="article:tag" content="String">
+<meta property="article:tag" content="Sliding Window">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://assets.leetcode.com/uploads/2021/07/23/lc-midlist1.jpg">
 
 
-<link rel="canonical" href="https://yitaozh.github.io/2023/01/04/876-Middle-of-the-Linked-List/">
+<link rel="canonical" href="https://yitaozh.github.io/2023/01/18/76-Minimum-Window-Substring/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://yitaozh.github.io/2023/01/04/876-Middle-of-the-Linked-List/","path":"2023/01/04/876-Middle-of-the-Linked-List/","title":"876. Middle of the Linked List"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://yitaozh.github.io/2023/01/18/76-Minimum-Window-Substring/","path":"2023/01/18/76-Minimum-Window-Substring/","title":"76. Minimum Window Substring"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>876. Middle of the Linked List | Echo's Home</title>
+<title>76. Minimum Window Substring | Echo's Home</title>
   
 
 
@@ -118,7 +116,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#876-Middle-of-the-Linked-List"><span class="nav-number">1.</span> <span class="nav-text">876. Middle of the Linked List</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">1.2.</span> <span class="nav-text">Solution</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#76-Minimum-Window-Substring"><span class="nav-number">1.</span> <span class="nav-text">76. Minimum Window Substring</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">1.2.</span> <span class="nav-text">Solution</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -189,7 +187,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://yitaozh.github.io/2023/01/04/876-Middle-of-the-Linked-List/">
+    <link itemprop="mainEntityOfPage" href="https://yitaozh.github.io/2023/01/18/76-Minimum-Window-Substring/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -202,12 +200,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="876. Middle of the Linked List | Echo's Home">
+      <meta itemprop="name" content="76. Minimum Window Substring | Echo's Home">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          876. Middle of the Linked List
+          76. Minimum Window Substring
         </h1>
 
         <div class="post-meta-container">
@@ -217,15 +215,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2023-01-04 12:17:29" itemprop="dateCreated datePublished" datetime="2023-01-04T12:17:29+00:00">2023-01-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-01-18 23:16:29" itemprop="dateModified" datetime="2023-01-18T23:16:29+00:00">2023-01-18</time>
+      <time title="Created: 2023-01-18 18:15:02 / Modified: 23:16:29" itemprop="dateCreated datePublished" datetime="2023-01-18T18:15:02+00:00">2023-01-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -244,14 +236,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>1k</span>
+      <span>1.7k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
+      <span>2 mins.</span>
     </span>
 </div>
 
@@ -262,25 +254,29 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="876-Middle-of-the-Linked-List"><a href="#876-Middle-of-the-Linked-List" class="headerlink" title="876. Middle of the Linked List"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/middle-of-the-linked-list/">876. Middle of the Linked List</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a target="_blank" rel="noopener" href="https://leetcode.com/tag/linked-list/">Linked List</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/two-pointers/">Two Pointers</a></p>
-<p>Given the <code>head</code> of a singly linked list, return <em>the middle node of the linked list</em>.</p>
-<p>If there are two middle nodes, return <strong>the second middle</strong> node.</p>
+        <h1 id="76-Minimum-Window-Substring"><a href="#76-Minimum-Window-Substring" class="headerlink" title="76. Minimum Window Substring"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/minimum-window-substring/">76. Minimum Window Substring</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Hard</strong></p>
+<p>Related Topics: <a target="_blank" rel="noopener" href="https://leetcode.com/tag/hash-table/">Hash Table</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/string/">String</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/sliding-window/">Sliding Window</a></p>
+<p>Given two strings <code>s</code> and <code>t</code> of lengths <code>m</code> and <code>n</code> respectively, return <em>the <strong>minimum window</strong></em> <span data-keyword="substring-nonempty"><strong><em>substring</em></strong></span> <em>of</em> <code>s</code> <em>such that every character in</em> <code>t</code> <em>(<strong>including duplicates</strong>) is included in the window</em>. If there is no such substring, return <em>the empty string</em> <code>&quot;&quot;</code>.</p>
+<p>The testcases will be generated such that the answer is <strong>unique</strong>.</p>
 <p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/07/23/lc-midlist1.jpg"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: head = [1,2,3,4,5]</span><br><span class="line">Output: [3,4,5]</span><br><span class="line">Explanation: The middle node of the list is node 3.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;ADOBECODEBANC&quot;, t = &quot;ABC&quot;</span><br><span class="line">Output: &quot;BANC&quot;</span><br><span class="line">Explanation: The minimum window substring &quot;BANC&quot; includes &#x27;A&#x27;, &#x27;B&#x27;, and &#x27;C&#x27; from string t.</span><br></pre></td></tr></table></figure>
 
 <p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/07/23/lc-midlist2.jpg"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: head = [1,2,3,4,5,6]</span><br><span class="line">Output: [4,5,6]</span><br><span class="line">Explanation: Since the list has two middle nodes with values 3 and 4, we return the second one.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;a&quot;, t = &quot;a&quot;</span><br><span class="line">Output: &quot;a&quot;</span><br><span class="line">Explanation: The entire string s is the minimum window.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: s = &quot;a&quot;, t = &quot;aa&quot;</span><br><span class="line">Output: &quot;&quot;</span><br><span class="line">Explanation: Both &#x27;a&#x27;s from t must be included in the window.</span><br><span class="line">Since the largest window of s only has one &#x27;a&#x27;, return empty string.</span><br></pre></td></tr></table></figure>
 
 <p><strong>Constraints:</strong></p>
 <ul>
-<li>The number of nodes in the list is in the range <code>[1, 100]</code>.</li>
-<li><code>1 &lt;= Node.val &lt;= 100</code></li>
+<li><code>m == s.length</code></li>
+<li><code>n == t.length</code></li>
+<li>1 &lt;&#x3D; m, n &lt;&#x3D; 10<sup>5</sup></li>
+<li><code>s</code> and <code>t</code> consist of uppercase and lowercase English letters.</li>
 </ul>
+<p><strong>Follow up:</strong> Could you find an algorithm that runs in <code>O(m + n)</code> time?</p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">middleNode</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode *slow = head, *fast = head;</span><br><span class="line">        <span class="keyword">while</span> (fast &amp;&amp; fast-&gt;next) &#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">            fast = fast-&gt;next-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> slow;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">minWindow</span><span class="params">(string s, string t)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; need, window;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c: t) &#123;</span><br><span class="line">            need[c]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> valid = <span class="number">0</span>, left = <span class="number">0</span>, right = <span class="number">0</span>, start = <span class="number">0</span>, len = INT_MAX;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; s.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="type">char</span> c = s[right++];</span><br><span class="line">            window[c]++;</span><br><span class="line">            <span class="keyword">if</span> (need.<span class="built_in">count</span>(c)) &#123;</span><br><span class="line">                <span class="keyword">if</span> (need[c] == window[c]) &#123;</span><br><span class="line">                    valid++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (valid == need.<span class="built_in">size</span>()) &#123;</span><br><span class="line">                <span class="keyword">if</span> (right - left &lt; len) &#123;</span><br><span class="line">                    start = left;</span><br><span class="line">                    len = right - left;</span><br><span class="line">                &#125;</span><br><span class="line">                c = s[left];</span><br><span class="line">                left++;</span><br><span class="line">                <span class="keyword">if</span> (need.<span class="built_in">count</span>(c)) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (need[c] == window[c]) &#123;</span><br><span class="line">                        valid--;</span><br><span class="line">                    &#125;</span><br><span class="line">                    window[c]--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> len == INT_MAX ? <span class="string">&quot;&quot;</span>: s.<span class="built_in">substr</span>(start, len);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -289,22 +285,20 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Linked-List/" rel="tag"># Linked List</a>
-              <a href="/tags/Two-Pointers/" rel="tag"># Two Pointers</a>
+              <a href="/tags/Hash-Table/" rel="tag"># Hash Table</a>
+              <a href="/tags/String/" rel="tag"># String</a>
+              <a href="/tags/Sliding-Window/" rel="tag"># Sliding Window</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/01/03/19-Remove-Nth-Node-From-End-of-List/" rel="prev" title="19. Remove Nth Node From End of List">
-                  <i class="fa fa-chevron-left"></i> 19. Remove Nth Node From End of List
+                <a href="/2023/01/17/34-Find-First-and-Last-Position-of-Element-in-Sorted-Array/" rel="prev" title="34. Find First and Last Position of Element in Sorted Array">
+                  <i class="fa fa-chevron-left"></i> 34. Find First and Last Position of Element in Sorted Array
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/01/04/141-Linked-List-Cycle/" rel="next" title="141. Linked List Cycle">
-                  141. Linked List Cycle <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

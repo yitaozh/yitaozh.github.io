@@ -19,30 +19,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yitaozh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"author":"Echo Joy"},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="92. Reverse Linked List IIDescriptionDifficulty: Medium">
+    <meta name="description" content="1016. Subarray Sums Divisible by KDescriptionDifficulty: Medium">
 <meta property="og:type" content="article">
-<meta property="og:title" content="92. Reverse Linked List II">
-<meta property="og:url" content="https://yitaozh.github.io/2023/01/04/92-Reverse-Linked-List-II/index.html">
+<meta property="og:title" content="974. Subarray Sums Divisible by K">
+<meta property="og:url" content="https://yitaozh.github.io/2023/01/19/974-Subarray-Sums-Divisible-by-K/index.html">
 <meta property="og:site_name" content="Echo&#39;s Home">
-<meta property="og:description" content="92. Reverse Linked List IIDescriptionDifficulty: Medium">
+<meta property="og:description" content="1016. Subarray Sums Divisible by KDescriptionDifficulty: Medium">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://assets.leetcode.com/uploads/2021/02/19/rev2ex2.jpg">
-<meta property="article:published_time" content="2023-01-04T16:23:04.000Z">
+<meta property="article:published_time" content="2023-01-19T18:20:04.000Z">
 <meta property="article:modified_time" content="2023-01-19T23:21:08.297Z">
 <meta property="article:author" content="Echo Joy">
-<meta property="article:tag" content="Linked List">
+<meta property="article:tag" content="Hash Table">
+<meta property="article:tag" content="Array">
+<meta property="article:tag" content="Prefix Sum">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://assets.leetcode.com/uploads/2021/02/19/rev2ex2.jpg">
 
 
-<link rel="canonical" href="https://yitaozh.github.io/2023/01/04/92-Reverse-Linked-List-II/">
+<link rel="canonical" href="https://yitaozh.github.io/2023/01/19/974-Subarray-Sums-Divisible-by-K/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://yitaozh.github.io/2023/01/04/92-Reverse-Linked-List-II/","path":"2023/01/04/92-Reverse-Linked-List-II/","title":"92. Reverse Linked List II"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://yitaozh.github.io/2023/01/19/974-Subarray-Sums-Divisible-by-K/","path":"2023/01/19/974-Subarray-Sums-Divisible-by-K/","title":"974. Subarray Sums Divisible by K"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>92. Reverse Linked List II | Echo's Home</title>
+<title>974. Subarray Sums Divisible by K | Echo's Home</title>
   
 
 
@@ -116,7 +116,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#92-Reverse-Linked-List-II"><span class="nav-number">1.</span> <span class="nav-text">92. Reverse Linked List II</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">1.2.</span> <span class="nav-text">Solution</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1016-Subarray-Sums-Divisible-by-K"><span class="nav-number">1.</span> <span class="nav-text">1016. Subarray Sums Divisible by K</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">1.2.</span> <span class="nav-text">Solution</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -187,7 +187,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://yitaozh.github.io/2023/01/04/92-Reverse-Linked-List-II/">
+    <link itemprop="mainEntityOfPage" href="https://yitaozh.github.io/2023/01/19/974-Subarray-Sums-Divisible-by-K/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -200,12 +200,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="92. Reverse Linked List II | Echo's Home">
+      <meta itemprop="name" content="974. Subarray Sums Divisible by K | Echo's Home">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          92. Reverse Linked List II
+          974. Subarray Sums Divisible by K
         </h1>
 
         <div class="post-meta-container">
@@ -215,15 +215,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2023-01-04 16:23:04" itemprop="dateCreated datePublished" datetime="2023-01-04T16:23:04+00:00">2023-01-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-01-19 23:21:08" itemprop="dateModified" datetime="2023-01-19T23:21:08+00:00">2023-01-19</time>
+      <time title="Created: 2023-01-19 18:20:04 / Modified: 23:21:08" itemprop="dateCreated datePublished" datetime="2023-01-19T18:20:04+00:00">2023-01-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -242,7 +236,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>1.3k</span>
+      <span>844</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -260,26 +254,24 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="92-Reverse-Linked-List-II"><a href="#92-Reverse-Linked-List-II" class="headerlink" title="92. Reverse Linked List II"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/reverse-linked-list-ii/">92. Reverse Linked List II</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a target="_blank" rel="noopener" href="https://leetcode.com/tag/linked-list/">Linked List</a></p>
-<p>Given the <code>head</code> of a singly linked list and two integers <code>left</code> and <code>right</code> where <code>left &lt;= right</code>, reverse the nodes of the list from position <code>left</code> to position <code>right</code>, and return <em>the reversed list</em>.</p>
+        <h1 id="1016-Subarray-Sums-Divisible-by-K"><a href="#1016-Subarray-Sums-Divisible-by-K" class="headerlink" title="1016. Subarray Sums Divisible by K"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/subarray-sums-divisible-by-k/">1016. Subarray Sums Divisible by K</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a target="_blank" rel="noopener" href="https://leetcode.com/tag/array/">Array</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/hash-table/">Hash Table</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/prefix-sum/">Prefix Sum</a></p>
+<p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <em>the number of non-empty <strong>subarrays</strong> that have a sum divisible by</em> <code>k</code>.</p>
+<p>A <strong>subarray</strong> is a <strong>contiguous</strong> part of an array.</p>
 <p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/02/19/rev2ex2.jpg"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: head = [1,2,3,4,5], left = 2, right = 4</span><br><span class="line">Output: [1,4,3,2,5]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [4,5,0,-2,-3,1], k = 5</span><br><span class="line">Output: 7</span><br><span class="line">Explanation: There are 7 subarrays with a sum divisible by k = 5:</span><br><span class="line">[4, 5, 0, -2, -3, 1], [5], [5, 0], [5, 0, -2, -3], [0], [0, -2, -3], [-2, -3]</span><br></pre></td></tr></table></figure>
 
 <p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: head = [5], left = 1, right = 1</span><br><span class="line">Output: [5]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [5], k = 9</span><br><span class="line">Output: 0</span><br></pre></td></tr></table></figure>
 
 <p><strong>Constraints:</strong></p>
 <ul>
-<li>The number of nodes in the list is <code>n</code>.</li>
-<li><code>1 &lt;= n &lt;= 500</code></li>
-<li><code>-500 &lt;= Node.val &lt;= 500</code></li>
-<li><code>1 &lt;= left &lt;= right &lt;= n</code></li>
+<li>1 &lt;&#x3D; nums.length &lt;&#x3D; 3 * 10<sup>4</sup></li>
+<li>-10<sup>4</sup> &lt;&#x3D; nums[i] &lt;&#x3D; 10<sup>4</sup></li>
+<li>2 &lt;&#x3D; k &lt;&#x3D; 10<sup>4</sup></li>
 </ul>
-<p><strong>Follow up:</strong> Could you do it in one pass?</p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseBetween</span><span class="params">(ListNode* head, <span class="type">int</span> left, <span class="type">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (left == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">reverseN</span>(head, right);</span><br><span class="line">        &#125;</span><br><span class="line">        head-&gt;next = <span class="built_in">reverseBetween</span>(head-&gt;next, left - <span class="number">1</span>, right - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseN</span><span class="params">(ListNode* head, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">            next = head-&gt;next;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode* tmpHead = <span class="built_in">reverseN</span>(head-&gt;next, n - <span class="number">1</span>);</span><br><span class="line">        head-&gt;next-&gt;next = head;</span><br><span class="line">        head-&gt;next = next;</span><br><span class="line">        <span class="keyword">return</span> tmpHead;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ListNode* next = <span class="literal">nullptr</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">subarraysDivByK</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">preSumMod</span><span class="params">(k, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>, preSum = <span class="number">0</span>;</span><br><span class="line">        preSumMod[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> num : nums) &#123;</span><br><span class="line">            preSum = (num % k + k + preSum) % k;</span><br><span class="line">            res += preSumMod[preSum];</span><br><span class="line">            preSumMod[preSum]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -288,21 +280,20 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Linked-List/" rel="tag"># Linked List</a>
+              <a href="/tags/Hash-Table/" rel="tag"># Hash Table</a>
+              <a href="/tags/Array/" rel="tag"># Array</a>
+              <a href="/tags/Prefix-Sum/" rel="tag"># Prefix Sum</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/01/04/206-Reverse-Linked-List/" rel="prev" title="206. Reverse Linked List">
-                  <i class="fa fa-chevron-left"></i> 206. Reverse Linked List
+                <a href="/2023/01/19/1533-Find-the-Index-of-the-Large-Integer/" rel="prev" title="1533. Find the Index of the Large Integer">
+                  <i class="fa fa-chevron-left"></i> 1533. Find the Index of the Large Integer
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/01/05/Designing-Data-Intensive-Applications/" rel="next" title="Designing Data-Intensive Applications">
-                  Designing Data-Intensive Applications <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

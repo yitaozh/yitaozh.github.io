@@ -11,7 +11,7 @@ tags:
 
 ## Description
 
-Difficulty: **Medium**  
+Difficulty: **Medium**
 
 Related Topics: [Array](https://leetcode.com/tag/array/), [Prefix Sum](https://leetcode.com/tag/prefix-sum/)
 
@@ -23,7 +23,7 @@ Return _an array_ `answer` _of length_ `n`_, where_ `answer[i]` _is the total nu
 
 **Example 1:**
 
-```
+```text
 Input: bookings = [[1,2,10],[2,3,20],[2,5,25]], n = 5
 Output: [10,55,45,25,25]
 Explanation:
@@ -37,7 +37,7 @@ Hence, answer = [10,55,45,25,25]
 
 **Example 2:**
 
-```
+```text
 Input: bookings = [[1,2,10],[2,2,15]], n = 2
 Output: [10,25]
 Explanation:

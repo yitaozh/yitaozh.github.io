@@ -3,6 +3,8 @@ title: 151. Reverse Words in a String
 categories: Leetcode
 date: 2023-01-23 11:54:35
 tags:
+    - Two Pointers
+    - String
 ---
 
 # [151\. Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)

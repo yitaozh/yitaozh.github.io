@@ -3,6 +3,12 @@ title: 710. Random Pick with Blacklist
 categories: Leetcode
 date: 2023-02-01 12:27:16
 tags:
+    - Array
+    - Hash Table
+    - Math
+    - Binary Search
+    - Sorting
+    - Randomized
 ---
 
 # [710\. Random Pick with Blacklist](https://leetcode.com/problems/random-pick-with-blacklist/)

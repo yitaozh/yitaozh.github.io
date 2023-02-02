@@ -19,30 +19,33 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yitaozh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"author":"Echo Joy"},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="28. Find the Index of the First Occurrence in a StringDescriptionDifficulty: Medium">
+    <meta name="description" content="144. Binary Tree Preorder TraversalDescriptionDifficulty: Easy">
 <meta property="og:type" content="article">
-<meta property="og:title" content="28. Find the Index of the First Occurrence in a String">
-<meta property="og:url" content="https://yitaozh.github.io/2023/01/25/28-Find-the-Index-of-the-First-Occurrence-in-a-String/index.html">
+<meta property="og:title" content="144. Binary Tree Preorder Traversal">
+<meta property="og:url" content="https://yitaozh.github.io/2023/02/02/144-Binary-Tree-Preorder-Traversal/index.html">
 <meta property="og:site_name" content="Echo&#39;s Home">
-<meta property="og:description" content="28. Find the Index of the First Occurrence in a StringDescriptionDifficulty: Medium">
+<meta property="og:description" content="144. Binary Tree Preorder TraversalDescriptionDifficulty: Easy">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-01-25T13:02:15.000Z">
+<meta property="og:image" content="https://assets.leetcode.com/uploads/2020/09/15/inorder_1.jpg">
+<meta property="article:published_time" content="2023-02-02T13:23:11.000Z">
 <meta property="article:modified_time" content="2023-02-02T18:25:11.938Z">
 <meta property="article:author" content="Echo Joy">
-<meta property="article:tag" content="String">
-<meta property="article:tag" content="Two Pointers">
-<meta property="article:tag" content="String Matching">
+<meta property="article:tag" content="Tree">
+<meta property="article:tag" content="Depth-First Search">
+<meta property="article:tag" content="Binary Tree">
+<meta property="article:tag" content="Stack">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://assets.leetcode.com/uploads/2020/09/15/inorder_1.jpg">
 
 
-<link rel="canonical" href="https://yitaozh.github.io/2023/01/25/28-Find-the-Index-of-the-First-Occurrence-in-a-String/">
+<link rel="canonical" href="https://yitaozh.github.io/2023/02/02/144-Binary-Tree-Preorder-Traversal/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://yitaozh.github.io/2023/01/25/28-Find-the-Index-of-the-First-Occurrence-in-a-String/","path":"2023/01/25/28-Find-the-Index-of-the-First-Occurrence-in-a-String/","title":"28. Find the Index of the First Occurrence in a String"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://yitaozh.github.io/2023/02/02/144-Binary-Tree-Preorder-Traversal/","path":"2023/02/02/144-Binary-Tree-Preorder-Traversal/","title":"144. Binary Tree Preorder Traversal"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>28. Find the Index of the First Occurrence in a String | Echo's Home</title>
+<title>144. Binary Tree Preorder Traversal | Echo's Home</title>
   
 
 
@@ -116,7 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#28-Find-the-Index-of-the-First-Occurrence-in-a-String"><span class="nav-number">1.</span> <span class="nav-text">28. Find the Index of the First Occurrence in a String</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">1.2.</span> <span class="nav-text">Solution</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#144-Binary-Tree-Preorder-Traversal"><span class="nav-number">1.</span> <span class="nav-text">144. Binary Tree Preorder Traversal</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">1.2.</span> <span class="nav-text">Solution</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -187,7 +190,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://yitaozh.github.io/2023/01/25/28-Find-the-Index-of-the-First-Occurrence-in-a-String/">
+    <link itemprop="mainEntityOfPage" href="https://yitaozh.github.io/2023/02/02/144-Binary-Tree-Preorder-Traversal/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -200,12 +203,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="28. Find the Index of the First Occurrence in a String | Echo's Home">
+      <meta itemprop="name" content="144. Binary Tree Preorder Traversal | Echo's Home">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          28. Find the Index of the First Occurrence in a String
+          144. Binary Tree Preorder Traversal
         </h1>
 
         <div class="post-meta-container">
@@ -215,15 +218,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2023-01-25 13:02:15" itemprop="dateCreated datePublished" datetime="2023-01-25T13:02:15+00:00">2023-01-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-02-02 18:25:11" itemprop="dateModified" datetime="2023-02-02T18:25:11+00:00">2023-02-02</time>
+      <time title="Created: 2023-02-02 13:23:11 / Modified: 18:25:11" itemprop="dateCreated datePublished" datetime="2023-02-02T13:23:11+00:00">2023-02-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -242,7 +239,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>1.4k</span>
+      <span>1.1k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -260,22 +257,27 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="28-Find-the-Index-of-the-First-Occurrence-in-a-String"><a href="#28-Find-the-Index-of-the-First-Occurrence-in-a-String" class="headerlink" title="28. Find the Index of the First Occurrence in a String"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/">28. Find the Index of the First Occurrence in a String</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a target="_blank" rel="noopener" href="https://leetcode.com/tag/two-pointers/">Two Pointers</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/string/">String</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/string-matching/">String Matching</a></p>
-<p>Given two strings <code>needle</code> and <code>haystack</code>, return the index of the first occurrence of <code>needle</code> in <code>haystack</code>, or <code>-1</code> if <code>needle</code> is not part of <code>haystack</code>.</p>
+        <h1 id="144-Binary-Tree-Preorder-Traversal"><a href="#144-Binary-Tree-Preorder-Traversal" class="headerlink" title="144. Binary Tree Preorder Traversal"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/binary-tree-preorder-traversal/">144. Binary Tree Preorder Traversal</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a target="_blank" rel="noopener" href="https://leetcode.com/tag/stack/">Stack</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/tree/">Tree</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/depth-first-search/">Depth-First Search</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/binary-tree/">Binary Tree</a></p>
+<p>Given the <code>root</code> of a binary tree, return <em>the preorder traversal of its nodes’ values</em>.</p>
 <p><strong>Example 1:</strong></p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: haystack = &quot;sadbutsad&quot;, needle = &quot;sad&quot;</span><br><span class="line">Output: 0</span><br><span class="line">Explanation: &quot;sad&quot; occurs at index 0 and 6.</span><br><span class="line">The first occurrence is at index 0, so we return 0.</span><br></pre></td></tr></table></figure>
+<p><img src="https://assets.leetcode.com/uploads/2020/09/15/inorder_1.jpg"></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: root = [1,null,2,3]</span><br><span class="line">Output: [1,2,3]</span><br></pre></td></tr></table></figure>
 
 <p><strong>Example 2:</strong></p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: haystack = &quot;leetcode&quot;, needle = &quot;leeto&quot;</span><br><span class="line">Output: -1</span><br><span class="line">Explanation: &quot;leeto&quot; did not occur in &quot;leetcode&quot;, so we return -1.</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: root = []</span><br><span class="line">Output: []</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: root = [1]</span><br><span class="line">Output: [1]</span><br></pre></td></tr></table></figure>
 
 <p><strong>Constraints:</strong></p>
 <ul>
-<li>1 &lt;&#x3D; haystack.length, needle.length &lt;&#x3D; 10<sup>4</sup></li>
-<li><code>haystack</code> and <code>needle</code> consist of only lowercase English characters.</li>
+<li>The number of nodes in the tree is in the range <code>[0, 100]</code>.</li>
+<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
+<p><strong>Follow up:</strong> Recursive solution is trivial, could you do it iteratively?</p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">strStr</span><span class="params">(string haystack, string needle)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> patHash = <span class="number">0</span>, left = <span class="number">0</span>, right = <span class="number">0</span>, powHash = <span class="number">1</span>, prime = <span class="number">9999991</span>, R = <span class="number">26</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : needle) &#123;</span><br><span class="line">            patHash = (patHash * R + (c - <span class="string">&#x27;a&#x27;</span>)) % prime;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; needle.<span class="built_in">size</span>() - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            powHash = powHash * R % prime;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> sumHash = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; haystack.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="type">int</span> num = haystack[right++] - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">            sumHash = (sumHash * R + num) % prime;</span><br><span class="line">            <span class="keyword">if</span> (right - left == needle.<span class="built_in">size</span>()) &#123;</span><br><span class="line">                <span class="keyword">if</span> (sumHash == patHash &amp;&amp; haystack.<span class="built_in">substr</span>(left, right - left) == needle) &#123;</span><br><span class="line">                    <span class="keyword">return</span> left;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    sumHash = ((sumHash - (haystack[left++] - <span class="string">&#x27;a&#x27;</span>) * powHash) % prime + prime) % prime;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line">        res.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">        <span class="built_in">preorderTraversal</span>(root-&gt;left);</span><br><span class="line">        <span class="built_in">preorderTraversal</span>(root-&gt;right);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -285,23 +287,21 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/String/" rel="tag"># String</a>
-              <a href="/tags/Two-Pointers/" rel="tag"># Two Pointers</a>
-              <a href="/tags/String-Matching/" rel="tag"># String Matching</a>
+              <a href="/tags/Tree/" rel="tag"># Tree</a>
+              <a href="/tags/Depth-First-Search/" rel="tag"># Depth-First Search</a>
+              <a href="/tags/Binary-Tree/" rel="tag"># Binary Tree</a>
+              <a href="/tags/Stack/" rel="tag"># Stack</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/01/25/187-Repeated-DNA-Sequences/" rel="prev" title="187. Repeated DNA Sequences">
-                  <i class="fa fa-chevron-left"></i> 187. Repeated DNA Sequences
+                <a href="/2023/02/02/543-Diameter-of-Binary-Tree/" rel="prev" title="543. Diameter of Binary Tree">
+                  <i class="fa fa-chevron-left"></i> 543. Diameter of Binary Tree
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/01/25/528-Random-Pick-with-Weight/" rel="next" title="528. Random Pick with Weight">
-                  528. Random Pick with Weight <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

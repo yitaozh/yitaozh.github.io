@@ -23,8 +23,8 @@ hidden: true
 | Bubble Tea       | 250.45  | Food            |         |
 | Groceries        | 494.42  | Food            |         |
 | Pharmacy         | 36.68   | Health          | 36.68   |
-| Clothing         | 89.3    | Shopping        | 612.65  |
-| Home Improvement | 216.31  | Shopping        |         |
+| Clothing         | 89.3    | Shopping        | 543.61  |
+| Home Improvement | 147.27  | Shopping        |         |
 | Electronics      | 307.04  | Shopping        |         |
 | Electricity      | 96.08   | Utilities       | 313.81  |
 | Gas              | 159.24  | Utilities       |         |
@@ -41,7 +41,7 @@ hidden: true
 
 | Income    | Spending  | Cash flow     |
 | --------- | --------- | ------------- |
-| 8023.04   | 10448.64  | -2425.6       |
+| 8023.04   | 10379.6   | -2356.56      |
 
 ## Chart
 
@@ -81,7 +81,7 @@ hidden: true
             data:[
                 {value:1327.16, name:'Food'},
                 {value:36.68, name:'Health'},
-                {value:612.65, name:'Shopping'},
+                {value:543.61, name:'Shopping'},
                 {value:313.81, name:'Utilities'},
                 {value:2096.97, name:'Mortgage & Rent'},
                 {value:61.37, name:'Travel'},
@@ -146,7 +146,7 @@ hidden: true
                 {value:494.421, name:'Groceries'},
                 {value:36.68, name:'Pharmacy'},
                 {value:89.3, name:'Clothing'},
-                {value:216.31, name:'Home Improvement'},
+                {value:147.27, name:'Home Improvement'},
                 {value:307.04, name:'Electronics'},
                 {value:96.08, name:'Electricity'},
                 {value:159.24, name:'Gas'},
@@ -227,7 +227,7 @@ hidden: true
                     position: 'insideRight'
                 }
             },
-            data: [615.83, 325.59, 4428.25, 447.04, 1470.26, 680.5, 410.64, 177.83, 391.13, 556.55, 2341.89, 612.65]
+            data: [615.83, 325.59, 4428.25, 447.04, 1470.26, 680.5, 410.64, 177.83, 391.13, 556.55, 2341.89, 543.61]
         },
         {
             name: 'Utilities',
@@ -358,7 +358,7 @@ hidden: true
         {
             name:'Shopping',
             type:'bar',
-            data: [783.8, 1850.21, 615.83, 325.59, 4428.25, 447.04, 1470.26, 680.5, 556.55, 2341.89, 612.65],
+            data: [783.8, 1850.21, 615.83, 325.59, 4428.25, 447.04, 1470.26, 680.5, 556.55, 2341.89, 543.61],
             markPoint : {
                 data : [
                     {type : 'max', name: '最大值'},

@@ -22,8 +22,7 @@ hidden: true
 | Cake & Bread     | 108.93  | Food            |         |
 | Bubble Tea       | 232.02  | Food            |         |
 | Groceries        | 255.81  | Food            |         |
-| Covid Test       | 49.2    | Health          | 151.2   |
-| Dental           | 61.1    | Health          |         |
+| Dental           | 61.1    | Health          | 102     |
 | Pharmacy         | 40.9    | Health          |         |
 | Hair & Skin      | 8.49    | Shopping        | 2341.89 |
 | Home Improvement | 1193.97 | Shopping        |         |
@@ -47,7 +46,7 @@ hidden: true
 
 | Income    | Spending  | Cash flow     |
 | --------- | --------- | ------------- |
-| 5134.02   | 6041.26   | -907.24       |
+| 5134.02   | 5992.06   | -858.04       |
 
 ## Chart
 
@@ -63,8 +62,8 @@ hidden: true
         orient: 'vertical',
         x: 'left',
         data:['Food','Health','Shopping','Utilities','Mortgage & Rent','Travel','Misc','Restaurants','Cake & Bread','Bubble Tea',
-        'Groceries','Covid Test','Dental','Pharmacy','Hair & Skin','Home Improvement','China Ecommerce','Electronics','Electricity',
-        'Gas','Phone Bill','VPN','Supply','Television','Mortgage','HOA','Ride Share','Cash & ATM','Shipping']
+        'Groceries','Dental','Pharmacy','Hair & Skin','Home Improvement','China Ecommerce','Electronics','Electricity','Gas',
+        'Phone Bill','VPN','Supply','Television','Mortgage','HOA','Ride Share','Cash & ATM','Shipping']
     },
     series: [
         {
@@ -86,7 +85,7 @@ hidden: true
             },
             data:[
                 {value:1131.3, name:'Food'},
-                {value:151.2, name:'Health'},
+                {value:102, name:'Health'},
                 {value:2341.89, name:'Shopping'},
                 {value:168.02, name:'Utilities'},
                 {value:2096.97, name:'Mortgage & Rent'},
@@ -150,7 +149,6 @@ hidden: true
                 {value:108.93, name:'Cake & Bread'},
                 {value:232.02, name:'Bubble Tea'},
                 {value:255.81, name:'Groceries'},
-                {value:49.2, name:'Covid Test'},
                 {value:61.1, name:'Dental'},
                 {value:40.9, name:'Pharmacy'},
                 {value:8.49, name:'Hair & Skin'},
@@ -225,7 +223,7 @@ hidden: true
                     position: 'insideRight'
                 }
             },
-            data: [90.59, 86.89, 11.09, 314.53, 5, 51.06, 352.78, 5, 5, 5, 22.31, 151.2]
+            data: [90.59, 86.89, 11.09, 314.53, 5, 51.06, 352.78, 5, 5, 5, 22.31, 102]
         },
         {
             name: 'Shopping',

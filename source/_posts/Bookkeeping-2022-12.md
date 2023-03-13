@@ -23,10 +23,9 @@ hidden: true
 | Bubble Tea       | 250.45  | Food            |         |
 | Groceries        | 494.42  | Food            |         |
 | Pharmacy         | 36.68   | Health          | 36.68   |
-| Clothing         | 89.3    | Shopping        | 653.76  |
+| Clothing         | 89.3    | Shopping        | 612.65  |
 | Home Improvement | 216.31  | Shopping        |         |
 | Electronics      | 307.04  | Shopping        |         |
-| Office           | 41.11   | Shopping        |         |
 | Electricity      | 96.08   | Utilities       | 313.81  |
 | Gas              | 159.24  | Utilities       |         |
 | Phone Bill       | 3.13    | Utilities       |         |
@@ -42,7 +41,7 @@ hidden: true
 
 | Income    | Spending  | Cash flow     |
 | --------- | --------- | ------------- |
-| 8023.04   | 10489.75  | -2466.71      |
+| 8023.04   | 10448.64  | -2425.6       |
 
 ## Chart
 
@@ -58,8 +57,8 @@ hidden: true
         orient: 'vertical',
         x: 'left',
         data:['Food','Health','Shopping','Utilities','Mortgage & Rent','Travel','Investment','Restaurants','Cake & Bread',
-        'Bubble Tea','Groceries','Pharmacy','Clothing','Home Improvement','Electronics','Office','Electricity',
-        'Gas','Phone Bill','VPN','Television','Mortgage','HOA','Ride Share','Souvenir','IRA']
+        'Bubble Tea','Groceries','Pharmacy','Clothing','Home Improvement','Electronics','Electricity','Gas','Phone Bill',
+        'VPN','Television','Mortgage','HOA','Ride Share','Souvenir','IRA']
     },
     series: [
         {
@@ -82,7 +81,7 @@ hidden: true
             data:[
                 {value:1327.16, name:'Food'},
                 {value:36.68, name:'Health'},
-                {value:653.76, name:'Shopping'},
+                {value:612.65, name:'Shopping'},
                 {value:313.81, name:'Utilities'},
                 {value:2096.97, name:'Mortgage & Rent'},
                 {value:61.37, name:'Travel'},
@@ -149,7 +148,6 @@ hidden: true
                 {value:89.3, name:'Clothing'},
                 {value:216.31, name:'Home Improvement'},
                 {value:307.04, name:'Electronics'},
-                {value:41.11, name:'Office'},
                 {value:96.08, name:'Electricity'},
                 {value:159.24, name:'Gas'},
                 {value:3.13, name:'Phone Bill'},
@@ -217,7 +215,7 @@ hidden: true
                     position: 'insideRight'
                 }
             },
-            data: [86.89, 11.09, 314.53, 5, 51.06, 352.78, 5, 5, 5, 22.31, 151.2, 36.68]
+            data: [86.89, 11.09, 314.53, 5, 51.06, 352.78, 5, 5, 5, 22.31, 102, 36.68]
         },
         {
             name: 'Shopping',
@@ -229,7 +227,7 @@ hidden: true
                     position: 'insideRight'
                 }
             },
-            data: [615.83, 325.59, 4428.25, 447.04, 1470.26, 680.5, 410.64, 177.83, 391.13, 463.61, 2341.89, 653.76]
+            data: [615.83, 325.59, 4428.25, 447.04, 1470.26, 680.5, 410.64, 177.83, 391.13, 463.61, 2341.89, 612.65]
         },
         {
             name: 'Utilities',
@@ -360,7 +358,7 @@ hidden: true
         {
             name:'Shopping',
             type:'bar',
-            data: [783.8, 1850.21, 615.83, 325.59, 4428.25, 447.04, 1470.26, 680.5, 463.61, 2341.89, 653.76],
+            data: [783.8, 1850.21, 615.83, 325.59, 4428.25, 447.04, 1470.26, 680.5, 463.61, 2341.89, 612.65],
             markPoint : {
                 data : [
                     {type : 'max', name: '最大值'},

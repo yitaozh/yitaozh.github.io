@@ -1,7 +1,8 @@
 ---
 title: Bookkeeping - 2022/12
 date: 2023-01-10 17:54:38
-tags:
+tags: Finance
+hidden: true
 ---
 
 ## Overview

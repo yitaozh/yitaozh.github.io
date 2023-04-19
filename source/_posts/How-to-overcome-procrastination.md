@@ -14,7 +14,6 @@ Many people procrastinate because they care too much.
 
 Procrastinators often report a high fear of failure, putting things off because they're afarid their work won't live up to their high standards.
 
-
 ### Effect
 
 Frequent procrastinators are likely to suffer from anxiety and depression, ongoing feelings of shame, higher stress levels and physical ailments associated with high stress.

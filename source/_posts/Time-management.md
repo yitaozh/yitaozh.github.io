@@ -5,6 +5,11 @@ tags: Personal
 hidden: true
 ---
 
+## Principles
+
+- Always leave enough time for one activity, otherwise if it slips the whole plan would be ruined
+- Always do the most important thing first
+
 ## Weekday
 
 ### U.S. time
@@ -13,7 +18,7 @@ hidden: true
 | :------------------------ | :-------- | :-------- | :---------------- |
 | Get up                    | 08:45     | 09:00     | Heater / Kettle   |
 | Meeting / BaiCiZhan / CR  | 09:00     | 09:30     |                   |
-| Shower                    | 09:30     | 09:45     | Make / Heat Egg   |
+| Shower                    | 09:30     | 09:45     | Make / Heat Eggs  |
 | Breakfast                 | 09:45     | 10:00     |                   |
 | Meeting                   | 10:00     | 10:30     |                   |
 | Work                      | 10:30     | 11:00     | CR / Questions    |
@@ -66,17 +71,13 @@ Use the following time for misc things(CR, Deployment, etc):
 | Schedule                  | Start     | End       | Comment           |
 | :------------------------ | :-------- | :-------- | :---------------- |
 | Get up                    | 11:00     | 11:30     |                   |
-| Lunch                     | 11:30     | 13:30     |                   |
-| Entertainment             | 13:30     | 17:30     |                   |
-| Run                       | 17:30     | 18:30     |                   |
-| Shower                    | 18:30     | 19:00     |                   |
+| Entertainment             | 11:30     | 17:00     |                   |
+| Run                       | 17:00     | 19:00     |                   |
 | Leetcode                  | 19:00     | 21:00     | Tomato            |
-| Meeting / BaiCiZhan / CR  | 21:00     | 22:00     |                   |
-| Meeting                   | 22:00     | 22:30     |                   |
-| Work                      | 10:30     | 00:30     | Tomato            |
-| Mint                      | 00:30     | 01:00     |                   |
-| Work                      | 01:00     | 03:00     | Tomato            |
-| Sleep                     | 03:00     | 11:00     |                   |
+| BaiCiZhan / Mint          | 21:00     | 22:30     |                   |
+| Work                      | 22:30     | 01:30     | Tomato            |
+| Meeting                   | 01:30     | 02:00     |                   |
+| Work                      | 02:00     | 03:30     | Tomato            |
 
 ### Focus (China)
 
@@ -85,8 +86,8 @@ No distraction during this time (put Tomato sign)
 | Schedule      | Start     | End       |
 | :--------     | :-------- | :-------- |
 | Leetcode      | 19:00     | 21:00     |
-| Work          | 10:30     | 00:30     |
-| Work          | 01:00     | 03:00     |
+| Work          | 22:30     | 01:30     |
+| Work          | 02:00     | 03:30     |
 
 ### Miscellaneous (China)
 
@@ -94,13 +95,13 @@ Use the following time for misc things(CR, Deployment, etc):
 
 | Schedule      | Start     | End       |
 | :--------     | :-------- | :-------- |
-| BaiCiZhan, CR | 09:00     | 10:00     |
+| BaiCiZhan, CR | 21:00     | 22:30     |
 
 ### Stat (China)
 
 | Catagory      | time      |
 | :--------     | :-------- |
-| Work          | 5 Hours   |
+| Work          | 4.5 Hours |
 | Leetcode      | 2 Hours   |
 
 ## Weekend

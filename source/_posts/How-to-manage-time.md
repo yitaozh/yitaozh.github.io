@@ -2,8 +2,7 @@
 title: How to manage time
 date: 2022-12-23 15:55:24
 categories: Excerpt
-tags:
-    - Career
+tags: Career
 ---
 
 ### How I Have Time For Everything

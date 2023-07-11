@@ -15,7 +15,6 @@ tags:
     - If you're in a bad environment, don't believe promises but watch the management's actions to see if they're actually dealing with the root problem.
     - Ultimately, if you're in a good spot, don't throw it all away. You'll only recognize your golden ages from hindsight.
 
-
 2. Preferring Output Over Impact
 
     - Finding task that differentiate yourself.

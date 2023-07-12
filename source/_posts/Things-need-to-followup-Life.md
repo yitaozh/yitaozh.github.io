@@ -13,3 +13,5 @@ hidden: true
 4. Buy the accessories for auto from Temu
 5. The overcharged dentist fee, i don't think i should be charged $600
 6. The trip to Europe, i should contact one agent asap and arrange the trip
+7. The amazon card points, it's wrongly calculated, $77.6 on 3/18
+8. The xfinity fee has increased to $65/month, chat with an agent on that

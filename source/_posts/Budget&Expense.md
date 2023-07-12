@@ -72,6 +72,6 @@ Use the first and second week to submit reimbursements, do the bookkeeping on th
 | Annual                | Misc            |
 | Visa                  | Misc            |
 | Paycheck              | Income          |
-| Federal Tax           | Income          |
-| State Tax             | Income          |
+| Federal Tax           | Income/Misc     |
+| State Tax             | Income/Misc     |
 | Deposit               | Income          |

@@ -30,48 +30,48 @@ Use the first and second week to submit reimbursements, do the bookkeeping on th
 
 ### Transaction catagories
 
-| Category         | Section         |
-| ---------------- | --------------- |
-| Restaurants      | Food            |
-| Cake & Bread     | Food            |
-| Bubble Tea       | Food            |
-| Groceries        | Food            |
-| Medical          | Health          |
-| Covid Test       | Health          |
-| Dental           | Health          |
-| Eyecare          | Health          |
-| Pharmacy         | Health          |
-| Control          | Health          |
-| Clothing         | Shopping        |
-| Hair & Skin      | Shopping        |
-| Home Improvement | Shopping        |
-| China Ecommerce  | Shopping        |
-| Electronics      | Shopping        |
-| Office           | Shopping        |
-| Marriage         | Shopping        |
-| Electricity      | Utilities       |
-| Gas              | Utilities       |
-| Phone Bill       | Utilities       |
-| VPN              | Utilities       |
-| Legal            | Utilities       |
-| Network          | Utilities       |
-| Supply           | Utilities       |
-| Television       | Utilities       |
-| Mortgage         | Mortgage & Rent |
-| HOA              | Mortgage & Rent |
-| Air              | Travel          |
-| Ride Share       | Travel          |
-| Hotel            | Travel          |
-| Ticket           | Travel          |
-| Souvenir         | Travel          |
-| IRA              | Investment      |
-| Stock            | Investment      |
-| Cash & ATM       | Misc            |
-| Transfer         | Misc            |
-| Shipping         | Misc            |
-| Annual           | Misc            |
-| Visa             | Misc            |
-| Paycheck         | Income          |
-| Federal Tax      | Income          |
-| State Tax        | Income          |
-| Deposit          | Income          |
+| Category              | Section         |
+| ----------------      | --------------- |
+| Restaurants           | Food            |
+| Cake & Bread          | Food            |
+| Bubble Tea            | Food            |
+| Groceries             | Food            |
+| Medical               | Health          |
+| Covid Test            | Health          |
+| Dental                | Health          |
+| Eyecare               | Health          |
+| Pharmacy              | Health          |
+| Control               | Health          |
+| Clothing              | Shopping        |
+| Hair & Skin           | Shopping        |
+| Home Improvement      | Shopping        |
+| China Ecommerce       | Shopping        |
+| Electronics           | Shopping        |
+| Office                | Shopping        |
+| Marriage              | Shopping        |
+| Electricity           | Utilities       |
+| Gas                   | Utilities       |
+| Phone Bill            | Utilities       |
+| VPN                   | Utilities       |
+| Legal                 | Utilities       |
+| Network               | Utilities       |
+| Supply                | Utilities       |
+| Television            | Utilities       |
+| Mortgage              | Mortgage & Rent |
+| HOA                   | Mortgage & Rent |
+| Air                   | Travel          |
+| Ride Share/Car rental | Travel          |
+| Hotel                 | Travel          |
+| Ticket                | Travel          |
+| Souvenir              | Travel          |
+| IRA                   | Investment      |
+| Stock                 | Investment      |
+| Cash & ATM            | Misc            |
+| Transfer              | Misc            |
+| Shipping              | Misc            |
+| Annual                | Misc            |
+| Visa                  | Misc            |
+| Paycheck              | Income          |
+| Federal Tax           | Income          |
+| State Tax             | Income          |
+| Deposit               | Income          |

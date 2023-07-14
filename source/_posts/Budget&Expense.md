@@ -14,13 +14,15 @@ Use the first and second week to submit reimbursements, do the bookkeeping on th
 
 #### Excel processing
 
-1. Dump the record from Mint
-2. Remove the Loan accounts
-3. Remove the Credit Card Payments
-4. Filter the records by account first
-5. Check each account, modify the catagory and mark the transactions as verfied
-6. Get a summary of how much money in total for each catogory
-7. Single item takes more than $100 should be listed as well
+1. Dump the record from Mint to nyuzyt/Personal file/Transactions cvs file
+1. Insert a line in overall sheet prior to the previous record, then paste the new records
+1. Create a new sheet for this month alone
+1. Remove the Loan accounts
+1. Remove the Credit Card Payments
+1. Filter the records by account first
+1. Check each account, modify the catagory and mark the transactions as verfied
+1. Get a summary of how much money in total for each catogory
+1. Single item takes more than $10,000 should be listed
 
 #### Web update
 
@@ -67,10 +69,11 @@ Use the first and second week to submit reimbursements, do the bookkeeping on th
 | IRA                   | Investment      |
 | Stock                 | Investment      |
 | Cash & ATM            | Misc            |
-| Transfer              | Misc            |
+| Transfer              | Income/Misc     |
 | Shipping              | Misc            |
 | Annual                | Misc            |
 | Visa                  | Misc            |
+| Bank Fee              | Misc            |
 | Paycheck              | Income          |
 | Federal Tax           | Income/Misc     |
 | State Tax             | Income/Misc     |

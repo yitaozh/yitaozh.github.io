@@ -19,7 +19,8 @@ hidden: true
 | Get up / Shower           | 08:45     | 09:00     | Kettle            |
 | Breakfast                 | 09:00     | 09:15     |                   |
 | BaiCiZhan / Mint          | 09:15     | 09:30     |                   |
-| Planning / Leetcode       | 09:30     | 11:00     |                   |
+| Planning / Life           | 09:30     | 10:00     |                   |
+| Leetcode                  | 10:00     | 11:00     |                   |
 | Meeting                   | 11:00     | 11:30     |                   |
 | DDIA                      | 11:30     | 12:30     |                   |
 | Work                      | 12:30     | ?         | Wake up Awei      |

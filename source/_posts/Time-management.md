@@ -16,24 +16,21 @@ hidden: true
 
 | Schedule                  | Start     | End       | Comment           |
 | :------------------------ | :-------- | :-------- | :---------------- |
-| Get up                    | 08:45     | 09:00     | Heater / Kettle   |
-| Meeting / BaiCiZhan / CR  | 09:00     | 09:30     |                   |
-| Shower                    | 09:30     | 09:45     | Make / Heat Eggs  |
-| Breakfast                 | 09:45     | 10:00     |                   |
-| Meeting                   | 10:00     | 10:30     |                   |
-| Work                      | 10:30     | 11:00     | CR / Questions    |
-| Leetcode                  | 11:00     | 13:00     | Tomato            |
-| Work                      | 13:00     | ?         | Wake up Awei      |
+| Get up / Shower           | 08:45     | 09:00     | Kettle            |
+| Breakfast                 | 09:00     | 09:15     |                   |
+| BaiCiZhan / Mint          | 09:15     | 09:30     |                   |
+| Planning / Leetcode       | 09:30     | 11:00     |                   |
+| Meeting                   | 11:00     | 11:30     |                   |
+| DDIA                      | 11:30     | 12:30     |                   |
+| Work                      | 12:30     | ?         | Wake up Awei      |
 | Lunch                     | ?         | ? + 1 Hour|                   |
 | Work                      | ? + 1 Hour| 15:30     |                   |
-| Work                      | 15:30     | 17:30     | Tomato            |
-| Mint                      | 17:30     | 18:00     |                   |
+| Work                      | 15:30     | 18:00     |                   |
 | Walk                      | 18:00     | 19:00     |                   |
 | Run                       | 19:00     | 20:00     |                   |
 | Shower                    | 20:00     | 20:30     |                   |
-| TV                        | 20:30     | 22:30     |                   |
-| Tech Reading              | 22:30     | 23:30     |                   |
-| Entertainment             | 23:30     | 01:00     |                   |
+| TV                        | 20:30     | 23:00     |                   |
+| Entertainment             | 23:00     | 01:00     |                   |
 | Reading                   | 01:15     | 01:45     |                   |
 | Sleep                     | 01:45     | 08:45     |                   |
 
@@ -43,8 +40,9 @@ No distraction during this time (put Tomato sign)
 
 | Schedule      | Start     | End       |
 | :--------     | :-------- | :-------- |
-| Leetcode      | 11:00     | 13:00     |
-| Work          | 15:30     | 17:30     |
+| Leetcode      | 09:30     | 11:00     |
+| DDIA          | 11:30     | 12:30     |
+| Work          | 12:30     | 18:00     |
 
 ### Miscellaneous (U.S.)
 
@@ -61,8 +59,8 @@ Use the following time for misc things(CR, Deployment, etc):
 
 | Catagory      | time      |
 | :--------     | :-------- |
-| Work          | 5 Hours   |
-| Leetcode      | 2 Hours   |
+| Work          | 4.5 Hours |
+| Leetcode      | 1.5 Hours |
 | Tech Reading  | 1 Hour    |
 | Entertainment | 1 Hour    |
 

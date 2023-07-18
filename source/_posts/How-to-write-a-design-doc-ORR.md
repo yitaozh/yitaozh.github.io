@@ -14,4 +14,5 @@ It can take 2~3 weeks for me to finish one design doc/ORR. When there's a need t
 * Find some training from internal source, if there’s any, can use 1~2 days for this
 * Find some example, can use half day for this
 * Start to write, even just copying the example
-* Start to lay out the architecture, so i can fill in each section later
+* Break the tasks into smaller pieces. Start to lay out the architecture, so i can fill in each section later
+* Setup a goal: what I must finish within today

@@ -15,3 +15,9 @@ hidden: true
 6. The trip to Europe, i should contact one agent asap and arrange the trip
 7. The amazon card points, it's wrongly calculated, $77.6 on 3/18
 8. The xfinity fee has increased to $65/month, chat with an agent on that
+9. The Air ticket credit, is it expired?
+10. The CVS annual membership, i think it's best to subscribe it around 10th of a month, in that case, there's no waste
+
+## Long term
+
+1. Get a quota on how much is needed to replace the windows

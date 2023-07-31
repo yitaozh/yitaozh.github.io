@@ -7,11 +7,7 @@ tags:
 
 ## The problems not recorded
 
-```text
-734. Sentence Similarity
-654. Maximum Binary Tree
-
-```
+None
 
 ## The issue to track
 

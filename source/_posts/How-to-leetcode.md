@@ -16,6 +16,18 @@ In general, at least two hours per workday should be dedicated to leecode practi
 
 I am currently using leetcode website.
 
+### How to leetcode
+
+[论如何 4 个月高效刷满 500 题并形成长期记忆](https://zhuanlan.zhihu.com/p/492026165)
+
+1. 始终保持匀速前进，既不松懈倦怠，亦不急于求成
+
+2. 定时归纳总结, 按类训练
+
+3. 深度理解人的记忆规律，高频率高效复习
+
+4. 拥抱孤独，过滤外界杂音，平稳心态
+
 ### The order to solve problems
 
 1. Go through [LABULADONG 的算法网站](https://labuladong.github.io/algo/) once first.

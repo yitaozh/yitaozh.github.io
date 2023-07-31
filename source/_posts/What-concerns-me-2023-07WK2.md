@@ -79,6 +79,7 @@ The life concerns are followed up in the [Things need to followup - Life](Things
 #### Short term
 
 1. I should speak more for the acc-fwding project.
+1. I need to learn from the  STJE failure.
 1. 8:45 is a good get-up time.
     - I need 15 minutes for the morning shower
     - I need 15 minutes for the breakfast
@@ -100,6 +101,7 @@ The life concerns are followed up in the [Things need to followup - Life](Things
 - For acc fwding
   - I should record everyone's updates during update.
   - I should ask the question if anything is not going well for the project.
+- Write a doc about learning from STJE failure.
 - Have a planning section in the morning, depending on the meeting schedules:
   - Must finish items within the day (estimate during planning)
   - Mint reading (15 minutes) (if morning is occupied)
@@ -142,6 +144,7 @@ The life concerns are followed up in the [Things need to followup - Life](Things
 - For acc fwding
   - I should record everyone's updates during update.
   - I should ask the question if anything is not going well for the project.
+- Write a doc about learning from STJE failure.
 - Have a planning section in the morning, depending on the meeting schedules:
   - Must finish items within the day (estimate during planning)
   - Mint reading (15 minutes) (if morning is occupied)

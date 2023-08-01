@@ -50,6 +50,13 @@ Output: [0]
 * `-100 <= Node.val <= 100`
 * Both `list1` and `list2` are sorted in **non-decreasing** order.
 
+---
+
+## Hints/Notes
+
+* Dummy pointer
+* Some edge cases: list is empty(prior or after the while loop)
+
 ## Solution
 
 Language: **C++**

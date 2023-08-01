@@ -41,6 +41,13 @@ Output: [1,2]
 * `-100 <= Node.val <= 100`
 * `-200 <= x <= 200`
 
+---
+
+## Hints/Notes
+
+* Use two lists
+* Break the link after the node is added to a new list
+
 ## Solution
 
 Language: **C++**

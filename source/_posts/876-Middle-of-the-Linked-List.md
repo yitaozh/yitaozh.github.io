@@ -44,6 +44,12 @@ Explanation: Since the list has two middle nodes with values 3 and 4, we return 
 * The number of nodes in the list is in the range `[1, 100]`.
 * `1 <= Node.val <= 100`
 
+---
+
+## Hints/Notes
+
+* Fast and slow pointers
+
 ## Solution
 
 Language: **C++**

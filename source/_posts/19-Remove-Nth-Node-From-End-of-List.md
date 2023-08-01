@@ -49,6 +49,12 @@ Output: [1]
 
 **Follow up:** Could you do this in one pass?
 
+---
+
+## Hints/Notes
+
+* Use 2 pointers to get the Nth from the end first, helper function
+
 ## Solution
 
 Language: **C++**

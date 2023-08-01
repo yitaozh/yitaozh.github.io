@@ -59,6 +59,12 @@ Output: []
 * `lists[i]` is sorted in **ascending order**.
 * The sum of `lists[i].length` will not exceed 10<sup>4</sup>.
 
+---
+
+## Hints/Notes
+
+* cpp priority queue
+
 ## Solution
 
 Language: **C++**

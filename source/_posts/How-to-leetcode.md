@@ -10,7 +10,7 @@ A good software developer doesn't necessarily need to be a good IOer, but in gen
 
 ### The daily routine
 
-In general, at least two hours per workday should be dedicated to leecode practice. Current schedule is 11:00 ~ 13:00.
+3 new problems daily during workday(preferably in the morning). Then do the revision whenever possible.
 
 ### The environment
 

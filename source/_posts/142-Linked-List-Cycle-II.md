@@ -26,7 +26,7 @@ There is a cycle in a linked list if there is some node in the list that can be 
 
 ![](https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist.png)
 
-```
+```text
 Input: head = [3,2,0,-4], pos = 1
 Output: tail connects to node index 1
 Explanation: There is a cycle in the linked list, where tail connects to the second node.
@@ -36,7 +36,7 @@ Explanation: There is a cycle in the linked list, where tail connects to the sec
 
 ![](https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test2.png)
 
-```
+```text
 Input: head = [1,2], pos = 0
 Output: tail connects to node index 0
 Explanation: There is a cycle in the linked list, where tail connects to the first node.
@@ -46,7 +46,7 @@ Explanation: There is a cycle in the linked list, where tail connects to the fir
 
 ![](https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test3.png)
 
-```
+```text
 Input: head = [1], pos = -1
 Output: no cycle
 Explanation: There is no cycle in the linked list.
@@ -54,11 +54,16 @@ Explanation: There is no cycle in the linked list.
 
 **Constraints:**
 
-*   The number of the nodes in the list is in the range [0, 10<sup>4</sup>].
-*   -10<sup>5</sup> <= Node.val <= 10<sup>5</sup>
-*   `pos` is `-1` or a **valid index** in the linked-list.
+* The number of the nodes in the list is in the range [0, 10<sup>4</sup>].
+* -10<sup>5</sup> <= Node.val <= 10<sup>5</sup>
+* `pos` is `-1` or a **valid index** in the linked-list.
 
 **Follow up:** Can you solve it using `O(1)` (i.e. constant) memory?
+
+## Hints/Notes
+
+* Fast/slow pointers
+* Draw the circle
 
 ## Solution
 

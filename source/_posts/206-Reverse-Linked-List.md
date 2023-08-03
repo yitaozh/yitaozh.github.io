@@ -21,7 +21,7 @@ Given the `head` of a singly linked list, reverse the list, and return _the reve
 
 ![](https://assets.leetcode.com/uploads/2021/02/19/rev1ex1.jpg)
 
-```
+```text
 Input: head = [1,2,3,4,5]
 Output: [5,4,3,2,1]
 ```
@@ -30,24 +30,29 @@ Output: [5,4,3,2,1]
 
 ![](https://assets.leetcode.com/uploads/2021/02/19/rev1ex2.jpg)
 
-```
+```text
 Input: head = [1,2]
 Output: [2,1]
 ```
 
 **Example 3:**
 
-```
+```text
 Input: head = []
 Output: []
 ```
 
 **Constraints:**
 
-*   The number of nodes in the list is the range `[0, 5000]`.
-*   `-5000 <= Node.val <= 5000`
+* The number of nodes in the list is the range `[0, 5000]`.
+* `-5000 <= Node.val <= 5000`
 
 **Follow up:** A linked list can be reversed either iteratively or recursively. Could you implement both?
+
+## Hints/Notes
+
+* For recursive solution, only think how to handle then end case and how to handle a new tail
+* For iterative solution, use stack
 
 ## Solution
 

@@ -25,7 +25,7 @@ You may not alter the values in the list's nodes, only nodes themselves may be c
 
 ![](https://assets.leetcode.com/uploads/2020/10/03/reverse_ex1.jpg)
 
-```
+```text
 Input: head = [1,2,3,4,5], k = 2
 Output: [2,1,4,3,5]
 ```
@@ -34,16 +34,16 @@ Output: [2,1,4,3,5]
 
 ![](https://assets.leetcode.com/uploads/2020/10/03/reverse_ex2.jpg)
 
-```
+```text
 Input: head = [1,2,3,4,5], k = 3
 Output: [3,2,1,4,5]
 ```
 
 **Constraints:**
 
-*   The number of nodes in the list is `n`.
-*   `1 <= k <= n <= 5000`
-*   `0 <= Node.val <= 1000`
+* The number of nodes in the list is `n`.
+* `1 <= k <= n <= 5000`
+* `0 <= Node.val <= 1000`
 
 **Follow-up:** Can you solve the problem in `O(1)` extra memory space?
 

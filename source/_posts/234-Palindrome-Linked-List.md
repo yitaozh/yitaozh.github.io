@@ -44,6 +44,10 @@ Output: false
 
 **Follow up:** Could you do it in `O(n)` time and `O(1)` space?
 
+## Hints/Notes
+
+* Find the mid point, reverse the right part then compare
+
 ## Solution
 
 Language: **C++**

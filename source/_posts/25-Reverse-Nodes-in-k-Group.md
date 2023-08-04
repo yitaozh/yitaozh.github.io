@@ -47,6 +47,10 @@ Output: [3,2,1,4,5]
 
 **Follow-up:** Can you solve the problem in `O(1)` extra memory space?
 
+## Hints/Notes
+
+* Recursive
+
 ## Solution
 
 Language: **C++**

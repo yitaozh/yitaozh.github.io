@@ -23,7 +23,7 @@ Given the `head` of a singly linked list, return `true` _if it is a_ <span data-
 
 ![](https://assets.leetcode.com/uploads/2021/03/03/pal1linked-list.jpg)
 
-```
+```text
 Input: head = [1,2,2,1]
 Output: true
 ```
@@ -32,15 +32,15 @@ Output: true
 
 ![](https://assets.leetcode.com/uploads/2021/03/03/pal2linked-list.jpg)
 
-```
+```text
 Input: head = [1,2]
 Output: false
 ```
 
 **Constraints:**
 
-*   The number of nodes in the list is in the range [1, 10<sup>5</sup>].
-*   `0 <= Node.val <= 9`
+* The number of nodes in the list is in the range [1, 10<sup>5</sup>].
+* `0 <= Node.val <= 9`
 
 **Follow up:** Could you do it in `O(n)` time and `O(1)` space?
 

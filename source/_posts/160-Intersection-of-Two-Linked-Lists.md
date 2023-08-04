@@ -88,6 +88,7 @@ Explanation: The two lists do not intersect, so return null.
 ## Hints/Notes
 
 * Link the two lists
+* what if there's no intersection? the after link the two lists, nullptr is the intersection
 
 ## Solution
 

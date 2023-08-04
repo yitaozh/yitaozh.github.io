@@ -54,6 +54,7 @@ Output: [1]
 ## Hints/Notes
 
 * Use 2 pointers to get the Nth from the end first, helper function
+* Use dummy to avoid the nullptr corner case
 
 ## Solution
 

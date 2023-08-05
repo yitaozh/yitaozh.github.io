@@ -26,7 +26,7 @@ Return `true` _if there is a cycle in the linked list_. Otherwise, return `fals
 
 ![](https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist.png)
 
-```text
+```bash
 Input: head = [3,2,0,-4], pos = 1
 Output: true
 Explanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).
@@ -36,7 +36,7 @@ Explanation: There is a cycle in the linked list, where the tail connects to the
 
 ![](https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test2.png)
 
-```text
+```bash
 Input: head = [1,2], pos = 0
 Output: true
 Explanation: There is a cycle in the linked list, where the tail connects to the 0th node.
@@ -46,7 +46,7 @@ Explanation: There is a cycle in the linked list, where the tail connects to the
 
 ![](https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test3.png)
 
-```text
+```bash
 Input: head = [1], pos = -1
 Output: false
 Explanation: There is no cycle in the linked list.

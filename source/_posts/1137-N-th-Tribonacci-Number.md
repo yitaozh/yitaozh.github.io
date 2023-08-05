@@ -24,7 +24,7 @@ Given `n, return the value of T<sub>n</sub>.
 
 **Example 1:**
 
-```text
+```bash
 Input: n = 4
 Output: 4
 Explanation:
@@ -34,7 +34,7 @@ T_4 = 1 + 1 + 2 = 4
 
 **Example 2:**
 
-```text
+```bash
 Input: n = 25
 Output: 1389537
 ```

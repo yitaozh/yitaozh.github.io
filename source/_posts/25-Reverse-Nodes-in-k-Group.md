@@ -25,7 +25,7 @@ You may not alter the values in the list's nodes, only nodes themselves may be c
 
 ![](https://assets.leetcode.com/uploads/2020/10/03/reverse_ex1.jpg)
 
-```text
+```bash
 Input: head = [1,2,3,4,5], k = 2
 Output: [2,1,4,3,5]
 ```
@@ -34,7 +34,7 @@ Output: [2,1,4,3,5]
 
 ![](https://assets.leetcode.com/uploads/2020/10/03/reverse_ex2.jpg)
 
-```text
+```bash
 Input: head = [1,2,3,4,5], k = 3
 Output: [3,2,1,4,5]
 ```

@@ -77,6 +77,7 @@ public:
         }
         ListNode* newHead = reverseList(head->next);
         head->next->next = head;
+        // this is only useful for the head as well
         head->next = nullptr;
         return newHead;
     }

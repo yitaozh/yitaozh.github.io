@@ -8,7 +8,7 @@ tags: Finance
 
 ### When
 
-Use the first and second week to submit reimbursements, do the bookkeeping on the second week's Sunday night, next time: 2023/02/12
+Use the first and second week to submit reimbursements, do the bookkeeping on the second week's Thursday afternoon, next time: 2023/08/10
 
 ### The steps to make monthly record
 

@@ -10,9 +10,6 @@ hidden: true
 1. The [eclaimsline](https://www.eclaimsline.com/existing-claim), it's more than $1000, i should followup asap
 1. The massSave for AC, it's $40 per AC, so $120 in total
 1. The overcharged dentist fee, i don't think i should be charged $600
-1. The trip to Europe, i should contact one agent asap and arrange the trip
-1. The xfinity fee has increased to $65/month, chat with an agent on that
-1. Find the best usage of Learnship
 1. The Air ticket credit, is it expired?
     - I bought two AA tickets: New York to Dallas, total: $411.2
     - I canceled the above tickets, now there are $411.2 credit
@@ -26,6 +23,9 @@ hidden: true
 1. Buy the accessories for auto from Temu
     - The charcoal bags are bought 07/24/2023
     - Check with Awei tonight
+1. The trip to Europe, i should contact one agent asap and arrange the trip
+    - I am in touch with a sales in France, everything is going fine.
+    - I should book the tickets asap
 
 ## Pending followup
 
@@ -35,6 +35,7 @@ hidden: true
 1. The amazon card points, it's wrongly calculated, $77.6 on 3/18
     - Sent a message 07/24/2023
     - Replied again on 07/31/2023
+    - I got a response again but i don't like it, gonna respond again
 
 ## Pending the right time
 
@@ -45,3 +46,6 @@ hidden: true
 1. Get a quota on how much is needed to replace the windows
 
 ## Resovled
+
+1. The xfinity fee has increased to $65/month, chat with an agent on that
+    - I have called on 08/04/2023, the billing reduced to $35/month

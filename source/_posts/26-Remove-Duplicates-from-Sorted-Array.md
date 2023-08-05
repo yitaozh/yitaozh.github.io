@@ -27,7 +27,7 @@ Do **not** allocate extra space for another array. You must do this by **modifyi
 
 The judge will test your solution with the following code:
 
-```
+```text
 int[] nums = [...]; // Input array
 int[] expectedNums = [...]; // The expected answer with correct length
 
@@ -43,7 +43,7 @@ If all assertions pass, then your solution will be **accepted**.
 
 **Example 1:**
 
-```
+```text
 Input: nums = [1,1,2]
 Output: 2, nums = [1,2,_]
 Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
@@ -52,7 +52,7 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 **Example 2:**
 
-```
+```text
 Input: nums = [0,0,1,1,1,2,2,3,3,4]
 Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
 Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
@@ -61,9 +61,13 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 **Constraints:**
 
-*   1 <= nums.length <= 3 * 10<sup>4</sup>
-*   `-100 <= nums[i] <= 100`
-*   `nums` is sorted in **non-decreasing** order.
+* 1 <= nums.length <= 3 * 10<sup>4</sup>
+* `-100 <= nums[i] <= 100`
+* `nums` is sorted in **non-decreasing** order.
+
+## Hints/Notes
+
+* Use 2 pointers, slow and fast
 
 ## Solution
 

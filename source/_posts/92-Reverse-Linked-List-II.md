@@ -72,16 +72,16 @@ public:
 
     ListNode* reverseN(ListNode* head, int n) {
         if (n == 1) {
-            next = head->next;
+            succesor = head->next;
             return head;
         }
         ListNode* tmpHead = reverseN(head->next, n - 1);
         head->next->next = head;
         // in fact, this step is only useful for the first node
-        head->next = next;
+        head->next = succesor;
         return tmpHead;
     }
 
-    ListNode* next = nullptr;
+    ListNode* succesor = nullptr;
 };
 ```

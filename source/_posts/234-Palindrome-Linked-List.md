@@ -76,6 +76,8 @@ public:
             slow = slow->next;
         }
         ListNode* right = reverse(slow);
+        // running the while loop against right since the end of right
+        // is nullptr while left would still have items to iterate on
         while (right) {
             if (left->val != right->val) {
                 return false;

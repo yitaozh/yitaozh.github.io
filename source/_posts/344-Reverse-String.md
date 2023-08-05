@@ -21,28 +21,28 @@ You must do this by modifying the input array [in-place](https://en.wikipedia.or
 
 **Example 1:**
 
-```
+```bash
 Input: s = ["h","e","l","l","o"]
 Output: ["o","l","l","e","h"]
 ```
 
 **Example 2:**
 
-```
+```bash
 Input: s = ["H","a","n","n","a","h"]
 Output: ["h","a","n","n","a","H"]
 ```
 
 **Constraints:**
 
-*   1 <= s.length <= 10<sup>5</sup>
-*   `s[i]` is a [printable ascii character](https://en.wikipedia.org/wiki/ASCII#Printable_characters).
+* 1 <= s.length <= 10<sup>5</sup>
+* `s[i]` is a [printable ascii character](https://en.wikipedia.org/wiki/ASCII#Printable_characters).
 
 ## Solution
 
-Language: ****
+Language: **C++**
 
-```
+```C++
 class Solution {
 public:
     void reverseString(vector<char>& s) {

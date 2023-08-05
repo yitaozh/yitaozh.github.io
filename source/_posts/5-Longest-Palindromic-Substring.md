@@ -19,7 +19,7 @@ Given a string `s`, return _the longest_ <span data-keyword="palindromic-string"
 
 **Example 1:**
 
-```
+```bash
 Input: s = "babad"
 Output: "bab"
 Explanation: "aba" is also a valid answer.
@@ -27,15 +27,19 @@ Explanation: "aba" is also a valid answer.
 
 **Example 2:**
 
-```
+```bash
 Input: s = "cbbd"
 Output: "bb"
 ```
 
 **Constraints:**
 
-*   `1 <= s.length <= 1000`
-*   `s` consist of only digits and English letters.
+* `1 <= s.length <= 1000`
+* `s` consist of only digits and English letters.
+
+## Hints/Notes
+
+* Use a helper function to get the longest palindromic string from one index
 
 ## Solution
 

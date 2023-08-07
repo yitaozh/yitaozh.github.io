@@ -43,7 +43,8 @@ Output: [5]
 
 ## Hints/Notes
 
-* Implement reverseN first
+* Implement reverseN(reverse the fist N elements of one list) first,
+  i.e. reverse5 = 3->2->1->4->5
 
 ## Solution
 

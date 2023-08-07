@@ -11,6 +11,15 @@ tags:
 
 *
 
+```C++
+class Solution {
+public:
+    int func() {
+        return 0;
+    }
+}
+```
+
 ## Solution
 
 Language: **C++**

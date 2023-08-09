@@ -46,6 +46,10 @@ Output: true
 * 0 <= from<sub>i</sub> < to<sub>i</sub> <= 1000
 * 1 <= capacity <= 10<sup>5</sup>
 
+## Hints/Notes
+
+* Use the diff array
+
 ## Solution
 
 Language: **C++**

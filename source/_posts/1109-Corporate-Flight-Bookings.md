@@ -57,6 +57,10 @@ Hence, answer = [10,25]
 * 1 <= first<sub>i</sub> <= last<sub>i</sub> <= n
 * 1 <= seats<sub>i</sub> <= 10<sup>4</sup>
 
+## Hints/Notes
+
+* Use the diff array
+
 ## Solution
 
 Language: **C++**

@@ -38,6 +38,10 @@ Output: [[1]]
 
 * `1 <= n <= 20`
 
+## Hints/Notes
+
+* Traverse the four sides in one iterate
+
 ## Solution
 
 Language: **C++**

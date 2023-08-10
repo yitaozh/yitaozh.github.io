@@ -45,7 +45,7 @@ Output: [1,2,3,4,8,12,11,10,9,5,6,7]
 
 ## Hints/Notes
 
-* Traverse all four sides in one iterate
+* Traverse all four sides in one iteration
 
 ## Solution
 

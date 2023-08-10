@@ -54,6 +54,15 @@ Output: []
 * For recursive solution, only think how to handle then end case and how to handle a new tail
 * For iterative solution, use stack
 
+```C++
+class Solution {
+public:
+    ListNode* reverse(ListNode* head) {
+        return nullptr;
+    }
+}
+```
+
 ## Solution
 
 Language: **C++**

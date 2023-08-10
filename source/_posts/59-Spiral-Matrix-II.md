@@ -40,7 +40,7 @@ Output: [[1]]
 
 ## Hints/Notes
 
-* Traverse the four sides in one iterate
+* Traverse the four sides in one iteration
 
 ## Solution
 

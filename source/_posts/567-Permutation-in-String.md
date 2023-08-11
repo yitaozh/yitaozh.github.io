@@ -43,7 +43,7 @@ Output: false
 
 ## Hints/Notes
 
-* sliding window
+* Sliding window
 
 ```C++
 class Solution {

@@ -46,6 +46,10 @@ The substring with start index = 2 is "ab", which is an anagram of "ab".
 * 1 <= s.length, p.length <= 3 * 10<sup>4</sup>
 * `s` and `p` consist of lowercase English letters.
 
+## Hints/Notes
+
+* Sliding window
+
 ## Solution
 
 Language: **C++**

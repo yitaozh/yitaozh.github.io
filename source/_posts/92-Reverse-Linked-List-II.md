@@ -46,6 +46,15 @@ Output: [5]
 * Implement reverseN(reverse the fist N elements of one list) first,
   i.e. reverse5 = 3->2->1->4->5
 
+```C++
+class Solution {
+public:
+    ListNode* reverseBetween(ListNode* head, int left, int right) {
+        return nullptr;
+    }
+}
+```
+
 ## Solution
 
 Language: **C++**

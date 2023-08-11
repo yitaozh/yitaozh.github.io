@@ -23,7 +23,7 @@ In other words, return `true` if one of `s1`'s permutations is the substring of 
 
 **Example 1:**
 
-```
+```bash
 Input: s1 = "ab", s2 = "eidbaooo"
 Output: true
 Explanation: s2 contains one permutation of s1 ("ba").
@@ -31,15 +31,28 @@ Explanation: s2 contains one permutation of s1 ("ba").
 
 **Example 2:**
 
-```
+```bash
 Input: s1 = "ab", s2 = "eidboaoo"
 Output: false
 ```
 
 **Constraints:**
 
-*   1 <= s1.length, s2.length <= 10<sup>4</sup>
-*   `s1` and `s2` consist of lowercase English letters.
+* 1 <= s1.length, s2.length <= 10<sup>4</sup>
+* `s1` and `s2` consist of lowercase English letters.
+
+## Hints/Notes
+
+* sliding window
+
+```C++
+class Solution {
+public:
+    bool checkInclusion(string s1, string s2) {
+        return false;
+    }
+}
+```
 
 ## Solution
 

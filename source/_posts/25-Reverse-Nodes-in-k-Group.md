@@ -51,6 +51,15 @@ Output: [3,2,1,4,5]
 
 * Recursive
 
+```C++
+class Solution {
+public:
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        return nullptr;
+    }
+}
+```
+
 ## Solution
 
 Language: **C++**

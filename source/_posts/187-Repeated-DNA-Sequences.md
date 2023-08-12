@@ -46,6 +46,21 @@ Output: ["AAAAAAAAAA"]
 * 1 <= s.length <= 10<sup>5</sup>
 * `s[i]` is either `'A'`, `'C'`, `'G'`, or `'T'`.
 
+## Hints/Notes
+
+* Rabin karb algorithm
+* Make the string a int number(base number 4)
+* Use a set to represent the results first, then transform it to vector to return
+
+```C++
+class Solution {
+public:
+    vector<string> findRepeatedDnaSequences(string s) {
+        return vector<string>();
+    }
+}
+```
+
 ## Solution
 
 Language: **C++**

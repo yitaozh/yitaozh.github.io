@@ -68,6 +68,7 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 ## Hints/Notes
 
 * Use 2 pointers, slow and fast
+* The corner case of index 0
 
 ## Solution
 

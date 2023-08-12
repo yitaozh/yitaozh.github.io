@@ -40,6 +40,12 @@ Explanation: "leeto" did not occur in "leetcode", so we return -1.
 * 1 <= haystack.length, needle.length <= 10<sup>4</sup>
 * `haystack` and `needle` consist of only lowercase English characters.
 
+## Hints/Notes
+
+* good prime: 9999991
+* get the powHash
+* some edge cases of module operation(like avoid the negative number)
+
 ## Solution
 
 Language: **C++**

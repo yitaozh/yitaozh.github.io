@@ -50,6 +50,11 @@ Output: 23
 * piles.length <= h <= 10<sup>9</sup>
 * 1 <= piles[i] <= 10<sup>9</sup>
 
+## Hints/Notes
+
+* Helper function: eating hour, if eat k bananas per hour, how many hours in total would be needed?
+* Make it a binary search for left boundry
+
 ## Solution
 
 Language: **C++**
@@ -86,6 +91,7 @@ public:
                 right = mid;
             }
         }
+        // for the worst case left = right = max(piles)
         return left;
     }
 };

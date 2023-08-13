@@ -72,6 +72,11 @@ and so on.
 * 1 <= w[i] <= 10<sup>5</sup>
 * `pickIndex` will be called at most 10<sup>4</sup> times.
 
+## Hints/Notes
+
+* preSum
+* binary search to find the left boundry
+
 ## Solution
 
 Language: **C++**

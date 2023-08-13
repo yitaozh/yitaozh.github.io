@@ -42,4 +42,5 @@ If not idea at all, just check the comments. No need to wait for 5, 10 minutes
 
 ### Advance
 
-Weekly contest, then codeforce
+* Weekly contest, then codeforce
+* Watch this [video series](https://www.youtube.com/@BackToBackSWE/videos) to learn how to speak the story

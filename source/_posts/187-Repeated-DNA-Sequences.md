@@ -69,7 +69,6 @@ Language: **C++**
 class Solution {
 public:
     vector<string> findRepeatedDnaSequences(string s) {
-        int left = 0, right = 0, len = s.size(), sum = 0;
         vector<int> nums;
         for (char c : s) {
             int num = 0;
@@ -89,6 +88,7 @@ public:
             }
             nums.push_back(num);
         }
+        int left = 0, right = 0, len = s.size(), sum = 0;
         set<int> exist;
         set<string> res;
         while (right < len) {

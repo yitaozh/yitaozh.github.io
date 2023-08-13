@@ -23,31 +23,35 @@ You must write an algorithm with `O(log n)` runtime complexity.
 
 **Example 1:**
 
-```
+```bash
 Input: nums = [5,7,7,8,8,10], target = 8
 Output: [3,4]
 ```
 
 **Example 2:**
 
-```
+```bash
 Input: nums = [5,7,7,8,8,10], target = 6
 Output: [-1,-1]
 ```
 
 **Example 3:**
 
-```
+```bash
 Input: nums = [], target = 0
 Output: [-1,-1]
 ```
 
 **Constraints:**
 
-*   0 <= nums.length <= 10<sup>5</sup>
-*   -10<sup>9</sup> <= nums[i] <= 10<sup>9</sup>
-*   `nums` is a non-decreasing array.
-*   -10<sup>9</sup> <= target <= 10<sup>9</sup>
+* 0 <= nums.length <= 10<sup>5</sup>
+* -10<sup>9</sup> <= nums[i] <= 10<sup>9</sup>
+* `nums` is a non-decreasing array.
+* -10<sup>9</sup> <= target <= 10<sup>9</sup>
+
+## Hints/Notes
+
+* Write different helper function to find left and right boundry
 
 ## Solution
 

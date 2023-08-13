@@ -76,10 +76,10 @@ public:
                 }
             }
             if (right - left == len) {
-                c = s2[left++];
                 if (valid == need.size()) {
                     return true;
                 }
+                c = s2[left++];
                 if (need.count(c)) {
                     if (window[c] == need[c]) {
                         valid--;

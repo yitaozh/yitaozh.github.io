@@ -43,7 +43,7 @@ Output: [24,32,8,12]
 
 ## Hints/Notes
 
-* Use the priority queue
+* Use the priority queue for nums2
 * Need a write personally
 
 ## Solution

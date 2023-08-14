@@ -47,6 +47,11 @@ The best way is to split it into [1,2,3] and [4,5], where the largest sum among 
 * 0 <= nums[i] <= 10<sup>6</sup>
 * `1 <= k <= min(50, nums.length)`
 
+## Hints/Notes
+
+* Read the problem: A subarray is a **contiguous** part of the array.
+* Use binary search and helper function
+
 ## Solution
 
 Language: **C++**

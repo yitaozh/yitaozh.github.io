@@ -64,6 +64,11 @@ Explanation:
 * 1 <= days <= weights.length <= 5 * 10<sup>4</sup>
 * `1 <= weights[i] <= 500`
 
+## Hints/Notes
+
+* Binary search
+* Helper function to get how many days with specific capacity
+
 ## Solution
 
 Language: **C++**

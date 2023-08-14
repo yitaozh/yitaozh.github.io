@@ -41,6 +41,11 @@ Output: [24,32,8,12]
 * `nums2.length == nums1.length`
 * 0 <= nums1[i], nums2[i] <= 10<sup>9</sup>
 
+## Hints/Notes
+
+* Use the priority queue
+* Need a write personally
+
 ## Solution
 
 Language: **C++**

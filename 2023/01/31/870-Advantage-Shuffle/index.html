@@ -27,7 +27,7 @@
 <meta property="og:description" content="870. Advantage ShuffleDescriptionDifficulty: Medium">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-01-31T13:02:24.000Z">
-<meta property="article:modified_time" content="2023-08-14T03:15:32.994Z">
+<meta property="article:modified_time" content="2023-08-14T03:23:39.316Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="Array">
 <meta property="article:tag" content="Sorting">
@@ -117,7 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#870-Advantage-Shuffle"><span class="nav-number">1.</span> <span class="nav-text">870. Advantage Shuffle</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">1.2.</span> <span class="nav-text">Solution</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#870-Advantage-Shuffle"><span class="nav-number">1.</span> <span class="nav-text">870. Advantage Shuffle</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hints-x2F-Notes"><span class="nav-number">1.2.</span> <span class="nav-text">Hints&#x2F;Notes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">1.3.</span> <span class="nav-text">Solution</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -224,7 +224,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-08-14 03:15:32" itemprop="dateModified" datetime="2023-08-14T03:15:32+00:00">2023-08-14</time>
+      <time title="Modified: 2023-08-14 03:23:39" itemprop="dateModified" datetime="2023-08-14T03:23:39+00:00">2023-08-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -243,7 +243,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>1.3k</span>
+      <span>1.4k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -276,6 +276,10 @@
 <li>1 &lt;&#x3D; nums1.length &lt;&#x3D; 10<sup>5</sup></li>
 <li><code>nums2.length == nums1.length</code></li>
 <li>0 &lt;&#x3D; nums1[i], nums2[i] &lt;&#x3D; 10<sup>9</sup></li>
+</ul>
+<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Use the priority queue</li>
+<li>Need a write personally</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">advantageCount</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> cmp = [](<span class="type">const</span> pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; lhs, <span class="type">const</span> pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; rhs) &#123;</span><br><span class="line">            <span class="keyword">return</span> lhs.second &lt; rhs.second;</span><br><span class="line">        &#125;;</span><br><span class="line">        priority_queue&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;, vector&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt;, <span class="keyword">decltype</span>(cmp)&gt; <span class="built_in">pq</span>(cmp);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums2.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            pq.<span class="built_in">push</span>(&#123;i, nums2[i]&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(nums1.<span class="built_in">begin</span>(), nums1.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = nums1.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(nums1.size(), <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">while</span> (!pq.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; top = pq.<span class="built_in">top</span>();</span><br><span class="line">            pq.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="keyword">if</span> (top.second &gt;= nums1[right]) &#123;</span><br><span class="line">                res[top.first] = nums1[left++];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                res[top.first] = nums1[right--];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>

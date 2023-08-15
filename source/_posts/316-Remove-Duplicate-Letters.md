@@ -40,6 +40,11 @@ Output: "acdb"
 
 **Note:** This question is the same as 1081: [https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/](https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/)
 
+## Hints/Notes
+
+* With stack and set we can get the substring with no duplicate, but not necessarily the smallest
+* Add a counter to count the frequency of letters, then we can pop the letters without worrying there's no more
+
 ## Solution
 
 Language: **C++**

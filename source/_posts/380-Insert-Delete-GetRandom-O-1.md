@@ -50,8 +50,13 @@ randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom()
 **Constraints:**
 
 * -2<sup>31</sup> <= val <= 2<sup>31</sup> - 1
-* At most `2 * `10<sup>5</sup> calls will be made to `insert`, `remove`, and `getRandom`.
+* At most `2 *` 10<sup>5</sup> calls will be made to `insert`, `remove`, and `getRandom`.
 * There will be **at least one** element in the data structure when `getRandom` is called.
+
+## Hints/Notes
+
+* Use array for O(1) random access
+* Use a map from val to index to ensure O(1) addition/removal
 
 ## Solution
 

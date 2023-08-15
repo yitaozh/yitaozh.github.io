@@ -57,6 +57,10 @@ solution.pick(); // return 4
 * All the values of `blacklist` are **unique**.
 * At most 2 * 10<sup>4</sup> calls will be made to `pick`.
 
+## Hints/Notes
+
+* Use array and mapping
+
 ## Solution
 
 Language: **C++**

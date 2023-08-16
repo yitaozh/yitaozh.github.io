@@ -44,6 +44,10 @@ Output: 1
 * The number of nodes in the tree is in the range [1, 10<sup>4</sup>].
 * `-100 <= Node.val <= 100`
 
+## Hints/Notes
+
+* Draw and imagine the diameter
+
 ## Solution
 
 Language: **C++**

@@ -42,6 +42,10 @@ Output: 2
 * The number of nodes in the tree is in the range [0, 10<sup>4</sup>].
 * `-100 <= Node.val <= 100`
 
+## Hints/Notes
+
+* Think about the tree's left and right
+
 ## Solution
 
 Language: **C++**

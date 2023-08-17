@@ -43,7 +43,7 @@ Output: [-1]
 
 ## Hints/Notes
 
-* Draw the metric
+* Draw the tree manually
 
 ## Solution
 

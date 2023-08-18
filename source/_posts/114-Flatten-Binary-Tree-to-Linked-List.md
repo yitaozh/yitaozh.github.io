@@ -53,6 +53,10 @@ Output: [0]
 
 **Follow up:** Can you flatten the tree in-place (with `O(1)` extra space)?
 
+## Hints/Notes
+
+* Recursive, think about if the left and right node has been flattened
+
 ## Solution
 
 Language: **C++**

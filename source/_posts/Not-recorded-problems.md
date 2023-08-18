@@ -9,6 +9,8 @@ tags:
 
 None
 
-## The issue to track
+## The problems not noted
 
-[Leetcode github helper](https://github.com/4074/leetcode-helper/issues/21)
+```bash
+find . -name "[0-9]*" |  xargs grep -L "Hints"
+```

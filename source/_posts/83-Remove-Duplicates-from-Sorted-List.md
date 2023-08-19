@@ -71,15 +71,16 @@ Language: **C++**
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
+        if (!head) return head;
         ListNode* slow = head, *fast = head;
-        while(fast) {
-            while (fast && fast->val == slow->val) {
-                fast = fast->next;
+        while (fast) {
+            if (fast->val != slow->val) {
+                slow->next = fast;
+                slow = slow->next;
             }
-            slow->next = fast;
-            slow = slow->next;
+            fast = fast->next;
         }
-        // slow->next = nullptr;
+        slow->next = nullptr;
         return head;
     }
 };

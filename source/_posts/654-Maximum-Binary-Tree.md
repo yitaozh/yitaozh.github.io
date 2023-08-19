@@ -64,6 +64,7 @@ Output: [3,null,2,null,1]
 ## Hints/Notes
 
 * Draw the picture to get ideas
+* It's like recursive
 
 ## Solution
 

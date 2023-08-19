@@ -38,6 +38,10 @@ Output: ["h","a","n","n","a","H"]
 * 1 <= s.length <= 10<sup>5</sup>
 * `s[i]` is a [printable ascii character](https://en.wikipedia.org/wiki/ASCII#Printable_characters).
 
+## Hints/Notes
+
+* N/A
+
 ## Solution
 
 Language: **C++**

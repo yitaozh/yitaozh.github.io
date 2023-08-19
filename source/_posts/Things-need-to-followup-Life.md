@@ -15,25 +15,29 @@ hidden: true
 
 ## Do this today
 
+1. Apply for the global debit card
 1. The overcharged dentist fee, i don't think i should be charged $600
 1. The amazon card points, it's wrongly calculated, $77.6 on 3/18
     - Sent a message 07/24/2023
     - Replied again on 07/31/2023
     - I got a response again but i don't like it, gonna respond again
+1. The trip to Europe, i should contact one agent asap
+    - ~~I am in touch with a sales in France, everything is going fine~~
+    - ~~The deposit has been made~~
 
 ## Pending followup
 
-1. The trip to Europe, i should contact one agent asap
-    - I am in touch with a sales in France, everything is going fine
-    - The deposit has been made
 1. The trip to Europe, i should arrange the trip
-    - Airbnb has been booked
-    - The air tickets have been booked. If the Visa is approved I should check if there's cheaper option
-    - I should book the tickets to museums
+    - ~~Airbnb has been booked~~
+    - ~~The air tickets have been booked~~
+    - Pending on Visa approval
+    - I should check if there's cheaper option for air tickets
+    - I should book the tickets to museums and attractions
 
 ## Pending the right time
 
 1. The trendmill, I should submit a request to refund in November
+1. The garage key, i should bring it back to China to get an elegant copy
 
 ## Long term
 

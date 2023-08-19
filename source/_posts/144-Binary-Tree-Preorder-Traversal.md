@@ -49,6 +49,10 @@ Output: [1]
 
 **Follow up:** Recursive solution is trivial, could you do it iteratively?
 
+## Hints/Notes
+
+* Use stack to solve it iteratively
+
 ## Solution
 
 Language: **C++**

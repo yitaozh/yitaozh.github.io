@@ -58,6 +58,10 @@ Explanation: As they don't have the same length, we return false.
 - `x<sub>i</sub>` and `y<sub>i</sub>` consist of lower-case and upper-case English letters.
 - All the pairs `(x<sub>i</sub>,<sub> </sub>y<sub>i</sub>)` are **distinct** .
 
+## Hints/Notes
+
+- record the mapping and compare each word
+
 ## Solution
 
 Language: **C++**
@@ -81,7 +85,7 @@ public:
             }
             string w1 = sentence1[i];
             string w2 = sentence2[i];
-            if (!mapping[w1].count(w2) && !mapping[w2].count(w1)) {
+            if (!mapping[w1].count(w2)) {
                 return false;
             }
         }

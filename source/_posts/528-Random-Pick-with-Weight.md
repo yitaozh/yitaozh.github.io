@@ -76,6 +76,7 @@ and so on.
 
 * preSum
 * binary search to find the left boundry
+* if the number doesn't exist, we can iterpret the return as where it ought to be in the array
 
 ## Solution
 

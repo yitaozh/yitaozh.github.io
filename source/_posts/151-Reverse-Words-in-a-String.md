@@ -54,6 +54,11 @@ Explanation: You need to reduce multiple spaces between two words to a single sp
 
 **Follow-up:** If the string data type is mutable in your language, can you solve it **in-place** with `O(1)` extra space?
 
+## Hints/Notes
+
+* Reverse the whole string first,  then each word
+* The handling of spaces is the key to AC for this problem
+
 ## Solution
 
 Language: **C++**

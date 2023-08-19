@@ -45,6 +45,10 @@ Output: ""
 * `1 <= str1.length, str2.length <= 1000`
 * `str1` and `str2` consist of English uppercase letters.
 
+## Hints/Notes
+
+* Think about it methmatically, like str1 is k subStrings and str2 is l subStrings
+
 ## Solution
 
 Language: **C++**

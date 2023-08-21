@@ -8,7 +8,7 @@ tags:
     - Prefix Sum
 ---
 
-# [1016\. Subarray Sums Divisible by K](https://leetcode.com/problems/subarray-sums-divisible-by-k/)
+# [974\. Subarray Sums Divisible by K](https://leetcode.com/problems/subarray-sums-divisible-by-k/)
 
 ## Description
 
@@ -22,7 +22,7 @@ A **subarray** is a **contiguous** part of an array.
 
 **Example 1:**
 
-```
+```bash
 Input: nums = [4,5,0,-2,-3,1], k = 5
 Output: 7
 Explanation: There are 7 subarrays with a sum divisible by k = 5:
@@ -31,16 +31,20 @@ Explanation: There are 7 subarrays with a sum divisible by k = 5:
 
 **Example 2:**
 
-```
+```bash
 Input: nums = [5], k = 9
 Output: 0
 ```
 
 **Constraints:**
 
-*   1 <= nums.length <= 3 * 10<sup>4</sup>
-*   -10<sup>4</sup> <= nums[i] <= 10<sup>4</sup>
-*   2 <= k <= 10<sup>4</sup>
+* 1 <= nums.length <= 3 * 10<sup>4</sup>
+* -10<sup>4</sup> <= nums[i] <= 10<sup>4</sup>
+* 2 <= k <= 10<sup>4</sup>
+
+## Hints/Notes
+
+* preSum and mod
 
 ## Solution
 

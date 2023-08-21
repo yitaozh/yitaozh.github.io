@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yitaozh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"author":"Echo Joy"},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="1016. Subarray Sums Divisible by KDescriptionDifficulty: Medium">
+    <meta name="description" content="974. Subarray Sums Divisible by KDescriptionDifficulty: Medium">
 <meta property="og:type" content="article">
 <meta property="og:title" content="974. Subarray Sums Divisible by K">
 <meta property="og:url" content="https://yitaozh.github.io/2023/01/19/974-Subarray-Sums-Divisible-by-K/index.html">
 <meta property="og:site_name" content="Echo&#39;s Home">
-<meta property="og:description" content="1016. Subarray Sums Divisible by KDescriptionDifficulty: Medium">
+<meta property="og:description" content="974. Subarray Sums Divisible by KDescriptionDifficulty: Medium">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-01-19T18:20:04.000Z">
-<meta property="article:modified_time" content="2023-08-21T03:49:08.138Z">
+<meta property="article:modified_time" content="2023-08-21T04:00:26.061Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="Array">
 <meta property="article:tag" content="Prefix Sum">
@@ -116,7 +116,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1016-Subarray-Sums-Divisible-by-K"><span class="nav-number">1.</span> <span class="nav-text">1016. Subarray Sums Divisible by K</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">1.2.</span> <span class="nav-text">Solution</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#974-Subarray-Sums-Divisible-by-K"><span class="nav-number">1.</span> <span class="nav-text">974. Subarray Sums Divisible by K</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hints-x2F-Notes"><span class="nav-number">1.2.</span> <span class="nav-text">Hints&#x2F;Notes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">1.3.</span> <span class="nav-text">Solution</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -223,7 +223,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-08-21 03:49:08" itemprop="dateModified" datetime="2023-08-21T03:49:08+00:00">2023-08-21</time>
+      <time title="Modified: 2023-08-21 04:00:26" itemprop="dateModified" datetime="2023-08-21T04:00:26+00:00">2023-08-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -242,7 +242,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>844</span>
+      <span>871</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -260,15 +260,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="1016-Subarray-Sums-Divisible-by-K"><a href="#1016-Subarray-Sums-Divisible-by-K" class="headerlink" title="1016. Subarray Sums Divisible by K"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/subarray-sums-divisible-by-k/">1016. Subarray Sums Divisible by K</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+        <h1 id="974-Subarray-Sums-Divisible-by-K"><a href="#974-Subarray-Sums-Divisible-by-K" class="headerlink" title="974. Subarray Sums Divisible by K"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/subarray-sums-divisible-by-k/">974. Subarray Sums Divisible by K</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
 <p>Related Topics: <a target="_blank" rel="noopener" href="https://leetcode.com/tag/array/">Array</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/hash-table/">Hash Table</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/prefix-sum/">Prefix Sum</a></p>
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <em>the number of non-empty <strong>subarrays</strong> that have a sum divisible by</em> <code>k</code>.</p>
 <p>A <strong>subarray</strong> is a <strong>contiguous</strong> part of an array.</p>
 <p><strong>Example 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [4,5,0,-2,-3,1], k = 5</span><br><span class="line">Output: 7</span><br><span class="line">Explanation: There are 7 subarrays with a sum divisible by k = 5:</span><br><span class="line">[4, 5, 0, -2, -3, 1], [5], [5, 0], [5, 0, -2, -3], [0], [0, -2, -3], [-2, -3]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [4,5,0,-2,-3,1], k = 5</span><br><span class="line">Output: 7</span><br><span class="line">Explanation: There are 7 subarrays with a <span class="built_in">sum</span> divisible by k = 5:</span><br><span class="line">[4, 5, 0, -2, -3, 1], [5], [5, 0], [5, 0, -2, -3], [0], [0, -2, -3], [-2, -3]</span><br></pre></td></tr></table></figure>
 
 <p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [5], k = 9</span><br><span class="line">Output: 0</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [5], k = 9</span><br><span class="line">Output: 0</span><br></pre></td></tr></table></figure>
 
 <p><strong>Constraints:</strong></p>
 <ul>
@@ -276,8 +276,12 @@
 <li>-10<sup>4</sup> &lt;&#x3D; nums[i] &lt;&#x3D; 10<sup>4</sup></li>
 <li>2 &lt;&#x3D; k &lt;&#x3D; 10<sup>4</sup></li>
 </ul>
+<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>preSum and mod</li>
+</ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">subarraysDivByK</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">preSumMod</span><span class="params">(k, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>, preSum = <span class="number">0</span>;</span><br><span class="line">        preSumMod[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> num : nums) &#123;</span><br><span class="line">            preSum = (num % k + k + preSum) % k;</span><br><span class="line">            res += preSumMod[preSum];</span><br><span class="line">            preSumMod[preSum]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -334,7 +338,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">276k</span>
+    <span title="Word count total">277k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">

@@ -58,6 +58,9 @@ Explanation: You need to reduce multiple spaces between two words to a single sp
 
 * Reverse the whole string first,  then each word
 * The handling of spaces is the key to AC for this problem
+  * The space at the end of the string
+  * The extra spaces between the words
+  * Use a separate index variable to track the return string
 
 ## Solution
 

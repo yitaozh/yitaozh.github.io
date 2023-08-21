@@ -51,6 +51,11 @@ Explanation: The first three characters "app" match, and the second string is sh
 * `order.length == 26`
 * All characters in `words[i]` and `order` are English lowercase letters.
 
+## Hints/Notes
+
+* use map to record the order
+* the best time complexity is O(n^2)
+
 ## Solution
 
 Language: **C++**

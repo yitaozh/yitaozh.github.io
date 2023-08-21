@@ -58,6 +58,11 @@ Output: -1
 * a<sub>i</sub> != b<sub>i</sub>
 * 1 <= a<sub>i</sub>, b<sub>i</sub> <= n
 
+## Hints/Notes
+
+* if the number of pairs is less than n - 1, then we cannot identify the judge
+* use in/out vector to mark the trust relationship
+
 ## Solution
 
 Language: **C++**

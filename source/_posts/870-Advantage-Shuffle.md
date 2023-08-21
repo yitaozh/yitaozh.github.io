@@ -46,6 +46,15 @@ Output: [24,32,8,12]
 * Use the priority queue for nums2
 * Need a write personally
 
+```C++
+class Solution {
+public:
+    vector<int> advantageCount(vector<int>& nums1, vector<int>& nums2) {
+        return vector<int>();
+    }
+}
+```
+
 ## Solution
 
 Language: **C++**

@@ -81,8 +81,10 @@ public:
         if (root == nullptr) {
             return "#";
         }
-        string seri = serialize(root->left) + ',' + serialize(root->right)
-                                            + "," + to_string(root->val);
+        string seri = serialize(root->left)
+              + ',' + serialize(root->right)
+              + "," + to_string(root->val);
+
         if (freq[seri] == 1) {
             res.push_back(root);
         }

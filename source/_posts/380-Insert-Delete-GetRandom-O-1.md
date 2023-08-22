@@ -55,7 +55,7 @@ randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom()
 
 ## Hints/Notes
 
-* Use array for O(1) random access
+* Use array for O(1) random access, map doesn't have O(1) random access
 * Use a map from val to index to ensure O(1) addition/removal
 
 ## Solution

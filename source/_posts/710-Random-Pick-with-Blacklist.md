@@ -73,6 +73,8 @@ public:
 
     Solution(int n, vector<int>& blacklist) {
         size = n - blacklist.size();
+        // [0, 1, 2, 3, 4, 5, 6]
+        // nums.count(2 || 3 || 5) == true
         for (int blackNum : blacklist) {
             nums[blackNum] = blackNum;
         }
@@ -87,6 +89,7 @@ public:
             }
             nums[blackNum] = last--;
         }
+        // nums[2] = 6, nums[3] = 4
     }
     
     int pick() {

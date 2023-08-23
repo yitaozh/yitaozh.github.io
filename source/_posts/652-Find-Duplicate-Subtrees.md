@@ -9,7 +9,7 @@ tags:
 
 ## Description
 
-Difficulty: **Medium**  
+Difficulty: **Medium**
 
 Related Topics: [Hash Table](https://leetcode.com/tag/https://leetcode.com/tag/hash-table//), [Tree](https://leetcode.com/tag/https://leetcode.com/tag/tree//), [Depth-First Search](https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//), [Binary Tree](https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//)
 
@@ -50,6 +50,11 @@ Output: [[2,3],[3]]
 
 * The number of the nodes in the tree will be in the range `[1, 5000]`
 * `-200 <= Node.val <= 200`
+
+## Hints/Notes
+
+* Serialize the (sub)tree to check if there's duplicate
+* Use map the avoid the duplicate in return
 
 ## Solution
 

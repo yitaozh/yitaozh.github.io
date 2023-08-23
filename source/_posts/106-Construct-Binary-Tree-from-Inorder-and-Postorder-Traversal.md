@@ -9,7 +9,7 @@ tags:
 
 ## Description
 
-Difficulty: **Medium**  
+Difficulty: **Medium**
 
 Related Topics: [Array](https://leetcode.com/tag/https://leetcode.com/tag/array//), [Hash Table](https://leetcode.com/tag/https://leetcode.com/tag/hash-table//), [Divide and Conquer](https://leetcode.com/tag/https://leetcode.com/tag/divide-and-conquer//), [Tree](https://leetcode.com/tag/https://leetcode.com/tag/tree//), [Binary Tree](https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//)
 
@@ -40,6 +40,10 @@ Output: [-1]
 * Each value of `postorder` also appears in `inorder`.
 * `inorder` is **guaranteed** to be the inorder traversal of the tree.
 * `postorder` is **guaranteed** to be the postorder traversal of the tree.
+
+## Hints/Notes
+
+* Draw the tree and find the pattern of root's location
 
 ## Solution
 
@@ -81,7 +85,7 @@ public:
         TreeNode* root = new TreeNode(rootVal);
 
         int leftSize = rootIndex - inStart;
-        root->left = build(inorder, inStart, rootIndex - 1, 
+        root->left = build(inorder, inStart, rootIndex - 1,
                            postorder, postStart, postStart + leftSize - 1);
         root->right = build(inorder, rootIndex + 1, inEnd,
                             postorder, postStart + leftSize, postEnd - 1);

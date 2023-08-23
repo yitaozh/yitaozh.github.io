@@ -54,7 +54,8 @@ Explanation: The first three characters "app" match, and the second string is sh
 ## Hints/Notes
 
 * use map to record the order
-* the best time complexity is O(n^2)
+* the best time complexity is O(n*m)
+* we don't need to compare one word with all following words, just with the next word, since the order is transtive
 
 ## Solution
 

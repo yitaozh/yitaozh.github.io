@@ -9,7 +9,7 @@ tags:
 
 ## Description
 
-Difficulty: **Medium**  
+Difficulty: **Medium**
 
 Related Topics: [Array](https://leetcode.com/tag/https://leetcode.com/tag/array//), [Hash Table](https://leetcode.com/tag/https://leetcode.com/tag/hash-table//), [Divide and Conquer](https://leetcode.com/tag/https://leetcode.com/tag/divide-and-conquer//), [Tree](https://leetcode.com/tag/https://leetcode.com/tag/tree//), [Binary Tree](https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//)
 
@@ -42,6 +42,11 @@ Output: [1]
 * `1 <= postorder[i] <= postorder.length`
 * All the values of `postorder` are **unique**.
 * It is guaranteed that `preorder` and `postorder` are the preorder traversal and postorder traversal of the same binary tree.
+
+## Hints/Notes
+
+* It's possible to have multiple solution from preorder + postorder
+* Draw the tree to find the pattern of root's left child
 
 ## Solution
 
@@ -80,7 +85,7 @@ public:
         int rootVal = preorder[preStart];
 
         TreeNode* root = new TreeNode(rootVal);
-        
+
         if (preStart == preEnd) {
             return root;
         }
@@ -88,7 +93,7 @@ public:
         int leftVal = preorder[preStart + 1];
         int leftIndex = valToIndex[leftVal];
         int leftSize = leftIndex - postStart + 1;
-        
+
         root->left = build(preorder, preStart + 1, preStart + leftSize,
                            postorder, postStart, leftIndex);
         root->right = build(preorder, preStart + leftSize + 1, preEnd,

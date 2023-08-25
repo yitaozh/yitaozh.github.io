@@ -38,6 +38,10 @@ Explanation: Note that the values of nums are not necessairly unique.
 * 1 <= nums.length <= 5 * 10<sup>4</sup>
 * -5 \* 10<sup>4</sup> <= nums[i] <= 5 \* 10<sup>4</sup>
 
+## Hints/Notes
+
+* merge sort
+
 ## Solution
 
 Language: **C++**

@@ -48,7 +48,7 @@ Output: [0,0]
 ## Hints/Notes
 
 * Merge sort
-* Use tmp array with doing the merge
+* Compare tmp array with doing the merge
 
 ## Solution
 

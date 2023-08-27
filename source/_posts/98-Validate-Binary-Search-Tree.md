@@ -47,7 +47,8 @@ Explanation: The root node's value is 5 but its right child's value is 4.
 
 # Hints/Notes
 
-* We need max/min root/value to decide if one node is valid
+* We need max/min node to decide if one node is valid
+* Because the val is between MIN_INT and MAX_INT, so use a nullptr node is better
 
 ## Solution
 

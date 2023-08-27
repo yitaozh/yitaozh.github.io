@@ -3,6 +3,13 @@ title: 315. Count of Smaller Numbers After Self
 categories: Leetcode
 date: 2023-08-24 23:38:04
 tags:
+    - Array
+    - Binary Search
+    - Divide and Conquer
+    - Binary Indexed Tree
+    - Segment Tree
+    - Merge Sort
+    - Ordered Set
 ---
 # [315\. Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self/)
 

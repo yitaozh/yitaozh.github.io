@@ -3,6 +3,11 @@ title: 889. Construct Binary Tree from Preorder and Postorder Traversal
 categories: Leetcode
 date: 2023-08-22 00:56:54
 tags:
+    - Array
+    - Hash Table
+    - Divide and Conquer
+    - Tree
+    - Binary Tree
 ---
 
 # [889\. Construct Binary Tree from Preorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/)

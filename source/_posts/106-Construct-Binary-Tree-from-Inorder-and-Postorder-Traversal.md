@@ -3,6 +3,11 @@ title: 106. Construct Binary Tree from Inorder and Postorder Traversal
 categories: Leetcode
 date: 2023-08-22 00:28:08
 tags:
+    - Array
+    - Hash Table
+    - Divide and Conquer
+    - Tree
+    - Binary Tree
 ---
 
 # [106\. Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)

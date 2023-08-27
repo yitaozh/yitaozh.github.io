@@ -3,6 +3,10 @@ title: 98. Validate Binary Search Tree
 categories: Leetcode
 date: 2023-08-26 23:55:46
 tags:
+    - Tree
+    - Depth-First Search
+    - Binary Search Tree
+    - Binary Tree
 ---
 
 # [98\. Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)

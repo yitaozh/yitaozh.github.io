@@ -3,13 +3,19 @@ title: 297. Serialize and Deserialize Binary Tree
 categories: Leetcode
 date: 2023-08-22 20:31:34
 tags:
+    - String
+    - Tree
+    - Depth-First Search
+    - Breadth-First Search
+    - Design
+    - Binary Tree
 ---
 
 # [297\. Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)
 
 ## Description
 
-Difficulty: **Hard**  
+Difficulty: **Hard**
 
 Related Topics: [String](https://leetcode.com/tag/https://leetcode.com/tag/string//), [Tree](https://leetcode.com/tag/https://leetcode.com/tag/tree//), [Depth-First Search](https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//), [Breadth-First Search](https://leetcode.com/tag/https://leetcode.com/tag/breadth-first-search//), [Design](https://leetcode.com/tag/https://leetcode.com/tag/design//), [Binary Tree](https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//)
 

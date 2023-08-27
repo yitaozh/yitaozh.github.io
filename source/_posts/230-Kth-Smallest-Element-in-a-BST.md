@@ -3,6 +3,10 @@ title: 230. Kth Smallest Element in a BST
 categories: Leetcode
 date: 2023-08-26 01:40:02
 tags:
+    - Tree
+    - Depth-First Search
+    - Binary Search Tree
+    - Binary Tree
 ---
 
 # [230\. Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)

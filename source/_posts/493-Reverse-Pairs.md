@@ -3,6 +3,13 @@ title: 493. Reverse Pairs
 categories: Leetcode
 date: 2023-08-25 00:29:56
 tags:
+    - Array
+    - Binary Search
+    - Divide and Conquer
+    - Binary Indexed Tree
+    - Segment Tree
+    - Merge Sort
+    - Ordered Set
 ---
 
 # [](https://leetcode.com/problems/reverse-pairs/description/)

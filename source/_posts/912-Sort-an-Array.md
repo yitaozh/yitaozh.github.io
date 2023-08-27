@@ -3,6 +3,14 @@ title: 912. Sort an Array
 categories: Leetcode
 date: 2023-08-22 23:26:25
 tags:
+    - Array
+    - Divide and Conquer
+    - Sorting
+    - Heap (Priority Queue)
+    - Merge Sort
+    - Bucket Sort
+    - Radix Sort
+    - Counting Sort
 ---
 
 # [912\. Sort an Array](https://leetcode.com/problems/sort-an-array/)

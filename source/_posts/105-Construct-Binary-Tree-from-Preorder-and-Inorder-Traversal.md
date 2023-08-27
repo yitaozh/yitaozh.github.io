@@ -3,6 +3,11 @@ title: 105. Construct Binary Tree from Preorder and Inorder Traversal
 categories: Leetcode
 date: 2023-08-17 18:40:48
 tags:
+    - Array
+    - Hash Table
+    - Divide and Conquer
+    - Tree
+    - Binary Tree
 ---
 
 # [105\. Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)

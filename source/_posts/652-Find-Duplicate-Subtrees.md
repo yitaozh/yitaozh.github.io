@@ -3,6 +3,10 @@ title: 652. Find Duplicate Subtrees
 categories: Leetcode
 date: 2023-08-22 01:22:00
 tags:
+    - Hash Table
+    - Tree
+    - Depth-First Search
+    - Binary Tree
 ---
 
 # [652\. Find Duplicate Subtrees](https://leetcode.com/problems/find-duplicate-subtrees/)

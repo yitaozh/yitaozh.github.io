@@ -3,6 +3,10 @@ title: 538. Convert BST to Greater Tree
 categories: Leetcode
 date: 2023-08-26 23:28:34
 tags:
+    - Tree
+    - Depth-First Search
+    - Binary Search Tree
+    - Binary Tree
 ---
 
 # [538\. Convert BST to Greater Tree](https://leetcode.com/problems/convert-bst-to-greater-tree/)

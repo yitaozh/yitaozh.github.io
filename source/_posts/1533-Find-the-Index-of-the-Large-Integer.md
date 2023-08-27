@@ -97,9 +97,9 @@ public:
             if (res == 0) {
                 return m1 + 1;
             } else if (res == -1) {
-                left = m1 + 1;
+                left = m2;
             } else if (res == 1) {
-                right = m2 - 1;
+                right = m1;
             }
         }
         return left;

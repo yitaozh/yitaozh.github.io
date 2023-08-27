@@ -14,3 +14,9 @@ None
 ```bash
 find . -name "[0-9]*" |  xargs grep -L "Hints"
 ```
+
+## The problems not tagged
+
+```bash
+find . -name "[0-9]*" | xargs grep -A 1 "tags" | grep -e "---"
+```

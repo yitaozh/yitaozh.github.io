@@ -40,6 +40,11 @@ Output: [[1]]
 
 * `1 <= n <= 8`
 
+## Hints/Notes
+
+* Draw the tree
+* Dynamic programming
+
 ## Solution
 
 Language: **C++**

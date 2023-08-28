@@ -40,6 +40,11 @@ Output: 1
 
 * `1 <= n <= 19`
 
+## Hints/Notes
+
+* Draw the tree
+* Dynamic programming
+
 ## Solution
 
 Language: **C++**

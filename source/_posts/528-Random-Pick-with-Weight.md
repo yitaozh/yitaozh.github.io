@@ -83,8 +83,6 @@ and so on.
 Language: **C++**
 
 ```C++
-#include <random>
-
 class Solution {
 public:
     vector<int> preSum;
@@ -102,14 +100,13 @@ public:
         while (left <= right) {
             int mid = left + (right - left) / 2;
             if (preSum[mid] == r) {
-                right = mid - 1;
+                return mid;
             } else if (preSum[mid] < r) {
                 left = mid + 1;
             } else if (preSum[mid] > r) {
                 right = mid - 1;
             }
         }
-        // [Why we don't need left++](https://github.com/labuladong/fucking-algorithm/discussions/1011#discussioncomment-4656581)
         return left;
     }
 };

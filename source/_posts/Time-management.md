@@ -12,26 +12,52 @@ hidden: true
 
 ## Weekday
 
-### U.S. time
+### U.S. time (WFH)
 
 | Schedule                  | Start     | End       | Comment           |
 | :------------------------ | :-------- | :-------- | :---------------- |
 | Get up / Shower           | 08:45     | 09:00     | Kettle            |
 | Breakfast                 | 09:00     | 09:15     |                   |
-| BaiCiZhan / Mint          | 09:15     | 09:30     |                   |
+| BaiCiZhan / Youdao        | 09:15     | 09:30     |                   |
 | Planning / Life           | 09:30     | 10:00     |                   |
 | Leetcode                  | 10:00     | 11:00     |                   |
 | Meeting                   | 11:00     | 11:30     |                   |
-| DDIA                      | 11:30     | 12:30     |                   |
-| Work                      | 12:30     | ?         | Wake up Awei      |
+| Work                      | 11:30     | ?         | Wake up Awei      |
 | Lunch                     | ?         | ? + 1 Hour|                   |
-| Work                      | ? + 1 Hour| 15:30     |                   |
-| Work                      | 15:30     | 18:00     |                   |
-| Walk                      | 18:00     | 19:00     |                   |
-| Run                       | 19:00     | 20:00     |                   |
-| Shower                    | 20:00     | 20:30     |                   |
-| TV                        | 20:30     | 23:00     |                   |
-| Entertainment             | 23:00     | 01:00     |                   |
+| Work                      | ? + 1 Hour| 18:00     |                   |
+| Run                       | 18:00     | 19:00     |                   |
+| Shower                    | 19:00     | 19:30     |                   |
+| Walk                      | 19:30     | 20:30     |                   |
+| TV                        | 20:30     | 22:30     |                   |
+| MIT class                 | 22:30     | 23:00     |                   |
+| Revision                  | 23:00     | 23:30     |                   |
+| DDIA                      | 23:30     | 00:00     |                   |
+| Entertainment             | 00:00     | 01:15     |                   |
+| Reading                   | 01:15     | 01:45     |                   |
+| Sleep                     | 01:45     | 08:45     |                   |
+
+### U.S. time (RTO)
+
+| Schedule                  | Start     | End       | Comment           |
+| :------------------------ | :-------- | :-------- | :---------------- |
+| Get up / Shower           | 08:45     | 09:00     | Kettle            |
+| Breakfast                 | 09:00     | 09:15     |                   |
+| BaiCiZhan / Youdao        | 09:15     | 10:00     | Commute           |
+| Planning / Leetcode       | 10:00     | 10:30     |                   |
+| Pending                   | 10:30     | 11:00     |                   |
+| Meeting                   | 11:00     | 11:30     |                   |
+| Work                      | 11:30     | ?         |                   |
+| Lunch                     | ?         | ? + 1 Hour|                   |
+| Work                      | ? + 1 Hour| 17:45     |                   |
+| Prodcast                  | 17:45     | 18:30     | Commute           |
+| Run                       | 18:30     | 19:30     |                   |
+| Shower                    | 19:30     | 19:45     |                   |
+| Walk                      | 19:45     | 20:30     |                   |
+| TV                        | 20:30     | 22:00     |                   |
+| Leetcode                  | 22:00     | 23:00     |                   |
+| Leetcode Revision         | 23:00     | 23:30     |                   |
+| DDIA                      | 23:30     | 00:00     |                   |
+| Entertainment             | 00:00     | 01:15     |                   |
 | Reading                   | 01:15     | 01:45     |                   |
 | Sleep                     | 01:45     | 08:45     |                   |
 

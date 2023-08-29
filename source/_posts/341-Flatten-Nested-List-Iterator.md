@@ -3,6 +3,12 @@ title: 341. Flatten Nested List Iterator
 categories: Leetcode
 date: 2023-08-28 23:22:29
 tags:
+    - Stack
+    - Tree
+    - Depth-First Search
+    - Design
+    - Queue
+    - Iterator
 ---
 
 # [341\. Flatten Nested List Iterator](https://leetcode.com/problems/flatten-nested-list-iterator/)

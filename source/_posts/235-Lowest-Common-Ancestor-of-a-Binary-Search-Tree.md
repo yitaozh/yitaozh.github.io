@@ -56,6 +56,10 @@ Output: 2
 * `p != q`
 * `p` and `q` will exist in the BST.
 
+## Hints/Notes
+
+* It's binary serach tree, we can use the property of this data structure
+
 ## Solution
 
 Language: **C++**

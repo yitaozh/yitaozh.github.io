@@ -59,6 +59,11 @@ Explanation: The lowest common ancestor of the nodes 7, 6, 2, and 4 is node 5.
 * All `nodes[i]` will exist in the tree.
 * All `nodes[i]` are distinct.
 
+## Hints/Notes
+
+* Since every node exists, we can just return when we find the first item in the list
+* It's the same as find the LCA of two nodes
+
 ## Solution
 
 Language: **C++**

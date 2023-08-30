@@ -55,6 +55,10 @@ Output: 1
 * `p != q`
 * `p` and `q` will exist in the tree.
 
+## Hints/Notes
+
+* think about what we are going to do with each node
+
 ## Solution
 
 Language: **C++**

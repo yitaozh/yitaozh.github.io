@@ -59,6 +59,10 @@ Explanation: Node 10 does not exist in the tree, so return null.
 
 **Follow up:** Can you find the LCA traversing the tree, without checking nodes existence?
 
+## Hints/Notes
+
+* We need to check all nodes, so it's postorder traverse
+
 ## Solution
 
 Language: **C++**

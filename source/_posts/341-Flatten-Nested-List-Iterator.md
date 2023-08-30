@@ -60,6 +60,11 @@ Explanation: By calling next repeatedly until hasNext returns false, the order o
 * `1 <= nestedList.length <= 500`
 * The values of the integers in the nested list is in the range [-10<sup>6</sup>, 10<sup>6</sup>].
 
+## Hints/Notes
+
+* we can do the traverse and generate the list during construction, or we can do the lazy iterator, which only check if there's next item when calling `hasNext()`
+* lazy iterator is better, and it needs us to change the vector when calling `hasNext()`
+
 ## Solution
 
 Language: **C++**

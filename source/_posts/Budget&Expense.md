@@ -15,10 +15,13 @@ Use the first and second week to submit reimbursements, do the bookkeeping on th
 #### Excel processing
 
 1. Dump the record from Mint to nyuzyt/Personal file/Transactions cvs file
-1. Insert a line in overall sheet prior to the previous record, then paste the new records
+1. Copy the cvs tables content, without the header
+1. Insert a line in overall sheet prior to the previous record, then "insert the copied cells"
 1. Create a new sheet for this month alone
-1. Remove the Loan accounts
+1. Copy from one previous month's sheet(all the way to comments), paste the column width
+1. Copy the records to this month's sheet
 1. Remove the Credit Card Payments
+1. Remove the Loan accounts
 1. Filter the records by account first
 1. Check each account, modify the catagory and mark the transactions as verfied
 1. Get a summary of how much money in total for each catogory

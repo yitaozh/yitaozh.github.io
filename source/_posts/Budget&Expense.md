@@ -62,6 +62,7 @@ Use the first and second week to submit reimbursements, do the bookkeeping on th
 | Network               | Utilities       |
 | Supply                | Utilities       |
 | Television            | Utilities       |
+| Auto                  | Utilities       |
 | Mortgage              | Mortgage & Rent |
 | HOA                   | Mortgage & Rent |
 | Air                   | Travel          |

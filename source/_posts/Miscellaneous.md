@@ -7,11 +7,11 @@ tags:
 
 ## Current blog
 
-[Git原理之最近公共祖先](https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-66994/git-yuan-l-ba4cf/)
+[二分图判定算法](https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-03a72/er-fen-tu--73400//)
 
 ## Last problem solved
 
-[235. Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
+[785. Is Graph Bipartite?](https://leetcode.com/problems/is-graph-bipartite/)
 
 ## The problems not recorded
 

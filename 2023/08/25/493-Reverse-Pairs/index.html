@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yitaozh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"author":"Echo Joy"},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="DescriptionDifficulty: undefined">
+    <meta name="description" content="493. Reverse PairsDescriptionDifficulty: Hard">
 <meta property="og:type" content="article">
 <meta property="og:title" content="493. Reverse Pairs">
 <meta property="og:url" content="https://yitaozh.github.io/2023/08/25/493-Reverse-Pairs/index.html">
 <meta property="og:site_name" content="Echo&#39;s Home">
-<meta property="og:description" content="DescriptionDifficulty: undefined">
+<meta property="og:description" content="493. Reverse PairsDescriptionDifficulty: Hard">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-08-25T00:29:56.000Z">
-<meta property="article:modified_time" content="2023-09-01T03:29:27.997Z">
+<meta property="article:modified_time" content="2023-09-01T03:55:12.140Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="Array">
 <meta property="article:tag" content="Binary Search">
@@ -120,7 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hints-x2F-Notes"><span class="nav-number">1.2.</span> <span class="nav-text">Hints&#x2F;Notes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">1.3.</span> <span class="nav-text">Solution</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#493-Reverse-Pairs"><span class="nav-number">1.</span> <span class="nav-text">493. Reverse Pairs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hints-x2F-Notes"><span class="nav-number">1.2.</span> <span class="nav-text">Hints&#x2F;Notes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">1.3.</span> <span class="nav-text">Solution</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -227,7 +227,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-09-01 03:29:27" itemprop="dateModified" datetime="2023-09-01T03:29:27+00:00">2023-09-01</time>
+      <time title="Modified: 2023-09-01 03:55:12" itemprop="dateModified" datetime="2023-09-01T03:55:12+00:00">2023-09-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -246,14 +246,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>1.2k</span>
+      <span>1.8k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
+      <span>2 mins.</span>
     </span>
 </div>
 
@@ -264,11 +264,28 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id=""><a href="#" class="headerlink" title=""></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/reverse-pairs/description/"></a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>undefined</strong></p>
+        <h1 id="493-Reverse-Pairs"><a href="#493-Reverse-Pairs" class="headerlink" title="493. Reverse Pairs"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/reverse-pairs/">493. Reverse Pairs</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Hard</strong></p>
 <p>Related Topics: <a target="_blank" rel="noopener" href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/https://leetcode.com/tag/binary-search//">Binary Search</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/https://leetcode.com/tag/divide-and-conquer//">Divide and Conquer</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/https://leetcode.com/tag/binary-indexed-tree//">Binary Indexed Tree</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/https://leetcode.com/tag/segment-tree//">Segment Tree</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/https://leetcode.com/tag/merge-sort//">Merge Sort</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/https://leetcode.com/tag/ordered-set//">Ordered Set</a></p>
+<p>Given an integer array <code>nums</code>, return <em>the number of <strong>reverse pairs</strong> in the array</em>.</p>
+<p>A <strong>reverse pair</strong> is a pair <code>(i, j)</code> where:</p>
+<ul>
+<li><code>0 &lt;= i &lt; j &lt; nums.length</code> and</li>
+<li><code>nums[i] &gt; 2 * nums[j]</code>.</li>
+</ul>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [1,3,2,3,1]</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: The reverse pairs are:</span><br><span class="line">(1, 4) --&gt; nums[1] = 3, nums[4] = 1, 3 &gt; 2 * 1</span><br><span class="line">(3, 4) --&gt; nums[3] = 3, nums[4] = 1, 3 &gt; 2 * 1</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [2,4,3,5,1]</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The reverse pairs are:</span><br><span class="line">(1, 4) --&gt; nums[1] = 4, nums[4] = 1, 4 &gt; 2 * 1</span><br><span class="line">(2, 4) --&gt; nums[2] = 3, nums[4] = 1, 3 &gt; 2 * 1</span><br><span class="line">(3, 4) --&gt; nums[3] = 5, nums[4] = 1, 5 &gt; 2 * 1</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; nums.length &lt;&#x3D; 5 * 10<sup>4</sup></li>
+<li>-2<sup>31</sup> &lt;&#x3D; nums[i] &lt;&#x3D; 2<sup>31</sup> - 1</li>
+</ul>
 <h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>merge sort</li>
-<li>improve time complixity</li>
+<li>improve time complexity</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; tmp;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">reversePairs</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> size = nums.<span class="built_in">size</span>();</span><br><span class="line">        tmp = <span class="built_in">vector</span>(size, <span class="number">0</span>);</span><br><span class="line">        <span class="built_in">sort</span>(nums, <span class="number">0</span>, size - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">sort</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> low, <span class="type">int</span> high)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (low &gt;= high) <span class="keyword">return</span>;</span><br><span class="line">        <span class="type">int</span> mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">        <span class="built_in">sort</span>(nums, low, mid);</span><br><span class="line">        <span class="built_in">sort</span>(nums, mid + <span class="number">1</span>, high);</span><br><span class="line">        <span class="built_in">merge</span>(nums, low, mid, high);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> low, <span class="type">int</span> mid, <span class="type">int</span> high)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = low; i &lt;= high; i++) &#123;</span><br><span class="line">            tmp[i] = nums[i];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> end = mid + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = low; i &lt;= mid; i++) &#123;</span><br><span class="line">            <span class="keyword">while</span> (end &lt;= high &amp;&amp; ((<span class="type">long</span>)nums[i] &gt; (<span class="type">long</span>)nums[end] * <span class="number">2</span>)) &#123;</span><br><span class="line">                end++;</span><br><span class="line">            &#125;</span><br><span class="line">            count += end - mid - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> p1 = low, p2 = mid + <span class="number">1</span>, index = low;</span><br><span class="line">        <span class="keyword">while</span> (index &lt;= high) &#123;</span><br><span class="line">            <span class="keyword">if</span> (p1 == mid + <span class="number">1</span>) &#123;</span><br><span class="line">                nums[index++] = tmp[p2++];</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (p2 == high + <span class="number">1</span>) &#123;</span><br><span class="line">                nums[index++] = tmp[p1++];</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tmp[p1] &gt; tmp[p2]) &#123;</span><br><span class="line">                nums[index++] = tmp[p2++];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                nums[index++] = tmp[p1++];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -333,13 +350,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">319k</span>
+    <span title="Word count total">320k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">4:50</span>
+    <span title="Reading time total">4:51</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>

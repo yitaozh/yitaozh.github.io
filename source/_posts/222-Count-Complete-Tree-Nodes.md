@@ -54,7 +54,7 @@ Output: 1
 
 ## Hints/Notes
 
-* Check if it's a full BST  to improve the time complexity
+* Check if it's a full BST to improve the time complexity
 
 ## Solution
 

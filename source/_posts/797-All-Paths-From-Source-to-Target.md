@@ -49,6 +49,10 @@ Output: [[0,4],[0,3,4],[0,1,3,4],[0,1,2,3,4],[0,1,4]]
 * All the elements of `graph[i]` are **unique**.
 * The input graph is **guaranteed** to be a **DAG**.
 
+## Hints/Notes
+
+* Traverse the graph, add node to the path when entering and remove the node from the path when exiting
+
 ## Solution
 
 Language: **C++**

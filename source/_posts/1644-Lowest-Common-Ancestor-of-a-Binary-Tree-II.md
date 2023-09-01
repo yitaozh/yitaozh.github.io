@@ -61,7 +61,7 @@ Explanation: Node 10 does not exist in the tree, so return null.
 
 ## Hints/Notes
 
-* We need to check all nodes, so it's postorder traverse
+* It's possible that the nodes don't exist, so we need to check every node, so it's postorder traverse
 
 ## Solution
 

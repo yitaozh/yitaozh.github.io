@@ -49,7 +49,8 @@ Output: [3,2,1,4,5]
 
 ## Hints/Notes
 
-* Recursive
+* Check if there are k nodes, otherwise just return head
+* Reverse(head, tail), then apply the function to further nodes
 
 ```C++
 class Solution {

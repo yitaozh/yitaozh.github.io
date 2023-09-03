@@ -7,11 +7,11 @@ tags:
 
 ## Current blog
 
-[二分图判定算法](https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-03a72/er-fen-tu--73400//)
+[Kruskal 最小生成树算法](https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-03a72/kruskal-zu-e6b5b/)
 
 ## Last problem solved
 
-[785. Is Graph Bipartite?](https://leetcode.com/problems/is-graph-bipartite/)
+New page
 
 ## The problems not recorded
 

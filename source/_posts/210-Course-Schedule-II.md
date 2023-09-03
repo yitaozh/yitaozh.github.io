@@ -54,6 +54,7 @@ Output: [0]
 
 ## Hints/Notes
 
+* Build the graph first
 * Use postOrder to record the route
 * Reverse the postOrder to get the topology
 

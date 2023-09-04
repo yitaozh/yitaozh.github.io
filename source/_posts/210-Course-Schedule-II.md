@@ -56,6 +56,7 @@ Output: [0]
 
 * Build the graph first
 * Use postOrder to record the route
+* We don't use the preOrder because for each node, we don't know if there's prerequisite
 * Reverse the postOrder to get the topology
 
 ## Solution

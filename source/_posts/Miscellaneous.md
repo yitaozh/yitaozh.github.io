@@ -7,7 +7,7 @@ tags:
 
 ## Current blog
 
-[Kruskal 最小生成树算法](https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-03a72/kruskal-zu-e6b5b/)
+[Prim 最小生成树算法](https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-03a72/prim-zui-x-0ef51/)
 
 ## Last problem solved
 

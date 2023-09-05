@@ -47,7 +47,8 @@ Output: 18
 
 ## Hints/Notes
 
-* Kruskal algorithm
+* Kruskal's algorithm
+* Prim's algorithm
 * cpp sort performance is worse than priority queue
 * Use count(number of separarte items) to return early
 
@@ -100,6 +101,62 @@ public:
             parent[node] = find(parent[node]);
         }
         return parent[node];
+    }
+};
+```
+
+Prim's algorithm
+
+```C++
+class Solution {
+public:
+    priority_queue<vector<int>, vector<vector<int>>, greater<vector<int>>> pq;
+    vector<vector<vector<int>>> edges;
+    vector<bool> visited;
+
+    int minCostConnectPoints(vector<vector<int>>& points) {
+        int size = points.size();
+        edges = vector<vector<vector<int>>>(size, vector<vector<int>>());
+        visited = vector<bool>(size, false);
+        for (int i = 0; i < size; i++) {
+            for (int j = i + 1; j < size; j++) {
+                int distance = abs(points[i][0] - points[j][0]) + abs(points[i][1] - points[j][1]);
+                edges[i].push_back({distance, j});
+                edges[j].push_back({distance, i});
+            }
+        }
+
+        int sum = 0;
+        int count = 1;
+        cut(0);
+        visited[0] = true;
+
+        while (!pq.empty()) {
+            auto edge = pq.top();
+            pq.pop();
+            int to = edge[1];
+            if (visited[to]) {
+                continue;
+            }
+            int w = edge[0];
+            sum += w;
+            count++;
+            if (count == size) break;
+            cut(to);
+            visited[to] = true;
+        }
+
+        return sum;
+    }
+
+    void cut(int node) {
+        for (auto edge : edges[node]) {
+            int to = edge[1];
+            if (!visited[to]) {
+                int w = edge[0];
+                pq.push({w, to});
+            }
+        }
     }
 };
 ```

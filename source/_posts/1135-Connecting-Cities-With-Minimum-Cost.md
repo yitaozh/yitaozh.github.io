@@ -54,7 +54,8 @@ Explanation: There is no way to connect all cities even if all edges are used.
 
 ## Hints/Notes
 
-* Kruskal algorithm, i.e. union find + weight
+* Kruskal's algorithm: union find + weight
+* Prim's algorithm: BST + priority queue
 
 ## Solution
 
@@ -101,5 +102,61 @@ public:
         }
         return parent[node];
     }
+};
+```
+
+Prim's algorithm
+
+```C++
+class Solution {
+public:
+    vector<vector<vector<int>>> graph;
+    vector<bool> visited;
+    priority_queue<vector<int>, vector<vector<int>>, greater<vector<int>>> pq;
+
+    int minimumCost(int n, vector<vector<int>>& connections) {
+        int count = n;
+        graph = vector<vector<vector<int>>>(n + 1, vector<vector<int>>());
+        visited = vector<bool>(n + 1, false);
+
+        for (auto connection : connections) {
+            int p = connection[0];
+            int q = connection[1];
+            int w = connection[2];
+            graph[p].push_back({w, q});
+            graph[q].push_back({w, p});
+        }
+
+        int cost = 0;
+        visited[1] = true;
+        cut(1);
+        while (!pq.empty()) {
+            vector<int> pair = pq.top();
+            pq.pop();
+            int node = pair[1];
+            if (visited[node]) {
+                continue;
+            }
+            n--;
+            int w = pair[0];
+            visited[node] = true;
+            cost += w;
+            cut(node);
+        }
+
+        return n == 1 ? cost : -1;
+    }
+
+    void cut(int node) {
+        for (auto edge : graph[node]) {
+            int to = edge[1];
+            if (visited[to]) {
+                continue;
+            } else {
+                int w = edge[0];
+                pq.push({w, to});
+            }
+        }
+    }
 };
 ```

@@ -55,7 +55,7 @@ Explanation: There is no way to connect all cities even if all edges are used.
 ## Hints/Notes
 
 * Kruskal's algorithm: union find + weight
-* Prim's algorithm: BST + priority queue
+* Prim's algorithm: BFS + priority queue
 
 ## Solution
 

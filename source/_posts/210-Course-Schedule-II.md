@@ -3,6 +3,10 @@ title: 210. Course Schedule II
 categories: Leetcode
 date: 2023-09-01 12:43:27
 tags:
+    - Depth-First
+    - Breadth-First Search
+    - Graph
+    - Topological Sort
 ---
 
 # [210\. Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)

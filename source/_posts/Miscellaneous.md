@@ -7,11 +7,11 @@ tags:
 
 ## Current blog
 
-[Prim 最小生成树算法](https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-03a72/prim-zui-x-0ef51/)
+[Dijkstra 算法模板及应用](https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-03a72/dijkstra-s-6d0b2/)
 
 ## Last problem solved
 
-New page
+[743. Network Delay Time](https://leetcode.com/problems/network-delay-time/)
 
 ## The problems not recorded
 

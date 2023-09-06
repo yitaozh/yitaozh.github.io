@@ -3,6 +3,10 @@ title: 1584. Min Cost to Connect All Points
 categories: Leetcode
 date: 2023-09-04 00:07:07
 tags:
+    - Array
+    - Union Find
+    - Graph
+    - Minimum Spanning Tree
 ---
 
 # [1584\. Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/)

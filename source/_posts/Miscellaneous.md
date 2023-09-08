@@ -7,11 +7,15 @@ tags:
 
 ## Current blog
 
-[Dijkstra 算法模板及应用](https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-03a72/dijkstra-s-6d0b2/)
+[单调栈结构解决三道算法题](https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-daeca/dan-diao-z-1bebe/)
 
 ## Last problem solved
 
-[743. Network Delay Time](https://leetcode.com/problems/network-delay-time/)
+~~Problem: [743. Network Delay Time](https://leetcode.com/problems/network-delay-time/)~~
+
+Or
+
+New page
 
 ## The problems not recorded
 

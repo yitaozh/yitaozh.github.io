@@ -60,6 +60,8 @@ Output: 18
 
 Language: **C++**
 
+Kruskal's algorithm
+
 ```C++
 class Solution {
 public:

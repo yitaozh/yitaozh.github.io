@@ -61,6 +61,8 @@ Explanation: There is no way to connect all cities even if all edges are used.
 
 Language: **C++**
 
+Kruskal's algorithm
+
 ```C++
 class Solution {
 public:

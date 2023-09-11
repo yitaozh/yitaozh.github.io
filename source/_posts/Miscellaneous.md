@@ -7,15 +7,11 @@ tags:
 
 ## Current blog
 
-[单调栈结构解决三道算法题](https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-daeca/dan-diao-z-1bebe/)
+[单调队列结构解决滑动窗口问题](https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-daeca/dan-diao-d-32cd5/)
 
 ## Last problem solved
 
-~~Problem: [743. Network Delay Time](https://leetcode.com/problems/network-delay-time/)~~
-
-Or
-
-New page
+- [ ] Problem: [743. Network Delay Time](https://leetcode.com/problems/network-delay-time/)
 
 ## The problems not recorded
 

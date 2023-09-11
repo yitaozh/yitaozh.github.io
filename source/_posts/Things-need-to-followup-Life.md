@@ -15,7 +15,6 @@ hidden: true
 
 ## Do this today
 
-1. Apply for the global debit card
 1. The overcharged dentist fee, i don't think i should be charged $600
 1. The amazon card points, it's wrongly calculated, $77.6 on 3/18
     - Sent a message 07/24/2023
@@ -65,3 +64,4 @@ hidden: true
     - GXQQTY got canceled(likely the electonic issue)
     - Purchased later tickets MNATQC, total $303.20, there are $86 left for each ticket
     - Well, since i am not going to book with AA this year, no need to follow this
+1. Apply for the global debit card

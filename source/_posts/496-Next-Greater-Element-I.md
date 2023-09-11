@@ -57,7 +57,7 @@ Explanation: The next greater element for each value of nums1 is as follows:
 
 ## Hints/Notes
 
-* Use stack
+* Monotonic Stack
 
 ## Solution
 

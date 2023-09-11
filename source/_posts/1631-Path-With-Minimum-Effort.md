@@ -66,7 +66,7 @@ Explanation: This route does not require any effort.
 
 ## Hints/Notes
 
-* Dijkstra algorithm
+* Dijkstra algorithm: BFS with dp table
 
 ## Solution
 

@@ -49,6 +49,7 @@ Output: 1
 ## Hints/Notes
 
 * Merge sort
+* Next revision should re-implement this
 
 ## Solution
 

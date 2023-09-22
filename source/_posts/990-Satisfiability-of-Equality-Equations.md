@@ -50,6 +50,8 @@ Explanation: We could assign a = 1 and b = 1 to satisfy both equations.
 ## Hints/Notes
 
 * Union find
+* Handle the equation first, make the letters connected(have the same root)
+* Check the inequality next
 
 ## Solution
 

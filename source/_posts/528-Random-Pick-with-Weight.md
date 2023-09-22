@@ -76,7 +76,9 @@ and so on.
 
 * preSum
 * binary search to find the left boundry
-* if the number doesn't exist, we can iterpret the return as where it ought to be in the array
+* if the number doesn't exist, we can iterpret the return as
+  * where it ought to be in the array
+  * the index of value > target
 
 ## Solution
 
@@ -97,10 +99,17 @@ public:
     int pickIndex() {
         int r = rand() % preSum.back() + 1;
         int left = 0, right = preSum.size() - 1;
+        // 1, 2, 3, 5, 8
+        // r = 4
+        //
+        // 1. left = 2, right = 2
+        // preSum[mid] < 4, left = mid + 1 = 3, right = 2
+        // 2. left = 3, right = 3
+        // preSum[mid] > 4, left = 3, right = 2
         while (left <= right) {
             int mid = left + (right - left) / 2;
             if (preSum[mid] == r) {
-                return mid;
+                return mid - 1;
             } else if (preSum[mid] < r) {
                 left = mid + 1;
             } else if (preSum[mid] > r) {

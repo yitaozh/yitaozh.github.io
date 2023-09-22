@@ -54,6 +54,12 @@ public:
 }
 ```
 
+### Details
+
+* Compile a map to record needing characters first
+* Sliding window, use a map to record in window characters, use a variable(valid) to record
+number of characters satisfy the occurance requirement
+
 ## Solution
 
 Language: **C++**

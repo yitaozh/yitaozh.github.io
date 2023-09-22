@@ -87,6 +87,7 @@ public:
         }
         int idx = valToIndex[val];
         int last = vals.back();
+        // it's to remove the value from array in O(1)
         vals[idx] = last;
         valToIndex[last] = idx;
         vals.pop_back();

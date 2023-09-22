@@ -49,7 +49,19 @@ Output: 1
 ## Hints/Notes
 
 * Merge sort
-* Next revision should re-implement this
+
+### Details
+
+First we need to calculate the preSum, since the problem is about range sum. But to get the
+number of range sum, the intuitive way is to check each preSum[i] against every preSum[j]
+where j > i. But this solution's time complexity is O(n^2). So we need to find a solution
+with better time complexity.
+
+The key requirement here is: for each preSum[i], we should find the preSum[j] (j > i) where
+min < preSum[j] - preSum[i] < max. If for one fixed preSum[i], all preSum[j] are sorted then
+it's easy to just find the lower and upper bound of j, and count = upper - lower. This implies
+that the problem can be solved with sorted fragments of the array, so merge sort would help
+here. We only need to add one step during the merge.
 
 ## Solution
 

@@ -50,7 +50,7 @@ The best way is to split it into [1,2,3] and [4,5], where the largest sum among 
 ## Hints/Notes
 
 * Read the problem: A subarray is a **contiguous** part of the array.
-* Use binary search and helper function
+* Use binary search and helper function to find the left boundary
 
 ## Solution
 
@@ -82,15 +82,15 @@ public:
             }
             right += num;
         }
-        while (left < right) {
+        while (left <= right) {
             int mid = left + (right - left) / 2;
             int subNum = subarrayNum(nums, mid);
             if (subNum == k) {
-                right = mid;
+                right = mid - 1;
             } else if (subNum > k) {
                 left = mid + 1;
             } else if (subNum < k) {
-                right = mid;
+                right = mid - 1;
             }
         }
         return left;

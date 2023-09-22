@@ -66,6 +66,9 @@ Explanation: There is no path between 0 and 2.
 ## Hints/Notes
 
 * Dijkstra algorithm
+* Since the algorithm requires positive edge weights, when dijkstra algorithm reaches the
+destination, we can early return since the accumulation of edge labels along any path must
+have a monotonically non-decreasing partial order
 
 ## Solution
 
@@ -91,6 +94,9 @@ public:
             pq.pop();
             double prob = point.first;
             int index = point.second;
+            if (index == end_node) {
+                return prob;
+            }
             if (probs[index] > prob) {
                 continue;
             }

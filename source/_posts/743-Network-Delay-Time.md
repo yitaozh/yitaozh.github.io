@@ -58,6 +58,7 @@ Output: -1
 ## Hints/Notes
 
 * Dijkstra algorithm
+* The dijkstra algorithm always try to find the shortest route from the root
 
 ## Solution
 
@@ -83,6 +84,8 @@ public:
 
             int distance = point[0];
             int to = point[1];
+            // it's possible that one route with more time is pushed before
+            // a better route, so the following condition would shortcut that
             if (distance > distances[to]) {
                 continue;
             }

@@ -84,3 +84,25 @@ public:
     }
 };
 ```
+
+stack solution
+
+```C++
+class Solution {
+public:
+    vector<int> res;
+
+    vector<int> preorderTraversal(TreeNode* root) {
+        stack<TreeNode*> s;
+        if (root) s.push(root);
+        while (!s.empty()) {
+            TreeNode* node = s.top();
+            s.pop();
+            res.push_back(node->val);
+            if (node->right) s.push(node->right);
+            if (node->left) s.push(node->left);
+        }
+        return res;
+    }
+};
+```

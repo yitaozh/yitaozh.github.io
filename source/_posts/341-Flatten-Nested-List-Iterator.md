@@ -64,6 +64,8 @@ Explanation: By calling next repeatedly until hasNext returns false, the order o
 
 * we can do the traverse and generate the list during construction, or we can do the lazy iterator, which only check if there's next item when calling `hasNext()`
 * lazy iterator is better, and it needs us to change the vector when calling `hasNext()`
+* deque provides the best performance, since we don't care about random access and deque
+allocates memory in large blocks
 
 ## Solution
 
@@ -71,44 +73,44 @@ Language: **C++**
 
 ```C++
 /**
- * // This is the interface that allows for creating nested lists.
- * // You should not implement it, or speculate about its implementation
- * class NestedInteger {
- *   public:
- *     // Return true if this NestedInteger holds a single integer, rather than a nested list.
- *     bool isInteger() const;
- *
- *     // Return the single integer that this NestedInteger holds, if it holds a single integer
- *     // The result is undefined if this NestedInteger holds a nested list
- *     int getInteger() const;
- *
- *     // Return the nested list that this NestedInteger holds, if it holds a nested list
- *     // The result is undefined if this NestedInteger holds a single integer
- *     const vector<NestedInteger> &getList() const;
- * };
- */
+ * // This is the interface that allows for creating nested lists.
+ * // You should not implement it, or speculate about its implementation
+ * class NestedInteger {
+ *   public:
+ *     // Return true if this NestedInteger holds a single integer, rather than a nested list.
+ *     bool isInteger() const;
+ *
+ *     // Return the single integer that this NestedInteger holds, if it holds a single integer
+ *     // The result is undefined if this NestedInteger holds a nested list
+ *     int getInteger() const;
+ *
+ *     // Return the nested list that this NestedInteger holds, if it holds a nested list
+ *     // The result is undefined if this NestedInteger holds a single integer
+ *     const vector<NestedInteger> &getList() const;
+ * };
+ */
 
 class NestedIterator {
 public:
-    vector<NestedInteger> res;
+    deque<NestedInteger> res;
 
     NestedIterator(vector<NestedInteger> &nestedList) {
         // res = new vector<NestedInteger>(nestedList);
-        res = nestedList;
+        res = deque<NestedInteger>(nestedList.begin(), nestedList.end());
     }
 
     int next() {
         int val = res.front().getInteger();
-        res.erase(res.begin());
+        res.pop_front();
         return val;
     }
 
     bool hasNext() {
         while (!res.empty() && res.front().isInteger() == false) {
             vector<NestedInteger> frontList = res.front().getList();
-            res.erase(res.begin());
+            res.pop_front();
             for (int i = frontList.size() - 1; i >= 0; i--) {
-                res.insert(res.begin(), frontList[i]);
+                res.push_front(frontList[i]);
             }
         }
         return !res.empty();

@@ -48,6 +48,8 @@ Explanation: We need at least 3 groups to divide them. We cannot put them in two
 ## Hints/Nodes
 
 * Build the map, then it's find bipartition of the graph
+* Use two vectors: visited and color
+* Use a global boolean ok for fast return
 
 ## Solution
 

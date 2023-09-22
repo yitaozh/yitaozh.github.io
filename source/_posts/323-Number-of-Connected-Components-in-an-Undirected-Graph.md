@@ -51,6 +51,8 @@ Output: 1
 ## Hints/Notes
 
 * union find
+* if the edge's two nodes are not connected previously, then minus the number of component
+(now they are connected)
 
 ## Solution
 

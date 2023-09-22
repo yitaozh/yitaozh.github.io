@@ -66,7 +66,7 @@ Explanation:
 
 ## Hints/Notes
 
-* Binary search
+* Binary search to find the left boundary
 * Helper function to get how many days with specific capacity
 
 ## Solution
@@ -99,15 +99,15 @@ public:
             }
             right += weight;
         }
-        while (left < right) {
+        while (left <= right) {
             int mid = left + (right - left) / 2;
             int time = shipTime(weights, mid);
             if (time == days) {
-                right = mid;
+                right = mid - 1;
             } else if (time > days) {
                 left = mid + 1;
             } else if (time < days) {
-                right = mid;
+                right = mid - 1;
             }
         }
         return left;

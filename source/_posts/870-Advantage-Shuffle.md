@@ -43,8 +43,8 @@ Output: [24,32,8,12]
 
 ## Hints/Notes
 
-* Use the priority queue for nums2
-* Need a write personally
+* Use priority queue for nums2, also we need to record the index for each value
+* Need to allocate a new res vector for return, nums1 records sorted array
 
 ```C++
 class Solution {

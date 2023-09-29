@@ -71,7 +71,7 @@ public:
         onPath = vector<bool>(numCourses, false);
 
         for (auto pair : prerequisites) {
-            int from = pair[1], to = pair[0];
+            int from = pair[0], to = pair[1];
             graph[from].push_back(to);
         }
 
@@ -86,7 +86,7 @@ public:
             can = false;
         }
 
-        if (onPath[node] || visited[node]) {
+        if (!can || visited[node]) {
             return;
         }
 

@@ -60,8 +60,6 @@ Output: [0]
 
 * Build the graph first
 * Use postOrder to record the route
-* We don't use the preOrder because for each node, we don't know if there's prerequisite
-* Reverse the postOrder to get the topology
 
 ## Solution
 
@@ -82,7 +80,7 @@ public:
         onPath = vector<bool>(numCourses, false);
 
         for (auto pair : prerequisites) {
-            int from = pair[1], to = pair[0];
+            int from = pair[0], to = pair[1];
             graph[from].push_back(to);
         }
 
@@ -93,8 +91,6 @@ public:
         if (!can) {
             return vector<int>();
         }
-
-        reverse(postOrder.begin(), postOrder.end());
 
         return postOrder;
     }

@@ -58,7 +58,7 @@ Output: [[2,3],[3]]
 ## Hints/Notes
 
 * Serialize the (sub)tree to check if there's duplicate
-* Use map the avoid the duplicate in return
+* Use map the avoid the duplicate in return, only push to res when freq[seri] == 1
 
 ## Solution
 

@@ -52,6 +52,7 @@ Output: [[0,4],[0,3,4],[0,1,3,4],[0,1,2,3,4],[0,1,4]]
 ## Hints/Notes
 
 * Traverse the graph, add node to the path when entering and remove the node from the path when exiting
+* DAG, i.e. directed acyclic graph, so there's no cycle
 
 ## Solution
 

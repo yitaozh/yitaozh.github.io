@@ -65,23 +65,27 @@ tags:
 ## Reliable, scalable, and maintainable applications
 
 A data-intensive application is typically built from standard building blocks. They usually need to:
-* Store data (_databases_)
-* Speed up reads (_caches_)
-* Search data (_search indexes_)
-* Send a message to another process asynchronously (_stream processing_)
-* Periodically crunch data (_batch processing_)
 
-* **Reliability**. To work _correctly_ even in the face of _adversity_.
-* **Scalability**. Reasonable ways of dealing with growth.
-* **Maintainability**. Be able to work on it _productively_.
+- Store data (_databases_)
+- Speed up reads (_caches_)
+- Search data (_search indexes_)
+- Send a message to another process asynchronously (_stream processing_)
+- Periodically crunch data (_batch processing_)
+
+3 concenrs that are important in most software systems:
+
+- **Reliability**. To work _correctly_ even in the face of _adversity_.
+- **Scalability**. Reasonable ways of dealing with growth.
+- **Maintainability**. Be able to work on it _productively_.
 
 ### Reliability
 
 Typical expectations:
-* Application performs the function the user expected
-* Tolerate the user making mistakes
-* Its performance is good
-* The system prevents abuse
+
+- Application performs the function the user expected
+- Tolerate the user making mistakes
+- Its performance is good
+- The system prevents abuse
 
 Systems that anticipate faults and can cope with them are called _fault-tolerant_ or _resilient_.
 
@@ -89,15 +93,15 @@ Systems that anticipate faults and can cope with them are called _fault-tolerant
 
 You should generally **prefer tolerating faults over preventing faults**.
 
-* **Hardware faults**. Until recently redundancy of hardware components was sufficient for most applications. As data volumes increase, more applications use a larger number of machines, proportionally increasing the rate of hardware faults. **There is a move towards systems that tolerate the loss of entire machines**. A system that tolerates machine failure can be patched one node at a time, without downtime of the entire system (_rolling upgrade_).
-* **Software errors**. It is unlikely that a large number of hardware components will fail at the same time. Software errors are a systematic error within the system, they tend to cause many more system failures than uncorrelated hardware faults.
-* **Human errors**. Humans are known to be unreliable. Configuration errors by operators are a leading cause of outages. You can make systems more reliable:
-    - Minimising the opportunities for error, peg: with admin interfaces that make easy to do the "right thing" and discourage the "wrong thing".
-    - Provide fully featured non-production _sandbox_ environments where people can explore and experiment safely.
-    - Automated testing.
-    - Quick and easy recovery from human error, fast to rollback configuration changes, roll out new code gradually and tools to recompute data.
-    - Set up detailed and clear monitoring, such as performance metrics and error rates (_telemetry_).
-    - Implement good management practices and training.
+- **Hardware faults**. Until recently redundancy of hardware components was sufficient for most applications. As data volumes increase, more applications use a larger number of machines, proportionally increasing the rate of hardware faults. **There is a move towards systems that tolerate the loss of entire machines**. A system that tolerates machine failure can be patched one node at a time, without downtime of the entire system (_rolling upgrade_).
+- **Software errors**. It is unlikely that a large number of hardware components will fail at the same time. Software errors are a systematic error within the system, they tend to cause many more system failures than uncorrelated hardware faults.
+- **Human errors**. Humans are known to be unreliable. Configuration errors by operators are a leading cause of outages. You can make systems more reliable:
+  - Minimising the opportunities for error, peg: with admin interfaces that make easy to do the "right thing" and discourage the "wrong thing".
+  - Provide fully featured non-production _sandbox_ environments where people can explore and experiment safely.
+  - Automated testing.
+  - Quick and easy recovery from human error, fast to rollback configuration changes, roll out new code gradually and tools to recompute data.
+  - Set up detailed and clear monitoring, such as performance metrics and error rates (_telemetry_).
+  - Implement good management practices and training.
 
 ### Scalability
 
@@ -108,10 +112,12 @@ This is how do we cope with increased load. We need to succinctly describe the c
 #### Twitter example
 
 Twitter main operations
+
 - Post tweet: a user can publish a new message to their followers (4.6k req/sec, over 12k req/sec peak)
 - Home timeline: a user can view tweets posted by the people they follow (300k req/sec)
 
 Two ways of implementing those operations:
+
 1. Posting a tweet simply inserts the new tweet into a global collection of tweets. When a user requests their home timeline, look up all the people they follow, find all the tweets for those users, and merge them (sorted by time). This could be done with a SQL `JOIN`.
 2. Maintain a cache for each user's home timeline. When a user _posts a tweet_, look up all the people who follow that user, and insert the new tweet into each of their home timeline caches.
 
@@ -126,19 +132,22 @@ Twitter moved to an hybrid of both approaches. Tweets continue to be fanned out 
 #### Describing performance
 
 What happens when the load increases:
-* How is the performance affected?
-* How much do you need to increase your resources?
+
+- How is the performance affected?
+- How much do you need to increase your resources?
 
 In a batch processing system such as Hadoop, we usually care about _throughput_, or the number of records we can process per second.
 
 > ##### Latency and response time
+>
 > The response time is what the client sees. Latency is the duration that a request is waiting to be handled.
 
 It's common to see the _average_ response time of a service reported. However, the mean is not very good metric if you want to know your "typical" response time, it does not tell you how many users actually experienced that delay.
 
 **Better to use percentiles.**
-* _Median_ (_50th percentile_ or _p50_). Half of user requests are served in less than the median response time, and the other half take longer than the median
-* Percentiles _95th_, _99th_ and _99.9th_ (_p95_, _p99_ and _p999_) are good to figure out how bad your outliners are.
+
+- _Median_ (_50th percentile_ or _p50_). Half of user requests are served in less than the median response time, and the other half take longer than the median
+- Percentiles _95th_, _99th_ and _99.9th_ (_p95_, _p99_ and _p999_) are good to figure out how bad your outliners are.
 
 Amazon describes response time requirements for internal services in terms of the 99.9th percentile because the customers with the slowest requests are often those who have the most data. The most valuable customers.
 
@@ -152,37 +161,40 @@ Queueing delays often account for large part of the response times at high perce
 When generating load artificially, the client needs to keep sending requests independently of the response time.
 
 > ##### Percentiles in practice
+>
 > Calls in parallel, the end-user request still needs to wait for the slowest of the parallel calls to complete.
 > The chance of getting a slow call increases if an end-user request requires multiple backend calls.
 
 #### Approaches for coping with load
 
-* _Scaling up_ or _vertical scaling_: Moving to a more powerful machine
-* _Scaling out_ or _horizontal scaling_: Distributing the load across multiple smaller machines.
-* _Elastic_ systems: Automatically add computing resources when detected load increase. Quite useful if load is unpredictable.
+- _Scaling up_ or _vertical scaling_: Moving to a more powerful machine
+- _Scaling out_ or _horizontal scaling_: Distributing the load across multiple smaller machines.
+- _Elastic_ systems: Automatically add computing resources when detected load increase. Quite useful if load is unpredictable.
 
 Distributing stateless services across multiple machines is fairly straightforward. Taking stateful data systems from a single node to a distributed setup can introduce a lot of complexity. Until recently it was common wisdom to keep your database on a single node.
 
 ### Maintainability
 
 The majority of the cost of software is in its ongoing maintenance. There are three design principles for software systems:
-* **Operability**. Make it easy for operation teams to keep the system running.
-* **Simplicity**. Easy for new engineers to understand the system by removing as much complexity as possible.
-* **Evolvability**. Make it easy for engineers to make changes to the system in the future.
+
+- **Operability**. Make it easy for operation teams to keep the system running.
+- **Simplicity**. Easy for new engineers to understand the system by removing as much complexity as possible.
+- **Evolvability**. Make it easy for engineers to make changes to the system in the future.
 
 #### Operability: making life easy for operations
 
 A good operations team is responsible for
-* Monitoring and quickly restoring service if it goes into bad state
-* Tracking down the cause of problems
-* Keeping software and platforms up to date
-* Keeping tabs on how different systems affect each other
-* Anticipating future problems
-* Establishing good practices and tools for development
-* Perform complex maintenance tasks, like platform migration
-* Maintaining the security of the system
-* Defining processes that make operations predictable
-* Preserving the organisation's knowledge about the system
+
+- Monitoring and quickly restoring service if it goes into bad state
+- Tracking down the cause of problems
+- Keeping software and platforms up to date
+- Keeping tabs on how different systems affect each other
+- Anticipating future problems
+- Establishing good practices and tools for development
+- Perform complex maintenance tasks, like platform migration
+- Maintaining the security of the system
+- Defining processes that make operations predictable
+- Preserving the organisation's knowledge about the system
 
 **Good operability means making routine tasks easy.**
 
@@ -200,8 +212,8 @@ _Agile_ working patterns provide a framework for adapting to change.
 
 ---
 
-* _Functional requirements_: what the application should do
-* _Nonfunctional requirements_: general properties like security, reliability, compliance, scalability, compatibility and maintainability.
+- _Functional requirements_: what the application should do
+- _Nonfunctional requirements_: general properties like security, reliability, compliance, scalability, compatibility and maintainability.
 
 ---
 

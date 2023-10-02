@@ -11,7 +11,7 @@ tags:
 
 ## Last problem solved
 
-New page.
+206 in the folder, 8/2.
 
 ~~[743. Network Delay Time](https://leetcode.com/problems/network-delay-time/)~~
 

@@ -55,7 +55,7 @@ Output: [0]
 ## Hints/Notes
 
 * Dummy pointer
-* Some edge cases: list is empty(prior or after the while loop)
+* After one list is exhausted, we can just link the remaining of other list to the new list. The corner case that one list is empty is covered with this handling.
 
 ## Solution
 

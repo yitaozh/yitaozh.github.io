@@ -6094,7 +6094,7 @@
     <title>Miscellaneous</title>
     <url>/2023/02/07/Miscellaneous/</url>
     <content><![CDATA[<h2 id="Current-blog"><a href="#Current-blog" class="headerlink" title="Current blog"></a>Current blog</h2><p><a href="https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-daeca/suan-fa-ji-8674e/">算法就像搭乐高：带你手撸 LRU 算法</a></p>
-<h2 id="Last-problem-solved"><a href="#Last-problem-solved" class="headerlink" title="Last problem solved"></a>Last problem solved</h2><p>New page.</p>
+<h2 id="Last-problem-solved"><a href="#Last-problem-solved" class="headerlink" title="Last problem solved"></a>Last problem solved</h2><p>206 in the folder, 8&#x2F;2.</p>
 <p><del><a href="https://leetcode.com/problems/network-delay-time/">743. Network Delay Time</a></del></p>
 <h2 id="The-problems-not-recorded"><a href="#The-problems-not-recorded" class="headerlink" title="The problems not recorded"></a>The problems not recorded</h2><p>None</p>
 <h2 id="The-problems-not-noted"><a href="#The-problems-not-noted" class="headerlink" title="The problems not noted"></a>The problems not noted</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find . -name <span class="string">&quot;[0-9]*&quot;</span> |  xargs grep -L <span class="string">&quot;Hints&quot;</span></span><br></pre></td></tr></table></figure>

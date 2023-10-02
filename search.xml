@@ -1255,7 +1255,7 @@
 <hr>
 <h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Dummy pointer</li>
-<li>Some edge cases: list is empty(prior or after the while loop)</li>
+<li>After one list is exhausted, we can just link the remaining of other list to the new list. The corner case that one list is empty is covered with this handling.</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* list1, ListNode* list2)</span> </span>&#123;</span><br><span class="line">        ListNode* dummy = <span class="keyword">new</span> <span class="built_in">ListNode</span>(); ListNode* p = dummy;</span><br><span class="line">        <span class="keyword">while</span> (list1 != <span class="literal">nullptr</span> &amp;&amp; list2 != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (list1-&gt;val &lt; list2-&gt;val) &#123;</span><br><span class="line">                p-&gt;next = list1;</span><br><span class="line">                list1 = list1-&gt;next;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                p-&gt;next = list2;</span><br><span class="line">                list2 = list2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (list1 != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            p-&gt;next = list1;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            p-&gt;next = list2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -4385,22 +4385,17 @@
 </ul>
 <h2 id="Reliable-scalable-and-maintainable-applications"><a href="#Reliable-scalable-and-maintainable-applications" class="headerlink" title="Reliable, scalable, and maintainable applications"></a>Reliable, scalable, and maintainable applications</h2><p>A data-intensive application is typically built from standard building blocks. They usually need to:</p>
 <ul>
-<li><p>Store data (<em>databases</em>)</p>
-</li>
-<li><p>Speed up reads (<em>caches</em>)</p>
-</li>
-<li><p>Search data (<em>search indexes</em>)</p>
-</li>
-<li><p>Send a message to another process asynchronously (<em>stream processing</em>)</p>
-</li>
-<li><p>Periodically crunch data (<em>batch processing</em>)</p>
-</li>
-<li><p><strong>Reliability</strong>. To work <em>correctly</em> even in the face of <em>adversity</em>.</p>
-</li>
-<li><p><strong>Scalability</strong>. Reasonable ways of dealing with growth.</p>
-</li>
-<li><p><strong>Maintainability</strong>. Be able to work on it <em>productively</em>.</p>
-</li>
+<li>Store data (<em>databases</em>)</li>
+<li>Speed up reads (<em>caches</em>)</li>
+<li>Search data (<em>search indexes</em>)</li>
+<li>Send a message to another process asynchronously (<em>stream processing</em>)</li>
+<li>Periodically crunch data (<em>batch processing</em>)</li>
+</ul>
+<p>3 concenrs that are important in most software systems:</p>
+<ul>
+<li><strong>Reliability</strong>. To work <em>correctly</em> even in the face of <em>adversity</em>.</li>
+<li><strong>Scalability</strong>. Reasonable ways of dealing with growth.</li>
+<li><strong>Maintainability</strong>. Be able to work on it <em>productively</em>.</li>
 </ul>
 <h3 id="Reliability"><a href="#Reliability" class="headerlink" title="Reliability"></a>Reliability</h3><p>Typical expectations:</p>
 <ul>

@@ -47,7 +47,7 @@ Output: []
 
 ## Hints/Notes
 
-* Binary search tree
+* Use the property of BST
 
 ## Solution
 

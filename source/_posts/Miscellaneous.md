@@ -7,11 +7,11 @@ tags:
 
 ## Current blog
 
-[算法就像搭乐高：带你手撸 LRU 算法](https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-daeca/suan-fa-ji-8674e/)
+[算法就像搭乐高：带你手撸 LFU 算法](https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-daeca/suan-fa-ji-fb527/)
 
 ## Last problem solved
 
-206 in the folder, 8/2.
+New page.
 
 ~~[743. Network Delay Time](https://leetcode.com/problems/network-delay-time/)~~
 

@@ -22,7 +22,7 @@
 <li>1 &lt;&#x3D; days &lt;&#x3D; weights.length &lt;&#x3D; 5 * 10<sup>4</sup></li>
 <li><code>1 &lt;= weights[i] &lt;= 500</code></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Binary search to find the left boundary</li>
 <li>Helper function to get how many days with specific capacity</li>
 </ul>
@@ -56,7 +56,7 @@
 <li>The number of nodes in the tree is in the range [0, 10<sup>4</sup>].</li>
 <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Think about the tree’s left and right</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -95,7 +95,7 @@
 <li><code>preorder</code> is <strong>guaranteed</strong> to be the preorder traversal of the tree.</li>
 <li><code>inorder</code> is <strong>guaranteed</strong> to be the inorder traversal of the tree.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Draw the tree manually</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -144,7 +144,7 @@
 <ul>
 <li>0 &lt;&#x3D; n &lt;&#x3D; 10<sup>9</sup></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>No need to do the mapping, we can use switch during the loop</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -180,7 +180,7 @@
 <li><code>inorder</code> is <strong>guaranteed</strong> to be the inorder traversal of the tree.</li>
 <li><code>postorder</code> is <strong>guaranteed</strong> to be the postorder traversal of the tree.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Draw the tree and find the pattern of root’s location</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -218,7 +218,7 @@
 <li><code>1 &lt;= str1.length, str2.length &lt;= 1000</code></li>
 <li><code>str1</code> and <code>str2</code> consist of English uppercase letters.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Think about it methmatically, like str1 is k subStrings and str2 is l subStrings</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -254,7 +254,7 @@
 <li>0 &lt;&#x3D; from<sub>i</sub> &lt; to<sub>i</sub> &lt;&#x3D; 1000</li>
 <li>1 &lt;&#x3D; capacity &lt;&#x3D; 10<sup>5</sup></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Use the diff array</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -293,7 +293,7 @@
 <li>1 &lt;&#x3D; first<sub>i</sub> &lt;&#x3D; last<sub>i</sub> &lt;&#x3D; n</li>
 <li>1 &lt;&#x3D; seats<sub>i</sub> &lt;&#x3D; 10<sup>4</sup></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Use the diff array</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -332,7 +332,7 @@
 <li>x<sub>i</sub> !&#x3D; y<sub>i</sub></li>
 <li>0 &lt;&#x3D; cost<sub>i</sub> &lt;&#x3D; 10<sup>5</sup></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Kruskal’s algorithm: union find + weight</li>
 <li>Prim’s algorithm: BFS + priority queue</li>
 </ul>
@@ -372,7 +372,7 @@
 <li><code>0 &lt;= n &lt;= 37</code></li>
 <li>The answer is guaranteed to fit within a 32-bit integer, ie. <code>answer &lt;= 2^31 - 1</code>.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>just do it intuitively</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -413,7 +413,7 @@
 <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 <p><strong>Follow up:</strong> Can you flatten the tree in-place (with <code>O(1)</code> extra space)?</p>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Recursive, think about if the left and right node has been flattened</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -457,7 +457,7 @@
 <li>You may only use constant extra space.</li>
 <li>The recursive approach is fine. You may assume implicit stack space does not count as extra space for this problem.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>N&#x2F;A</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -502,7 +502,7 @@
 </ul>
 <p><strong>Follow up:</strong> Can you solve it using <code>O(1)</code> (i.e. constant) memory?</p>
 <hr>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Check if fast and slow pointers meet</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -544,7 +544,7 @@
 <li><code>pos</code> is <code>-1</code> or a <strong>valid index</strong> in the linked-list.</li>
 </ul>
 <p><strong>Follow up:</strong> Can you solve it using <code>O(1)</code> (i.e. constant) memory?</p>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Fast&#x2F;slow pointers</li>
 <li>Draw the circle</li>
 </ul>
@@ -582,7 +582,7 @@
 <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 <p><strong>Follow up:</strong> Recursive solution is trivial, could you do it iteratively?</p>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Use stack to solve it iteratively</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -600,6 +600,39 @@
         <tag>Binary Tree</tag>
         <tag>Stack</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>146. LRU Cache</title>
+    <url>/2023/10/03/146-LRU-Cache/</url>
+    <content><![CDATA[<h1 id="146-LRU-Cache"><a href="#146-LRU-Cache" class="headerlink" title="146. LRU Cache"></a><a href="https://leetcode.com/problems/lru-cache/">146. LRU Cache</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/linked-list//">Linked List</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/design//">Design</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/doubly-linked-list//">Doubly-Linked List</a></p>
+<p>Design a data structure that follows the constraints of a <strong><a href="https://en.wikipedia.org/wiki/Cache_replacement_policies#LRU">Least Recently Used (LRU) cache</a></strong>.</p>
+<p>Implement the <code>LRUCache</code> class:</p>
+<ul>
+<li><code>LRUCache(int capacity)</code> Initialize the LRU cache with <strong>positive</strong> size <code>capacity</code>.</li>
+<li><code>int get(int key)</code> Return the value of the <code>key</code> if the key exists, otherwise return <code>-1</code>.</li>
+<li><code>void put(int key, int value)</code> Update the value of the <code>key</code> if the <code>key</code> exists. Otherwise, add the <code>key-value</code> pair to the cache. If the number of keys exceeds the <code>capacity</code> from this operation, <strong>evict</strong> the least recently used key.</li>
+</ul>
+<p>The functions <code>get</code> and <code>put</code> must each run in <code>O(1)</code> average time complexity.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input</span><br><span class="line">[<span class="string">&quot;LRUCache&quot;</span>, <span class="string">&quot;put&quot;</span>, <span class="string">&quot;put&quot;</span>, <span class="string">&quot;get&quot;</span>, <span class="string">&quot;put&quot;</span>, <span class="string">&quot;get&quot;</span>, <span class="string">&quot;put&quot;</span>, <span class="string">&quot;get&quot;</span>, <span class="string">&quot;get&quot;</span>, <span class="string">&quot;get&quot;</span>]</span><br><span class="line">[[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]</span><br><span class="line">Output</span><br><span class="line">[null, null, null, 1, null, -1, null, -1, 3, 4]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">LRUCache lRUCache = new LRUCache(2);</span><br><span class="line">lRUCache.put(1, 1); // cache is &#123;1=1&#125;</span><br><span class="line">lRUCache.put(2, 2); // cache is &#123;1=1, 2=2&#125;</span><br><span class="line">lRUCache.get(1);    // <span class="built_in">return</span> 1</span><br><span class="line">lRUCache.put(3, 3); // LRU key was 2, evicts key 2, cache is &#123;1=1, 3=3&#125;</span><br><span class="line">lRUCache.get(2);    // returns -1 (not found)</span><br><span class="line">lRUCache.put(4, 4); // LRU key was 1, evicts key 1, cache is &#123;4=4, 3=3&#125;</span><br><span class="line">lRUCache.get(1);    // <span class="built_in">return</span> -1 (not found)</span><br><span class="line">lRUCache.get(3);    // <span class="built_in">return</span> 3</span><br><span class="line">lRUCache.get(4);    // <span class="built_in">return</span> 4</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= capacity &lt;= 3000</code></li>
+<li>0 &lt;&#x3D; key &lt;&#x3D; 10<sup>4</sup></li>
+<li>0 &lt;&#x3D; value &lt;&#x3D; 10<sup>5</sup></li>
+<li>At most 2 * 10<sup>5</sup> calls will be made to <code>get</code> and <code>put</code>.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Use list + map to mimic the behavior of linkedHashMap</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">LRUCache</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> size;</span><br><span class="line">    list&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; l;</span><br><span class="line">    map&lt;<span class="type">int</span>, list&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt;::iterator&gt; m;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="built_in">LRUCache</span>(<span class="type">int</span> capacity) &#123;</span><br><span class="line">        size = capacity;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">add_to_end</span><span class="params">(<span class="type">int</span> key, <span class="type">int</span> value)</span> </span>&#123;</span><br><span class="line">        l.<span class="built_in">push_back</span>(&#123;key, value&#125;);</span><br><span class="line">        m[key] = <span class="built_in">next</span>(l.<span class="built_in">end</span>(), <span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">get</span><span class="params">(<span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!m.<span class="built_in">count</span>(key)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            list&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;::iterator i = m[key];</span><br><span class="line">            <span class="type">int</span> value = (*i).second;</span><br><span class="line">            l.<span class="built_in">erase</span>(i);</span><br><span class="line">            <span class="built_in">add_to_end</span>(key, value);</span><br><span class="line">            <span class="keyword">return</span> value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">put</span><span class="params">(<span class="type">int</span> key, <span class="type">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!m.<span class="built_in">count</span>(key)) &#123;</span><br><span class="line">            <span class="keyword">if</span> (l.<span class="built_in">size</span>() == size) &#123;</span><br><span class="line">                <span class="type">int</span> k = l.<span class="built_in">front</span>().first;</span><br><span class="line">                m.<span class="built_in">erase</span>(k);</span><br><span class="line">                l.<span class="built_in">pop_front</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">add_to_end</span>(key, value);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">auto</span> i = m[key];</span><br><span class="line">            l.<span class="built_in">erase</span>(i);</span><br><span class="line">            <span class="built_in">add_to_end</span>(key, value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your LRUCache object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * LRUCache* obj = new LRUCache(capacity);</span></span><br><span class="line"><span class="comment"> * int param_1 = obj-&gt;get(key);</span></span><br><span class="line"><span class="comment"> * obj-&gt;put(key,value);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
   </entry>
   <entry>
     <title>151. Reverse Words in a String</title>
@@ -626,7 +659,7 @@
 <li>There is <strong>at least one</strong> word in <code>s</code>.</li>
 </ul>
 <p><strong>Follow-up:</strong> If the string data type is mutable in your language, can you solve it <strong>in-place</strong> with <code>O(1)</code> extra space?</p>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Reverse the whole string first,  then each word</li>
 <li>The handling of spaces is the key to AC for this problem<ul>
 <li>The space at the end of the string</li>
@@ -677,7 +710,7 @@
 <li><code>0 &lt;= succProb[i] &lt;= 1</code></li>
 <li>There is at most one edge between every two nodes.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Dijkstra algorithm</li>
 <li>Since the algorithm requires positive edge weights, when dijkstra algorithm reaches the<br>destination, we can early return since the accumulation of edge labels along any path must<br>have a monotonically non-decreasing partial order</li>
 </ul>
@@ -728,7 +761,7 @@
 <li>What if there are two numbers in <code>arr</code> that are bigger than all other numbers?</li>
 <li>What if there is one number that is bigger than other numbers and one number that is smaller than other numbers?</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Binary search</li>
 <li>The key is to handle odd&#x2F;even number of elements separately</li>
 </ul>
@@ -765,7 +798,7 @@
 <li>-10<sup>6</sup> &lt;&#x3D; x<sub>i</sub>, y<sub>i</sub> &lt;&#x3D; 10<sup>6</sup></li>
 <li>All pairs (x<sub>i</sub>, y<sub>i</sub>) are distinct.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Kruskal’s algorithm</li>
 <li>Prim’s algorithm</li>
 <li>cpp sort performance is worse than priority queue</li>
@@ -832,7 +865,7 @@
 <li><code>intersectVal == listA[skipA] == listB[skipB]</code> if <code>listA</code> and <code>listB</code> intersect.</li>
 </ul>
 <p><strong>Follow up:</strong> Could you write a solution that runs in <code>O(m + n)</code> time and use only <code>O(1)</code> memory?</p>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Link the two lists</li>
 <li>what if there’s no intersection? the after link the two lists, nullptr is the intersection</li>
 </ul>
@@ -875,7 +908,7 @@
 <li><code>1 &lt;= rows, columns &lt;= 100</code></li>
 <li><code>1 &lt;= heights[i][j] &lt;= 10&lt;sup&gt;6&lt;/sup&gt;</code></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Dijkstra algorithm: BFS with dp table</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -921,7 +954,7 @@
 <li><code>p != q</code></li>
 </ul>
 <p><strong>Follow up:</strong> Can you find the LCA traversing the tree, without checking nodes existence?</p>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>It’s possible that the nodes don’t exist, so we need to check every node, so it’s postorder traverse</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -965,7 +998,7 @@
 <li><code>p != q</code></li>
 <li><code>p</code> and <code>q</code> exist in the tree.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>It’s actually find the intersection of 2 lists</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -1006,7 +1039,7 @@
 <li><code>-1000 &lt;= target &lt;= 1000</code></li>
 <li>The tests are generated such that there is <strong>exactly one solution</strong>.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>It’s very like binary search</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -1048,7 +1081,7 @@
 <li>All <code>nodes[i]</code> will exist in the tree.</li>
 <li>All <code>nodes[i]</code> are distinct.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Since every node exists, we can just return when we find the first item in the list</li>
 <li>Provided an array of nodes, but it’s the same as finding the LCA of two nodes</li>
 </ul>
@@ -1086,7 +1119,7 @@
 <li>1 &lt;&#x3D; s.length &lt;&#x3D; 10<sup>5</sup></li>
 <li><code>s[i]</code> is either <code>&#39;A&#39;</code>, <code>&#39;C&#39;</code>, <code>&#39;G&#39;</code>, or <code>&#39;T&#39;</code>.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Rabin karb algorithm</li>
 <li>Make the string a int number(base number 4)</li>
 <li>Use a set to represent the results first, then transform it to vector to return</li>
@@ -1133,7 +1166,7 @@
 </ul>
 <p><strong>Follow up:</strong> Could you do this in one pass?</p>
 <hr>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Use 2 pointers to get the Nth from the end first, helper function</li>
 <li>Use dummy to avoid the nullptr corner case</li>
 </ul>
@@ -1171,7 +1204,7 @@
 <li><code>-5000 &lt;= Node.val &lt;= 5000</code></li>
 </ul>
 <p><strong>Follow up:</strong> A linked list can be reversed either iteratively or recursively. Could you implement both?</p>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>For recursive solution, only think how to handle then end case and how to handle a new tail</li>
 <li>For iterative solution, use stack</li>
 </ul>
@@ -1212,7 +1245,7 @@
 <li>0 &lt;&#x3D; a<sub>i</sub>, b<sub>i</sub> &lt; numCourses</li>
 <li>All the pairs prerequisites[i] are <strong>unique</strong>.</li>
 </ul>
-<h2 id="Hints-x2F-Nodes"><a href="#Hints-x2F-Nodes" class="headerlink" title="Hints&#x2F;Nodes"></a>Hints&#x2F;Nodes</h2><ul>
+<h2 id="Hints-Nodes"><a href="#Hints-Nodes" class="headerlink" title="Hints&#x2F;Nodes"></a>Hints&#x2F;Nodes</h2><ul>
 <li>Traverse the graph and check if there’s a cycle</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -1253,7 +1286,7 @@
 <li>Both <code>list1</code> and <code>list2</code> are sorted in <strong>non-decreasing</strong> order.</li>
 </ul>
 <hr>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Dummy pointer</li>
 <li>After one list is exhausted, we can just link the remaining of other list to the new list. The corner case that one list is empty is covered with this handling.</li>
 </ul>
@@ -1296,7 +1329,7 @@
 <li>a<sub>i</sub> !&#x3D; b<sub>i</sub></li>
 <li>All the pairs [a<sub>i</sub>, b<sub>i</sub>] are <strong>distinct</strong>.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Build the graph first</li>
 <li>Use postOrder to record the route</li>
 </ul>
@@ -1332,7 +1365,7 @@
 <li>1 &lt;&#x3D; k &lt;&#x3D; nums.length &lt;&#x3D; 10<sup>5</sup></li>
 <li>-10<sup>4</sup> &lt;&#x3D; nums[i] &lt;&#x3D; 10<sup>4</sup></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Priority queue</li>
 <li>Quick sort</li>
 </ul>
@@ -1377,7 +1410,7 @@
 <li>0 &lt;&#x3D; Node.val &lt;&#x3D; 5 * 10<sup>4</sup></li>
 <li>The tree is guaranteed to be <strong>complete</strong>.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Check if it’s a full BST to improve the time complexity</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -1409,7 +1442,7 @@
 <ul>
 <li><code>-100 &lt;= num1, num2 &lt;= 100</code></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>N&#x2F;A</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>Java</strong></p>
@@ -1444,7 +1477,7 @@
 <li>The number of nodes in the tree is in the range <code>[0, 100]</code>.</li>
 <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>N&#x2F;A</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -1486,7 +1519,7 @@
 <li>The sum of <code>lists[i].length</code> will not exceed 10<sup>4</sup>.</li>
 </ul>
 <hr>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>cpp priority queue</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -1523,7 +1556,7 @@
 <li>0 &lt;&#x3D; Node.val &lt;&#x3D; 10<sup>4</sup></li>
 </ul>
 <p><strong>Follow up:</strong> If the BST is modified often (i.e., we can do insert and delete operations) and you need to find the kth smallest frequently, how would you optimize?</p>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>N&#x2F;A</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -1559,7 +1592,7 @@
 <li><code>0 &lt;= Node.val &lt;= 9</code></li>
 </ul>
 <p><strong>Follow up:</strong> Could you do it in <code>O(n)</code> time and <code>O(1)</code> space?</p>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Find the mid point, reverse the right part then compare</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -1601,7 +1634,7 @@
 <li><code>p != q</code></li>
 <li><code>p</code> and <code>q</code> will exist in the BST.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>It’s binary serach tree, we can use the property of this data structure</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -1643,7 +1676,7 @@
 <li><code>p != q</code></li>
 <li><code>p</code> and <code>q</code> will exist in the tree.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>think about what we are going to do with each node</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -1677,7 +1710,7 @@
 <li>-10<sup>4</sup> &lt;&#x3D; nums[i] &lt;&#x3D; 10<sup>4</sup></li>
 <li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Monotonic Queue</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -1717,7 +1750,7 @@
 <li><code>0 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
 <p><strong>Follow-up:</strong> Can you solve the problem in <code>O(1)</code> extra memory space?</p>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Check if there are k nodes, otherwise just return head</li>
 <li>Reverse(head, tail), then apply the function to further nodes</li>
 </ul>
@@ -1760,7 +1793,7 @@
 <li><code>-100 &lt;= nums[i] &lt;= 100</code></li>
 <li><code>nums</code> is sorted in <strong>non-decreasing</strong> order.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Use 2 pointers, slow and fast</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -1798,7 +1831,7 @@
 <li>a<sub>i</sub> !&#x3D; b<sub>i</sub></li>
 <li>There are no self-loops or repeated edges.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Union find</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -1840,7 +1873,7 @@
 <li><code>0 &lt;= nums[i] &lt;= 50</code></li>
 <li><code>0 &lt;= val &lt;= 100</code></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>2 pointers</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -1879,7 +1912,7 @@
 <li><code>graph[i][i] == 1</code></li>
 </ul>
 <p><strong>Follow up:</strong> If the maximum number of allowed calls to the API <code>knows</code> is <code>3 * n</code>, could you find a solution without exceeding the maximum number of calls?</p>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>knows(i,j) &#x3D;&#x3D; true then i can’t be a celerity since a celeb knows nobody</li>
 <li>knows(i,j) &#x3D;&#x3D; false then j can’t be a celeb since everyone must know the celeb</li>
 </ul>
@@ -1913,7 +1946,7 @@
 <li>1 &lt;&#x3D; haystack.length, needle.length &lt;&#x3D; 10<sup>4</sup></li>
 <li><code>haystack</code> and <code>needle</code> consist of only lowercase English characters.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>good prime: 9999991</li>
 <li>get the powHash</li>
 <li>some edge cases of module operation(like avoid the negative number)</li>
@@ -1949,7 +1982,7 @@
 <li>-2<sup>31</sup> &lt;&#x3D; nums[i] &lt;&#x3D; 2<sup>31</sup> - 1</li>
 </ul>
 <p><strong>Follow up:</strong> Could you minimize the total number of operations done?</p>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Remove the element first, then set the remaining to zero</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -1983,7 +2016,7 @@
 <li>The number of nodes in the tree is in the range [0, 10<sup>4</sup>].</li>
 <li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>preorder done</li>
 <li>postorder tbd</li>
 <li>levelorder tbd</li>
@@ -2023,7 +2056,7 @@
 <li>0 &lt;&#x3D; s.length &lt;&#x3D; 5 * 10<sup>4</sup></li>
 <li><code>s</code> consists of English letters, digits, symbols and spaces.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Sliding window</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -2062,7 +2095,7 @@
 <li><code>0 &lt;= left &lt;= right &lt; nums.length</code></li>
 <li>At most 10<sup>4</sup> calls will be made to <code>sumRange</code>.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>preSum</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -2106,7 +2139,7 @@
 <li><code>0 &lt;= col1 &lt;= col2 &lt; n</code></li>
 <li>At most 10<sup>4</sup> calls will be made to <code>sumRegion</code>.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>2D preSum</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -2142,7 +2175,7 @@
 <li>1 &lt;&#x3D; nums.length &lt;&#x3D; 10<sup>5</sup></li>
 <li>-10<sup>4</sup> &lt;&#x3D; nums[i] &lt;&#x3D; 10<sup>4</sup></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Merge sort</li>
 <li>Compare tmp array with doing the merge</li>
 </ul>
@@ -2180,7 +2213,7 @@
 <li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 <p><strong>Note:</strong> This question is the same as 1081: <a href="https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/">https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/</a></p>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>With stack and set we can get the substring with no duplicate, but not necessarily the smallest</li>
 <li>Add a counter to count the frequency of letters, then we can pop the letters without worrying there’s no more</li>
 </ul>
@@ -2221,7 +2254,7 @@
 <li>a<sub>i</sub> !&#x3D; b<sub>i</sub></li>
 <li>There are no repeated edges.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>union find</li>
 <li>if the edge’s two nodes are not connected previously, then minus the number of component<br>(now they are connected)</li>
 </ul>
@@ -2258,7 +2291,7 @@
 <li>-10<sup>5</sup> &lt;&#x3D; lower &lt;&#x3D; upper &lt;&#x3D; 10<sup>5</sup></li>
 <li>The answer is <strong>guaranteed</strong> to fit in a <strong>32-bit</strong> integer.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Merge sort</li>
 </ul>
 <h3 id="Details"><a href="#Details" class="headerlink" title="Details"></a>Details</h3><p>First we need to calculate the preSum, since the problem is about range sum. But to get the<br>number of range sum, the intuitive way is to check each preSum[i] against every preSum[j]<br>where j &gt; i. But this solution’s time complexity is O(n^2). So we need to find a solution<br>with better time complexity.</p>
@@ -2303,7 +2336,7 @@
 <li><code>nums</code> is a non-decreasing array.</li>
 <li>-10<sup>9</sup> &lt;&#x3D; target &lt;&#x3D; 10<sup>9</sup></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Write different helper function to find left and right boundry</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -2334,17 +2367,17 @@
 
 <p>If <code>res</code> matches the expected flattened list, then your code will be judged as correct.</p>
 <p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nestedList = [[1,1],2,[1,1]]</span><br><span class="line">Output: [1,1,2,1,1]</span><br><span class="line">Explanation: By calling next repeatedly until hasNext returns <span class="literal">false</span>, the order of elements returned by next should be: [1,1,2,1,1].</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nestedList = [[1,1],2,[1,1]]</span><br><span class="line">Output: [1,1,2,1,1]</span><br><span class="line">Explanation: By calling next repeatedly <span class="keyword">until</span> hasNext returns <span class="literal">false</span>, the order of elements returned by next should be: [1,1,2,1,1].</span><br></pre></td></tr></table></figure>
 
 <p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nestedList = [1,[4,[6]]]</span><br><span class="line">Output: [1,4,6]</span><br><span class="line">Explanation: By calling next repeatedly until hasNext returns <span class="literal">false</span>, the order of elements returned by next should be: [1,4,6].</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nestedList = [1,[4,[6]]]</span><br><span class="line">Output: [1,4,6]</span><br><span class="line">Explanation: By calling next repeatedly <span class="keyword">until</span> hasNext returns <span class="literal">false</span>, the order of elements returned by next should be: [1,4,6].</span><br></pre></td></tr></table></figure>
 
 <p><strong>Constraints:</strong></p>
 <ul>
 <li><code>1 &lt;= nestedList.length &lt;= 500</code></li>
 <li>The values of the integers in the nested list is in the range [-10<sup>6</sup>, 10<sup>6</sup>].</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>we can do the traverse and generate the list during construction, or we can do the lazy iterator, which only check if there’s next item when calling <code>hasNext()</code></li>
 <li>lazy iterator is better, and it needs us to change the vector when calling <code>hasNext()</code></li>
 <li>deque provides the best performance, since we don’t care about random access and deque<br>allocates memory in large blocks</li>
@@ -2382,7 +2415,7 @@
 <li>1 &lt;&#x3D; s.length &lt;&#x3D; 10<sup>5</sup></li>
 <li><code>s[i]</code> is a <a href="https://en.wikipedia.org/wiki/ASCII#Printable_characters">printable ascii character</a>.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>N&#x2F;A</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -2415,7 +2448,7 @@
 <li><code>0 &lt;= startIdx&lt;sub&gt;i&lt;/sub&gt; &lt;= endIdx&lt;sub&gt;i&lt;/sub&gt; &lt; length</code></li>
 <li><code>-1000 &lt;= inc&lt;sub&gt;i&lt;/sub&gt; &lt;= 1000</code></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Use the diff array</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -2451,7 +2484,7 @@
 <li>At most <code>2 *</code> 10<sup>5</sup> calls will be made to <code>insert</code>, <code>remove</code>, and <code>getRandom</code>.</li>
 <li>There will be <strong>at least one</strong> element in the data structure when <code>getRandom</code> is called.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Use array for O(1) random access, map doesn’t have O(1) random access, it needs to advance n slots</li>
 <li>Use a map from val to index to ensure O(1) addition&#x2F;removal</li>
 </ul>
@@ -2489,7 +2522,7 @@
 <li>0 &lt;&#x3D; nums[i] &lt;&#x3D; 10<sup>6</sup></li>
 <li><code>1 &lt;= k &lt;= min(50, nums.length)</code></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Read the problem: A subarray is a <strong>contiguous</strong> part of the array.</li>
 <li>Use binary search and helper function to find the left boundary</li>
 </ul>
@@ -2524,7 +2557,7 @@
 <li>1 &lt;&#x3D; s.length, p.length &lt;&#x3D; 3 * 10<sup>4</sup></li>
 <li><code>s</code> and <code>p</code> consist of lowercase English letters.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Sliding window</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -2560,7 +2593,7 @@
 <li><code>1 &lt;= n &lt;= 20</code></li>
 <li><code>-1000 &lt;= matrix[i][j] &lt;= 1000</code></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Do the diagonal flip first, then reverse each row</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -2597,7 +2630,7 @@
 <li>1 &lt;&#x3D; nums.length &lt;&#x3D; 5 * 10<sup>4</sup></li>
 <li>-2<sup>31</sup> &lt;&#x3D; nums[i] &lt;&#x3D; 2<sup>31</sup> - 1</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>merge sort</li>
 <li>improve time complexity</li>
 </ul>
@@ -2640,7 +2673,7 @@
 <li>All the integers of <code>nums1</code> also appear in <code>nums2</code>.</li>
 </ul>
 <p><strong>Follow up:</strong> Could you find an <code>O(nums1.length + nums2.length)</code> solution?</p>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Monotonic Stack</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -2673,7 +2706,7 @@
 <li><code>1 &lt;= s.length &lt;= 1000</code></li>
 <li><code>s</code> consist of only digits and English letters.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Use a helper function to get the longest palindromic string from one index</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -2705,7 +2738,7 @@
 <li>1 &lt;&#x3D; nums.length &lt;&#x3D; 10<sup>4</sup></li>
 <li>-10<sup>9</sup> &lt;&#x3D; nums[i] &lt;&#x3D; 10<sup>9</sup></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Monotonic Stack</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -2742,7 +2775,7 @@
 <li>1 &lt;&#x3D; w[i] &lt;&#x3D; 10<sup>5</sup></li>
 <li><code>pickIndex</code> will be called at most 10<sup>4</sup> times.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>preSum</li>
 <li>binary search to find the left boundry</li>
 <li>if the number doesn’t exist, we can iterpret the return as<ul>
@@ -2792,7 +2825,7 @@
 <li><code>root</code> is guaranteed to be a valid binary search tree.</li>
 </ul>
 <p><strong>Note:</strong> This question is the same as 1038: <a href="https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree/">https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree/</a></p>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>traverse</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -2829,7 +2862,7 @@
 <li><code>1 &lt;= m, n &lt;= 10</code></li>
 <li><code>-100 &lt;= matrix[i][j] &lt;= 100</code></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Traverse all four sides in one iteration</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -2864,7 +2897,7 @@
 <li>The number of nodes in the tree is in the range [1, 10<sup>4</sup>].</li>
 <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Draw and imagine the diameter</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -2897,7 +2930,7 @@
 <li>1 &lt;&#x3D; s1.length, s2.length &lt;&#x3D; 10<sup>4</sup></li>
 <li><code>s1</code> and <code>s2</code> consist of lowercase English letters.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Sliding window</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">checkInclusion</span><span class="params">(string s1, string s2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -2936,7 +2969,7 @@
 <ul>
 <li><code>1 &lt;= n &lt;= 20</code></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Traverse the four sides in one iteration</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -2976,7 +3009,7 @@
 <li>The number of the nodes in the tree will be in the range <code>[1, 5000]</code></li>
 <li><code>-200 &lt;= Node.val &lt;= 200</code></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Serialize the (sub)tree to check if there’s duplicate</li>
 <li>Use map the avoid the duplicate in return, only push to res when freq[seri] &#x3D;&#x3D; 1</li>
 </ul>
@@ -3019,7 +3052,7 @@
 <li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
 <li>All integers in <code>nums</code> are <strong>unique</strong>.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Draw the picture to get ideas</li>
 <li>It’s like recursive</li>
 </ul>
@@ -3060,7 +3093,7 @@
 <li><code>root</code> is a binary search tree.</li>
 <li>1 &lt;&#x3D; val &lt;&#x3D; 10<sup>7</sup></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Use the property of BST</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -3095,7 +3128,7 @@
 <li>All the integers in <code>nums</code> are <strong>unique</strong>.</li>
 <li><code>nums</code> is sorted in ascending order.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>N&#x2F;A</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -3132,7 +3165,7 @@
 <li>All the values of <code>blacklist</code> are <strong>unique</strong>.</li>
 <li>At most 2 * 10<sup>4</sup> calls will be made to <code>pick</code>.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Use array and mapping</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -3182,7 +3215,7 @@
 <li><code>x&lt;sub&gt;i&lt;/sub&gt;</code> and <code>y&lt;sub&gt;i&lt;/sub&gt;</code> consist of lower-case and upper-case English letters.</li>
 <li>All the pairs <code>(x&lt;sub&gt;i&lt;/sub&gt;,&lt;sub&gt; &lt;/sub&gt;y&lt;sub&gt;i&lt;/sub&gt;)</code> are <strong>distinct</strong> .</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>record the mapping and compare each word</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -3217,7 +3250,7 @@
 <li>1 &lt;&#x3D; temperatures.length &lt;&#x3D; 10<sup>5</sup></li>
 <li><code>30 &lt;= temperatures[i] &lt;= 100</code></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Monotonic Stack</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -3259,7 +3292,7 @@
 <li>0 &lt;&#x3D; w<sub>i</sub> &lt;&#x3D; 100</li>
 <li>All the pairs (u<sub>i</sub>, v<sub>i</sub>) are <strong>unique</strong>. (i.e., no multiple edges.)</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Dijkstra algorithm</li>
 <li>The dijkstra algorithm always try to find the shortest route from the root</li>
 </ul>
@@ -3301,7 +3334,7 @@
 <li><code>s</code> and <code>t</code> consist of uppercase and lowercase English letters.</li>
 </ul>
 <p><strong>Follow up:</strong> Could you find an algorithm that runs in <code>O(m + n)</code> time?</p>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Sliding window, keep taking new elements while trying to shrink the left boundry</li>
 <li>Use map to record if all required letters are included</li>
 </ul>
@@ -3349,7 +3382,7 @@
 <li>All the values of <code>graph[u]</code> are <strong>unique</strong>.</li>
 <li>If <code>graph[u]</code> contains <code>v</code>, then <code>graph[v]</code> contains <code>u</code>.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Traverse the graph, color the next node if not visited, or check if the color match</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -3389,7 +3422,7 @@
 <li>All the elements of <code>graph[i]</code> are <strong>unique</strong>.</li>
 <li>The input graph is <strong>guaranteed</strong> to be a <strong>DAG</strong>.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Traverse the graph, add node to the path when entering and remove the node from the path when exiting</li>
 <li>DAG, i.e. directed acyclic graph, so there’s no cycle</li>
 </ul>
@@ -3426,7 +3459,7 @@
 <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 <li>The list is guaranteed to be <strong>sorted</strong> in ascending order.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Fast&#x2F;slow pointers</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">deleteDuplicates</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -3462,7 +3495,7 @@
 <li><code>-200 &lt;= x &lt;= 200</code></li>
 </ul>
 <hr>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Use two lists</li>
 <li>Break the link after the node is added to a new list</li>
 </ul>
@@ -3496,7 +3529,7 @@
 <li><code>nums2.length == nums1.length</code></li>
 <li>0 &lt;&#x3D; nums1[i], nums2[i] &lt;&#x3D; 10<sup>9</sup></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Use priority queue for nums2, also we need to record the index for each value</li>
 <li>Need to allocate a new res vector for return, nums1 records sorted array</li>
 </ul>
@@ -3539,7 +3572,7 @@
 <li>piles.length &lt;&#x3D; h &lt;&#x3D; 10<sup>9</sup></li>
 <li>1 &lt;&#x3D; piles[i] &lt;&#x3D; 10<sup>9</sup></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Helper function: eating hour, if eat k bananas per hour, how many hours in total would be needed?</li>
 <li>Make it a binary search for left boundry</li>
 </ul>
@@ -3575,7 +3608,7 @@
 <li><code>1 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 <hr>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Fast and slow pointers</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -3610,7 +3643,7 @@
 <li>1 &lt;&#x3D; a<sub>i</sub> &lt; b<sub>i</sub> &lt;&#x3D; n</li>
 <li>All the pairs of <code>dislikes</code> are <strong>unique</strong>.</li>
 </ul>
-<h2 id="Hints-x2F-Nodes"><a href="#Hints-x2F-Nodes" class="headerlink" title="Hints&#x2F;Nodes"></a>Hints&#x2F;Nodes</h2><ul>
+<h2 id="Hints-Nodes"><a href="#Hints-Nodes" class="headerlink" title="Hints&#x2F;Nodes"></a>Hints&#x2F;Nodes</h2><ul>
 <li>Build the map, then it’s find bipartition of the graph</li>
 <li>Use two vectors: visited and color</li>
 <li>Use a global boolean ok for fast return</li>
@@ -3652,7 +3685,7 @@
 <li>All the values of <code>postorder</code> are <strong>unique</strong>.</li>
 <li>It is guaranteed that <code>preorder</code> and <code>postorder</code> are the preorder traversal and postorder traversal of the same binary tree.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>It’s possible to have multiple solution from preorder + postorder</li>
 <li>Draw the tree to find the pattern of root’s left child</li>
 </ul>
@@ -3688,7 +3721,7 @@
 <li>1 &lt;&#x3D; nums.length &lt;&#x3D; 5 * 10<sup>4</sup></li>
 <li>-5 * 10<sup>4</sup> &lt;&#x3D; nums[i] &lt;&#x3D; 5 * 10<sup>4</sup></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>merge sort</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -3729,7 +3762,7 @@
 <li><code>1 &lt;= left &lt;= right &lt;= n</code></li>
 </ul>
 <p><strong>Follow up:</strong> Could you do it in one pass?</p>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Implement reverseN(reverse the fist N elements of one list) first,<br>i.e. reverseN(3) &#x3D; 3-&gt;2-&gt;1-&gt;4-&gt;5</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseBetween</span><span class="params">(ListNode* head, <span class="type">int</span> left, <span class="type">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -3761,7 +3794,7 @@
 <ul>
 <li><code>1 &lt;= n &lt;= 8</code></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Draw the tree</li>
 <li>Dynamic programming</li>
 </ul>
@@ -3802,7 +3835,7 @@
 <li><code>order.length == 26</code></li>
 <li>All characters in <code>words[i]</code> and <code>order</code> are English lowercase letters.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>use map to record the order</li>
 <li>the best time complexity is O(n*m)</li>
 <li>we don’t need to compare one word with all following words, just with the next word, since the order is transtive</li>
@@ -3836,7 +3869,7 @@
 <ul>
 <li><code>1 &lt;= n &lt;= 19</code></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Draw the tree</li>
 <li>Dynamic programming</li>
 </ul>
@@ -3873,7 +3906,7 @@
 <li>-10<sup>4</sup> &lt;&#x3D; nums[i] &lt;&#x3D; 10<sup>4</sup></li>
 <li>2 &lt;&#x3D; k &lt;&#x3D; 10<sup>4</sup></li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>preSum and mod</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -3913,7 +3946,7 @@
 <li>The number of nodes in the tree is in the range [1, 10<sup>4</sup>].</li>
 <li>-2<sup>31</sup> &lt;&#x3D; Node.val &lt;&#x3D; 2<sup>31</sup> - 1</li>
 </ul>
-<h1 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h1><ul>
+<h1 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h1><ul>
 <li>We need max&#x2F;min node to decide if one node is valid</li>
 <li>Because the val is between MIN_INT and MAX_INT, so use a nullptr node is better</li>
 </ul>
@@ -3952,7 +3985,7 @@
 <li><code>equations[i][2]</code> is <code>&#39;=&#39;</code>.</li>
 <li><code>equations[i][3]</code> is a lowercase letter.</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Union find</li>
 <li>Handle the equation first, make the letters connected(have the same root)</li>
 <li>Check the inequality next</li>
@@ -4002,7 +4035,7 @@
 <li>a<sub>i</sub> !&#x3D; b<sub>i</sub></li>
 <li>1 &lt;&#x3D; a<sub>i</sub>, b<sub>i</sub> &lt;&#x3D; n</li>
 </ul>
-<h2 id="Hints-x2F-Notes"><a href="#Hints-x2F-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>if the number of pairs is less than n - 1, then we cannot identify the judge</li>
 <li>use in&#x2F;out vector to mark the trust relationship</li>
 </ul>
@@ -6092,8 +6125,8 @@
   <entry>
     <title>Miscellaneous</title>
     <url>/2023/02/07/Miscellaneous/</url>
-    <content><![CDATA[<h2 id="Current-blog"><a href="#Current-blog" class="headerlink" title="Current blog"></a>Current blog</h2><p><a href="https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-daeca/suan-fa-ji-8674e/">算法就像搭乐高：带你手撸 LRU 算法</a></p>
-<h2 id="Last-problem-solved"><a href="#Last-problem-solved" class="headerlink" title="Last problem solved"></a>Last problem solved</h2><p>206 in the folder, 8&#x2F;2.</p>
+    <content><![CDATA[<h2 id="Current-blog"><a href="#Current-blog" class="headerlink" title="Current blog"></a>Current blog</h2><p><a href="https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-daeca/suan-fa-ji-fb527/">算法就像搭乐高：带你手撸 LFU 算法</a></p>
+<h2 id="Last-problem-solved"><a href="#Last-problem-solved" class="headerlink" title="Last problem solved"></a>Last problem solved</h2><p>New page.</p>
 <p><del><a href="https://leetcode.com/problems/network-delay-time/">743. Network Delay Time</a></del></p>
 <h2 id="The-problems-not-recorded"><a href="#The-problems-not-recorded" class="headerlink" title="The problems not recorded"></a>The problems not recorded</h2><p>None</p>
 <h2 id="The-problems-not-noted"><a href="#The-problems-not-noted" class="headerlink" title="The problems not noted"></a>The problems not noted</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find . -name <span class="string">&quot;[0-9]*&quot;</span> |  xargs grep -L <span class="string">&quot;Hints&quot;</span></span><br></pre></td></tr></table></figure>

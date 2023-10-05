@@ -227,11 +227,12 @@ The roots of relational databases lie in _business data processing_, _transactio
 
 The goal was to hide the implementation details behind a cleaner interface.
 
-_Not Only SQL_ has a few driving forces:
-* Greater scalability
-* preference for free and open source software
-* Specialised query optimisations
-* Desire for a more dynamic and expressive data model
+_Not Only SQL(NOSQL)_ has a few driving forces:
+
+- Greater scalability
+- preference for free and open source software
+- Specialised query optimisations
+- Desire for a more dynamic and expressive data model
 
 **With a SQL model, if data is stored in a relational tables, an awkward translation layer is translated, this is called _impedance mismatch_.**
 
@@ -281,10 +282,10 @@ Document databases are sometimes called _schemaless_, but maybe a more appropria
 
 Schema-on-read is similar to dynamic (runtime) type checking, whereas schema-on-write is similar to static (compile-time) type checking.
 
-The schema-on-read approach if the items on the collection don't have all the same structure (heterogeneous)
-* Many different types of objects
-* Data determined by external systems
+The schema-on-read approach is advantageous if the items on the collection don't have all the same structure (heterogeneous)
 
+- Many different types of objects
+- Data determined by external systems
 
 #### Data locality for queries
 
@@ -318,17 +319,17 @@ Mongo offers a MapReduce solution.
 
 ```js
 db.observations.mapReduce(
-    function map() { 2
+    function map() {
         var year  = this.observationTimestamp.getFullYear();
         var month = this.observationTimestamp.getMonth() + 1;
-        emit(year + "-" + month, this.numAnimals); 3
+        emit(year + "-" + month, this.numAnimals);
     },
-    function reduce(key, values) { 4
-        return Array.sum(values); 5
+    function reduce(key, values) {
+        return Array.sum(values);
     },
     {
-        query: { family: "Sharks" }, 1
-        out: "monthlySharkReport" 6
+        query: { family: "Sharks" },
+        out: "monthlySharkReport"
     }
 );
 ```
@@ -363,24 +364,26 @@ There are several ways of structuring and querying the data. The _property graph
 #### Property graphs
 
 Each vertex consists of:
-* Unique identifier
-* Outgoing edges
-* Incoming edges
-* Collection of properties (key-value pairs)
+
+- Unique identifier
+- Outgoing edges
+- Incoming edges
+- Collection of properties (key-value pairs)
 
 Each edge consists of:
-* Unique identifier
-* Vertex at which the edge starts (_tail vertex_)
-* Vertex at which the edge ends (_head vertex_)
-* Label to describe the kind of relationship between the two vertices
-* A collection of properties (key-value pairs)
+
+- Unique identifier
+- Vertex at which the edge starts (_tail vertex_)
+- Vertex at which the edge ends (_head vertex_)
+- Label to describe the kind of relationship between the two vertices
+- A collection of properties (key-value pairs)
 
 Graphs provide a great deal of flexibility for data modelling. Graphs are good for evolvability.
 
 ---
 
-* _Cypher_ is a declarative language for property graphs created by Neo4j
-* Graph queries in SQL. In a relational database, you usually know in advance which joins you need in your query. In a graph query, the number if joins is not fixed in advance. In Cypher `:WITHIN*0...` expresses "follow a `WITHIN` edge, zero or more times" (like the `*` operator in a regular expression). This idea of variable-length traversal paths in a query can be expressed using something called _recursive common table expressions_ (the `WITH RECURSIVE` syntax).
+- _Cypher_ is a declarative language for property graphs created by Neo4j
+- Graph queries in SQL. In a relational database, you usually know in advance which joins you need in your query. In a graph query, the number if joins is not fixed in advance. In Cypher `:WITHIN*0...` expresses "follow a `WITHIN` edge, zero or more times" (like the `*` operator in a regular expression). This idea of variable-length traversal paths in a query can be expressed using something called _recursive common table expressions_ (the `WITH RECURSIVE` syntax).
 
 ---
 

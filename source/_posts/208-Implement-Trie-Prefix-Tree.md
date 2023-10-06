@@ -54,7 +54,7 @@ trie.search("app");     // return True
 ## Hints/Notes
 
 * Use a bool value to indicate if it's the end of one word
-* If one node has been initialized then we should recreate the node
+* If one node has been initialized then we should NOT recreate the node
 
 ## Solution
 

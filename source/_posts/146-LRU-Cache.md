@@ -3,6 +3,10 @@ title: 146. LRU Cache
 categories: Leetcode
 date: 2023-10-03 23:44:46
 tags:
+    - Hash Table
+    - Linked List
+    - Design
+    - Doubly-Linked List
 ---
 
 # [146\. LRU Cache](https://leetcode.com/problems/lru-cache/)

@@ -69,7 +69,10 @@ lfu.get(4);      // return 4
 * 0 <= value <= 10<sup>9</sup>
 * At most 2 * 10<sup>5</sup> calls will be made to `get` and `put`.
 
-<span style="display: block;"> </span>
+## Hints/Notes
+
+* need a map to record all elements with same freq, i.e. a freqToKeys map
+* need a map to record one element's position in the above map's value
 
 ## Solution
 

@@ -54,6 +54,7 @@ Output: [1]
 ## Hints/Notes
 
 * Monotonic Queue
+* Corner case: we cannot use less than or equal to when pop previous elements, because it can potentially pop out the newly added value
 
 ## Solution
 

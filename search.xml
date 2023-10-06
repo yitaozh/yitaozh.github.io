@@ -633,6 +633,12 @@
       <categories>
         <category>Leetcode</category>
       </categories>
+      <tags>
+        <tag>Hash Table</tag>
+        <tag>Linked List</tag>
+        <tag>Design</tag>
+        <tag>Doubly-Linked List</tag>
+      </tags>
   </entry>
   <entry>
     <title>151. Reverse Words in a String</title>
@@ -2151,8 +2157,8 @@
       <tags>
         <tag>Array</tag>
         <tag>Prefix Sum</tag>
-        <tag>Matrix</tag>
         <tag>Design</tag>
+        <tag>Matrix</tag>
       </tags>
   </entry>
   <entry>
@@ -2392,8 +2398,8 @@
         <tag>Tree</tag>
         <tag>Depth-First Search</tag>
         <tag>Stack</tag>
-        <tag>Queue</tag>
         <tag>Design</tag>
+        <tag>Queue</tag>
         <tag>Iterator</tag>
       </tags>
   </entry>
@@ -2570,6 +2576,45 @@
         <tag>Hash Table</tag>
         <tag>String</tag>
         <tag>Sliding Window</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>460. LFU Cache</title>
+    <url>/2023/10/05/460-LFU-Cache/</url>
+    <content><![CDATA[<h1 id="460-LFU-Cache"><a href="#460-LFU-Cache" class="headerlink" title="460. LFU Cache"></a><a href="https://leetcode.com/problems/lfu-cache/">460. LFU Cache</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Hard</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/linked-list//">Linked List</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/design//">Design</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/doubly-linked-list//">Doubly-Linked List</a></p>
+<p>Design and implement a data structure for a <a href="https://en.wikipedia.org/wiki/Least_frequently_used">Least Frequently Used (LFU)</a> cache.</p>
+<p>Implement the <code>LFUCache</code> class:</p>
+<ul>
+<li><code>LFUCache(int capacity)</code> Initializes the object with the <code>capacity</code> of the data structure.</li>
+<li><code>int get(int key)</code> Gets the value of the <code>key</code> if the <code>key</code> exists in the cache. Otherwise, returns <code>-1</code>.</li>
+<li><code>void put(int key, int value)</code> Update the value of the <code>key</code> if present, or inserts the <code>key</code> if not already present. When the cache reaches its <code>capacity</code>, it should invalidate and remove the <strong>least frequently used</strong> key before inserting a new item. For this problem, when there is a <strong>tie</strong> (i.e., two or more keys with the same frequency), the <strong>least recently used</strong> <code>key</code> would be invalidated.</li>
+</ul>
+<p>To determine the least frequently used key, a <strong>use counter</strong> is maintained for each key in the cache. The key with the smallest <strong>use counter</strong> is the least frequently used key.</p>
+<p>When a key is first inserted into the cache, its <strong>use counter</strong> is set to <code>1</code> (due to the <code>put</code> operation). The <strong>use counter</strong> for a key in the cache is incremented either a <code>get</code> or <code>put</code> operation is called on it.</p>
+<p>The functions <code>get</code> and <code>put</code> must each run in <code>O(1)</code> average time complexity.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input</span><br><span class="line">[<span class="string">&quot;LFUCache&quot;</span>, <span class="string">&quot;put&quot;</span>, <span class="string">&quot;put&quot;</span>, <span class="string">&quot;get&quot;</span>, <span class="string">&quot;put&quot;</span>, <span class="string">&quot;get&quot;</span>, <span class="string">&quot;get&quot;</span>, <span class="string">&quot;put&quot;</span>, <span class="string">&quot;get&quot;</span>, <span class="string">&quot;get&quot;</span>, <span class="string">&quot;get&quot;</span>]</span><br><span class="line">[[2], [1, 1], [2, 2], [1], [3, 3], [2], [3], [4, 4], [1], [3], [4]]</span><br><span class="line">Output</span><br><span class="line">[null, null, null, 1, null, -1, 3, null, -1, 3, 4]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">// cnt(x) = the use counter <span class="keyword">for</span> key x</span><br><span class="line">// cache=[] will show the last used order <span class="keyword">for</span> tiebreakers (leftmost element is  most recent)</span><br><span class="line">LFUCache lfu = new LFUCache(2);</span><br><span class="line">lfu.put(1, 1);   // cache=[1,_], cnt(1)=1</span><br><span class="line">lfu.put(2, 2);   // cache=[2,1], cnt(2)=1, cnt(1)=1</span><br><span class="line">lfu.get(1);      // <span class="built_in">return</span> 1</span><br><span class="line">                 // cache=[1,2], cnt(2)=1, cnt(1)=2</span><br><span class="line">lfu.put(3, 3);   // 2 is the LFU key because cnt(2)=1 is the smallest, invalidate 2.</span><br><span class="line">                 // cache=[3,1], cnt(3)=1, cnt(1)=2</span><br><span class="line">lfu.get(2);      // <span class="built_in">return</span> -1 (not found)</span><br><span class="line">lfu.get(3);      // <span class="built_in">return</span> 3</span><br><span class="line">                 // cache=[3,1], cnt(3)=2, cnt(1)=2</span><br><span class="line">lfu.put(4, 4);   // Both 1 and 3 have the same cnt, but 1 is LRU, invalidate 1.</span><br><span class="line">                 // cache=[4,3], cnt(4)=1, cnt(3)=2</span><br><span class="line">lfu.get(1);      // <span class="built_in">return</span> -1 (not found)</span><br><span class="line">lfu.get(3);      // <span class="built_in">return</span> 3</span><br><span class="line">                 // cache=[3,4], cnt(4)=1, cnt(3)=3</span><br><span class="line">lfu.get(4);      // <span class="built_in">return</span> 4</span><br><span class="line">                 // cache=[4,3], cnt(4)=2, cnt(3)=3</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; capacity &lt;&#x3D; 10<sup>4</sup></li>
+<li>0 &lt;&#x3D; key &lt;&#x3D; 10<sup>5</sup></li>
+<li>0 &lt;&#x3D; value &lt;&#x3D; 10<sup>9</sup></li>
+<li>At most 2 * 10<sup>5</sup> calls will be made to <code>get</code> and <code>put</code>.</li>
+</ul>
+<p><span style="display: block;"> </span></p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">LFUCache</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> size;</span><br><span class="line">    <span class="type">int</span> minFreq = INT_MAX;</span><br><span class="line">    map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; keyToValue;</span><br><span class="line">    map&lt;<span class="type">int</span>, list&lt;<span class="type">int</span>&gt;&gt; freqToKeys;</span><br><span class="line">    map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; keyToFreq;</span><br><span class="line">    map&lt;<span class="type">int</span>, list&lt;<span class="type">int</span>&gt;::iterator&gt; keyListIter;</span><br><span class="line">    <span class="built_in">LFUCache</span>(<span class="type">int</span> capacity) &#123;</span><br><span class="line">        size = capacity;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">updateFreq</span><span class="params">(<span class="type">int</span> key, <span class="type">int</span> freq)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!freqToKeys.<span class="built_in">count</span>(freq)) &#123;</span><br><span class="line">            freqToKeys[freq] = &#123;key&#125;;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            freqToKeys[freq].<span class="built_in">push_back</span>(key);</span><br><span class="line">        &#125;</span><br><span class="line">        keyListIter[key] = <span class="built_in">prev</span>(freqToKeys[freq].<span class="built_in">end</span>());</span><br><span class="line">        keyToFreq[key] = freq;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">updateExistingFreq</span><span class="params">(<span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> freq = keyToFreq[key];</span><br><span class="line">        freqToKeys[freq].<span class="built_in">erase</span>(keyListIter[key]);</span><br><span class="line">        <span class="type">int</span> newFreq = freq + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (freq == minFreq &amp;&amp; freqToKeys[freq].<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            freqToKeys.<span class="built_in">erase</span>(freq);</span><br><span class="line">            minFreq = freq + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">updateFreq</span>(key, newFreq);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">get</span><span class="params">(<span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// cout &lt;&lt; &quot;now handling get for &quot; &lt;&lt; key &lt;&lt; endl;</span></span><br><span class="line">        <span class="keyword">if</span> (keyToValue.<span class="built_in">count</span>(key)) &#123;</span><br><span class="line">            <span class="built_in">updateExistingFreq</span>(key);</span><br><span class="line">            <span class="keyword">return</span> keyToValue[key];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">put</span><span class="params">(<span class="type">int</span> key, <span class="type">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// cout &lt;&lt; &quot;now handling put for &quot; &lt;&lt; key &lt;&lt; &quot; value:&quot; &lt;&lt; value &lt;&lt; endl;</span></span><br><span class="line">        <span class="keyword">if</span> (keyToValue.<span class="built_in">count</span>(key)) &#123;</span><br><span class="line">            <span class="built_in">updateExistingFreq</span>(key);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (keyToValue.<span class="built_in">size</span>() &lt; size) &#123;</span><br><span class="line">                <span class="type">int</span> freq = <span class="number">1</span>;</span><br><span class="line">                <span class="built_in">updateFreq</span>(key, freq);</span><br><span class="line">                minFreq = <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="type">int</span> leastFreqKey = freqToKeys[minFreq].<span class="built_in">front</span>();</span><br><span class="line">                freqToKeys[minFreq].<span class="built_in">pop_front</span>();</span><br><span class="line">                <span class="keyword">if</span> (freqToKeys[minFreq].<span class="built_in">empty</span>()) &#123;</span><br><span class="line">                    freqToKeys.<span class="built_in">erase</span>(minFreq);</span><br><span class="line">                &#125;</span><br><span class="line">                keyToValue.<span class="built_in">erase</span>(leastFreqKey);</span><br><span class="line">                keyToFreq.<span class="built_in">erase</span>(leastFreqKey);</span><br><span class="line">                keyListIter.<span class="built_in">erase</span>(leastFreqKey);</span><br><span class="line">                <span class="type">int</span> freq = <span class="number">1</span>;</span><br><span class="line">                <span class="built_in">updateFreq</span>(key, freq);</span><br><span class="line">                minFreq = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        keyToValue[key] = value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your LFUCache object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * LFUCache* obj = new LFUCache(capacity);</span></span><br><span class="line"><span class="comment"> * int param_1 = obj-&gt;get(key);</span></span><br><span class="line"><span class="comment"> * obj-&gt;put(key,value);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Hash Table</tag>
+        <tag>Linked List</tag>
+        <tag>Design</tag>
+        <tag>Doubly-Linked List</tag>
       </tags>
   </entry>
   <entry>

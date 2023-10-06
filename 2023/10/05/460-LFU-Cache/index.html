@@ -27,7 +27,7 @@
 <meta property="og:description" content="460. LFU CacheDescriptionDifficulty: Hard">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-10-05T23:41:26.000Z">
-<meta property="article:modified_time" content="2023-10-06T03:44:11.546Z">
+<meta property="article:modified_time" content="2023-10-06T04:13:13.508Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="Hash Table">
 <meta property="article:tag" content="Linked List">
@@ -142,7 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#460-LFU-Cache"><span class="nav-number">1.</span> <span class="nav-text">460. LFU Cache</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">1.2.</span> <span class="nav-text">Solution</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#460-LFU-Cache"><span class="nav-number">1.</span> <span class="nav-text">460. LFU Cache</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hints-Notes"><span class="nav-number">1.2.</span> <span class="nav-text">Hints&#x2F;Notes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">1.3.</span> <span class="nav-text">Solution</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -155,7 +155,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -166,7 +166,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-count">58</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -249,7 +249,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-10-06 03:44:11" itemprop="dateModified" datetime="2023-10-06T03:44:11+00:00">2023-10-06</time>
+      <time title="Modified: 2023-10-06 04:13:13" itemprop="dateModified" datetime="2023-10-06T04:13:13+00:00">2023-10-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -268,7 +268,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>4k</span>
+      <span>4.2k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -307,7 +307,10 @@
 <li>0 &lt;&#x3D; value &lt;&#x3D; 10<sup>9</sup></li>
 <li>At most 2 * 10<sup>5</sup> calls will be made to <code>get</code> and <code>put</code>.</li>
 </ul>
-<p><span style="display: block;"> </span></p>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>need a map to record all elements with same freq, i.e. a freqToKeys map</li>
+<li>need a map to record one element’s position in the above map’s value</li>
+</ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">LFUCache</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> size;</span><br><span class="line">    <span class="type">int</span> minFreq = INT_MAX;</span><br><span class="line">    map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; keyToValue;</span><br><span class="line">    map&lt;<span class="type">int</span>, list&lt;<span class="type">int</span>&gt;&gt; freqToKeys;</span><br><span class="line">    map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; keyToFreq;</span><br><span class="line">    map&lt;<span class="type">int</span>, list&lt;<span class="type">int</span>&gt;::iterator&gt; keyListIter;</span><br><span class="line">    <span class="built_in">LFUCache</span>(<span class="type">int</span> capacity) &#123;</span><br><span class="line">        size = capacity;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">updateFreq</span><span class="params">(<span class="type">int</span> key, <span class="type">int</span> freq)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!freqToKeys.<span class="built_in">count</span>(freq)) &#123;</span><br><span class="line">            freqToKeys[freq] = &#123;key&#125;;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            freqToKeys[freq].<span class="built_in">push_back</span>(key);</span><br><span class="line">        &#125;</span><br><span class="line">        keyListIter[key] = <span class="built_in">prev</span>(freqToKeys[freq].<span class="built_in">end</span>());</span><br><span class="line">        keyToFreq[key] = freq;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">updateExistingFreq</span><span class="params">(<span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> freq = keyToFreq[key];</span><br><span class="line">        freqToKeys[freq].<span class="built_in">erase</span>(keyListIter[key]);</span><br><span class="line">        <span class="type">int</span> newFreq = freq + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (freq == minFreq &amp;&amp; freqToKeys[freq].<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            freqToKeys.<span class="built_in">erase</span>(freq);</span><br><span class="line">            minFreq = freq + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">updateFreq</span>(key, newFreq);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">get</span><span class="params">(<span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// cout &lt;&lt; &quot;now handling get for &quot; &lt;&lt; key &lt;&lt; endl;</span></span><br><span class="line">        <span class="keyword">if</span> (keyToValue.<span class="built_in">count</span>(key)) &#123;</span><br><span class="line">            <span class="built_in">updateExistingFreq</span>(key);</span><br><span class="line">            <span class="keyword">return</span> keyToValue[key];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">put</span><span class="params">(<span class="type">int</span> key, <span class="type">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// cout &lt;&lt; &quot;now handling put for &quot; &lt;&lt; key &lt;&lt; &quot; value:&quot; &lt;&lt; value &lt;&lt; endl;</span></span><br><span class="line">        <span class="keyword">if</span> (keyToValue.<span class="built_in">count</span>(key)) &#123;</span><br><span class="line">            <span class="built_in">updateExistingFreq</span>(key);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (keyToValue.<span class="built_in">size</span>() &lt; size) &#123;</span><br><span class="line">                <span class="type">int</span> freq = <span class="number">1</span>;</span><br><span class="line">                <span class="built_in">updateFreq</span>(key, freq);</span><br><span class="line">                minFreq = <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="type">int</span> leastFreqKey = freqToKeys[minFreq].<span class="built_in">front</span>();</span><br><span class="line">                freqToKeys[minFreq].<span class="built_in">pop_front</span>();</span><br><span class="line">                <span class="keyword">if</span> (freqToKeys[minFreq].<span class="built_in">empty</span>()) &#123;</span><br><span class="line">                    freqToKeys.<span class="built_in">erase</span>(minFreq);</span><br><span class="line">                &#125;</span><br><span class="line">                keyToValue.<span class="built_in">erase</span>(leastFreqKey);</span><br><span class="line">                keyToFreq.<span class="built_in">erase</span>(leastFreqKey);</span><br><span class="line">                keyListIter.<span class="built_in">erase</span>(leastFreqKey);</span><br><span class="line">                <span class="type">int</span> freq = <span class="number">1</span>;</span><br><span class="line">                <span class="built_in">updateFreq</span>(key, freq);</span><br><span class="line">                minFreq = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        keyToValue[key] = value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your LFUCache object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * LFUCache* obj = new LFUCache(capacity);</span></span><br><span class="line"><span class="comment"> * int param_1 = obj-&gt;get(key);</span></span><br><span class="line"><span class="comment"> * obj-&gt;put(key,value);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
 
@@ -334,6 +337,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2023/10/06/208-Implement-Trie-Prefix-Tree/" rel="next" title="208. Implement Trie (Prefix Tree)">
+                  208. Implement Trie (Prefix Tree) <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -364,13 +370,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">361k</span>
+    <span title="Word count total">364k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">5:28</span>
+    <span title="Reading time total">5:31</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>

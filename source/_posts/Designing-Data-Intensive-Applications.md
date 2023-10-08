@@ -766,9 +766,10 @@ Reasons for distribute a database across multiple machines:
 ## Replication
 
 Reasons why you might want to replicate data:
-* To keep data geographically close to your users
-* Increase availability
-* Increase read throughput
+
+- To keep data geographically close to your users
+- Increase availability
+- Increase read throughput
 
 The difficulty in replication lies in handling _changes_ to replicated data. Popular algorithms for replicating changes between nodes: _single-leader_, _multi-leader_, and _leaderless_ replication.
 
@@ -777,6 +778,7 @@ The difficulty in replication lies in handling _changes_ to replicated data. Pop
 Each node that stores a copy of the database is called a _replica_.
 
 Every write to the database needs to be processed by every replica. The most common solution for this is called _leader-based replication_ (_active/passive_ or _master-slave replication_).
+
 1. One of the replicas is designated the _leader_ (_master_ or _primary_). Writes to the database must send requests to the leader.
 2. Other replicas are known as _followers_ (_read replicas_, _slaves_, _secondaries_ or _hot stanbys_). The leader sends the data change to all of its followers as part of a _replication log_ or _change stream_.
 3. Reads can be query the leader or any of the followers, while writes are only accepted on the leader.
@@ -796,6 +798,7 @@ Often, leader-based replication is asynchronous. Writes are not guaranteed to be
 Copying data files from one node to another is typically not sufficient.
 
 Setting up a follower can usually be done without downtime. The process looks like:
+
 1. Take a snapshot of the leader's database
 2. Copy the snapshot to the follower node
 3. Follower requests data changes that have happened since the snapshot was taken
@@ -814,15 +817,17 @@ Follower can connect to the leader and request all the data changes that occurre
 One of the followers needs to be promoted to be the new leader, clients need to be reconfigured to send their writes to the new leader and followers need to start consuming data changes from the new leader.
 
 Automatic failover consists:
+
 1. Determining that the leader has failed. If a node does not respond in a period of time it's considered dead.
 2. Choosing a new leader. The best candidate for leadership is usually the replica with the most up-to-date changes from the old leader.
 3. Reconfiguring the system to use the new leader. The system needs to ensure that the old leader becomes a follower and recognises the new leader.
 
 Things that could go wrong:
-* If asynchronous replication is used, the new leader may have received conflicting writes in the meantime.
-* Discarding writes is especially dangerous if other storage systems outside of the database need to be coordinated with the database contents.
-* It could happen that two nodes both believe that they are the leader (_split brain_). Data is likely to be lost or corrupted.
-* What is the right time before the leader is declared dead?
+
+- If asynchronous replication is used, the new leader may have received conflicting writes in the meantime.
+- Discarding writes is especially dangerous if other storage systems outside of the database need to be coordinated with the database contents.
+- It could happen that two nodes both believe that they are the leader (_split brain_). Data is likely to be lost or corrupted.
+- What is the right time before the leader is declared dead?
 
 For these reasons, some operation teams prefer to perform failovers manually, even if the software supports automatic failover.
 
@@ -833,9 +838,10 @@ For these reasons, some operation teams prefer to perform failovers manually, ev
 The leader logs every _statement_ and sends it to its followers (every `INSERT`, `UPDATE` or `DELETE`).
 
 This type of replication has some problems:
-* Non-deterministic functions such as `NOW()` or `RAND()` will generate different values on replicas.
-* Statements that depend on existing data, like auto-increments, must be executed in the same order in each replica.
-* Statements with side effects may result on different results on each replica.
+
+- Non-deterministic functions such as `NOW()` or `RAND()` will generate different values on replicas.
+- Statements that depend on existing data, like auto-increments, must be executed in the same order in each replica.
+- Statements with side effects may result on different results on each replica.
 
 A solution to this is to replace any nondeterministic function with a fixed return value in the leader.
 
@@ -850,9 +856,10 @@ Usually is not possible to run different versions of the database in leaders and
 ##### Logical (row-based) log replication
 
 Basically a sequence of records describing writes to database tables at the granularity of a row:
-* For an inserted row, the new values of all columns.
-* For a deleted row, the information that uniquely identifies that column.
-* For an updated row, the information to uniquely identify that row and all the new values of the columns.
+
+- For an inserted row, the new values of all columns.
+- For a deleted row, the information that uniquely identifies that column.
+- For an updated row, the information to uniquely identify that row and all the new values of the columns.
 
 A transaction that modifies several rows, generates several of such logs, followed by a record indicating that the transaction was committed. MySQL binlog uses this approach.
 
@@ -885,17 +892,18 @@ The problems that may arise and how to solve them.
 _Read-after-write consistency_, also known as _read-your-writes consistency_ is a guarantee that if the user reloads the page, they will always see any updates they submitted themselves.
 
 How to implement it:
-* **When reading something that the user may have modified, read it from the leader.** For example, user profile information on a social network is normally only editable by the owner. A simple rule is always read the user's own profile from the leader.
-* You could track the time of the latest update and, for one minute after the last update, make all reads from the leader.
-* The client can remember the timestamp of the most recent write, then the system can ensure that the replica serving any reads for that user reflects updates at least until that timestamp.
-* If your replicas are distributed across multiple datacenters, then any request needs to be routed to the datacenter that contains the leader.
 
+- **When reading something that the user may have modified, read it from the leader.** For example, user profile information on a social network is normally only editable by the owner. A simple rule is always read the user's own profile from the leader.
+- You could track the time of the latest update and, for one minute after the last update, make all reads from the leader.
+- The client can remember the timestamp of the most recent write, then the system can ensure that the replica serving any reads for that user reflects updates at least until that timestamp.
+- If your replicas are distributed across multiple datacenters, then any request needs to be routed to the datacenter that contains the leader.
 
 Another complication is that the same user is accessing your service from multiple devices, you may want to provide _cross-device_ read-after-write consistency.
 
 Some additional issues to consider:
-* Remembering the timestamp of the user's last update becomes more difficult. The metadata will need to be centralised.
-* If replicas are distributed across datacenters, there is no guarantee that connections from different devices will be routed to the same datacenter. You may need to route requests from all of a user's devices to the same datacenter.
+
+- Remembering the timestamp of the user's last update becomes more difficult. The metadata will need to be centralised.
+- If replicas are distributed across datacenters, there is no guarantee that connections from different devices will be routed to the same datacenter. You may need to route requests from all of a user's devices to the same datacenter.
 
 #### Monotonic reads
 
@@ -932,9 +940,10 @@ It rarely makes sense to use multi-leader setup within a single datacenter.
 You can have a leader in _each_ datacenter. Within each datacenter, regular leader-follower replication is used. Between datacenters, each datacenter leader replicates its changes to the leaders in other datacenters.
 
 Compared to a single-leader replication model deployed in multi-datacenters
-* **Performance.** With single-leader, every write must go across the internet to wherever the leader is, adding significant latency. In multi-leader every write is processed in the local datacenter and replicated asynchronously to other datacenters. The network delay is hidden from users and perceived performance may be better.
-* **Tolerance of datacenter outages.** In single-leader if the datacenter with the leader fails, failover can promote a follower in another datacenter. In multi-leader, each datacenter can continue operating independently from others.
-* **Tolerance of network problems.** Single-leader is very sensitive to problems in this inter-datacenter link as writes are made synchronously over this link. Multi-leader with asynchronous replication can tolerate network problems better.
+
+- **Performance.** With single-leader, every write must go across the internet to wherever the leader is, adding significant latency. In multi-leader every write is processed in the local datacenter and replicated asynchronously to other datacenters. The network delay is hidden from users and perceived performance may be better.
+- **Tolerance of datacenter outages.** In single-leader if the datacenter with the leader fails, failover can promote a follower in another datacenter. In multi-leader, each datacenter can continue operating independently from others.
+- **Tolerance of network problems.** Single-leader is very sensitive to problems in this inter-datacenter link as writes are made synchronously over this link. Multi-leader with asynchronous replication can tolerate network problems better.
 
 Multi-leader replication is implemented with Tungsten Replicator for MySQL, BDR for PostgreSQL or GoldenGate for Oracle.
 
@@ -968,7 +977,7 @@ If you want synchronous conflict detection, you might as well use single-leader 
 
 ##### Conflict avoidance
 
-The simplest strategy for dealing with conflicts is to avoid them. If all writes for a particular record go through the sae leader, then conflicts cannot occur.
+The simplest strategy for dealing with conflicts is to avoid them. If all writes for a particular record go through the same leader, then conflicts cannot occur.
 
 On an application where a user can edit their own data, you can ensure that requests from a particular user are always routed to the same datacenter and use the leader in that datacenter for reading and writing.
 
@@ -981,17 +990,18 @@ In multi-leader, it's not clear what the final value should be.
 The database must resolve the conflict in a _convergent_ way, all replicas must arrive a the same final value when all changes have been replicated.
 
 Different ways of achieving convergent conflict resolution.
-* Five each write a unique ID (timestamp, long random number, UUID, or a has of the key and value), pick the write with the highest ID as the _winner_ and throw away the other writes. This is known as _last write wins_ (LWW) and it is dangerously prone to data loss.
-* Give each replica a unique ID, writes that originated at a higher-numbered replica always take precedence. This approach also implies data loss.
-* Somehow merge the values together.
-* Record the conflict and write application code that resolves it a to some later time (perhaps prompting the user).
+
+- Give each write a unique ID (timestamp, long random number, UUID, or a has of the key and value), pick the write with the highest ID as the _winner_ and throw away the other writes. This is known as _last write wins_ (LWW) and it is dangerously prone to data loss.
+- Give each replica a unique ID, writes that originated at a higher-numbered replica always take precedence. This approach also implies data loss.
+- Somehow merge the values together.
+- Record the conflict and write application code that resolves it a to some later time (perhaps prompting the user).
 
 ##### Custom conflict resolution
 
 Multi-leader replication tools let you write conflict resolution logic using application code.
 
-* **On write.** As soon as the database system detects a conflict in the log of replicated changes, it calls the conflict handler.
-* **On read.** All the conflicting writes are stored. On read, multiple versions of the data are returned to the application. The application may prompt the user or automatically resolve the conflict. CouchDB works this way.
+- **On write.** As soon as the database system detects a conflict in the log of replicated changes, it calls the conflict handler.
+- **On read.** All the conflicting writes are stored. On read, multiple versions of the data are returned to the application. The application may prompt the user or automatically resolve the conflict. CouchDB works this way.
 
 #### Multi-leader replication topologies
 
@@ -1012,8 +1022,9 @@ In a leaderless configuration, failover does not exist. Clients send the write t
 _Read requests are also sent to several nodes in parallel_. The client may get different responses. Version numbers are used to determine which value is newer.
 
 Eventually, all the data is copied to every replica. After a unavailable node come back online, it has two different mechanisms to catch up:
-* **Read repair.** When a client detect any stale responses, write the newer value back to that replica.
-* **Anti-entropy process.** There is a background process that constantly looks for differences in data between replicas and copies any missing data from one replica to he other. It does not copy writes in any particular order.
+
+- **Read repair.** When a client detect any stale responses, write the newer value back to that replica.
+- **Anti-entropy process.** There is a background process that constantly looks for differences in data between replicas and copies any missing data from one replica to he other. It does not copy writes in any particular order.
 
 #### Quorums for reading and writing
 
@@ -1022,11 +1033,12 @@ If there are _n_ replicas, every write must be confirmed by _w_ nodes to be cons
 A common choice is to make _n_ and odd number (typically 3 or 5) and to set _w_ = _r_ = (_n_ + 1)/2 (rounded up).
 
 Limitations:
-* Sloppy quorum, the _w_ writes may end up on different nodes than the _r_ reads, so there is no longer a guaranteed overlap.
-* If two writes occur concurrently, and is not clear which one happened first, the only safe solution is to merge them. Writes can be lost due to clock skew.
-* If a write happens concurrently with a read, the write may be reflected on only some of the replicas.
-* If a write succeeded on some replicas but failed on others, it is not rolled back on the replicas where it succeeded. Reads may or may not return the value from that write.
-* If a node carrying a new value fails, and its data is restored from a replica carrying an old value, the number of replicas storing the new value may break the quorum condition.
+
+- Sloppy quorum, the _w_ writes may end up on different nodes than the _r_ reads, so there is no longer a guaranteed overlap.
+- If two writes occur concurrently, and is not clear which one happened first, the only safe solution is to merge them. Writes can be lost due to clock skew.
+- If a write happens concurrently with a read, the write may be reflected on only some of the replicas.
+- If a write succeeded on some replicas but failed on others, it is not rolled back on the replicas where it succeeded. Reads may or may not return the value from that write.
+- If a node carrying a new value fails, and its data is restored from a replica carrying an old value, the number of replicas storing the new value may break the quorum condition.
 
 **Dynamo-style databases are generally optimised for use cases that can tolerate eventual consistency.**
 
@@ -1035,8 +1047,9 @@ Limitations:
 Leaderless replication may be appealing for use cases that require high availability and low latency, and that can tolerate occasional stale reads.
 
 It's likely that the client won't be able to connect to _some_ database nodes during a network interruption.
-* Is it better to return errors to all requests for which we cannot reach quorum of _w_ or _r_ nodes?
-* Or should we accept writes anyway, and write them to some nodes that are reachable but aren't among the _n_ nodes on which the value usually lives?
+
+- Is it better to return errors to all requests for which we cannot reach quorum of _w_ or _r_ nodes?
+- Or should we accept writes anyway, and write them to some nodes that are reachable but aren't among the _n_ nodes on which the value usually lives?
 
 The latter is known as _sloppy quorum_: writes and reads still require _w_ and _r_ successful responses, but those may include nodes that are not among the designated _n_ "home" nodes for a value.
 
@@ -1052,16 +1065,17 @@ Each write from a client is sent to all replicas, regardless of datacenter, but 
 
 In order to become eventually consistent, the replicas should converge toward the same value. If you want to avoid losing data, you application developer, need to know a lot about the internals of your database's conflict handling.
 
-* **Last write wins (discarding concurrent writes).** Even though the writes don' have a natural ordering, we can force an arbitrary order on them. We can attach a timestamp to each write and pick the most recent. There are some situations such caching on which lost writes are acceptable. If losing data is not acceptable, LWW is a poor choice for conflict resolution.
-* **The "happens-before" relationship and concurrency.** Whether one operation happens before another operation is the key to defining what concurrency means. **We can simply say that to operations are _concurrent_ if neither happens before the other.** Either A happened before B, or B happened before A, or A and B are concurrent.
+- **Last write wins (discarding concurrent writes).** Even though the writes don' have a natural ordering, we can force an arbitrary order on them. We can attach a timestamp to each write and pick the most recent. There are some situations, such as caching, on which lost writes are acceptable. If losing data is not acceptable, LWW is a poor choice for conflict resolution.
+- **The "happens-before" relationship and concurrency.** Whether one operation happens before another operation is the key to defining what concurrency means. **We can simply say that to operations are _concurrent_ if neither happens before the other.** Either A happened before B, or B happened before A, or A and B are concurrent.
 
 ##### Capturing the happens-before relationship
 
 The server can determine whether two operations are concurrent by looking at the version numbers.
-* The server maintains a version number for every key, increments the version number every time that key is written, and stores the new version number along the value written.
-* Client reads a key, the server returns all values that have not been overwrite, as well as the latest version number. A client must read a key before writing.
-* Client writes a key, it must include the version number from the prior read, and it must merge together all values that it received in the prior read.
-* Server receives a write with a particular version number, it can overwrite all values with that version number or below, but it must keep all values with a higher version number.
+
+- The server maintains a version number for every key, increments the version number every time that key is written, and stores the new version number along the value written.
+- Client reads a key, the server returns all values that have not been overwrite, as well as the latest version number. A client must read a key before writing.
+- Client writes a key, it must include the version number from the prior read, and it must merge together all values that it received in the prior read.
+- Server receives a write with a particular version number, it can overwrite all values with that version number or below, but it must keep all values with a higher version number.
 
 ##### Merging concurrently written values
 
@@ -1088,7 +1102,6 @@ Replication, for very large datasets or very high query throughput is not suffic
 Basically, each partition is a small database of its own.
 
 The main reason for wanting to partition data is _scalability_, query load can be load cabe distributed across many processors. Throughput can be scaled by adding more nodes.
-
 
 ### Partitioning and replication
 
@@ -1149,10 +1162,11 @@ The advantage is that it can make reads more efficient: rather than doing scatte
 The process of moving load from one node in the cluster to another.
 
 Strategies for rebalancing:
-* **How not to do it: Hash mod n.** The problem with _mod N_ is that if the number of nodes _N_ changes, most of the keys will need to be moved from one node to another.
-* **Fixed number of partitions.** Create many more partitions than there are nodes and assign several partitions to each node. If a node is added to the cluster, we can _steal_ a few partitions from every existing node until partitions are fairly distributed once again. The number of partitions does not change, nor does the assignment of keys to partitions. The only thing that change is the assignment of partitions to nodes. This is used in Riak, Elasticsearch, Couchbase, and Voldemport. **You need to choose a high enough number of partitions to accomodate future growth.** Neither too big or too small.
-* **Dynamic partitioning.** The number of partitions adapts to the total data volume. An empty database starts with an empty partition. While the dataset is small, all writes have to processed by a single node while the others nodes sit idle. HBase and MongoDB allow an initial set of partitions to be configured (_pre-splitting_).
-* **Partitioning proportionally to nodes.** Cassandra and Ketama make the number of partitions proportional to the number of nodes. Have a fixed number of partitions _per node_. This approach also keeps the size of each partition fairly stable.
+
+- **How not to do it: Hash mod n.** The problem with _mod N_ is that if the number of nodes _N_ changes, most of the keys will need to be moved from one node to another.
+- **Fixed number of partitions.** Create many more partitions than there are nodes and assign several partitions to each node. If a node is added to the cluster, we can _steal_ a few partitions from every existing node until partitions are fairly distributed once again. The number of partitions does not change, nor does the assignment of keys to partitions. The only thing that change is the assignment of partitions to nodes. This is used in Riak, Elasticsearch, Couchbase, and Voldemport. **You need to choose a high enough number of partitions to accomodate future growth.** Neither too big or too small.
+- **Dynamic partitioning.** The number of partitions adapts to the total data volume. An empty database starts with an empty partition. While the dataset is small, all writes have to processed by a single node while the others nodes sit idle. HBase and MongoDB allow an initial set of partitions to be configured (_pre-splitting_).
+- **Partitioning proportionally to nodes.** Cassandra and Ketama make the number of partitions proportional to the number of nodes. Have a fixed number of partitions _per node_. This approach also keeps the size of each partition fairly stable.
 
 #### Automatic versus manual rebalancing
 
@@ -1163,9 +1177,10 @@ It can be good to have a human in the loop for rebalancing. You may avoid operat
 ### Request routing
 
 This problem is also called _service discovery_. There are different approaches:
-1. Allow clients to contact any node and make them handle the request directly, or forward the request to the appropriate node.
-2. Send all requests from clients to a routing tier first that acts as a partition-aware load balancer.
-3. Make clients aware of the partitioning and the assignment of partitions to nodes.
+
+- Allow clients to contact any node and make them handle the request directly, or forward the request to the appropriate node.
+- Send all requests from clients to a routing tier first that acts as a partition-aware load balancer.
+- Make clients aware of the partitioning and the assignment of partitions to nodes.
 
 In many cases the problem is: how does the component making the routing decision learn about changes in the assignment of partitions to nodes?
 

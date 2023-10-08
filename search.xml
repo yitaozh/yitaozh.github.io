@@ -5031,14 +5031,14 @@
 <h4 id="Handling-write-conflicts"><a href="#Handling-write-conflicts" class="headerlink" title="Handling write conflicts"></a>Handling write conflicts</h4><p>The biggest problem with multi-leader replication is when conflict resolution is required. This problem does not happen in a single-leader database.</p>
 <h5 id="Synchronous-vs-asynchronous-conflict-detection"><a href="#Synchronous-vs-asynchronous-conflict-detection" class="headerlink" title="Synchronous vs asynchronous conflict detection"></a>Synchronous vs asynchronous conflict detection</h5><p>In single-leader the second writer can be blocked and wait the first one to complete, forcing the user to retry the write. On multi-leader if both writes are successful, the conflict is only detected asynchronously later in time.</p>
 <p>If you want synchronous conflict detection, you might as well use single-leader replication.</p>
-<h5 id="Conflict-avoidance"><a href="#Conflict-avoidance" class="headerlink" title="Conflict avoidance"></a>Conflict avoidance</h5><p>The simplest strategy for dealing with conflicts is to avoid them. If all writes for a particular record go through the sae leader, then conflicts cannot occur.</p>
+<h5 id="Conflict-avoidance"><a href="#Conflict-avoidance" class="headerlink" title="Conflict avoidance"></a>Conflict avoidance</h5><p>The simplest strategy for dealing with conflicts is to avoid them. If all writes for a particular record go through the same leader, then conflicts cannot occur.</p>
 <p>On an application where a user can edit their own data, you can ensure that requests from a particular user are always routed to the same datacenter and use the leader in that datacenter for reading and writing.</p>
 <h5 id="Converging-toward-a-consistent-state"><a href="#Converging-toward-a-consistent-state" class="headerlink" title="Converging toward a consistent state"></a>Converging toward a consistent state</h5><p>On single-leader, the last write determines the final value of the field.</p>
 <p>In multi-leader, it’s not clear what the final value should be.</p>
 <p>The database must resolve the conflict in a <em>convergent</em> way, all replicas must arrive a the same final value when all changes have been replicated.</p>
 <p>Different ways of achieving convergent conflict resolution.</p>
 <ul>
-<li>Five each write a unique ID (timestamp, long random number, UUID, or a has of the key and value), pick the write with the highest ID as the <em>winner</em> and throw away the other writes. This is known as <em>last write wins</em> (LWW) and it is dangerously prone to data loss.</li>
+<li>Give each write a unique ID (timestamp, long random number, UUID, or a has of the key and value), pick the write with the highest ID as the <em>winner</em> and throw away the other writes. This is known as <em>last write wins</em> (LWW) and it is dangerously prone to data loss.</li>
 <li>Give each replica a unique ID, writes that originated at a higher-numbered replica always take precedence. This approach also implies data loss.</li>
 <li>Somehow merge the values together.</li>
 <li>Record the conflict and write application code that resolves it a to some later time (perhaps prompting the user).</li>
@@ -5083,7 +5083,7 @@
 <h5 id="Multi-datacenter-operation-1"><a href="#Multi-datacenter-operation-1" class="headerlink" title="Multi-datacenter operation"></a>Multi-datacenter operation</h5><p>Each write from a client is sent to all replicas, regardless of datacenter, but the client usually only waits for acknowledgement from a quorum of nodes within its local datacenter so that it is unaffected by delays and interruptions on cross-datacenter link.</p>
 <h4 id="Detecting-concurrent-writes"><a href="#Detecting-concurrent-writes" class="headerlink" title="Detecting concurrent writes"></a>Detecting concurrent writes</h4><p>In order to become eventually consistent, the replicas should converge toward the same value. If you want to avoid losing data, you application developer, need to know a lot about the internals of your database’s conflict handling.</p>
 <ul>
-<li><strong>Last write wins (discarding concurrent writes).</strong> Even though the writes don’ have a natural ordering, we can force an arbitrary order on them. We can attach a timestamp to each write and pick the most recent. There are some situations such caching on which lost writes are acceptable. If losing data is not acceptable, LWW is a poor choice for conflict resolution.</li>
+<li><strong>Last write wins (discarding concurrent writes).</strong> Even though the writes don’ have a natural ordering, we can force an arbitrary order on them. We can attach a timestamp to each write and pick the most recent. There are some situations, such as caching, on which lost writes are acceptable. If losing data is not acceptable, LWW is a poor choice for conflict resolution.</li>
 <li><strong>The “happens-before” relationship and concurrency.</strong> Whether one operation happens before another operation is the key to defining what concurrency means. <strong>We can simply say that to operations are <em>concurrent</em> if neither happens before the other.</strong> Either A happened before B, or B happened before A, or A and B are concurrent.</li>
 </ul>
 <h5 id="Capturing-the-happens-before-relationship"><a href="#Capturing-the-happens-before-relationship" class="headerlink" title="Capturing the happens-before relationship"></a>Capturing the happens-before relationship</h5><p>The server can determine whether two operations are concurrent by looking at the version numbers.</p>
@@ -5133,11 +5133,11 @@
 <h4 id="Automatic-versus-manual-rebalancing"><a href="#Automatic-versus-manual-rebalancing" class="headerlink" title="Automatic versus manual rebalancing"></a>Automatic versus manual rebalancing</h4><p>Fully automated rebalancing may seem convenient but the process can overload the network or the nodes and harm the performance of other requests while the rebalancing is in progress.</p>
 <p>It can be good to have a human in the loop for rebalancing. You may avoid operational surprises.</p>
 <h3 id="Request-routing"><a href="#Request-routing" class="headerlink" title="Request routing"></a>Request routing</h3><p>This problem is also called <em>service discovery</em>. There are different approaches:</p>
-<ol>
+<ul>
 <li>Allow clients to contact any node and make them handle the request directly, or forward the request to the appropriate node.</li>
 <li>Send all requests from clients to a routing tier first that acts as a partition-aware load balancer.</li>
 <li>Make clients aware of the partitioning and the assignment of partitions to nodes.</li>
-</ol>
+</ul>
 <p>In many cases the problem is: how does the component making the routing decision learn about changes in the assignment of partitions to nodes?</p>
 <p>Many distributed data systems rely on a separate coordination service such as ZooKeeper to keep track of this cluster metadata. Each node registers itself in ZooKeeper, and ZooKeeper maintains the authoritative mapping of partitions to nodes. The routing tier or the partitioning-aware client, can subscribe to this information in ZooKeeper. HBase, SolrCloud and Kafka use ZooKeeper to track partition assignment. MongoDB relies on its own <em>config server</em>. Cassandra and Riak take a different approach: they use a <em>gossip protocol</em>.</p>
 <h4 id="Parallel-query-execution"><a href="#Parallel-query-execution" class="headerlink" title="Parallel query execution"></a>Parallel query execution</h4><p><em>Massively parallel processing</em> (MPP) relational database products are much more sophisticated in the types of queries they support.</p>

@@ -100,12 +100,12 @@ public:
             if (probs[index] > prob) {
                 continue;
             }
-            probs[index] = prob;
             for (auto edge : graph[index]) {
                 int nextPoint = edge.first;
                 double nextProb = edge.second;
                 nextProb = prob * nextProb;
                 if (nextProb > probs[nextPoint]) {
+                    probs[index] = prob;
                     pq.push({nextProb, nextPoint});
                 }
             }

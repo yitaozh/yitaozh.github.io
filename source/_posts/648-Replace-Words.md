@@ -49,6 +49,10 @@ Output: "a a b c"
 * Every two consecutive words in `sentence` will be separated by exactly one space.
 * `sentence` does not have leading or trailing spaces.
 
+## Hints/Notes
+
+* Trie
+
 ## Solution
 
 Language: **C++**

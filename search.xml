@@ -3281,6 +3281,48 @@
       </tags>
   </entry>
   <entry>
+    <title>677. Map Sum Pairs</title>
+    <url>/2023/10/10/677-Map-Sum-Pairs/</url>
+    <content><![CDATA[<h1 id="677-Map-Sum-Pairs"><a href="#677-Map-Sum-Pairs" class="headerlink" title="677. Map Sum Pairs"></a><a href="https://leetcode.com/problems/map-sum-pairs/">677. Map Sum Pairs</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/string//">String</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/design//">Design</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/trie//">Trie</a></p>
+<p>Design a map that allows you to do the following:</p>
+<ul>
+<li>Maps a string key to a given value.</li>
+<li>Returns the sum of the values that have a key with a prefix equal to a given string.</li>
+</ul>
+<p>Implement the <code>MapSum</code> class:</p>
+<ul>
+<li><code>MapSum()</code> Initializes the <code>MapSum</code> object.</li>
+<li><code>void insert(String key, int val)</code> Inserts the <code>key-val</code> pair into the map. If the <code>key</code> already existed, the original <code>key-value</code> pair will be overridden to the new one.</li>
+<li><code>int sum(string prefix)</code> Returns the sum of all the pairs’ value whose <code>key</code> starts with the <code>prefix</code>.</li>
+</ul>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input</span><br><span class="line">[<span class="string">&quot;MapSum&quot;</span>, <span class="string">&quot;insert&quot;</span>, <span class="string">&quot;sum&quot;</span>, <span class="string">&quot;insert&quot;</span>, <span class="string">&quot;sum&quot;</span>]</span><br><span class="line">[[], [<span class="string">&quot;apple&quot;</span>, 3], [<span class="string">&quot;ap&quot;</span>], [<span class="string">&quot;app&quot;</span>, 2], [<span class="string">&quot;ap&quot;</span>]]</span><br><span class="line">Output</span><br><span class="line">[null, null, 3, null, 5]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">MapSum mapSum = new MapSum();</span><br><span class="line">mapSum.insert(<span class="string">&quot;apple&quot;</span>, 3);</span><br><span class="line">mapSum.<span class="built_in">sum</span>(<span class="string">&quot;ap&quot;</span>);           // <span class="built_in">return</span> 3 (apple = 3)</span><br><span class="line">mapSum.insert(<span class="string">&quot;app&quot;</span>, 2);</span><br><span class="line">mapSum.<span class="built_in">sum</span>(<span class="string">&quot;ap&quot;</span>);           // <span class="built_in">return</span> 5 (apple + app = 3 + 2 = 5)</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= key.length, prefix.length &lt;= 50</code></li>
+<li><code>key</code> and <code>prefix</code> consist of only lowercase English letters.</li>
+<li><code>1 &lt;= val &lt;= 1000</code></li>
+<li>At most <code>50</code> calls will be made to <code>insert</code> and <code>sum</code>.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Trie</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MapSum</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">TrieNode</span> &#123;</span><br><span class="line">        <span class="type">int</span> value;</span><br><span class="line">        vector&lt;TrieNode*&gt; children;</span><br><span class="line">        <span class="built_in">TrieNode</span>() &#123;</span><br><span class="line">            value = <span class="number">0</span>;</span><br><span class="line">            children = <span class="built_in">vector</span>&lt;TrieNode*&gt;(<span class="number">26</span>, <span class="literal">nullptr</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    TrieNode* root;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">MapSum</span>() &#123;</span><br><span class="line">        root = <span class="keyword">new</span> <span class="built_in">TrieNode</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(string key, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        TrieNode* head = root;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : key) &#123;</span><br><span class="line">            <span class="keyword">if</span> (head-&gt;children[c - <span class="string">&#x27;a&#x27;</span>] == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">                head-&gt;children[c - <span class="string">&#x27;a&#x27;</span>] = <span class="keyword">new</span> <span class="built_in">TrieNode</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            head = head-&gt;children[c - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        head-&gt;value = val;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">sum</span><span class="params">(string prefix)</span> </span>&#123;</span><br><span class="line">        TrieNode* head = root;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : prefix) &#123;</span><br><span class="line">            <span class="keyword">if</span> (head-&gt;children[c - <span class="string">&#x27;a&#x27;</span>] == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            head = head-&gt;children[c - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">traverse</span>(head);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">traverse</span><span class="params">(TrieNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (TrieNode* child : head-&gt;children) &#123;</span><br><span class="line">            sum += <span class="built_in">traverse</span>(child);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum + head-&gt;value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MapSum object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MapSum* obj = new MapSum();</span></span><br><span class="line"><span class="comment"> * obj-&gt;insert(key,val);</span></span><br><span class="line"><span class="comment"> * int param_2 = obj-&gt;sum(prefix);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Hash Table</tag>
+        <tag>String</tag>
+        <tag>Design</tag>
+        <tag>Trie</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>700. Search in a Binary Search Tree</title>
     <url>/2023/08/27/700-Search-in-a-Binary-Search-Tree/</url>
     <content><![CDATA[<h1 id="700-Search-in-a-Binary-Search-Tree"><a href="#700-Search-in-a-Binary-Search-Tree" class="headerlink" title="700. Search in a Binary Search Tree"></a><a href="https://leetcode.com/problems/search-in-a-binary-search-tree/">700. Search in a Binary Search Tree</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>

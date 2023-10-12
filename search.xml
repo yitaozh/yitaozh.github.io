@@ -2635,6 +2635,44 @@
       </tags>
   </entry>
   <entry>
+    <title>373. Find K Pairs with Smallest Sums</title>
+    <url>/2023/10/12/373-Find-K-Pairs-with-Smallest-Sums/</url>
+    <content><![CDATA[<h1 id="373-Find-K-Pairs-with-Smallest-Sums"><a href="#373-Find-K-Pairs-with-Smallest-Sums" class="headerlink" title="373. Find K Pairs with Smallest Sums"></a><a href="https://leetcode.com/problems/find-k-pairs-with-smallest-sums/">373. Find K Pairs with Smallest Sums</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/heap-priority-queue//">Heap (Priority Queue)</a></p>
+<p>You are given two integer arrays <code>nums1</code> and <code>nums2</code> sorted in <strong>non-decreasing order</strong> and an integer <code>k</code>.</p>
+<p>Define a pair <code>(u, v)</code> which consists of one element from the first array and one element from the second array.</p>
+<p>Return <em>the</em> <code>k</code> <em>pairs</em> (u<sub>1</sub>, v<sub>1</sub>), (u<sub>2</sub>, v<sub>2</sub>), …, (u<sub>k</sub>, v<sub>k</sub>) <em>with the smallest sums</em>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums1 = [1,7,11], nums2 = [2,4,6], k = 3</span><br><span class="line">Output: [[1,2],[1,4],[1,6]]</span><br><span class="line">Explanation: The first 3 pairs are returned from the sequence: [1,2],[1,4],[1,6],[7,2],[7,4],[11,2],[7,6],[11,4],[11,6]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums1 = [1,1,2], nums2 = [1,2,3], k = 2</span><br><span class="line">Output: [[1,1],[1,1]]</span><br><span class="line">Explanation: The first 2 pairs are returned from the sequence: [1,1],[1,1],[1,2],[2,1],[1,2],[2,2],[1,3],[1,3],[2,3]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums1 = [1,2], nums2 = [3], k = 3</span><br><span class="line">Output: [[1,3],[2,3]]</span><br><span class="line">Explanation: All possible pairs are returned from the sequence: [1,3],[2,3]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; nums1.length, nums2.length &lt;&#x3D; 10<sup>5</sup></li>
+<li>-10<sup>9</sup> &lt;&#x3D; nums1[i], nums2[i] &lt;&#x3D; 10<sup>9</sup></li>
+<li><code>nums1</code> and <code>nums2</code> both are sorted in <strong>non-decreasing order</strong>.</li>
+<li>1 &lt;&#x3D; k &lt;&#x3D; 10<sup>4</sup></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Priority queue</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">kSmallestPairs</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums1, vector&lt;<span class="type">int</span>&gt;&amp; nums2, <span class="type">int</span> k) &#123;</span><br><span class="line">        <span class="type">int</span> size1 = nums1.<span class="built_in">size</span>(), size2 = nums2.<span class="built_in">size</span>();</span><br><span class="line">        priority_queue&lt;vector&lt;<span class="type">int</span>&gt;, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;, greater&lt;vector&lt;<span class="type">int</span>&gt;&gt;&gt; pq;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; size1; i++) &#123;</span><br><span class="line">            pq.<span class="built_in">push</span>(&#123;nums1[i] + nums2[<span class="number">0</span>], i, <span class="number">0</span>&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; res;</span><br><span class="line">        <span class="keyword">while</span> (k &gt; <span class="number">0</span> &amp;&amp; !pq.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            vector&lt;<span class="type">int</span>&gt; top = pq.<span class="built_in">top</span>();</span><br><span class="line">            pq.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="type">int</span> i1 = top[<span class="number">1</span>];</span><br><span class="line">            <span class="type">int</span> i2 = top[<span class="number">2</span>];</span><br><span class="line">            res.<span class="built_in">push_back</span>(&#123;nums1[i1], nums2[i2]&#125;);</span><br><span class="line">            <span class="keyword">if</span> (i2 &lt; size2 - <span class="number">1</span>) &#123;</span><br><span class="line">                i2++;</span><br><span class="line">                pq.<span class="built_in">push</span>(&#123;nums1[i1] + nums2[i2], i1, i2&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">            k--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Heap (Priority Queue)</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>380. Insert Delete GetRandom O(1)</title>
     <url>/2023/01/31/380-Insert-Delete-GetRandom-O-1/</url>
     <content><![CDATA[<h1 id="380-Insert-Delete-GetRandom-O-1"><a href="#380-Insert-Delete-GetRandom-O-1" class="headerlink" title="380. Insert Delete GetRandom O(1)"></a><a href="https://leetcode.com/problems/insert-delete-getrandom-o1/">380. Insert Delete GetRandom O(1)</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>

@@ -15,8 +15,8 @@ Use the first and second week to submit reimbursements, do the bookkeeping on th
 #### Excel processing
 
 1. Dump the record from Mint to nyuzyt/Personal file/Transactions cvs file
+1. Insert a line in overall sheet prior to the previous record, then `insert the copied cells`
 1. Copy the cvs tables content, without the header
-1. Insert a line in overall sheet prior to the previous record, then "insert the copied cells"
 1. Create a new sheet for this month alone
 1. Copy from one previous month's sheet(all the way to comments), paste the column width
 1. Copy the records to this month's sheet
@@ -31,7 +31,7 @@ Use the first and second week to submit reimbursements, do the bookkeeping on th
 
 1. Generate the new hexo post with `hexo new post "Bookkeeping - XXXX/XX"`
 1. Copy all content from the post for previous month, git add now(so we know what changed)
-1. Commit the change with title "Add bookkeeping for YYYY/MM"
+1. Commit the change with title `Add bookkeeping for YYYY/MM`
 1. Go to the [Table to Markdown](https://tabletomarkdown.com/convert-spreadsheet-to-markdown/) website to transform excel tables to markdown tables
 1. Remove the zeroes from sum column
 1. Open the same file to the right window, make it narrow
@@ -85,6 +85,7 @@ Use the first and second week to submit reimbursements, do the bookkeeping on th
 | Hotel                 | Travel          |
 | Ticket                | Travel          |
 | Souvenir              | Travel          |
+| Travel Misc           | Travel          |
 | IRA                   | Investment      |
 | Stock                 | Investment      |
 | Cash & ATM            | Misc            |

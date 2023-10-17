@@ -31,6 +31,7 @@ Use the first and second week to submit reimbursements, do the bookkeeping on th
 
 1. Generate the new hexo post with `hexo new post "Bookkeeping - XXXX/XX"`
 1. Copy all content from the post for previous month, git add now(so we know what changed)
+1. Commit the change with title "Add bookkeeping for YYYY/MM"
 1. Go to the [Table to Markdown](https://tabletomarkdown.com/convert-spreadsheet-to-markdown/) website to transform excel tables to markdown tables
 1. Remove the zeroes from sum column
 1. Open the same file to the right window, make it narrow
@@ -47,7 +48,6 @@ Use the first and second week to submit reimbursements, do the bookkeeping on th
     ```
 
 1. Add new value to and remove old value from the trend
-1. Commit the change with title "Add bookkeeping for YYYY/MM"
 
 ### Transaction catagories
 
@@ -58,11 +58,9 @@ Use the first and second week to submit reimbursements, do the bookkeeping on th
 | Bubble Tea            | Food            |
 | Groceries             | Food            |
 | Medical               | Health          |
-| Covid Test            | Health          |
 | Dental                | Health          |
 | Eyecare               | Health          |
 | Pharmacy              | Health          |
-| Control               | Health          |
 | Clothing              | Shopping        |
 | Hair & Skin           | Shopping        |
 | Home Improvement      | Shopping        |
@@ -70,6 +68,7 @@ Use the first and second week to submit reimbursements, do the bookkeeping on th
 | Electronics           | Shopping        |
 | Office                | Shopping        |
 | Marriage              | Shopping        |
+| Entertainment         | Shopping        |
 | Electricity           | Utilities       |
 | Gas                   | Utilities       |
 | Phone Bill            | Utilities       |

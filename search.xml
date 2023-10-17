@@ -4410,6 +4410,8 @@
 </li>
 <li><p>Copy all content from the post for previous month, git add now(so we know what changed)</p>
 </li>
+<li><p>Commit the change with title “Add bookkeeping for YYYY&#x2F;MM”</p>
+</li>
 <li><p>Go to the <a href="https://tabletomarkdown.com/convert-spreadsheet-to-markdown/">Table to Markdown</a> website to transform excel tables to markdown tables</p>
 </li>
 <li><p>Remove the zeroes from sum column</p>
@@ -4422,8 +4424,6 @@
  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">对</span><br><span class="line">spending table</span><br><span class="line">取每一行第一个值和第二个值，生成类似</span><br><span class="line">&#123;value:251.69, name:<span class="string">&#x27;Restaurants&#x27;</span>&#125;,</span><br><span class="line">&#123;value:73.15, name:<span class="string">&#x27;Cake &amp; Bread&#x27;</span>&#125;,</span><br><span class="line">的数据</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Add new value to and remove old value from the trend</p>
-</li>
-<li><p>Commit the change with title “Add bookkeeping for YYYY&#x2F;MM”</p>
 </li>
 </ol>
 <h3 id="Transaction-catagories"><a href="#Transaction-catagories" class="headerlink" title="Transaction catagories"></a>Transaction catagories</h3><table>
@@ -4454,10 +4454,6 @@
 <td>Health</td>
 </tr>
 <tr>
-<td>Covid Test</td>
-<td>Health</td>
-</tr>
-<tr>
 <td>Dental</td>
 <td>Health</td>
 </tr>
@@ -4467,10 +4463,6 @@
 </tr>
 <tr>
 <td>Pharmacy</td>
-<td>Health</td>
-</tr>
-<tr>
-<td>Control</td>
 <td>Health</td>
 </tr>
 <tr>
@@ -4499,6 +4491,10 @@
 </tr>
 <tr>
 <td>Marriage</td>
+<td>Shopping</td>
+</tr>
+<tr>
+<td>Entertainment</td>
 <td>Shopping</td>
 </tr>
 <tr>

@@ -1973,6 +1973,39 @@
       </tags>
   </entry>
   <entry>
+    <title>263. Ugly Number</title>
+    <url>/2023/10/17/263-Ugly-Number/</url>
+    <content><![CDATA[<h1 id="263-Ugly-Number"><a href="#263-Ugly-Number" class="headerlink" title="263. Ugly Number"></a><a href="https://leetcode.com/problems/ugly-number/">263. Ugly Number</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/math//">Math</a></p>
+<p>An <strong>ugly number</strong> is a positive integer whose prime factors are limited to <code>2</code>, <code>3</code>, and <code>5</code>.</p>
+<p>Given an integer <code>n</code>, return <code>true</code> <em>if</em> <code>n</code> <em>is an <strong>ugly number</strong></em>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 6</span><br><span class="line">Output: <span class="literal">true</span></span><br><span class="line">Explanation: 6 = 2 × 3</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 1</span><br><span class="line">Output: <span class="literal">true</span></span><br><span class="line">Explanation: 1 has no prime factors, therefore all of its prime factors are limited to 2, 3, and 5.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 14</span><br><span class="line">Output: <span class="literal">false</span></span><br><span class="line">Explanation: 14 is not ugly since it includes the prime <span class="built_in">factor</span> 7.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>-2<sup>31</sup> &lt;&#x3D; n &lt;&#x3D; 2<sup>31</sup> - 1</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>N&#x2F;A</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isUgly</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">while</span> (n % <span class="number">2</span> == <span class="number">0</span>) n /= <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">while</span> (n % <span class="number">3</span> == <span class="number">0</span>) n /= <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">while</span> (n % <span class="number">5</span> == <span class="number">0</span>) n /= <span class="number">5</span>;</span><br><span class="line">        <span class="keyword">return</span> n == <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Math</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>27. Remove Element</title>
     <url>/2023/01/17/27-Remove-Element/</url>
     <content><![CDATA[<h1 id="27-Remove-Element"><a href="#27-Remove-Element" class="headerlink" title="27. Remove Element"></a><a href="https://leetcode.com/problems/remove-element/">27. Remove Element</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>

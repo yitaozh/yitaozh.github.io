@@ -2673,6 +2673,50 @@
       </tags>
   </entry>
   <entry>
+    <title>378. Kth Smallest Element in a Sorted Matrix</title>
+    <url>/2023/10/17/378-Kth-Smallest-Element-in-a-Sorted-Matrix/</url>
+    <content><![CDATA[<h1 id="378-Kth-Smallest-Element-in-a-Sorted-Matrix"><a href="#378-Kth-Smallest-Element-in-a-Sorted-Matrix" class="headerlink" title="378. Kth Smallest Element in a Sorted Matrix"></a><a href="https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/">378. Kth Smallest Element in a Sorted Matrix</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-search//">Binary Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sorting//">Sorting</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/heap-priority-queue//">Heap (Priority Queue)</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/matrix//">Matrix</a></p>
+<p>Given an <code>n x n</code> <code>matrix</code> where each of the rows and columns is sorted in ascending order, return <em>the</em> k<sup>th</sup> <em>smallest element in the matrix</em>.</p>
+<p>Note that it is the k<sup>th</sup> smallest element <strong>in the sorted order</strong>, not the k<sup>th</sup> <strong>distinct</strong> element.</p>
+<p>You must find a solution with a memory complexity better than O(n<sup>2</sup>).</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: matrix = [[1,5,9],[10,11,13],[12,13,15]], k = 8</span><br><span class="line">Output: 13</span><br><span class="line">Explanation: The elements <span class="keyword">in</span> the matrix are [1,5,9,10,11,12,13,13,15], and the 8th smallest number is 13</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: matrix = [[-5]], k = 1</span><br><span class="line">Output: -5</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>n == matrix.length == matrix[i].length</code></li>
+<li><code>1 &lt;= n &lt;= 300</code></li>
+<li>-10<sup>9</sup> &lt;&#x3D; <code>matrix[i][j]</code> &lt;&#x3D; 10<sup>9</sup></li>
+<li>All the rows and columns of <code>matrix</code> are <strong>guaranteed</strong> to be sorted in <strong>non-decreasing order</strong>.</li>
+<li>1 &lt;&#x3D; k &lt;&#x3D; n<sup>2</sup></li>
+</ul>
+<p><strong>Follow up:</strong></p>
+<ul>
+<li>Could you solve the problem with a constant memory (i.e., <code>O(1)</code> memory complexity)?</li>
+<li>Could you solve the problem in <code>O(n)</code> time complexity? The solution may be too advanced for an interview but you may find reading <a href="http://www.cse.yorku.ca/~andy/pubs/X+Y.pdf">this paper</a> fun.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Priority queue</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">kthSmallest</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; matrix, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        priority_queue&lt;vector&lt;<span class="type">int</span>&gt;, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;, greater&lt;vector&lt;<span class="type">int</span>&gt;&gt;&gt; pq;</span><br><span class="line">        <span class="type">int</span> n = matrix.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            pq.<span class="built_in">push</span>(&#123;matrix[i][<span class="number">0</span>], i, <span class="number">0</span>&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (k &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">auto</span> p = pq.<span class="built_in">top</span>();</span><br><span class="line">            pq.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="type">int</span> i = p[<span class="number">1</span>], j = p[<span class="number">2</span>];</span><br><span class="line">            <span class="keyword">if</span> (j &lt; n - <span class="number">1</span>) &#123;</span><br><span class="line">                pq.<span class="built_in">push</span>(&#123;matrix[i][j + <span class="number">1</span>], i, j + <span class="number">1</span>&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">            k--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">auto</span> p = pq.<span class="built_in">top</span>();</span><br><span class="line">        <span class="keyword">return</span> p[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Binary Search</tag>
+        <tag>Sorting</tag>
+        <tag>Heap (Priority Queue)</tag>
+        <tag>Matrix</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>380. Insert Delete GetRandom O(1)</title>
     <url>/2023/01/31/380-Insert-Delete-GetRandom-O-1/</url>
     <content><![CDATA[<h1 id="380-Insert-Delete-GetRandom-O-1"><a href="#380-Insert-Delete-GetRandom-O-1" class="headerlink" title="380. Insert Delete GetRandom O(1)"></a><a href="https://leetcode.com/problems/insert-delete-getrandom-o1/">380. Insert Delete GetRandom O(1)</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>

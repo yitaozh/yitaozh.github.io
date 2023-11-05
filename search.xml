@@ -113,51 +113,6 @@
       </tags>
   </entry>
   <entry>
-    <title>1056. Confusing Number</title>
-    <url>/2023/01/20/1056-Confusing-Number/</url>
-    <content><![CDATA[<h1 id="1056-Confusing-Number"><a href="#1056-Confusing-Number" class="headerlink" title="1056. Confusing Number"></a><a href="https://leetcode.com/problems/confusing-number/">1056. Confusing Number</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/math//">Math</a></p>
-<p>A <strong>confusing number</strong> is a number that when rotated <code>180</code> degrees becomes a different number with <strong>each digit valid</strong>.</p>
-<p>We can rotate digits of a number by <code>180</code> degrees to form new digits.</p>
-<ul>
-<li>When <code>0</code>, <code>1</code>, <code>6</code>, <code>8</code>, and <code>9</code> are rotated <code>180</code> degrees, they become <code>0</code>, <code>1</code>, <code>9</code>, <code>8</code>, and <code>6</code> respectively.</li>
-<li>When <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, and <code>7</code> are rotated <code>180</code> degrees, they become <strong>invalid</strong>.</li>
-</ul>
-<p>Note that after rotating a number, we can ignore leading zeros.</p>
-<ul>
-<li>For example, after rotating <code>8000</code>, we have <code>0008</code> which is considered as just <code>8</code>.</li>
-</ul>
-<p>Given an integer <code>n</code>, return <code>true</code> <em>if it is a <strong>confusing number</strong>, or</em> <code>false</code> <em>otherwise</em>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2019/03/23/1268_1.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 6</span><br><span class="line">Output: <span class="literal">true</span></span><br><span class="line">Explanation: We get 9 after rotating 6, 9 is a valid number, and 9 != 6.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2019/03/23/1268_2.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 89</span><br><span class="line">Output: <span class="literal">true</span></span><br><span class="line">Explanation: We get 68 after rotating 89, 68 is a valid number and 68 != 89.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2019/03/26/1268_3.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 11</span><br><span class="line">Output: <span class="literal">false</span></span><br><span class="line">Explanation: We get 11 after rotating 11, 11 is a valid number but the value remains the same, thus 11 is not a confusing number</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>0 &lt;&#x3D; n &lt;&#x3D; 10<sup>9</sup></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>No need to do the mapping, we can use switch during the loop</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">confusingNumber</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; mapping;</span><br><span class="line">        <span class="type">int</span> sum = <span class="number">0</span>, tmp = n;</span><br><span class="line">        <span class="keyword">while</span> (tmp &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="type">int</span> r = tmp % <span class="number">10</span>;</span><br><span class="line">            tmp /= <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">switch</span>(r) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">                    sum = sum * <span class="number">10</span> + r;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">                    sum = sum * <span class="number">10</span> + <span class="number">9</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">9</span>:</span><br><span class="line">                    sum = sum * <span class="number">10</span> + <span class="number">6</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">                <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">                <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> !(sum == n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Math</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>106. Construct Binary Tree from Inorder and Postorder Traversal</title>
     <url>/2023/08/22/106-Construct-Binary-Tree-from-Inorder-and-Postorder-Traversal/</url>
     <content><![CDATA[<h1 id="106-Construct-Binary-Tree-from-Inorder-and-Postorder-Traversal"><a href="#106-Construct-Binary-Tree-from-Inorder-and-Postorder-Traversal" class="headerlink" title="106. Construct Binary Tree from Inorder and Postorder Traversal"></a><a href="https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/">106. Construct Binary Tree from Inorder and Postorder Traversal</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -230,6 +185,51 @@
       <tags>
         <tag>Math</tag>
         <tag>String</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>1056. Confusing Number</title>
+    <url>/2023/01/20/1056-Confusing-Number/</url>
+    <content><![CDATA[<h1 id="1056-Confusing-Number"><a href="#1056-Confusing-Number" class="headerlink" title="1056. Confusing Number"></a><a href="https://leetcode.com/problems/confusing-number/">1056. Confusing Number</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/math//">Math</a></p>
+<p>A <strong>confusing number</strong> is a number that when rotated <code>180</code> degrees becomes a different number with <strong>each digit valid</strong>.</p>
+<p>We can rotate digits of a number by <code>180</code> degrees to form new digits.</p>
+<ul>
+<li>When <code>0</code>, <code>1</code>, <code>6</code>, <code>8</code>, and <code>9</code> are rotated <code>180</code> degrees, they become <code>0</code>, <code>1</code>, <code>9</code>, <code>8</code>, and <code>6</code> respectively.</li>
+<li>When <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, and <code>7</code> are rotated <code>180</code> degrees, they become <strong>invalid</strong>.</li>
+</ul>
+<p>Note that after rotating a number, we can ignore leading zeros.</p>
+<ul>
+<li>For example, after rotating <code>8000</code>, we have <code>0008</code> which is considered as just <code>8</code>.</li>
+</ul>
+<p>Given an integer <code>n</code>, return <code>true</code> <em>if it is a <strong>confusing number</strong>, or</em> <code>false</code> <em>otherwise</em>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2019/03/23/1268_1.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 6</span><br><span class="line">Output: <span class="literal">true</span></span><br><span class="line">Explanation: We get 9 after rotating 6, 9 is a valid number, and 9 != 6.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2019/03/23/1268_2.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 89</span><br><span class="line">Output: <span class="literal">true</span></span><br><span class="line">Explanation: We get 68 after rotating 89, 68 is a valid number and 68 != 89.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2019/03/26/1268_3.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 11</span><br><span class="line">Output: <span class="literal">false</span></span><br><span class="line">Explanation: We get 11 after rotating 11, 11 is a valid number but the value remains the same, thus 11 is not a confusing number</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>0 &lt;&#x3D; n &lt;&#x3D; 10<sup>9</sup></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>No need to do the mapping, we can use switch during the loop</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">confusingNumber</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; mapping;</span><br><span class="line">        <span class="type">int</span> sum = <span class="number">0</span>, tmp = n;</span><br><span class="line">        <span class="keyword">while</span> (tmp &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="type">int</span> r = tmp % <span class="number">10</span>;</span><br><span class="line">            tmp /= <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">switch</span>(r) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">                    sum = sum * <span class="number">10</span> + r;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">                    sum = sum * <span class="number">10</span> + <span class="number">9</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">9</span>:</span><br><span class="line">                    sum = sum * <span class="number">10</span> + <span class="number">6</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">                <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">                <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> !(sum == n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Math</tag>
       </tags>
   </entry>
   <entry>
@@ -7173,6 +7173,70 @@ Your browser does not support the audio element.
 </ul>
 </li>
 </ol>
+<h3 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h3><ul>
+<li>we went* to</li>
+<li>the tomb(pr)</li>
+<li>bi-weekly, twice a week</li>
+<li>fortnightly, every other week</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Learnship</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Learnship 07 - 2023/10/05</title>
+    <url>/2023/10/05/Learnship-07-2023-10-05/</url>
+    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-7-Giving-an-Impromptu-Presentation-1"><a href="#Business-Language-Coaching-Session-7-Giving-an-Impromptu-Presentation-1" class="headerlink" title="Business Language Coaching - Session 7 - Giving an Impromptu Presentation(1)"></a>Business Language Coaching - Session 7 - Giving an Impromptu Presentation(1)</h2><ul>
+<li>learn strategies and language for giving impromptu presentations</li>
+<li>learn and practice phrases to set context &amp; signal intention</li>
+</ul>
+<h3 id="Starting-Point"><a href="#Starting-Point" class="headerlink" title="Starting Point"></a>Starting Point</h3><p>What is an impromptu presentation? How is it different to both a standard presentation and discussion in a meeting?</p>
+<h3 id="Impromptu-Presentations-What-makes-them-different-…"><a href="#Impromptu-Presentations-What-makes-them-different-…" class="headerlink" title="Impromptu Presentations: What makes them different …"></a>Impromptu Presentations: What makes them different …</h3><p>Below is a table which covers some of the differences between the two types of presentations. Decide which presentation fits with each description (P- standard presentation, I - impromptu presentation)</p>
+<h4 id="Style-delivery"><a href="#Style-delivery" class="headerlink" title="Style &amp; delivery"></a>Style &amp; delivery</h4><ul>
+<li>Informal &amp; conversational:    I</li>
+<li>Formal &amp; structured:          P</li>
+</ul>
+<h4 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h4><ul>
+<li>Exhaustive, detailed:         P</li>
+<li>Selective, general:           I</li>
+</ul>
+<h4 id="Control-Interaction"><a href="#Control-Interaction" class="headerlink" title="Control &#x2F; Interaction"></a>Control &#x2F; Interaction</h4><ul>
+<li>In full control of presentation:                  P</li>
+<li>Control is shared between presenter and audience: I</li>
+</ul>
+<h3 id="Giving-an-impromptu-presentation-language-difference"><a href="#Giving-an-impromptu-presentation-language-difference" class="headerlink" title="Giving an impromptu presentation: language difference"></a>Giving an impromptu presentation: language difference</h3><p>Read the three pairs of expressions below. In each pair there is one phrase from a standard presentation and another from an impromptu presentation. Which is which?</p>
+<p>1a. <em>So, if it’s OK, I’ll just briefly sketch out the main points.</em><br>1b. First of all, I’d like to outline the main topics for today’s discussion.</p>
+<p>2a. Let me move on now to the next point …<br>2b. <em>Ok, so, the next thing to mention is …</em></p>
+<p>3a. <em>I hope that covers everything?</em><br>3b. That brings me to the end of my talk. Thanks for listening.</p>
+<h3 id="Giving-an-impromptu-presentation-Audio-example"><a href="#Giving-an-impromptu-presentation-Audio-example" class="headerlink" title="Giving an impromptu presentation: Audio example"></a>Giving an impromptu presentation: Audio example</h3><h4 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h4><p>Ovanta is an international financial services company which has been created from the recent merger of three smaller companies. The company holds regular briefing meetings to update the senior management team on key initiatives following the merger.</p>
+<p>The Operations Director, lan Dungannon, has invited two project team leaders to the latest briefing. Anya is in charge of a project looking at training needs across the organization; Pavia is leading an initiative to improve relations between management and the union. Both Anya and Pavla are knowledgeable about their subjects, but neither has been specifically asked to make a presentation at this meeting.</p>
+<audio controls>
+  <source src="/audio/session7_1.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<h4 id="8-3-8-4-Listen-to-Extracts-1-adn-2-from-the-management-briefing-at-Ovanta-Choose-the-best-answer-for-questions-1-5"><a href="#8-3-8-4-Listen-to-Extracts-1-adn-2-from-the-management-briefing-at-Ovanta-Choose-the-best-answer-for-questions-1-5" class="headerlink" title="8.3 - 8.4 Listen to Extracts 1 adn 2 from the management briefing at Ovanta. Choose the best answer for questions 1-5."></a>8.3 - 8.4 Listen to Extracts 1 adn 2 from the management briefing at Ovanta. Choose the best answer for questions 1-5.</h4><ol>
+<li><p>How does Anya begin her impromptu talk?</p>
+<p> a. She explains in detail what she is going to say.<br> b. <em>She gives an informal overview of the current situation.</em></p>
+</li>
+<li><p>How would you describe Anya’s way of signalling what she wants to talk about?</p>
+<p> a. <em>informal and conversational</em><br> b. formal and structured</p>
+</li>
+<li><p>How does Anya deal with Ian’s questions?</p>
+<p> a. <em>She’s negative and defensive.</em><br> b. She’s positive and constructive.</p>
+</li>
+</ol>
+<h4 id="Audio-scripts"><a href="#Audio-scripts" class="headerlink" title="Audio scripts"></a>Audio scripts</h4><p>Extract 1<br>Ian: … And that brings us to training. Since Anya’s here, perhaps we can look at the new training initiative requested by the various team leaders? Anya, can you give us an overview of where we are with this?</p>
+<p>Anya: OK, yes. Well, <strong>to be honest</strong>, we haven’t got as far as I’d hoped. <strong>Erm, where we are at the moment is</strong> … er, we’ve just completed the initial consultation stage. However, <strong>what I can tell you</strong> is that the initiative will be complete and in place before the annual review. <strong>I’d like to</strong> be able to give you a more precise date, but <strong>unfortunately</strong> I can’t do that at the moment. You’ll appreciate that I still need to <strong>run the details by</strong> Jean-Paul and the team leaders first …</p>
+<p>… So, now, <strong>perhaps</strong> it would be a good idea if I just went through some of the other training programmes we are running.</p>
+<p>Ian: Yes, OK.</p>
+<p>Anya: Good. Now, <strong>how can I put this</strong>? We have a quite ‘flexible’ approach to our training programme this year - we’re trying to tailor it more to individual and team needs. <strong>So if it’s OK</strong>, I’d just like to <strong>sketch out</strong> the core elements of the plans … <strong>Just feel free to interrupt me with any question</strong>. Now, I don’t know if you’ve heard of a ‘balanced scorecard’? Let me just <strong>touch on</strong> this approach and how it works in practice …</p>
+<p>… and that’s more or less it. <strong>I think that’s covered everything</strong>. Er, and it’s <strong>just occurred to me</strong> that…</p>
+<p>Ian: Anya, you haven’t said anything about management training?</p>
+<p>Anya: I was coming to that. Erm, it’s obviously a key area, and I have to admit that we haven’t got as far as planning the specifics yet - we just haven’t had the time. But yeah, <strong>you’re quite right</strong>, we need to address this … it might not be a bad idea to <strong>send out</strong> a questionnaire to the senior staff for their recommendations.</p>
+<p>lan: And you’ve still got time to do that, have you?</p>
+<p>Anya: <strong>That’s a good point</strong>. I think so. Let me check, and <strong>I’ll get back to you</strong>. And how about if I send you a draft, too? I’m pretty sure that I could do that before the end of the week.</p>
 ]]></content>
       <tags>
         <tag>Learnship</tag>

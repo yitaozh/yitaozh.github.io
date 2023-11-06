@@ -2006,6 +2006,39 @@
       </tags>
   </entry>
   <entry>
+    <title>264. Ugly Number II</title>
+    <url>/2023/11/06/264-Ugly-Number-II/</url>
+    <content><![CDATA[<h1 id="264-Ugly-Number-II"><a href="#264-Ugly-Number-II" class="headerlink" title="264. Ugly Number II"></a><a href="https://leetcode.com/problems/ugly-number-ii/">264. Ugly Number II</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/math//">Math</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/dynamic-programming//">Dynamic Programming</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/heap-priority-queue//">Heap (Priority Queue)</a></p>
+<p>An <strong>ugly number</strong> is a positive integer whose prime factors are limited to <code>2</code>, <code>3</code>, and <code>5</code>.</p>
+<p>Given an integer <code>n</code>, return <em>the</em> n<sup>th</sup> <em><strong>ugly number</strong></em>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 10</span><br><span class="line">Output: 12</span><br><span class="line">Explanation: [1, 2, 3, 4, 5, 6, 8, 9, 10, 12] is the sequence of the first 10 ugly numbers.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 1</span><br><span class="line">Output: 1</span><br><span class="line">Explanation: 1 has no prime factors, therefore all of its prime factors are limited to 2, 3, and 5.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= n &lt;= 1690</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>It’s like combining 3 linked lists</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">nthUglyNumber</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> val1 = <span class="number">1</span>, val2 = <span class="number">1</span>, val3 = <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> index1 = <span class="number">0</span>, index2 = <span class="number">0</span>, index3 = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(n, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">while</span> (index &lt; n) &#123;</span><br><span class="line">            <span class="type">int</span> val = <span class="built_in">min</span>(&#123;val1, val2, val3&#125;);</span><br><span class="line">            res[index] = val;</span><br><span class="line">            index++;</span><br><span class="line">            <span class="keyword">if</span> (val == val1) &#123;</span><br><span class="line">                val1 = res[index1] * <span class="number">2</span>;</span><br><span class="line">                index1++;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (val == val2) &#123;</span><br><span class="line">                val2 = res[index2] * <span class="number">3</span>;</span><br><span class="line">                index2++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (val == val3) &#123;</span><br><span class="line">                val3 = res[index3] * <span class="number">5</span>;</span><br><span class="line">                index3++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res[n - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Hash Table</tag>
+        <tag>Math</tag>
+        <tag>Heap (Priority Queue)</tag>
+        <tag>Dynamic Programming</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>27. Remove Element</title>
     <url>/2023/01/17/27-Remove-Element/</url>
     <content><![CDATA[<h1 id="27-Remove-Element"><a href="#27-Remove-Element" class="headerlink" title="27. Remove Element"></a><a href="https://leetcode.com/problems/remove-element/">27. Remove Element</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
@@ -2902,42 +2935,6 @@
       </tags>
   </entry>
   <entry>
-    <title>48. Rotate Image</title>
-    <url>/2023/01/23/48-Rotate-Image/</url>
-    <content><![CDATA[<h1 id="48-Rotate-Image"><a href="#48-Rotate-Image" class="headerlink" title="48. Rotate Image"></a><a href="https://leetcode.com/problems/rotate-image/">48. Rotate Image</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/array/">Array</a>, <a href="https://leetcode.com/tag/math/">Math</a>, <a href="https://leetcode.com/tag/matrix/">Matrix</a></p>
-<p>You are given an <code>n x n</code> 2D <code>matrix</code> representing an image, rotate the image by <strong>90</strong> degrees (clockwise).</p>
-<p>You have to rotate the image <a href="https://en.wikipedia.org/wiki/In-place_algorithm"><strong>in-place</strong></a>, which means you have to modify the input 2D matrix directly. <strong>DO NOT</strong> allocate another 2D matrix and do the rotation.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/08/28/mat1.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]</span><br><span class="line">Output: [[7,4,1],[8,5,2],[9,6,3]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/08/28/mat2.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]</span><br><span class="line">Output: [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>n == matrix.length == matrix[i].length</code></li>
-<li><code>1 &lt;= n &lt;= 20</code></li>
-<li><code>-1000 &lt;= matrix[i][j] &lt;= 1000</code></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Do the diagonal flip first, then reverse each row</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">rotate</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> m = matrix.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> n = matrix[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                <span class="type">int</span> tmp = matrix[i][j];</span><br><span class="line">                matrix[i][j] = matrix[j][i];</span><br><span class="line">                matrix[j][i] = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (vector&lt;<span class="type">int</span>&gt;&amp; vec : matrix) &#123;</span><br><span class="line">            <span class="built_in">reverse</span>(vec.<span class="built_in">begin</span>(), vec.<span class="built_in">end</span>());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Math</tag>
-        <tag>Matrix</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>493. Reverse Pairs</title>
     <url>/2023/08/25/493-Reverse-Pairs/</url>
     <content><![CDATA[<h1 id="493-Reverse-Pairs"><a href="#493-Reverse-Pairs" class="headerlink" title="493. Reverse Pairs"></a><a href="https://leetcode.com/problems/reverse-pairs/">493. Reverse Pairs</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Hard</strong></p>
@@ -2977,6 +2974,42 @@
         <tag>Binary Indexed Tree</tag>
         <tag>Segment Tree</tag>
         <tag>Ordered Set</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>48. Rotate Image</title>
+    <url>/2023/01/23/48-Rotate-Image/</url>
+    <content><![CDATA[<h1 id="48-Rotate-Image"><a href="#48-Rotate-Image" class="headerlink" title="48. Rotate Image"></a><a href="https://leetcode.com/problems/rotate-image/">48. Rotate Image</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/array/">Array</a>, <a href="https://leetcode.com/tag/math/">Math</a>, <a href="https://leetcode.com/tag/matrix/">Matrix</a></p>
+<p>You are given an <code>n x n</code> 2D <code>matrix</code> representing an image, rotate the image by <strong>90</strong> degrees (clockwise).</p>
+<p>You have to rotate the image <a href="https://en.wikipedia.org/wiki/In-place_algorithm"><strong>in-place</strong></a>, which means you have to modify the input 2D matrix directly. <strong>DO NOT</strong> allocate another 2D matrix and do the rotation.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/08/28/mat1.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]</span><br><span class="line">Output: [[7,4,1],[8,5,2],[9,6,3]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/08/28/mat2.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]</span><br><span class="line">Output: [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>n == matrix.length == matrix[i].length</code></li>
+<li><code>1 &lt;= n &lt;= 20</code></li>
+<li><code>-1000 &lt;= matrix[i][j] &lt;= 1000</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Do the diagonal flip first, then reverse each row</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">rotate</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> m = matrix.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> n = matrix[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                <span class="type">int</span> tmp = matrix[i][j];</span><br><span class="line">                matrix[i][j] = matrix[j][i];</span><br><span class="line">                matrix[j][i] = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (vector&lt;<span class="type">int</span>&gt;&amp; vec : matrix) &#123;</span><br><span class="line">            <span class="built_in">reverse</span>(vec.<span class="built_in">begin</span>(), vec.<span class="built_in">end</span>());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Math</tag>
+        <tag>Matrix</tag>
       </tags>
   </entry>
   <entry>
@@ -3282,38 +3315,6 @@
       </tags>
   </entry>
   <entry>
-    <title>59. Spiral Matrix II</title>
-    <url>/2023/01/23/59-Spiral-Matrix-II/</url>
-    <content><![CDATA[<h1 id="59-Spiral-Matrix-II"><a href="#59-Spiral-Matrix-II" class="headerlink" title="59. Spiral Matrix II"></a><a href="https://leetcode.com/problems/spiral-matrix-ii/">59. Spiral Matrix II</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/array/">Array</a>, <a href="https://leetcode.com/tag/matrix/">Matrix</a>, <a href="https://leetcode.com/tag/simulation/">Simulation</a></p>
-<p>Given a positive integer <code>n</code>, generate an <code>n x n</code> <code>matrix</code> filled with elements from <code>1</code> to n<sup>2</sup> in spiral order.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/11/13/spiraln.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 3</span><br><span class="line">Output: [[1,2,3],[8,9,4],[7,6,5]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 1</span><br><span class="line">Output: [[1]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= n &lt;= 20</code></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Traverse the four sides in one iteration</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">generateMatrix</span>(<span class="type">int</span> n) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">res</span>(n, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n, <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = n - <span class="number">1</span>, up = <span class="number">0</span>, down = n - <span class="number">1</span>, val = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (val &lt;= n * n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (up &lt;= down) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = left; i &lt;= right; i++) &#123;</span><br><span class="line">                    res[up][i] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                up++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (left &lt;= right) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = up; i &lt;= down; i++) &#123;</span><br><span class="line">                    res[i][right] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (up &lt;= down) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = right; i &gt;= left; i--) &#123;</span><br><span class="line">                    res[down][i] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                down--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (left &lt;= right) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = down; i &gt;= up; i--) &#123;</span><br><span class="line">                    res[i][left] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Simulation</tag>
-        <tag>Matrix</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>648. Replace Words</title>
     <url>/2023/10/08/648-Replace-Words/</url>
     <content><![CDATA[<h1 id="648-Replace-Words"><a href="#648-Replace-Words" class="headerlink" title="648. Replace Words"></a><a href="https://leetcode.com/problems/replace-words/">648. Replace Words</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -3353,6 +3354,38 @@
         <tag>Hash Table</tag>
         <tag>String</tag>
         <tag>Trie</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>59. Spiral Matrix II</title>
+    <url>/2023/01/23/59-Spiral-Matrix-II/</url>
+    <content><![CDATA[<h1 id="59-Spiral-Matrix-II"><a href="#59-Spiral-Matrix-II" class="headerlink" title="59. Spiral Matrix II"></a><a href="https://leetcode.com/problems/spiral-matrix-ii/">59. Spiral Matrix II</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/array/">Array</a>, <a href="https://leetcode.com/tag/matrix/">Matrix</a>, <a href="https://leetcode.com/tag/simulation/">Simulation</a></p>
+<p>Given a positive integer <code>n</code>, generate an <code>n x n</code> <code>matrix</code> filled with elements from <code>1</code> to n<sup>2</sup> in spiral order.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/11/13/spiraln.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 3</span><br><span class="line">Output: [[1,2,3],[8,9,4],[7,6,5]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 1</span><br><span class="line">Output: [[1]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= n &lt;= 20</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Traverse the four sides in one iteration</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">generateMatrix</span>(<span class="type">int</span> n) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">res</span>(n, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n, <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = n - <span class="number">1</span>, up = <span class="number">0</span>, down = n - <span class="number">1</span>, val = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (val &lt;= n * n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (up &lt;= down) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = left; i &lt;= right; i++) &#123;</span><br><span class="line">                    res[up][i] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                up++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (left &lt;= right) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = up; i &lt;= down; i++) &#123;</span><br><span class="line">                    res[i][right] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (up &lt;= down) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = right; i &gt;= left; i--) &#123;</span><br><span class="line">                    res[down][i] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                down--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (left &lt;= right) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = down; i &gt;= up; i--) &#123;</span><br><span class="line">                    res[i][left] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Simulation</tag>
+        <tag>Matrix</tag>
       </tags>
   </entry>
   <entry>
@@ -6261,40 +6294,6 @@
       </tags>
   </entry>
   <entry>
-    <title>How to become a SDM</title>
-    <url>/2022/12/02/How-to-become-a-SDM/</url>
-    <content><![CDATA[<h3 id="SDM-and-time-management"><a href="#SDM-and-time-management" class="headerlink" title="SDM and time management"></a>SDM and time management</h3><p>工作的本质是时间管理，任务优先级管理和目标管理。我们可以将具体工程实现抽象成上面一般概念，从而形成方法论：一件事到底怎么做就可以做成？能够做好manager，自己的生活也不会过得差，也大概率能管理好自己一生。其实对于技术出身尤其是很多 STEM 的PhD，都有非常好潜质去做一个好的manager，就是因为PhD不仅仅是学术技能的训练，关键也是怎么把事情做好的训练。</p>
-<p>如果说Team Leader 不仅仅需要关注自己实际工作对于项目的推进，还需要指导和帮助下属设定和完成目标，那么好的manager就是后者工作方向上更进一步：在已经洞察工作方法论的基础上设定一个能够摸得着，但需要一定努力的，同时又能尽可能地体现出团队整体工作价值的目标。</p>
-<p>在资源能够合理支持的情况，manager对于工作的态度永远都是“多多益善”。这也就是我们通常说的赋能（empower)。这些支持工作包括识别手下的人物性格特征（比方说充满才华，桀骜不驯），创造安定的工作环境（人事变动平稳可预期），工作目标分配得当（下面case A 就适合independent contributor先进行攻略），有效的监督和辅导（反馈的技巧）。</p>
-<p><a href="https://www.zhihu.com/question/509427117/answer/2689826912">https://www.zhihu.com/question/509427117/answer/2689826912</a></p>
-<h3 id="How-to-become-a-SDM"><a href="#How-to-become-a-SDM" class="headerlink" title="How to become a SDM"></a>How to become a SDM</h3><h4 id="首先确定自己为什么要当M。"><a href="#首先确定自己为什么要当M。" class="headerlink" title="首先确定自己为什么要当M。"></a>首先确定自己为什么要当M。</h4><p>这是非常重要的一步。M和IC是两种完全不同的工作。对于IC而言，每天的工作是比较清晰的：遇到问题解决问题，需要些code写code。基本上技术之外的事情可以不太管。</p>
-<p>但对于M而言，你可能打交道最多的是“人”。具体的工作内容差不多是这样的：每个Q的工作计划和资源调配、工作产出的跟踪、跨部门沟通解决冲突矛盾、绩效评估、reorg等等</p>
-<p>那么既然拿着一样的薪水，为什么要从IC到M呢？我自己的原因是这样的。我是比较Impact driven的。现在的软件工业是团队作战，那么如果要取得更大的成就，就需要团队的力量。我更喜欢的是带领一个团队去完成更大的事情，而不是自己一个人来解决小而精美的问题。所以其实理由还是比较简单直接的。</p>
-<p>每个人的理由可能不同，但一定要明确理由。（后面FAQ我可以多说两句）</p>
-<h4 id="找坑"><a href="#找坑" class="headerlink" title="找坑"></a>找坑</h4><p>每个公司的汇报线都是金字塔形的，也就是说M的位置比IC的数量肯定是要少一个数量级左右的。如果你想走这条路，肯定是要找到需要manager的地方。要么是这个地方快速发展，短期内需要招很多人，要么是这个地方正好有一个manager走了。</p>
-<p>你以为这种情况下你就有机会了？其实不尽然，我们马上就能看到这个事儿的“二十二条军规”了：</p>
-<ul>
-<li>大部分公开招聘manager的场合，都要求候选人已经有management经验。</li>
-<li>即使你有management能力，别人也不会轻易信任你，把团队交给你。</li>
-</ul>
-<p>简单的说就是，一个不靠谱的manager对团队的负面影响过大。大家都会谨慎谨慎再谨慎。所以这条路是很难走的</p>
-<p>那怎么办？其实最好的方式就是：在一个你已经熟悉的团队里面，培养周围人对你的信任，并主动要求成为manager。（我也是走的这条路，会比较顺）</p>
-<h4 id="坐稳"><a href="#坐稳" class="headerlink" title="坐稳"></a>坐稳</h4><p>前面说了如何变成一个manager，但实际情况是很多M在成为M后又后悔，返回到了IC的序列中。简单的说就是好的IC未必是好的M。我这里提几点吧：</p>
-<ul>
-<li>克制自己上手写代码的冲动。M通常会议较多，你下手通常只会拖累团队，不会带来啥正面的效果。</li>
-<li>多花时间和人交流，而不是机器。M对付的是人，不仅仅是上+下，还有横向的合作。纵横交错的关系网才能让你的工作变得更顺畅。</li>
-<li>遇事果断，该做就做，不管是reorg还是招人开人。犹豫是manager最需要避免的东西。</li>
-</ul>
-<p><a href="https://www.zhihu.com/question/509427117/answer/2692601966">https://www.zhihu.com/question/509427117/answer/2692601966</a></p>
-]]></content>
-      <categories>
-        <category>Excerpt</category>
-      </categories>
-      <tags>
-        <tag>Career</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>How to leetcode</title>
     <url>/2022/12/20/How-to-leetcode/</url>
     <content><![CDATA[<h3 id="The-motivation"><a href="#The-motivation" class="headerlink" title="The motivation"></a>The motivation</h3><p>A good software developer doesn’t necessarily need to be a good IOer, but in general a good IOer is more likely to be a good software developer. This logic makes coding more and more important in tech interview.</p>
@@ -6330,17 +6329,31 @@
       </categories>
   </entry>
   <entry>
-    <title>How to manage time</title>
-    <url>/2022/12/23/How-to-manage-time/</url>
-    <content><![CDATA[<h3 id="How-I-Have-Time-For-Everything"><a href="#How-I-Have-Time-For-Everything" class="headerlink" title="How I Have Time For Everything"></a>How I Have Time For Everything</h3><ol>
-<li><p>Focus Completely For 2-4 Hours Every Day</p>
-</li>
-<li><p>Do One Thing At A Time</p>
-</li>
-<li><p>Permanently Declutter Your Schedule</p>
-</li>
-</ol>
-<p><a href="https://www.youtube.com/watch?v=c3pzcV9yi24">LINK</a></p>
+    <title>How to become a SDM</title>
+    <url>/2022/12/02/How-to-become-a-SDM/</url>
+    <content><![CDATA[<h3 id="SDM-and-time-management"><a href="#SDM-and-time-management" class="headerlink" title="SDM and time management"></a>SDM and time management</h3><p>工作的本质是时间管理，任务优先级管理和目标管理。我们可以将具体工程实现抽象成上面一般概念，从而形成方法论：一件事到底怎么做就可以做成？能够做好manager，自己的生活也不会过得差，也大概率能管理好自己一生。其实对于技术出身尤其是很多 STEM 的PhD，都有非常好潜质去做一个好的manager，就是因为PhD不仅仅是学术技能的训练，关键也是怎么把事情做好的训练。</p>
+<p>如果说Team Leader 不仅仅需要关注自己实际工作对于项目的推进，还需要指导和帮助下属设定和完成目标，那么好的manager就是后者工作方向上更进一步：在已经洞察工作方法论的基础上设定一个能够摸得着，但需要一定努力的，同时又能尽可能地体现出团队整体工作价值的目标。</p>
+<p>在资源能够合理支持的情况，manager对于工作的态度永远都是“多多益善”。这也就是我们通常说的赋能（empower)。这些支持工作包括识别手下的人物性格特征（比方说充满才华，桀骜不驯），创造安定的工作环境（人事变动平稳可预期），工作目标分配得当（下面case A 就适合independent contributor先进行攻略），有效的监督和辅导（反馈的技巧）。</p>
+<p><a href="https://www.zhihu.com/question/509427117/answer/2689826912">https://www.zhihu.com/question/509427117/answer/2689826912</a></p>
+<h3 id="How-to-become-a-SDM"><a href="#How-to-become-a-SDM" class="headerlink" title="How to become a SDM"></a>How to become a SDM</h3><h4 id="首先确定自己为什么要当M。"><a href="#首先确定自己为什么要当M。" class="headerlink" title="首先确定自己为什么要当M。"></a>首先确定自己为什么要当M。</h4><p>这是非常重要的一步。M和IC是两种完全不同的工作。对于IC而言，每天的工作是比较清晰的：遇到问题解决问题，需要些code写code。基本上技术之外的事情可以不太管。</p>
+<p>但对于M而言，你可能打交道最多的是“人”。具体的工作内容差不多是这样的：每个Q的工作计划和资源调配、工作产出的跟踪、跨部门沟通解决冲突矛盾、绩效评估、reorg等等</p>
+<p>那么既然拿着一样的薪水，为什么要从IC到M呢？我自己的原因是这样的。我是比较Impact driven的。现在的软件工业是团队作战，那么如果要取得更大的成就，就需要团队的力量。我更喜欢的是带领一个团队去完成更大的事情，而不是自己一个人来解决小而精美的问题。所以其实理由还是比较简单直接的。</p>
+<p>每个人的理由可能不同，但一定要明确理由。（后面FAQ我可以多说两句）</p>
+<h4 id="找坑"><a href="#找坑" class="headerlink" title="找坑"></a>找坑</h4><p>每个公司的汇报线都是金字塔形的，也就是说M的位置比IC的数量肯定是要少一个数量级左右的。如果你想走这条路，肯定是要找到需要manager的地方。要么是这个地方快速发展，短期内需要招很多人，要么是这个地方正好有一个manager走了。</p>
+<p>你以为这种情况下你就有机会了？其实不尽然，我们马上就能看到这个事儿的“二十二条军规”了：</p>
+<ul>
+<li>大部分公开招聘manager的场合，都要求候选人已经有management经验。</li>
+<li>即使你有management能力，别人也不会轻易信任你，把团队交给你。</li>
+</ul>
+<p>简单的说就是，一个不靠谱的manager对团队的负面影响过大。大家都会谨慎谨慎再谨慎。所以这条路是很难走的</p>
+<p>那怎么办？其实最好的方式就是：在一个你已经熟悉的团队里面，培养周围人对你的信任，并主动要求成为manager。（我也是走的这条路，会比较顺）</p>
+<h4 id="坐稳"><a href="#坐稳" class="headerlink" title="坐稳"></a>坐稳</h4><p>前面说了如何变成一个manager，但实际情况是很多M在成为M后又后悔，返回到了IC的序列中。简单的说就是好的IC未必是好的M。我这里提几点吧：</p>
+<ul>
+<li>克制自己上手写代码的冲动。M通常会议较多，你下手通常只会拖累团队，不会带来啥正面的效果。</li>
+<li>多花时间和人交流，而不是机器。M对付的是人，不仅仅是上+下，还有横向的合作。纵横交错的关系网才能让你的工作变得更顺畅。</li>
+<li>遇事果断，该做就做，不管是reorg还是招人开人。犹豫是manager最需要避免的东西。</li>
+</ul>
+<p><a href="https://www.zhihu.com/question/509427117/answer/2692601966">https://www.zhihu.com/question/509427117/answer/2692601966</a></p>
 ]]></content>
       <categories>
         <category>Excerpt</category>
@@ -6367,6 +6380,26 @@
       <categories>
         <category>Thoughts</category>
       </categories>
+  </entry>
+  <entry>
+    <title>How to manage time</title>
+    <url>/2022/12/23/How-to-manage-time/</url>
+    <content><![CDATA[<h3 id="How-I-Have-Time-For-Everything"><a href="#How-I-Have-Time-For-Everything" class="headerlink" title="How I Have Time For Everything"></a>How I Have Time For Everything</h3><ol>
+<li><p>Focus Completely For 2-4 Hours Every Day</p>
+</li>
+<li><p>Do One Thing At A Time</p>
+</li>
+<li><p>Permanently Declutter Your Schedule</p>
+</li>
+</ol>
+<p><a href="https://www.youtube.com/watch?v=c3pzcV9yi24">LINK</a></p>
+]]></content>
+      <categories>
+        <category>Excerpt</category>
+      </categories>
+      <tags>
+        <tag>Career</tag>
+      </tags>
   </entry>
   <entry>
     <title>How to setup personal VPN</title>
@@ -7304,6 +7337,49 @@ Your browser does not support the audio element.
       </tags>
   </entry>
   <entry>
+    <title>Learnship 09 - 2023/10/16</title>
+    <url>/2023/10/16/Learnship-09-2023-10-16/</url>
+    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-9-Giving-an-Impromptu-Presentation-3"><a href="#Business-Language-Coaching-Session-9-Giving-an-Impromptu-Presentation-3" class="headerlink" title="Business Language Coaching - Session 9 - Giving an Impromptu Presentation (3)"></a>Business Language Coaching - Session 9 - Giving an Impromptu Presentation (3)</h2><ul>
+<li>learn strategies and language for giving impromptu presentations</li>
+<li>do some real impromptu presentations</li>
+</ul>
+<h3 id="Starting-Point"><a href="#Starting-Point" class="headerlink" title="Starting Point"></a>Starting Point</h3><p>Thinking back over the last couple of sessions, what about impromptu presentations do you think you’ve down well and what have you found more difficult?</p>
+<ul>
+<li>cannot go deeply into details -&gt; reiterate key points, summarize</li>
+<li>interaction between presenter and audience</li>
+<li>formulate structure in your head e.g. for v.s. against, bullets, pros &amp; cons, before &#x2F; after</li>
+</ul>
+<h3 id="Task-Giving-Impromptu-Presentations"><a href="#Task-Giving-Impromptu-Presentations" class="headerlink" title="Task: Giving Impromptu Presentations"></a>Task: Giving Impromptu Presentations</h3><p>There are three scenarios below for which you’ll need to give a 2-3 minute impromptu presentation. You’ll have 90 seconds to prepare. Use the phrases and strategies we’ve learnt to help you. I’ll give you feedback and notes to help you hone your skills.</p>
+<h4 id="Situation-3"><a href="#Situation-3" class="headerlink" title="Situation 3"></a>Situation 3</h4><p>make a case to management for why you should be considered for promotion in the near future</p>
+<h4 id="Situation-4-Presenting-a-Slide"><a href="#Situation-4-Presenting-a-Slide" class="headerlink" title="Situation 4 - Presenting a Slide"></a>Situation 4 - Presenting a Slide</h4><p>Context:</p>
+<ul>
+<li>You are researching customer reactions to your new product.</li>
+<li>You don’t have as much quantifiable data as you’d originally planned, but will submit the final report by the agreed deadline.</li>
+<li>You are making good progress, but can’t give exact figures now — you’re still processing the feedback.</li>
+<li>You need to wait for more questionnaires to come back before finishing the report.</li>
+</ul>
+<p>Key points you intend to cover</p>
+<ul>
+<li>give an overview of responses to the product so far</li>
+<li>explain some of the difficulties involved</li>
+<li>talk about ‘effective questionnaires’</li>
+</ul>
+<h2 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h2><ul>
+<li>a cable car</li>
+<li>before that we could* only rely on</li>
+<li>an overview* of</li>
+<li>to oversee - to keep an eye on&#x2F;supervise</li>
+<li>to overlook - to miss&#x2F;skip over some important information&#x2F;task</li>
+<li>bring about v.s. bring up</li>
+<li>quantifiable(pr)</li>
+<li>more convincing*</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Learnship</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Learnship 10 - 2023/10/19</title>
     <url>/2023/10/19/Learnship-10-2023-10-19/</url>
     <content><![CDATA[<h2 id="Business-Language-Coaching-Session-10-Using-Discourse-Markers-for-Cohesive-Speaking-Writing"><a href="#Business-Language-Coaching-Session-10-Using-Discourse-Markers-for-Cohesive-Speaking-Writing" class="headerlink" title="Business Language Coaching - Session 10 - Using Discourse Markers for Cohesive Speaking &amp; Writing"></a>Business Language Coaching - Session 10 - Using Discourse Markers for Cohesive Speaking &amp; Writing</h2><ul>
@@ -7642,9 +7718,106 @@ Your browser does not support the audio element.
       </tags>
   </entry>
   <entry>
+    <title>Learnship 15 - 2023/11/06</title>
+    <url>/2023/11/06/Learnship-15-2023-11-06/</url>
+    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-15-Closing-A-Presentation-3"><a href="#Business-Language-Coaching-Session-15-Closing-A-Presentation-3" class="headerlink" title="Business Language Coaching - Session 15 - Closing A Presentation (3)"></a>Business Language Coaching - Session 15 - Closing A Presentation (3)</h2><ul>
+<li>review your presentation close</li>
+<li>work on developing a ‘smooth structure’ to your presentation</li>
+</ul>
+<h3 id="Warm-Up"><a href="#Warm-Up" class="headerlink" title="Warm-Up"></a>Warm-Up</h3><p>How far have you got with your draft presentation close? Would you like to run your ideas past me?</p>
+<h3 id="Impromptu-presentation-practice"><a href="#Impromptu-presentation-practice" class="headerlink" title="Impromptu presentation practice"></a>Impromptu presentation practice</h3><p>Topic: Politicians are often at fault for a country’s misfortunes.</p>
+<h3 id="Pronunciation"><a href="#Pronunciation" class="headerlink" title="Pronunciation"></a>Pronunciation</h3><ul>
+<li>two categories of</li>
+<li>as well<ul>
+<li>a cup full</li>
+<li>seagull</li>
+</ul>
+</li>
+</ul>
+<h3 id="Smooth-structure"><a href="#Smooth-structure" class="headerlink" title="Smooth structure"></a>Smooth structure</h3><blockquote>
+<p>A presentation is very much like a journey. We need to explain: ‘Where are we going?’ And then along that journey as we move through it, we need to explain how we’re moving on. Are we making progress? And, finally, when we get to the end, we’ve got to close our presentation in a way that’s more engaging than ‘Any questions?’ So finding something that reiterates those key points at the end is absolutely essential. - Rob Geraghty, The Wow Factor</p>
+</blockquote>
+<ol>
+<li><p>If a presentation is a kind of journey, then the ability to signpost that journey is clearly critical. Complete the ‘signpost language’ below:</p>
+<ul>
+<li>I’ am going to start off by …<ul>
+<li>outlining our main goals today.</li>
+<li>giving you a brief overview.</li>
+<li>asking you all a question.</li>
+</ul>
+</li>
+<li>Let’s Move on to the subject of …</li>
+<li>OK, turning for a moment to the question of …</li>
+<li>To return to my main point here.</li>
+<li>Let’s expand on that a little.</li>
+<li>To digress for a moment.</li>
+<li>In closing, I’ll just …<ul>
+<li>summarize the main points we’ve looked at.</li>
+<li>ask you to remember one thing.</li>
+<li>leave you with this …</li>
+</ul>
+</li>
+<li>I’ll be coming on to TODO - creating anticipation</li>
+<li>Going back to what I was saying earlier. - reinforcing</li>
+</ul>
+</li>
+<li><p>Referring to points you made earlier in your presentation is a good way to show the coherence of your talk and strengthen your arguments. Mentioning what you’ll be talking about next can build anticipation, as long as you don’t get too much ahead of yourself! Decide whether the phrases below refer back or point forward and circle the appropriate arrow.</p>
+<ol>
+<li>Earlier we saw …           &lt;-</li>
+<li>This leads us on to …      -&gt;</li>
+<li>As you’ll recall …         &lt;-</li>
+<li>Later we’ll see …          -&gt;</li>
+<li>You’ll remember …          &lt;-</li>
+<li>So, the next question is … -&gt;</li>
+<li>As we discussed …          &lt;-</li>
+<li>This brings us on to …     -&gt;</li>
+<li>This goes back to …        &lt;-</li>
+<li>By the end of this talk … -&gt;</li>
+</ol>
+</li>
+<li><p>Being able to show a logical link between your main points is very important in a presentation. Link the presentation extracts below and label the ‘link phrases’ with the appropriate function.</p>
+<ol>
+<li>Turnover for Q3 is well up, <strong>thanks mostly to</strong> increased sales in Russia. <em>effect -&gt; cause</em></li>
+<li>Avoiding risk is a mistake, <strong>especially</strong> in the long term. <em>point -&gt; specification</em></li>
+<li>We need to constantly reassess <strong>in particular</strong> on what it is we do best. <em>point -&gt; specification</em></li>
+<li>A rise in the price of oil <strong>has resulted in</strong> reduced profitability. <em>cause -&gt; effect</em></li>
+<li>Demand is down 3% in Japan, <strong>whereas</strong> in the rest of Asia it’s tripled. <em>point -&gt; contrast</em></li>
+<li>There’s no market for low quality, <strong>and what’s more</strong>, there never will be. <em>point -&gt; addition</em></li>
+<li>The recent flood of cheap imports <strong>may lead to</strong> a price war. <em>cause -&gt; effect</em></li>
+<li>We need to move fast <strong>so that</strong> we don’t lose our competitive lead. <em>action -&gt; purpose</em></li>
+<li>Our share price has soared <strong>as a result of</strong> the merger announcement. <em>effect -&gt; cause</em></li>
+<li>Now is the time to focus - <strong>in order to</strong> take advantage of this opportunity. <em>action -&gt; purpose</em></li>
+<li>Our website’s receiving more hits, <strong>and yet</strong> these have not converted into sales. <em>point -&gt; contrast</em></li>
+<li>It’s an enormous market; <strong>plus</strong>, it’s a growing one. <em>point -&gt; addition</em></li>
+</ol>
+</li>
+</ol>
+<h3 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h3><ul>
+<li>not many* people there</li>
+<li>in 2019 I could* always find a seat</li>
+<li>at the click of a button - very easily, quickly</li>
+<li>COMmunist(pr)</li>
+<li>the economy(pr)</li>
+<li>they should be accountable for</li>
+<li>on the flip side&#x2F;on the other hand</li>
+<li>they are trying to impose*</li>
+<li>at* the end of the day</li>
+<li>to participate in* such elections</li>
+<li>as* time goes by</li>
+<li>ultimately, essentially, basically, in a nutshell</li>
+<li>President Biden (no definite article)</li>
+<li>Ireland (no article)</li>
+<li>a trip</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Learnship</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Learnship 14 - 2023/11/02</title>
     <url>/2023/11/02/Learnship-14-2023-11-02/</url>
-    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-13-Closing-A-Presentation-2"><a href="#Business-Language-Coaching-Session-13-Closing-A-Presentation-2" class="headerlink" title="Business Language Coaching - Session 13 - Closing A Presentation (2)"></a>Business Language Coaching - Session 13 - Closing A Presentation (2)</h2><ul>
+    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-14-Closing-A-Presentation-2"><a href="#Business-Language-Coaching-Session-14-Closing-A-Presentation-2" class="headerlink" title="Business Language Coaching - Session 14 - Closing A Presentation (2)"></a>Business Language Coaching - Session 14 - Closing A Presentation (2)</h2><ul>
 <li>compare some different communicative strategies for closing a presentation</li>
 <li>build a presentation close together</li>
 </ul>

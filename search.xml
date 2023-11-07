@@ -1181,6 +1181,47 @@
       </tags>
   </entry>
   <entry>
+    <title>1834. Single-Threaded CPU</title>
+    <url>/2023/11/07/1834-Single-Threaded-CPU/</url>
+    <content><![CDATA[<h1 id="1834-Single-Threaded-CPU"><a href="#1834-Single-Threaded-CPU" class="headerlink" title="1834. Single-Threaded CPU"></a><a href="https://leetcode.com/problems/single-threaded-cpu/">1834. Single-Threaded CPU</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sorting//">Sorting</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/heap-priority-queue//">Heap (Priority Queue)</a></p>
+<p>You are given <code>n</code>​​​​​​ tasks labeled from <code>0</code> to <code>n - 1</code> represented by a 2D integer array <code>tasks</code>, where tasks[i] &#x3D; [enqueueTime<sub>i</sub>, processingTime<sub>i</sub>] means that the i<sup>​​​​​​th</sup>​​​​ task will be available to process at enqueueTime<sub>i</sub> and will take processingTime<sub>i</sub>to finish processing.</p>
+<p>You have a single-threaded CPU that can process <strong>at most one</strong> task at a time and will act in the following way:</p>
+<ul>
+<li>If the CPU is idle and there are no available tasks to process, the CPU remains idle.</li>
+<li>If the CPU is idle and there are available tasks, the CPU will choose the one with the <strong>shortest processing time</strong>. If multiple tasks have the same shortest processing time, it will choose the task with the smallest index.</li>
+<li>Once a task is started, the CPU will <strong>process the entire task</strong> without stopping.</li>
+<li>The CPU can finish a task then start a new one instantly.</li>
+</ul>
+<p>Return <em>the order in which the CPU will process the tasks.</em></p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: tasks = [[1,2],[2,4],[3,2],[4,1]]</span><br><span class="line">Output: [0,2,3,1]</span><br><span class="line">Explanation: The events go as follows:</span><br><span class="line">- At time = 1, task 0 is available to process. Available tasks = &#123;0&#125;.</span><br><span class="line">- Also at time = 1, the idle CPU starts processing task 0\. Available tasks = &#123;&#125;.</span><br><span class="line">- At time = 2, task 1 is available to process. Available tasks = &#123;1&#125;.</span><br><span class="line">- At time = 3, task 2 is available to process. Available tasks = &#123;1, 2&#125;.</span><br><span class="line">- Also at time = 3, the CPU finishes task 0 and starts processing task 2 as it is the shortest. Available tasks = &#123;1&#125;.</span><br><span class="line">- At time = 4, task 3 is available to process. Available tasks = &#123;1, 3&#125;.</span><br><span class="line">- At time = 5, the CPU finishes task 2 and starts processing task 3 as it is the shortest. Available tasks = &#123;1&#125;.</span><br><span class="line">- At time = 6, the CPU finishes task 3 and starts processing task 1\. Available tasks = &#123;&#125;.</span><br><span class="line">- At time = 10, the CPU finishes task 1 and becomes idle.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: tasks = [[7,10],[7,12],[7,5],[7,4],[7,2]]</span><br><span class="line">Output: [4,3,2,0,1]</span><br><span class="line">Explanation: The events go as follows:</span><br><span class="line">- At time = 7, all the tasks become available. Available tasks = &#123;0,1,2,3,4&#125;.</span><br><span class="line">- Also at time = 7, the idle CPU starts processing task 4\. Available tasks = &#123;0,1,2,3&#125;.</span><br><span class="line">- At time = 9, the CPU finishes task 4 and starts processing task 3\. Available tasks = &#123;0,1,2&#125;.</span><br><span class="line">- At time = 13, the CPU finishes task 3 and starts processing task 2\. Available tasks = &#123;0,1&#125;.</span><br><span class="line">- At time = 18, the CPU finishes task 2 and starts processing task 0\. Available tasks = &#123;1&#125;.</span><br><span class="line">- At time = 28, the CPU finishes task 0 and starts processing task 1\. Available tasks = &#123;&#125;.</span><br><span class="line">- At time = 40, the CPU finishes task 1 and becomes idle.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>tasks.length == n</code></li>
+<li>1 &lt;&#x3D; n &lt;&#x3D; 10<sup>5</sup></li>
+<li>1 &lt;&#x3D; enqueueTime<sub>i</sub>, processingTime<sub>i</sub> &lt;&#x3D; 10<sup>9</sup></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Sort first, then use priority queue</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">getOrder</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; tasks)</span> </span>&#123;</span><br><span class="line">        priority_queue&lt;vector&lt;<span class="type">int</span>&gt;, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;, greater&lt;vector&lt;<span class="type">int</span>&gt;&gt;&gt; pq;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; triples;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; tasks.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            triples.<span class="built_in">push_back</span>(&#123;tasks[i][<span class="number">0</span>], tasks[i][<span class="number">1</span>], i&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(triples.<span class="built_in">begin</span>(), triples.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="type">long</span> cur = <span class="number">0</span>;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">while</span> (res.<span class="built_in">size</span>() &lt; tasks.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!pq.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">                <span class="keyword">auto</span> pair = pq.<span class="built_in">top</span>();</span><br><span class="line">                pq.<span class="built_in">pop</span>();</span><br><span class="line">                res.<span class="built_in">push_back</span>(pair[<span class="number">1</span>]);</span><br><span class="line">                cur = cur + pair[<span class="number">0</span>];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                cur = triples[i][<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (; i &lt; triples.<span class="built_in">size</span>() &amp;&amp; triples[i][<span class="number">0</span>] &lt;= cur; i++) &#123;</span><br><span class="line">                pq.<span class="built_in">push</span>(&#123;triples[i][<span class="number">1</span>], triples[i][<span class="number">2</span>]&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Sorting</tag>
+        <tag>Heap (Priority Queue)</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>1845. Seat Reservation Manager</title>
     <url>/2023/11/06/1845-Seat-Reservation-Manager/</url>
     <content><![CDATA[<h1 id="1845-Seat-Reservation-Manager"><a href="#1845-Seat-Reservation-Manager" class="headerlink" title="1845. Seat Reservation Manager"></a><a href="https://leetcode.com/problems/seat-reservation-manager/">1845. Seat Reservation Manager</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>

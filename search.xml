@@ -1181,6 +1181,43 @@
       </tags>
   </entry>
   <entry>
+    <title>1845. Seat Reservation Manager</title>
+    <url>/2023/11/06/1845-Seat-Reservation-Manager/</url>
+    <content><![CDATA[<h1 id="1845-Seat-Reservation-Manager"><a href="#1845-Seat-Reservation-Manager" class="headerlink" title="1845. Seat Reservation Manager"></a><a href="https://leetcode.com/problems/seat-reservation-manager/">1845. Seat Reservation Manager</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/design//">Design</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/heap-priority-queue//">Heap (Priority Queue)</a></p>
+<p>Design a system that manages the reservation state of <code>n</code> seats that are numbered from <code>1</code> to <code>n</code>.</p>
+<p>Implement the <code>SeatManager</code> class:</p>
+<ul>
+<li><code>SeatManager(int n)</code> Initializes a <code>SeatManager</code> object that will manage <code>n</code> seats numbered from <code>1</code> to <code>n</code>. All seats are initially available.</li>
+<li><code>int reserve()</code> Fetches the <strong>smallest-numbered</strong> unreserved seat, reserves it, and returns its number.</li>
+<li><code>void unreserve(int seatNumber)</code> Unreserves the seat with the given <code>seatNumber</code>.</li>
+</ul>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input</span><br><span class="line">[<span class="string">&quot;SeatManager&quot;</span>, <span class="string">&quot;reserve&quot;</span>, <span class="string">&quot;reserve&quot;</span>, <span class="string">&quot;unreserve&quot;</span>, <span class="string">&quot;reserve&quot;</span>, <span class="string">&quot;reserve&quot;</span>, <span class="string">&quot;reserve&quot;</span>, <span class="string">&quot;reserve&quot;</span>, <span class="string">&quot;unreserve&quot;</span>]</span><br><span class="line">[[5], [], [], [2], [], [], [], [], [5]]</span><br><span class="line">Output</span><br><span class="line">[null, 1, 2, null, 2, 3, 4, 5, null]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">SeatManager seatManager = new SeatManager(5); // Initializes a SeatManager with 5 seats.</span><br><span class="line">seatManager.reserve();    // All seats are available, so <span class="built_in">return</span> the lowest numbered seat, <span class="built_in">which</span> is 1.</span><br><span class="line">seatManager.reserve();    // The available seats are [2,3,4,5], so <span class="built_in">return</span> the lowest of them, <span class="built_in">which</span> is 2.</span><br><span class="line">seatManager.unreserve(2); // Unreserve seat 2, so now the available seats are [2,3,4,5].</span><br><span class="line">seatManager.reserve();    // The available seats are [2,3,4,5], so <span class="built_in">return</span> the lowest of them, <span class="built_in">which</span> is 2.</span><br><span class="line">seatManager.reserve();    // The available seats are [3,4,5], so <span class="built_in">return</span> the lowest of them, <span class="built_in">which</span> is 3.</span><br><span class="line">seatManager.reserve();    // The available seats are [4,5], so <span class="built_in">return</span> the lowest of them, <span class="built_in">which</span> is 4.</span><br><span class="line">seatManager.reserve();    // The only available seat is seat 5, so <span class="built_in">return</span> 5.</span><br><span class="line">seatManager.unreserve(5); // Unreserve seat 5, so now the available seats are [5].</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; n &lt;&#x3D; 10<sup>5</sup></li>
+<li><code>1 &lt;= seatNumber &lt;= n</code></li>
+<li>For each call to <code>reserve</code>, it is guaranteed that there will be at least one unreserved seat.</li>
+<li>For each call to <code>unreserve</code>, it is guaranteed that <code>seatNumber</code> will be reserved.</li>
+<li>At most 10<sup>5</sup> calls <strong>in total</strong> will be made to <code>reserve</code> and <code>unreserve</code>.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>priority queue</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SeatManager</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    priority_queue&lt;<span class="type">int</span>, vector&lt;<span class="type">int</span>&gt;, greater&lt;<span class="type">int</span>&gt;&gt; pq;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">SeatManager</span>(<span class="type">int</span> n) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            pq.<span class="built_in">push</span>(i);</span><br><span class="line">        &#125;        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">reserve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> num = pq.<span class="built_in">top</span>();</span><br><span class="line">        pq.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">return</span> num;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">unreserve</span><span class="params">(<span class="type">int</span> seatNumber)</span> </span>&#123;</span><br><span class="line">        pq.<span class="built_in">push</span>(seatNumber);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your SeatManager object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * SeatManager* obj = new SeatManager(n);</span></span><br><span class="line"><span class="comment"> * int param_1 = obj-&gt;reserve();</span></span><br><span class="line"><span class="comment"> * obj-&gt;unreserve(seatNumber);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Heap (Priority Queue)</tag>
+        <tag>Design</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>187. Repeated DNA Sequences</title>
     <url>/2023/01/25/187-Repeated-DNA-Sequences/</url>
     <content><![CDATA[<h1 id="187-Repeated-DNA-Sequences"><a href="#187-Repeated-DNA-Sequences" class="headerlink" title="187. Repeated DNA Sequences"></a><a href="https://leetcode.com/problems/repeated-dna-sequences/">187. Repeated DNA Sequences</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -4031,6 +4068,54 @@
       </tags>
   </entry>
   <entry>
+    <title>785. Is Graph Bipartite?</title>
+    <url>/2023/09/01/785-Is-Graph-Bipartite/</url>
+    <content><![CDATA[<h1 id="785-Is-Graph-Bipartite"><a href="#785-Is-Graph-Bipartite" class="headerlink" title="785. Is Graph Bipartite?"></a><a href="https://leetcode.com/problems/is-graph-bipartite/">785. Is Graph Bipartite?</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/breadth-first-search//">Breadth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/union-find//">Union Find</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/graph//">Graph</a></p>
+<p>There is an <strong>undirected</strong> graph with <code>n</code> nodes, where each node is numbered between <code>0</code> and <code>n - 1</code>. You are given a 2D array <code>graph</code>, where <code>graph[u]</code> is an array of nodes that node <code>u</code> is adjacent to. More formally, for each <code>v</code> in <code>graph[u]</code>, there is an undirected edge between node <code>u</code> and node <code>v</code>. The graph has the following properties:</p>
+<ul>
+<li>There are no self-edges (<code>graph[u]</code> does not contain <code>u</code>).</li>
+<li>There are no parallel edges (<code>graph[u]</code> does not contain duplicate values).</li>
+<li>If <code>v</code> is in <code>graph[u]</code>, then <code>u</code> is in <code>graph[v]</code> (the graph is undirected).</li>
+<li>The graph may not be connected, meaning there may be two nodes <code>u</code> and <code>v</code> such that there is no path between them.</li>
+</ul>
+<p>A graph is <strong>bipartite</strong> if the nodes can be partitioned into two independent sets <code>A</code> and <code>B</code> such that <strong>every</strong> edge in the graph connects a node in set <code>A</code> and a node in set <code>B</code>.</p>
+<p>Return <code>true</code> <em>if and only if it is <strong>bipartite</strong></em>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/10/21/bi2.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: graph = [[1,2,3],[0,2],[0,1,3],[0,2]]</span><br><span class="line">Output: <span class="literal">false</span></span><br><span class="line">Explanation: There is no way to partition the nodes into two independent sets such that every edge connects a node <span class="keyword">in</span> one and a node <span class="keyword">in</span> the other.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/10/21/bi1.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: graph = [[1,3],[0,2],[1,3],[0,2]]</span><br><span class="line">Output: <span class="literal">true</span></span><br><span class="line">Explanation: We can partition the nodes into two sets: &#123;0, 2&#125; and &#123;1, 3&#125;.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>graph.length == n</code></li>
+<li><code>1 &lt;= n &lt;= 100</code></li>
+<li><code>0 &lt;= graph[u].length &lt; n</code></li>
+<li><code>0 &lt;= graph[u][i] &lt;= n - 1</code></li>
+<li><code>graph[u]</code> does not contain <code>u</code>.</li>
+<li>All the values of <code>graph[u]</code> are <strong>unique</strong>.</li>
+<li>If <code>graph[u]</code> contains <code>v</code>, then <code>graph[v]</code> contains <code>u</code>.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Traverse the graph, color the next node if not visited, or check if the color match</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; color;</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; visited;</span><br><span class="line">    <span class="type">bool</span> ok = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isBipartite</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; graph)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> numNodes = graph.<span class="built_in">size</span>();</span><br><span class="line">        color = <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(numNodes, <span class="literal">false</span>);</span><br><span class="line">        visited = <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(numNodes, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; numNodes; i++) &#123;</span><br><span class="line">            <span class="built_in">traverse</span>(i, graph);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ok;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(<span class="type">int</span> node, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; graph)</span> </span>&#123;</span><br><span class="line">        visited[node] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> w : graph[node]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (visited[w]) &#123;</span><br><span class="line">                <span class="comment">// visited, should check the color</span></span><br><span class="line">                <span class="keyword">if</span> (color[w] == color[node]) &#123;</span><br><span class="line">                    ok = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                color[w] = !color[node];</span><br><span class="line">                <span class="built_in">traverse</span>(w, graph);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Depth-First Search</tag>
+        <tag>Breadth-First Search</tag>
+        <tag>Union Find</tag>
+        <tag>Graph</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>797. All Paths From Source to Target</title>
     <url>/2023/08/31/797-All-Paths-From-Source-to-Target/</url>
     <content><![CDATA[<h1 id="797-All-Paths-From-Source-to-Target"><a href="#797-All-Paths-From-Source-to-Target" class="headerlink" title="797. All Paths From Source to Target"></a><a href="https://leetcode.com/problems/all-paths-from-source-to-target/">797. All Paths From Source to Target</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -4104,54 +4189,6 @@
       </categories>
       <tags>
         <tag>Linked List</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>785. Is Graph Bipartite?</title>
-    <url>/2023/09/01/785-Is-Graph-Bipartite/</url>
-    <content><![CDATA[<h1 id="785-Is-Graph-Bipartite"><a href="#785-Is-Graph-Bipartite" class="headerlink" title="785. Is Graph Bipartite?"></a><a href="https://leetcode.com/problems/is-graph-bipartite/">785. Is Graph Bipartite?</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/breadth-first-search//">Breadth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/union-find//">Union Find</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/graph//">Graph</a></p>
-<p>There is an <strong>undirected</strong> graph with <code>n</code> nodes, where each node is numbered between <code>0</code> and <code>n - 1</code>. You are given a 2D array <code>graph</code>, where <code>graph[u]</code> is an array of nodes that node <code>u</code> is adjacent to. More formally, for each <code>v</code> in <code>graph[u]</code>, there is an undirected edge between node <code>u</code> and node <code>v</code>. The graph has the following properties:</p>
-<ul>
-<li>There are no self-edges (<code>graph[u]</code> does not contain <code>u</code>).</li>
-<li>There are no parallel edges (<code>graph[u]</code> does not contain duplicate values).</li>
-<li>If <code>v</code> is in <code>graph[u]</code>, then <code>u</code> is in <code>graph[v]</code> (the graph is undirected).</li>
-<li>The graph may not be connected, meaning there may be two nodes <code>u</code> and <code>v</code> such that there is no path between them.</li>
-</ul>
-<p>A graph is <strong>bipartite</strong> if the nodes can be partitioned into two independent sets <code>A</code> and <code>B</code> such that <strong>every</strong> edge in the graph connects a node in set <code>A</code> and a node in set <code>B</code>.</p>
-<p>Return <code>true</code> <em>if and only if it is <strong>bipartite</strong></em>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/10/21/bi2.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: graph = [[1,2,3],[0,2],[0,1,3],[0,2]]</span><br><span class="line">Output: <span class="literal">false</span></span><br><span class="line">Explanation: There is no way to partition the nodes into two independent sets such that every edge connects a node <span class="keyword">in</span> one and a node <span class="keyword">in</span> the other.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/10/21/bi1.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: graph = [[1,3],[0,2],[1,3],[0,2]]</span><br><span class="line">Output: <span class="literal">true</span></span><br><span class="line">Explanation: We can partition the nodes into two sets: &#123;0, 2&#125; and &#123;1, 3&#125;.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>graph.length == n</code></li>
-<li><code>1 &lt;= n &lt;= 100</code></li>
-<li><code>0 &lt;= graph[u].length &lt; n</code></li>
-<li><code>0 &lt;= graph[u][i] &lt;= n - 1</code></li>
-<li><code>graph[u]</code> does not contain <code>u</code>.</li>
-<li>All the values of <code>graph[u]</code> are <strong>unique</strong>.</li>
-<li>If <code>graph[u]</code> contains <code>v</code>, then <code>graph[v]</code> contains <code>u</code>.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Traverse the graph, color the next node if not visited, or check if the color match</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; color;</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; visited;</span><br><span class="line">    <span class="type">bool</span> ok = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isBipartite</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; graph)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> numNodes = graph.<span class="built_in">size</span>();</span><br><span class="line">        color = <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(numNodes, <span class="literal">false</span>);</span><br><span class="line">        visited = <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(numNodes, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; numNodes; i++) &#123;</span><br><span class="line">            <span class="built_in">traverse</span>(i, graph);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ok;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(<span class="type">int</span> node, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; graph)</span> </span>&#123;</span><br><span class="line">        visited[node] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> w : graph[node]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (visited[w]) &#123;</span><br><span class="line">                <span class="comment">// visited, should check the color</span></span><br><span class="line">                <span class="keyword">if</span> (color[w] == color[node]) &#123;</span><br><span class="line">                    ok = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                color[w] = !color[node];</span><br><span class="line">                <span class="built_in">traverse</span>(w, graph);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Depth-First Search</tag>
-        <tag>Breadth-First Search</tag>
-        <tag>Union Find</tag>
-        <tag>Graph</tag>
       </tags>
   </entry>
   <entry>

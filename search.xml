@@ -3671,6 +3671,46 @@
       </tags>
   </entry>
   <entry>
+    <title>692. Top K Frequent Words</title>
+    <url>/2023/11/06/692-Top-K-Frequent-Words/</url>
+    <content><![CDATA[<h1 id="692-Top-K-Frequent-Words"><a href="#692-Top-K-Frequent-Words" class="headerlink" title="692. Top K Frequent Words"></a><a href="https://leetcode.com/problems/top-k-frequent-words/">692. Top K Frequent Words</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/string//">String</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/trie//">Trie</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sorting//">Sorting</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/heap-priority-queue//">Heap (Priority Queue)</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/bucket-sort//">Bucket Sort</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/counting//">Counting</a></p>
+<p>Given an array of strings <code>words</code> and an integer <code>k</code>, return <em>the</em> <code>k</code> <em>most frequent strings</em>.</p>
+<p>Return the answer <strong>sorted</strong> by <strong>the frequency</strong> from highest to lowest. Sort the words with the same frequency by their <strong>lexicographical order</strong>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: words = [<span class="string">&quot;i&quot;</span>,<span class="string">&quot;love&quot;</span>,<span class="string">&quot;leetcode&quot;</span>,<span class="string">&quot;i&quot;</span>,<span class="string">&quot;love&quot;</span>,<span class="string">&quot;coding&quot;</span>], k = 2</span><br><span class="line">Output: [<span class="string">&quot;i&quot;</span>,<span class="string">&quot;love&quot;</span>]</span><br><span class="line">Explanation: <span class="string">&quot;i&quot;</span> and <span class="string">&quot;love&quot;</span> are the two most frequent words.</span><br><span class="line">Note that <span class="string">&quot;i&quot;</span> comes before <span class="string">&quot;love&quot;</span> due to a lower alphabetical order.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: words = [<span class="string">&quot;the&quot;</span>,<span class="string">&quot;day&quot;</span>,<span class="string">&quot;is&quot;</span>,<span class="string">&quot;sunny&quot;</span>,<span class="string">&quot;the&quot;</span>,<span class="string">&quot;the&quot;</span>,<span class="string">&quot;the&quot;</span>,<span class="string">&quot;sunny&quot;</span>,<span class="string">&quot;is&quot;</span>,<span class="string">&quot;is&quot;</span>], k = 4</span><br><span class="line">Output: [<span class="string">&quot;the&quot;</span>,<span class="string">&quot;is&quot;</span>,<span class="string">&quot;sunny&quot;</span>,<span class="string">&quot;day&quot;</span>]</span><br><span class="line">Explanation: <span class="string">&quot;the&quot;</span>, <span class="string">&quot;is&quot;</span>, <span class="string">&quot;sunny&quot;</span> and <span class="string">&quot;day&quot;</span> are the four most frequent words, with the number of occurrence being 4, 3, 2 and 1 respectively.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= words.length &lt;= 500</code></li>
+<li><code>1 &lt;= words[i].length &lt;= 10</code></li>
+<li><code>words[i]</code> consists of lowercase English letters.</li>
+<li><code>k</code> is in the range <code>[1, The number of **unique** words[i]]</code></li>
+</ul>
+<p><strong>Follow-up:</strong> Could you solve it in <code>O(n log(k))</code> time and <code>O(n)</code> extra space?</p>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>priority queue</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">topKFrequent</span><span class="params">(vector&lt;string&gt;&amp; words, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        map&lt;string, <span class="type">int</span>&gt; m;</span><br><span class="line">        <span class="keyword">for</span> (string word : words) &#123;</span><br><span class="line">            m[word]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">auto</span> cmp = [](pair&lt;<span class="type">int</span>, string&gt; lhs, pair&lt;<span class="type">int</span>, string&gt; rhs) &#123;</span><br><span class="line">            <span class="keyword">if</span> (lhs.first != rhs.first) &#123;</span><br><span class="line">                <span class="keyword">return</span> lhs.first &lt; rhs.first;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> lhs.second &gt; rhs.second;</span><br><span class="line">        &#125;;</span><br><span class="line">        priority_queue&lt;pair&lt;<span class="type">int</span>, string&gt;, vector&lt;pair&lt;<span class="type">int</span>, string&gt;&gt;, <span class="keyword">decltype</span>(cmp)&gt; <span class="built_in">pq</span>(cmp);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> it : m) &#123;</span><br><span class="line">            string word = it.first;</span><br><span class="line">            <span class="type">int</span> freq = it.second;</span><br><span class="line">            pq.<span class="built_in">push</span>(&#123;freq, word&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;string&gt; res;</span><br><span class="line">        <span class="keyword">while</span> (k &gt; <span class="number">0</span> &amp;&amp; !pq.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">auto</span> pair = pq.<span class="built_in">top</span>();</span><br><span class="line">            pq.<span class="built_in">pop</span>();</span><br><span class="line">            res.<span class="built_in">push_back</span>(pair.second);</span><br><span class="line">            k--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Hash Table</tag>
+        <tag>String</tag>
+        <tag>Sorting</tag>
+        <tag>Heap (Priority Queue)</tag>
+        <tag>Trie</tag>
+        <tag>Bucket Sort</tag>
+        <tag>Counting</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>700. Search in a Binary Search Tree</title>
     <url>/2023/08/27/700-Search-in-a-Binary-Search-Tree/</url>
     <content><![CDATA[<h1 id="700-Search-in-a-Binary-Search-Tree"><a href="#700-Search-in-a-Binary-Search-Tree" class="headerlink" title="700. Search in a Binary Search Tree"></a><a href="https://leetcode.com/problems/search-in-a-binary-search-tree/">700. Search in a Binary Search Tree</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
@@ -3991,54 +4031,6 @@
       </tags>
   </entry>
   <entry>
-    <title>785. Is Graph Bipartite?</title>
-    <url>/2023/09/01/785-Is-Graph-Bipartite/</url>
-    <content><![CDATA[<h1 id="785-Is-Graph-Bipartite"><a href="#785-Is-Graph-Bipartite" class="headerlink" title="785. Is Graph Bipartite?"></a><a href="https://leetcode.com/problems/is-graph-bipartite/">785. Is Graph Bipartite?</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/breadth-first-search//">Breadth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/union-find//">Union Find</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/graph//">Graph</a></p>
-<p>There is an <strong>undirected</strong> graph with <code>n</code> nodes, where each node is numbered between <code>0</code> and <code>n - 1</code>. You are given a 2D array <code>graph</code>, where <code>graph[u]</code> is an array of nodes that node <code>u</code> is adjacent to. More formally, for each <code>v</code> in <code>graph[u]</code>, there is an undirected edge between node <code>u</code> and node <code>v</code>. The graph has the following properties:</p>
-<ul>
-<li>There are no self-edges (<code>graph[u]</code> does not contain <code>u</code>).</li>
-<li>There are no parallel edges (<code>graph[u]</code> does not contain duplicate values).</li>
-<li>If <code>v</code> is in <code>graph[u]</code>, then <code>u</code> is in <code>graph[v]</code> (the graph is undirected).</li>
-<li>The graph may not be connected, meaning there may be two nodes <code>u</code> and <code>v</code> such that there is no path between them.</li>
-</ul>
-<p>A graph is <strong>bipartite</strong> if the nodes can be partitioned into two independent sets <code>A</code> and <code>B</code> such that <strong>every</strong> edge in the graph connects a node in set <code>A</code> and a node in set <code>B</code>.</p>
-<p>Return <code>true</code> <em>if and only if it is <strong>bipartite</strong></em>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/10/21/bi2.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: graph = [[1,2,3],[0,2],[0,1,3],[0,2]]</span><br><span class="line">Output: <span class="literal">false</span></span><br><span class="line">Explanation: There is no way to partition the nodes into two independent sets such that every edge connects a node <span class="keyword">in</span> one and a node <span class="keyword">in</span> the other.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/10/21/bi1.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: graph = [[1,3],[0,2],[1,3],[0,2]]</span><br><span class="line">Output: <span class="literal">true</span></span><br><span class="line">Explanation: We can partition the nodes into two sets: &#123;0, 2&#125; and &#123;1, 3&#125;.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>graph.length == n</code></li>
-<li><code>1 &lt;= n &lt;= 100</code></li>
-<li><code>0 &lt;= graph[u].length &lt; n</code></li>
-<li><code>0 &lt;= graph[u][i] &lt;= n - 1</code></li>
-<li><code>graph[u]</code> does not contain <code>u</code>.</li>
-<li>All the values of <code>graph[u]</code> are <strong>unique</strong>.</li>
-<li>If <code>graph[u]</code> contains <code>v</code>, then <code>graph[v]</code> contains <code>u</code>.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Traverse the graph, color the next node if not visited, or check if the color match</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; color;</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; visited;</span><br><span class="line">    <span class="type">bool</span> ok = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isBipartite</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; graph)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> numNodes = graph.<span class="built_in">size</span>();</span><br><span class="line">        color = <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(numNodes, <span class="literal">false</span>);</span><br><span class="line">        visited = <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(numNodes, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; numNodes; i++) &#123;</span><br><span class="line">            <span class="built_in">traverse</span>(i, graph);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ok;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(<span class="type">int</span> node, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; graph)</span> </span>&#123;</span><br><span class="line">        visited[node] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> w : graph[node]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (visited[w]) &#123;</span><br><span class="line">                <span class="comment">// visited, should check the color</span></span><br><span class="line">                <span class="keyword">if</span> (color[w] == color[node]) &#123;</span><br><span class="line">                    ok = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                color[w] = !color[node];</span><br><span class="line">                <span class="built_in">traverse</span>(w, graph);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Depth-First Search</tag>
-        <tag>Breadth-First Search</tag>
-        <tag>Union Find</tag>
-        <tag>Graph</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>797. All Paths From Source to Target</title>
     <url>/2023/08/31/797-All-Paths-From-Source-to-Target/</url>
     <content><![CDATA[<h1 id="797-All-Paths-From-Source-to-Target"><a href="#797-All-Paths-From-Source-to-Target" class="headerlink" title="797. All Paths From Source to Target"></a><a href="https://leetcode.com/problems/all-paths-from-source-to-target/">797. All Paths From Source to Target</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -4112,6 +4104,54 @@
       </categories>
       <tags>
         <tag>Linked List</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>785. Is Graph Bipartite?</title>
+    <url>/2023/09/01/785-Is-Graph-Bipartite/</url>
+    <content><![CDATA[<h1 id="785-Is-Graph-Bipartite"><a href="#785-Is-Graph-Bipartite" class="headerlink" title="785. Is Graph Bipartite?"></a><a href="https://leetcode.com/problems/is-graph-bipartite/">785. Is Graph Bipartite?</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/breadth-first-search//">Breadth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/union-find//">Union Find</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/graph//">Graph</a></p>
+<p>There is an <strong>undirected</strong> graph with <code>n</code> nodes, where each node is numbered between <code>0</code> and <code>n - 1</code>. You are given a 2D array <code>graph</code>, where <code>graph[u]</code> is an array of nodes that node <code>u</code> is adjacent to. More formally, for each <code>v</code> in <code>graph[u]</code>, there is an undirected edge between node <code>u</code> and node <code>v</code>. The graph has the following properties:</p>
+<ul>
+<li>There are no self-edges (<code>graph[u]</code> does not contain <code>u</code>).</li>
+<li>There are no parallel edges (<code>graph[u]</code> does not contain duplicate values).</li>
+<li>If <code>v</code> is in <code>graph[u]</code>, then <code>u</code> is in <code>graph[v]</code> (the graph is undirected).</li>
+<li>The graph may not be connected, meaning there may be two nodes <code>u</code> and <code>v</code> such that there is no path between them.</li>
+</ul>
+<p>A graph is <strong>bipartite</strong> if the nodes can be partitioned into two independent sets <code>A</code> and <code>B</code> such that <strong>every</strong> edge in the graph connects a node in set <code>A</code> and a node in set <code>B</code>.</p>
+<p>Return <code>true</code> <em>if and only if it is <strong>bipartite</strong></em>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/10/21/bi2.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: graph = [[1,2,3],[0,2],[0,1,3],[0,2]]</span><br><span class="line">Output: <span class="literal">false</span></span><br><span class="line">Explanation: There is no way to partition the nodes into two independent sets such that every edge connects a node <span class="keyword">in</span> one and a node <span class="keyword">in</span> the other.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/10/21/bi1.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: graph = [[1,3],[0,2],[1,3],[0,2]]</span><br><span class="line">Output: <span class="literal">true</span></span><br><span class="line">Explanation: We can partition the nodes into two sets: &#123;0, 2&#125; and &#123;1, 3&#125;.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>graph.length == n</code></li>
+<li><code>1 &lt;= n &lt;= 100</code></li>
+<li><code>0 &lt;= graph[u].length &lt; n</code></li>
+<li><code>0 &lt;= graph[u][i] &lt;= n - 1</code></li>
+<li><code>graph[u]</code> does not contain <code>u</code>.</li>
+<li>All the values of <code>graph[u]</code> are <strong>unique</strong>.</li>
+<li>If <code>graph[u]</code> contains <code>v</code>, then <code>graph[v]</code> contains <code>u</code>.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Traverse the graph, color the next node if not visited, or check if the color match</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; color;</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; visited;</span><br><span class="line">    <span class="type">bool</span> ok = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isBipartite</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; graph)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> numNodes = graph.<span class="built_in">size</span>();</span><br><span class="line">        color = <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(numNodes, <span class="literal">false</span>);</span><br><span class="line">        visited = <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(numNodes, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; numNodes; i++) &#123;</span><br><span class="line">            <span class="built_in">traverse</span>(i, graph);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ok;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(<span class="type">int</span> node, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; graph)</span> </span>&#123;</span><br><span class="line">        visited[node] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> w : graph[node]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (visited[w]) &#123;</span><br><span class="line">                <span class="comment">// visited, should check the color</span></span><br><span class="line">                <span class="keyword">if</span> (color[w] == color[node]) &#123;</span><br><span class="line">                    ok = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                color[w] = !color[node];</span><br><span class="line">                <span class="built_in">traverse</span>(w, graph);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Depth-First Search</tag>
+        <tag>Breadth-First Search</tag>
+        <tag>Union Find</tag>
+        <tag>Graph</tag>
       </tags>
   </entry>
   <entry>

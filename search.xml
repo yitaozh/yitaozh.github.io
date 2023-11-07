@@ -475,6 +475,43 @@
       </tags>
   </entry>
   <entry>
+    <title>1201. Ugly Number III</title>
+    <url>/2023/11/06/1201-Ugly-Number-III/</url>
+    <content><![CDATA[<h1 id="1201-Ugly-Number-III"><a href="#1201-Ugly-Number-III" class="headerlink" title="1201. Ugly Number III"></a><a href="https://leetcode.com/problems/ugly-number-iii/">1201. Ugly Number III</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/math//">Math</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-search//">Binary Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/number-theory//">Number Theory</a></p>
+<p>An <strong>ugly number</strong> is a positive integer that is divisible by <code>a</code>, <code>b</code>, or <code>c</code>.</p>
+<p>Given four integers <code>n</code>, <code>a</code>, <code>b</code>, and <code>c</code>, return the n<sup>th</sup> <strong>ugly number</strong>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 3, a = 2, b = 3, c = 5</span><br><span class="line">Output: 4</span><br><span class="line">Explanation: The ugly numbers are 2, 3, 4, 5, 6, 8, 9, 10... The 3rd is 4.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 4, a = 2, b = 3, c = 4</span><br><span class="line">Output: 6</span><br><span class="line">Explanation: The ugly numbers are 2, 3, 4, 6, 8, 9, 10, 12... The 4th is 6.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 5, a = 2, b = 11, c = 13</span><br><span class="line">Output: 10</span><br><span class="line">Explanation: The ugly numbers are 2, 4, 6, 8, 10, 11, 12, 13... The 5th is 10.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; n, a, b, c &lt;&#x3D; 10<sup>9</sup></li>
+<li>1 &lt;&#x3D; *a * b * c* &lt;&#x3D; 10<sup>18</sup></li>
+<li>It is guaranteed that the result will be in range [1, 2 * 10<sup>9</sup>].</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>binary search</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">nthUglyNumber</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">1</span>, right = <span class="number">2</span> * <span class="built_in">pow</span>(<span class="number">10</span>, <span class="number">9</span>);</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="type">int</span> numUglyNumber = <span class="built_in">find</span>((<span class="type">long</span>)mid, (<span class="type">long</span>)a, (<span class="type">long</span>)b, (<span class="type">long</span>)c);</span><br><span class="line">            <span class="keyword">if</span> (numUglyNumber &lt; n) &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">long</span> n, <span class="type">long</span> a, <span class="type">long</span> b, <span class="type">long</span> c)</span> </span>&#123;</span><br><span class="line">        <span class="type">long</span> numUglyNumber = n / a + n / b + n / c - n / <span class="built_in">lcm</span>(a, b) - n / <span class="built_in">lcm</span>(a, c) - n / <span class="built_in">lcm</span>(b, c) </span><br><span class="line">        + n / <span class="built_in">lcm</span>(<span class="built_in">lcm</span>(a, b), c);</span><br><span class="line">        <span class="keyword">return</span> numUglyNumber;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Binary Search</tag>
+        <tag>Math</tag>
+        <tag>Number Theory</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>141. Linked List Cycle</title>
     <url>/2023/01/04/141-Linked-List-Cycle/</url>
     <content><![CDATA[<h1 id="141-Linked-List-Cycle"><a href="#141-Linked-List-Cycle" class="headerlink" title="141. Linked List Cycle"></a><a href="https://leetcode.com/problems/linked-list-cycle/">141. Linked List Cycle</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
@@ -2394,6 +2431,43 @@
       </tags>
   </entry>
   <entry>
+    <title>313. Super Ugly Number</title>
+    <url>/2023/11/06/313-Super-Ugly-Number/</url>
+    <content><![CDATA[<h1 id="313-Super-Ugly-Number"><a href="#313-Super-Ugly-Number" class="headerlink" title="313. Super Ugly Number"></a><a href="https://leetcode.com/problems/super-ugly-number/">313. Super Ugly Number</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/math//">Math</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/dynamic-programming//">Dynamic Programming</a></p>
+<p>A <strong>super ugly number</strong> is a positive integer whose prime factors are in the array <code>primes</code>.</p>
+<p>Given an integer <code>n</code> and an array of integers <code>primes</code>, return <em>the</em> n<sup>th</sup> <em><strong>super ugly number</strong></em>.</p>
+<p>The n<sup>th</sup> <strong>super ugly number</strong> is <strong>guaranteed</strong> to fit in a <strong>32-bit</strong> signed integer.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 12, primes = [2,7,13,19]</span><br><span class="line">Output: 32</span><br><span class="line">Explanation: [1,2,4,7,8,13,14,16,19,26,28,32] is the sequence of the first 12 super ugly numbers given primes = [2,7,13,19].</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 1, primes = [2,3,5]</span><br><span class="line">Output: 1</span><br><span class="line">Explanation: 1 has no prime factors, therefore all of its prime factors are <span class="keyword">in</span> the array primes = [2,3,5].</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; n &lt;&#x3D; 10<sup>5</sup></li>
+<li><code>1 &lt;= primes.length &lt;= 100</code></li>
+<li><code>2 &lt;= primes[i] &lt;= 1000</code></li>
+<li><code>primes[i]</code> is <strong>guaranteed</strong> to be a prime number.</li>
+<li>All the values of <code>primes</code> are <strong>unique</strong> and sorted in <strong>ascending order</strong>.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>priority queue</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">nthSuperUglyNumber</span><span class="params">(<span class="type">int</span> n, vector&lt;<span class="type">int</span>&gt;&amp; primes)</span> </span>&#123;</span><br><span class="line">        priority_queue&lt;vector&lt;<span class="type">long</span>&gt;, vector&lt;vector&lt;<span class="type">long</span>&gt;&gt;, greater&lt;vector&lt;<span class="type">long</span>&gt;&gt;&gt; pq;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> prime : primes) &#123;</span><br><span class="line">            pq.<span class="built_in">push</span>(&#123;<span class="number">1</span>, prime, <span class="number">0</span>&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">long</span>&gt; <span class="title">res</span><span class="params">(n, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">while</span> (index &lt; n) &#123;</span><br><span class="line">            <span class="keyword">auto</span> item = pq.<span class="built_in">top</span>();</span><br><span class="line">            <span class="type">int</span> val = item[<span class="number">0</span>];</span><br><span class="line">            res[index] = val;</span><br><span class="line">            index++;</span><br><span class="line">            <span class="keyword">do</span> &#123;</span><br><span class="line">                <span class="type">int</span> prime = item[<span class="number">1</span>];</span><br><span class="line">                <span class="type">int</span> indexp = item[<span class="number">2</span>];</span><br><span class="line">                pq.<span class="built_in">pop</span>();</span><br><span class="line">                pq.<span class="built_in">push</span>(&#123;res[indexp] * prime, prime, indexp + <span class="number">1</span>&#125;);</span><br><span class="line">                item = pq.<span class="built_in">top</span>();</span><br><span class="line">            &#125; <span class="keyword">while</span> (item[<span class="number">0</span>] == val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res[n - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Dynamic Programming</tag>
+        <tag>Match</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>315. Count of Smaller Numbers After Self</title>
     <url>/2023/08/24/315-Count-of-Smaller-Numbers-After-Self/</url>
     <content><![CDATA[<h1 id="315-Count-of-Smaller-Numbers-After-Self"><a href="#315-Count-of-Smaller-Numbers-After-Self" class="headerlink" title="315. Count of Smaller Numbers After Self"></a><a href="https://leetcode.com/problems/count-of-smaller-numbers-after-self/">315. Count of Smaller Numbers After Self</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Hard</strong></p>
@@ -2893,6 +2967,45 @@
       </tags>
   </entry>
   <entry>
+    <title>451. Sort Characters By Frequency</title>
+    <url>/2023/11/06/451-Sort-Characters-By-Frequency/</url>
+    <content><![CDATA[<h1 id="451-Sort-Characters-By-Frequency"><a href="#451-Sort-Characters-By-Frequency" class="headerlink" title="451. Sort Characters By Frequency"></a><a href="https://leetcode.com/problems/sort-characters-by-frequency/">451. Sort Characters By Frequency</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/string//">String</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sorting//">Sorting</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/heap-priority-queue//">Heap (Priority Queue)</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/bucket-sort//">Bucket Sort</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/counting//">Counting</a></p>
+<p>Given a string <code>s</code>, sort it in <strong>decreasing order</strong> based on the <strong>frequency</strong> of the characters. The <strong>frequency</strong> of a character is the number of times it appears in the string.</p>
+<p>Return <em>the sorted string</em>. If there are multiple answers, return <em>any of them</em>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;tree&quot;</span></span><br><span class="line">Output: <span class="string">&quot;eert&quot;</span></span><br><span class="line">Explanation: <span class="string">&#x27;e&#x27;</span> appears twice <span class="keyword">while</span> <span class="string">&#x27;r&#x27;</span> and <span class="string">&#x27;t&#x27;</span> both appear once.</span><br><span class="line">So <span class="string">&#x27;e&#x27;</span> must appear before both <span class="string">&#x27;r&#x27;</span> and <span class="string">&#x27;t&#x27;</span>. Therefore <span class="string">&quot;eetr&quot;</span> is also a valid answer.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;cccaaa&quot;</span></span><br><span class="line">Output: <span class="string">&quot;aaaccc&quot;</span></span><br><span class="line">Explanation: Both <span class="string">&#x27;c&#x27;</span> and <span class="string">&#x27;a&#x27;</span> appear three <span class="built_in">times</span>, so both <span class="string">&quot;cccaaa&quot;</span> and <span class="string">&quot;aaaccc&quot;</span> are valid answers.</span><br><span class="line">Note that <span class="string">&quot;cacaca&quot;</span> is incorrect, as the same characters must be together.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;Aabb&quot;</span></span><br><span class="line">Output: <span class="string">&quot;bbAa&quot;</span></span><br><span class="line">Explanation: <span class="string">&quot;bbaA&quot;</span> is also a valid answer, but <span class="string">&quot;Aabb&quot;</span> is incorrect.</span><br><span class="line">Note that <span class="string">&#x27;A&#x27;</span> and <span class="string">&#x27;a&#x27;</span> are treated as two different characters.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; s.length &lt;&#x3D; 5 * 10<sup>5</sup></li>
+<li><code>s</code> consists of uppercase and lowercase English letters and digits.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>priority queue</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">frequencySort</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; m;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : s) &#123;</span><br><span class="line">            m[c - <span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line">        priority_queue&lt;vector&lt;<span class="type">int</span>&gt;, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;, less&lt;vector&lt;<span class="type">int</span>&gt;&gt;&gt; pq;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> it : m) &#123;</span><br><span class="line">            <span class="type">int</span> c = it.first;</span><br><span class="line">            <span class="type">int</span> f = it.second;</span><br><span class="line">            pq.<span class="built_in">push</span>(&#123;f, c&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="keyword">while</span> (!pq.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">auto</span> top = pq.<span class="built_in">top</span>();</span><br><span class="line">            pq.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="type">char</span> c = top[<span class="number">1</span>] + <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">            <span class="type">int</span> f = top[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; f; i++) &#123;</span><br><span class="line">                res += c;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Hash Table</tag>
+        <tag>String</tag>
+        <tag>Sorting</tag>
+        <tag>Heap (Priority Queue)</tag>
+        <tag>Bucket Sort</tag>
+        <tag>Counting</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>460. LFU Cache</title>
     <url>/2023/10/05/460-LFU-Cache/</url>
     <content><![CDATA[<h1 id="460-LFU-Cache"><a href="#460-LFU-Cache" class="headerlink" title="460. LFU Cache"></a><a href="https://leetcode.com/problems/lfu-cache/">460. LFU Cache</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Hard</strong></p>
@@ -2935,6 +3048,42 @@
       </tags>
   </entry>
   <entry>
+    <title>48. Rotate Image</title>
+    <url>/2023/01/23/48-Rotate-Image/</url>
+    <content><![CDATA[<h1 id="48-Rotate-Image"><a href="#48-Rotate-Image" class="headerlink" title="48. Rotate Image"></a><a href="https://leetcode.com/problems/rotate-image/">48. Rotate Image</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/array/">Array</a>, <a href="https://leetcode.com/tag/math/">Math</a>, <a href="https://leetcode.com/tag/matrix/">Matrix</a></p>
+<p>You are given an <code>n x n</code> 2D <code>matrix</code> representing an image, rotate the image by <strong>90</strong> degrees (clockwise).</p>
+<p>You have to rotate the image <a href="https://en.wikipedia.org/wiki/In-place_algorithm"><strong>in-place</strong></a>, which means you have to modify the input 2D matrix directly. <strong>DO NOT</strong> allocate another 2D matrix and do the rotation.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/08/28/mat1.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]</span><br><span class="line">Output: [[7,4,1],[8,5,2],[9,6,3]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/08/28/mat2.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]</span><br><span class="line">Output: [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>n == matrix.length == matrix[i].length</code></li>
+<li><code>1 &lt;= n &lt;= 20</code></li>
+<li><code>-1000 &lt;= matrix[i][j] &lt;= 1000</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Do the diagonal flip first, then reverse each row</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">rotate</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> m = matrix.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> n = matrix[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                <span class="type">int</span> tmp = matrix[i][j];</span><br><span class="line">                matrix[i][j] = matrix[j][i];</span><br><span class="line">                matrix[j][i] = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (vector&lt;<span class="type">int</span>&gt;&amp; vec : matrix) &#123;</span><br><span class="line">            <span class="built_in">reverse</span>(vec.<span class="built_in">begin</span>(), vec.<span class="built_in">end</span>());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Math</tag>
+        <tag>Matrix</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>493. Reverse Pairs</title>
     <url>/2023/08/25/493-Reverse-Pairs/</url>
     <content><![CDATA[<h1 id="493-Reverse-Pairs"><a href="#493-Reverse-Pairs" class="headerlink" title="493. Reverse Pairs"></a><a href="https://leetcode.com/problems/reverse-pairs/">493. Reverse Pairs</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Hard</strong></p>
@@ -2974,42 +3123,6 @@
         <tag>Binary Indexed Tree</tag>
         <tag>Segment Tree</tag>
         <tag>Ordered Set</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>48. Rotate Image</title>
-    <url>/2023/01/23/48-Rotate-Image/</url>
-    <content><![CDATA[<h1 id="48-Rotate-Image"><a href="#48-Rotate-Image" class="headerlink" title="48. Rotate Image"></a><a href="https://leetcode.com/problems/rotate-image/">48. Rotate Image</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/array/">Array</a>, <a href="https://leetcode.com/tag/math/">Math</a>, <a href="https://leetcode.com/tag/matrix/">Matrix</a></p>
-<p>You are given an <code>n x n</code> 2D <code>matrix</code> representing an image, rotate the image by <strong>90</strong> degrees (clockwise).</p>
-<p>You have to rotate the image <a href="https://en.wikipedia.org/wiki/In-place_algorithm"><strong>in-place</strong></a>, which means you have to modify the input 2D matrix directly. <strong>DO NOT</strong> allocate another 2D matrix and do the rotation.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/08/28/mat1.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]</span><br><span class="line">Output: [[7,4,1],[8,5,2],[9,6,3]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/08/28/mat2.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]</span><br><span class="line">Output: [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>n == matrix.length == matrix[i].length</code></li>
-<li><code>1 &lt;= n &lt;= 20</code></li>
-<li><code>-1000 &lt;= matrix[i][j] &lt;= 1000</code></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Do the diagonal flip first, then reverse each row</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">rotate</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> m = matrix.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> n = matrix[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                <span class="type">int</span> tmp = matrix[i][j];</span><br><span class="line">                matrix[i][j] = matrix[j][i];</span><br><span class="line">                matrix[j][i] = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (vector&lt;<span class="type">int</span>&gt;&amp; vec : matrix) &#123;</span><br><span class="line">            <span class="built_in">reverse</span>(vec.<span class="built_in">begin</span>(), vec.<span class="built_in">end</span>());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Math</tag>
-        <tag>Matrix</tag>
       </tags>
   </entry>
   <entry>
@@ -3315,6 +3428,38 @@
       </tags>
   </entry>
   <entry>
+    <title>59. Spiral Matrix II</title>
+    <url>/2023/01/23/59-Spiral-Matrix-II/</url>
+    <content><![CDATA[<h1 id="59-Spiral-Matrix-II"><a href="#59-Spiral-Matrix-II" class="headerlink" title="59. Spiral Matrix II"></a><a href="https://leetcode.com/problems/spiral-matrix-ii/">59. Spiral Matrix II</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/array/">Array</a>, <a href="https://leetcode.com/tag/matrix/">Matrix</a>, <a href="https://leetcode.com/tag/simulation/">Simulation</a></p>
+<p>Given a positive integer <code>n</code>, generate an <code>n x n</code> <code>matrix</code> filled with elements from <code>1</code> to n<sup>2</sup> in spiral order.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/11/13/spiraln.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 3</span><br><span class="line">Output: [[1,2,3],[8,9,4],[7,6,5]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 1</span><br><span class="line">Output: [[1]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= n &lt;= 20</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Traverse the four sides in one iteration</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">generateMatrix</span>(<span class="type">int</span> n) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">res</span>(n, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n, <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = n - <span class="number">1</span>, up = <span class="number">0</span>, down = n - <span class="number">1</span>, val = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (val &lt;= n * n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (up &lt;= down) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = left; i &lt;= right; i++) &#123;</span><br><span class="line">                    res[up][i] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                up++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (left &lt;= right) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = up; i &lt;= down; i++) &#123;</span><br><span class="line">                    res[i][right] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (up &lt;= down) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = right; i &gt;= left; i--) &#123;</span><br><span class="line">                    res[down][i] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                down--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (left &lt;= right) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = down; i &gt;= up; i--) &#123;</span><br><span class="line">                    res[i][left] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Simulation</tag>
+        <tag>Matrix</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>648. Replace Words</title>
     <url>/2023/10/08/648-Replace-Words/</url>
     <content><![CDATA[<h1 id="648-Replace-Words"><a href="#648-Replace-Words" class="headerlink" title="648. Replace Words"></a><a href="https://leetcode.com/problems/replace-words/">648. Replace Words</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -3354,38 +3499,6 @@
         <tag>Hash Table</tag>
         <tag>String</tag>
         <tag>Trie</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>59. Spiral Matrix II</title>
-    <url>/2023/01/23/59-Spiral-Matrix-II/</url>
-    <content><![CDATA[<h1 id="59-Spiral-Matrix-II"><a href="#59-Spiral-Matrix-II" class="headerlink" title="59. Spiral Matrix II"></a><a href="https://leetcode.com/problems/spiral-matrix-ii/">59. Spiral Matrix II</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/array/">Array</a>, <a href="https://leetcode.com/tag/matrix/">Matrix</a>, <a href="https://leetcode.com/tag/simulation/">Simulation</a></p>
-<p>Given a positive integer <code>n</code>, generate an <code>n x n</code> <code>matrix</code> filled with elements from <code>1</code> to n<sup>2</sup> in spiral order.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/11/13/spiraln.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 3</span><br><span class="line">Output: [[1,2,3],[8,9,4],[7,6,5]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 1</span><br><span class="line">Output: [[1]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= n &lt;= 20</code></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Traverse the four sides in one iteration</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">generateMatrix</span>(<span class="type">int</span> n) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">res</span>(n, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n, <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = n - <span class="number">1</span>, up = <span class="number">0</span>, down = n - <span class="number">1</span>, val = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (val &lt;= n * n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (up &lt;= down) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = left; i &lt;= right; i++) &#123;</span><br><span class="line">                    res[up][i] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                up++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (left &lt;= right) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = up; i &lt;= down; i++) &#123;</span><br><span class="line">                    res[i][right] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (up &lt;= down) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = right; i &gt;= left; i--) &#123;</span><br><span class="line">                    res[down][i] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                down--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (left &lt;= right) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = down; i &gt;= up; i--) &#123;</span><br><span class="line">                    res[i][left] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Simulation</tag>
-        <tag>Matrix</tag>
       </tags>
   </entry>
   <entry>
@@ -6294,6 +6407,40 @@
       </tags>
   </entry>
   <entry>
+    <title>How to become a SDM</title>
+    <url>/2022/12/02/How-to-become-a-SDM/</url>
+    <content><![CDATA[<h3 id="SDM-and-time-management"><a href="#SDM-and-time-management" class="headerlink" title="SDM and time management"></a>SDM and time management</h3><p>工作的本质是时间管理，任务优先级管理和目标管理。我们可以将具体工程实现抽象成上面一般概念，从而形成方法论：一件事到底怎么做就可以做成？能够做好manager，自己的生活也不会过得差，也大概率能管理好自己一生。其实对于技术出身尤其是很多 STEM 的PhD，都有非常好潜质去做一个好的manager，就是因为PhD不仅仅是学术技能的训练，关键也是怎么把事情做好的训练。</p>
+<p>如果说Team Leader 不仅仅需要关注自己实际工作对于项目的推进，还需要指导和帮助下属设定和完成目标，那么好的manager就是后者工作方向上更进一步：在已经洞察工作方法论的基础上设定一个能够摸得着，但需要一定努力的，同时又能尽可能地体现出团队整体工作价值的目标。</p>
+<p>在资源能够合理支持的情况，manager对于工作的态度永远都是“多多益善”。这也就是我们通常说的赋能（empower)。这些支持工作包括识别手下的人物性格特征（比方说充满才华，桀骜不驯），创造安定的工作环境（人事变动平稳可预期），工作目标分配得当（下面case A 就适合independent contributor先进行攻略），有效的监督和辅导（反馈的技巧）。</p>
+<p><a href="https://www.zhihu.com/question/509427117/answer/2689826912">https://www.zhihu.com/question/509427117/answer/2689826912</a></p>
+<h3 id="How-to-become-a-SDM"><a href="#How-to-become-a-SDM" class="headerlink" title="How to become a SDM"></a>How to become a SDM</h3><h4 id="首先确定自己为什么要当M。"><a href="#首先确定自己为什么要当M。" class="headerlink" title="首先确定自己为什么要当M。"></a>首先确定自己为什么要当M。</h4><p>这是非常重要的一步。M和IC是两种完全不同的工作。对于IC而言，每天的工作是比较清晰的：遇到问题解决问题，需要些code写code。基本上技术之外的事情可以不太管。</p>
+<p>但对于M而言，你可能打交道最多的是“人”。具体的工作内容差不多是这样的：每个Q的工作计划和资源调配、工作产出的跟踪、跨部门沟通解决冲突矛盾、绩效评估、reorg等等</p>
+<p>那么既然拿着一样的薪水，为什么要从IC到M呢？我自己的原因是这样的。我是比较Impact driven的。现在的软件工业是团队作战，那么如果要取得更大的成就，就需要团队的力量。我更喜欢的是带领一个团队去完成更大的事情，而不是自己一个人来解决小而精美的问题。所以其实理由还是比较简单直接的。</p>
+<p>每个人的理由可能不同，但一定要明确理由。（后面FAQ我可以多说两句）</p>
+<h4 id="找坑"><a href="#找坑" class="headerlink" title="找坑"></a>找坑</h4><p>每个公司的汇报线都是金字塔形的，也就是说M的位置比IC的数量肯定是要少一个数量级左右的。如果你想走这条路，肯定是要找到需要manager的地方。要么是这个地方快速发展，短期内需要招很多人，要么是这个地方正好有一个manager走了。</p>
+<p>你以为这种情况下你就有机会了？其实不尽然，我们马上就能看到这个事儿的“二十二条军规”了：</p>
+<ul>
+<li>大部分公开招聘manager的场合，都要求候选人已经有management经验。</li>
+<li>即使你有management能力，别人也不会轻易信任你，把团队交给你。</li>
+</ul>
+<p>简单的说就是，一个不靠谱的manager对团队的负面影响过大。大家都会谨慎谨慎再谨慎。所以这条路是很难走的</p>
+<p>那怎么办？其实最好的方式就是：在一个你已经熟悉的团队里面，培养周围人对你的信任，并主动要求成为manager。（我也是走的这条路，会比较顺）</p>
+<h4 id="坐稳"><a href="#坐稳" class="headerlink" title="坐稳"></a>坐稳</h4><p>前面说了如何变成一个manager，但实际情况是很多M在成为M后又后悔，返回到了IC的序列中。简单的说就是好的IC未必是好的M。我这里提几点吧：</p>
+<ul>
+<li>克制自己上手写代码的冲动。M通常会议较多，你下手通常只会拖累团队，不会带来啥正面的效果。</li>
+<li>多花时间和人交流，而不是机器。M对付的是人，不仅仅是上+下，还有横向的合作。纵横交错的关系网才能让你的工作变得更顺畅。</li>
+<li>遇事果断，该做就做，不管是reorg还是招人开人。犹豫是manager最需要避免的东西。</li>
+</ul>
+<p><a href="https://www.zhihu.com/question/509427117/answer/2692601966">https://www.zhihu.com/question/509427117/answer/2692601966</a></p>
+]]></content>
+      <categories>
+        <category>Excerpt</category>
+      </categories>
+      <tags>
+        <tag>Career</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>How to leetcode</title>
     <url>/2022/12/20/How-to-leetcode/</url>
     <content><![CDATA[<h3 id="The-motivation"><a href="#The-motivation" class="headerlink" title="The motivation"></a>The motivation</h3><p>A good software developer doesn’t necessarily need to be a good IOer, but in general a good IOer is more likely to be a good software developer. This logic makes coding more and more important in tech interview.</p>
@@ -6329,31 +6476,17 @@
       </categories>
   </entry>
   <entry>
-    <title>How to become a SDM</title>
-    <url>/2022/12/02/How-to-become-a-SDM/</url>
-    <content><![CDATA[<h3 id="SDM-and-time-management"><a href="#SDM-and-time-management" class="headerlink" title="SDM and time management"></a>SDM and time management</h3><p>工作的本质是时间管理，任务优先级管理和目标管理。我们可以将具体工程实现抽象成上面一般概念，从而形成方法论：一件事到底怎么做就可以做成？能够做好manager，自己的生活也不会过得差，也大概率能管理好自己一生。其实对于技术出身尤其是很多 STEM 的PhD，都有非常好潜质去做一个好的manager，就是因为PhD不仅仅是学术技能的训练，关键也是怎么把事情做好的训练。</p>
-<p>如果说Team Leader 不仅仅需要关注自己实际工作对于项目的推进，还需要指导和帮助下属设定和完成目标，那么好的manager就是后者工作方向上更进一步：在已经洞察工作方法论的基础上设定一个能够摸得着，但需要一定努力的，同时又能尽可能地体现出团队整体工作价值的目标。</p>
-<p>在资源能够合理支持的情况，manager对于工作的态度永远都是“多多益善”。这也就是我们通常说的赋能（empower)。这些支持工作包括识别手下的人物性格特征（比方说充满才华，桀骜不驯），创造安定的工作环境（人事变动平稳可预期），工作目标分配得当（下面case A 就适合independent contributor先进行攻略），有效的监督和辅导（反馈的技巧）。</p>
-<p><a href="https://www.zhihu.com/question/509427117/answer/2689826912">https://www.zhihu.com/question/509427117/answer/2689826912</a></p>
-<h3 id="How-to-become-a-SDM"><a href="#How-to-become-a-SDM" class="headerlink" title="How to become a SDM"></a>How to become a SDM</h3><h4 id="首先确定自己为什么要当M。"><a href="#首先确定自己为什么要当M。" class="headerlink" title="首先确定自己为什么要当M。"></a>首先确定自己为什么要当M。</h4><p>这是非常重要的一步。M和IC是两种完全不同的工作。对于IC而言，每天的工作是比较清晰的：遇到问题解决问题，需要些code写code。基本上技术之外的事情可以不太管。</p>
-<p>但对于M而言，你可能打交道最多的是“人”。具体的工作内容差不多是这样的：每个Q的工作计划和资源调配、工作产出的跟踪、跨部门沟通解决冲突矛盾、绩效评估、reorg等等</p>
-<p>那么既然拿着一样的薪水，为什么要从IC到M呢？我自己的原因是这样的。我是比较Impact driven的。现在的软件工业是团队作战，那么如果要取得更大的成就，就需要团队的力量。我更喜欢的是带领一个团队去完成更大的事情，而不是自己一个人来解决小而精美的问题。所以其实理由还是比较简单直接的。</p>
-<p>每个人的理由可能不同，但一定要明确理由。（后面FAQ我可以多说两句）</p>
-<h4 id="找坑"><a href="#找坑" class="headerlink" title="找坑"></a>找坑</h4><p>每个公司的汇报线都是金字塔形的，也就是说M的位置比IC的数量肯定是要少一个数量级左右的。如果你想走这条路，肯定是要找到需要manager的地方。要么是这个地方快速发展，短期内需要招很多人，要么是这个地方正好有一个manager走了。</p>
-<p>你以为这种情况下你就有机会了？其实不尽然，我们马上就能看到这个事儿的“二十二条军规”了：</p>
-<ul>
-<li>大部分公开招聘manager的场合，都要求候选人已经有management经验。</li>
-<li>即使你有management能力，别人也不会轻易信任你，把团队交给你。</li>
-</ul>
-<p>简单的说就是，一个不靠谱的manager对团队的负面影响过大。大家都会谨慎谨慎再谨慎。所以这条路是很难走的</p>
-<p>那怎么办？其实最好的方式就是：在一个你已经熟悉的团队里面，培养周围人对你的信任，并主动要求成为manager。（我也是走的这条路，会比较顺）</p>
-<h4 id="坐稳"><a href="#坐稳" class="headerlink" title="坐稳"></a>坐稳</h4><p>前面说了如何变成一个manager，但实际情况是很多M在成为M后又后悔，返回到了IC的序列中。简单的说就是好的IC未必是好的M。我这里提几点吧：</p>
-<ul>
-<li>克制自己上手写代码的冲动。M通常会议较多，你下手通常只会拖累团队，不会带来啥正面的效果。</li>
-<li>多花时间和人交流，而不是机器。M对付的是人，不仅仅是上+下，还有横向的合作。纵横交错的关系网才能让你的工作变得更顺畅。</li>
-<li>遇事果断，该做就做，不管是reorg还是招人开人。犹豫是manager最需要避免的东西。</li>
-</ul>
-<p><a href="https://www.zhihu.com/question/509427117/answer/2692601966">https://www.zhihu.com/question/509427117/answer/2692601966</a></p>
+    <title>How to manage time</title>
+    <url>/2022/12/23/How-to-manage-time/</url>
+    <content><![CDATA[<h3 id="How-I-Have-Time-For-Everything"><a href="#How-I-Have-Time-For-Everything" class="headerlink" title="How I Have Time For Everything"></a>How I Have Time For Everything</h3><ol>
+<li><p>Focus Completely For 2-4 Hours Every Day</p>
+</li>
+<li><p>Do One Thing At A Time</p>
+</li>
+<li><p>Permanently Declutter Your Schedule</p>
+</li>
+</ol>
+<p><a href="https://www.youtube.com/watch?v=c3pzcV9yi24">LINK</a></p>
 ]]></content>
       <categories>
         <category>Excerpt</category>
@@ -6380,26 +6513,6 @@
       <categories>
         <category>Thoughts</category>
       </categories>
-  </entry>
-  <entry>
-    <title>How to manage time</title>
-    <url>/2022/12/23/How-to-manage-time/</url>
-    <content><![CDATA[<h3 id="How-I-Have-Time-For-Everything"><a href="#How-I-Have-Time-For-Everything" class="headerlink" title="How I Have Time For Everything"></a>How I Have Time For Everything</h3><ol>
-<li><p>Focus Completely For 2-4 Hours Every Day</p>
-</li>
-<li><p>Do One Thing At A Time</p>
-</li>
-<li><p>Permanently Declutter Your Schedule</p>
-</li>
-</ol>
-<p><a href="https://www.youtube.com/watch?v=c3pzcV9yi24">LINK</a></p>
-]]></content>
-      <categories>
-        <category>Excerpt</category>
-      </categories>
-      <tags>
-        <tag>Career</tag>
-      </tags>
   </entry>
   <entry>
     <title>How to setup personal VPN</title>
@@ -7718,6 +7831,64 @@ Your browser does not support the audio element.
       </tags>
   </entry>
   <entry>
+    <title>Learnship 14 - 2023/11/02</title>
+    <url>/2023/11/02/Learnship-14-2023-11-02/</url>
+    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-14-Closing-A-Presentation-2"><a href="#Business-Language-Coaching-Session-14-Closing-A-Presentation-2" class="headerlink" title="Business Language Coaching - Session 14 - Closing A Presentation (2)"></a>Business Language Coaching - Session 14 - Closing A Presentation (2)</h2><ul>
+<li>compare some different communicative strategies for closing a presentation</li>
+<li>build a presentation close together</li>
+</ul>
+<h3 id="Impromptu-presentation-practice"><a href="#Impromptu-presentation-practice" class="headerlink" title="Impromptu presentation practice"></a>Impromptu presentation practice</h3><p>Topic: International charities are not always the most deserving of our donations.</p>
+<ul>
+<li>conversely</li>
+<li>in addition to</li>
+<li>with that in mind</li>
+<li>nevertheless</li>
+</ul>
+<h3 id="Group-the-expressions-according-to-which-closing-technique-they-can-best-be-used-for"><a href="#Group-the-expressions-according-to-which-closing-technique-they-can-best-be-used-for" class="headerlink" title="Group the expressions according to which closing technique they can best be used for."></a>Group the expressions according to which closing technique they can best be used for.</h3><p>Summary:</p>
+<ul>
+<li>Let’s take a look back at what we’ve spoken about this morning.</li>
+<li>Here, at a glance, are the main points I’ve made …</li>
+<li>So, how to sum up?</li>
+<li>In a nutshell, then …</li>
+</ul>
+<p>Wisdom:</p>
+<ul>
+<li>I’m reminded of the words of …</li>
+<li>We have a saying where I come from …</li>
+<li>In the famous words of …</li>
+</ul>
+<p>Action:</p>
+<ul>
+<li>Now let’s get out there and …!</li>
+<li>I’m counting on you to …</li>
+<li>So, next time you …, remember to …</li>
+</ul>
+<p>Emotion:</p>
+<ul>
+<li>If you take just one thing from this talk, take this …</li>
+<li>In the end, this is what matters</li>
+<li>So what does all this really mean for you - personally?</li>
+</ul>
+<h3 id="Task-Creating-a-close-for-one-of-your-demos"><a href="#Task-Creating-a-close-for-one-of-your-demos" class="headerlink" title="Task: Creating a close for one of your demos"></a>Task: Creating a close for one of your demos</h3><p>Using what you’ve learned about how to create a memorable presentation close, choose one of the approaches and brainstorm ideas for what you could say at the end of your demo.</p>
+<ul>
+<li>OK, so we’re going to save X each year and with that we can Y …</li>
+<li>So, how to actually put this into practice? &#x2F; So, how do we get there?</li>
+</ul>
+<p>Summary -&gt; next steps</p>
+<h2 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h2><ul>
+<li>the snow season is much* longer</li>
+<li>to be deserving of</li>
+<li>conversely(no need for ‘but’)</li>
+<li>at fault: responsible for</li>
+<li>I have done* the categorizing</li>
+<li>so, I’m looking forwarding to updating you …</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Learnship</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Learnship 15 - 2023/11/06</title>
     <url>/2023/11/06/Learnship-15-2023-11-06/</url>
     <content><![CDATA[<h2 id="Business-Language-Coaching-Session-15-Closing-A-Presentation-3"><a href="#Business-Language-Coaching-Session-15-Closing-A-Presentation-3" class="headerlink" title="Business Language Coaching - Session 15 - Closing A Presentation (3)"></a>Business Language Coaching - Session 15 - Closing A Presentation (3)</h2><ul>
@@ -7808,64 +7979,6 @@ Your browser does not support the audio element.
 <li>President Biden (no definite article)</li>
 <li>Ireland (no article)</li>
 <li>a trip</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Learnship</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Learnship 14 - 2023/11/02</title>
-    <url>/2023/11/02/Learnship-14-2023-11-02/</url>
-    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-14-Closing-A-Presentation-2"><a href="#Business-Language-Coaching-Session-14-Closing-A-Presentation-2" class="headerlink" title="Business Language Coaching - Session 14 - Closing A Presentation (2)"></a>Business Language Coaching - Session 14 - Closing A Presentation (2)</h2><ul>
-<li>compare some different communicative strategies for closing a presentation</li>
-<li>build a presentation close together</li>
-</ul>
-<h3 id="Impromptu-presentation-practice"><a href="#Impromptu-presentation-practice" class="headerlink" title="Impromptu presentation practice"></a>Impromptu presentation practice</h3><p>Topic: International charities are not always the most deserving of our donations.</p>
-<ul>
-<li>conversely</li>
-<li>in addition to</li>
-<li>with that in mind</li>
-<li>nevertheless</li>
-</ul>
-<h3 id="Group-the-expressions-according-to-which-closing-technique-they-can-best-be-used-for"><a href="#Group-the-expressions-according-to-which-closing-technique-they-can-best-be-used-for" class="headerlink" title="Group the expressions according to which closing technique they can best be used for."></a>Group the expressions according to which closing technique they can best be used for.</h3><p>Summary:</p>
-<ul>
-<li>Let’s take a look back at what we’ve spoken about this morning.</li>
-<li>Here, at a glance, are the main points I’ve made …</li>
-<li>So, how to sum up?</li>
-<li>In a nutshell, then …</li>
-</ul>
-<p>Wisdom:</p>
-<ul>
-<li>I’m reminded of the words of …</li>
-<li>We have a saying where I come from …</li>
-<li>In the famous words of …</li>
-</ul>
-<p>Action:</p>
-<ul>
-<li>Now let’s get out there and …!</li>
-<li>I’m counting on you to …</li>
-<li>So, next time you …, remember to …</li>
-</ul>
-<p>Emotion:</p>
-<ul>
-<li>If you take just one thing from this talk, take this …</li>
-<li>In the end, this is what matters</li>
-<li>So what does all this really mean for you - personally?</li>
-</ul>
-<h3 id="Task-Creating-a-close-for-one-of-your-demos"><a href="#Task-Creating-a-close-for-one-of-your-demos" class="headerlink" title="Task: Creating a close for one of your demos"></a>Task: Creating a close for one of your demos</h3><p>Using what you’ve learned about how to create a memorable presentation close, choose one of the approaches and brainstorm ideas for what you could say at the end of your demo.</p>
-<ul>
-<li>OK, so we’re going to save X each year and with that we can Y …</li>
-<li>So, how to actually put this into practice? &#x2F; So, how do we get there?</li>
-</ul>
-<p>Summary -&gt; next steps</p>
-<h2 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h2><ul>
-<li>the snow season is much* longer</li>
-<li>to be deserving of</li>
-<li>conversely(no need for ‘but’)</li>
-<li>at fault: responsible for</li>
-<li>I have done* the categorizing</li>
-<li>so, I’m looking forwarding to updating you …</li>
 </ul>
 ]]></content>
       <tags>

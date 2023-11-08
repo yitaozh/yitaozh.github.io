@@ -113,6 +113,46 @@
       </tags>
   </entry>
   <entry>
+    <title>106. Construct Binary Tree from Inorder and Postorder Traversal</title>
+    <url>/2023/08/22/106-Construct-Binary-Tree-from-Inorder-and-Postorder-Traversal/</url>
+    <content><![CDATA[<h1 id="106-Construct-Binary-Tree-from-Inorder-and-Postorder-Traversal"><a href="#106-Construct-Binary-Tree-from-Inorder-and-Postorder-Traversal" class="headerlink" title="106. Construct Binary Tree from Inorder and Postorder Traversal"></a><a href="https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/">106. Construct Binary Tree from Inorder and Postorder Traversal</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/divide-and-conquer//">Divide and Conquer</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/tree//">Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//">Binary Tree</a></p>
+<p>Given two integer arrays <code>inorder</code> and <code>postorder</code> where <code>inorder</code> is the inorder traversal of a binary tree and <code>postorder</code> is the postorder traversal of the same tree, construct and return <em>the binary tree</em>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/02/19/tree.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: inorder = [9,3,15,20,7], postorder = [9,15,7,20,3]</span><br><span class="line">Output: [3,9,20,null,null,15,7]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: inorder = [-1], postorder = [-1]</span><br><span class="line">Output: [-1]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= inorder.length &lt;= 3000</code></li>
+<li><code>postorder.length == inorder.length</code></li>
+<li><code>-3000 &lt;= inorder[i], postorder[i] &lt;= 3000</code></li>
+<li><code>inorder</code> and <code>postorder</code> consist of <strong>unique</strong> values.</li>
+<li>Each value of <code>postorder</code> also appears in <code>inorder</code>.</li>
+<li><code>inorder</code> is <strong>guaranteed</strong> to be the inorder traversal of the tree.</li>
+<li><code>postorder</code> is <strong>guaranteed</strong> to be the postorder traversal of the tree.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Draw the tree and find the pattern of root’s location</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; valToIndex;</span><br><span class="line"></span><br><span class="line">    <span class="function">TreeNode* <span class="title">buildTree</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; inorder, vector&lt;<span class="type">int</span>&gt;&amp; postorder)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> size = inorder.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            valToIndex[inorder[i]] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">build</span>(inorder, <span class="number">0</span>, size - <span class="number">1</span>, postorder, <span class="number">0</span>, size - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">TreeNode* <span class="title">build</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; inorder, <span class="type">int</span> inStart, <span class="type">int</span> inEnd,</span></span></span><br><span class="line"><span class="params"><span class="function">                    vector&lt;<span class="type">int</span>&gt;&amp; postorder, <span class="type">int</span> postStart, <span class="type">int</span> postEnd)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (inStart &gt; inEnd) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> rootVal = postorder[postEnd];</span><br><span class="line">        <span class="type">int</span> rootIndex = valToIndex[rootVal];</span><br><span class="line"></span><br><span class="line">        TreeNode* root = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(rootVal);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> leftSize = rootIndex - inStart;</span><br><span class="line">        root-&gt;left = <span class="built_in">build</span>(inorder, inStart, rootIndex - <span class="number">1</span>,</span><br><span class="line">                           postorder, postStart, postStart + leftSize - <span class="number">1</span>);</span><br><span class="line">        root-&gt;right = <span class="built_in">build</span>(inorder, rootIndex + <span class="number">1</span>, inEnd,</span><br><span class="line">                            postorder, postStart + leftSize, postEnd - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Tree</tag>
+        <tag>Binary Tree</tag>
+        <tag>Hash Table</tag>
+        <tag>Divide and Conquer</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>1056. Confusing Number</title>
     <url>/2023/01/20/1056-Confusing-Number/</url>
     <content><![CDATA[<h1 id="1056-Confusing-Number"><a href="#1056-Confusing-Number" class="headerlink" title="1056. Confusing Number"></a><a href="https://leetcode.com/problems/confusing-number/">1056. Confusing Number</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
@@ -155,46 +195,6 @@
       </categories>
       <tags>
         <tag>Math</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>106. Construct Binary Tree from Inorder and Postorder Traversal</title>
-    <url>/2023/08/22/106-Construct-Binary-Tree-from-Inorder-and-Postorder-Traversal/</url>
-    <content><![CDATA[<h1 id="106-Construct-Binary-Tree-from-Inorder-and-Postorder-Traversal"><a href="#106-Construct-Binary-Tree-from-Inorder-and-Postorder-Traversal" class="headerlink" title="106. Construct Binary Tree from Inorder and Postorder Traversal"></a><a href="https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/">106. Construct Binary Tree from Inorder and Postorder Traversal</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/divide-and-conquer//">Divide and Conquer</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/tree//">Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//">Binary Tree</a></p>
-<p>Given two integer arrays <code>inorder</code> and <code>postorder</code> where <code>inorder</code> is the inorder traversal of a binary tree and <code>postorder</code> is the postorder traversal of the same tree, construct and return <em>the binary tree</em>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/02/19/tree.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: inorder = [9,3,15,20,7], postorder = [9,15,7,20,3]</span><br><span class="line">Output: [3,9,20,null,null,15,7]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: inorder = [-1], postorder = [-1]</span><br><span class="line">Output: [-1]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= inorder.length &lt;= 3000</code></li>
-<li><code>postorder.length == inorder.length</code></li>
-<li><code>-3000 &lt;= inorder[i], postorder[i] &lt;= 3000</code></li>
-<li><code>inorder</code> and <code>postorder</code> consist of <strong>unique</strong> values.</li>
-<li>Each value of <code>postorder</code> also appears in <code>inorder</code>.</li>
-<li><code>inorder</code> is <strong>guaranteed</strong> to be the inorder traversal of the tree.</li>
-<li><code>postorder</code> is <strong>guaranteed</strong> to be the postorder traversal of the tree.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Draw the tree and find the pattern of root’s location</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; valToIndex;</span><br><span class="line"></span><br><span class="line">    <span class="function">TreeNode* <span class="title">buildTree</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; inorder, vector&lt;<span class="type">int</span>&gt;&amp; postorder)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> size = inorder.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            valToIndex[inorder[i]] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">build</span>(inorder, <span class="number">0</span>, size - <span class="number">1</span>, postorder, <span class="number">0</span>, size - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">TreeNode* <span class="title">build</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; inorder, <span class="type">int</span> inStart, <span class="type">int</span> inEnd,</span></span></span><br><span class="line"><span class="params"><span class="function">                    vector&lt;<span class="type">int</span>&gt;&amp; postorder, <span class="type">int</span> postStart, <span class="type">int</span> postEnd)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (inStart &gt; inEnd) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> rootVal = postorder[postEnd];</span><br><span class="line">        <span class="type">int</span> rootIndex = valToIndex[rootVal];</span><br><span class="line"></span><br><span class="line">        TreeNode* root = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(rootVal);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> leftSize = rootIndex - inStart;</span><br><span class="line">        root-&gt;left = <span class="built_in">build</span>(inorder, inStart, rootIndex - <span class="number">1</span>,</span><br><span class="line">                           postorder, postStart, postStart + leftSize - <span class="number">1</span>);</span><br><span class="line">        root-&gt;right = <span class="built_in">build</span>(inorder, rootIndex + <span class="number">1</span>, inEnd,</span><br><span class="line">                            postorder, postStart + leftSize, postEnd - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Tree</tag>
-        <tag>Binary Tree</tag>
-        <tag>Hash Table</tag>
-        <tag>Divide and Conquer</tag>
       </tags>
   </entry>
   <entry>
@@ -1462,46 +1462,6 @@
       </tags>
   </entry>
   <entry>
-    <title>21. Merge Two Sorted Lists</title>
-    <url>/2022/12/29/21-Merge-Two-Sorted-Lists/</url>
-    <content><![CDATA[<h1 id="21-Merge-Two-Sorted-Lists"><a href="#21-Merge-Two-Sorted-Lists" class="headerlink" title="21. Merge Two Sorted Lists"></a><a href="https://leetcode.com/problems/merge-two-sorted-lists/">21. Merge Two Sorted Lists</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/linked-list/">Linked List</a>, <a href="https://leetcode.com/tag/recursion/">Recursion</a></p>
-<p>You are given the heads of two sorted linked lists <code>list1</code> and <code>list2</code>.</p>
-<p>Merge the two lists in a one <strong>sorted</strong> list. The list should be made by splicing together the nodes of the first two lists.</p>
-<p>Return <em>the head of the merged linked list</em>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/10/03/merge_ex1.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: list1 = [1,2,4], list2 = [1,3,4]</span><br><span class="line">Output: [1,1,2,3,4,4]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: list1 = [], list2 = []</span><br><span class="line">Output: []</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: list1 = [], list2 = [0]</span><br><span class="line">Output: [0]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in both lists is in the range <code>[0, 50]</code>.</li>
-<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
-<li>Both <code>list1</code> and <code>list2</code> are sorted in <strong>non-decreasing</strong> order.</li>
-</ul>
-<hr>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Dummy pointer</li>
-<li>After one list is exhausted, we can just link the remaining of other list to the new list. The corner case that one list is empty is covered with this handling.</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* list1, ListNode* list2)</span> </span>&#123;</span><br><span class="line">        ListNode* dummy = <span class="keyword">new</span> <span class="built_in">ListNode</span>(); ListNode* p = dummy;</span><br><span class="line">        <span class="keyword">while</span> (list1 != <span class="literal">nullptr</span> &amp;&amp; list2 != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (list1-&gt;val &lt; list2-&gt;val) &#123;</span><br><span class="line">                p-&gt;next = list1;</span><br><span class="line">                list1 = list1-&gt;next;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                p-&gt;next = list2;</span><br><span class="line">                list2 = list2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (list1 != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            p-&gt;next = list1;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            p-&gt;next = list2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Linked List</tag>
-        <tag>Recursion</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>210. Course Schedule II</title>
     <url>/2023/09/01/210-Course-Schedule-II/</url>
     <content><![CDATA[<h1 id="210-Course-Schedule-II"><a href="#210-Course-Schedule-II" class="headerlink" title="210. Course Schedule II"></a><a href="https://leetcode.com/problems/course-schedule-ii/">210. Course Schedule II</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -1544,6 +1504,46 @@
         <tag>Graph</tag>
         <tag>Topological Sort</tag>
         <tag>Depth-First</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>21. Merge Two Sorted Lists</title>
+    <url>/2022/12/29/21-Merge-Two-Sorted-Lists/</url>
+    <content><![CDATA[<h1 id="21-Merge-Two-Sorted-Lists"><a href="#21-Merge-Two-Sorted-Lists" class="headerlink" title="21. Merge Two Sorted Lists"></a><a href="https://leetcode.com/problems/merge-two-sorted-lists/">21. Merge Two Sorted Lists</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/linked-list/">Linked List</a>, <a href="https://leetcode.com/tag/recursion/">Recursion</a></p>
+<p>You are given the heads of two sorted linked lists <code>list1</code> and <code>list2</code>.</p>
+<p>Merge the two lists in a one <strong>sorted</strong> list. The list should be made by splicing together the nodes of the first two lists.</p>
+<p>Return <em>the head of the merged linked list</em>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/10/03/merge_ex1.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: list1 = [1,2,4], list2 = [1,3,4]</span><br><span class="line">Output: [1,1,2,3,4,4]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: list1 = [], list2 = []</span><br><span class="line">Output: []</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: list1 = [], list2 = [0]</span><br><span class="line">Output: [0]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in both lists is in the range <code>[0, 50]</code>.</li>
+<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+<li>Both <code>list1</code> and <code>list2</code> are sorted in <strong>non-decreasing</strong> order.</li>
+</ul>
+<hr>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Dummy pointer</li>
+<li>After one list is exhausted, we can just link the remaining of other list to the new list. The corner case that one list is empty is covered with this handling.</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* list1, ListNode* list2)</span> </span>&#123;</span><br><span class="line">        ListNode* dummy = <span class="keyword">new</span> <span class="built_in">ListNode</span>(); ListNode* p = dummy;</span><br><span class="line">        <span class="keyword">while</span> (list1 != <span class="literal">nullptr</span> &amp;&amp; list2 != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (list1-&gt;val &lt; list2-&gt;val) &#123;</span><br><span class="line">                p-&gt;next = list1;</span><br><span class="line">                list1 = list1-&gt;next;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                p-&gt;next = list2;</span><br><span class="line">                list2 = list2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (list1 != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            p-&gt;next = list1;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            p-&gt;next = list2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Linked List</tag>
+        <tag>Recursion</tag>
       </tags>
   </entry>
   <entry>
@@ -1695,6 +1695,44 @@
       </tags>
   </entry>
   <entry>
+    <title>226. Invert Binary Tree</title>
+    <url>/2023/02/03/226-Invert-Binary-Tree/</url>
+    <content><![CDATA[<h1 id="226-Invert-Binary-Tree"><a href="#226-Invert-Binary-Tree" class="headerlink" title="226. Invert Binary Tree"></a><a href="https://leetcode.com/problems/invert-binary-tree/">226. Invert Binary Tree</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/tree/">Tree</a>, <a href="https://leetcode.com/tag/depth-first-search/">Depth-First Search</a>, <a href="https://leetcode.com/tag/breadth-first-search/">Breadth-First Search</a>, <a href="https://leetcode.com/tag/binary-tree/">Binary Tree</a></p>
+<p>Given the <code>root</code> of a binary tree, invert the tree, and return <em>its root</em>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/03/14/invert1-tree.jpg"></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3,6,9]</span><br><span class="line">Output: [4,7,2,9,6,3,1]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/03/14/invert2-tree.jpg"></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: root = [2,1,3]</span><br><span class="line">Output: [2,3,1]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: root = []</span><br><span class="line">Output: []</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is in the range <code>[0, 100]</code>.</li>
+<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>N&#x2F;A</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">invertTree</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">        TreeNode* left = <span class="built_in">invertTree</span>(root-&gt;left);</span><br><span class="line">        TreeNode* right = <span class="built_in">invertTree</span>(root-&gt;right);</span><br><span class="line"></span><br><span class="line">        root-&gt;left = right;</span><br><span class="line">        root-&gt;right = left;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Tree</tag>
+        <tag>Depth-First Search</tag>
+        <tag>Breadth-First Search</tag>
+        <tag>Binary Tree</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>225. Implement Stack using Queues</title>
     <url>/2023/11/07/225-Implement-Stack-using-Queues/</url>
     <content><![CDATA[<h1 id="225-Implement-Stack-using-Queues"><a href="#225-Implement-Stack-using-Queues" class="headerlink" title="225. Implement Stack using Queues"></a><a href="https://leetcode.com/problems/implement-stack-using-queues/">225. Implement Stack using Queues</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
@@ -1735,44 +1773,6 @@
         <tag>Stack</tag>
         <tag>Design</tag>
         <tag>Queue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>226. Invert Binary Tree</title>
-    <url>/2023/02/03/226-Invert-Binary-Tree/</url>
-    <content><![CDATA[<h1 id="226-Invert-Binary-Tree"><a href="#226-Invert-Binary-Tree" class="headerlink" title="226. Invert Binary Tree"></a><a href="https://leetcode.com/problems/invert-binary-tree/">226. Invert Binary Tree</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/tree/">Tree</a>, <a href="https://leetcode.com/tag/depth-first-search/">Depth-First Search</a>, <a href="https://leetcode.com/tag/breadth-first-search/">Breadth-First Search</a>, <a href="https://leetcode.com/tag/binary-tree/">Binary Tree</a></p>
-<p>Given the <code>root</code> of a binary tree, invert the tree, and return <em>its root</em>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/03/14/invert1-tree.jpg"></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3,6,9]</span><br><span class="line">Output: [4,7,2,9,6,3,1]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/03/14/invert2-tree.jpg"></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: root = [2,1,3]</span><br><span class="line">Output: [2,3,1]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: root = []</span><br><span class="line">Output: []</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in the tree is in the range <code>[0, 100]</code>.</li>
-<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>N&#x2F;A</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">invertTree</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">        TreeNode* left = <span class="built_in">invertTree</span>(root-&gt;left);</span><br><span class="line">        TreeNode* right = <span class="built_in">invertTree</span>(root-&gt;right);</span><br><span class="line"></span><br><span class="line">        root-&gt;left = right;</span><br><span class="line">        root-&gt;right = left;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
-        <tag>Breadth-First Search</tag>
-        <tag>Binary Tree</tag>
       </tags>
   </entry>
   <entry>
@@ -2943,6 +2943,47 @@
         <tag>Quickselect</tag>
         <tag>Bucket Sort</tag>
         <tag>Counting</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>355. Design Twitter</title>
+    <url>/2023/11/08/355-Design-Twitter/</url>
+    <content><![CDATA[<h1 id="355-Design-Twitter"><a href="#355-Design-Twitter" class="headerlink" title="355. Design Twitter"></a><a href="https://leetcode.com/problems/design-twitter/">355. Design Twitter</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/linked-list//">Linked List</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/design//">Design</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/heap-priority-queue//">Heap (Priority Queue)</a></p>
+<p>Design a simplified version of Twitter where users can post tweets, follow&#x2F;unfollow another user, and is able to see the <code>10</code> most recent tweets in the user’s news feed.</p>
+<p>Implement the <code>Twitter</code> class:</p>
+<ul>
+<li><code>Twitter()</code> Initializes your twitter object.</li>
+<li><code>void postTweet(int userId, int tweetId)</code> Composes a new tweet with ID <code>tweetId</code> by the user <code>userId</code>. Each call to this function will be made with a unique <code>tweetId</code>.</li>
+<li><code>List&lt;Integer&gt; getNewsFeed(int userId)</code> Retrieves the <code>10</code> most recent tweet IDs in the user’s news feed. Each item in the news feed must be posted by users who the user followed or by the user themself. Tweets must be <strong>ordered from most recent to least recent</strong>.</li>
+<li><code>void follow(int followerId, int followeeId)</code> The user with ID <code>followerId</code> started following the user with ID <code>followeeId</code>.</li>
+<li><code>void unfollow(int followerId, int followeeId)</code> The user with ID <code>followerId</code> started unfollowing the user with ID <code>followeeId</code>.</li>
+</ul>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input</span><br><span class="line">[<span class="string">&quot;Twitter&quot;</span>, <span class="string">&quot;postTweet&quot;</span>, <span class="string">&quot;getNewsFeed&quot;</span>, <span class="string">&quot;follow&quot;</span>, <span class="string">&quot;postTweet&quot;</span>, <span class="string">&quot;getNewsFeed&quot;</span>, <span class="string">&quot;unfollow&quot;</span>, <span class="string">&quot;getNewsFeed&quot;</span>]</span><br><span class="line">[[], [1, 5], [1], [1, 2], [2, 6], [1], [1, 2], [1]]</span><br><span class="line">Output</span><br><span class="line">[null, null, [5], null, null, [6, 5], null, [5]]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">Twitter twitter = new Twitter();</span><br><span class="line">twitter.postTweet(1, 5); // User 1 posts a new tweet (<span class="built_in">id</span> = 5).</span><br><span class="line">twitter.getNewsFeed(1);  // User 1<span class="string">&#x27;s news feed should return a list with 1 tweet id -&gt; [5]. return [5]</span></span><br><span class="line"><span class="string">twitter.follow(1, 2);    // User 1 follows user 2.</span></span><br><span class="line"><span class="string">twitter.postTweet(2, 6); // User 2 posts a new tweet (id = 6).</span></span><br><span class="line"><span class="string">twitter.getNewsFeed(1);  // User 1&#x27;</span>s news feed should <span class="built_in">return</span> a list with 2 tweet ids -&gt; [6, 5]. Tweet <span class="built_in">id</span> 6 should precede tweet <span class="built_in">id</span> 5 because it is posted after tweet <span class="built_in">id</span> 5.</span><br><span class="line">twitter.unfollow(1, 2);  // User 1 unfollows user 2.</span><br><span class="line">twitter.getNewsFeed(1);  // User 1<span class="string">&#x27;s news feed should return a list with 1 tweet id -&gt; [5], since user 1 is no longer following user 2.</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= userId, followerId, followeeId &lt;= 500</code></li>
+<li>0 &lt;&#x3D; tweetId &lt;&#x3D; 10<sup>4</sup></li>
+<li>All the tweets have <strong>unique</strong> IDs.</li>
+<li>At most 3 * 10<sup>4</sup> calls will be made to <code>postTweet</code>, <code>getNewsFeed</code>, <code>follow</code>, and <code>unfollow</code>.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>priority queue + multiple maps</li>
+<li>the timestamp needs to be recorded separately</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">class Twitter &#123;</span><br><span class="line">public:</span><br><span class="line">    map&lt;int, <span class="built_in">set</span>&lt;int&gt;&gt; followed;</span><br><span class="line">    map&lt;int, vector&lt;int&gt;&gt; tweets;</span><br><span class="line">    map&lt;int, int&gt; tweetIdToTime;</span><br><span class="line">    int timestamp;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="title">Twitter</span></span>() &#123;</span><br><span class="line">        timestamp = 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    void postTweet(int userId, int tweetId) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!followed.count(userId)) &#123;</span><br><span class="line">            followed[userId] = <span class="built_in">set</span>&lt;int&gt;&#123;userId&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!tweets.count(userId)) &#123;</span><br><span class="line">            tweets[userId] = vector&lt;int&gt;&#123;tweetId&#125;;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            tweets[userId].push_back(tweetId);</span><br><span class="line">        &#125;</span><br><span class="line">        tweetIdToTime[tweetId] = timestamp++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    vector&lt;int&gt; getNewsFeed(int userId) &#123;</span><br><span class="line">        <span class="built_in">set</span>&lt;int&gt; follows = followed[userId];</span><br><span class="line">        priority_queue&lt;vector&lt;int&gt;, vector&lt;vector&lt;int&gt;&gt;, less&lt;vector&lt;int&gt;&gt;&gt; pq;</span><br><span class="line">        <span class="keyword">for</span> (int follow : follows) &#123;</span><br><span class="line">            int idx = tweets[follow].size() - 1;</span><br><span class="line">            <span class="keyword">if</span> (idx &gt;= 0) &#123;</span><br><span class="line">                int tweetId = tweets[follow][idx];</span><br><span class="line">                pq.push(&#123;tweetIdToTime[tweetId], tweetId, follow, idx&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;int&gt; res;</span><br><span class="line">        <span class="keyword">while</span> (pq.size() &gt; 0) &#123;</span><br><span class="line">            <span class="keyword">if</span> (res.size() == 10) &#123;</span><br><span class="line">                <span class="built_in">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            auto triple = pq.top();</span><br><span class="line">            pq.pop();</span><br><span class="line">            res.push_back(triple[1]);</span><br><span class="line">            int idx = triple[3];</span><br><span class="line">            int user = triple[2];</span><br><span class="line">            <span class="keyword">if</span> (idx &gt; 0) &#123;</span><br><span class="line">                int tweetId = tweets[user][idx - 1];</span><br><span class="line">                pq.push(&#123;tweetIdToTime[tweetId], tweetId, user, idx - 1&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    void follow(int followerId, int followeeId) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!followed.count(followerId)) &#123;</span><br><span class="line">            followed[followerId] = <span class="built_in">set</span>&lt;int&gt;&#123;followerId&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!followed.count(followeeId)) &#123;</span><br><span class="line">            followed[followeeId] = <span class="built_in">set</span>&lt;int&gt;&#123;followeeId&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        followed[followerId].insert(followeeId);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    void unfollow(int followerId, int followeeId) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!followed.count(followerId)) &#123;</span><br><span class="line">            followed[followerId] = <span class="built_in">set</span>&lt;int&gt;&#123;followerId&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!followed.count(followeeId)) &#123;</span><br><span class="line">            followed[followeeId] = <span class="built_in">set</span>&lt;int&gt;&#123;followeeId&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        followed[followerId].erase(followeeId);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Your Twitter object will be instantiated and called as such:</span><br><span class="line"> * Twitter* obj = new Twitter();</span><br><span class="line"> * obj-&gt;postTweet(userId,tweetId);</span><br><span class="line"> * vector&lt;int&gt; param_2 = obj-&gt;getNewsFeed(userId);</span><br><span class="line"> * obj-&gt;follow(followerId,followeeId);</span><br><span class="line"> * obj-&gt;unfollow(followerId,followeeId);</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Hash Table</tag>
+        <tag>Heap (Priority Queue)</tag>
+        <tag>Linked List</tag>
+        <tag>Design</tag>
       </tags>
   </entry>
   <entry>
@@ -4195,6 +4236,47 @@
       </tags>
   </entry>
   <entry>
+    <title>797. All Paths From Source to Target</title>
+    <url>/2023/08/31/797-All-Paths-From-Source-to-Target/</url>
+    <content><![CDATA[<h1 id="797-All-Paths-From-Source-to-Target"><a href="#797-All-Paths-From-Source-to-Target" class="headerlink" title="797. All Paths From Source to Target"></a><a href="https://leetcode.com/problems/all-paths-from-source-to-target/">797. All Paths From Source to Target</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/backtracking//">Backtracking</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/breadth-first-search//">Breadth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/graph//">Graph</a></p>
+<p>Given a directed acyclic graph (<strong>DAG</strong>) of <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>, find all possible paths from node <code>0</code> to node <code>n - 1</code> and return them in <strong>any order</strong>.</p>
+<p>The graph is given as follows: <code>graph[i]</code> is a list of all nodes you can visit from node <code>i</code> (i.e., there is a directed edge from node <code>i</code> to node <code>graph[i][j]</code>).</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/09/28/all_1.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: graph = [[1,2],[3],[3],[]]</span><br><span class="line">Output: [[0,1,3],[0,2,3]]</span><br><span class="line">Explanation: There are two paths: 0 -&gt; 1 -&gt; 3 and 0 -&gt; 2 -&gt; 3.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/09/28/all_2.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: graph = [[4,3,1],[3,2,4],[3],[4],[]]</span><br><span class="line">Output: [[0,4],[0,3,4],[0,1,3,4],[0,1,2,3,4],[0,1,4]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>n == graph.length</code></li>
+<li><code>2 &lt;= n &lt;= 15</code></li>
+<li><code>0 &lt;= graph[i][j] &lt; n</code></li>
+<li><code>graph[i][j] != i</code> (i.e., there will be no self-loops).</li>
+<li>All the elements of <code>graph[i]</code> are <strong>unique</strong>.</li>
+<li>The input graph is <strong>guaranteed</strong> to be a <strong>DAG</strong>.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Traverse the graph, add node to the path when entering and remove the node from the path when exiting</li>
+<li>DAG, i.e. directed acyclic graph, so there’s no cycle</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; res;</span><br><span class="line"></span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">allPathsSourceTarget</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; graph) &#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; path;</span><br><span class="line">        <span class="built_in">traverse</span>(graph, <span class="number">0</span>, path);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; graph, <span class="type">int</span> n, vector&lt;<span class="type">int</span>&gt;&amp; path)</span> </span>&#123;</span><br><span class="line">        path.<span class="built_in">push_back</span>(n);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (n == graph.<span class="built_in">size</span>() - <span class="number">1</span>) &#123;</span><br><span class="line">            res.<span class="built_in">push_back</span>(path);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> num : graph[n]) &#123;</span><br><span class="line">            <span class="built_in">traverse</span>(graph, num, path);</span><br><span class="line">        &#125;    </span><br><span class="line"></span><br><span class="line">        path.<span class="built_in">pop_back</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Depth-First Search</tag>
+        <tag>Breadth-First Search</tag>
+        <tag>Graph</tag>
+        <tag>Backtracking</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>785. Is Graph Bipartite?</title>
     <url>/2023/09/01/785-Is-Graph-Bipartite/</url>
     <content><![CDATA[<h1 id="785-Is-Graph-Bipartite"><a href="#785-Is-Graph-Bipartite" class="headerlink" title="785. Is Graph Bipartite?"></a><a href="https://leetcode.com/problems/is-graph-bipartite/">785. Is Graph Bipartite?</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -4240,47 +4322,6 @@
         <tag>Breadth-First Search</tag>
         <tag>Union Find</tag>
         <tag>Graph</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>797. All Paths From Source to Target</title>
-    <url>/2023/08/31/797-All-Paths-From-Source-to-Target/</url>
-    <content><![CDATA[<h1 id="797-All-Paths-From-Source-to-Target"><a href="#797-All-Paths-From-Source-to-Target" class="headerlink" title="797. All Paths From Source to Target"></a><a href="https://leetcode.com/problems/all-paths-from-source-to-target/">797. All Paths From Source to Target</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/backtracking//">Backtracking</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/breadth-first-search//">Breadth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/graph//">Graph</a></p>
-<p>Given a directed acyclic graph (<strong>DAG</strong>) of <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>, find all possible paths from node <code>0</code> to node <code>n - 1</code> and return them in <strong>any order</strong>.</p>
-<p>The graph is given as follows: <code>graph[i]</code> is a list of all nodes you can visit from node <code>i</code> (i.e., there is a directed edge from node <code>i</code> to node <code>graph[i][j]</code>).</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/09/28/all_1.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: graph = [[1,2],[3],[3],[]]</span><br><span class="line">Output: [[0,1,3],[0,2,3]]</span><br><span class="line">Explanation: There are two paths: 0 -&gt; 1 -&gt; 3 and 0 -&gt; 2 -&gt; 3.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/09/28/all_2.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: graph = [[4,3,1],[3,2,4],[3],[4],[]]</span><br><span class="line">Output: [[0,4],[0,3,4],[0,1,3,4],[0,1,2,3,4],[0,1,4]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>n == graph.length</code></li>
-<li><code>2 &lt;= n &lt;= 15</code></li>
-<li><code>0 &lt;= graph[i][j] &lt; n</code></li>
-<li><code>graph[i][j] != i</code> (i.e., there will be no self-loops).</li>
-<li>All the elements of <code>graph[i]</code> are <strong>unique</strong>.</li>
-<li>The input graph is <strong>guaranteed</strong> to be a <strong>DAG</strong>.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Traverse the graph, add node to the path when entering and remove the node from the path when exiting</li>
-<li>DAG, i.e. directed acyclic graph, so there’s no cycle</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; res;</span><br><span class="line"></span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">allPathsSourceTarget</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; graph) &#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; path;</span><br><span class="line">        <span class="built_in">traverse</span>(graph, <span class="number">0</span>, path);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; graph, <span class="type">int</span> n, vector&lt;<span class="type">int</span>&gt;&amp; path)</span> </span>&#123;</span><br><span class="line">        path.<span class="built_in">push_back</span>(n);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (n == graph.<span class="built_in">size</span>() - <span class="number">1</span>) &#123;</span><br><span class="line">            res.<span class="built_in">push_back</span>(path);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> num : graph[n]) &#123;</span><br><span class="line">            <span class="built_in">traverse</span>(graph, num, path);</span><br><span class="line">        &#125;    </span><br><span class="line"></span><br><span class="line">        path.<span class="built_in">pop_back</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Depth-First Search</tag>
-        <tag>Breadth-First Search</tag>
-        <tag>Graph</tag>
-        <tag>Backtracking</tag>
       </tags>
   </entry>
   <entry>
@@ -4393,45 +4434,6 @@
       </tags>
   </entry>
   <entry>
-    <title>875. Koko Eating Bananas</title>
-    <url>/2023/01/30/875-Koko-Eating-Bananas/</url>
-    <content><![CDATA[<h1 id="875-Koko-Eating-Bananas"><a href="#875-Koko-Eating-Bananas" class="headerlink" title="875. Koko Eating Bananas"></a><a href="https://leetcode.com/problems/koko-eating-bananas/">875. Koko Eating Bananas</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/array/">Array</a>, <a href="https://leetcode.com/tag/binary-search/">Binary Search</a></p>
-<p>Koko loves to eat bananas. There are <code>n</code> piles of bananas, the i<sup>th</sup> pile has <code>piles[i]</code> bananas. The guards have gone and will come back in <code>h</code> hours.</p>
-<p>Koko can decide her bananas-per-hour eating speed of <code>k</code>. Each hour, she chooses some pile of bananas and eats <code>k</code> bananas from that pile. If the pile has less than <code>k</code> bananas, she eats all of them instead and will not eat any more bananas during this hour.</p>
-<p>Koko likes to eat slowly but still wants to finish eating all the bananas before the guards return.</p>
-<p>Return <em>the minimum integer</em> <code>k</code> <em>such that she can eat all the bananas within</em> <code>h</code> <em>hours</em>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: piles = [3,6,7,11], h = 8</span><br><span class="line">Output: 4</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: piles = [30,11,23,4,20], h = 5</span><br><span class="line">Output: 30</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: piles = [30,11,23,4,20], h = 6</span><br><span class="line">Output: 23</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>1 &lt;&#x3D; piles.length &lt;&#x3D; 10<sup>4</sup></li>
-<li>piles.length &lt;&#x3D; h &lt;&#x3D; 10<sup>9</sup></li>
-<li>1 &lt;&#x3D; piles[i] &lt;&#x3D; 10<sup>9</sup></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Helper function: eating hour, if eat k bananas per hour, how many hours in total would be needed?</li>
-<li>Make it a binary search for left boundry</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">eatingHour</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; piles, <span class="type">int</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> hour = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> pile : piles) &#123;</span><br><span class="line">            hour += pile / s;</span><br><span class="line">            <span class="keyword">if</span> (pile % s != <span class="number">0</span>) &#123;</span><br><span class="line">                hour++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> hour;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minEatingSpeed</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; piles, <span class="type">int</span> h)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">1</span>, right = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> pile : piles) &#123;</span><br><span class="line">            <span class="keyword">if</span> (right &lt; pile) &#123;</span><br><span class="line">                right = pile;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="type">int</span> hour = <span class="built_in">eatingHour</span>(piles, mid);</span><br><span class="line">            <span class="keyword">if</span> (hour == h) &#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (hour &gt; h) &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (hour &lt; h) &#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// for the worst case left = right = max(piles)</span></span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Binary Search</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>876. Middle of the Linked List</title>
     <url>/2023/01/04/876-Middle-of-the-Linked-List/</url>
     <content><![CDATA[<h1 id="876-Middle-of-the-Linked-List"><a href="#876-Middle-of-the-Linked-List" class="headerlink" title="876. Middle of the Linked List"></a><a href="https://leetcode.com/problems/middle-of-the-linked-list/">876. Middle of the Linked List</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
@@ -4503,6 +4505,45 @@
         <tag>Breadth-First Search</tag>
         <tag>Union Find</tag>
         <tag>Graph</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>875. Koko Eating Bananas</title>
+    <url>/2023/01/30/875-Koko-Eating-Bananas/</url>
+    <content><![CDATA[<h1 id="875-Koko-Eating-Bananas"><a href="#875-Koko-Eating-Bananas" class="headerlink" title="875. Koko Eating Bananas"></a><a href="https://leetcode.com/problems/koko-eating-bananas/">875. Koko Eating Bananas</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/array/">Array</a>, <a href="https://leetcode.com/tag/binary-search/">Binary Search</a></p>
+<p>Koko loves to eat bananas. There are <code>n</code> piles of bananas, the i<sup>th</sup> pile has <code>piles[i]</code> bananas. The guards have gone and will come back in <code>h</code> hours.</p>
+<p>Koko can decide her bananas-per-hour eating speed of <code>k</code>. Each hour, she chooses some pile of bananas and eats <code>k</code> bananas from that pile. If the pile has less than <code>k</code> bananas, she eats all of them instead and will not eat any more bananas during this hour.</p>
+<p>Koko likes to eat slowly but still wants to finish eating all the bananas before the guards return.</p>
+<p>Return <em>the minimum integer</em> <code>k</code> <em>such that she can eat all the bananas within</em> <code>h</code> <em>hours</em>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: piles = [3,6,7,11], h = 8</span><br><span class="line">Output: 4</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: piles = [30,11,23,4,20], h = 5</span><br><span class="line">Output: 30</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: piles = [30,11,23,4,20], h = 6</span><br><span class="line">Output: 23</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; piles.length &lt;&#x3D; 10<sup>4</sup></li>
+<li>piles.length &lt;&#x3D; h &lt;&#x3D; 10<sup>9</sup></li>
+<li>1 &lt;&#x3D; piles[i] &lt;&#x3D; 10<sup>9</sup></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Helper function: eating hour, if eat k bananas per hour, how many hours in total would be needed?</li>
+<li>Make it a binary search for left boundry</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">eatingHour</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; piles, <span class="type">int</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> hour = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> pile : piles) &#123;</span><br><span class="line">            hour += pile / s;</span><br><span class="line">            <span class="keyword">if</span> (pile % s != <span class="number">0</span>) &#123;</span><br><span class="line">                hour++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> hour;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minEatingSpeed</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; piles, <span class="type">int</span> h)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">1</span>, right = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> pile : piles) &#123;</span><br><span class="line">            <span class="keyword">if</span> (right &lt; pile) &#123;</span><br><span class="line">                right = pile;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="type">int</span> hour = <span class="built_in">eatingHour</span>(piles, mid);</span><br><span class="line">            <span class="keyword">if</span> (hour == h) &#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (hour &gt; h) &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (hour &lt; h) &#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// for the worst case left = right = max(piles)</span></span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Binary Search</tag>
       </tags>
   </entry>
   <entry>
@@ -5169,6 +5210,95 @@
 </li>
 </ol>
 <p><a href="https://www.youtube.com/watch?v=4i5iFlP01mQ">LINK</a></p>
+]]></content>
+      <categories>
+        <category>Excerpt</category>
+      </categories>
+      <tags>
+        <tag>Career</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to become a SDM</title>
+    <url>/2022/12/02/How-to-become-a-SDM/</url>
+    <content><![CDATA[<h3 id="SDM-and-time-management"><a href="#SDM-and-time-management" class="headerlink" title="SDM and time management"></a>SDM and time management</h3><p>工作的本质是时间管理，任务优先级管理和目标管理。我们可以将具体工程实现抽象成上面一般概念，从而形成方法论：一件事到底怎么做就可以做成？能够做好manager，自己的生活也不会过得差，也大概率能管理好自己一生。其实对于技术出身尤其是很多 STEM 的PhD，都有非常好潜质去做一个好的manager，就是因为PhD不仅仅是学术技能的训练，关键也是怎么把事情做好的训练。</p>
+<p>如果说Team Leader 不仅仅需要关注自己实际工作对于项目的推进，还需要指导和帮助下属设定和完成目标，那么好的manager就是后者工作方向上更进一步：在已经洞察工作方法论的基础上设定一个能够摸得着，但需要一定努力的，同时又能尽可能地体现出团队整体工作价值的目标。</p>
+<p>在资源能够合理支持的情况，manager对于工作的态度永远都是“多多益善”。这也就是我们通常说的赋能（empower)。这些支持工作包括识别手下的人物性格特征（比方说充满才华，桀骜不驯），创造安定的工作环境（人事变动平稳可预期），工作目标分配得当（下面case A 就适合independent contributor先进行攻略），有效的监督和辅导（反馈的技巧）。</p>
+<p><a href="https://www.zhihu.com/question/509427117/answer/2689826912">https://www.zhihu.com/question/509427117/answer/2689826912</a></p>
+<h3 id="How-to-become-a-SDM"><a href="#How-to-become-a-SDM" class="headerlink" title="How to become a SDM"></a>How to become a SDM</h3><h4 id="首先确定自己为什么要当M。"><a href="#首先确定自己为什么要当M。" class="headerlink" title="首先确定自己为什么要当M。"></a>首先确定自己为什么要当M。</h4><p>这是非常重要的一步。M和IC是两种完全不同的工作。对于IC而言，每天的工作是比较清晰的：遇到问题解决问题，需要些code写code。基本上技术之外的事情可以不太管。</p>
+<p>但对于M而言，你可能打交道最多的是“人”。具体的工作内容差不多是这样的：每个Q的工作计划和资源调配、工作产出的跟踪、跨部门沟通解决冲突矛盾、绩效评估、reorg等等</p>
+<p>那么既然拿着一样的薪水，为什么要从IC到M呢？我自己的原因是这样的。我是比较Impact driven的。现在的软件工业是团队作战，那么如果要取得更大的成就，就需要团队的力量。我更喜欢的是带领一个团队去完成更大的事情，而不是自己一个人来解决小而精美的问题。所以其实理由还是比较简单直接的。</p>
+<p>每个人的理由可能不同，但一定要明确理由。（后面FAQ我可以多说两句）</p>
+<h4 id="找坑"><a href="#找坑" class="headerlink" title="找坑"></a>找坑</h4><p>每个公司的汇报线都是金字塔形的，也就是说M的位置比IC的数量肯定是要少一个数量级左右的。如果你想走这条路，肯定是要找到需要manager的地方。要么是这个地方快速发展，短期内需要招很多人，要么是这个地方正好有一个manager走了。</p>
+<p>你以为这种情况下你就有机会了？其实不尽然，我们马上就能看到这个事儿的“二十二条军规”了：</p>
+<ul>
+<li>大部分公开招聘manager的场合，都要求候选人已经有management经验。</li>
+<li>即使你有management能力，别人也不会轻易信任你，把团队交给你。</li>
+</ul>
+<p>简单的说就是，一个不靠谱的manager对团队的负面影响过大。大家都会谨慎谨慎再谨慎。所以这条路是很难走的</p>
+<p>那怎么办？其实最好的方式就是：在一个你已经熟悉的团队里面，培养周围人对你的信任，并主动要求成为manager。（我也是走的这条路，会比较顺）</p>
+<h4 id="坐稳"><a href="#坐稳" class="headerlink" title="坐稳"></a>坐稳</h4><p>前面说了如何变成一个manager，但实际情况是很多M在成为M后又后悔，返回到了IC的序列中。简单的说就是好的IC未必是好的M。我这里提几点吧：</p>
+<ul>
+<li>克制自己上手写代码的冲动。M通常会议较多，你下手通常只会拖累团队，不会带来啥正面的效果。</li>
+<li>多花时间和人交流，而不是机器。M对付的是人，不仅仅是上+下，还有横向的合作。纵横交错的关系网才能让你的工作变得更顺畅。</li>
+<li>遇事果断，该做就做，不管是reorg还是招人开人。犹豫是manager最需要避免的东西。</li>
+</ul>
+<p><a href="https://www.zhihu.com/question/509427117/answer/2692601966">https://www.zhihu.com/question/509427117/answer/2692601966</a></p>
+]]></content>
+      <categories>
+        <category>Excerpt</category>
+      </categories>
+      <tags>
+        <tag>Career</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to leetcode</title>
+    <url>/2022/12/20/How-to-leetcode/</url>
+    <content><![CDATA[<h3 id="The-motivation"><a href="#The-motivation" class="headerlink" title="The motivation"></a>The motivation</h3><p>A good software developer doesn’t necessarily need to be a good IOer, but in general a good IOer is more likely to be a good software developer. This logic makes coding more and more important in tech interview.</p>
+<h3 id="The-daily-routine"><a href="#The-daily-routine" class="headerlink" title="The daily routine"></a>The daily routine</h3><p>3 new problems daily during workday(preferably in the morning). Then do the revision whenever possible.</p>
+<h3 id="The-environment"><a href="#The-environment" class="headerlink" title="The environment"></a>The environment</h3><p>I am currently using leetcode website.</p>
+<h3 id="How-to-leetcode"><a href="#How-to-leetcode" class="headerlink" title="How to leetcode"></a>How to leetcode</h3><p><a href="https://zhuanlan.zhihu.com/p/492026165">论如何 4 个月高效刷满 500 题并形成长期记忆</a></p>
+<ol>
+<li><p>始终保持匀速前进，既不松懈倦怠，亦不急于求成</p>
+</li>
+<li><p>定时归纳总结, 按类训练</p>
+</li>
+<li><p>深度理解人的记忆规律，高频率高效复习</p>
+</li>
+<li><p>拥抱孤独，过滤外界杂音，平稳心态</p>
+</li>
+</ol>
+<h3 id="The-order-to-solve-problems"><a href="#The-order-to-solve-problems" class="headerlink" title="The order to solve problems"></a>The order to solve problems</h3><ol>
+<li><p>Go through <a href="https://labuladong.github.io/algo/">LABULADONG 的算法网站</a> once first.</p>
+</li>
+<li><p>The <a href="https://leetcode.com/explore/featured/">Explore</a> is a great place next. Finish all courses.</p>
+</li>
+<li><p>Use the daily problem and study plan tool</p>
+</li>
+</ol>
+<h3 id="The-steps-to-tackle-one-problem"><a href="#The-steps-to-tackle-one-problem" class="headerlink" title="The steps to tackle one problem"></a>The steps to tackle one problem</h3><p>If not idea at all, just check the comments. No need to wait for 5, 10 minutes</p>
+<h3 id="Advance"><a href="#Advance" class="headerlink" title="Advance"></a>Advance</h3><ul>
+<li>Weekly contest, then codeforce</li>
+<li>Watch this <a href="https://www.youtube.com/@BackToBackSWE/videos">video series</a> to learn how to speak the story</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Thoughts</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>How to manage time</title>
+    <url>/2022/12/23/How-to-manage-time/</url>
+    <content><![CDATA[<h3 id="How-I-Have-Time-For-Everything"><a href="#How-I-Have-Time-For-Everything" class="headerlink" title="How I Have Time For Everything"></a>How I Have Time For Everything</h3><ol>
+<li><p>Focus Completely For 2-4 Hours Every Day</p>
+</li>
+<li><p>Do One Thing At A Time</p>
+</li>
+<li><p>Permanently Declutter Your Schedule</p>
+</li>
+</ol>
+<p><a href="https://www.youtube.com/watch?v=c3pzcV9yi24">LINK</a></p>
 ]]></content>
       <categories>
         <category>Excerpt</category>
@@ -6692,95 +6822,6 @@
       </tags>
   </entry>
   <entry>
-    <title>How to become a SDM</title>
-    <url>/2022/12/02/How-to-become-a-SDM/</url>
-    <content><![CDATA[<h3 id="SDM-and-time-management"><a href="#SDM-and-time-management" class="headerlink" title="SDM and time management"></a>SDM and time management</h3><p>工作的本质是时间管理，任务优先级管理和目标管理。我们可以将具体工程实现抽象成上面一般概念，从而形成方法论：一件事到底怎么做就可以做成？能够做好manager，自己的生活也不会过得差，也大概率能管理好自己一生。其实对于技术出身尤其是很多 STEM 的PhD，都有非常好潜质去做一个好的manager，就是因为PhD不仅仅是学术技能的训练，关键也是怎么把事情做好的训练。</p>
-<p>如果说Team Leader 不仅仅需要关注自己实际工作对于项目的推进，还需要指导和帮助下属设定和完成目标，那么好的manager就是后者工作方向上更进一步：在已经洞察工作方法论的基础上设定一个能够摸得着，但需要一定努力的，同时又能尽可能地体现出团队整体工作价值的目标。</p>
-<p>在资源能够合理支持的情况，manager对于工作的态度永远都是“多多益善”。这也就是我们通常说的赋能（empower)。这些支持工作包括识别手下的人物性格特征（比方说充满才华，桀骜不驯），创造安定的工作环境（人事变动平稳可预期），工作目标分配得当（下面case A 就适合independent contributor先进行攻略），有效的监督和辅导（反馈的技巧）。</p>
-<p><a href="https://www.zhihu.com/question/509427117/answer/2689826912">https://www.zhihu.com/question/509427117/answer/2689826912</a></p>
-<h3 id="How-to-become-a-SDM"><a href="#How-to-become-a-SDM" class="headerlink" title="How to become a SDM"></a>How to become a SDM</h3><h4 id="首先确定自己为什么要当M。"><a href="#首先确定自己为什么要当M。" class="headerlink" title="首先确定自己为什么要当M。"></a>首先确定自己为什么要当M。</h4><p>这是非常重要的一步。M和IC是两种完全不同的工作。对于IC而言，每天的工作是比较清晰的：遇到问题解决问题，需要些code写code。基本上技术之外的事情可以不太管。</p>
-<p>但对于M而言，你可能打交道最多的是“人”。具体的工作内容差不多是这样的：每个Q的工作计划和资源调配、工作产出的跟踪、跨部门沟通解决冲突矛盾、绩效评估、reorg等等</p>
-<p>那么既然拿着一样的薪水，为什么要从IC到M呢？我自己的原因是这样的。我是比较Impact driven的。现在的软件工业是团队作战，那么如果要取得更大的成就，就需要团队的力量。我更喜欢的是带领一个团队去完成更大的事情，而不是自己一个人来解决小而精美的问题。所以其实理由还是比较简单直接的。</p>
-<p>每个人的理由可能不同，但一定要明确理由。（后面FAQ我可以多说两句）</p>
-<h4 id="找坑"><a href="#找坑" class="headerlink" title="找坑"></a>找坑</h4><p>每个公司的汇报线都是金字塔形的，也就是说M的位置比IC的数量肯定是要少一个数量级左右的。如果你想走这条路，肯定是要找到需要manager的地方。要么是这个地方快速发展，短期内需要招很多人，要么是这个地方正好有一个manager走了。</p>
-<p>你以为这种情况下你就有机会了？其实不尽然，我们马上就能看到这个事儿的“二十二条军规”了：</p>
-<ul>
-<li>大部分公开招聘manager的场合，都要求候选人已经有management经验。</li>
-<li>即使你有management能力，别人也不会轻易信任你，把团队交给你。</li>
-</ul>
-<p>简单的说就是，一个不靠谱的manager对团队的负面影响过大。大家都会谨慎谨慎再谨慎。所以这条路是很难走的</p>
-<p>那怎么办？其实最好的方式就是：在一个你已经熟悉的团队里面，培养周围人对你的信任，并主动要求成为manager。（我也是走的这条路，会比较顺）</p>
-<h4 id="坐稳"><a href="#坐稳" class="headerlink" title="坐稳"></a>坐稳</h4><p>前面说了如何变成一个manager，但实际情况是很多M在成为M后又后悔，返回到了IC的序列中。简单的说就是好的IC未必是好的M。我这里提几点吧：</p>
-<ul>
-<li>克制自己上手写代码的冲动。M通常会议较多，你下手通常只会拖累团队，不会带来啥正面的效果。</li>
-<li>多花时间和人交流，而不是机器。M对付的是人，不仅仅是上+下，还有横向的合作。纵横交错的关系网才能让你的工作变得更顺畅。</li>
-<li>遇事果断，该做就做，不管是reorg还是招人开人。犹豫是manager最需要避免的东西。</li>
-</ul>
-<p><a href="https://www.zhihu.com/question/509427117/answer/2692601966">https://www.zhihu.com/question/509427117/answer/2692601966</a></p>
-]]></content>
-      <categories>
-        <category>Excerpt</category>
-      </categories>
-      <tags>
-        <tag>Career</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to leetcode</title>
-    <url>/2022/12/20/How-to-leetcode/</url>
-    <content><![CDATA[<h3 id="The-motivation"><a href="#The-motivation" class="headerlink" title="The motivation"></a>The motivation</h3><p>A good software developer doesn’t necessarily need to be a good IOer, but in general a good IOer is more likely to be a good software developer. This logic makes coding more and more important in tech interview.</p>
-<h3 id="The-daily-routine"><a href="#The-daily-routine" class="headerlink" title="The daily routine"></a>The daily routine</h3><p>3 new problems daily during workday(preferably in the morning). Then do the revision whenever possible.</p>
-<h3 id="The-environment"><a href="#The-environment" class="headerlink" title="The environment"></a>The environment</h3><p>I am currently using leetcode website.</p>
-<h3 id="How-to-leetcode"><a href="#How-to-leetcode" class="headerlink" title="How to leetcode"></a>How to leetcode</h3><p><a href="https://zhuanlan.zhihu.com/p/492026165">论如何 4 个月高效刷满 500 题并形成长期记忆</a></p>
-<ol>
-<li><p>始终保持匀速前进，既不松懈倦怠，亦不急于求成</p>
-</li>
-<li><p>定时归纳总结, 按类训练</p>
-</li>
-<li><p>深度理解人的记忆规律，高频率高效复习</p>
-</li>
-<li><p>拥抱孤独，过滤外界杂音，平稳心态</p>
-</li>
-</ol>
-<h3 id="The-order-to-solve-problems"><a href="#The-order-to-solve-problems" class="headerlink" title="The order to solve problems"></a>The order to solve problems</h3><ol>
-<li><p>Go through <a href="https://labuladong.github.io/algo/">LABULADONG 的算法网站</a> once first.</p>
-</li>
-<li><p>The <a href="https://leetcode.com/explore/featured/">Explore</a> is a great place next. Finish all courses.</p>
-</li>
-<li><p>Use the daily problem and study plan tool</p>
-</li>
-</ol>
-<h3 id="The-steps-to-tackle-one-problem"><a href="#The-steps-to-tackle-one-problem" class="headerlink" title="The steps to tackle one problem"></a>The steps to tackle one problem</h3><p>If not idea at all, just check the comments. No need to wait for 5, 10 minutes</p>
-<h3 id="Advance"><a href="#Advance" class="headerlink" title="Advance"></a>Advance</h3><ul>
-<li>Weekly contest, then codeforce</li>
-<li>Watch this <a href="https://www.youtube.com/@BackToBackSWE/videos">video series</a> to learn how to speak the story</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Thoughts</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>How to manage time</title>
-    <url>/2022/12/23/How-to-manage-time/</url>
-    <content><![CDATA[<h3 id="How-I-Have-Time-For-Everything"><a href="#How-I-Have-Time-For-Everything" class="headerlink" title="How I Have Time For Everything"></a>How I Have Time For Everything</h3><ol>
-<li><p>Focus Completely For 2-4 Hours Every Day</p>
-</li>
-<li><p>Do One Thing At A Time</p>
-</li>
-<li><p>Permanently Declutter Your Schedule</p>
-</li>
-</ol>
-<p><a href="https://www.youtube.com/watch?v=c3pzcV9yi24">LINK</a></p>
-]]></content>
-      <categories>
-        <category>Excerpt</category>
-      </categories>
-      <tags>
-        <tag>Career</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>How to overcome procrastination</title>
     <url>/2022/12/02/How-to-overcome-procrastination/</url>
     <content><![CDATA[<h3 id="What"><a href="#What" class="headerlink" title="What"></a>What</h3><p>Procrastination is when we avoid a task we said we would do, for no good reason, despite expecting our behavior to bring negative consequences.</p>
@@ -7000,6 +7041,71 @@
       </tags>
   </entry>
   <entry>
+    <title>Learnship 04 - 2023/08/17</title>
+    <url>/2023/08/17/Learnship-04-2023-08-17/</url>
+    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-4-Voice-Power-2"><a href="#Business-Language-Coaching-Session-4-Voice-Power-2" class="headerlink" title="Business Language Coaching - Session 4 - Voice Power(2)"></a>Business Language Coaching - Session 4 - Voice Power(2)</h2><ul>
+<li>review your homework assignments</li>
+<li>explore how pausing can help you communicate moe successfully</li>
+</ul>
+<h3 id="Voice-Power-Word-Stress"><a href="#Voice-Power-Word-Stress" class="headerlink" title="Voice Power: Word Stress"></a>Voice Power: Word Stress</h3><p><strong>Look back at the excerpt from last week, in particular at the highlighted words. What do you think are the effects and benefits of adding emphasis or stress to certain words in a sentence?</strong></p>
+<audio controls>
+  <source src="/audio/session3_2.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<p>You *<strong>know</strong>, | there are a lot of <strong>myths</strong> about speaking in public. | Myth number <strong>one</strong> | is that what you actually <strong>say</strong> | is only <strong>seven</strong> percent of the message. | <strong>Thirty-eight</strong> percent is how you <strong>sound</strong> | and <strong>fifty-five</strong> percent is how you <strong>look</strong>. | But think about it. | I mean, | if that was <strong>true</strong>, | you could go to a talk in <strong>Swahili</strong> | and still understand <strong>ninety-three</strong> percent! | Myth number <strong>two</strong> is that public speaking is most people’s <strong>greatest</strong> fear | - just above <strong>death</strong>. | The comedian Jerry Seinfeld has a great <strong>joke</strong> about that. | He <strong>says</strong>, | “Come <strong>on</strong>, | if it <strong>really</strong> was their greatest fear, | at a <strong>funeral</strong> | the person giving the <strong>eulogy</strong> | would rather be in the <strong>box</strong>!”</p>
+<p>The benefits:</p>
+<ul>
+<li>people would pay attention</li>
+<li>easier to recall and recollect</li>
+<li>be more convincing</li>
+<li>expressing feeling&#x2F;emotions</li>
+</ul>
+<h3 id="Voice-Power-Word-Stress-1"><a href="#Voice-Power-Word-Stress-1" class="headerlink" title="Voice Power - Word Stress"></a>Voice Power - Word Stress</h3><p>**In English, word stress is an important part of how we communicate, and changing what we stress can radically change what we mean. In each extract below underline the main stress in the two sentences.</p>
+<audio controls>
+  <source src="/audio/session4_1.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<p>a We haven’t seen a <strong>massive</strong> improvement yet. But it’s a <strong>good</strong> start.</p>
+<p>b We <strong>haven’t</strong> seen a massive improvement <strong>yet</strong>. But my guess is we soon <strong>will</strong>.</p>
+<hr>
+<p>c The <strong>market</strong> may be declining. But fortunately our <strong>market share</strong> isn’t.</p>
+<p>d The market may be <strong>declining</strong>. Or this could just be a <strong>temporary blip</strong>.</p>
+<hr>
+<p>e We do pretty well in the <strong>States</strong>. But we don’t do so well in <strong>Europe</strong>.</p>
+<p>f We do <strong>pretty well</strong> in the States. But not <strong>as well as</strong> we could be doing.</p>
+<hr>
+<p>g Turnover is <strong>up</strong> on Q3. But profits are <strong>down</strong>.</p>
+<p>h Turnover is up on <strong>Q3</strong>. But that was a particularly <strong>bad</strong> quarter.</p>
+<hr>
+<p>i It’s <strong>hard</strong> to gain a foothold in India. But not <strong>impossible</strong>.</p>
+<p>j It’s hard to gain a foothold <strong>in India</strong>. But harder <strong>still</strong> to gain one in <strong>China</strong>.</p>
+<hr>
+<p>k There are <strong>a couple of</strong> points I’d like to make. And <strong>both</strong> concern cash flow.</p>
+<p>l There are a couple of points <strong>I’d like</strong> to make. And <strong>then</strong> I’ll hand you over to Jan.</p>
+<p><strong>Work in opposing teams. You are going to re-enact two dramatic presentations from the classic business movie Other People’s Money.</strong></p>
+<p>The scene:</p>
+<blockquote>
+<p>Andrew Jorgenson is the patriarchal chairman of New England Wire and Cable. Once highly successful, his company has not kept up with new technology and both revenues and share price are down. Lawrence Garfield, known to his enemies as ‘Larry the Liquidator’, a corporate financier and one of the major stockholders, is trying to persuade the other stockholders at the annual general meeting to vote him in as the new chairman, so he can carry out his plan to sell off the company’s considerable assets before its share price falls any further. Of course, this will mean the closure of the firm and the loss of thousands of jobs.</p>
+</blockquote>
+<p><strong>Work together annotating this famous movie scene using the points below. Then rehearse and read it aloud.</strong></p>
+<p>TODO: listen to the audio and mark</p>
+<p>I want to <strong>share</strong> with you some of my thoughts <strong>concerning</strong> the vote that you’re going to make in the company that <strong>you</strong> own. This proud <strong>company</strong>, which has survived the <strong>death</strong> of its founder, numerous <strong>recessions</strong>, one major <strong>depression</strong>, and two world <strong>wars</strong>, is in <strong>imminent</strong> danger of self-destructing - on <strong>this</strong> day, in the town of its birth. There is the <strong>instrument</strong> of our destruction. I want <strong>you</strong> to look at <strong>him</strong> in all of his glory, Larry the Liquidator, the <strong>entrepreneur</strong> of post-industrial America, playing <strong>God</strong> with other people’s money. This man leaves <strong>nothing</strong>. He creates <strong>nothing</strong>, he builds <strong>nothing</strong>, he runs <strong>nothing</strong>.</p>
+<audio controls>
+  <source src="/audio/session4_2.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<h3 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h3><ul>
+<li>several months back</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Learnship</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Learnship 03 - 2023/08/10</title>
     <url>/2023/08/10/Learnship-03-2023-08-10/</url>
     <content><![CDATA[<h2 id="Homework"><a href="#Homework" class="headerlink" title="Homework"></a>Homework</h2><p>Read and learn the grammar notes about <em>Inversion</em>.</p>
@@ -7152,71 +7258,6 @@ Your browser does not support the audio element.
       <categories>
         <category>Learning</category>
       </categories>
-      <tags>
-        <tag>Learnship</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Learnship 04 - 2023/08/17</title>
-    <url>/2023/08/17/Learnship-04-2023-08-17/</url>
-    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-4-Voice-Power-2"><a href="#Business-Language-Coaching-Session-4-Voice-Power-2" class="headerlink" title="Business Language Coaching - Session 4 - Voice Power(2)"></a>Business Language Coaching - Session 4 - Voice Power(2)</h2><ul>
-<li>review your homework assignments</li>
-<li>explore how pausing can help you communicate moe successfully</li>
-</ul>
-<h3 id="Voice-Power-Word-Stress"><a href="#Voice-Power-Word-Stress" class="headerlink" title="Voice Power: Word Stress"></a>Voice Power: Word Stress</h3><p><strong>Look back at the excerpt from last week, in particular at the highlighted words. What do you think are the effects and benefits of adding emphasis or stress to certain words in a sentence?</strong></p>
-<audio controls>
-  <source src="/audio/session3_2.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-
-<p>You *<strong>know</strong>, | there are a lot of <strong>myths</strong> about speaking in public. | Myth number <strong>one</strong> | is that what you actually <strong>say</strong> | is only <strong>seven</strong> percent of the message. | <strong>Thirty-eight</strong> percent is how you <strong>sound</strong> | and <strong>fifty-five</strong> percent is how you <strong>look</strong>. | But think about it. | I mean, | if that was <strong>true</strong>, | you could go to a talk in <strong>Swahili</strong> | and still understand <strong>ninety-three</strong> percent! | Myth number <strong>two</strong> is that public speaking is most people’s <strong>greatest</strong> fear | - just above <strong>death</strong>. | The comedian Jerry Seinfeld has a great <strong>joke</strong> about that. | He <strong>says</strong>, | “Come <strong>on</strong>, | if it <strong>really</strong> was their greatest fear, | at a <strong>funeral</strong> | the person giving the <strong>eulogy</strong> | would rather be in the <strong>box</strong>!”</p>
-<p>The benefits:</p>
-<ul>
-<li>people would pay attention</li>
-<li>easier to recall and recollect</li>
-<li>be more convincing</li>
-<li>expressing feeling&#x2F;emotions</li>
-</ul>
-<h3 id="Voice-Power-Word-Stress-1"><a href="#Voice-Power-Word-Stress-1" class="headerlink" title="Voice Power - Word Stress"></a>Voice Power - Word Stress</h3><p>**In English, word stress is an important part of how we communicate, and changing what we stress can radically change what we mean. In each extract below underline the main stress in the two sentences.</p>
-<audio controls>
-  <source src="/audio/session4_1.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-
-<p>a We haven’t seen a <strong>massive</strong> improvement yet. But it’s a <strong>good</strong> start.</p>
-<p>b We <strong>haven’t</strong> seen a massive improvement <strong>yet</strong>. But my guess is we soon <strong>will</strong>.</p>
-<hr>
-<p>c The <strong>market</strong> may be declining. But fortunately our <strong>market share</strong> isn’t.</p>
-<p>d The market may be <strong>declining</strong>. Or this could just be a <strong>temporary blip</strong>.</p>
-<hr>
-<p>e We do pretty well in the <strong>States</strong>. But we don’t do so well in <strong>Europe</strong>.</p>
-<p>f We do <strong>pretty well</strong> in the States. But not <strong>as well as</strong> we could be doing.</p>
-<hr>
-<p>g Turnover is <strong>up</strong> on Q3. But profits are <strong>down</strong>.</p>
-<p>h Turnover is up on <strong>Q3</strong>. But that was a particularly <strong>bad</strong> quarter.</p>
-<hr>
-<p>i It’s <strong>hard</strong> to gain a foothold in India. But not <strong>impossible</strong>.</p>
-<p>j It’s hard to gain a foothold <strong>in India</strong>. But harder <strong>still</strong> to gain one in <strong>China</strong>.</p>
-<hr>
-<p>k There are <strong>a couple of</strong> points I’d like to make. And <strong>both</strong> concern cash flow.</p>
-<p>l There are a couple of points <strong>I’d like</strong> to make. And <strong>then</strong> I’ll hand you over to Jan.</p>
-<p><strong>Work in opposing teams. You are going to re-enact two dramatic presentations from the classic business movie Other People’s Money.</strong></p>
-<p>The scene:</p>
-<blockquote>
-<p>Andrew Jorgenson is the patriarchal chairman of New England Wire and Cable. Once highly successful, his company has not kept up with new technology and both revenues and share price are down. Lawrence Garfield, known to his enemies as ‘Larry the Liquidator’, a corporate financier and one of the major stockholders, is trying to persuade the other stockholders at the annual general meeting to vote him in as the new chairman, so he can carry out his plan to sell off the company’s considerable assets before its share price falls any further. Of course, this will mean the closure of the firm and the loss of thousands of jobs.</p>
-</blockquote>
-<p><strong>Work together annotating this famous movie scene using the points below. Then rehearse and read it aloud.</strong></p>
-<p>TODO: listen to the audio and mark</p>
-<p>I want to <strong>share</strong> with you some of my thoughts <strong>concerning</strong> the vote that you’re going to make in the company that <strong>you</strong> own. This proud <strong>company</strong>, which has survived the <strong>death</strong> of its founder, numerous <strong>recessions</strong>, one major <strong>depression</strong>, and two world <strong>wars</strong>, is in <strong>imminent</strong> danger of self-destructing - on <strong>this</strong> day, in the town of its birth. There is the <strong>instrument</strong> of our destruction. I want <strong>you</strong> to look at <strong>him</strong> in all of his glory, Larry the Liquidator, the <strong>entrepreneur</strong> of post-industrial America, playing <strong>God</strong> with other people’s money. This man leaves <strong>nothing</strong>. He creates <strong>nothing</strong>, he builds <strong>nothing</strong>, he runs <strong>nothing</strong>.</p>
-<audio controls>
-  <source src="/audio/session4_2.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-
-<h3 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h3><ul>
-<li>several months back</li>
-</ul>
-]]></content>
       <tags>
         <tag>Learnship</tag>
       </tags>

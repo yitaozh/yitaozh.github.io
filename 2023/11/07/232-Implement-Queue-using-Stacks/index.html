@@ -19,31 +19,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yitaozh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"author":"Echo Joy"},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="990. Satisfiability of Equality EquationsDescriptionDifficulty: Medium">
+    <meta name="description" content="232. Implement Queue using StacksDescriptionDifficulty: Easy">
 <meta property="og:type" content="article">
-<meta property="og:title" content="990. Satisfiability of Equality Equations">
-<meta property="og:url" content="https://yitaozh.github.io/2023/09/03/990-Satisfiability-of-Equality-Equations/index.html">
+<meta property="og:title" content="232. Implement Queue using Stacks">
+<meta property="og:url" content="https://yitaozh.github.io/2023/11/07/232-Implement-Queue-using-Stacks/index.html">
 <meta property="og:site_name" content="Echo&#39;s Home">
-<meta property="og:description" content="990. Satisfiability of Equality EquationsDescriptionDifficulty: Medium">
+<meta property="og:description" content="232. Implement Queue using StacksDescriptionDifficulty: Easy">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-09-03T00:06:09.000Z">
-<meta property="article:modified_time" content="2023-11-08T04:13:47.755Z">
+<meta property="article:published_time" content="2023-11-07T23:12:45.000Z">
+<meta property="article:modified_time" content="2023-11-08T04:13:47.751Z">
 <meta property="article:author" content="Echo Joy">
-<meta property="article:tag" content="Array">
-<meta property="article:tag" content="String">
-<meta property="article:tag" content="Union Find">
-<meta property="article:tag" content="Graph">
+<meta property="article:tag" content="Stack">
+<meta property="article:tag" content="Design">
+<meta property="article:tag" content="Queue">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://yitaozh.github.io/2023/09/03/990-Satisfiability-of-Equality-Equations/">
+<link rel="canonical" href="https://yitaozh.github.io/2023/11/07/232-Implement-Queue-using-Stacks/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://yitaozh.github.io/2023/09/03/990-Satisfiability-of-Equality-Equations/","path":"2023/09/03/990-Satisfiability-of-Equality-Equations/","title":"990. Satisfiability of Equality Equations"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://yitaozh.github.io/2023/11/07/232-Implement-Queue-using-Stacks/","path":"2023/11/07/232-Implement-Queue-using-Stacks/","title":"232. Implement Queue using Stacks"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>990. Satisfiability of Equality Equations | Echo's Home</title>
+<title>232. Implement Queue using Stacks | Echo's Home</title>
   
 
 
@@ -142,7 +141,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#990-Satisfiability-of-Equality-Equations"><span class="nav-number">1.</span> <span class="nav-text">990. Satisfiability of Equality Equations</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hints-Notes"><span class="nav-number">1.2.</span> <span class="nav-text">Hints&#x2F;Notes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">1.3.</span> <span class="nav-text">Solution</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#232-Implement-Queue-using-Stacks"><span class="nav-number">1.</span> <span class="nav-text">232. Implement Queue using Stacks</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hints-Notes"><span class="nav-number">1.2.</span> <span class="nav-text">Hints&#x2F;Notes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">1.3.</span> <span class="nav-text">Solution</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -213,7 +212,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://yitaozh.github.io/2023/09/03/990-Satisfiability-of-Equality-Equations/">
+    <link itemprop="mainEntityOfPage" href="https://yitaozh.github.io/2023/11/07/232-Implement-Queue-using-Stacks/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -226,12 +225,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="990. Satisfiability of Equality Equations | Echo's Home">
+      <meta itemprop="name" content="232. Implement Queue using Stacks | Echo's Home">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          990. Satisfiability of Equality Equations
+          232. Implement Queue using Stacks
         </h1>
 
         <div class="post-meta-container">
@@ -242,7 +241,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2023-09-03 00:06:09" itemprop="dateCreated datePublished" datetime="2023-09-03T00:06:09+00:00">2023-09-03</time>
+      <time title="Created: 2023-11-07 23:12:45" itemprop="dateCreated datePublished" datetime="2023-11-07T23:12:45+00:00">2023-11-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -285,32 +284,36 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="990-Satisfiability-of-Equality-Equations"><a href="#990-Satisfiability-of-Equality-Equations" class="headerlink" title="990. Satisfiability of Equality Equations"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/satisfiability-of-equality-equations/">990. Satisfiability of Equality Equations</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a target="_blank" rel="noopener" href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/https://leetcode.com/tag/string//">String</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/https://leetcode.com/tag/union-find//">Union Find</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/https://leetcode.com/tag/graph//">Graph</a></p>
-<p>You are given an array of strings <code>equations</code> that represent relationships between variables where each string <code>equations[i]</code> is of length <code>4</code> and takes one of two different forms: “x<sub>i</sub>&#x3D;&#x3D;y<sub>i</sub>“ or “x<sub>i</sub>!&#x3D;y<sub>i</sub>“.Here, x<sub>i</sub> and y<sub>i</sub> are lowercase letters (not necessarily different) that represent one-letter variable names.</p>
-<p>Return <code>true</code> <em>if it is possible to assign integers to variable names so as to satisfy all the given equations, or</em> <code>false</code> <em>otherwise</em>.</p>
+    <div class="post-body" itemprop="articleBody"><h1 id="232-Implement-Queue-using-Stacks"><a href="#232-Implement-Queue-using-Stacks" class="headerlink" title="232. Implement Queue using Stacks"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/implement-queue-using-stacks/">232. Implement Queue using Stacks</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a target="_blank" rel="noopener" href="https://leetcode.com/tag/https://leetcode.com/tag/stack//">Stack</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/https://leetcode.com/tag/design//">Design</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/tag/https://leetcode.com/tag/queue//">Queue</a></p>
+<p>Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (<code>push</code>, <code>peek</code>, <code>pop</code>, and <code>empty</code>).</p>
+<p>Implement the <code>MyQueue</code> class:</p>
+<ul>
+<li><code>void push(int x)</code> Pushes element x to the back of the queue.</li>
+<li><code>int pop()</code> Removes the element from the front of the queue and returns it.</li>
+<li><code>int peek()</code> Returns the element at the front of the queue.</li>
+<li><code>boolean empty()</code> Returns <code>true</code> if the queue is empty, <code>false</code> otherwise.</li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>You must use <strong>only</strong> standard operations of a stack, which means only <code>push to top</code>, <code>peek/pop from top</code>, <code>size</code>, and <code>is empty</code> operations are valid.</li>
+<li>Depending on your language, the stack may not be supported natively. You may simulate a stack using a list or deque (double-ended queue) as long as you use only a stack’s standard operations.</li>
+</ul>
 <p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: equations = [<span class="string">&quot;a==b&quot;</span>,<span class="string">&quot;b!=a&quot;</span>]</span><br><span class="line">Output: <span class="literal">false</span></span><br><span class="line">Explanation: If we assign say, a = 1 and b = 1, <span class="keyword">then</span> the first equation is satisfied, but not the second.</span><br><span class="line">There is no way to assign the variables to satisfy both equations.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: equations = [<span class="string">&quot;b==a&quot;</span>,<span class="string">&quot;a==b&quot;</span>]</span><br><span class="line">Output: <span class="literal">true</span></span><br><span class="line">Explanation: We could assign a = 1 and b = 1 to satisfy both equations.</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Input</span><br><span class="line">[<span class="string">&quot;MyQueue&quot;</span>, <span class="string">&quot;push&quot;</span>, <span class="string">&quot;push&quot;</span>, <span class="string">&quot;peek&quot;</span>, <span class="string">&quot;pop&quot;</span>, <span class="string">&quot;empty&quot;</span>]</span><br><span class="line">[[], [1], [2], [], [], []]</span><br><span class="line">Output</span><br><span class="line">[null, null, null, 1, 1, <span class="literal">false</span>]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">MyQueue myQueue = new MyQueue();</span><br><span class="line">myQueue.push(1); // queue is: [1]</span><br><span class="line">myQueue.push(2); // queue is: [1, 2] (leftmost is front of the queue)</span><br><span class="line">myQueue.peek(); // <span class="built_in">return</span> 1</span><br><span class="line">myQueue.pop(); // <span class="built_in">return</span> 1, queue is [2]</span><br><span class="line">myQueue.empty(); // <span class="built_in">return</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>Constraints:</strong></p>
 <ul>
-<li><code>1 &lt;= equations.length &lt;= 500</code></li>
-<li><code>equations[i].length == 4</code></li>
-<li><code>equations[i][0]</code> is a lowercase letter.</li>
-<li><code>equations[i][1]</code> is either <code>&#39;=&#39;</code> or <code>&#39;!&#39;</code>.</li>
-<li><code>equations[i][2]</code> is <code>&#39;=&#39;</code>.</li>
-<li><code>equations[i][3]</code> is a lowercase letter.</li>
+<li><code>1 &lt;= x &lt;= 9</code></li>
+<li>At most <code>100</code> calls will be made to <code>push</code>, <code>pop</code>, <code>peek</code>, and <code>empty</code>.</li>
+<li>All the calls to <code>pop</code> and <code>peek</code> are valid.</li>
 </ul>
+<p><strong>Follow-up:</strong> Can you implement the queue such that each operation is <strong><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Amortized_analysis">amortized</a></strong> <code>O(1)</code> time complexity? In other words, performing <code>n</code> operations will take overall <code>O(n)</code> time even if one of those operations may take longer.</p>
 <h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Union find</li>
-<li>Handle the equation first, make the letters connected(have the same root)</li>
-<li>Check the inequality next</li>
+<li>use 2 stacks</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; parent;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">equationsPossible</span><span class="params">(vector&lt;string&gt;&amp; equations)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++) &#123;</span><br><span class="line">            parent.<span class="built_in">push_back</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (string equation : equations) &#123;</span><br><span class="line">            <span class="keyword">if</span> (equation[<span class="number">1</span>] == <span class="string">&#x27;=&#x27;</span>) &#123;</span><br><span class="line">                <span class="type">int</span> left = equation[<span class="number">0</span>] - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">                <span class="type">int</span> right = equation[<span class="number">3</span>] - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">                <span class="type">int</span> rootLeft = <span class="built_in">find</span>(left);</span><br><span class="line">                <span class="type">int</span> rootRight = <span class="built_in">find</span>(right);</span><br><span class="line">                <span class="keyword">if</span> (rootLeft != rootRight) &#123;</span><br><span class="line">                    parent[rootLeft] = rootRight;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (string equation : equations) &#123;</span><br><span class="line">            <span class="keyword">if</span> (equation[<span class="number">1</span>] == <span class="string">&#x27;!&#x27;</span>) &#123;</span><br><span class="line">                <span class="type">int</span> left = equation[<span class="number">0</span>] - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">                <span class="type">int</span> right = equation[<span class="number">3</span>] - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">                <span class="type">int</span> rootLeft = <span class="built_in">find</span>(left);</span><br><span class="line">                <span class="type">int</span> rootRight = <span class="built_in">find</span>(right);</span><br><span class="line">                <span class="keyword">if</span> (rootLeft == rootRight) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (parent[node] != node) &#123;</span><br><span class="line">            parent[node] = <span class="built_in">find</span>(parent[node]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> parent[node];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyQueue</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    stack&lt;<span class="type">int</span>&gt; s1;</span><br><span class="line">    stack&lt;<span class="type">int</span>&gt; s2;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">MyQueue</span>() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">push</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        s1.<span class="built_in">push</span>(x);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> num = <span class="built_in">peek</span>();</span><br><span class="line">        s2.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">return</span> num;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">peek</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s2.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">while</span> (!s1.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">                <span class="type">int</span> num = s1.<span class="built_in">top</span>();</span><br><span class="line">                s1.<span class="built_in">pop</span>();</span><br><span class="line">                s2.<span class="built_in">push</span>(num);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s2.<span class="built_in">top</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">empty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s1.<span class="built_in">empty</span>() &amp;&amp; s2.<span class="built_in">empty</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MyQueue object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MyQueue* obj = new MyQueue();</span></span><br><span class="line"><span class="comment"> * obj-&gt;push(x);</span></span><br><span class="line"><span class="comment"> * int param_2 = obj-&gt;pop();</span></span><br><span class="line"><span class="comment"> * int param_3 = obj-&gt;peek();</span></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -320,24 +323,20 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Array/" rel="tag"># Array</a>
-              <a href="/tags/String/" rel="tag"># String</a>
-              <a href="/tags/Union-Find/" rel="tag"># Union Find</a>
-              <a href="/tags/Graph/" rel="tag"># Graph</a>
+              <a href="/tags/Stack/" rel="tag"># Stack</a>
+              <a href="/tags/Design/" rel="tag"># Design</a>
+              <a href="/tags/Queue/" rel="tag"># Queue</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/09/02/323-Number-of-Connected-Components-in-an-Undirected-Graph/" rel="prev" title="323. Number of Connected Components in an Undirected Graph">
-                  <i class="fa fa-angle-left"></i> 323. Number of Connected Components in an Undirected Graph
+                <a href="/2023/11/07/1834-Single-Threaded-CPU/" rel="prev" title="1834. Single-Threaded CPU">
+                  <i class="fa fa-angle-left"></i> 1834. Single-Threaded CPU
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/09/03/261-Graph-Valid-Tree/" rel="next" title="261. Graph Valid Tree">
-                  261. Graph Valid Tree <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>

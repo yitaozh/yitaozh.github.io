@@ -38,41 +38,6 @@
       </tags>
   </entry>
   <entry>
-    <title>104. Maximum Depth of Binary Tree</title>
-    <url>/2023/02/02/104-Maximum-Depth-of-Binary-Tree/</url>
-    <content><![CDATA[<h1 id="104-Maximum-Depth-of-Binary-Tree"><a href="#104-Maximum-Depth-of-Binary-Tree" class="headerlink" title="104. Maximum Depth of Binary Tree"></a><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/">104. Maximum Depth of Binary Tree</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/tree/">Tree</a>, <a href="https://leetcode.com/tag/depth-first-search/">Depth-First Search</a>, <a href="https://leetcode.com/tag/breadth-first-search/">Breadth-First Search</a>, <a href="https://leetcode.com/tag/binary-tree/">Binary Tree</a></p>
-<p>Given the <code>root</code> of a binary tree, return <em>its maximum depth</em>.</p>
-<p>A binary tree’s <strong>maximum depth</strong> is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/11/26/tmp-tree.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [3,9,20,null,null,15,7]</span><br><span class="line">Output: 3</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [1,null,2]</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in the tree is in the range [0, 10<sup>4</sup>].</li>
-<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Think about the tree’s left and right</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(<span class="built_in">maxDepth</span>(root-&gt;left), <span class="built_in">maxDepth</span>(root-&gt;right)) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
-        <tag>Breadth-First Search</tag>
-        <tag>Binary Tree</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>105. Construct Binary Tree from Preorder and Inorder Traversal</title>
     <url>/2023/08/17/105-Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal/</url>
     <content><![CDATA[<h1 id="105-Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal"><a href="#105-Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal" class="headerlink" title="105. Construct Binary Tree from Preorder and Inorder Traversal"></a><a href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">105. Construct Binary Tree from Preorder and Inorder Traversal</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -106,10 +71,45 @@
       </categories>
       <tags>
         <tag>Array</tag>
-        <tag>Tree</tag>
-        <tag>Binary Tree</tag>
         <tag>Hash Table</tag>
         <tag>Divide and Conquer</tag>
+        <tag>Tree</tag>
+        <tag>Binary Tree</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>104. Maximum Depth of Binary Tree</title>
+    <url>/2023/02/02/104-Maximum-Depth-of-Binary-Tree/</url>
+    <content><![CDATA[<h1 id="104-Maximum-Depth-of-Binary-Tree"><a href="#104-Maximum-Depth-of-Binary-Tree" class="headerlink" title="104. Maximum Depth of Binary Tree"></a><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/">104. Maximum Depth of Binary Tree</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/tree/">Tree</a>, <a href="https://leetcode.com/tag/depth-first-search/">Depth-First Search</a>, <a href="https://leetcode.com/tag/breadth-first-search/">Breadth-First Search</a>, <a href="https://leetcode.com/tag/binary-tree/">Binary Tree</a></p>
+<p>Given the <code>root</code> of a binary tree, return <em>its maximum depth</em>.</p>
+<p>A binary tree’s <strong>maximum depth</strong> is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/11/26/tmp-tree.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [3,9,20,null,null,15,7]</span><br><span class="line">Output: 3</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [1,null,2]</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is in the range [0, 10<sup>4</sup>].</li>
+<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Think about the tree’s left and right</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(<span class="built_in">maxDepth</span>(root-&gt;left), <span class="built_in">maxDepth</span>(root-&gt;right)) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Tree</tag>
+        <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
+        <tag>Breadth-First Search</tag>
       </tags>
   </entry>
   <entry>
@@ -191,45 +191,10 @@
       </categories>
       <tags>
         <tag>Array</tag>
-        <tag>Tree</tag>
-        <tag>Binary Tree</tag>
         <tag>Hash Table</tag>
         <tag>Divide and Conquer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>1071. Greatest Common Divisor of Strings</title>
-    <url>/2023/02/01/1071-Greatest-Common-Divisor-of-Strings/</url>
-    <content><![CDATA[<h1 id="1071-Greatest-Common-Divisor-of-Strings"><a href="#1071-Greatest-Common-Divisor-of-Strings" class="headerlink" title="1071. Greatest Common Divisor of Strings"></a><a href="https://leetcode.com/problems/greatest-common-divisor-of-strings/">1071. Greatest Common Divisor of Strings</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/math/">Math</a>, <a href="https://leetcode.com/tag/string/">String</a></p>
-<p>For two strings <code>s</code> and <code>t</code>, we say “<code>t</code> divides <code>s</code>“ if and only if <code>s = t + ... + t</code> (i.e., <code>t</code> is concatenated with itself one or more times).</p>
-<p>Given two strings <code>str1</code> and <code>str2</code>, return <em>the largest string</em> <code>x</code> <em>such that</em> <code>x</code> <em>divides both</em> <code>str1</code> <em>and</em> <code>str2</code>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: str1 = &quot;ABCABC&quot;, str2 = &quot;ABC&quot;</span><br><span class="line">Output: &quot;ABC&quot;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: str1 = &quot;ABABAB&quot;, str2 = &quot;ABAB&quot;</span><br><span class="line">Output: &quot;AB&quot;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: str1 = &quot;LEET&quot;, str2 = &quot;CODE&quot;</span><br><span class="line">Output: &quot;&quot;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= str1.length, str2.length &lt;= 1000</code></li>
-<li><code>str1</code> and <code>str2</code> consist of English uppercase letters.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Think about it methmatically, like str1 is k subStrings and str2 is l subStrings</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">gcdOfStrings</span><span class="params">(string str1, string str2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (str1 + str2 != str2 + str1) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> gcdLength = <span class="built_in">gcd</span>(str1.<span class="built_in">size</span>(), str2.<span class="built_in">size</span>());</span><br><span class="line">        <span class="keyword">return</span> str1.<span class="built_in">substr</span>(<span class="number">0</span>, gcdLength);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Math</tag>
-        <tag>String</tag>
+        <tag>Tree</tag>
+        <tag>Binary Tree</tag>
       </tags>
   </entry>
   <entry>
@@ -269,6 +234,41 @@
         <tag>Heap (Priority Queue)</tag>
         <tag>Simulation</tag>
         <tag>Prefix Sum</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>1071. Greatest Common Divisor of Strings</title>
+    <url>/2023/02/01/1071-Greatest-Common-Divisor-of-Strings/</url>
+    <content><![CDATA[<h1 id="1071-Greatest-Common-Divisor-of-Strings"><a href="#1071-Greatest-Common-Divisor-of-Strings" class="headerlink" title="1071. Greatest Common Divisor of Strings"></a><a href="https://leetcode.com/problems/greatest-common-divisor-of-strings/">1071. Greatest Common Divisor of Strings</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/math/">Math</a>, <a href="https://leetcode.com/tag/string/">String</a></p>
+<p>For two strings <code>s</code> and <code>t</code>, we say “<code>t</code> divides <code>s</code>“ if and only if <code>s = t + ... + t</code> (i.e., <code>t</code> is concatenated with itself one or more times).</p>
+<p>Given two strings <code>str1</code> and <code>str2</code>, return <em>the largest string</em> <code>x</code> <em>such that</em> <code>x</code> <em>divides both</em> <code>str1</code> <em>and</em> <code>str2</code>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: str1 = &quot;ABCABC&quot;, str2 = &quot;ABC&quot;</span><br><span class="line">Output: &quot;ABC&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: str1 = &quot;ABABAB&quot;, str2 = &quot;ABAB&quot;</span><br><span class="line">Output: &quot;AB&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: str1 = &quot;LEET&quot;, str2 = &quot;CODE&quot;</span><br><span class="line">Output: &quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= str1.length, str2.length &lt;= 1000</code></li>
+<li><code>str1</code> and <code>str2</code> consist of English uppercase letters.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Think about it methmatically, like str1 is k subStrings and str2 is l subStrings</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">gcdOfStrings</span><span class="params">(string str1, string str2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (str1 + str2 != str2 + str1) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> gcdLength = <span class="built_in">gcd</span>(str1.<span class="built_in">size</span>(), str2.<span class="built_in">size</span>());</span><br><span class="line">        <span class="keyword">return</span> str1.<span class="built_in">substr</span>(<span class="number">0</span>, gcdLength);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Math</tag>
+        <tag>String</tag>
       </tags>
   </entry>
   <entry>
@@ -388,49 +388,6 @@
       </tags>
   </entry>
   <entry>
-    <title>114. Flatten Binary Tree to Linked List</title>
-    <url>/2023/02/03/114-Flatten-Binary-Tree-to-Linked-List/</url>
-    <content><![CDATA[<h1 id="114-Flatten-Binary-Tree-to-Linked-List"><a href="#114-Flatten-Binary-Tree-to-Linked-List" class="headerlink" title="114. Flatten Binary Tree to Linked List"></a><a href="https://leetcode.com/problems/flatten-binary-tree-to-linked-list/">114. Flatten Binary Tree to Linked List</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/linked-list/">Linked List</a>, <a href="https://leetcode.com/tag/stack/">Stack</a>, <a href="https://leetcode.com/tag/tree/">Tree</a>, <a href="https://leetcode.com/tag/depth-first-search/">Depth-First Search</a>, <a href="https://leetcode.com/tag/binary-tree/">Binary Tree</a></p>
-<p>Given the <code>root</code> of a binary tree, flatten the tree into a “linked list”:</p>
-<ul>
-<li>The “linked list” should use the same <code>TreeNode</code> class where the <code>right</code> child pointer points to the next node in the list and the <code>left</code> child pointer is always <code>null</code>.</li>
-<li>The “linked list” should be in the same order as a <a href="https://en.wikipedia.org/wiki/Tree_traversal#Pre-order,_NLR"><strong>pre-order</strong> <strong>traversal</strong></a> of the binary tree.</li>
-</ul>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/01/14/flaten.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [1,2,5,3,4,null,6]</span><br><span class="line">Output: [1,null,2,null,3,null,4,null,5,null,6]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = []</span><br><span class="line">Output: []</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [0]</span><br><span class="line">Output: [0]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in the tree is in the range <code>[0, 2000]</code>.</li>
-<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
-</ul>
-<p><strong>Follow up:</strong> Can you flatten the tree in-place (with <code>O(1)</code> extra space)?</p>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Recursive, think about if the left and right node has been flattened</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    TreeNode* curr = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">flatten</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">flatten</span>(root-&gt;left);</span><br><span class="line">        <span class="built_in">flatten</span>(root-&gt;right);</span><br><span class="line"></span><br><span class="line">        TreeNode* left = root-&gt;left;</span><br><span class="line">        TreeNode* right = root-&gt;right;</span><br><span class="line"></span><br><span class="line">        root-&gt;left = <span class="literal">nullptr</span>;</span><br><span class="line">        root-&gt;right = left;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (root-&gt;right != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            root = root-&gt;right;</span><br><span class="line">        &#125;</span><br><span class="line">        root-&gt;right = right;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
-        <tag>Binary Tree</tag>
-        <tag>Linked List</tag>
-        <tag>Stack</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>116. Populating Next Right Pointers in Each Node</title>
     <url>/2023/02/03/116-Populating-Next-Right-Pointers-in-Each-Node/</url>
     <content><![CDATA[<h1 id="116-Populating-Next-Right-Pointers-in-Each-Node"><a href="#116-Populating-Next-Right-Pointers-in-Each-Node" class="headerlink" title="116. Populating Next Right Pointers in Each Node"></a><a href="https://leetcode.com/problems/populating-next-right-pointers-in-each-node/">116. Populating Next Right Pointers in Each Node</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -468,10 +425,53 @@
       </categories>
       <tags>
         <tag>Tree</tag>
+        <tag>Binary Tree</tag>
         <tag>Depth-First Search</tag>
         <tag>Breadth-First Search</tag>
-        <tag>Binary Tree</tag>
         <tag>Linked List</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>114. Flatten Binary Tree to Linked List</title>
+    <url>/2023/02/03/114-Flatten-Binary-Tree-to-Linked-List/</url>
+    <content><![CDATA[<h1 id="114-Flatten-Binary-Tree-to-Linked-List"><a href="#114-Flatten-Binary-Tree-to-Linked-List" class="headerlink" title="114. Flatten Binary Tree to Linked List"></a><a href="https://leetcode.com/problems/flatten-binary-tree-to-linked-list/">114. Flatten Binary Tree to Linked List</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/linked-list/">Linked List</a>, <a href="https://leetcode.com/tag/stack/">Stack</a>, <a href="https://leetcode.com/tag/tree/">Tree</a>, <a href="https://leetcode.com/tag/depth-first-search/">Depth-First Search</a>, <a href="https://leetcode.com/tag/binary-tree/">Binary Tree</a></p>
+<p>Given the <code>root</code> of a binary tree, flatten the tree into a “linked list”:</p>
+<ul>
+<li>The “linked list” should use the same <code>TreeNode</code> class where the <code>right</code> child pointer points to the next node in the list and the <code>left</code> child pointer is always <code>null</code>.</li>
+<li>The “linked list” should be in the same order as a <a href="https://en.wikipedia.org/wiki/Tree_traversal#Pre-order,_NLR"><strong>pre-order</strong> <strong>traversal</strong></a> of the binary tree.</li>
+</ul>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/01/14/flaten.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [1,2,5,3,4,null,6]</span><br><span class="line">Output: [1,null,2,null,3,null,4,null,5,null,6]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = []</span><br><span class="line">Output: []</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [0]</span><br><span class="line">Output: [0]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is in the range <code>[0, 2000]</code>.</li>
+<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+</ul>
+<p><strong>Follow up:</strong> Can you flatten the tree in-place (with <code>O(1)</code> extra space)?</p>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Recursive, think about if the left and right node has been flattened</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    TreeNode* curr = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">flatten</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">flatten</span>(root-&gt;left);</span><br><span class="line">        <span class="built_in">flatten</span>(root-&gt;right);</span><br><span class="line"></span><br><span class="line">        TreeNode* left = root-&gt;left;</span><br><span class="line">        TreeNode* right = root-&gt;right;</span><br><span class="line"></span><br><span class="line">        root-&gt;left = <span class="literal">nullptr</span>;</span><br><span class="line">        root-&gt;right = left;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (root-&gt;right != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            root = root-&gt;right;</span><br><span class="line">        &#125;</span><br><span class="line">        root-&gt;right = right;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Tree</tag>
+        <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
+        <tag>Linked List</tag>
+        <tag>Stack</tag>
       </tags>
   </entry>
   <entry>
@@ -672,8 +672,8 @@
       </categories>
       <tags>
         <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
         <tag>Stack</tag>
       </tags>
   </entry>
@@ -964,6 +964,48 @@
       </tags>
   </entry>
   <entry>
+    <title>1644. Lowest Common Ancestor of a Binary Tree II</title>
+    <url>/2023/08/29/1644-Lowest-Common-Ancestor-of-a-Binary-Tree-II/</url>
+    <content><![CDATA[<h1 id="1644-Lowest-Common-Ancestor-of-a-Binary-Tree-II"><a href="#1644-Lowest-Common-Ancestor-of-a-Binary-Tree-II" class="headerlink" title="1644. Lowest Common Ancestor of a Binary Tree II"></a><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-ii/">1644. Lowest Common Ancestor of a Binary Tree II</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/tree//">Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//">Binary Tree</a></p>
+<p>Given the <code>root</code> of a binary tree, return <em>the lowest common ancestor (LCA) of two given nodes,</em> <code>p</code> <em>and</em> <code>q</code>. If either node <code>p</code> or <code>q</code> <strong>does not exist</strong> in the tree, return <code>null</code>. All values of the nodes in the tree are <strong>unique</strong>.</p>
+<p>According to the <strong><a href="https://en.wikipedia.org/wiki/Lowest_common_ancestor">definition of LCA on Wikipedia</a></strong>: “The lowest common ancestor of two nodes <code>p</code> and <code>q</code> in a binary tree <code>T</code> is the lowest node that has both <code>p</code> and <code>q</code> as <strong>descendants</strong> (where we allow <strong>a node to be a descendant of itself</strong>)”. A <strong>descendant</strong> of a node <code>x</code> is a node <code>y</code> that is on the path from node <code>x</code> to some leaf node.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The LCA of nodes 5 and 1 is 3.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4</span><br><span class="line">Output: 5</span><br><span class="line">Explanation: The LCA of nodes 5 and 4 is 5\. A node can be a descendant of itself according to the definition of LCA.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 10</span><br><span class="line">Output: null</span><br><span class="line">Explanation: Node 10 does not exist <span class="keyword">in</span> the tree, so <span class="built_in">return</span> null.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is in the range [1, 10<sup>4</sup>].</li>
+<li>-10<sup>9</sup> &lt;&#x3D; Node.val &lt;&#x3D; 10<sup>9</sup></li>
+<li>All <code>Node.val</code> are <strong>unique</strong>.</li>
+<li><code>p != q</code></li>
+</ul>
+<p><strong>Follow up:</strong> Can you find the LCA traversing the tree, without checking nodes existence?</p>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>It’s possible that the nodes don’t exist, so we need to check every node, so it’s postorder traverse</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">bool</span> foundP = <span class="literal">false</span>, foundQ = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">TreeNode* <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode* root, TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        TreeNode* res = <span class="built_in">find</span>(root, p, q);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!foundP || !foundQ) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">TreeNode* <span class="title">find</span><span class="params">(TreeNode* root, TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) <span class="keyword">return</span> root;</span><br><span class="line"></span><br><span class="line">        TreeNode* left = <span class="built_in">find</span>(root-&gt;left, p, q);</span><br><span class="line">        TreeNode* right = <span class="built_in">find</span>(root-&gt;right, p, q);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (root == p) &#123;</span><br><span class="line">            foundP = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (root == q) &#123;</span><br><span class="line">            foundQ = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (left &amp;&amp; right) &#123;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> left ? left : right;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Tree</tag>
+        <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>1631. Path With Minimum Effort</title>
     <url>/2023/09/07/1631-Path-With-Minimum-Effort/</url>
     <content><![CDATA[<h1 id="1631-Path-With-Minimum-Effort"><a href="#1631-Path-With-Minimum-Effort" class="headerlink" title="1631. Path With Minimum Effort"></a><a href="https://leetcode.com/problems/path-with-minimum-effort/">1631. Path With Minimum Effort</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -1010,48 +1052,6 @@
       </tags>
   </entry>
   <entry>
-    <title>1644. Lowest Common Ancestor of a Binary Tree II</title>
-    <url>/2023/08/29/1644-Lowest-Common-Ancestor-of-a-Binary-Tree-II/</url>
-    <content><![CDATA[<h1 id="1644-Lowest-Common-Ancestor-of-a-Binary-Tree-II"><a href="#1644-Lowest-Common-Ancestor-of-a-Binary-Tree-II" class="headerlink" title="1644. Lowest Common Ancestor of a Binary Tree II"></a><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-ii/">1644. Lowest Common Ancestor of a Binary Tree II</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/tree//">Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//">Binary Tree</a></p>
-<p>Given the <code>root</code> of a binary tree, return <em>the lowest common ancestor (LCA) of two given nodes,</em> <code>p</code> <em>and</em> <code>q</code>. If either node <code>p</code> or <code>q</code> <strong>does not exist</strong> in the tree, return <code>null</code>. All values of the nodes in the tree are <strong>unique</strong>.</p>
-<p>According to the <strong><a href="https://en.wikipedia.org/wiki/Lowest_common_ancestor">definition of LCA on Wikipedia</a></strong>: “The lowest common ancestor of two nodes <code>p</code> and <code>q</code> in a binary tree <code>T</code> is the lowest node that has both <code>p</code> and <code>q</code> as <strong>descendants</strong> (where we allow <strong>a node to be a descendant of itself</strong>)”. A <strong>descendant</strong> of a node <code>x</code> is a node <code>y</code> that is on the path from node <code>x</code> to some leaf node.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The LCA of nodes 5 and 1 is 3.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4</span><br><span class="line">Output: 5</span><br><span class="line">Explanation: The LCA of nodes 5 and 4 is 5\. A node can be a descendant of itself according to the definition of LCA.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 10</span><br><span class="line">Output: null</span><br><span class="line">Explanation: Node 10 does not exist <span class="keyword">in</span> the tree, so <span class="built_in">return</span> null.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in the tree is in the range [1, 10<sup>4</sup>].</li>
-<li>-10<sup>9</sup> &lt;&#x3D; Node.val &lt;&#x3D; 10<sup>9</sup></li>
-<li>All <code>Node.val</code> are <strong>unique</strong>.</li>
-<li><code>p != q</code></li>
-</ul>
-<p><strong>Follow up:</strong> Can you find the LCA traversing the tree, without checking nodes existence?</p>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>It’s possible that the nodes don’t exist, so we need to check every node, so it’s postorder traverse</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">bool</span> foundP = <span class="literal">false</span>, foundQ = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">TreeNode* <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode* root, TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        TreeNode* res = <span class="built_in">find</span>(root, p, q);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!foundP || !foundQ) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">TreeNode* <span class="title">find</span><span class="params">(TreeNode* root, TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) <span class="keyword">return</span> root;</span><br><span class="line"></span><br><span class="line">        TreeNode* left = <span class="built_in">find</span>(root-&gt;left, p, q);</span><br><span class="line">        TreeNode* right = <span class="built_in">find</span>(root-&gt;right, p, q);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (root == p) &#123;</span><br><span class="line">            foundP = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (root == q) &#123;</span><br><span class="line">            foundQ = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (left &amp;&amp; right) &#123;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> left ? left : right;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
-        <tag>Binary Tree</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>1650. Lowest Common Ancestor of a Binary Tree III</title>
     <url>/2023/08/30/1650-Lowest-Common-Ancestor-of-a-Binary-Tree-III/</url>
     <content><![CDATA[<h1 id="1650-Lowest-Common-Ancestor-of-a-Binary-Tree-III"><a href="#1650-Lowest-Common-Ancestor-of-a-Binary-Tree-III" class="headerlink" title="1650. Lowest Common Ancestor of a Binary Tree III"></a><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/">1650. Lowest Common Ancestor of a Binary Tree III</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -1090,9 +1090,9 @@
         <category>Leetcode</category>
       </categories>
       <tags>
+        <tag>Hash Table</tag>
         <tag>Tree</tag>
         <tag>Binary Tree</tag>
-        <tag>Hash Table</tag>
       </tags>
   </entry>
   <entry>
@@ -1175,8 +1175,8 @@
       </categories>
       <tags>
         <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
       </tags>
   </entry>
   <entry>
@@ -1500,45 +1500,6 @@
       </tags>
   </entry>
   <entry>
-    <title>208. Implement Trie (Prefix Tree)</title>
-    <url>/2023/10/06/208-Implement-Trie-Prefix-Tree/</url>
-    <content><![CDATA[<h1 id="208-Implement-Trie-Prefix-Tree"><a href="#208-Implement-Trie-Prefix-Tree" class="headerlink" title="208. Implement Trie (Prefix Tree)"></a><a href="https://leetcode.com/problems/implement-trie-prefix-tree/">208. Implement Trie (Prefix Tree)</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/string//">String</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/design//">Design</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/trie//">Trie</a></p>
-<p>A <a href="https://en.wikipedia.org/wiki/Trie"><strong>trie</strong></a> (pronounced as “try”) or <strong>prefix tree</strong> is a tree data structure used to efficiently store and retrieve keys in a dataset of strings. There are various applications of this data structure, such as autocomplete and spellchecker.</p>
-<p>Implement the Trie class:</p>
-<ul>
-<li><code>Trie()</code> Initializes the trie object.</li>
-<li><code>void insert(String word)</code> Inserts the string <code>word</code> into the trie.</li>
-<li><code>boolean search(String word)</code> Returns <code>true</code> if the string <code>word</code> is in the trie (i.e., was inserted before), and <code>false</code> otherwise.</li>
-<li><code>boolean startsWith(String prefix)</code> Returns <code>true</code> if there is a previously inserted string <code>word</code> that has the prefix <code>prefix</code>, and <code>false</code> otherwise.</li>
-</ul>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input</span><br><span class="line">[<span class="string">&quot;Trie&quot;</span>, <span class="string">&quot;insert&quot;</span>, <span class="string">&quot;search&quot;</span>, <span class="string">&quot;search&quot;</span>, <span class="string">&quot;startsWith&quot;</span>, <span class="string">&quot;insert&quot;</span>, <span class="string">&quot;search&quot;</span>]</span><br><span class="line">[[], [<span class="string">&quot;apple&quot;</span>], [<span class="string">&quot;apple&quot;</span>], [<span class="string">&quot;app&quot;</span>], [<span class="string">&quot;app&quot;</span>], [<span class="string">&quot;app&quot;</span>], [<span class="string">&quot;app&quot;</span>]]</span><br><span class="line">Output</span><br><span class="line">[null, null, <span class="literal">true</span>, <span class="literal">false</span>, <span class="literal">true</span>, null, <span class="literal">true</span>]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">Trie trie = new Trie();</span><br><span class="line">trie.insert(<span class="string">&quot;apple&quot;</span>);</span><br><span class="line">trie.search(<span class="string">&quot;apple&quot;</span>);   // <span class="built_in">return</span> True</span><br><span class="line">trie.search(<span class="string">&quot;app&quot;</span>);     // <span class="built_in">return</span> False</span><br><span class="line">trie.startsWith(<span class="string">&quot;app&quot;</span>); // <span class="built_in">return</span> True</span><br><span class="line">trie.insert(<span class="string">&quot;app&quot;</span>);</span><br><span class="line">trie.search(<span class="string">&quot;app&quot;</span>);     // <span class="built_in">return</span> True</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= word.length, prefix.length &lt;= 2000</code></li>
-<li><code>word</code> and <code>prefix</code> consist only of lowercase English letters.</li>
-<li>At most 3 * 10<sup>4</sup> calls <strong>in total</strong> will be made to <code>insert</code>, <code>search</code>, and <code>startsWith</code>.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Use a bool value to indicate if it’s the end of one word</li>
-<li>If one node has been initialized then we should NOT recreate the node</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Trie</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">TrieNode</span> &#123;</span><br><span class="line">        <span class="type">bool</span> end;</span><br><span class="line">        vector&lt;TrieNode*&gt; children;</span><br><span class="line">        <span class="built_in">TrieNode</span>() &#123;</span><br><span class="line">            end = <span class="literal">false</span>;</span><br><span class="line">            children = <span class="built_in">vector</span>&lt;TrieNode*&gt;(<span class="number">26</span>, <span class="literal">nullptr</span>);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">    TrieNode* root;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">Trie</span>() &#123;</span><br><span class="line">        root = <span class="keyword">new</span> <span class="built_in">TrieNode</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(string word)</span> </span>&#123;</span><br><span class="line">        TrieNode* head = root;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : word) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!head-&gt;children[c - <span class="string">&#x27;a&#x27;</span>]) &#123;</span><br><span class="line">                head-&gt;children[c - <span class="string">&#x27;a&#x27;</span>] = <span class="keyword">new</span> <span class="built_in">TrieNode</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            head = head-&gt;children[c - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        head-&gt;end = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">search</span><span class="params">(string word)</span> </span>&#123;</span><br><span class="line">        TrieNode* head = root;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : word) &#123;</span><br><span class="line">            head = head-&gt;children[c - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">            <span class="keyword">if</span> (!head) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head-&gt;end;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">startsWith</span><span class="params">(string prefix)</span> </span>&#123;</span><br><span class="line">        TrieNode* head = root;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : prefix) &#123;</span><br><span class="line">            head = head-&gt;children[c - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">            <span class="keyword">if</span> (!head) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your Trie object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * Trie* obj = new Trie();</span></span><br><span class="line"><span class="comment"> * obj-&gt;insert(word);</span></span><br><span class="line"><span class="comment"> * bool param_2 = obj-&gt;search(word);</span></span><br><span class="line"><span class="comment"> * bool param_3 = obj-&gt;startsWith(prefix);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Hash Table</tag>
-        <tag>String</tag>
-        <tag>Design</tag>
-        <tag>Trie</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>21. Merge Two Sorted Lists</title>
     <url>/2022/12/29/21-Merge-Two-Sorted-Lists/</url>
     <content><![CDATA[<h1 id="21-Merge-Two-Sorted-Lists"><a href="#21-Merge-Two-Sorted-Lists" class="headerlink" title="21. Merge Two Sorted Lists"></a><a href="https://leetcode.com/problems/merge-two-sorted-lists/">21. Merge Two Sorted Lists</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
@@ -1576,6 +1537,45 @@
       <tags>
         <tag>Linked List</tag>
         <tag>Recursion</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>208. Implement Trie (Prefix Tree)</title>
+    <url>/2023/10/06/208-Implement-Trie-Prefix-Tree/</url>
+    <content><![CDATA[<h1 id="208-Implement-Trie-Prefix-Tree"><a href="#208-Implement-Trie-Prefix-Tree" class="headerlink" title="208. Implement Trie (Prefix Tree)"></a><a href="https://leetcode.com/problems/implement-trie-prefix-tree/">208. Implement Trie (Prefix Tree)</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/string//">String</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/design//">Design</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/trie//">Trie</a></p>
+<p>A <a href="https://en.wikipedia.org/wiki/Trie"><strong>trie</strong></a> (pronounced as “try”) or <strong>prefix tree</strong> is a tree data structure used to efficiently store and retrieve keys in a dataset of strings. There are various applications of this data structure, such as autocomplete and spellchecker.</p>
+<p>Implement the Trie class:</p>
+<ul>
+<li><code>Trie()</code> Initializes the trie object.</li>
+<li><code>void insert(String word)</code> Inserts the string <code>word</code> into the trie.</li>
+<li><code>boolean search(String word)</code> Returns <code>true</code> if the string <code>word</code> is in the trie (i.e., was inserted before), and <code>false</code> otherwise.</li>
+<li><code>boolean startsWith(String prefix)</code> Returns <code>true</code> if there is a previously inserted string <code>word</code> that has the prefix <code>prefix</code>, and <code>false</code> otherwise.</li>
+</ul>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input</span><br><span class="line">[<span class="string">&quot;Trie&quot;</span>, <span class="string">&quot;insert&quot;</span>, <span class="string">&quot;search&quot;</span>, <span class="string">&quot;search&quot;</span>, <span class="string">&quot;startsWith&quot;</span>, <span class="string">&quot;insert&quot;</span>, <span class="string">&quot;search&quot;</span>]</span><br><span class="line">[[], [<span class="string">&quot;apple&quot;</span>], [<span class="string">&quot;apple&quot;</span>], [<span class="string">&quot;app&quot;</span>], [<span class="string">&quot;app&quot;</span>], [<span class="string">&quot;app&quot;</span>], [<span class="string">&quot;app&quot;</span>]]</span><br><span class="line">Output</span><br><span class="line">[null, null, <span class="literal">true</span>, <span class="literal">false</span>, <span class="literal">true</span>, null, <span class="literal">true</span>]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">Trie trie = new Trie();</span><br><span class="line">trie.insert(<span class="string">&quot;apple&quot;</span>);</span><br><span class="line">trie.search(<span class="string">&quot;apple&quot;</span>);   // <span class="built_in">return</span> True</span><br><span class="line">trie.search(<span class="string">&quot;app&quot;</span>);     // <span class="built_in">return</span> False</span><br><span class="line">trie.startsWith(<span class="string">&quot;app&quot;</span>); // <span class="built_in">return</span> True</span><br><span class="line">trie.insert(<span class="string">&quot;app&quot;</span>);</span><br><span class="line">trie.search(<span class="string">&quot;app&quot;</span>);     // <span class="built_in">return</span> True</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= word.length, prefix.length &lt;= 2000</code></li>
+<li><code>word</code> and <code>prefix</code> consist only of lowercase English letters.</li>
+<li>At most 3 * 10<sup>4</sup> calls <strong>in total</strong> will be made to <code>insert</code>, <code>search</code>, and <code>startsWith</code>.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Use a bool value to indicate if it’s the end of one word</li>
+<li>If one node has been initialized then we should NOT recreate the node</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Trie</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">TrieNode</span> &#123;</span><br><span class="line">        <span class="type">bool</span> end;</span><br><span class="line">        vector&lt;TrieNode*&gt; children;</span><br><span class="line">        <span class="built_in">TrieNode</span>() &#123;</span><br><span class="line">            end = <span class="literal">false</span>;</span><br><span class="line">            children = <span class="built_in">vector</span>&lt;TrieNode*&gt;(<span class="number">26</span>, <span class="literal">nullptr</span>);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">    TrieNode* root;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">Trie</span>() &#123;</span><br><span class="line">        root = <span class="keyword">new</span> <span class="built_in">TrieNode</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(string word)</span> </span>&#123;</span><br><span class="line">        TrieNode* head = root;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : word) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!head-&gt;children[c - <span class="string">&#x27;a&#x27;</span>]) &#123;</span><br><span class="line">                head-&gt;children[c - <span class="string">&#x27;a&#x27;</span>] = <span class="keyword">new</span> <span class="built_in">TrieNode</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            head = head-&gt;children[c - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        head-&gt;end = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">search</span><span class="params">(string word)</span> </span>&#123;</span><br><span class="line">        TrieNode* head = root;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : word) &#123;</span><br><span class="line">            head = head-&gt;children[c - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">            <span class="keyword">if</span> (!head) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head-&gt;end;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">startsWith</span><span class="params">(string prefix)</span> </span>&#123;</span><br><span class="line">        TrieNode* head = root;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : prefix) &#123;</span><br><span class="line">            head = head-&gt;children[c - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">            <span class="keyword">if</span> (!head) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your Trie object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * Trie* obj = new Trie();</span></span><br><span class="line"><span class="comment"> * obj-&gt;insert(word);</span></span><br><span class="line"><span class="comment"> * bool param_2 = obj-&gt;search(word);</span></span><br><span class="line"><span class="comment"> * bool param_3 = obj-&gt;startsWith(prefix);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Hash Table</tag>
+        <tag>String</tag>
+        <tag>Design</tag>
+        <tag>Trie</tag>
       </tags>
   </entry>
   <entry>
@@ -1738,37 +1738,8 @@
       <tags>
         <tag>Binary Search</tag>
         <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2235. Add Two Integers</title>
-    <url>/2022/12/27/2235-Add-Two-Integers/</url>
-    <content><![CDATA[<h1 id="2235-Add-Two-Integers"><a href="#2235-Add-Two-Integers" class="headerlink" title="2235. Add Two Integers"></a><a href="https://leetcode.com/problems/add-two-integers/">2235. Add Two Integers</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/math/">Math</a></p>
-<p>Given two integers <code>num1</code> and <code>num2</code>, return <em>the <strong>sum</strong> of the two integers</em>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: num1 = 12, num2 = 5</span><br><span class="line">Output: 17</span><br><span class="line">Explanation: num1 is 12, num2 is 5, and their <span class="built_in">sum</span> is 12 + 5 = 17, so 17 is returned.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: num1 = -10, num2 = 4</span><br><span class="line">Output: -6</span><br><span class="line">Explanation: num1 + num2 = -6, so -6 is returned.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>-100 &lt;= num1, num2 &lt;= 100</code></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>N&#x2F;A</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>Java</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">sum</span><span class="params">(<span class="type">int</span> num1, <span class="type">int</span> num2)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> num1 + num2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Math</tag>
+        <tag>Depth-First Search</tag>
       </tags>
   </entry>
   <entry>
@@ -1815,6 +1786,35 @@
       </tags>
   </entry>
   <entry>
+    <title>2235. Add Two Integers</title>
+    <url>/2022/12/27/2235-Add-Two-Integers/</url>
+    <content><![CDATA[<h1 id="2235-Add-Two-Integers"><a href="#2235-Add-Two-Integers" class="headerlink" title="2235. Add Two Integers"></a><a href="https://leetcode.com/problems/add-two-integers/">2235. Add Two Integers</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/math/">Math</a></p>
+<p>Given two integers <code>num1</code> and <code>num2</code>, return <em>the <strong>sum</strong> of the two integers</em>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: num1 = 12, num2 = 5</span><br><span class="line">Output: 17</span><br><span class="line">Explanation: num1 is 12, num2 is 5, and their <span class="built_in">sum</span> is 12 + 5 = 17, so 17 is returned.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: num1 = -10, num2 = 4</span><br><span class="line">Output: -6</span><br><span class="line">Explanation: num1 + num2 = -6, so -6 is returned.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>-100 &lt;= num1, num2 &lt;= 100</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>N&#x2F;A</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>Java</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">sum</span><span class="params">(<span class="type">int</span> num1, <span class="type">int</span> num2)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> num1 + num2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Math</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>226. Invert Binary Tree</title>
     <url>/2023/02/03/226-Invert-Binary-Tree/</url>
     <content><![CDATA[<h1 id="226-Invert-Binary-Tree"><a href="#226-Invert-Binary-Tree" class="headerlink" title="226. Invert Binary Tree"></a><a href="https://leetcode.com/problems/invert-binary-tree/">226. Invert Binary Tree</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
@@ -1847,9 +1847,9 @@
       </categories>
       <tags>
         <tag>Tree</tag>
+        <tag>Binary Tree</tag>
         <tag>Depth-First Search</tag>
         <tag>Breadth-First Search</tag>
-        <tag>Binary Tree</tag>
       </tags>
   </entry>
   <entry>
@@ -1926,8 +1926,8 @@
       </categories>
       <tags>
         <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
         <tag>Binary Search Tree</tag>
       </tags>
   </entry>
@@ -2047,8 +2047,8 @@
       </categories>
       <tags>
         <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
         <tag>Binary Search Tree</tag>
       </tags>
   </entry>
@@ -2089,8 +2089,8 @@
       </categories>
       <tags>
         <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
       </tags>
   </entry>
   <entry>
@@ -2114,6 +2114,9 @@
 <li>The product of any prefix or suffix of <code>nums</code> is <strong>guaranteed</strong> to fit in a <strong>32-bit</strong> integer.</li>
 </ul>
 <p><strong>Follow up:</strong> Can you solve the problem in <code>O(1)</code> extra space complexity? (The output array <strong>does not</strong> count as extra space for space complexity analysis.)</p>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>preSum</li>
+</ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">productExceptSelf</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> size = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">preProduct</span><span class="params">(size + <span class="number">1</span>, <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sufProduct</span><span class="params">(size + <span class="number">1</span>, <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            preProduct[i + <span class="number">1</span>] = preProduct[i] * nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = size - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            sufProduct[i] = sufProduct[i + <span class="number">1</span>] * nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(size, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            res[i] = preProduct[i] * sufProduct[i + <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 ]]></content>
@@ -2316,39 +2319,6 @@
       </tags>
   </entry>
   <entry>
-    <title>264. Ugly Number II</title>
-    <url>/2023/11/06/264-Ugly-Number-II/</url>
-    <content><![CDATA[<h1 id="264-Ugly-Number-II"><a href="#264-Ugly-Number-II" class="headerlink" title="264. Ugly Number II"></a><a href="https://leetcode.com/problems/ugly-number-ii/">264. Ugly Number II</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/math//">Math</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/dynamic-programming//">Dynamic Programming</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/heap-priority-queue//">Heap (Priority Queue)</a></p>
-<p>An <strong>ugly number</strong> is a positive integer whose prime factors are limited to <code>2</code>, <code>3</code>, and <code>5</code>.</p>
-<p>Given an integer <code>n</code>, return <em>the</em> n<sup>th</sup> <em><strong>ugly number</strong></em>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 10</span><br><span class="line">Output: 12</span><br><span class="line">Explanation: [1, 2, 3, 4, 5, 6, 8, 9, 10, 12] is the sequence of the first 10 ugly numbers.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 1</span><br><span class="line">Output: 1</span><br><span class="line">Explanation: 1 has no prime factors, therefore all of its prime factors are limited to 2, 3, and 5.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= n &lt;= 1690</code></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>It’s like combining 3 linked lists</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">nthUglyNumber</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> val1 = <span class="number">1</span>, val2 = <span class="number">1</span>, val3 = <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> index1 = <span class="number">0</span>, index2 = <span class="number">0</span>, index3 = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(n, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">while</span> (index &lt; n) &#123;</span><br><span class="line">            <span class="type">int</span> val = <span class="built_in">min</span>(&#123;val1, val2, val3&#125;);</span><br><span class="line">            res[index] = val;</span><br><span class="line">            index++;</span><br><span class="line">            <span class="keyword">if</span> (val == val1) &#123;</span><br><span class="line">                val1 = res[index1] * <span class="number">2</span>;</span><br><span class="line">                index1++;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (val == val2) &#123;</span><br><span class="line">                val2 = res[index2] * <span class="number">3</span>;</span><br><span class="line">                index2++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (val == val3) &#123;</span><br><span class="line">                val3 = res[index3] * <span class="number">5</span>;</span><br><span class="line">                index3++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res[n - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Hash Table</tag>
-        <tag>Math</tag>
-        <tag>Heap (Priority Queue)</tag>
-        <tag>Dynamic Programming</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>27. Remove Element</title>
     <url>/2023/01/17/27-Remove-Element/</url>
     <content><![CDATA[<h1 id="27-Remove-Element"><a href="#27-Remove-Element" class="headerlink" title="27. Remove Element"></a><a href="https://leetcode.com/problems/remove-element/">27. Remove Element</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
@@ -2386,6 +2356,39 @@
       <tags>
         <tag>Array</tag>
         <tag>Two Pointers</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>264. Ugly Number II</title>
+    <url>/2023/11/06/264-Ugly-Number-II/</url>
+    <content><![CDATA[<h1 id="264-Ugly-Number-II"><a href="#264-Ugly-Number-II" class="headerlink" title="264. Ugly Number II"></a><a href="https://leetcode.com/problems/ugly-number-ii/">264. Ugly Number II</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/math//">Math</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/dynamic-programming//">Dynamic Programming</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/heap-priority-queue//">Heap (Priority Queue)</a></p>
+<p>An <strong>ugly number</strong> is a positive integer whose prime factors are limited to <code>2</code>, <code>3</code>, and <code>5</code>.</p>
+<p>Given an integer <code>n</code>, return <em>the</em> n<sup>th</sup> <em><strong>ugly number</strong></em>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 10</span><br><span class="line">Output: 12</span><br><span class="line">Explanation: [1, 2, 3, 4, 5, 6, 8, 9, 10, 12] is the sequence of the first 10 ugly numbers.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 1</span><br><span class="line">Output: 1</span><br><span class="line">Explanation: 1 has no prime factors, therefore all of its prime factors are limited to 2, 3, and 5.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= n &lt;= 1690</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>It’s like combining 3 linked lists</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">nthUglyNumber</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> val1 = <span class="number">1</span>, val2 = <span class="number">1</span>, val3 = <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> index1 = <span class="number">0</span>, index2 = <span class="number">0</span>, index3 = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(n, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">while</span> (index &lt; n) &#123;</span><br><span class="line">            <span class="type">int</span> val = <span class="built_in">min</span>(&#123;val1, val2, val3&#125;);</span><br><span class="line">            res[index] = val;</span><br><span class="line">            index++;</span><br><span class="line">            <span class="keyword">if</span> (val == val1) &#123;</span><br><span class="line">                val1 = res[index1] * <span class="number">2</span>;</span><br><span class="line">                index1++;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (val == val2) &#123;</span><br><span class="line">                val2 = res[index2] * <span class="number">3</span>;</span><br><span class="line">                index2++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (val == val3) &#123;</span><br><span class="line">                val3 = res[index3] * <span class="number">5</span>;</span><br><span class="line">                index3++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res[n - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Hash Table</tag>
+        <tag>Math</tag>
+        <tag>Heap (Priority Queue)</tag>
+        <tag>Dynamic Programming</tag>
       </tags>
   </entry>
   <entry>
@@ -2577,9 +2580,9 @@
       </categories>
       <tags>
         <tag>Tree</tag>
+        <tag>Binary Tree</tag>
         <tag>Depth-First Search</tag>
         <tag>Breadth-First Search</tag>
-        <tag>Binary Tree</tag>
         <tag>String</tag>
         <tag>Design</tag>
       </tags>
@@ -3498,9 +3501,9 @@
       </categories>
       <tags>
         <tag>Hash Table</tag>
-        <tag>String</tag>
         <tag>Sorting</tag>
         <tag>Heap (Priority Queue)</tag>
+        <tag>String</tag>
         <tag>Bucket Sort</tag>
         <tag>Counting</tag>
       </tags>
@@ -3767,6 +3770,38 @@
       </tags>
   </entry>
   <entry>
+    <title>525. Contiguous Array</title>
+    <url>/2023/11/12/525-Contiguous-Array/</url>
+    <content><![CDATA[<h1 id="525-Contiguous-Array"><a href="#525-Contiguous-Array" class="headerlink" title="525. Contiguous Array"></a><a href="https://leetcode.com/problems/contiguous-array/">525. Contiguous Array</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/prefix-sum//">Prefix Sum</a></p>
+<p>Given a binary array <code>nums</code>, return <em>the maximum length of a contiguous subarray with an equal number of</em> <code>0</code> <em>and</em> <code>1</code>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [0,1]</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: [0, 1] is the longest contiguous subarray with an equal number of 0 and 1.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [0,1,0]</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: [0, 1] (or [1, 0]) is a longest contiguous subarray with equal number of 0 and 1.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; nums.length &lt;&#x3D; 10<sup>5</sup></li>
+<li><code>nums[i]</code> is either <code>0</code> or <code>1</code>.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>change 0 to -1 and make the range sum to be 0</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findMaxLength</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> size = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">preSum</span><span class="params">(size + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            preSum[i + <span class="number">1</span>] = preSum[i] + (nums[i] == <span class="number">1</span> ? <span class="number">1</span> : <span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; m;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= size; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!m.<span class="built_in">count</span>(preSum[i])) &#123;</span><br><span class="line">                m[preSum[i]] = i;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                res = <span class="built_in">max</span>(res, i - m[preSum[i]]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Hash Table</tag>
+        <tag>Prefix Sum</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>528. Random Pick with Weight</title>
     <url>/2023/01/25/528-Random-Pick-with-Weight/</url>
     <content><![CDATA[<h1 id="912-Random-Pick-with-Weight"><a href="#912-Random-Pick-with-Weight" class="headerlink" title="912. Random Pick with Weight"></a><a href="https://leetcode.com/problems/random-pick-with-weight/">912. Random Pick with Weight</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -3849,8 +3884,8 @@
       </categories>
       <tags>
         <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
         <tag>Binary Search Tree</tag>
       </tags>
   </entry>
@@ -3921,8 +3956,8 @@
       </categories>
       <tags>
         <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
       </tags>
   </entry>
   <entry>
@@ -4075,10 +4110,10 @@
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
-        <tag>Binary Tree</tag>
         <tag>Hash Table</tag>
+        <tag>Tree</tag>
+        <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
       </tags>
   </entry>
   <entry>
@@ -4119,9 +4154,9 @@
       </categories>
       <tags>
         <tag>Array</tag>
+        <tag>Divide and Conquer</tag>
         <tag>Tree</tag>
         <tag>Binary Tree</tag>
-        <tag>Divide and Conquer</tag>
         <tag>Stack</tag>
         <tag>Monotonic Stack</tag>
       </tags>
@@ -4200,9 +4235,9 @@
       </categories>
       <tags>
         <tag>Hash Table</tag>
-        <tag>String</tag>
         <tag>Sorting</tag>
         <tag>Heap (Priority Queue)</tag>
+        <tag>String</tag>
         <tag>Trie</tag>
         <tag>Bucket Sort</tag>
         <tag>Counting</tag>
@@ -4362,44 +4397,6 @@
       </tags>
   </entry>
   <entry>
-    <title>724. Find Pivot Index</title>
-    <url>/2023/11/12/724-Find-Pivot-Index/</url>
-    <content><![CDATA[<h1 id="724-Find-Pivot-Index"><a href="#724-Find-Pivot-Index" class="headerlink" title="724. Find Pivot Index"></a><a href="https://leetcode.com/problems/find-pivot-index/">724. Find Pivot Index</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/prefix-sum//">Prefix Sum</a></p>
-<p>Given an array of integers <code>nums</code>, calculate the <strong>pivot index</strong> of this array.</p>
-<p>The <strong>pivot index</strong> is the index where the sum of all the numbers <strong>strictly</strong> to the left of the index is equal to the sum of all the numbers <strong>strictly</strong> to the index’s right.</p>
-<p>If the index is on the left edge of the array, then the left sum is <code>0</code> because there are no elements to the left. This also applies to the right edge of the array.</p>
-<p>Return <em>the <strong>leftmost pivot index</strong></em>. If no such index exists, return <code>-1</code>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [1,7,3,6,5,6]</span><br><span class="line">Output: 3</span><br><span class="line">Explanation:</span><br><span class="line">The pivot index is 3.</span><br><span class="line">Left <span class="built_in">sum</span> = nums[0] + nums[1] + nums[2] = 1 + 7 + 3 = 11</span><br><span class="line">Right <span class="built_in">sum</span> = nums[4] + nums[5] = 5 + 6 = 11</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [1,2,3]</span><br><span class="line">Output: -1</span><br><span class="line">Explanation:</span><br><span class="line">There is no index that satisfies the conditions <span class="keyword">in</span> the problem statement.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [2,1,-1]</span><br><span class="line">Output: 0</span><br><span class="line">Explanation:</span><br><span class="line">The pivot index is 0.</span><br><span class="line">Left <span class="built_in">sum</span> = 0 (no elements to the left of index 0)</span><br><span class="line">Right <span class="built_in">sum</span> = nums[1] + nums[2] = 1 + -1 = 0</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>1 &lt;&#x3D; nums.length &lt;&#x3D; 10<sup>4</sup></li>
-<li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li>
-</ul>
-<p><strong>Note:</strong> This question is the same as 1991: <a href="https://leetcode.com/problems/find-the-middle-index-in-array/">https://leetcode.com/problems/find-the-middle-index-in-array/</a></p>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>preSum</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">pivotIndex</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> size = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">preSum</span><span class="params">(size + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            preSum[i + <span class="number">1</span>] = preSum[i] + nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (preSum[i] == preSum[size] - preSum[i + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Prefix Sum</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>734. Sentence Similarity</title>
     <url>/2023/07/31/734-Sentence-Similarity/</url>
     <content><![CDATA[<h1 id="734-Sentence-Similarity"><a href="#734-Sentence-Similarity" class="headerlink" title="734. Sentence Similarity"></a><a href="https://leetcode.com/problems/sentence-similarity/">734. Sentence Similarity</a></h1><p>We can represent a sentence as an array of words, for example, the sentence <code>&quot;I am happy with leetcode&quot;</code> can be represented as <code>arr = [&quot;I&quot;,&quot;am&quot;,happy&quot;,&quot;with&quot;,&quot;leetcode&quot;]</code>.</p>
@@ -4444,6 +4441,44 @@
         <tag>Array</tag>
         <tag>Hash Table</tag>
         <tag>String</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>724. Find Pivot Index</title>
+    <url>/2023/11/12/724-Find-Pivot-Index/</url>
+    <content><![CDATA[<h1 id="724-Find-Pivot-Index"><a href="#724-Find-Pivot-Index" class="headerlink" title="724. Find Pivot Index"></a><a href="https://leetcode.com/problems/find-pivot-index/">724. Find Pivot Index</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/prefix-sum//">Prefix Sum</a></p>
+<p>Given an array of integers <code>nums</code>, calculate the <strong>pivot index</strong> of this array.</p>
+<p>The <strong>pivot index</strong> is the index where the sum of all the numbers <strong>strictly</strong> to the left of the index is equal to the sum of all the numbers <strong>strictly</strong> to the index’s right.</p>
+<p>If the index is on the left edge of the array, then the left sum is <code>0</code> because there are no elements to the left. This also applies to the right edge of the array.</p>
+<p>Return <em>the <strong>leftmost pivot index</strong></em>. If no such index exists, return <code>-1</code>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [1,7,3,6,5,6]</span><br><span class="line">Output: 3</span><br><span class="line">Explanation:</span><br><span class="line">The pivot index is 3.</span><br><span class="line">Left <span class="built_in">sum</span> = nums[0] + nums[1] + nums[2] = 1 + 7 + 3 = 11</span><br><span class="line">Right <span class="built_in">sum</span> = nums[4] + nums[5] = 5 + 6 = 11</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [1,2,3]</span><br><span class="line">Output: -1</span><br><span class="line">Explanation:</span><br><span class="line">There is no index that satisfies the conditions <span class="keyword">in</span> the problem statement.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [2,1,-1]</span><br><span class="line">Output: 0</span><br><span class="line">Explanation:</span><br><span class="line">The pivot index is 0.</span><br><span class="line">Left <span class="built_in">sum</span> = 0 (no elements to the left of index 0)</span><br><span class="line">Right <span class="built_in">sum</span> = nums[1] + nums[2] = 1 + -1 = 0</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; nums.length &lt;&#x3D; 10<sup>4</sup></li>
+<li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li>
+</ul>
+<p><strong>Note:</strong> This question is the same as 1991: <a href="https://leetcode.com/problems/find-the-middle-index-in-array/">https://leetcode.com/problems/find-the-middle-index-in-array/</a></p>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>preSum</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">pivotIndex</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> size = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">preSum</span><span class="params">(size + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            preSum[i + <span class="number">1</span>] = preSum[i] + nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (preSum[i] == preSum[size] - preSum[i + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Prefix Sum</tag>
       </tags>
   </entry>
   <entry>
@@ -4656,40 +4691,6 @@
       </tags>
   </entry>
   <entry>
-    <title>82. Remove Duplicates from Sorted List II</title>
-    <url>/2023/11/11/82-Remove-Duplicates-from-Sorted-List-II/</url>
-    <content><![CDATA[<h1 id="82-Remove-Duplicates-from-Sorted-List-II"><a href="#82-Remove-Duplicates-from-Sorted-List-II" class="headerlink" title="82. Remove Duplicates from Sorted List II"></a><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/">82. Remove Duplicates from Sorted List II</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/linked-list//">Linked List</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/two-pointers//">Two Pointers</a></p>
-<p>Given the <code>head</code> of a sorted linked list, <em>delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list</em>. Return <em>the linked list <strong>sorted</strong> as well</em>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/01/04/linkedlist1.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: <span class="built_in">head</span> = [1,2,3,3,4,4,5]</span><br><span class="line">Output: [1,2,5]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/01/04/linkedlist2.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: <span class="built_in">head</span> = [1,1,1,2,3]</span><br><span class="line">Output: [2,3]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in the list is in the range <code>[0, 300]</code>.</li>
-<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
-<li>The list is guaranteed to be <strong>sorted</strong> in ascending order.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>two pointers</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">deleteDuplicates</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="function">ListNode <span class="title">dummy</span><span class="params">(<span class="number">0</span>)</span></span>;</span><br><span class="line">        ListNode *p = &amp;dummy, *q = head;</span><br><span class="line">        <span class="keyword">while</span> (q) &#123;</span><br><span class="line">            <span class="keyword">if</span> (q-&gt;next &amp;&amp; q-&gt;val == q-&gt;next-&gt;val) &#123;</span><br><span class="line">                <span class="keyword">while</span> (q-&gt;next &amp;&amp; q-&gt;val == q-&gt;next-&gt;val) &#123;</span><br><span class="line">                    q = q-&gt;next;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (!q-&gt;next) &#123;</span><br><span class="line">                    p-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                q = q-&gt;next;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                p-&gt;next = q;</span><br><span class="line">                p = p-&gt;next;</span><br><span class="line">                q = q-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Linked List</tag>
-        <tag>Two Pointers</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>83. Remove Duplicates from Sorted List</title>
     <url>/2023/01/17/83-Remove-Duplicates-from-Sorted-List/</url>
     <content><![CDATA[<h1 id="83-Remove-Duplicates-from-Sorted-List"><a href="#83-Remove-Duplicates-from-Sorted-List" class="headerlink" title="83. Remove Duplicates from Sorted List"></a><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list/">83. Remove Duplicates from Sorted List</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
@@ -4761,6 +4762,40 @@
       </tags>
   </entry>
   <entry>
+    <title>82. Remove Duplicates from Sorted List II</title>
+    <url>/2023/11/11/82-Remove-Duplicates-from-Sorted-List-II/</url>
+    <content><![CDATA[<h1 id="82-Remove-Duplicates-from-Sorted-List-II"><a href="#82-Remove-Duplicates-from-Sorted-List-II" class="headerlink" title="82. Remove Duplicates from Sorted List II"></a><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/">82. Remove Duplicates from Sorted List II</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/linked-list//">Linked List</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/two-pointers//">Two Pointers</a></p>
+<p>Given the <code>head</code> of a sorted linked list, <em>delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list</em>. Return <em>the linked list <strong>sorted</strong> as well</em>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/01/04/linkedlist1.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: <span class="built_in">head</span> = [1,2,3,3,4,4,5]</span><br><span class="line">Output: [1,2,5]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/01/04/linkedlist2.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: <span class="built_in">head</span> = [1,1,1,2,3]</span><br><span class="line">Output: [2,3]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the list is in the range <code>[0, 300]</code>.</li>
+<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+<li>The list is guaranteed to be <strong>sorted</strong> in ascending order.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>two pointers</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">deleteDuplicates</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="function">ListNode <span class="title">dummy</span><span class="params">(<span class="number">0</span>)</span></span>;</span><br><span class="line">        ListNode *p = &amp;dummy, *q = head;</span><br><span class="line">        <span class="keyword">while</span> (q) &#123;</span><br><span class="line">            <span class="keyword">if</span> (q-&gt;next &amp;&amp; q-&gt;val == q-&gt;next-&gt;val) &#123;</span><br><span class="line">                <span class="keyword">while</span> (q-&gt;next &amp;&amp; q-&gt;val == q-&gt;next-&gt;val) &#123;</span><br><span class="line">                    q = q-&gt;next;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (!q-&gt;next) &#123;</span><br><span class="line">                    p-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                q = q-&gt;next;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                p-&gt;next = q;</span><br><span class="line">                p = p-&gt;next;</span><br><span class="line">                q = q-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Linked List</tag>
+        <tag>Two Pointers</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>870. Advantage Shuffle</title>
     <url>/2023/01/31/870-Advantage-Shuffle/</url>
     <content><![CDATA[<h1 id="870-Advantage-Shuffle"><a href="#870-Advantage-Shuffle" class="headerlink" title="870. Advantage Shuffle"></a><a href="https://leetcode.com/problems/advantage-shuffle/">870. Advantage Shuffle</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -4796,6 +4831,41 @@
         <tag>Sorting</tag>
         <tag>Two Pointers</tag>
         <tag>Greedy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>876. Middle of the Linked List</title>
+    <url>/2023/01/04/876-Middle-of-the-Linked-List/</url>
+    <content><![CDATA[<h1 id="876-Middle-of-the-Linked-List"><a href="#876-Middle-of-the-Linked-List" class="headerlink" title="876. Middle of the Linked List"></a><a href="https://leetcode.com/problems/middle-of-the-linked-list/">876. Middle of the Linked List</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/linked-list/">Linked List</a>, <a href="https://leetcode.com/tag/two-pointers/">Two Pointers</a></p>
+<p>Given the <code>head</code> of a singly linked list, return <em>the middle node of the linked list</em>.</p>
+<p>If there are two middle nodes, return <strong>the second middle</strong> node.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/07/23/lc-midlist1.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: <span class="built_in">head</span> = [1,2,3,4,5]</span><br><span class="line">Output: [3,4,5]</span><br><span class="line">Explanation: The middle node of the list is node 3.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/07/23/lc-midlist2.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: <span class="built_in">head</span> = [1,2,3,4,5,6]</span><br><span class="line">Output: [4,5,6]</span><br><span class="line">Explanation: Since the list has two middle nodes with values 3 and 4, we <span class="built_in">return</span> the second one.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the list is in the range <code>[1, 100]</code>.</li>
+<li><code>1 &lt;= Node.val &lt;= 100</code></li>
+</ul>
+<hr>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Fast and slow pointers</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">middleNode</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode *slow = head, *fast = head;</span><br><span class="line">        <span class="keyword">while</span> (fast &amp;&amp; fast-&gt;next) &#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">            fast = fast-&gt;next-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> slow;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Linked List</tag>
+        <tag>Two Pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -4838,38 +4908,42 @@
       </tags>
   </entry>
   <entry>
-    <title>876. Middle of the Linked List</title>
-    <url>/2023/01/04/876-Middle-of-the-Linked-List/</url>
-    <content><![CDATA[<h1 id="876-Middle-of-the-Linked-List"><a href="#876-Middle-of-the-Linked-List" class="headerlink" title="876. Middle of the Linked List"></a><a href="https://leetcode.com/problems/middle-of-the-linked-list/">876. Middle of the Linked List</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/linked-list/">Linked List</a>, <a href="https://leetcode.com/tag/two-pointers/">Two Pointers</a></p>
-<p>Given the <code>head</code> of a singly linked list, return <em>the middle node of the linked list</em>.</p>
-<p>If there are two middle nodes, return <strong>the second middle</strong> node.</p>
+    <title>886. Possible Bipartition</title>
+    <url>/2023/09/02/886-Possible-Bipartition/</url>
+    <content><![CDATA[<h1 id="886-Possible-Bipartition"><a href="#886-Possible-Bipartition" class="headerlink" title="886. Possible Bipartition"></a><a href="https://leetcode.com/problems/possible-bipartition/">886. Possible Bipartition</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/breadth-first-search//">Breadth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/union-find//">Union Find</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/graph//">Graph</a></p>
+<p>We want to split a group of <code>n</code> people (labeled from <code>1</code> to <code>n</code>) into two groups of <strong>any size</strong>. Each person may dislike some other people, and they should not go into the same group.</p>
+<p>Given the integer <code>n</code> and the array <code>dislikes</code> where dislikes[i] &#x3D; [a<sub>i</sub>, b<sub>i</sub>] indicates that the person labeled a<sub>i</sub> does not like the person labeled b<sub>i</sub>, return <code>true</code> <em>if it is possible to split everyone into two groups in this way</em>.</p>
 <p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/07/23/lc-midlist1.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: <span class="built_in">head</span> = [1,2,3,4,5]</span><br><span class="line">Output: [3,4,5]</span><br><span class="line">Explanation: The middle node of the list is node 3.</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 4, dislikes = [[1,2],[1,3],[2,4]]</span><br><span class="line">Output: <span class="literal">true</span></span><br><span class="line">Explanation: The first group has [1,4], and the second group has [2,3].</span><br></pre></td></tr></table></figure>
 
 <p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/07/23/lc-midlist2.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: <span class="built_in">head</span> = [1,2,3,4,5,6]</span><br><span class="line">Output: [4,5,6]</span><br><span class="line">Explanation: Since the list has two middle nodes with values 3 and 4, we <span class="built_in">return</span> the second one.</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 3, dislikes = [[1,2],[1,3],[2,3]]</span><br><span class="line">Output: <span class="literal">false</span></span><br><span class="line">Explanation: We need at least 3 <span class="built_in">groups</span> to divide them. We cannot put them <span class="keyword">in</span> two <span class="built_in">groups</span>.</span><br></pre></td></tr></table></figure>
 
 <p><strong>Constraints:</strong></p>
 <ul>
-<li>The number of nodes in the list is in the range <code>[1, 100]</code>.</li>
-<li><code>1 &lt;= Node.val &lt;= 100</code></li>
+<li><code>1 &lt;= n &lt;= 2000</code></li>
+<li>0 &lt;&#x3D; dislikes.length &lt;&#x3D; 10<sup>4</sup></li>
+<li><code>dislikes[i].length == 2</code></li>
+<li>1 &lt;&#x3D; a<sub>i</sub> &lt; b<sub>i</sub> &lt;&#x3D; n</li>
+<li>All the pairs of <code>dislikes</code> are <strong>unique</strong>.</li>
 </ul>
-<hr>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Fast and slow pointers</li>
+<h2 id="Hints-Nodes"><a href="#Hints-Nodes" class="headerlink" title="Hints&#x2F;Nodes"></a>Hints&#x2F;Nodes</h2><ul>
+<li>Build the map, then it’s find bipartition of the graph</li>
+<li>Use two vectors: visited and color</li>
+<li>Use a global boolean ok for fast return</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">middleNode</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode *slow = head, *fast = head;</span><br><span class="line">        <span class="keyword">while</span> (fast &amp;&amp; fast-&gt;next) &#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">            fast = fast-&gt;next-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> slow;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; graph;</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; visited;</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; color;</span><br><span class="line">    <span class="type">int</span> ok = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">possibleBipartition</span><span class="params">(<span class="type">int</span> n, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; dislikes)</span> </span>&#123;</span><br><span class="line">        graph = vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;(n + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;());</span><br><span class="line">        visited = <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(n + <span class="number">1</span>, <span class="literal">false</span>);</span><br><span class="line">        color = <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(n + <span class="number">1</span>, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">buildGraph</span>(dislikes);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="built_in">traverse</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ok;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">buildGraph</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; dislikes)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> pair : dislikes) &#123;</span><br><span class="line">            <span class="type">int</span> n1 = pair[<span class="number">0</span>];</span><br><span class="line">            <span class="type">int</span> n2 = pair[<span class="number">1</span>];</span><br><span class="line">            graph[n1].<span class="built_in">push_back</span>(n2);</span><br><span class="line">            graph[n2].<span class="built_in">push_back</span>(n1);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(<span class="type">int</span> node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!ok) <span class="keyword">return</span>;</span><br><span class="line">        visited[node] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> to : graph[node]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (visited[to]) &#123;</span><br><span class="line">                <span class="keyword">if</span> (color[to] == color[node]) &#123;</span><br><span class="line">                    ok = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                color[to] = !color[node];</span><br><span class="line">                <span class="built_in">traverse</span>(to);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>Linked List</tag>
-        <tag>Two Pointers</tag>
+        <tag>Depth-First Search</tag>
+        <tag>Breadth-First Search</tag>
+        <tag>Union Find</tag>
+        <tag>Graph</tag>
       </tags>
   </entry>
   <entry>
@@ -4914,45 +4988,6 @@
       </tags>
   </entry>
   <entry>
-    <title>886. Possible Bipartition</title>
-    <url>/2023/09/02/886-Possible-Bipartition/</url>
-    <content><![CDATA[<h1 id="886-Possible-Bipartition"><a href="#886-Possible-Bipartition" class="headerlink" title="886. Possible Bipartition"></a><a href="https://leetcode.com/problems/possible-bipartition/">886. Possible Bipartition</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/breadth-first-search//">Breadth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/union-find//">Union Find</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/graph//">Graph</a></p>
-<p>We want to split a group of <code>n</code> people (labeled from <code>1</code> to <code>n</code>) into two groups of <strong>any size</strong>. Each person may dislike some other people, and they should not go into the same group.</p>
-<p>Given the integer <code>n</code> and the array <code>dislikes</code> where dislikes[i] &#x3D; [a<sub>i</sub>, b<sub>i</sub>] indicates that the person labeled a<sub>i</sub> does not like the person labeled b<sub>i</sub>, return <code>true</code> <em>if it is possible to split everyone into two groups in this way</em>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 4, dislikes = [[1,2],[1,3],[2,4]]</span><br><span class="line">Output: <span class="literal">true</span></span><br><span class="line">Explanation: The first group has [1,4], and the second group has [2,3].</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 3, dislikes = [[1,2],[1,3],[2,3]]</span><br><span class="line">Output: <span class="literal">false</span></span><br><span class="line">Explanation: We need at least 3 <span class="built_in">groups</span> to divide them. We cannot put them <span class="keyword">in</span> two <span class="built_in">groups</span>.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= n &lt;= 2000</code></li>
-<li>0 &lt;&#x3D; dislikes.length &lt;&#x3D; 10<sup>4</sup></li>
-<li><code>dislikes[i].length == 2</code></li>
-<li>1 &lt;&#x3D; a<sub>i</sub> &lt; b<sub>i</sub> &lt;&#x3D; n</li>
-<li>All the pairs of <code>dislikes</code> are <strong>unique</strong>.</li>
-</ul>
-<h2 id="Hints-Nodes"><a href="#Hints-Nodes" class="headerlink" title="Hints&#x2F;Nodes"></a>Hints&#x2F;Nodes</h2><ul>
-<li>Build the map, then it’s find bipartition of the graph</li>
-<li>Use two vectors: visited and color</li>
-<li>Use a global boolean ok for fast return</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; graph;</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; visited;</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; color;</span><br><span class="line">    <span class="type">int</span> ok = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">possibleBipartition</span><span class="params">(<span class="type">int</span> n, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; dislikes)</span> </span>&#123;</span><br><span class="line">        graph = vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;(n + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;());</span><br><span class="line">        visited = <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(n + <span class="number">1</span>, <span class="literal">false</span>);</span><br><span class="line">        color = <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(n + <span class="number">1</span>, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">buildGraph</span>(dislikes);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="built_in">traverse</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ok;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">buildGraph</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; dislikes)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> pair : dislikes) &#123;</span><br><span class="line">            <span class="type">int</span> n1 = pair[<span class="number">0</span>];</span><br><span class="line">            <span class="type">int</span> n2 = pair[<span class="number">1</span>];</span><br><span class="line">            graph[n1].<span class="built_in">push_back</span>(n2);</span><br><span class="line">            graph[n2].<span class="built_in">push_back</span>(n1);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(<span class="type">int</span> node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!ok) <span class="keyword">return</span>;</span><br><span class="line">        visited[node] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> to : graph[node]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (visited[to]) &#123;</span><br><span class="line">                <span class="keyword">if</span> (color[to] == color[node]) &#123;</span><br><span class="line">                    ok = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                color[to] = !color[node];</span><br><span class="line">                <span class="built_in">traverse</span>(to);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Depth-First Search</tag>
-        <tag>Breadth-First Search</tag>
-        <tag>Union Find</tag>
-        <tag>Graph</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>889. Construct Binary Tree from Preorder and Postorder Traversal</title>
     <url>/2023/08/22/889-Construct-Binary-Tree-from-Preorder-and-Postorder-Traversal/</url>
     <content><![CDATA[<h1 id="889-Construct-Binary-Tree-from-Preorder-and-Postorder-Traversal"><a href="#889-Construct-Binary-Tree-from-Preorder-and-Postorder-Traversal" class="headerlink" title="889. Construct Binary Tree from Preorder and Postorder Traversal"></a><a href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/">889. Construct Binary Tree from Preorder and Postorder Traversal</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -4988,48 +5023,10 @@
       </categories>
       <tags>
         <tag>Array</tag>
-        <tag>Tree</tag>
-        <tag>Binary Tree</tag>
         <tag>Hash Table</tag>
         <tag>Divide and Conquer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>912. Sort an Array</title>
-    <url>/2023/08/22/912-Sort-an-Array/</url>
-    <content><![CDATA[<h1 id="912-Sort-an-Array"><a href="#912-Sort-an-Array" class="headerlink" title="912. Sort an Array"></a><a href="https://leetcode.com/problems/sort-an-array/">912. Sort an Array</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/divide-and-conquer//">Divide and Conquer</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sorting//">Sorting</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/heap-priority-queue//">Heap (Priority Queue)</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/merge-sort//">Merge Sort</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/bucket-sort//">Bucket Sort</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/radix-sort//">Radix Sort</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/counting-sort//">Counting Sort</a></p>
-<p>Given an array of integers <code>nums</code>, sort the array in ascending order and return it.</p>
-<p>You must solve the problem <strong>without using any built-in</strong> functions in <code>O(nlog(n))</code> time complexity and with the smallest space complexity possible.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [5,2,3,1]</span><br><span class="line">Output: [1,2,3,5]</span><br><span class="line">Explanation: After sorting the array, the positions of some numbers are not changed (<span class="keyword">for</span> example, 2 and 3), <span class="keyword">while</span> the positions of other numbers are changed (<span class="keyword">for</span> example, 1 and 5).</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [5,1,1,2,0,0]</span><br><span class="line">Output: [0,0,1,1,2,5]</span><br><span class="line">Explanation: Note that the values of nums are not necessairly unique.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>1 &lt;&#x3D; nums.length &lt;&#x3D; 5 * 10<sup>4</sup></li>
-<li>-5 * 10<sup>4</sup> &lt;&#x3D; nums[i] &lt;&#x3D; 5 * 10<sup>4</sup></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>merge sort</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; tmp;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortArray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        tmp = <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(nums.<span class="built_in">size</span>(), <span class="number">0</span>);</span><br><span class="line">        <span class="built_in">sort</span>(nums, <span class="number">0</span>, nums.<span class="built_in">size</span>() - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">sort</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> low, <span class="type">int</span> high)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (high &lt;= low)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">        <span class="built_in">sort</span>(nums, low, mid);</span><br><span class="line">        <span class="built_in">sort</span>(nums, mid + <span class="number">1</span>, high);</span><br><span class="line">        <span class="built_in">merge</span>(nums, low, mid, high);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> low, <span class="type">int</span> mid, <span class="type">int</span> high)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = low; i &lt;= high; i++) &#123;</span><br><span class="line">            tmp[i] = nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> i = low, j = mid + <span class="number">1</span>; </span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> index = low; index &lt;= high; index++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == mid + <span class="number">1</span>) &#123;</span><br><span class="line">                nums[index] = tmp[j++];</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (j == high + <span class="number">1</span>) &#123;</span><br><span class="line">                nums[index] = tmp[i++];</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tmp[i] &lt; tmp[j]) &#123;</span><br><span class="line">                nums[index] = tmp[i++];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                nums[index] = tmp[j++];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Divide and Conquer</tag>
-        <tag>Sorting</tag>
-        <tag>Heap (Priority Queue)</tag>
-        <tag>Merge Sort</tag>
-        <tag>Bucket Sort</tag>
-        <tag>Radix Sort</tag>
-        <tag>Counting Sort</tag>
+        <tag>Tree</tag>
+        <tag>Binary Tree</tag>
       </tags>
   </entry>
   <entry>
@@ -5101,6 +5098,44 @@
         <tag>Dynamic Programming</tag>
         <tag>Binary Search Tree</tag>
         <tag>Backtracking</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>912. Sort an Array</title>
+    <url>/2023/08/22/912-Sort-an-Array/</url>
+    <content><![CDATA[<h1 id="912-Sort-an-Array"><a href="#912-Sort-an-Array" class="headerlink" title="912. Sort an Array"></a><a href="https://leetcode.com/problems/sort-an-array/">912. Sort an Array</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/divide-and-conquer//">Divide and Conquer</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sorting//">Sorting</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/heap-priority-queue//">Heap (Priority Queue)</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/merge-sort//">Merge Sort</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/bucket-sort//">Bucket Sort</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/radix-sort//">Radix Sort</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/counting-sort//">Counting Sort</a></p>
+<p>Given an array of integers <code>nums</code>, sort the array in ascending order and return it.</p>
+<p>You must solve the problem <strong>without using any built-in</strong> functions in <code>O(nlog(n))</code> time complexity and with the smallest space complexity possible.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [5,2,3,1]</span><br><span class="line">Output: [1,2,3,5]</span><br><span class="line">Explanation: After sorting the array, the positions of some numbers are not changed (<span class="keyword">for</span> example, 2 and 3), <span class="keyword">while</span> the positions of other numbers are changed (<span class="keyword">for</span> example, 1 and 5).</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [5,1,1,2,0,0]</span><br><span class="line">Output: [0,0,1,1,2,5]</span><br><span class="line">Explanation: Note that the values of nums are not necessairly unique.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; nums.length &lt;&#x3D; 5 * 10<sup>4</sup></li>
+<li>-5 * 10<sup>4</sup> &lt;&#x3D; nums[i] &lt;&#x3D; 5 * 10<sup>4</sup></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>merge sort</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; tmp;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortArray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        tmp = <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(nums.<span class="built_in">size</span>(), <span class="number">0</span>);</span><br><span class="line">        <span class="built_in">sort</span>(nums, <span class="number">0</span>, nums.<span class="built_in">size</span>() - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">sort</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> low, <span class="type">int</span> high)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (high &lt;= low)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> mid = low + (high - low) / <span class="number">2</span>;</span><br><span class="line">        <span class="built_in">sort</span>(nums, low, mid);</span><br><span class="line">        <span class="built_in">sort</span>(nums, mid + <span class="number">1</span>, high);</span><br><span class="line">        <span class="built_in">merge</span>(nums, low, mid, high);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> low, <span class="type">int</span> mid, <span class="type">int</span> high)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = low; i &lt;= high; i++) &#123;</span><br><span class="line">            tmp[i] = nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> i = low, j = mid + <span class="number">1</span>; </span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> index = low; index &lt;= high; index++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == mid + <span class="number">1</span>) &#123;</span><br><span class="line">                nums[index] = tmp[j++];</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (j == high + <span class="number">1</span>) &#123;</span><br><span class="line">                nums[index] = tmp[i++];</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tmp[i] &lt; tmp[j]) &#123;</span><br><span class="line">                nums[index] = tmp[i++];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                nums[index] = tmp[j++];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Divide and Conquer</tag>
+        <tag>Sorting</tag>
+        <tag>Heap (Priority Queue)</tag>
+        <tag>Merge Sort</tag>
+        <tag>Bucket Sort</tag>
+        <tag>Radix Sort</tag>
+        <tag>Counting Sort</tag>
       </tags>
   </entry>
   <entry>
@@ -5283,8 +5318,8 @@
       </categories>
       <tags>
         <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
         <tag>Binary Search Tree</tag>
       </tags>
   </entry>
@@ -7207,6 +7242,26 @@
       </tags>
   </entry>
   <entry>
+    <title>How to manage time</title>
+    <url>/2022/12/23/How-to-manage-time/</url>
+    <content><![CDATA[<h3 id="How-I-Have-Time-For-Everything"><a href="#How-I-Have-Time-For-Everything" class="headerlink" title="How I Have Time For Everything"></a>How I Have Time For Everything</h3><ol>
+<li><p>Focus Completely For 2-4 Hours Every Day</p>
+</li>
+<li><p>Do One Thing At A Time</p>
+</li>
+<li><p>Permanently Declutter Your Schedule</p>
+</li>
+</ol>
+<p><a href="https://www.youtube.com/watch?v=c3pzcV9yi24">LINK</a></p>
+]]></content>
+      <categories>
+        <category>Excerpt</category>
+      </categories>
+      <tags>
+        <tag>Career</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>How to leetcode</title>
     <url>/2022/12/20/How-to-leetcode/</url>
     <content><![CDATA[<h3 id="The-motivation"><a href="#The-motivation" class="headerlink" title="The motivation"></a>The motivation</h3><p>A good software developer doesn’t necessarily need to be a good IOer, but in general a good IOer is more likely to be a good software developer. This logic makes coding more and more important in tech interview.</p>
@@ -7240,26 +7295,6 @@
       <categories>
         <category>Thoughts</category>
       </categories>
-  </entry>
-  <entry>
-    <title>How to manage time</title>
-    <url>/2022/12/23/How-to-manage-time/</url>
-    <content><![CDATA[<h3 id="How-I-Have-Time-For-Everything"><a href="#How-I-Have-Time-For-Everything" class="headerlink" title="How I Have Time For Everything"></a>How I Have Time For Everything</h3><ol>
-<li><p>Focus Completely For 2-4 Hours Every Day</p>
-</li>
-<li><p>Do One Thing At A Time</p>
-</li>
-<li><p>Permanently Declutter Your Schedule</p>
-</li>
-</ol>
-<p><a href="https://www.youtube.com/watch?v=c3pzcV9yi24">LINK</a></p>
-]]></content>
-      <categories>
-        <category>Excerpt</category>
-      </categories>
-      <tags>
-        <tag>Career</tag>
-      </tags>
   </entry>
   <entry>
     <title>How to overcome procrastination</title>
@@ -8003,6 +8038,49 @@ Your browser does not support the audio element.
       </tags>
   </entry>
   <entry>
+    <title>Learnship 09 - 2023/10/16</title>
+    <url>/2023/10/16/Learnship-09-2023-10-16/</url>
+    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-9-Giving-an-Impromptu-Presentation-3"><a href="#Business-Language-Coaching-Session-9-Giving-an-Impromptu-Presentation-3" class="headerlink" title="Business Language Coaching - Session 9 - Giving an Impromptu Presentation (3)"></a>Business Language Coaching - Session 9 - Giving an Impromptu Presentation (3)</h2><ul>
+<li>learn strategies and language for giving impromptu presentations</li>
+<li>do some real impromptu presentations</li>
+</ul>
+<h3 id="Starting-Point"><a href="#Starting-Point" class="headerlink" title="Starting Point"></a>Starting Point</h3><p>Thinking back over the last couple of sessions, what about impromptu presentations do you think you’ve down well and what have you found more difficult?</p>
+<ul>
+<li>cannot go deeply into details -&gt; reiterate key points, summarize</li>
+<li>interaction between presenter and audience</li>
+<li>formulate structure in your head e.g. for v.s. against, bullets, pros &amp; cons, before &#x2F; after</li>
+</ul>
+<h3 id="Task-Giving-Impromptu-Presentations"><a href="#Task-Giving-Impromptu-Presentations" class="headerlink" title="Task: Giving Impromptu Presentations"></a>Task: Giving Impromptu Presentations</h3><p>There are three scenarios below for which you’ll need to give a 2-3 minute impromptu presentation. You’ll have 90 seconds to prepare. Use the phrases and strategies we’ve learnt to help you. I’ll give you feedback and notes to help you hone your skills.</p>
+<h4 id="Situation-3"><a href="#Situation-3" class="headerlink" title="Situation 3"></a>Situation 3</h4><p>make a case to management for why you should be considered for promotion in the near future</p>
+<h4 id="Situation-4-Presenting-a-Slide"><a href="#Situation-4-Presenting-a-Slide" class="headerlink" title="Situation 4 - Presenting a Slide"></a>Situation 4 - Presenting a Slide</h4><p>Context:</p>
+<ul>
+<li>You are researching customer reactions to your new product.</li>
+<li>You don’t have as much quantifiable data as you’d originally planned, but will submit the final report by the agreed deadline.</li>
+<li>You are making good progress, but can’t give exact figures now — you’re still processing the feedback.</li>
+<li>You need to wait for more questionnaires to come back before finishing the report.</li>
+</ul>
+<p>Key points you intend to cover</p>
+<ul>
+<li>give an overview of responses to the product so far</li>
+<li>explain some of the difficulties involved</li>
+<li>talk about ‘effective questionnaires’</li>
+</ul>
+<h2 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h2><ul>
+<li>a cable car</li>
+<li>before that we could* only rely on</li>
+<li>an overview* of</li>
+<li>to oversee - to keep an eye on&#x2F;supervise</li>
+<li>to overlook - to miss&#x2F;skip over some important information&#x2F;task</li>
+<li>bring about v.s. bring up</li>
+<li>quantifiable(pr)</li>
+<li>more convincing*</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Learnship</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Learnship 06 - 2023/09/26</title>
     <url>/2023/09/26/Learnship-06-2023-09-26/</url>
     <content><![CDATA[<h2 id="Business-Language-Coaching-Session-6-Using-Mixed-Conditions-in-Meetings"><a href="#Business-Language-Coaching-Session-6-Using-Mixed-Conditions-in-Meetings" class="headerlink" title="Business Language Coaching - Session 6 - Using Mixed Conditions in Meetings"></a>Business Language Coaching - Session 6 - Using Mixed Conditions in Meetings</h2><ul>
@@ -8097,64 +8175,6 @@ Your browser does not support the audio element.
       </tags>
   </entry>
   <entry>
-    <title>Learnship 07 - 2023/10/05</title>
-    <url>/2023/10/05/Learnship-07-2023-10-05/</url>
-    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-7-Giving-an-Impromptu-Presentation-1"><a href="#Business-Language-Coaching-Session-7-Giving-an-Impromptu-Presentation-1" class="headerlink" title="Business Language Coaching - Session 7 - Giving an Impromptu Presentation (1)"></a>Business Language Coaching - Session 7 - Giving an Impromptu Presentation (1)</h2><ul>
-<li>learn strategies and language for giving impromptu presentations</li>
-<li>learn and practice phrases to set context &amp; signal intention</li>
-</ul>
-<h3 id="Starting-Point"><a href="#Starting-Point" class="headerlink" title="Starting Point"></a>Starting Point</h3><p>What is an impromptu presentation? How is it different to both a standard presentation and discussion in a meeting?</p>
-<h3 id="Impromptu-Presentations-What-makes-them-different-…"><a href="#Impromptu-Presentations-What-makes-them-different-…" class="headerlink" title="Impromptu Presentations: What makes them different …"></a>Impromptu Presentations: What makes them different …</h3><p>Below is a table which covers some of the differences between the two types of presentations. Decide which presentation fits with each description (P- standard presentation, I - impromptu presentation)</p>
-<h4 id="Style-delivery"><a href="#Style-delivery" class="headerlink" title="Style &amp; delivery"></a>Style &amp; delivery</h4><ul>
-<li>Informal &amp; conversational:    I</li>
-<li>Formal &amp; structured:          P</li>
-</ul>
-<h4 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h4><ul>
-<li>Exhaustive, detailed:         P</li>
-<li>Selective, general:           I</li>
-</ul>
-<h4 id="Control-Interaction"><a href="#Control-Interaction" class="headerlink" title="Control &#x2F; Interaction"></a>Control &#x2F; Interaction</h4><ul>
-<li>In full control of presentation:                  P</li>
-<li>Control is shared between presenter and audience: I</li>
-</ul>
-<h3 id="Giving-an-impromptu-presentation-language-difference"><a href="#Giving-an-impromptu-presentation-language-difference" class="headerlink" title="Giving an impromptu presentation: language difference"></a>Giving an impromptu presentation: language difference</h3><p>Read the three pairs of expressions below. In each pair there is one phrase from a standard presentation and another from an impromptu presentation. Which is which?</p>
-<p>1a. <em>So, if it’s OK, I’ll just briefly sketch out the main points.</em><br>1b. First of all, I’d like to outline the main topics for today’s discussion.</p>
-<p>2a. Let me move on now to the next point …<br>2b. <em>Ok, so, the next thing to mention is …</em></p>
-<p>3a. <em>I hope that covers everything?</em><br>3b. That brings me to the end of my talk. Thanks for listening.</p>
-<h3 id="Giving-an-impromptu-presentation-Audio-example"><a href="#Giving-an-impromptu-presentation-Audio-example" class="headerlink" title="Giving an impromptu presentation: Audio example"></a>Giving an impromptu presentation: Audio example</h3><h4 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h4><p>Ovanta is an international financial services company which has been created from the recent merger of three smaller companies. The company holds regular briefing meetings to update the senior management team on key initiatives following the merger.</p>
-<p>The Operations Director, lan Dungannon, has invited two project team leaders to the latest briefing. Anya is in charge of a project looking at training needs across the organization; Pavia is leading an initiative to improve relations between management and the union. Both Anya and Pavla are knowledgeable about their subjects, but neither has been specifically asked to make a presentation at this meeting.</p>
-<audio controls>
-  <source src="/audio/session7_1.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-
-<h4 id="8-3-8-4-Listen-to-Extracts-1-adn-2-from-the-management-briefing-at-Ovanta-Choose-the-best-answer-for-questions-1-5"><a href="#8-3-8-4-Listen-to-Extracts-1-adn-2-from-the-management-briefing-at-Ovanta-Choose-the-best-answer-for-questions-1-5" class="headerlink" title="8.3 - 8.4 Listen to Extracts 1 adn 2 from the management briefing at Ovanta. Choose the best answer for questions 1-5."></a>8.3 - 8.4 Listen to Extracts 1 adn 2 from the management briefing at Ovanta. Choose the best answer for questions 1-5.</h4><ol>
-<li><p>How does Anya begin her impromptu talk?</p>
-<p> a. She explains in detail what she is going to say.<br> b. <em>She gives an informal overview of the current situation.</em></p>
-</li>
-<li><p>How would you describe Anya’s way of signalling what she wants to talk about?</p>
-<p> a. <em>informal and conversational</em><br> b. formal and structured</p>
-</li>
-<li><p>How does Anya deal with Ian’s questions?</p>
-<p> a. <em>She’s negative and defensive.</em><br> b. She’s positive and constructive.</p>
-</li>
-</ol>
-<h4 id="Audio-scripts"><a href="#Audio-scripts" class="headerlink" title="Audio scripts"></a>Audio scripts</h4><p>Extract 1<br>Ian: … And that brings us to training. Since Anya’s here, perhaps we can look at the new training initiative requested by the various team leaders? Anya, can you give us an overview of where we are with this?</p>
-<p>Anya: OK, yes. Well, <strong>to be honest</strong>, we haven’t got as far as I’d hoped. <strong>Erm, where we are at the moment is</strong> … er, we’ve just completed the initial consultation stage. However, <strong>what I can tell you</strong> is that the initiative will be complete and in place before the annual review. <strong>I’d like to</strong> be able to give you a more precise date, but <strong>unfortunately</strong> I can’t do that at the moment. You’ll appreciate that I still need to <strong>run the details by</strong> Jean-Paul and the team leaders first …</p>
-<p>… So, now, <strong>perhaps</strong> it would be a good idea if I just went through some of the other training programmes we are running.</p>
-<p>Ian: Yes, OK.</p>
-<p>Anya: Good. Now, <strong>how can I put this</strong>? We have a quite ‘flexible’ approach to our training programme this year - we’re trying to tailor it more to individual and team needs. <strong>So if it’s OK</strong>, I’d just like to <strong>sketch out</strong> the core elements of the plans … <strong>Just feel free to interrupt me with any question</strong>. Now, I don’t know if you’ve heard of a ‘balanced scorecard’? Let me just <strong>touch on</strong> this approach and how it works in practice …</p>
-<p>… and that’s more or less it. <strong>I think that’s covered everything</strong>. Er, and it’s <strong>just occurred to me</strong> that…</p>
-<p>Ian: Anya, you haven’t said anything about management training?</p>
-<p>Anya: I was coming to that. Erm, it’s obviously a key area, and I have to admit that we haven’t got as far as planning the specifics yet - we just haven’t had the time. But yeah, <strong>you’re quite right</strong>, we need to address this … it might not be a bad idea to <strong>send out</strong> a questionnaire to the senior staff for their recommendations.</p>
-<p>lan: And you’ve still got time to do that, have you?</p>
-<p>Anya: <strong>That’s a good point</strong>. I think so. Let me check, and <strong>I’ll get back to you</strong>. And how about if I send you a draft, too? I’m pretty sure that I could do that before the end of the week.</p>
-]]></content>
-      <tags>
-        <tag>Learnship</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Learnship 08 - 2023/10/11</title>
     <url>/2023/10/11/Learnship-08-2023-10-11/</url>
     <content><![CDATA[<h2 id="Business-Language-Coaching-Session-8-Giving-an-Impromptu-Presentation-2"><a href="#Business-Language-Coaching-Session-8-Giving-an-Impromptu-Presentation-2" class="headerlink" title="Business Language Coaching - Session 8 - Giving an Impromptu Presentation (2)"></a>Business Language Coaching - Session 8 - Giving an Impromptu Presentation (2)</h2><ul>
@@ -8216,42 +8236,122 @@ Your browser does not support the audio element.
       </tags>
   </entry>
   <entry>
-    <title>Learnship 09 - 2023/10/16</title>
-    <url>/2023/10/16/Learnship-09-2023-10-16/</url>
-    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-9-Giving-an-Impromptu-Presentation-3"><a href="#Business-Language-Coaching-Session-9-Giving-an-Impromptu-Presentation-3" class="headerlink" title="Business Language Coaching - Session 9 - Giving an Impromptu Presentation (3)"></a>Business Language Coaching - Session 9 - Giving an Impromptu Presentation (3)</h2><ul>
+    <title>Learnship 07 - 2023/10/05</title>
+    <url>/2023/10/05/Learnship-07-2023-10-05/</url>
+    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-7-Giving-an-Impromptu-Presentation-1"><a href="#Business-Language-Coaching-Session-7-Giving-an-Impromptu-Presentation-1" class="headerlink" title="Business Language Coaching - Session 7 - Giving an Impromptu Presentation (1)"></a>Business Language Coaching - Session 7 - Giving an Impromptu Presentation (1)</h2><ul>
 <li>learn strategies and language for giving impromptu presentations</li>
-<li>do some real impromptu presentations</li>
+<li>learn and practice phrases to set context &amp; signal intention</li>
 </ul>
-<h3 id="Starting-Point"><a href="#Starting-Point" class="headerlink" title="Starting Point"></a>Starting Point</h3><p>Thinking back over the last couple of sessions, what about impromptu presentations do you think you’ve down well and what have you found more difficult?</p>
+<h3 id="Starting-Point"><a href="#Starting-Point" class="headerlink" title="Starting Point"></a>Starting Point</h3><p>What is an impromptu presentation? How is it different to both a standard presentation and discussion in a meeting?</p>
+<h3 id="Impromptu-Presentations-What-makes-them-different-…"><a href="#Impromptu-Presentations-What-makes-them-different-…" class="headerlink" title="Impromptu Presentations: What makes them different …"></a>Impromptu Presentations: What makes them different …</h3><p>Below is a table which covers some of the differences between the two types of presentations. Decide which presentation fits with each description (P- standard presentation, I - impromptu presentation)</p>
+<h4 id="Style-delivery"><a href="#Style-delivery" class="headerlink" title="Style &amp; delivery"></a>Style &amp; delivery</h4><ul>
+<li>Informal &amp; conversational:    I</li>
+<li>Formal &amp; structured:          P</li>
+</ul>
+<h4 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h4><ul>
+<li>Exhaustive, detailed:         P</li>
+<li>Selective, general:           I</li>
+</ul>
+<h4 id="Control-Interaction"><a href="#Control-Interaction" class="headerlink" title="Control &#x2F; Interaction"></a>Control &#x2F; Interaction</h4><ul>
+<li>In full control of presentation:                  P</li>
+<li>Control is shared between presenter and audience: I</li>
+</ul>
+<h3 id="Giving-an-impromptu-presentation-language-difference"><a href="#Giving-an-impromptu-presentation-language-difference" class="headerlink" title="Giving an impromptu presentation: language difference"></a>Giving an impromptu presentation: language difference</h3><p>Read the three pairs of expressions below. In each pair there is one phrase from a standard presentation and another from an impromptu presentation. Which is which?</p>
+<p>1a. <em>So, if it’s OK, I’ll just briefly sketch out the main points.</em><br>1b. First of all, I’d like to outline the main topics for today’s discussion.</p>
+<p>2a. Let me move on now to the next point …<br>2b. <em>Ok, so, the next thing to mention is …</em></p>
+<p>3a. <em>I hope that covers everything?</em><br>3b. That brings me to the end of my talk. Thanks for listening.</p>
+<h3 id="Giving-an-impromptu-presentation-Audio-example"><a href="#Giving-an-impromptu-presentation-Audio-example" class="headerlink" title="Giving an impromptu presentation: Audio example"></a>Giving an impromptu presentation: Audio example</h3><h4 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h4><p>Ovanta is an international financial services company which has been created from the recent merger of three smaller companies. The company holds regular briefing meetings to update the senior management team on key initiatives following the merger.</p>
+<p>The Operations Director, lan Dungannon, has invited two project team leaders to the latest briefing. Anya is in charge of a project looking at training needs across the organization; Pavia is leading an initiative to improve relations between management and the union. Both Anya and Pavla are knowledgeable about their subjects, but neither has been specifically asked to make a presentation at this meeting.</p>
+<audio controls>
+  <source src="/audio/session7_1.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<h4 id="8-3-8-4-Listen-to-Extracts-1-adn-2-from-the-management-briefing-at-Ovanta-Choose-the-best-answer-for-questions-1-5"><a href="#8-3-8-4-Listen-to-Extracts-1-adn-2-from-the-management-briefing-at-Ovanta-Choose-the-best-answer-for-questions-1-5" class="headerlink" title="8.3 - 8.4 Listen to Extracts 1 adn 2 from the management briefing at Ovanta. Choose the best answer for questions 1-5."></a>8.3 - 8.4 Listen to Extracts 1 adn 2 from the management briefing at Ovanta. Choose the best answer for questions 1-5.</h4><ol>
+<li><p>How does Anya begin her impromptu talk?</p>
+<p> a. She explains in detail what she is going to say.<br> b. <em>She gives an informal overview of the current situation.</em></p>
+</li>
+<li><p>How would you describe Anya’s way of signalling what she wants to talk about?</p>
+<p> a. <em>informal and conversational</em><br> b. formal and structured</p>
+</li>
+<li><p>How does Anya deal with Ian’s questions?</p>
+<p> a. <em>She’s negative and defensive.</em><br> b. She’s positive and constructive.</p>
+</li>
+</ol>
+<h4 id="Audio-scripts"><a href="#Audio-scripts" class="headerlink" title="Audio scripts"></a>Audio scripts</h4><p>Extract 1<br>Ian: … And that brings us to training. Since Anya’s here, perhaps we can look at the new training initiative requested by the various team leaders? Anya, can you give us an overview of where we are with this?</p>
+<p>Anya: OK, yes. Well, <strong>to be honest</strong>, we haven’t got as far as I’d hoped. <strong>Erm, where we are at the moment is</strong> … er, we’ve just completed the initial consultation stage. However, <strong>what I can tell you</strong> is that the initiative will be complete and in place before the annual review. <strong>I’d like to</strong> be able to give you a more precise date, but <strong>unfortunately</strong> I can’t do that at the moment. You’ll appreciate that I still need to <strong>run the details by</strong> Jean-Paul and the team leaders first …</p>
+<p>… So, now, <strong>perhaps</strong> it would be a good idea if I just went through some of the other training programmes we are running.</p>
+<p>Ian: Yes, OK.</p>
+<p>Anya: Good. Now, <strong>how can I put this</strong>? We have a quite ‘flexible’ approach to our training programme this year - we’re trying to tailor it more to individual and team needs. <strong>So if it’s OK</strong>, I’d just like to <strong>sketch out</strong> the core elements of the plans … <strong>Just feel free to interrupt me with any question</strong>. Now, I don’t know if you’ve heard of a ‘balanced scorecard’? Let me just <strong>touch on</strong> this approach and how it works in practice …</p>
+<p>… and that’s more or less it. <strong>I think that’s covered everything</strong>. Er, and it’s <strong>just occurred to me</strong> that…</p>
+<p>Ian: Anya, you haven’t said anything about management training?</p>
+<p>Anya: I was coming to that. Erm, it’s obviously a key area, and I have to admit that we haven’t got as far as planning the specifics yet - we just haven’t had the time. But yeah, <strong>you’re quite right</strong>, we need to address this … it might not be a bad idea to <strong>send out</strong> a questionnaire to the senior staff for their recommendations.</p>
+<p>lan: And you’ve still got time to do that, have you?</p>
+<p>Anya: <strong>That’s a good point</strong>. I think so. Let me check, and <strong>I’ll get back to you</strong>. And how about if I send you a draft, too? I’m pretty sure that I could do that before the end of the week.</p>
+]]></content>
+      <tags>
+        <tag>Learnship</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Learnship 11 - 2023/10/23</title>
+    <url>/2023/10/23/Learnship-11-2023-10-23/</url>
+    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-11-Using-Discourse-Markers-for-Cohesive-Speaking-Writing-2"><a href="#Business-Language-Coaching-Session-11-Using-Discourse-Markers-for-Cohesive-Speaking-Writing-2" class="headerlink" title="Business Language Coaching - Session 11 - Using Discourse Markers for Cohesive Speaking &amp; Writing(2)"></a>Business Language Coaching - Session 11 - Using Discourse Markers for Cohesive Speaking &amp; Writing(2)</h2><ul>
+<li>learn about discourse markers and how to use them to improve your speaking</li>
+<li>do some impromptu speaking activities</li>
+</ul>
+<h3 id="Starting-Point"><a href="#Starting-Point" class="headerlink" title="Starting Point"></a>Starting Point</h3><p>How did you get on with the exercises on discourse markers? Have you had the chance to practice using a range of discourse markers in your meetings at work?</p>
+<h3 id="Matching"><a href="#Matching" class="headerlink" title="Matching"></a>Matching</h3><p>In paris, match the pairs of sentences. Once you have matched all the sentences, highlight the discourse markers.</p>
+<ol>
+<li><p>I’m not addicted to social media at all. <strong>On the contrary</strong>, there are plenty of other things I’d rather be doing with my time.</p>
+</li>
+<li><p><strong>In addition to</strong> being quite stressful, social media can be very time-consuming.</p>
+</li>
+<li><p>Social media can boost your career prospects. <strong>As it so happens</strong>, I found my current job via a friend’s post.</p>
+</li>
+<li><p>I’ve always been an advocate of new technology. <strong>Having said that</strong>, I do think it has to be used with caution.</p>
+</li>
+<li><p>It’s true that technology has its downsides. <strong>Even so</strong>, I know I couldn’t live without it.</p>
+</li>
+<li><p>Phones are quite expansive. <strong>What’s more</strong>, they break quite easily.</p>
+</li>
+<li><p>Technology has many uses in business. <strong>Likewise</strong>, it has many applications within education too.</p>
+</li>
+<li><p>Some people are nervous about using it, but <strong>by and large</strong>, most people are in favour of technology.</p>
+</li>
+<li><p>I bought the new model <strong>on account of</strong> its high-quality camera.</p>
+</li>
+<li><p>I read about the dangers of too much screen time. <strong>Accordingly</strong>, I now only let my children watch 30 minutes of television a day.</p>
+</li>
+</ol>
+<h3 id="Speaking-game"><a href="#Speaking-game" class="headerlink" title="Speaking game"></a>Speaking game</h3><p>Look at the illustrations on the next page and the list of discourse markers. In your group, take turns in rolling the die and saying the sentence and discourse marker that correspond to the number on the die. Once you use one of the discourse markers, tick it off from the list. Whoever ticks off all the discourse markers first, wins the game!</p>
+<p>Remember, the first throw is to help you choose which sentence to say; the second throw is to help you choose which discourse marker to use. Follow the example your teacher gives you.</p>
+<p>Topic: Being a YouTuber or a streamer is not believed to be a very stable profession.</p>
 <ul>
-<li>cannot go deeply into details -&gt; reiterate key points, summarize</li>
-<li>interaction between presenter and audience</li>
-<li>formulate structure in your head e.g. for v.s. against, bullets, pros &amp; cons, before &#x2F; after</li>
+<li>Accordingly</li>
+<li>even so</li>
 </ul>
-<h3 id="Task-Giving-Impromptu-Presentations"><a href="#Task-Giving-Impromptu-Presentations" class="headerlink" title="Task: Giving Impromptu Presentations"></a>Task: Giving Impromptu Presentations</h3><p>There are three scenarios below for which you’ll need to give a 2-3 minute impromptu presentation. You’ll have 90 seconds to prepare. Use the phrases and strategies we’ve learnt to help you. I’ll give you feedback and notes to help you hone your skills.</p>
-<h4 id="Situation-3"><a href="#Situation-3" class="headerlink" title="Situation 3"></a>Situation 3</h4><p>make a case to management for why you should be considered for promotion in the near future</p>
-<h4 id="Situation-4-Presenting-a-Slide"><a href="#Situation-4-Presenting-a-Slide" class="headerlink" title="Situation 4 - Presenting a Slide"></a>Situation 4 - Presenting a Slide</h4><p>Context:</p>
+<p>Topic: Many people argue that buying local products supports local communities.</p>
 <ul>
-<li>You are researching customer reactions to your new product.</li>
-<li>You don’t have as much quantifiable data as you’d originally planned, but will submit the final report by the agreed deadline.</li>
-<li>You are making good progress, but can’t give exact figures now — you’re still processing the feedback.</li>
-<li>You need to wait for more questionnaires to come back before finishing the report.</li>
+<li>on the whole</li>
+<li>nevertheless</li>
+<li>on account of</li>
 </ul>
-<p>Key points you intend to cover</p>
-<ul>
-<li>give an overview of responses to the product so far</li>
-<li>explain some of the difficulties involved</li>
-<li>talk about ‘effective questionnaires’</li>
-</ul>
-<h2 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h2><ul>
-<li>a cable car</li>
-<li>before that we could* only rely on</li>
-<li>an overview* of</li>
-<li>to oversee - to keep an eye on&#x2F;supervise</li>
-<li>to overlook - to miss&#x2F;skip over some important information&#x2F;task</li>
-<li>bring about v.s. bring up</li>
-<li>quantifiable(pr)</li>
-<li>more convincing*</li>
+<h3 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h3><ul>
+<li>the butcher</li>
+<li>gourmet burger</li>
+<li>merchandise</li>
+<li>on the contrary; quite the opposite&#x2F;reverse</li>
+<li>in addition to; on top of</li>
+<li>as it so happens; as a matter of fact</li>
+<li>having said that; admittedly</li>
+<li>even so; although</li>
+<li>what’s more; on top of that</li>
+<li>likewise; at the same time</li>
+<li>by and large; on the whole; more or less</li>
+<li>on account of; due to</li>
+<li>accordingly; so</li>
+<li>talking of…(change topic while referring to something recently said)</li>
 </ul>
 ]]></content>
       <tags>
@@ -8412,71 +8512,6 @@ Your browser does not support the audio element.
 <li><p>I accept that you may not like an outsider telling you what is the right thing to do, but we have to recognize that this person is an expert, and they may well see things, opportunities, that we might not. Anyway, he’s on our side.</p>
 </li>
 </ol>
-]]></content>
-      <tags>
-        <tag>Learnship</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Learnship 11 - 2023/10/23</title>
-    <url>/2023/10/23/Learnship-11-2023-10-23/</url>
-    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-11-Using-Discourse-Markers-for-Cohesive-Speaking-Writing-2"><a href="#Business-Language-Coaching-Session-11-Using-Discourse-Markers-for-Cohesive-Speaking-Writing-2" class="headerlink" title="Business Language Coaching - Session 11 - Using Discourse Markers for Cohesive Speaking &amp; Writing(2)"></a>Business Language Coaching - Session 11 - Using Discourse Markers for Cohesive Speaking &amp; Writing(2)</h2><ul>
-<li>learn about discourse markers and how to use them to improve your speaking</li>
-<li>do some impromptu speaking activities</li>
-</ul>
-<h3 id="Starting-Point"><a href="#Starting-Point" class="headerlink" title="Starting Point"></a>Starting Point</h3><p>How did you get on with the exercises on discourse markers? Have you had the chance to practice using a range of discourse markers in your meetings at work?</p>
-<h3 id="Matching"><a href="#Matching" class="headerlink" title="Matching"></a>Matching</h3><p>In paris, match the pairs of sentences. Once you have matched all the sentences, highlight the discourse markers.</p>
-<ol>
-<li><p>I’m not addicted to social media at all. <strong>On the contrary</strong>, there are plenty of other things I’d rather be doing with my time.</p>
-</li>
-<li><p><strong>In addition to</strong> being quite stressful, social media can be very time-consuming.</p>
-</li>
-<li><p>Social media can boost your career prospects. <strong>As it so happens</strong>, I found my current job via a friend’s post.</p>
-</li>
-<li><p>I’ve always been an advocate of new technology. <strong>Having said that</strong>, I do think it has to be used with caution.</p>
-</li>
-<li><p>It’s true that technology has its downsides. <strong>Even so</strong>, I know I couldn’t live without it.</p>
-</li>
-<li><p>Phones are quite expansive. <strong>What’s more</strong>, they break quite easily.</p>
-</li>
-<li><p>Technology has many uses in business. <strong>Likewise</strong>, it has many applications within education too.</p>
-</li>
-<li><p>Some people are nervous about using it, but <strong>by and large</strong>, most people are in favour of technology.</p>
-</li>
-<li><p>I bought the new model <strong>on account of</strong> its high-quality camera.</p>
-</li>
-<li><p>I read about the dangers of too much screen time. <strong>Accordingly</strong>, I now only let my children watch 30 minutes of television a day.</p>
-</li>
-</ol>
-<h3 id="Speaking-game"><a href="#Speaking-game" class="headerlink" title="Speaking game"></a>Speaking game</h3><p>Look at the illustrations on the next page and the list of discourse markers. In your group, take turns in rolling the die and saying the sentence and discourse marker that correspond to the number on the die. Once you use one of the discourse markers, tick it off from the list. Whoever ticks off all the discourse markers first, wins the game!</p>
-<p>Remember, the first throw is to help you choose which sentence to say; the second throw is to help you choose which discourse marker to use. Follow the example your teacher gives you.</p>
-<p>Topic: Being a YouTuber or a streamer is not believed to be a very stable profession.</p>
-<ul>
-<li>Accordingly</li>
-<li>even so</li>
-</ul>
-<p>Topic: Many people argue that buying local products supports local communities.</p>
-<ul>
-<li>on the whole</li>
-<li>nevertheless</li>
-<li>on account of</li>
-</ul>
-<h3 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h3><ul>
-<li>the butcher</li>
-<li>gourmet burger</li>
-<li>merchandise</li>
-<li>on the contrary; quite the opposite&#x2F;reverse</li>
-<li>in addition to; on top of</li>
-<li>as it so happens; as a matter of fact</li>
-<li>having said that; admittedly</li>
-<li>even so; although</li>
-<li>what’s more; on top of that</li>
-<li>likewise; at the same time</li>
-<li>by and large; on the whole; more or less</li>
-<li>on account of; due to</li>
-<li>accordingly; so</li>
-<li>talking of…(change topic while referring to something recently said)</li>
-</ul>
 ]]></content>
       <tags>
         <tag>Learnship</tag>

@@ -18,21 +18,21 @@ hidden: true
 
 | Schedule                  | Start     | End       | Comment           |
 | :------------------------ | :-------- | :-------- | :---------------- |
-| Get up + Breakfast*       | 09:00     | 09:35     | Kettle            |
-| BaiCiZhan/Packing*        | 09:35     | 09:45     |                   |
+| A-SOUL*                   | 00:00     | 01:00     |                   |
+| Reading*                  | 01:00     | 01:30     |                   |
+| Sleep*                    | 01:30     | 08:00     |                   |
+| Get up + Breakfast*       | 08:00     | 08:35     | Kettle            |
+| BaiCiZhan/Packing*        | 08:35     | 08:45     |                   |
+| Life Misc/Commuting*      | 08:45     | 09:45     |                   |
 | Planning*                 | 09:45     | 10:00     |                   |
 | Stand-up                  | 10:00     | 10:30     |                   |
-| Life Misc/Commuting*      | 10:30     | 11:30     |                   |
-| Work*                     | 11:30     | ?         | # Wake up Awei    |
-| Lunch                     | ?         | ? + 1 Hour|                   |
+| Work*                     | 10:30     | 13:00     | # Wake up Awei    |
+| Lunch/Back*               | 13:30     | ? + 1 Hour|                   |
 | Work                      | ? + 1 Hour| 17:30     |                   |
-| DDIA/Commuting*           | 17:30     | 18:45     |                   |
+| DDIA                      | 17:30     | 18:45     |                   |
 | Run + Shower*             | 18:45     | 20:30     |                   |
 | Leetcode*                 | 20:30     | ?         |                   |
-| Entertainment             | ?         | 00:30     |                   |
-| A-SOUL*                   | 00:30     | 01:30     |                   |
-| Reading*                  | 01:30     | 02:00     |                   |
-| Sleep*                    | 02:00     | 09:00     |                   |
+| Entertainment             | ?         | 00:00     |                   |
 
 ### China time
 
@@ -50,6 +50,9 @@ hidden: true
 
 | Schedule                  | Start     | End       | Comment           |
 | :------------------------ | :-------- | :-------- | :---------------- |
+| A-SOUL*                   | 00:00     | 02:30     |                   |
+| Reading*                  | 02:30     | 03:00     |                   |
+| Sleep*                    | 03:00     | 10:00     |                   |
 | Get up + Breakfast*       | 10:00     | 10:45     | Kettle            |
 | BaiCiZhan*                | 10:45     | 11:00     |                   |
 | DDIA*                     | 11:00     | ?         | 20 pages          |
@@ -58,9 +61,6 @@ hidden: true
 | Run + Shower*             | 18:45     | 20:30     |                   |
 | Leetcode*                 | 20:30     | ?         |                   |
 | Entertainment             | ?         | 23:30     |                   |
-| A-SOUL*                   | 00:30     | 02:30     |                   |
-| Reading*                  | 02:30     | 03:00     |                   |
-| Sleep*                    | 03:00     | 10:00     |                   |
 
 ## The lists to be populated
 

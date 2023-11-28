@@ -9,8 +9,8 @@ hidden: true
 
 * Always leave enough time for one activity, otherwise if it slips the whole plan would be ruined
 * Always do the most important thing first
-* There's no need to make things packed, some room is good
 * The item with star(*) mark requires alarm
+* Go to study when learning/working
 
 ## Weekday
 

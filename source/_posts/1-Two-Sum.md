@@ -52,6 +52,10 @@ Output: [0,1]
 
 **Follow-up:** Can you come up with an algorithm that is less than O(n<sup>2</sup>)time complexity?
 
+## Hints/Notes
+
+* Use map
+
 ## Solution
 
 Language: **C++**

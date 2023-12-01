@@ -7,7 +7,7 @@ tags:
 
 ## Current blog
 
-[算法就像搭乐高：带你手撸 LFU 算法](https://labuladong.github.io/algo/di-yi-zhan-da78c/shou-ba-sh-daeca/suan-fa-ji-fb527/)
+[【强化练习】二分搜索算法经典习题](https://appktavsiei5995.pc.xiaoe-tech.com/p/t_pc/course_pc_detail/image_text/i_62a07736e4b01a485209b0b4?product_id=p_62655effe4b0812e1790ecd7&content_app_id=&type=8&parent_pro_id=p_62654124e4b09dda125f9a8d)
 
 ## Last problem solved
 

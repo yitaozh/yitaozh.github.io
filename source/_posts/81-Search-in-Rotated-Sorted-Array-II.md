@@ -48,7 +48,7 @@ Output: false
 
 ## Hints/Notes
 
-* Shrink the left and right boundary before comparison
+* Shrink the left and right boundary before binary search
 
 ## Solution
 

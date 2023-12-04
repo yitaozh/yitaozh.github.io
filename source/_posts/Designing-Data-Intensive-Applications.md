@@ -1202,10 +1202,10 @@ The application is free to ignore certain potential error scenarios and concurre
 
 #### ACID
 
-* **Atomicity.** Is _not_ about concurrency. It is what happens if a client wants to make several writes, but a fault occurs after some of the writes have been processed. _Abortability_ would have been a better term than _atomicity_.
-* **Consistency.** _Invariants_ on your data must always be true. The idea of consistency depends on the application's notion of invariants. Atomicity, isolation, and durability are properties of the database, whereas consistency (in an ACID sense) is a property of the application.
-* **Isolation.** Concurrently executing transactions are isolated from each other. It's also called _serializability_, each transaction can pretend that it is the only transaction running on the entire database, and the result is the same as if they had run _serially_ (one after the other).
-* **Durability.** Once a transaction has committed successfully, any data it has written will not be forgotten, even if there is a hardware fault or the database crashes. In a single-node database this means the data has been written to nonvolatile storage. In a replicated database it means the data has been successfully copied to some number of nodes.
+- **Atomicity.** Is _not_ about concurrency. It is what happens if a client wants to make several writes, but a fault occurs after some of the writes have been processed. _Abortability_ would have been a better term than _atomicity_.
+- **Consistency.** _Invariants_ on your data must always be true. The idea of consistency depends on the application's notion of invariants. Atomicity, isolation, and durability are properties of the database, whereas consistency (in an ACID sense) is a property of the application.
+- **Isolation.** Concurrently executing transactions are isolated from each other. It's also called _serializability_, each transaction can pretend that it is the only transaction running on the entire database, and the result is the same as if they had run _serially_ (one after the other).
+- **Durability.** Once a transaction has committed successfully, any data it has written will not be forgotten, even if there is a hardware fault or the database crashes. In a single-node database this means the data has been written to nonvolatile storage. In a replicated database it means the data has been successfully copied to some number of nodes.
 
 Atomicity can be implemented using a log for crash recovery, and isolation can be implemented using a lock on each object, allowing only one thread to access an object at any one time.
 
@@ -1232,6 +1232,7 @@ Weak isolation levels used in practice:
 #### Read committed
 
 It makes two guarantees:
+
 1. When reading from the database, you will only see data that has been committed (no _dirty reads_). Writes by a transaction only become visible to others when that transaction commits.
 2. When writing to the database, you will only overwrite data that has been committed (no _dirty writes_). Dirty writes are prevented usually by delaying the second write until the first write's transaction has committed or aborted.
 
@@ -1246,8 +1247,9 @@ There are still plenty of ways in which you can have concurrency bugs when using
 _Nonrepeatable read_ or _read skew_, when you read at the same time you committed a change you may see temporal and inconsistent results.
 
 There are some situations that cannot tolerate such temporal inconsistencies:
-* **Backups.** During the time that the backup process is running, writes will continue to be made to the database. If you need to restore from such a backup, inconsistencies can become permanent.
-* **Analytic queries and integrity checks.** You may get nonsensical results if they observe parts of the database at different points in time.
+
+- **Backups.** During the time that the backup process is running, writes will continue to be made to the database. If you need to restore from such a backup, inconsistencies can become permanent.
+- **Analytic queries and integrity checks.** You may get nonsensical results if they observe parts of the database at different points in time.
 
 _Snapshot isolation_ is the most common solution. Each transaction reads from a _consistent snapshot_ of the database.
 
@@ -1304,61 +1306,66 @@ A common approach in replicated databases is to allow concurrent writes to creat
 
 Imagine Alice and Bob are two on-call doctors for a particular shift. Imagine both the request to leave because they are feeling unwell. Unfortunately they happen to click the button to go off call at approximately the same time.
 
-    ALICE                                   BOB
+```bash
+ALICE                                   BOB
 
-    ┌─ BEGIN TRANSACTION                    ┌─ BEGIN TRANSACTION
-    │                                       │
-    ├─ currently_on_call = (                ├─ currently_on_call = (
-    │   select count(*) from doctors        │    select count(*) from doctors
-    │   where on_call = true                │    where on_call = true
-    │   and shift_id = 1234                 │    and shift_id = 1234
-    │  )                                    │  )
-    │  // now currently_on_call = 2         │  // now currently_on_call = 2
-    │                                       │
-    ├─ if (currently_on_call  2) {          │
-    │    update doctors                     │
-    │    set on_call = false                │
-    │    where name = 'Alice'               │
-    │    and shift_id = 1234                ├─ if (currently_on_call >= 2) {
-    │  }                                    │    update doctors
-    │                                       │    set on_call = false
-    └─ COMMIT TRANSACTION                   │    where name = 'Bob'
-                                            │    and shift_id = 1234
-                                            │  }
-                                            │
-                                            └─ COMMIT TRANSACTION
+┌─ BEGIN TRANSACTION                    ┌─ BEGIN TRANSACTION
+│                                       │
+├─ currently_on_call = (                ├─ currently_on_call = (
+│   select count(*) from doctors        │    select count(*) from doctors
+│   where on_call = true                │    where on_call = true
+│   and shift_id = 1234                 │    and shift_id = 1234
+│  )                                    │  )
+│  // now currently_on_call = 2         │  // now currently_on_call = 2
+│                                       │
+├─ if (currently_on_call  2) {          │
+│    update doctors                     │
+│    set on_call = false                │
+│    where name = 'Alice'               │
+│    and shift_id = 1234                ├─ if (currently_on_call >= 2) {
+│  }                                    │    update doctors
+│                                       │    set on_call = false
+└─ COMMIT TRANSACTION                   │    where name = 'Bob'
+                                        │    and shift_id = 1234
+                                        │  }
+                                        │
+                                        └─ COMMIT TRANSACTION
+```
 
 Since database is using snapshot isolation, both checks return 2. Both transactions commit, and now no doctor is on call. The requirement of having at least one doctor has been violated.
 
 Write skew can occur if two transactions read the same objects, and then update some of those objects. You get a dirty write or lost update anomaly.
 
 Ways to prevent write skew are a bit more restricted:
-* Atomic operations don't help as things involve more objects.
-* Automatically prevent write skew requires true serializable isolation.
-* The second-best option in this case is probably to explicitly lock the rows that the transaction depends on.
-  ```sql
-  BEGIN TRANSACTION;
 
-  SELECT * FROM doctors
-  WHERE on_call = true
-  AND shift_id = 1234 FOR UPDATE;
+- Atomic operations don't help as things involve more objects.
+- Automatically prevent write skew requires true serializable isolation.
+- The second-best option in this case is probably to explicitly lock the rows that the transaction depends on.
 
-  UPDATE doctors
-  SET on_call = false
-  WHERE name = 'Alice'
-  AND shift_id = 1234;
+```sql
+BEGIN TRANSACTION;
 
-  COMMIT;
-  ```
+SELECT * FROM doctors
+WHERE on_call = true
+AND shift_id = 1234 FOR UPDATE;
+
+UPDATE doctors
+SET on_call = false
+WHERE name = 'Alice'
+AND shift_id = 1234;
+
+COMMIT;
+```
 
 ### Serializability
 
 This is the strongest isolation level. It guarantees that even though transactions may execute in parallel, the end result is the same as if they had executed one at a time, _serially_, without concurrency. Basically, the database prevents _all_ possible race conditions.
 
 There are three techniques for achieving this:
-* Executing transactions in serial order
-* Two-phase locking
-* Serializable snapshot isolation.
+
+- Executing transactions in serial order
+- Two-phase locking
+- Serializable snapshot isolation.
 
 #### Actual serial execution
 
@@ -1371,8 +1378,9 @@ With interactive style of transaction, a lot of time is spent in network communi
 For this reason, systems with single-threaded serial transaction processing don't allow interactive multi-statement transactions. The application must submit the entire transaction code to the database ahead of time, as a _stored procedure_, so all the data required by the transaction is in memory and the procedure can execute very fast.
 
 There are a few pros and cons for stored procedures:
-* Each database vendor has its own language for stored procedures. They usually look quite ugly and archaic from today's point of view, and they lack the ecosystem of libraries.
-* It's harder to debug, more awkward to keep in version control and deploy, trickier to test, and difficult to integrate with monitoring.
+
+- Each database vendor has its own language for stored procedures. They usually look quite ugly and archaic from today's point of view, and they lack the ecosystem of libraries.
+- It's harder to debug, more awkward to keep in version control and deploy, trickier to test, and difficult to integrate with monitoring.
 
 Modern implementations of stored procedures include general-purpose programming languages instead: VoltDB uses Java or Groovy, Datomic uses Java or Clojure, and Redis uses Lua.
 
@@ -1393,10 +1401,11 @@ Several transactions are allowed to concurrently read the same object as long as
 Writers don't just block other writers; they also block readers and vice versa. It protects against all the race conditions discussed earlier.
 
 Blocking readers and writers is implemented by a having lock on each object in the database. The lock is used as follows:
-* if a transaction want sot read an object, it must first acquire a lock in shared mode.
-* If a transaction wants to write to an object, it must first acquire the lock in exclusive mode.
-* If a transaction first reads and then writes an object, it may upgrade its shared lock to an exclusive lock.
-* After a transaction has acquired the lock, it must continue to hold the lock until the end of the transaction (commit or abort). **First phase is when the locks are acquired, second phase is when all the locks are released.**
+
+- if a transaction want sot read an object, it must first acquire a lock in shared mode.
+- If a transaction wants to write to an object, it must first acquire the lock in exclusive mode.
+- If a transaction first reads and then writes an object, it may upgrade its shared lock to an exclusive lock.
+- After a transaction has acquired the lock, it must continue to hold the lock until the end of the transaction (commit or abort). **First phase is when the locks are acquired, second phase is when all the locks are released.**
 
 It can happen that transaction A is stuck waiting for transaction B to release its lock, and vice versa (_deadlock_).
 
@@ -1439,8 +1448,9 @@ If there is enough spare capacity, and if contention between transactions is not
 SSI is based on snapshot isolation, reads within a transaction are made from a consistent snapshot of the database. On top of snapshot isolation, SSI adds an algorithm for detecting serialization conflicts among writes and determining which transactions to abort.
 
 The database knows which transactions may have acted on an outdated premise and need to be aborted by:
-* **Detecting reads of a stale MVCC object version.** The database needs to track when a transaction ignores another transaction's writes due to MVCC visibility rules. When a transaction wants to commit, the database checks whether any of the ignored writes have now been committed. If so, the transaction must be aborted.
-* **Detecting writes that affect prior reads.** As with two-phase locking, SSI uses index-range locks except that it does not block other transactions. When a transaction writes to the database, it must look in the indexes for any other transactions that have recently read the affected data. It simply notifies the transactions that the data they read may no longer be up to date.
+
+- **Detecting reads of a stale MVCC object version.** The database needs to track when a transaction ignores another transaction's writes due to MVCC visibility rules. When a transaction wants to commit, the database checks whether any of the ignored writes have now been committed. If so, the transaction must be aborted.
+- **Detecting writes that affect prior reads.** As with two-phase locking, SSI uses index-range locks except that it does not block other transactions. When a transaction writes to the database, it must look in the indexes for any other transactions that have recently read the affected data. It simply notifies the transactions that the data they read may no longer be up to date.
 
 ##### Performance of serializable snapshot isolation
 
@@ -1465,6 +1475,7 @@ We need to accept the possibility of partial failure and build fault-tolerant me
 Focusing on _shared-nothing systems_ the network is the only way machines communicate.
 
 The internet and most internal networks are _asynchronous packet networks_. A message is sent and the network gives no guarantees as to when it will arrive, or whether it will arrive at all. Things that could go wrong:
+
 1. Request lost
 2. Request waiting in a queue to be delivered later
 3. Remote node may have failed
@@ -1517,8 +1528,8 @@ The time when a message is received is always later than the time when it is sen
 
 Each machine on the network has its own clock, slightly faster or slower than the other machines. It is possible to synchronise clocks with Network Time Protocol (NTP).
 
-* **Time-of-day clocks**. Return the current date and time according to some calendar (_wall-clock time_). If the local clock is toof ar ahead of the NTP server, it may be forcibly reset and appear to jump back to a previous point in time. **This makes it is unsuitable for measuring elapsed time.**
-* **Monotonic clocks**. Peg: `System.nanoTime()`. They are guaranteed to always move forward. The difference between clock reads can tell you how much time elapsed beween two checks. **The _absolute_ value of the clock is meaningless.** NTP allows the clock rate to be speeded up or slowed down by up to 0.05%, but **NTP cannot cause the monotonic clock to jump forward or backward**. **In a distributed system, using a monotonic clock for measuring elapsed time (peg: timeouts), is usually fine**.
+- **Time-of-day clocks**. Return the current date and time according to some calendar (_wall-clock time_). If the local clock is toof ar ahead of the NTP server, it may be forcibly reset and appear to jump back to a previous point in time. **This makes it is unsuitable for measuring elapsed time.**
+- **Monotonic clocks**. Peg: `System.nanoTime()`. They are guaranteed to always move forward. The difference between clock reads can tell you how much time elapsed beween two checks. **The _absolute_ value of the clock is meaningless.** NTP allows the clock rate to be speeded up or slowed down by up to 0.05%, but **NTP cannot cause the monotonic clock to jump forward or backward**. **In a distributed system, using a monotonic clock for measuring elapsed time (peg: timeouts), is usually fine**.
 
 If some piece of sofware is relying on an accurately synchronised clock, the result is more likely to be silent and subtle data loss than a dramatic crash.
 
@@ -1540,7 +1551,7 @@ The most common implementation of snapshot isolation requires a monotonically in
 
 Spanner implements snapshot isolation across datacenters by using clock's confidence interval. If you have two confidence internvals where
 
-```
+```bash
 A = [A earliest, A latest]
 B = [B earliest, B latest]
 ```
@@ -1558,13 +1569,14 @@ How does a node know that it is still leader?
 One option is for the leader to obtain a _lease_ from other nodes (similar ot a lock with a timeout). It will be the leader until the lease expires; to remain leader, the node must periodically renew the lease. If the node fails, another node can takeover when it expires.
 
 We have to be very careful making assumptions about the time that has passed for processing requests (and holding the lease), as there are many reasons a process would be paused:
-* Garbage collector (stop the world)
-* Virtual machine can be suspended
-* In laptops execution may be suspended
-* Operating system context-switches
-* Synchronous disk access
-* Swapping to disk (paging)
-* Unix process can be stopped (`SIGSTOP`)
+
+- Garbage collector (stop the world)
+- Virtual machine can be suspended
+- In laptops execution may be suspended
+- Operating system context-switches
+- Synchronous disk access
+- Swapping to disk (paging)
+- Unix process can be stopped (`SIGSTOP`)
 
 **You cannot assume anything about timing**
 

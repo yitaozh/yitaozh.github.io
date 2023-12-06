@@ -47,7 +47,7 @@ There may exists other ways to achieve this answer too.
 ## Hints/Notes
 
 * sliding window
-* need to think about the correctness more
+* need to think more about correctness
 
 ## Solution
 

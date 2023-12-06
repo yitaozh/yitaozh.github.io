@@ -1304,7 +1304,7 @@ A common approach in replicated databases is to allow concurrent writes to creat
 
 #### Write skew and phantoms
 
-Imagine Alice and Bob are two on-call doctors for a particular shift. Imagine both the request to leave because they are feeling unwell. Unfortunately they happen to click the button to go off call at approximately the same time.
+Imagine Alice and Bob are two on-call doctors for a particular shift. Imagine both request to leave because they are feeling unwell. Unfortunately they happen to click the button to go off call at approximately the same time.
 
 ```bash
 ALICE                                   BOB
@@ -1318,7 +1318,7 @@ ALICE                                   BOB
 │  )                                    │  )
 │  // now currently_on_call = 2         │  // now currently_on_call = 2
 │                                       │
-├─ if (currently_on_call  2) {          │
+├─ if (currently_on_call >= 2) {        │
 │    update doctors                     │
 │    set on_call = false                │
 │    where name = 'Alice'               │
@@ -1402,7 +1402,7 @@ Writers don't just block other writers; they also block readers and vice versa. 
 
 Blocking readers and writers is implemented by a having lock on each object in the database. The lock is used as follows:
 
-- if a transaction want sot read an object, it must first acquire a lock in shared mode.
+- if a transaction wants to read an object, it must first acquire a lock in shared mode.
 - If a transaction wants to write to an object, it must first acquire the lock in exclusive mode.
 - If a transaction first reads and then writes an object, it may upgrade its shared lock to an exclusive lock.
 - After a transaction has acquired the lock, it must continue to hold the lock until the end of the transaction (commit or abort). **First phase is when the locks are acquired, second phase is when all the locks are released.**
@@ -1514,7 +1514,7 @@ Systems can continually measure response times and their variability (_jitter_),
 
 #### Synchronous vs ashynchronous networks
 
-A telephone network estabilishes a _circuit_, we say is _synchronous_ even as the data passes through several routers as it does not suffer from queing. The maximum end-to-end latency of the network is fixed (_bounded delay_).
+A telephone network estabilishes a _circuit_, we say is _synchronous_ even as the data passes through several routers as it does not suffer from queuing. The maximum end-to-end latency of the network is fixed (_bounded delay_).
 
 A circuit is a fixed amount of reserved bandwidth which nobody else can use while the circuit is established, whereas packets of a TCP connection opportunistically use whatever network bandwidth is available.
 
@@ -1528,10 +1528,10 @@ The time when a message is received is always later than the time when it is sen
 
 Each machine on the network has its own clock, slightly faster or slower than the other machines. It is possible to synchronise clocks with Network Time Protocol (NTP).
 
-- **Time-of-day clocks**. Return the current date and time according to some calendar (_wall-clock time_). If the local clock is toof ar ahead of the NTP server, it may be forcibly reset and appear to jump back to a previous point in time. **This makes it is unsuitable for measuring elapsed time.**
-- **Monotonic clocks**. Peg: `System.nanoTime()`. They are guaranteed to always move forward. The difference between clock reads can tell you how much time elapsed beween two checks. **The _absolute_ value of the clock is meaningless.** NTP allows the clock rate to be speeded up or slowed down by up to 0.05%, but **NTP cannot cause the monotonic clock to jump forward or backward**. **In a distributed system, using a monotonic clock for measuring elapsed time (peg: timeouts), is usually fine**.
+- **Time-of-day clocks**. Return the current date and time according to some calendar (_wall-clock time_). If the local clock is too far ahead of the NTP server, it may be forcibly reset and appear to jump back to a previous point in time. **This makes it is unsuitable for measuring elapsed time.**
+- **Monotonic clocks**. e.g.: `System.nanoTime()`. They are guaranteed to always move forward. The difference between clock reads can tell you how much time elapsed beween two checks. **The _absolute_ value of the clock is meaningless.** NTP allows the clock rate to be speeded up or slowed down by up to 0.05%, but **NTP cannot cause the monotonic clock to jump forward or backward**. **In a distributed system, using a monotonic clock for measuring elapsed time (e.g.: timeouts), is usually fine**.
 
-If some piece of sofware is relying on an accurately synchronised clock, the result is more likely to be silent and subtle data loss than a dramatic crash.
+If some piece of sofware is relying on an accurately synchronized clock, the result is more likely to be silent and subtle data loss than a dramatic crash.
 
 You need to carefully monitor the clock offsets between all the machines.
 
@@ -1586,17 +1586,21 @@ There are systems that require software to respond before a specific _deadline_ 
 
 Library functions must document their worst-case execution times; dynamic memory allocation may be restricted or disallowed and enormous amount of testing and measurement must be done.
 
+##### Limiting the impact of garbage collection
+
 Garbage collection could be treated like brief planned outages. If the runtime can warn the application that a node soon requires a GC pause, the application can stop sending new requests to that node and perform GC while no requests are in progress.
 
 A variant of this idea is to use the garbage collector only for short-lived objects and to restart the process periodically.
 
 ### Knowledge, truth and lies
 
+#### The truth is defined by the majority
+
 A node cannot necessarily trust its own judgement of a situation. Many distributed systems rely on a _quorum_ (voting among the nodes).
 
 Commonly, the quorum is an absolute majority of more than half of the nodes.
 
-#### Fencing tokens
+##### Fencing tokens
 
 Assume every time the lock server grant sa lock or a lease, it also returns a _fencing token_, which is a number that increases every time a lock is granted (incremented by the lock service). Then we can require every time a client sends a write request to the storage service, it must include its current fencing token.
 
@@ -1611,8 +1615,9 @@ Fencing tokens can detect and block a node that is _inadvertently_ acting in err
 Distributed systems become much harder if there is a risk that nodes may "lie" (_byzantine fault_).
 
 A system is _Byzantine fault-tolerant_ if it continues to operate correctly even if some of the nodes are malfunctioning.
-* Aerospace environments
-* Multiple participating organisations, some participants may attempt ot cheat or defraud others
+
+- Aerospace environments
+- Multiple participating organisations, some participants may attempt to cheat or defraud others
 
 ## Consistency and consensus
 

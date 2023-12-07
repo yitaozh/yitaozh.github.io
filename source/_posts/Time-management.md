@@ -26,13 +26,22 @@ hidden: true
 | Life Misc/Commuting*      | 08:45     | 09:45     |                   |
 | Planning*                 | 09:45     | 10:00     |                   |
 | Stand-up                  | 10:00     | 10:30     |                   |
-| Work*                     | 10:30     | 13:00     | # Wake up Awei    |
-| Lunch/Back*               | 13:30     | ? + 1 Hour|                   |
-| Work                      | ? + 1 Hour| 17:30     |                   |
-| DDIA                      | 17:30     | 18:45     |                   |
+| DDIA*                     | 10:30     | 11:30     |                   |
+| Work*                     | 11:30     | 13:30     | # Wake up Awei    |
+| Lunch/Back*               | 13:30     | 14:30     |                   |
+| Work                      | 14:30     | 17:30     |                   |
+| DDIA/Leetcode*            | 17:30     | 18:45     |                   |
 | Run + Shower*             | 18:45     | 20:30     |                   |
 | Leetcode*                 | 20:30     | ?         |                   |
 | Entertainment             | ?         | 00:00     |                   |
+
+### Stat (U.S.)
+
+| Category      | time      |
+| :--------     | :-------- |
+| Work          | 5.5 Hours |
+| Leetcode      | 2   Hours |
+| Tech Reading  | 1.5 Hour  |
 
 ### China time
 

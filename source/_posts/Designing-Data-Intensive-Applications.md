@@ -107,8 +107,6 @@ You should generally **prefer tolerating faults over preventing faults**.
 
 This is how do we cope with increased load. We need to succinctly describe the current load on the system; only then we can discuss growth questions.
 
----
-
 #### Twitter example
 
 Twitter main operations
@@ -126,8 +124,6 @@ Approach 1, systems struggle to keep up with the load of home timeline queries. 
 Downside of approach 2 is that posting a tweet now requires a lot of extra work. Some users have over 30 million followers. A single tweet may result in over 30 million writes to home timelines.
 
 Twitter moved to an hybrid of both approaches. Tweets continue to be fanned out to home timelines but a small number of users with a very large number of followers are fetched separately and merged with that user's home timeline when it is read, like in approach 1.
-
----
 
 #### Describing performance
 
@@ -210,12 +206,8 @@ One of the best tools we have for removing accidental complexity is _abstraction
 
 _Agile_ working patterns provide a framework for adapting to change.
 
----
-
 - _Functional requirements_: what the application should do
 - _Nonfunctional requirements_: general properties like security, reliability, compliance, scalability, compatibility and maintainability.
-
----
 
 ## Data models and query language
 
@@ -263,8 +255,6 @@ By contrast, the relational model was a way to lay out all the data in the open"
 The query optimiser automatically decides which parts of the query to execute in which order, and which indexes to use (the access path).
 
 The relational model thus made it much easier to add new features to applications.
-
----
 
 **The main arguments in favour of the document data model are schema flexibility, better performance due to locality, and sometimes closer data structures to the ones used by the applications. The relation model counters by providing better support for joins, and many-to-one and many-to-many relationships.**
 
@@ -380,12 +370,8 @@ Each edge consists of:
 
 Graphs provide a great deal of flexibility for data modelling. Graphs are good for evolvability.
 
----
-
 - _Cypher_ is a declarative language for property graphs created by Neo4j
 - Graph queries in SQL. In a relational database, you usually know in advance which joins you need in your query. In a graph query, the number if joins is not fixed in advance. In Cypher `:WITHIN*0...` expresses "follow a `WITHIN` edge, zero or more times" (like the `*` operator in a regular expression). This idea of variable-length traversal paths in a query can be expressed using something called _recursive common table expressions_ (the `WITH RECURSIVE` syntax).
-
----
 
 #### Triple-stores and SPARQL
 
@@ -681,8 +667,6 @@ If the database schema changes, you can just generate a new Avro schema for the 
 
 By contrast with Thrift and Protocol Buffers, every time the database schema changes, you would have to manually update the mappings from database column names to field tags.
 
----
-
 Although textual formats such as JSON, XML and CSV are widespread, binary encodings based on schemas are also a viable option. As they have nice properties:
 
 - Can be much more compact, since they can omit field names from the encoded data.
@@ -752,8 +736,6 @@ In _distributed actor frameworks_, this programming model is used to scale an ap
 - _Akka_ uses Java's built-in serialisation by default, which does not provide forward or backward compatibility. You can replace it with something like Protocol Buffers and the ability to do rolling upgrades.
 - _Orleans_ by default uses custom data encoding format that does not support rolling upgrade deployments.
 - In _Erlang OTP_ it is surprisingly hard to make changes to record schemas.
-
----
 
 What happens if multiple machines are involved in storage and retrieval of data?
 
@@ -1625,7 +1607,7 @@ The simplest way of handling faults is to simply let the entire service fail. We
 
 ### Consistency guarantees
 
-Write requests arrive on different nodes at different times.
+Different data is observed because write requests arrive on different nodes at different times.
 
 Most replicated databases provide at least _eventual consistency_. The inconsistency is temporary, and eventually resolves itself (_convergence_).
 
@@ -1635,12 +1617,12 @@ With weak guarantees, you need to be constantly aware of its limitations. System
 
 Make a system appear as if there were only one copy of the data, and all operaitons on it are atomic.
 
-* `read(x) => v` Read from register _x_, database returns value _v_.
-* `write(x,v) => r` _r_ could be _ok_ or _error_.
+- `read(x) => v` Read from register _x_, database returns value _v_.
+- `write(x,v) => r` _r_ could be _ok_ or _error_.
 
 If one client read returns the new value, all subsequent reads must also return the new value.
 
-* `cas(x_old, v_old, v_new) => r` an atomic _compare-and-set_ operation. If the value of the register _x_ equals _v_old_, it is atomically set to _v_new_. If `x != v_old` the registers is unchanged and it returns an error.
+- `cas(x_old, v_old, v_new) => r` an atomic _compare-and-set_ operation. If the value of the register _x_ equals _v_old_, it is atomically set to _v_new_. If `x != v_old` the registers is unchanged and it returns an error.
 
 **Serializability**: Transactions behave the same as if they had executed _some_ serial order.
 
@@ -1662,10 +1644,10 @@ A hard uniqueness constraint in relational databases requires linearizability.
 
 The simplest approach would be to have a single copy of the data, but this would not be able to tolerate faults.
 
-* Single-leader repolication is potentially linearizable.
-* Consensus algorithms is linearizable.
-* Multi-leader replication is not linearizable.
-* Leaderless replication is probably not linearizable.
+- Single-leader repolication is potentially linearizable.
+- Consensus algorithms is linearizable.
+- Multi-leader replication is not linearizable.
+- Leaderless replication is probably not linearizable.
 
 Multi-leader replication is often a good choice for multi-datacenter replication. On a network interruption betwen data-centers will force a choice between linearizability and availability.
 
@@ -1673,9 +1655,8 @@ With multi-leader configuraiton, each data center can operate normally with inte
 
 With single-leader replication, the leader must be in one of the datacenters. If the application requires linearizable reads and writes, the network interruption causes the application to become unavailable.
 
-* If your applicaiton _requires_ linearizability, and some replicas are disconnected from the other replicas due to a network problem, the some replicas cannot process request while they are disconnected (unavailable).
-
-* If your application _does not require_, then it can be written in a way tha each replica can process requests independently, even if it is disconnected from other replicas (peg: multi-leader), becoming _available_.
+- If your applicaiton _requires_ linearizability, and some replicas are disconnected from the other replicas due to a network problem, the some replicas cannot process request while they are disconnected (unavailable).
+- If your application _does not require_, then it can be written in a way tha each replica can process requests independently, even if it is disconnected from other replicas (peg: multi-leader), becoming _available_.
 
 **If an application does not require linearizability it can be more tolerant of network problems.**
 
@@ -1685,9 +1666,7 @@ CAP is sometimes presented as _Consistency, Availability, Partition tolerance: p
 
 CAP only considers one consistency model (linearizability) and one kind of fault (_network partitions_, or nodes that are alive but disconnected from each other). It doesn't say anything about network delays, dead nodes, or other trade-offs. CAP has been historically influential, but nowadays has little practical value for designing systems.
 
----
-
-The main reason for dropping linearizability is _performance_, not fault tolerance. Linearizabilit is slow and this is true all the time, not on only during a network fault.
+The main reason for dropping linearizability is _performance_, not fault tolerance. Linearizability is slow and this is true all the time, not on only during a network fault.
 
 ### Ordering guarantees
 
@@ -1699,8 +1678,8 @@ Some cases one set is greater than another one.
 
 Different consistency models:
 
-* Linearizablity. _total order_ of operations: if the system behaves as if there is only a single copy of the data.
-* Causality. Two events are ordered if they are causally related. Causality defines _a partial order_, not a total one (incomparable if they are concurrent).
+- Linearizablity. _Total order_ of operations: if the system behaves as if there is only a single copy of the data.
+- Causality. Two events are ordered if they are causally related. Causality defines _a partial order_, not a total one (incomparable if they are concurrent).
 
 Linearizability is not the only way of preserving causality. **Causal consistency is the strongest possible consistency model that does not slow down due to network delays, and remains available in the face of network failures.**
 
@@ -1713,9 +1692,10 @@ We can create sequence numbers in a total order that is _consistent with causali
 With a single-leader replication, the leader can simply increment a counter for each operation, and thus assign a monotonically increasing sequence number to each operation in the replication log.
 
 If there is not a single leader (multi-leader or leaderless database):
-* Each node can generate its own independent set of sequence numbers. One node can generate only odd numbers and the other only even numbers.
-* Attach a timestamp from a time-of-day clock.
-* Preallocate blocks of sequence numbers.
+
+- Each node can generate its own independent set of sequence numbers. One node can generate only odd numbers and the other only even numbers.
+- Attach a timestamp from a time-of-day clock.
+- Preallocate blocks of sequence numbers.
 
 The only problem is that the sequence numbers they generate are _not consistent with causality_. They do not correctly capture ordering of operations across different nodes.
 
@@ -1729,9 +1709,10 @@ As long as the maximum counter value is carried along with every operation, this
 
 Total order of oepration only emerges after you have collected all of the operations.
 
-Total order broadcast:
-* Reliable delivery: If a message is delivered to one node, it is delivered to all nodes.
-* Totally ordered delivery: Mesages are delivered to every node in the same order.
+#### Total order broadcast
+
+- Reliable delivery: If a message is delivered to one node, it is delivered to all nodes.
+- Totally ordered delivery: Mesages are delivered to every node in the same order.
 
 ZooKeeper and etcd implement total order broadcast.
 
@@ -1741,6 +1722,8 @@ A node is not allowed to retroactgively insert a message into an earlier positio
 
 Another way of looking at total order broadcast is that it is a way of creating a _log_. Delivering a message is like appending to the log.
 
+##### Implementing linearizable storage using total order broadcast
+
 If you have total order broadcast, you can build linearizable storage on top of it.
 
 Because log entries are delivered to all nodes in the same order, if therer are several concurrent writes, all nodes will agree on which one came first. Choosing the first of the conflicting writes as the winner and aborting later ones ensures that all nodes agree on whether a write was commited or aborted.
@@ -1748,46 +1731,58 @@ Because log entries are delivered to all nodes in the same order, if therer are 
 This procedure ensures linearizable writes, it doesn't guarantee linearizable reads.
 
 To make reads linearizable:
-* You can sequence reads through the log by appending a message, reading the log, and performing the actual read when the message is delivered back to you (etcd works something like this).
-* Fetch the position of the latest log message in a linearizable way, you can query that position to be delivered to you, and then perform the read (idea behind ZooKeeper's `sync()`).
-* You can make your read from a replica that is synchronously updated on writes.
 
-For every message you want to send through total order broadcast, you increment-and-get the linearizable integer and then attach the value you got from the register as a sequence number to the message. YOu can send the message to all nodes, and the recipients will deliver the message consecutively by sequence number.
+- You can sequence reads through the log by appending a message, reading the log, and performing the actual read when the message is delivered back to you (etcd works something like this).
+- Fetch the position of the latest log message in a linearizable way, you can query that position to be delivered to you, and then perform the read (idea behind ZooKeeper's `sync()`).
+- You can make your read from a replica that is synchronously updated on writes.
+
+##### Implementing total order broadcast using linearizable storage
+
+For every message you want to send through total order broadcast, you increment-and-get the linearizable integer and then attach the value you got from the register as a sequence number to the message. You can send the message to all nodes, and the recipients will deliver the message consecutively by sequence number.
 
 ### Distributed transactions and consensus
 
 Basically _getting several nodes to agree on something_.
 
 There are situations in which it is important for nodes to agree:
-* Leader election: All nodes need to agree on which node is the leader.
-* Atomic commit: Get all nodes to agree on the outcome of the transacction, either they all abort or roll back.
+
+- Leader election: All nodes need to agree on which node is the leader.
+- Atomic commit: Get all nodes to agree on the outcome of the transacction, either they all abort or roll back.
 
 #### Atomic commit and two-phase commit (2PC)
 
 A transaction either succesfully _commit_, or _abort_. Atomicity prevents half-finished results.
 
+##### From single-node to distributed atomic commit
+
 On a single node, transaction commitment depends on the _order_ in which data is writen to disk: first the data, then the commit record.
 
-2PC uses a coordinartor (_transaction manager_). When the application is ready to commit, the coordinator begins phase 1: it sends a _prepare_ request to each of the nodes, asking them whether are able to commit.
+##### Introduction to two-phase commit
 
-* If all participants reply "yes", the coordinator sends out a _commit_ request in phase 2, and the commit takes place.
-* If any of the participants replies "no", the coordinator sends an _abort_ request to all nodes in phase 2.
+2PC uses a coordinartor (_transaction manager_). When the application is ready to commit, the coordinator begins phase 1: it sends a _prepare_ request to each of the nodes, asking them whether they are able to commit.
+
+- If all participants reply "yes", the coordinator sends out a _commit_ request in phase 2, and the commit takes place.
+- If any of the participants replies "no", the coordinator sends an _abort_ request to all nodes in phase 2.
+
+##### A system of promises
 
 When a participant votes "yes", it promises that it will definitely be able to commit later; and once the coordiantor decides, that decision is irrevocable. Those promises ensure the atomicity of 2PC.
 
 If one of the participants or the network fails during 2PC (prepare requests fail or time out), the coordinator aborts the transaction. If any of the commit or abort request fail, the coordinator retries them indefinitely.
 
+##### Cordinator failure
+
 If the coordinator fails before sending the prepare requests, a participant can safely abort the transaction.
 
 The only way 2PC can complete is by waiting for the coordinator to revover in case of failure. This is why the coordinator must write its commit or abort decision to a transaction log on disk before sending commit or abort requests to participants.
 
-#### Three-phase commit
+##### Three-phase commit
 
 2PC is also called a _blocking_ atomic commit protocol, as 2Pc can become stuck waiting for the coordinator to recover.
 
 There is an alternative called _three-phase commit_ (3PC) that requires a _perfect failure detector_.
 
----
+#### Distributed Transactions in Practice
 
 Distributed transactions carry a heavy performance penalty due the disk forcing in 2PC required for crash recovery and additional network round-trips.
 
@@ -1804,36 +1799,44 @@ When a coordinator fails, _orphaned_ in-doubt transactions do ocurr, and the onl
 One or more nodes may _propose_ values, and the consensus algorithm _decides_ on those values.
 
 Consensus algorithm must satisfy the following properties:
-* Uniform agreement: No two nodes decide differently.
-* Integrity: No node decides twice.
-* Validity: If a node decides the value _v_, then _v_ was proposed by some node.
-* Termination: Every node that does not crash eventually decides some value.
+
+- Uniform agreement: No two nodes decide differently.
+- Integrity: No node decides twice.
+- Validity: If a node decides the value _v_, then _v_ was proposed by some node.
+- Termination: Every node that does not crash eventually decides some value.
 
 If you don't care about fault tolerance, then satisfying the first three properties is easy: you can just hardcode one node to be the "dictator" and let that node make all of the decisions.
 
 The termination property formalises the idea of fault tolerance. Even if some nodes fail, the other nodes must still reach a decision. Termination is a liveness property, whereas the other three are safety properties.
+
+##### Consensus algorithms and total broadcast
 
 **The best-known fault-tolerant consensus algorithms are Viewstamped Replication (VSR), Paxos, Raft and Zab.**
 
 Total order broadcast requires messages to be delivered exactly once, in the same order, to all nodes.
 
 So total order broadcast is equivalent to repeated rounds of consensus:
-* Due to agreement property, all nodes decide to deliver the same messages in the same order.
-* Due to integrity, messages are not duplicated.
-* Due to validity, messages are not corrupted.
-* Due to termination, messages are not lost.
+
+- Due to agreement property, all nodes decide to deliver the same messages in the same order.
+- Due to integrity, messages are not duplicated.
+- Due to validity, messages are not corrupted.
+- Due to termination, messages are not lost.
 
 ##### Single-leader replication and consensus
 
 All of the consensus protocols dicussed so far internally use a leader, but they don't guarantee that the lader is unique. Protocols define an _epoch number_ (_ballot number_ in Paxos, _view number_ in Viewstamped Replication, and _term number_ in Raft). Within each epoch, the leader is unique.
 
-Every time the current leader is thought to be dead, a vote is started among the nodes to elect a new leader. This election is given an incremented epoch number, and thus epoch numbers are totallly ordered and monotonically increasing. If there is a conflic, the leader with the higher epoch number prevails.
+##### Epoch numbering and quorums
+
+Every time the current leader is thought to be dead, a vote is started among the nodes to elect a new leader. This election is given an incremented epoch number, and thus epoch numbers are totallly ordered and monotonically increasing. If there is a conflict, the leader with the higher epoch number prevails.
 
 A node cannot trust its own judgement. It must collect votes from a _quorum_ of nodes. For every decision that a leader wants to make, it must send the proposed value to the other nodes and wait for a quorum of nodes to respond in favor of the proposal.
 
 There are two rounds of voting, once to choose a leader, and second time to vote on a leader's proposal. The quorums for those two votes must overlap.
 
 The biggest difference with 2PC, is that 2PC requires a "yes" vote for _every_ participant.
+
+##### Limitations of consensus
 
 The benefits of consensus come at a cost. The process by which nodes vote on proposals before they are decided is kind of synchronous replication.
 
@@ -1850,12 +1853,15 @@ ZooKeeper or etcd are often described as "distributed key-value stores" or "coor
 They are designed to hold small amounts of data that can fit entirely in memory, you wouldn't want to store all of your application's data here. Data is replicated across all the nodes using a fault-tolerant total order broadcast algorithm.
 
 ZooKeeper is modeled after Google's Chubby lock service and it provides some useful features:
-* Linearizable atomic operations: Usuing an atomic compare-and-set operation, you can implement a lock.
-* Total ordering of operations: When some resource is protected by a lock or lease, you need a _fencing token_ to prevent clients from conflicting with each other in the case of a process pause. The fencing token is some number that monotonically increases every time the lock is acquired.
-* Failure detection: Clients maintain a long-lived session on ZooKeeper servers. When a ZooKeeper node fails, the session remains active. When ZooKeeper declares the session to be dead all locks held are automatically released.
-* Change notifications: Not only can one client read locks and values, it can also watch them for changes.
+
+- Linearizable atomic operations: Usuing an atomic compare-and-set operation, you can implement a lock.
+- Total ordering of operations: When some resource is protected by a lock or lease, you need a _fencing token_ to prevent clients from conflicting with each other in the case of a process pause. The fencing token is some number that monotonically increases every time the lock is acquired.
+- Failure detection: Clients maintain a long-lived session on ZooKeeper servers. When a ZooKeeper node fails, the session remains active. When ZooKeeper declares the session to be dead all locks held are automatically released.
+- Change notifications: Not only can one client read locks and values, it can also watch them for changes.
 
 ZooKeeper is super useful for distributed coordination.
+
+##### Allocating works to nodes
 
 ZooKeeper/Chubby model works well when you have several instances of a process or service, and one of them needs to be chosen as a leader or primary. If the leader fails, one of the other nodes should take over. This is useful for single-leader databases and for job schedulers and similar stateful systems.
 
@@ -1863,7 +1869,11 @@ ZooKeeper runs on a fixed number of nodes, and performs its majority votes among
 
 The kind of data managed by ZooKeeper is quite slow-changing like "the node running on 10.1.1.23 is the leader for partition 7". It is not intended for storing the runtime state of the application. If application state needs to be replicated there are other tools (like Apache BookKeeper).
 
+##### Service discovery
+
 ZooKeeper, etcd, and Consul are also often used for _service discovery_, find out which IP address you need to connect to in order to reach a particular service. In cloud environments, it is common for virtual machines to continually come an go, you often don't know the IP addresses of your services ahead of time. Your services when they start up they register their network endpoints ina  service registry, where they can then be found by other services.
+
+##### Membership services
 
 ZooKeeper and friends can be seen as part of a long history of research into _membership services_, determining which nodes are currently active and live members of a cluster.
 

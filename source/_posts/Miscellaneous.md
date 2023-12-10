@@ -17,7 +17,7 @@ New page.
 
 ## DDIA progress
 
-Ordering and causality, page 340
+MapReduce Job Execution, page 399.
 
 ## The problems not recorded
 

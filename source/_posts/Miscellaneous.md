@@ -7,7 +7,7 @@ tags:
 
 ## Current leetcode blog
 
-[【强化练习】栈的经典习题](https://appktavsiei5995.pc.xiaoe-tech.com/p/t_pc/course_pc_detail/image_text/i_627cd411e4b01a4851fe141e?product_id=p_627cd0eae4b0cedf38b0ef74&content_app_id=&type=8&parent_pro_id=p_62654124e4b09dda125f9a8d)
+[【强化练习】队列的经典习题](https://appktavsiei5995.pc.xiaoe-tech.com/p/t_pc/course_pc_detail/image_text/i_62a6ba49e4b01c509abd5927?product_id=p_627cd0eae4b0cedf38b0ef74&content_app_id=&type=8&parent_pro_id=p_62654124e4b09dda125f9a8d)
 
 ## Last problem solved
 
@@ -17,7 +17,7 @@ New page.
 
 ## DDIA progress
 
-Databases and Streams, page 451.
+Event Sourcing, page 457.
 
 ## The problems not recorded
 

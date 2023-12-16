@@ -7,7 +7,7 @@ tags:
 
 ## Current leetcode blog
 
-[【强化练习】队列的经典习题](https://appktavsiei5995.pc.xiaoe-tech.com/p/t_pc/course_pc_detail/image_text/i_62a6ba49e4b01c509abd5927?product_id=p_627cd0eae4b0cedf38b0ef74&content_app_id=&type=8&parent_pro_id=p_62654124e4b09dda125f9a8d)
+[【强化练习】单调栈经典习题](https://appktavsiei5995.pc.xiaoe-tech.com/p/t_pc/course_pc_detail/image_text/i_628dc2d7e4b0cedf38b67734?product_id=p_627cd0eae4b0cedf38b0ef74&content_app_id=&type=8&parent_pro_id=p_62654124e4b09dda125f9a8d)
 
 ## Last problem solved
 

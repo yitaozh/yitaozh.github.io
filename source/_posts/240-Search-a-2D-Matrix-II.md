@@ -50,9 +50,11 @@ Output: false
 * All the integers in each column are **sorted** in ascending order.
 * -10<sup>9</sup> <= target <= 10<sup>9</sup>
 
-## Solution
+## Hints/Notes
 
 * start from top right corner
+
+## Solution
 
 Language: **C++**
 

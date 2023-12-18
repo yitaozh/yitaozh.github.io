@@ -72,17 +72,19 @@ Output: [[3,null],[3,0],[3,null]]
 Language: **C++**
 
 ```C++
-class Node {
+/*
+// Definition for a Node.
+class Node {
 public:
-    int val;
-    Node* next;
-    Node* random;
-    
-    Node(int _val) {
-        val = _val;
-        next = NULL;
-        random = NULL;
-    }
+    int val;
+    Node* next;
+    Node* random;
+
+    Node(int _val) {
+        val = _val;
+        next = NULL;
+        random = NULL;
+    }
 };
 */
 
@@ -108,6 +110,4 @@ public:
         return head ? m[head] : nullptr;
     }
 };
-// Definition for a Node.
-/*
 ```

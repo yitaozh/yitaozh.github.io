@@ -17,7 +17,7 @@ New page.
 
 ## DDIA progress
 
-Event Sourcing, page 457.
+Un bundling Databases, page 499.
 
 ## The problems not solved
 

@@ -56,6 +56,7 @@ wordDictionary.search("b.."); // return True
 ## Hints/Notes
 
 * Trie
+* Need a for loop for wildcard matching, also need a helper function tracking the index
 
 ## Solution
 

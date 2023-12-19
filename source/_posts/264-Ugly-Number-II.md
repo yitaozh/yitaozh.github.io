@@ -44,6 +44,7 @@ Explanation: 1 has no prime factors, therefore all of its prime factors are limi
 ## Hints/Notes
 
 * It's like combining 3 linked lists
+* No need to use priority queue, just compare the 3 values
 
 ## Solution
 
@@ -64,7 +65,6 @@ public:
             if (val == val1) {
                 val1 = res[index1] * 2;
                 index1++;
-                
             }
             if (val == val2) {
                 val2 = res[index2] * 3;

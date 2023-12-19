@@ -55,29 +55,25 @@ Explanation: 1 has no prime factors, therefore all of its prime factors are in t
 Language: **C++**
 
 ```C++
-class Solution {
+class Solution {
 public:
-    int nthSuperUglyNumber(int n, vector<int>& primes) {
-        priority_queue<vector<long>, vector<vector<long>>, greater<vector<long>>> pq;
-        for (int prime : primes) {
-            pq.push({1, prime, 0});
-        }
-        int index = 0;
-        vector<long> res(n, 0);
-        while (index < n) {
-            auto item = pq.top();
-            int val = item[0];
-            res[index] = val;
-            index++;
-            do {
-                int prime = item[1];
-                int indexp = item[2];
-                pq.pop();
-                pq.push({res[indexp] * prime, prime, indexp + 1});
-                item = pq.top();
-            } while (item[0] == val);
-        }
-        return res[n - 1];
-    }
+    int nthSuperUglyNumber(int n, vector<int>& primes) {
+        priority_queue<vector<long>, vector<vector<long>>, greater<vector<long>>> pq;
+        vector<long> res;
+        for (int prime : primes) {
+            pq.push({1, 0, prime});
+        }
+        while (res.size() < n) {
+            long val = pq.top()[0];
+            res.push_back(val);
+            while (pq.top()[0] == val) {
+                int idx = pq.top()[1];
+                int prime = pq.top()[2];
+                pq.pop();
+                pq.push({res[idx] * prime, idx + 1, prime});
+            }
+        }
+        return res.back();
+    }
 };
 ```

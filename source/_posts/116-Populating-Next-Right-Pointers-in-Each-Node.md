@@ -62,7 +62,8 @@ Output: []
 
 ## Hints/Notes
 
-* N/A
+* use a queue to solve the problem iteratively
+* use a helper function to solve the problem recursively
 
 ## Solution
 

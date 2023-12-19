@@ -149,41 +149,6 @@
       </tags>
   </entry>
   <entry>
-    <title>104. Maximum Depth of Binary Tree</title>
-    <url>/2023/02/02/104-Maximum-Depth-of-Binary-Tree/</url>
-    <content><![CDATA[<h1 id="104-Maximum-Depth-of-Binary-Tree"><a href="#104-Maximum-Depth-of-Binary-Tree" class="headerlink" title="104. Maximum Depth of Binary Tree"></a><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/">104. Maximum Depth of Binary Tree</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/tree/">Tree</a>, <a href="https://leetcode.com/tag/depth-first-search/">Depth-First Search</a>, <a href="https://leetcode.com/tag/breadth-first-search/">Breadth-First Search</a>, <a href="https://leetcode.com/tag/binary-tree/">Binary Tree</a></p>
-<p>Given the <code>root</code> of a binary tree, return <em>its maximum depth</em>.</p>
-<p>A binary tree’s <strong>maximum depth</strong> is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/11/26/tmp-tree.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [3,9,20,null,null,15,7]</span><br><span class="line">Output: 3</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [1,null,2]</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in the tree is in the range [0, 10<sup>4</sup>].</li>
-<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Think about the tree’s left and right</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(<span class="built_in">maxDepth</span>(root-&gt;left), <span class="built_in">maxDepth</span>(root-&gt;right)) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
-        <tag>Breadth-First Search</tag>
-        <tag>Binary Tree</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>105. Construct Binary Tree from Preorder and Inorder Traversal</title>
     <url>/2023/08/17/105-Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal/</url>
     <content><![CDATA[<h1 id="105-Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal"><a href="#105-Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal" class="headerlink" title="105. Construct Binary Tree from Preorder and Inorder Traversal"></a><a href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">105. Construct Binary Tree from Preorder and Inorder Traversal</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -218,9 +183,44 @@
       <tags>
         <tag>Array</tag>
         <tag>Hash Table</tag>
+        <tag>Divide and Conquer</tag>
         <tag>Tree</tag>
         <tag>Binary Tree</tag>
-        <tag>Divide and Conquer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>104. Maximum Depth of Binary Tree</title>
+    <url>/2023/02/02/104-Maximum-Depth-of-Binary-Tree/</url>
+    <content><![CDATA[<h1 id="104-Maximum-Depth-of-Binary-Tree"><a href="#104-Maximum-Depth-of-Binary-Tree" class="headerlink" title="104. Maximum Depth of Binary Tree"></a><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/">104. Maximum Depth of Binary Tree</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/tree/">Tree</a>, <a href="https://leetcode.com/tag/depth-first-search/">Depth-First Search</a>, <a href="https://leetcode.com/tag/breadth-first-search/">Breadth-First Search</a>, <a href="https://leetcode.com/tag/binary-tree/">Binary Tree</a></p>
+<p>Given the <code>root</code> of a binary tree, return <em>its maximum depth</em>.</p>
+<p>A binary tree’s <strong>maximum depth</strong> is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/11/26/tmp-tree.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [3,9,20,null,null,15,7]</span><br><span class="line">Output: 3</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [1,null,2]</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is in the range [0, 10<sup>4</sup>].</li>
+<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Think about the tree’s left and right</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(<span class="built_in">maxDepth</span>(root-&gt;left), <span class="built_in">maxDepth</span>(root-&gt;right)) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Tree</tag>
+        <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
+        <tag>Breadth-First Search</tag>
       </tags>
   </entry>
   <entry>
@@ -303,9 +303,9 @@
       <tags>
         <tag>Array</tag>
         <tag>Hash Table</tag>
+        <tag>Divide and Conquer</tag>
         <tag>Tree</tag>
         <tag>Binary Tree</tag>
-        <tag>Divide and Conquer</tag>
       </tags>
   </entry>
   <entry>
@@ -574,8 +574,8 @@
         <tag>Linked List</tag>
         <tag>Stack</tag>
         <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
       </tags>
   </entry>
   <entry>
@@ -617,9 +617,9 @@
       <tags>
         <tag>Linked List</tag>
         <tag>Tree</tag>
+        <tag>Binary Tree</tag>
         <tag>Depth-First Search</tag>
         <tag>Breadth-First Search</tag>
-        <tag>Binary Tree</tag>
       </tags>
   </entry>
   <entry>
@@ -993,8 +993,8 @@
       <tags>
         <tag>Stack</tag>
         <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
       </tags>
   </entry>
   <entry>
@@ -1074,6 +1074,42 @@
       </tags>
   </entry>
   <entry>
+    <title>15. 3Sum</title>
+    <url>/2023/11/30/15-3Sum/</url>
+    <content><![CDATA[<h1 id="15-3Sum"><a href="#15-3Sum" class="headerlink" title="15. 3Sum"></a><a href="https://leetcode.com/problems/3sum/">15. 3Sum</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/two-pointers//">Two Pointers</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sorting//">Sorting</a></p>
+<p>Given an integer array nums, return all the triplets <code>[nums[i], nums[j], nums[k]]</code> such that <code>i != j</code>, <code>i != k</code>, and <code>j != k</code>, and <code>nums[i] + nums[j] + nums[k] == 0</code>.</p>
+<p>Notice that the solution set must not contain duplicate triplets.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [-1,0,1,2,-1,-4]</span><br><span class="line">Output: [[-1,-1,2],[-1,0,1]]</span><br><span class="line">Explanation:</span><br><span class="line">nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0.</span><br><span class="line">nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0.</span><br><span class="line">nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0.</span><br><span class="line">The distinct triplets are [-1,0,1] and [-1,-1,2].</span><br><span class="line">Notice that the order of the output and the order of the triplets does not matter.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [0,1,1]</span><br><span class="line">Output: []</span><br><span class="line">Explanation: The only possible triplet does not <span class="built_in">sum</span> up to 0.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [0,0,0]</span><br><span class="line">Output: [[0,0,0]]</span><br><span class="line">Explanation: The only possible triplet sums up to 0.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>3 &lt;= nums.length &lt;= 3000</code></li>
+<li>-10<sup>5</sup> &lt;&#x3D; nums[i] &lt;&#x3D; 10<sup>5</sup></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>For loop over twoSum</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">threeSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; res;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="built_in">twoSum</span>(res, nums, i);</span><br><span class="line">            <span class="keyword">while</span>(i + <span class="number">1</span> &lt; nums.<span class="built_in">size</span>() &amp;&amp; nums[i] == nums[i + <span class="number">1</span>]) &#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">twoSum</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; &amp;res, vector&lt;<span class="type">int</span>&gt; &amp;nums, <span class="type">int</span> i)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = i + <span class="number">1</span>, right = nums.<span class="built_in">size</span>() - <span class="number">1</span>, target = -nums[i];</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">int</span> lvalue = nums[left], rvalue = nums[right];</span><br><span class="line">            <span class="keyword">if</span> (lvalue + rvalue &lt; target) &#123;</span><br><span class="line">                <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[left] == lvalue) left++;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (lvalue + rvalue &gt; target) &#123;</span><br><span class="line">                <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[right] == rvalue) right--;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                res.<span class="built_in">push_back</span>(&#123;nums[i], lvalue, rvalue&#125;);</span><br><span class="line">                <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[left] == lvalue) left++;</span><br><span class="line">                <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[right] == rvalue) right--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Sorting</tag>
+        <tag>Two Pointers</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>150. Evaluate Reverse Polish Notation</title>
     <url>/2023/12/08/150-Evaluate-Reverse-Polish-Notation/</url>
     <content><![CDATA[<h1 id="150-Evaluate-Reverse-Polish-Notation"><a href="#150-Evaluate-Reverse-Polish-Notation" class="headerlink" title="150. Evaluate Reverse Polish Notation"></a><a href="https://leetcode.com/problems/evaluate-reverse-polish-notation/">150. Evaluate Reverse Polish Notation</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -1116,42 +1152,6 @@
         <tag>Array</tag>
         <tag>Stack</tag>
         <tag>Math</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>15. 3Sum</title>
-    <url>/2023/11/30/15-3Sum/</url>
-    <content><![CDATA[<h1 id="15-3Sum"><a href="#15-3Sum" class="headerlink" title="15. 3Sum"></a><a href="https://leetcode.com/problems/3sum/">15. 3Sum</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/two-pointers//">Two Pointers</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sorting//">Sorting</a></p>
-<p>Given an integer array nums, return all the triplets <code>[nums[i], nums[j], nums[k]]</code> such that <code>i != j</code>, <code>i != k</code>, and <code>j != k</code>, and <code>nums[i] + nums[j] + nums[k] == 0</code>.</p>
-<p>Notice that the solution set must not contain duplicate triplets.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [-1,0,1,2,-1,-4]</span><br><span class="line">Output: [[-1,-1,2],[-1,0,1]]</span><br><span class="line">Explanation:</span><br><span class="line">nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0.</span><br><span class="line">nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0.</span><br><span class="line">nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0.</span><br><span class="line">The distinct triplets are [-1,0,1] and [-1,-1,2].</span><br><span class="line">Notice that the order of the output and the order of the triplets does not matter.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [0,1,1]</span><br><span class="line">Output: []</span><br><span class="line">Explanation: The only possible triplet does not <span class="built_in">sum</span> up to 0.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [0,0,0]</span><br><span class="line">Output: [[0,0,0]]</span><br><span class="line">Explanation: The only possible triplet sums up to 0.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>3 &lt;= nums.length &lt;= 3000</code></li>
-<li>-10<sup>5</sup> &lt;&#x3D; nums[i] &lt;&#x3D; 10<sup>5</sup></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>For loop over twoSum</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">threeSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; res;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="built_in">twoSum</span>(res, nums, i);</span><br><span class="line">            <span class="keyword">while</span>(i + <span class="number">1</span> &lt; nums.<span class="built_in">size</span>() &amp;&amp; nums[i] == nums[i + <span class="number">1</span>]) &#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">twoSum</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; &amp;res, vector&lt;<span class="type">int</span>&gt; &amp;nums, <span class="type">int</span> i)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = i + <span class="number">1</span>, right = nums.<span class="built_in">size</span>() - <span class="number">1</span>, target = -nums[i];</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">int</span> lvalue = nums[left], rvalue = nums[right];</span><br><span class="line">            <span class="keyword">if</span> (lvalue + rvalue &lt; target) &#123;</span><br><span class="line">                <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[left] == lvalue) left++;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (lvalue + rvalue &gt; target) &#123;</span><br><span class="line">                <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[right] == rvalue) right--;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                res.<span class="built_in">push_back</span>(&#123;nums[i], lvalue, rvalue&#125;);</span><br><span class="line">                <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[left] == lvalue) left++;</span><br><span class="line">                <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[right] == rvalue) right--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Sorting</tag>
-        <tag>Two Pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -1298,44 +1298,6 @@
       </tags>
   </entry>
   <entry>
-    <title>155. Min Stack</title>
-    <url>/2023/12/13/155-Min-Stack/</url>
-    <content><![CDATA[<h1 id="155-Min-Stack"><a href="#155-Min-Stack" class="headerlink" title="155. Min Stack"></a><a href="https://leetcode.com/problems/min-stack/">155. Min Stack</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/stack//">Stack</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/design//">Design</a></p>
-<p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
-<p>Implement the <code>MinStack</code> class:</p>
-<ul>
-<li><code>MinStack()</code> initializes the stack object.</li>
-<li><code>void push(int val)</code> pushes the element <code>val</code> onto the stack.</li>
-<li><code>void pop()</code> removes the element on the top of the stack.</li>
-<li><code>int top()</code> gets the top element of the stack.</li>
-<li><code>int getMin()</code> retrieves the minimum element in the stack.</li>
-</ul>
-<p>You must implement a solution with <code>O(1)</code> time complexity for each function.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input</span><br><span class="line">[<span class="string">&quot;MinStack&quot;</span>,<span class="string">&quot;push&quot;</span>,<span class="string">&quot;push&quot;</span>,<span class="string">&quot;push&quot;</span>,<span class="string">&quot;getMin&quot;</span>,<span class="string">&quot;pop&quot;</span>,<span class="string">&quot;top&quot;</span>,<span class="string">&quot;getMin&quot;</span>]</span><br><span class="line">[[],[-2],[0],[-3],[],[],[],[]]</span><br><span class="line"></span><br><span class="line">Output</span><br><span class="line">[null,null,null,null,-3,null,0,-2]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">MinStack minStack = new MinStack();</span><br><span class="line">minStack.push(-2);</span><br><span class="line">minStack.push(0);</span><br><span class="line">minStack.push(-3);</span><br><span class="line">minStack.getMin(); // <span class="built_in">return</span> -3</span><br><span class="line">minStack.pop();</span><br><span class="line">minStack.top();    // <span class="built_in">return</span> 0</span><br><span class="line">minStack.getMin(); // <span class="built_in">return</span> -2</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>-2<sup>31</sup> &lt;&#x3D; val &lt;&#x3D; 2<sup>31</sup> - 1</li>
-<li>Methods <code>pop</code>, <code>top</code> and <code>getMin</code> operations will always be called on <strong>non-empty</strong> stacks.</li>
-<li>At most 3 * 10<sup>4</sup> calls will be made to <code>push</code>, <code>pop</code>, <code>top</code>, and <code>getMin</code>.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>use a stack to record the min element</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MinStack</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> min;</span><br><span class="line">    stack&lt;<span class="type">int</span>&gt; stk;</span><br><span class="line">    stack&lt;<span class="type">int</span>&gt; minStk;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">MinStack</span>() &#123;</span><br><span class="line">        min = INT_MAX;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">push</span><span class="params">(<span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        stk.<span class="built_in">push</span>(val);</span><br><span class="line">        <span class="keyword">if</span> (val &lt;= min) &#123;</span><br><span class="line">            min = val;</span><br><span class="line">            minStk.<span class="built_in">push</span>(min);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (stk.<span class="built_in">top</span>() == min) &#123;</span><br><span class="line">            minStk.<span class="built_in">pop</span>();</span><br><span class="line">            min = minStk.<span class="built_in">empty</span>() ? INT_MAX : minStk.<span class="built_in">top</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        stk.<span class="built_in">pop</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> stk.<span class="built_in">top</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getMin</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> min;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MinStack object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MinStack* obj = new MinStack();</span></span><br><span class="line"><span class="comment"> * obj-&gt;push(val);</span></span><br><span class="line"><span class="comment"> * obj-&gt;pop();</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Stack</tag>
-        <tag>Design</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>1584. Min Cost to Connect All Points</title>
     <url>/2023/09/04/1584-Min-Cost-to-Connect-All-Points/</url>
     <content><![CDATA[<h1 id="1584-Min-Cost-to-Connect-All-Points"><a href="#1584-Min-Cost-to-Connect-All-Points" class="headerlink" title="1584. Min Cost to Connect All Points"></a><a href="https://leetcode.com/problems/min-cost-to-connect-all-points/">1584. Min Cost to Connect All Points</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -1377,6 +1339,44 @@
         <tag>Union Find</tag>
         <tag>Graph</tag>
         <tag>Minimum Spanning Tree</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>155. Min Stack</title>
+    <url>/2023/12/13/155-Min-Stack/</url>
+    <content><![CDATA[<h1 id="155-Min-Stack"><a href="#155-Min-Stack" class="headerlink" title="155. Min Stack"></a><a href="https://leetcode.com/problems/min-stack/">155. Min Stack</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/stack//">Stack</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/design//">Design</a></p>
+<p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
+<p>Implement the <code>MinStack</code> class:</p>
+<ul>
+<li><code>MinStack()</code> initializes the stack object.</li>
+<li><code>void push(int val)</code> pushes the element <code>val</code> onto the stack.</li>
+<li><code>void pop()</code> removes the element on the top of the stack.</li>
+<li><code>int top()</code> gets the top element of the stack.</li>
+<li><code>int getMin()</code> retrieves the minimum element in the stack.</li>
+</ul>
+<p>You must implement a solution with <code>O(1)</code> time complexity for each function.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input</span><br><span class="line">[<span class="string">&quot;MinStack&quot;</span>,<span class="string">&quot;push&quot;</span>,<span class="string">&quot;push&quot;</span>,<span class="string">&quot;push&quot;</span>,<span class="string">&quot;getMin&quot;</span>,<span class="string">&quot;pop&quot;</span>,<span class="string">&quot;top&quot;</span>,<span class="string">&quot;getMin&quot;</span>]</span><br><span class="line">[[],[-2],[0],[-3],[],[],[],[]]</span><br><span class="line"></span><br><span class="line">Output</span><br><span class="line">[null,null,null,null,-3,null,0,-2]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">MinStack minStack = new MinStack();</span><br><span class="line">minStack.push(-2);</span><br><span class="line">minStack.push(0);</span><br><span class="line">minStack.push(-3);</span><br><span class="line">minStack.getMin(); // <span class="built_in">return</span> -3</span><br><span class="line">minStack.pop();</span><br><span class="line">minStack.top();    // <span class="built_in">return</span> 0</span><br><span class="line">minStack.getMin(); // <span class="built_in">return</span> -2</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>-2<sup>31</sup> &lt;&#x3D; val &lt;&#x3D; 2<sup>31</sup> - 1</li>
+<li>Methods <code>pop</code>, <code>top</code> and <code>getMin</code> operations will always be called on <strong>non-empty</strong> stacks.</li>
+<li>At most 3 * 10<sup>4</sup> calls will be made to <code>push</code>, <code>pop</code>, <code>top</code>, and <code>getMin</code>.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>use a stack to record the min element</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MinStack</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> min;</span><br><span class="line">    stack&lt;<span class="type">int</span>&gt; stk;</span><br><span class="line">    stack&lt;<span class="type">int</span>&gt; minStk;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">MinStack</span>() &#123;</span><br><span class="line">        min = INT_MAX;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">push</span><span class="params">(<span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        stk.<span class="built_in">push</span>(val);</span><br><span class="line">        <span class="keyword">if</span> (val &lt;= min) &#123;</span><br><span class="line">            min = val;</span><br><span class="line">            minStk.<span class="built_in">push</span>(min);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (stk.<span class="built_in">top</span>() == min) &#123;</span><br><span class="line">            minStk.<span class="built_in">pop</span>();</span><br><span class="line">            min = minStk.<span class="built_in">empty</span>() ? INT_MAX : minStk.<span class="built_in">top</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        stk.<span class="built_in">pop</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> stk.<span class="built_in">top</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getMin</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> min;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MinStack object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MinStack* obj = new MinStack();</span></span><br><span class="line"><span class="comment"> * obj-&gt;push(val);</span></span><br><span class="line"><span class="comment"> * obj-&gt;pop();</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Stack</tag>
+        <tag>Design</tag>
       </tags>
   </entry>
   <entry>
@@ -1558,8 +1558,8 @@
       </categories>
       <tags>
         <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
       </tags>
   </entry>
   <entry>
@@ -1771,8 +1771,8 @@
       </categories>
       <tags>
         <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
       </tags>
   </entry>
   <entry>
@@ -2446,7 +2446,8 @@
       </categories>
       <tags>
         <tag>Array</tag>
-        <tag>Hash Table - Sliding Window</tag>
+        <tag>Hash Table</tag>
+        <tag>Sliding Window</tag>
       </tags>
   </entry>
   <entry>
@@ -2529,8 +2530,8 @@
       <tags>
         <tag>Binary Search</tag>
         <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
       </tags>
   </entry>
   <entry>
@@ -2638,9 +2639,9 @@
       </categories>
       <tags>
         <tag>Tree</tag>
+        <tag>Binary Tree</tag>
         <tag>Depth-First Search</tag>
         <tag>Breadth-First Search</tag>
-        <tag>Binary Tree</tag>
       </tags>
   </entry>
   <entry>
@@ -2717,8 +2718,8 @@
       </categories>
       <tags>
         <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
         <tag>Binary Search Tree</tag>
       </tags>
   </entry>
@@ -2838,8 +2839,8 @@
       </categories>
       <tags>
         <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
         <tag>Binary Search Tree</tag>
       </tags>
   </entry>
@@ -2880,8 +2881,8 @@
       </categories>
       <tags>
         <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
       </tags>
   </entry>
   <entry>
@@ -3449,9 +3450,9 @@
       </categories>
       <tags>
         <tag>Tree</tag>
+        <tag>Binary Tree</tag>
         <tag>Depth-First Search</tag>
         <tag>Breadth-First Search</tag>
-        <tag>Binary Tree</tag>
         <tag>String</tag>
         <tag>Design</tag>
       </tags>
@@ -3955,38 +3956,6 @@
       </tags>
   </entry>
   <entry>
-    <title>344. Reverse String</title>
-    <url>/2023/01/19/344-Reverse-String/</url>
-    <content><![CDATA[<h1 id="344-Reverse-String"><a href="#344-Reverse-String" class="headerlink" title="344. Reverse String"></a><a href="https://leetcode.com/problems/reverse-string/">344. Reverse String</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/two-pointers/">Two Pointers</a>, <a href="https://leetcode.com/tag/string/">String</a></p>
-<p>Write a function that reverses a string. The input string is given as an array of characters <code>s</code>.</p>
-<p>You must do this by modifying the input array <a href="https://en.wikipedia.org/wiki/In-place_algorithm">in-place</a> with <code>O(1)</code> extra memory.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = [<span class="string">&quot;h&quot;</span>,<span class="string">&quot;e&quot;</span>,<span class="string">&quot;l&quot;</span>,<span class="string">&quot;l&quot;</span>,<span class="string">&quot;o&quot;</span>]</span><br><span class="line">Output: [<span class="string">&quot;o&quot;</span>,<span class="string">&quot;l&quot;</span>,<span class="string">&quot;l&quot;</span>,<span class="string">&quot;e&quot;</span>,<span class="string">&quot;h&quot;</span>]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = [<span class="string">&quot;H&quot;</span>,<span class="string">&quot;a&quot;</span>,<span class="string">&quot;n&quot;</span>,<span class="string">&quot;n&quot;</span>,<span class="string">&quot;a&quot;</span>,<span class="string">&quot;h&quot;</span>]</span><br><span class="line">Output: [<span class="string">&quot;h&quot;</span>,<span class="string">&quot;a&quot;</span>,<span class="string">&quot;n&quot;</span>,<span class="string">&quot;n&quot;</span>,<span class="string">&quot;a&quot;</span>,<span class="string">&quot;H&quot;</span>]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>1 &lt;&#x3D; s.length &lt;&#x3D; 10<sup>5</sup></li>
-<li><code>s[i]</code> is a <a href="https://en.wikipedia.org/wiki/ASCII#Printable_characters">printable ascii character</a>.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>N&#x2F;A</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">reverseString</span><span class="params">(vector&lt;<span class="type">char</span>&gt;&amp; s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = s.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">char</span> c = s[right];</span><br><span class="line">            s[right] = s[left];</span><br><span class="line">            s[left] = c;</span><br><span class="line">            left++;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>String</tag>
-        <tag>Two Pointers</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>341. Flatten Nested List Iterator</title>
     <url>/2023/08/28/341-Flatten-Nested-List-Iterator/</url>
     <content><![CDATA[<h1 id="341-Flatten-Nested-List-Iterator"><a href="#341-Flatten-Nested-List-Iterator" class="headerlink" title="341. Flatten Nested List Iterator"></a><a href="https://leetcode.com/problems/flatten-nested-list-iterator/">341. Flatten Nested List Iterator</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -4031,6 +4000,38 @@
         <tag>Design</tag>
         <tag>Queue</tag>
         <tag>Iterator</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>344. Reverse String</title>
+    <url>/2023/01/19/344-Reverse-String/</url>
+    <content><![CDATA[<h1 id="344-Reverse-String"><a href="#344-Reverse-String" class="headerlink" title="344. Reverse String"></a><a href="https://leetcode.com/problems/reverse-string/">344. Reverse String</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/two-pointers/">Two Pointers</a>, <a href="https://leetcode.com/tag/string/">String</a></p>
+<p>Write a function that reverses a string. The input string is given as an array of characters <code>s</code>.</p>
+<p>You must do this by modifying the input array <a href="https://en.wikipedia.org/wiki/In-place_algorithm">in-place</a> with <code>O(1)</code> extra memory.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = [<span class="string">&quot;h&quot;</span>,<span class="string">&quot;e&quot;</span>,<span class="string">&quot;l&quot;</span>,<span class="string">&quot;l&quot;</span>,<span class="string">&quot;o&quot;</span>]</span><br><span class="line">Output: [<span class="string">&quot;o&quot;</span>,<span class="string">&quot;l&quot;</span>,<span class="string">&quot;l&quot;</span>,<span class="string">&quot;e&quot;</span>,<span class="string">&quot;h&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = [<span class="string">&quot;H&quot;</span>,<span class="string">&quot;a&quot;</span>,<span class="string">&quot;n&quot;</span>,<span class="string">&quot;n&quot;</span>,<span class="string">&quot;a&quot;</span>,<span class="string">&quot;h&quot;</span>]</span><br><span class="line">Output: [<span class="string">&quot;h&quot;</span>,<span class="string">&quot;a&quot;</span>,<span class="string">&quot;n&quot;</span>,<span class="string">&quot;n&quot;</span>,<span class="string">&quot;a&quot;</span>,<span class="string">&quot;H&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; s.length &lt;&#x3D; 10<sup>5</sup></li>
+<li><code>s[i]</code> is a <a href="https://en.wikipedia.org/wiki/ASCII#Printable_characters">printable ascii character</a>.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>N&#x2F;A</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">reverseString</span><span class="params">(vector&lt;<span class="type">char</span>&gt;&amp; s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = s.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">char</span> c = s[right];</span><br><span class="line">            s[right] = s[left];</span><br><span class="line">            s[left] = c;</span><br><span class="line">            left++;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>String</tag>
+        <tag>Two Pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -4110,43 +4111,6 @@
       </tags>
   </entry>
   <entry>
-    <title>354. Russian Doll Envelopes</title>
-    <url>/2023/11/09/354-Russian-Doll-Envelopes/</url>
-    <content><![CDATA[<h1 id="354-Russian-Doll-Envelopes"><a href="#354-Russian-Doll-Envelopes" class="headerlink" title="354. Russian Doll Envelopes"></a><a href="https://leetcode.com/problems/russian-doll-envelopes/">354. Russian Doll Envelopes</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Hard</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-search//">Binary Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/dynamic-programming//">Dynamic Programming</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sorting//">Sorting</a></p>
-<p>You are given a 2D array of integers <code>envelopes</code> where envelopes[i] &#x3D; [w<sub>i</sub>, h<sub>i</sub>] represents the width and the height of an envelope.</p>
-<p>One envelope can fit into another if and only if both the width and height of one envelope are greater than the other envelope’s width and height.</p>
-<p>Return <em>the maximum number of envelopes you can Russian doll (i.e., put one inside the other)</em>.</p>
-<p><strong>Note:</strong> You cannot rotate an envelope.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: envelopes = [[5,4],[6,4],[6,7],[2,3]]</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The maximum number of envelopes you can Russian doll is 3 ([2,3] =&gt; [5,4] =&gt; [6,7]).</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: envelopes = [[1,1],[1,1],[1,1]]</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>1 &lt;&#x3D; envelopes.length &lt;&#x3D; 10<sup>5</sup></li>
-<li><code>envelopes[i].length == 2</code></li>
-<li>1 &lt;&#x3D; w<sub>i</sub>, h<sub>i</sub> &lt;&#x3D; 10<sup>5</sup></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>dp</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxEnvelopes</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; envelopes)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> cmp = [](vector&lt;<span class="type">int</span>&gt; lhs, vector&lt;<span class="type">int</span>&gt; rhs) &#123;</span><br><span class="line">            <span class="keyword">if</span> (lhs[<span class="number">0</span>] != rhs[<span class="number">0</span>]) &#123;</span><br><span class="line">                <span class="keyword">return</span> lhs[<span class="number">0</span>] &lt; rhs[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> lhs[<span class="number">1</span>] &gt; rhs[<span class="number">1</span>];</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="built_in">sort</span>(envelopes.<span class="built_in">begin</span>(), envelopes.<span class="built_in">end</span>(), cmp);</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(envelopes.size(), <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; envelopes.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (envelopes[i][<span class="number">1</span>] &gt; envelopes[j][<span class="number">1</span>]) &#123;</span><br><span class="line">                    dp[i] = <span class="built_in">max</span>(dp[i], dp[j] + <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            res = <span class="built_in">max</span>(res, dp[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Binary Search</tag>
-        <tag>Sorting</tag>
-        <tag>Dynamic Programming</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>355. Design Twitter</title>
     <url>/2023/11/08/355-Design-Twitter/</url>
     <content><![CDATA[<h1 id="355-Design-Twitter"><a href="#355-Design-Twitter" class="headerlink" title="355. Design Twitter"></a><a href="https://leetcode.com/problems/design-twitter/">355. Design Twitter</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -4185,6 +4149,43 @@
         <tag>Linked List</tag>
         <tag>Heap (Priority Queue)</tag>
         <tag>Design</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>354. Russian Doll Envelopes</title>
+    <url>/2023/11/09/354-Russian-Doll-Envelopes/</url>
+    <content><![CDATA[<h1 id="354-Russian-Doll-Envelopes"><a href="#354-Russian-Doll-Envelopes" class="headerlink" title="354. Russian Doll Envelopes"></a><a href="https://leetcode.com/problems/russian-doll-envelopes/">354. Russian Doll Envelopes</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Hard</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-search//">Binary Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/dynamic-programming//">Dynamic Programming</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sorting//">Sorting</a></p>
+<p>You are given a 2D array of integers <code>envelopes</code> where envelopes[i] &#x3D; [w<sub>i</sub>, h<sub>i</sub>] represents the width and the height of an envelope.</p>
+<p>One envelope can fit into another if and only if both the width and height of one envelope are greater than the other envelope’s width and height.</p>
+<p>Return <em>the maximum number of envelopes you can Russian doll (i.e., put one inside the other)</em>.</p>
+<p><strong>Note:</strong> You cannot rotate an envelope.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: envelopes = [[5,4],[6,4],[6,7],[2,3]]</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The maximum number of envelopes you can Russian doll is 3 ([2,3] =&gt; [5,4] =&gt; [6,7]).</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: envelopes = [[1,1],[1,1],[1,1]]</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; envelopes.length &lt;&#x3D; 10<sup>5</sup></li>
+<li><code>envelopes[i].length == 2</code></li>
+<li>1 &lt;&#x3D; w<sub>i</sub>, h<sub>i</sub> &lt;&#x3D; 10<sup>5</sup></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>dp</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxEnvelopes</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; envelopes)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> cmp = [](vector&lt;<span class="type">int</span>&gt; lhs, vector&lt;<span class="type">int</span>&gt; rhs) &#123;</span><br><span class="line">            <span class="keyword">if</span> (lhs[<span class="number">0</span>] != rhs[<span class="number">0</span>]) &#123;</span><br><span class="line">                <span class="keyword">return</span> lhs[<span class="number">0</span>] &lt; rhs[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> lhs[<span class="number">1</span>] &gt; rhs[<span class="number">1</span>];</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="built_in">sort</span>(envelopes.<span class="built_in">begin</span>(), envelopes.<span class="built_in">end</span>(), cmp);</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(envelopes.size(), <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; envelopes.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (envelopes[i][<span class="number">1</span>] &gt; envelopes[j][<span class="number">1</span>]) &#123;</span><br><span class="line">                    dp[i] = <span class="built_in">max</span>(dp[i], dp[j] + <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            res = <span class="built_in">max</span>(res, dp[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Binary Search</tag>
+        <tag>Sorting</tag>
+        <tag>Dynamic Programming</tag>
       </tags>
   </entry>
   <entry>
@@ -4418,6 +4419,41 @@
       </tags>
   </entry>
   <entry>
+    <title>395. Longest Substring with At Least K Repeating Characters</title>
+    <url>/2023/12/07/395-Longest-Substring-with-At-Least-K-Repeating-Characters/</url>
+    <content><![CDATA[<h1 id="395-Longest-Substring-with-At-Least-K-Repeating-Characters"><a href="#395-Longest-Substring-with-At-Least-K-Repeating-Characters" class="headerlink" title="395. Longest Substring with At Least K Repeating Characters"></a><a href="https://leetcode.com/problems/longest-substring-with-at-least-k-repeating-characters/">395. Longest Substring with At Least K Repeating Characters</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/string//">String</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/divide-and-conquer//">Divide and Conquer</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sliding-window//">Sliding Window</a></p>
+<p>Given a string <code>s</code> and an integer <code>k</code>, return <em>the length of the longest substring of</em> <code>s</code> <em>such that the frequency of each character in this substring is greater than or equal to</em> <code>k</code>.</p>
+<p>if no such substring exists, return 0.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;aaabb&quot;</span>, k = 3</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The longest substring is <span class="string">&quot;aaa&quot;</span>, as <span class="string">&#x27;a&#x27;</span> is repeated 3 <span class="built_in">times</span>.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;ababbc&quot;</span>, k = 2</span><br><span class="line">Output: 5</span><br><span class="line">Explanation: The longest substring is <span class="string">&quot;ababb&quot;</span>, as <span class="string">&#x27;a&#x27;</span> is repeated 2 <span class="built_in">times</span> and <span class="string">&#x27;b&#x27;</span> is repeated 3 <span class="built_in">times</span>.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; s.length &lt;&#x3D; 10<sup>4</sup></li>
+<li><code>s</code> consists of only lowercase English letters.</li>
+<li>1 &lt;&#x3D; k &lt;&#x3D; 10<sup>5</sup></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>sliding window</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longestSubstring</span><span class="params">(string s, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> maxLen = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">26</span>; i++) &#123;</span><br><span class="line">            maxLen = <span class="built_in">max</span>(maxLen, <span class="built_in">longest</span>(s, k, i));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxLen;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longest</span><span class="params">(string &amp;s, <span class="type">int</span> k, <span class="type">int</span> count)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, currCount = <span class="number">0</span>, currValid = <span class="number">0</span>, maxLen = <span class="number">0</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">freq</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; s.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (freq[s[right] - <span class="string">&#x27;a&#x27;</span>] == <span class="number">0</span>) &#123;</span><br><span class="line">                currCount++;</span><br><span class="line">            &#125;</span><br><span class="line">            freq[s[right] - <span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">            <span class="keyword">if</span> (freq[s[right] - <span class="string">&#x27;a&#x27;</span>] == k) &#123;</span><br><span class="line">                currValid++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (currCount == currValid) &#123;</span><br><span class="line">                maxLen = <span class="built_in">max</span>(maxLen, right - left + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (left &lt; right &amp;&amp; currCount &gt; count) &#123;</span><br><span class="line">                <span class="keyword">if</span> (freq[s[left] - <span class="string">&#x27;a&#x27;</span>] == k) &#123;</span><br><span class="line">                    currValid--;</span><br><span class="line">                &#125;</span><br><span class="line">                freq[s[left] -<span class="string">&#x27;a&#x27;</span>]--;</span><br><span class="line">                <span class="keyword">if</span> (freq[s[left] - <span class="string">&#x27;a&#x27;</span>] == <span class="number">0</span>) &#123;</span><br><span class="line">                    currCount--;</span><br><span class="line">                &#125;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxLen;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Hash Table</tag>
+        <tag>Divide and Conquer</tag>
+        <tag>String</tag>
+        <tag>Sliding Windows</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>388. Longest Absolute File Path</title>
     <url>/2023/12/09/388-Longest-Absolute-File-Path/</url>
     <content><![CDATA[<h1 id="388-Longest-Absolute-File-Path"><a href="#388-Longest-Absolute-File-Path" class="headerlink" title="388. Longest Absolute File Path"></a><a href="https://leetcode.com/problems/longest-absolute-file-path/">388. Longest Absolute File Path</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -4464,41 +4500,6 @@
         <tag>Stack</tag>
         <tag>Depth-First Search</tag>
         <tag>String</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>395. Longest Substring with At Least K Repeating Characters</title>
-    <url>/2023/12/07/395-Longest-Substring-with-At-Least-K-Repeating-Characters/</url>
-    <content><![CDATA[<h1 id="395-Longest-Substring-with-At-Least-K-Repeating-Characters"><a href="#395-Longest-Substring-with-At-Least-K-Repeating-Characters" class="headerlink" title="395. Longest Substring with At Least K Repeating Characters"></a><a href="https://leetcode.com/problems/longest-substring-with-at-least-k-repeating-characters/">395. Longest Substring with At Least K Repeating Characters</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/string//">String</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/divide-and-conquer//">Divide and Conquer</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sliding-window//">Sliding Window</a></p>
-<p>Given a string <code>s</code> and an integer <code>k</code>, return <em>the length of the longest substring of</em> <code>s</code> <em>such that the frequency of each character in this substring is greater than or equal to</em> <code>k</code>.</p>
-<p>if no such substring exists, return 0.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;aaabb&quot;</span>, k = 3</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The longest substring is <span class="string">&quot;aaa&quot;</span>, as <span class="string">&#x27;a&#x27;</span> is repeated 3 <span class="built_in">times</span>.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;ababbc&quot;</span>, k = 2</span><br><span class="line">Output: 5</span><br><span class="line">Explanation: The longest substring is <span class="string">&quot;ababb&quot;</span>, as <span class="string">&#x27;a&#x27;</span> is repeated 2 <span class="built_in">times</span> and <span class="string">&#x27;b&#x27;</span> is repeated 3 <span class="built_in">times</span>.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>1 &lt;&#x3D; s.length &lt;&#x3D; 10<sup>4</sup></li>
-<li><code>s</code> consists of only lowercase English letters.</li>
-<li>1 &lt;&#x3D; k &lt;&#x3D; 10<sup>5</sup></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>sliding window</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longestSubstring</span><span class="params">(string s, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> maxLen = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">26</span>; i++) &#123;</span><br><span class="line">            maxLen = <span class="built_in">max</span>(maxLen, <span class="built_in">longest</span>(s, k, i));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxLen;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longest</span><span class="params">(string &amp;s, <span class="type">int</span> k, <span class="type">int</span> count)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, currCount = <span class="number">0</span>, currValid = <span class="number">0</span>, maxLen = <span class="number">0</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">freq</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; s.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (freq[s[right] - <span class="string">&#x27;a&#x27;</span>] == <span class="number">0</span>) &#123;</span><br><span class="line">                currCount++;</span><br><span class="line">            &#125;</span><br><span class="line">            freq[s[right] - <span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">            <span class="keyword">if</span> (freq[s[right] - <span class="string">&#x27;a&#x27;</span>] == k) &#123;</span><br><span class="line">                currValid++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (currCount == currValid) &#123;</span><br><span class="line">                maxLen = <span class="built_in">max</span>(maxLen, right - left + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (left &lt; right &amp;&amp; currCount &gt; count) &#123;</span><br><span class="line">                <span class="keyword">if</span> (freq[s[left] - <span class="string">&#x27;a&#x27;</span>] == k) &#123;</span><br><span class="line">                    currValid--;</span><br><span class="line">                &#125;</span><br><span class="line">                freq[s[left] -<span class="string">&#x27;a&#x27;</span>]--;</span><br><span class="line">                <span class="keyword">if</span> (freq[s[left] - <span class="string">&#x27;a&#x27;</span>] == <span class="number">0</span>) &#123;</span><br><span class="line">                    currCount--;</span><br><span class="line">                &#125;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxLen;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Hash Table</tag>
-        <tag>Divide and Conquer</tag>
-        <tag>String</tag>
-        <tag>Sliding Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -5106,8 +5107,8 @@
       </categories>
       <tags>
         <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
         <tag>Binary Search Tree</tag>
       </tags>
   </entry>
@@ -5145,6 +5146,41 @@
         <tag>Array</tag>
         <tag>Simulation</tag>
         <tag>Matrix</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>543. Diameter of Binary Tree</title>
+    <url>/2023/02/02/543-Diameter-of-Binary-Tree/</url>
+    <content><![CDATA[<h1 id="543-Diameter-of-Binary-Tree"><a href="#543-Diameter-of-Binary-Tree" class="headerlink" title="543. Diameter of Binary Tree"></a><a href="https://leetcode.com/problems/diameter-of-binary-tree/">543. Diameter of Binary Tree</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/tree/">Tree</a>, <a href="https://leetcode.com/tag/depth-first-search/">Depth-First Search</a>, <a href="https://leetcode.com/tag/binary-tree/">Binary Tree</a></p>
+<p>Given the <code>root</code> of a binary tree, return <em>the length of the <strong>diameter</strong> of the tree</em>.</p>
+<p>The <strong>diameter</strong> of a binary tree is the <strong>length</strong> of the longest path between any two nodes in a tree. This path may or may not pass through the <code>root</code>.</p>
+<p>The <strong>length</strong> of a path between two nodes is represented by the number of edges between them.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/03/06/diamtree.jpg"></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: root = [1,2,3,4,5]</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: 3 is the length of the path [4,2,1,3] or [5,2,1,3].</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: root = [1,2]</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is in the range [1, 10<sup>4</sup>].</li>
+<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Draw and imagine the diameter</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">diameterOfBinaryTree</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">maxDepth</span>(root);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> left = <span class="built_in">maxDepth</span>(root-&gt;left);</span><br><span class="line">        <span class="type">int</span> right = <span class="built_in">maxDepth</span>(root-&gt;right);</span><br><span class="line">        res = <span class="built_in">max</span>(left + right, res);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(left, right) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Tree</tag>
+        <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
       </tags>
   </entry>
   <entry>
@@ -5219,41 +5255,6 @@
         <tag>Sliding Window</tag>
         <tag>String</tag>
         <tag>Two Pointers</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>543. Diameter of Binary Tree</title>
-    <url>/2023/02/02/543-Diameter-of-Binary-Tree/</url>
-    <content><![CDATA[<h1 id="543-Diameter-of-Binary-Tree"><a href="#543-Diameter-of-Binary-Tree" class="headerlink" title="543. Diameter of Binary Tree"></a><a href="https://leetcode.com/problems/diameter-of-binary-tree/">543. Diameter of Binary Tree</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/tree/">Tree</a>, <a href="https://leetcode.com/tag/depth-first-search/">Depth-First Search</a>, <a href="https://leetcode.com/tag/binary-tree/">Binary Tree</a></p>
-<p>Given the <code>root</code> of a binary tree, return <em>the length of the <strong>diameter</strong> of the tree</em>.</p>
-<p>The <strong>diameter</strong> of a binary tree is the <strong>length</strong> of the longest path between any two nodes in a tree. This path may or may not pass through the <code>root</code>.</p>
-<p>The <strong>length</strong> of a path between two nodes is represented by the number of edges between them.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/03/06/diamtree.jpg"></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: root = [1,2,3,4,5]</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: 3 is the length of the path [4,2,1,3] or [5,2,1,3].</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: root = [1,2]</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in the tree is in the range [1, 10<sup>4</sup>].</li>
-<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Draw and imagine the diameter</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">diameterOfBinaryTree</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">maxDepth</span>(root);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> left = <span class="built_in">maxDepth</span>(root-&gt;left);</span><br><span class="line">        <span class="type">int</span> right = <span class="built_in">maxDepth</span>(root-&gt;right);</span><br><span class="line">        res = <span class="built_in">max</span>(left + right, res);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(left, right) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
-        <tag>Binary Tree</tag>
       </tags>
   </entry>
   <entry>
@@ -5454,8 +5455,8 @@
       <tags>
         <tag>Hash Table</tag>
         <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
       </tags>
   </entry>
   <entry>
@@ -5498,9 +5499,9 @@
         <tag>Array</tag>
         <tag>Stack</tag>
         <tag>Monotonic Stack</tag>
+        <tag>Divide and Conquer</tag>
         <tag>Tree</tag>
         <tag>Binary Tree</tag>
-        <tag>Divide and Conquer</tag>
       </tags>
   </entry>
   <entry>
@@ -5628,6 +5629,43 @@
       </tags>
   </entry>
   <entry>
+    <title>700. Search in a Binary Search Tree</title>
+    <url>/2023/08/27/700-Search-in-a-Binary-Search-Tree/</url>
+    <content><![CDATA[<h1 id="700-Search-in-a-Binary-Search-Tree"><a href="#700-Search-in-a-Binary-Search-Tree" class="headerlink" title="700. Search in a Binary Search Tree"></a><a href="https://leetcode.com/problems/search-in-a-binary-search-tree/">700. Search in a Binary Search Tree</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/tree//">Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-search-tree//">Binary Search Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//">Binary Tree</a></p>
+<p>You are given the <code>root</code> of a binary search tree (BST) and an integer <code>val</code>.</p>
+<p>Find the node in the BST that the node’s value equals <code>val</code> and return the subtree rooted with that node. If such a node does not exist, return <code>null</code>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/01/12/tree1.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3], val = 2</span><br><span class="line">Output: [2,1,3]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/01/12/tree2.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3], val = 5</span><br><span class="line">Output: []</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is in the range <code>[1, 5000]</code>.</li>
+<li>1 &lt;&#x3D; Node.val &lt;&#x3D; 10<sup>7</sup></li>
+<li><code>root</code> is a binary search tree.</li>
+<li>1 &lt;&#x3D; val &lt;&#x3D; 10<sup>7</sup></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Use the property of BST</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">searchBST</span><span class="params">(TreeNode* root, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) <span class="keyword">return</span> root;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;val &lt; val) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">searchBST</span>(root-&gt;right, val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;val &gt; val) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">searchBST</span>(root-&gt;left, val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Tree</tag>
+        <tag>Binary Tree</tag>
+        <tag>Binary Search Tree</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>703. Kth Largest Element in a Stream</title>
     <url>/2023/11/06/703-Kth-Largest-Element-in-a-Stream/</url>
     <content><![CDATA[<h1 id="703-Kth-Largest-Element-in-a-Stream"><a href="#703-Kth-Largest-Element-in-a-Stream" class="headerlink" title="703. Kth Largest Element in a Stream"></a><a href="https://leetcode.com/problems/kth-largest-element-in-a-stream/">703. Kth Largest Element in a Stream</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
@@ -5665,43 +5703,6 @@
         <tag>Heap (Priority Queue)</tag>
         <tag>Design</tag>
         <tag>Data Stream</tag>
-        <tag>Binary Search Tree</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>700. Search in a Binary Search Tree</title>
-    <url>/2023/08/27/700-Search-in-a-Binary-Search-Tree/</url>
-    <content><![CDATA[<h1 id="700-Search-in-a-Binary-Search-Tree"><a href="#700-Search-in-a-Binary-Search-Tree" class="headerlink" title="700. Search in a Binary Search Tree"></a><a href="https://leetcode.com/problems/search-in-a-binary-search-tree/">700. Search in a Binary Search Tree</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/tree//">Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-search-tree//">Binary Search Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//">Binary Tree</a></p>
-<p>You are given the <code>root</code> of a binary search tree (BST) and an integer <code>val</code>.</p>
-<p>Find the node in the BST that the node’s value equals <code>val</code> and return the subtree rooted with that node. If such a node does not exist, return <code>null</code>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/01/12/tree1.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3], val = 2</span><br><span class="line">Output: [2,1,3]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/01/12/tree2.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3], val = 5</span><br><span class="line">Output: []</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in the tree is in the range <code>[1, 5000]</code>.</li>
-<li>1 &lt;&#x3D; Node.val &lt;&#x3D; 10<sup>7</sup></li>
-<li><code>root</code> is a binary search tree.</li>
-<li>1 &lt;&#x3D; val &lt;&#x3D; 10<sup>7</sup></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Use the property of BST</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">searchBST</span><span class="params">(TreeNode* root, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) <span class="keyword">return</span> root;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;val &lt; val) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">searchBST</span>(root-&gt;right, val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;val &gt; val) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">searchBST</span>(root-&gt;left, val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Tree</tag>
-        <tag>Binary Tree</tag>
         <tag>Binary Search Tree</tag>
       </tags>
   </entry>
@@ -5763,7 +5764,7 @@
 <li>At most 2 * 10<sup>4</sup> calls will be made to <code>pick</code>.</li>
 </ul>
 <h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Use array and mapping</li>
+<li>Use map</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> size = <span class="number">0</span>;</span><br><span class="line">    unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; nums;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">Solution</span>(<span class="type">int</span> n, vector&lt;<span class="type">int</span>&gt;&amp; blacklist) &#123;</span><br><span class="line">        size = n - blacklist.<span class="built_in">size</span>();</span><br><span class="line">        <span class="comment">// [0, 1, 2, 3, 4, 5, 6]</span></span><br><span class="line">        <span class="comment">// nums.count(2 || 3 || 5) == true</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> blackNum : blacklist) &#123;</span><br><span class="line">            nums[blackNum] = blackNum;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> last = n - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> blackNum : blacklist) &#123;</span><br><span class="line">            <span class="keyword">if</span> (blackNum &gt;= size) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (nums.<span class="built_in">count</span>(last)) &#123;</span><br><span class="line">                last--;</span><br><span class="line">            &#125;</span><br><span class="line">            nums[blackNum] = last--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// nums[2] = 6, nums[3] = 4</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">pick</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> num = <span class="built_in">rand</span>() % size;</span><br><span class="line">        <span class="keyword">if</span> (nums.<span class="built_in">count</span>(num)) &#123;</span><br><span class="line">            <span class="keyword">return</span> nums[num];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> num;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your Solution object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * Solution* obj = new Solution(n, blacklist);</span></span><br><span class="line"><span class="comment"> * int param_1 = obj-&gt;pick();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
@@ -6221,6 +6222,41 @@
       </tags>
   </entry>
   <entry>
+    <title>83. Remove Duplicates from Sorted List</title>
+    <url>/2023/01/17/83-Remove-Duplicates-from-Sorted-List/</url>
+    <content><![CDATA[<h1 id="83-Remove-Duplicates-from-Sorted-List"><a href="#83-Remove-Duplicates-from-Sorted-List" class="headerlink" title="83. Remove Duplicates from Sorted List"></a><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list/">83. Remove Duplicates from Sorted List</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/linked-list/">Linked List</a></p>
+<p>Given the <code>head</code> of a sorted linked list, <em>delete all duplicates such that each element appears only once</em>. Return <em>the linked list <strong>sorted</strong> as well</em>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/01/04/list1.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: <span class="built_in">head</span> = [1,1,2]</span><br><span class="line">Output: [1,2]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/01/04/list2.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: <span class="built_in">head</span> = [1,1,2,3,3]</span><br><span class="line">Output: [1,2,3]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the list is in the range <code>[0, 300]</code>.</li>
+<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+<li>The list is guaranteed to be <strong>sorted</strong> in ascending order.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Fast&#x2F;slow pointers</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">deleteDuplicates</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">deleteDuplicates</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode* slow = head, *fast = head;</span><br><span class="line">        <span class="keyword">while</span> (fast) &#123;</span><br><span class="line">            <span class="keyword">if</span> (fast-&gt;val != slow-&gt;val) &#123;</span><br><span class="line">                slow-&gt;next = fast;</span><br><span class="line">                slow = slow-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        slow-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Linked List</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>852. Peak Index in a Mountain Array</title>
     <url>/2023/12/02/852-Peak-Index-in-a-Mountain-Array/</url>
     <content><![CDATA[<h1 id="852-Peak-Index-in-a-Mountain-Array"><a href="#852-Peak-Index-in-a-Mountain-Array" class="headerlink" title="852. Peak Index in a Mountain Array"></a><a href="https://leetcode.com/problems/peak-index-in-a-mountain-array/">852. Peak Index in a Mountain Array</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -6263,41 +6299,6 @@
       <tags>
         <tag>Array</tag>
         <tag>Binary Search</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>83. Remove Duplicates from Sorted List</title>
-    <url>/2023/01/17/83-Remove-Duplicates-from-Sorted-List/</url>
-    <content><![CDATA[<h1 id="83-Remove-Duplicates-from-Sorted-List"><a href="#83-Remove-Duplicates-from-Sorted-List" class="headerlink" title="83. Remove Duplicates from Sorted List"></a><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list/">83. Remove Duplicates from Sorted List</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/linked-list/">Linked List</a></p>
-<p>Given the <code>head</code> of a sorted linked list, <em>delete all duplicates such that each element appears only once</em>. Return <em>the linked list <strong>sorted</strong> as well</em>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/01/04/list1.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: <span class="built_in">head</span> = [1,1,2]</span><br><span class="line">Output: [1,2]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/01/04/list2.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: <span class="built_in">head</span> = [1,1,2,3,3]</span><br><span class="line">Output: [1,2,3]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in the list is in the range <code>[0, 300]</code>.</li>
-<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
-<li>The list is guaranteed to be <strong>sorted</strong> in ascending order.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Fast&#x2F;slow pointers</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">deleteDuplicates</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">deleteDuplicates</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode* slow = head, *fast = head;</span><br><span class="line">        <span class="keyword">while</span> (fast) &#123;</span><br><span class="line">            <span class="keyword">if</span> (fast-&gt;val != slow-&gt;val) &#123;</span><br><span class="line">                slow-&gt;next = fast;</span><br><span class="line">                slow = slow-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        slow-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Linked List</tag>
       </tags>
   </entry>
   <entry>
@@ -6606,9 +6607,9 @@
       <tags>
         <tag>Array</tag>
         <tag>Hash Table</tag>
+        <tag>Divide and Conquer</tag>
         <tag>Tree</tag>
         <tag>Binary Tree</tag>
-        <tag>Divide and Conquer</tag>
       </tags>
   </entry>
   <entry>
@@ -6690,42 +6691,6 @@
       </tags>
   </entry>
   <entry>
-    <title>92. Reverse Linked List II</title>
-    <url>/2023/01/04/92-Reverse-Linked-List-II/</url>
-    <content><![CDATA[<h1 id="92-Reverse-Linked-List-II"><a href="#92-Reverse-Linked-List-II" class="headerlink" title="92. Reverse Linked List II"></a><a href="https://leetcode.com/problems/reverse-linked-list-ii/">92. Reverse Linked List II</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/linked-list/">Linked List</a></p>
-<p>Given the <code>head</code> of a singly linked list and two integers <code>left</code> and <code>right</code> where <code>left &lt;= right</code>, reverse the nodes of the list from position <code>left</code> to position <code>right</code>, and return <em>the reversed list</em>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/02/19/rev2ex2.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: <span class="built_in">head</span> = [1,2,3,4,5], left = 2, right = 4</span><br><span class="line">Output: [1,4,3,2,5]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: <span class="built_in">head</span> = [5], left = 1, right = 1</span><br><span class="line">Output: [5]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in the list is <code>n</code>.</li>
-<li><code>1 &lt;= n &lt;= 500</code></li>
-<li><code>-500 &lt;= Node.val &lt;= 500</code></li>
-<li><code>1 &lt;= left &lt;= right &lt;= n</code></li>
-</ul>
-<p><strong>Follow up:</strong> Could you do it in one pass?</p>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Implement reverseN(reverse the fist N elements of one list) first,<br>i.e. reverseN(3) &#x3D; 3-&gt;2-&gt;1-&gt;4-&gt;5</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseBetween</span><span class="params">(ListNode* head, <span class="type">int</span> left, <span class="type">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseBetween</span><span class="params">(ListNode* head, <span class="type">int</span> left, <span class="type">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (left == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">reverseN</span>(head, right);</span><br><span class="line">        &#125;</span><br><span class="line">        head-&gt;next = <span class="built_in">reverseBetween</span>(head-&gt;next, left - <span class="number">1</span>, right - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseN</span><span class="params">(ListNode* head, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">            succesor = head-&gt;next;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode* tmpHead = <span class="built_in">reverseN</span>(head-&gt;next, n - <span class="number">1</span>);</span><br><span class="line">        head-&gt;next-&gt;next = head;</span><br><span class="line">        <span class="comment">// in fact, this step is only useful for the first node</span></span><br><span class="line">        head-&gt;next = succesor;</span><br><span class="line">        <span class="keyword">return</span> tmpHead;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ListNode* succesor = <span class="literal">nullptr</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Linked List</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>918. Maximum Sum Circular Subarray</title>
     <url>/2023/12/17/918-Maximum-Sum-Circular-Subarray/</url>
     <content><![CDATA[<h1 id="918-Maximum-Sum-Circular-Subarray"><a href="#918-Maximum-Sum-Circular-Subarray" class="headerlink" title="918. Maximum Sum Circular Subarray"></a><a href="https://leetcode.com/problems/maximum-sum-circular-subarray/">918. Maximum Sum Circular Subarray</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -6763,6 +6728,42 @@
         <tag>Dynamic Programming</tag>
         <tag>Queue</tag>
         <tag>Monotonic Queue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>92. Reverse Linked List II</title>
+    <url>/2023/01/04/92-Reverse-Linked-List-II/</url>
+    <content><![CDATA[<h1 id="92-Reverse-Linked-List-II"><a href="#92-Reverse-Linked-List-II" class="headerlink" title="92. Reverse Linked List II"></a><a href="https://leetcode.com/problems/reverse-linked-list-ii/">92. Reverse Linked List II</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/linked-list/">Linked List</a></p>
+<p>Given the <code>head</code> of a singly linked list and two integers <code>left</code> and <code>right</code> where <code>left &lt;= right</code>, reverse the nodes of the list from position <code>left</code> to position <code>right</code>, and return <em>the reversed list</em>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/02/19/rev2ex2.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: <span class="built_in">head</span> = [1,2,3,4,5], left = 2, right = 4</span><br><span class="line">Output: [1,4,3,2,5]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: <span class="built_in">head</span> = [5], left = 1, right = 1</span><br><span class="line">Output: [5]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the list is <code>n</code>.</li>
+<li><code>1 &lt;= n &lt;= 500</code></li>
+<li><code>-500 &lt;= Node.val &lt;= 500</code></li>
+<li><code>1 &lt;= left &lt;= right &lt;= n</code></li>
+</ul>
+<p><strong>Follow up:</strong> Could you do it in one pass?</p>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Implement reverseN(reverse the fist N elements of one list) first,<br>i.e. reverseN(3) &#x3D; 3-&gt;2-&gt;1-&gt;4-&gt;5</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseBetween</span><span class="params">(ListNode* head, <span class="type">int</span> left, <span class="type">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseBetween</span><span class="params">(ListNode* head, <span class="type">int</span> left, <span class="type">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (left == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">reverseN</span>(head, right);</span><br><span class="line">        &#125;</span><br><span class="line">        head-&gt;next = <span class="built_in">reverseBetween</span>(head-&gt;next, left - <span class="number">1</span>, right - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseN</span><span class="params">(ListNode* head, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">            succesor = head-&gt;next;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode* tmpHead = <span class="built_in">reverseN</span>(head-&gt;next, n - <span class="number">1</span>);</span><br><span class="line">        head-&gt;next-&gt;next = head;</span><br><span class="line">        <span class="comment">// in fact, this step is only useful for the first node</span></span><br><span class="line">        head-&gt;next = succesor;</span><br><span class="line">        <span class="keyword">return</span> tmpHead;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ListNode* succesor = <span class="literal">nullptr</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Linked List</tag>
       </tags>
   </entry>
   <entry>
@@ -7016,8 +7017,8 @@
       </categories>
       <tags>
         <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
+        <tag>Depth-First Search</tag>
         <tag>Binary Search Tree</tag>
       </tags>
   </entry>
@@ -8983,23 +8984,6 @@
       </categories>
   </entry>
   <entry>
-    <title>How to write a design doc/ORR</title>
-    <url>/2022/12/02/How-to-write-a-design-doc-ORR/</url>
-    <content><![CDATA[<h3 id="The-problem"><a href="#The-problem" class="headerlink" title="The problem"></a>The problem</h3><p>It can take 2~3 weeks for me to finish one design doc&#x2F;ORR. When there’s a need to write such a doc, I would postphone the work as late as possible. And when there’s no way to push it off, I wouldn’t start the work until the last evening + morning. Such behaviour damages my mental health and also the doc quality.</p>
-<h3 id="How-to-do-better-next-time"><a href="#How-to-do-better-next-time" class="headerlink" title="How to do better next time"></a>How to do better next time</h3><ul>
-<li>Setup the key stakeholder review day, internal review day early, so i can schedule work backwards</li>
-<li>Find some training from internal source, if there’s any, can use 1~2 days for this</li>
-<li>Find some example, can use half day for this</li>
-<li>Start to write, even just copying the example</li>
-<li>Break the tasks into smaller pieces. Start to lay out the architecture, so i can fill in each section later</li>
-<li>Setup a goal: what I must finish within today</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Thoughts</category>
-      </categories>
-  </entry>
-  <entry>
     <title>How to setup personal VPN</title>
     <url>/2023/04/21/How-to-setup-personal-VPN/</url>
     <content><![CDATA[<p>Most ideas and actions are from this doc <a href="https://github.com/haoel/haoel.github.io">科学上网</a></p>
@@ -9034,6 +9018,23 @@
       <tags>
         <tag>Tech</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>How to write a design doc/ORR</title>
+    <url>/2022/12/02/How-to-write-a-design-doc-ORR/</url>
+    <content><![CDATA[<h3 id="The-problem"><a href="#The-problem" class="headerlink" title="The problem"></a>The problem</h3><p>It can take 2~3 weeks for me to finish one design doc&#x2F;ORR. When there’s a need to write such a doc, I would postphone the work as late as possible. And when there’s no way to push it off, I wouldn’t start the work until the last evening + morning. Such behaviour damages my mental health and also the doc quality.</p>
+<h3 id="How-to-do-better-next-time"><a href="#How-to-do-better-next-time" class="headerlink" title="How to do better next time"></a>How to do better next time</h3><ul>
+<li>Setup the key stakeholder review day, internal review day early, so i can schedule work backwards</li>
+<li>Find some training from internal source, if there’s any, can use 1~2 days for this</li>
+<li>Find some example, can use half day for this</li>
+<li>Start to write, even just copying the example</li>
+<li>Break the tasks into smaller pieces. Start to lay out the architecture, so i can fill in each section later</li>
+<li>Setup a goal: what I must finish within today</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Thoughts</category>
+      </categories>
   </entry>
   <entry>
     <title>Learning from STJE failure</title>

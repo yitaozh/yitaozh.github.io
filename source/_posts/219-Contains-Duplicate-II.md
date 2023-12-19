@@ -5,7 +5,7 @@ date: 2023-12-05 23:00:42
 tags:
     - Array
     - Hash Table
-     - Sliding Window
+    - Sliding Window
 ---
 
 # [219\. Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii/)

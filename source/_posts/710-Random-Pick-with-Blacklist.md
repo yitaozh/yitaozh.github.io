@@ -59,7 +59,7 @@ solution.pick(); // return 4
 
 ## Hints/Notes
 
-* Use array and mapping
+* Use map
 
 ## Solution
 

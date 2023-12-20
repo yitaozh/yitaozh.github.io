@@ -74,13 +74,12 @@ public:
         if (!head) return head;
         ListNode* slow = head, *fast = head;
         while (fast) {
-            if (fast->val != slow->val) {
-                slow->next = fast;
-                slow = slow->next;
+            while (fast && fast->val == slow->val) {
+                fast = fast->next;
             }
-            fast = fast->next;
+            slow->next = fast;
+            slow = slow->next;
         }
-        slow->next = nullptr;
         return head;
     }
 };

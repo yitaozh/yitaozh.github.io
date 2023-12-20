@@ -73,7 +73,6 @@ Language: **C++**
 class Solution {
 public:
     bool confusingNumber(int n) {
-        unordered_map<int, int> mapping;
         int sum = 0, tmp = n;
         while (tmp > 0) {
             int r = tmp % 10;

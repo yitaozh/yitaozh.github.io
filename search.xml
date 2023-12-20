@@ -958,45 +958,6 @@
       </tags>
   </entry>
   <entry>
-    <title>146. LRU Cache</title>
-    <url>/2023/10/03/146-LRU-Cache/</url>
-    <content><![CDATA[<h1 id="146-LRU-Cache"><a href="#146-LRU-Cache" class="headerlink" title="146. LRU Cache"></a><a href="https://leetcode.com/problems/lru-cache/">146. LRU Cache</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/linked-list//">Linked List</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/design//">Design</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/doubly-linked-list//">Doubly-Linked List</a></p>
-<p>Design a data structure that follows the constraints of a <strong><a href="https://en.wikipedia.org/wiki/Cache_replacement_policies#LRU">Least Recently Used (LRU) cache</a></strong>.</p>
-<p>Implement the <code>LRUCache</code> class:</p>
-<ul>
-<li><code>LRUCache(int capacity)</code> Initialize the LRU cache with <strong>positive</strong> size <code>capacity</code>.</li>
-<li><code>int get(int key)</code> Return the value of the <code>key</code> if the key exists, otherwise return <code>-1</code>.</li>
-<li><code>void put(int key, int value)</code> Update the value of the <code>key</code> if the <code>key</code> exists. Otherwise, add the <code>key-value</code> pair to the cache. If the number of keys exceeds the <code>capacity</code> from this operation, <strong>evict</strong> the least recently used key.</li>
-</ul>
-<p>The functions <code>get</code> and <code>put</code> must each run in <code>O(1)</code> average time complexity.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input</span><br><span class="line">[<span class="string">&quot;LRUCache&quot;</span>, <span class="string">&quot;put&quot;</span>, <span class="string">&quot;put&quot;</span>, <span class="string">&quot;get&quot;</span>, <span class="string">&quot;put&quot;</span>, <span class="string">&quot;get&quot;</span>, <span class="string">&quot;put&quot;</span>, <span class="string">&quot;get&quot;</span>, <span class="string">&quot;get&quot;</span>, <span class="string">&quot;get&quot;</span>]</span><br><span class="line">[[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]</span><br><span class="line">Output</span><br><span class="line">[null, null, null, 1, null, -1, null, -1, 3, 4]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">LRUCache lRUCache = new LRUCache(2);</span><br><span class="line">lRUCache.put(1, 1); // cache is &#123;1=1&#125;</span><br><span class="line">lRUCache.put(2, 2); // cache is &#123;1=1, 2=2&#125;</span><br><span class="line">lRUCache.get(1);    // <span class="built_in">return</span> 1</span><br><span class="line">lRUCache.put(3, 3); // LRU key was 2, evicts key 2, cache is &#123;1=1, 3=3&#125;</span><br><span class="line">lRUCache.get(2);    // returns -1 (not found)</span><br><span class="line">lRUCache.put(4, 4); // LRU key was 1, evicts key 1, cache is &#123;4=4, 3=3&#125;</span><br><span class="line">lRUCache.get(1);    // <span class="built_in">return</span> -1 (not found)</span><br><span class="line">lRUCache.get(3);    // <span class="built_in">return</span> 3</span><br><span class="line">lRUCache.get(4);    // <span class="built_in">return</span> 4</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= capacity &lt;= 3000</code></li>
-<li>0 &lt;&#x3D; key &lt;&#x3D; 10<sup>4</sup></li>
-<li>0 &lt;&#x3D; value &lt;&#x3D; 10<sup>5</sup></li>
-<li>At most 2 * 10<sup>5</sup> calls will be made to <code>get</code> and <code>put</code>.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Use list + map to mimic the behavior of linkedHashMap</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">LRUCache</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> size;</span><br><span class="line">    list&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; l;</span><br><span class="line">    map&lt;<span class="type">int</span>, list&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt;::iterator&gt; m;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="built_in">LRUCache</span>(<span class="type">int</span> capacity) &#123;</span><br><span class="line">        size = capacity;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">add_to_end</span><span class="params">(<span class="type">int</span> key, <span class="type">int</span> value)</span> </span>&#123;</span><br><span class="line">        l.<span class="built_in">push_back</span>(&#123;key, value&#125;);</span><br><span class="line">        m[key] = <span class="built_in">next</span>(l.<span class="built_in">end</span>(), <span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">get</span><span class="params">(<span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!m.<span class="built_in">count</span>(key)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            list&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;::iterator i = m[key];</span><br><span class="line">            <span class="type">int</span> value = (*i).second;</span><br><span class="line">            l.<span class="built_in">erase</span>(i);</span><br><span class="line">            <span class="built_in">add_to_end</span>(key, value);</span><br><span class="line">            <span class="keyword">return</span> value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">put</span><span class="params">(<span class="type">int</span> key, <span class="type">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!m.<span class="built_in">count</span>(key)) &#123;</span><br><span class="line">            <span class="keyword">if</span> (l.<span class="built_in">size</span>() == size) &#123;</span><br><span class="line">                <span class="type">int</span> k = l.<span class="built_in">front</span>().first;</span><br><span class="line">                m.<span class="built_in">erase</span>(k);</span><br><span class="line">                l.<span class="built_in">pop_front</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">add_to_end</span>(key, value);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">auto</span> i = m[key];</span><br><span class="line">            l.<span class="built_in">erase</span>(i);</span><br><span class="line">            <span class="built_in">add_to_end</span>(key, value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your LRUCache object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * LRUCache* obj = new LRUCache(capacity);</span></span><br><span class="line"><span class="comment"> * int param_1 = obj-&gt;get(key);</span></span><br><span class="line"><span class="comment"> * obj-&gt;put(key,value);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Hash Table</tag>
-        <tag>Linked List</tag>
-        <tag>Design</tag>
-        <tag>Doubly-Linked List</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>144. Binary Tree Preorder Traversal</title>
     <url>/2023/02/02/144-Binary-Tree-Preorder-Traversal/</url>
     <content><![CDATA[<h1 id="144-Binary-Tree-Preorder-Traversal"><a href="#144-Binary-Tree-Preorder-Traversal" class="headerlink" title="144. Binary Tree Preorder Traversal"></a><a href="https://leetcode.com/problems/binary-tree-preorder-traversal/">144. Binary Tree Preorder Traversal</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
@@ -1035,6 +996,45 @@
         <tag>Tree</tag>
         <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>146. LRU Cache</title>
+    <url>/2023/10/03/146-LRU-Cache/</url>
+    <content><![CDATA[<h1 id="146-LRU-Cache"><a href="#146-LRU-Cache" class="headerlink" title="146. LRU Cache"></a><a href="https://leetcode.com/problems/lru-cache/">146. LRU Cache</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/linked-list//">Linked List</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/design//">Design</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/doubly-linked-list//">Doubly-Linked List</a></p>
+<p>Design a data structure that follows the constraints of a <strong><a href="https://en.wikipedia.org/wiki/Cache_replacement_policies#LRU">Least Recently Used (LRU) cache</a></strong>.</p>
+<p>Implement the <code>LRUCache</code> class:</p>
+<ul>
+<li><code>LRUCache(int capacity)</code> Initialize the LRU cache with <strong>positive</strong> size <code>capacity</code>.</li>
+<li><code>int get(int key)</code> Return the value of the <code>key</code> if the key exists, otherwise return <code>-1</code>.</li>
+<li><code>void put(int key, int value)</code> Update the value of the <code>key</code> if the <code>key</code> exists. Otherwise, add the <code>key-value</code> pair to the cache. If the number of keys exceeds the <code>capacity</code> from this operation, <strong>evict</strong> the least recently used key.</li>
+</ul>
+<p>The functions <code>get</code> and <code>put</code> must each run in <code>O(1)</code> average time complexity.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input</span><br><span class="line">[<span class="string">&quot;LRUCache&quot;</span>, <span class="string">&quot;put&quot;</span>, <span class="string">&quot;put&quot;</span>, <span class="string">&quot;get&quot;</span>, <span class="string">&quot;put&quot;</span>, <span class="string">&quot;get&quot;</span>, <span class="string">&quot;put&quot;</span>, <span class="string">&quot;get&quot;</span>, <span class="string">&quot;get&quot;</span>, <span class="string">&quot;get&quot;</span>]</span><br><span class="line">[[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]</span><br><span class="line">Output</span><br><span class="line">[null, null, null, 1, null, -1, null, -1, 3, 4]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">LRUCache lRUCache = new LRUCache(2);</span><br><span class="line">lRUCache.put(1, 1); // cache is &#123;1=1&#125;</span><br><span class="line">lRUCache.put(2, 2); // cache is &#123;1=1, 2=2&#125;</span><br><span class="line">lRUCache.get(1);    // <span class="built_in">return</span> 1</span><br><span class="line">lRUCache.put(3, 3); // LRU key was 2, evicts key 2, cache is &#123;1=1, 3=3&#125;</span><br><span class="line">lRUCache.get(2);    // returns -1 (not found)</span><br><span class="line">lRUCache.put(4, 4); // LRU key was 1, evicts key 1, cache is &#123;4=4, 3=3&#125;</span><br><span class="line">lRUCache.get(1);    // <span class="built_in">return</span> -1 (not found)</span><br><span class="line">lRUCache.get(3);    // <span class="built_in">return</span> 3</span><br><span class="line">lRUCache.get(4);    // <span class="built_in">return</span> 4</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= capacity &lt;= 3000</code></li>
+<li>0 &lt;&#x3D; key &lt;&#x3D; 10<sup>4</sup></li>
+<li>0 &lt;&#x3D; value &lt;&#x3D; 10<sup>5</sup></li>
+<li>At most 2 * 10<sup>5</sup> calls will be made to <code>get</code> and <code>put</code>.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Use list + map to mimic the behavior of linkedHashMap</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">LRUCache</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> size;</span><br><span class="line">    list&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; l;</span><br><span class="line">    map&lt;<span class="type">int</span>, list&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt;::iterator&gt; m;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="built_in">LRUCache</span>(<span class="type">int</span> capacity) &#123;</span><br><span class="line">        size = capacity;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">add_to_end</span><span class="params">(<span class="type">int</span> key, <span class="type">int</span> value)</span> </span>&#123;</span><br><span class="line">        l.<span class="built_in">push_back</span>(&#123;key, value&#125;);</span><br><span class="line">        m[key] = <span class="built_in">next</span>(l.<span class="built_in">end</span>(), <span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">get</span><span class="params">(<span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!m.<span class="built_in">count</span>(key)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            list&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;::iterator i = m[key];</span><br><span class="line">            <span class="type">int</span> value = (*i).second;</span><br><span class="line">            l.<span class="built_in">erase</span>(i);</span><br><span class="line">            <span class="built_in">add_to_end</span>(key, value);</span><br><span class="line">            <span class="keyword">return</span> value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">put</span><span class="params">(<span class="type">int</span> key, <span class="type">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!m.<span class="built_in">count</span>(key)) &#123;</span><br><span class="line">            <span class="keyword">if</span> (l.<span class="built_in">size</span>() == size) &#123;</span><br><span class="line">                <span class="type">int</span> k = l.<span class="built_in">front</span>().first;</span><br><span class="line">                m.<span class="built_in">erase</span>(k);</span><br><span class="line">                l.<span class="built_in">pop_front</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">add_to_end</span>(key, value);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">auto</span> i = m[key];</span><br><span class="line">            l.<span class="built_in">erase</span>(i);</span><br><span class="line">            <span class="built_in">add_to_end</span>(key, value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your LRUCache object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * LRUCache* obj = new LRUCache(capacity);</span></span><br><span class="line"><span class="comment"> * int param_1 = obj-&gt;get(key);</span></span><br><span class="line"><span class="comment"> * obj-&gt;put(key,value);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Hash Table</tag>
+        <tag>Linked List</tag>
+        <tag>Design</tag>
+        <tag>Doubly-Linked List</tag>
       </tags>
   </entry>
   <entry>
@@ -1111,51 +1111,6 @@
       </tags>
   </entry>
   <entry>
-    <title>150. Evaluate Reverse Polish Notation</title>
-    <url>/2023/12/08/150-Evaluate-Reverse-Polish-Notation/</url>
-    <content><![CDATA[<h1 id="150-Evaluate-Reverse-Polish-Notation"><a href="#150-Evaluate-Reverse-Polish-Notation" class="headerlink" title="150. Evaluate Reverse Polish Notation"></a><a href="https://leetcode.com/problems/evaluate-reverse-polish-notation/">150. Evaluate Reverse Polish Notation</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/math//">Math</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/stack//">Stack</a></p>
-<p>You are given an array of strings <code>tokens</code> that represents an arithmetic expression in a <a href="http://en.wikipedia.org/wiki/Reverse_Polish_notation">Reverse Polish Notation</a>.</p>
-<p>Evaluate the expression. Return <em>an integer that represents the value of the expression</em>.</p>
-<p><strong>Note</strong> that:</p>
-<ul>
-<li>The valid operators are <code>&#39;+&#39;</code>, <code>&#39;-&#39;</code>, <code>&#39;*&#39;</code>, and <code>&#39;/&#39;</code>.</li>
-<li>Each operand may be an integer or another expression.</li>
-<li>The division between two integers always <strong>truncates toward zero</strong>.</li>
-<li>There will not be any division by zero.</li>
-<li>The input represents a valid arithmetic expression in a reverse polish notation.</li>
-<li>The answer and all the intermediate calculations can be represented in a <strong>32-bit</strong> integer.</li>
-</ul>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: tokens = [<span class="string">&quot;2&quot;</span>,<span class="string">&quot;1&quot;</span>,<span class="string">&quot;+&quot;</span>,<span class="string">&quot;3&quot;</span>,<span class="string">&quot;*&quot;</span>]</span><br><span class="line">Output: 9</span><br><span class="line">Explanation: ((<span class="number">2</span> + <span class="number">1</span>) * <span class="number">3</span>) = <span class="number">9</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: tokens = [<span class="string">&quot;4&quot;</span>,<span class="string">&quot;13&quot;</span>,<span class="string">&quot;5&quot;</span>,<span class="string">&quot;/&quot;</span>,<span class="string">&quot;+&quot;</span>]</span><br><span class="line">Output: 6</span><br><span class="line">Explanation: (4 + (13 / 5)) = 6</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: tokens = [<span class="string">&quot;10&quot;</span>,<span class="string">&quot;6&quot;</span>,<span class="string">&quot;9&quot;</span>,<span class="string">&quot;3&quot;</span>,<span class="string">&quot;+&quot;</span>,<span class="string">&quot;-11&quot;</span>,<span class="string">&quot;*&quot;</span>,<span class="string">&quot;/&quot;</span>,<span class="string">&quot;*&quot;</span>,<span class="string">&quot;17&quot;</span>,<span class="string">&quot;+&quot;</span>,<span class="string">&quot;5&quot;</span>,<span class="string">&quot;+&quot;</span>]</span><br><span class="line">Output: 22</span><br><span class="line">Explanation: ((<span class="number">10</span> * (<span class="number">6</span> / ((<span class="number">9</span> + <span class="number">3</span>) * -<span class="number">11</span>))) + 17) + 5</span><br><span class="line">= ((<span class="number">10</span> * (<span class="number">6</span> / (<span class="number">12</span> * -<span class="number">11</span>))) + 17) + 5</span><br><span class="line">= ((<span class="number">10</span> * (<span class="number">6</span> / -<span class="number">132</span>)) + 17) + 5</span><br><span class="line">= ((<span class="number">10</span> * <span class="number">0</span>) + <span class="number">17</span>) + <span class="number">5</span></span><br><span class="line">= (<span class="number">0</span> + <span class="number">17</span>) + <span class="number">5</span></span><br><span class="line">= <span class="number">17</span> + <span class="number">5</span></span><br><span class="line">= <span class="number">22</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>1 &lt;&#x3D; tokens.length &lt;&#x3D; 10<sup>4</sup></li>
-<li><code>tokens[i]</code> is either an operator: <code>&quot;+&quot;</code>, <code>&quot;-&quot;</code>, <code>&quot;*&quot;</code>, or <code>&quot;/&quot;</code>, or an integer in the range <code>[-200, 200]</code>.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>stack</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">evalRPN</span><span class="params">(vector&lt;string&gt;&amp; tokens)</span> </span>&#123;</span><br><span class="line">        stack&lt;<span class="type">int</span>&gt; s;</span><br><span class="line">        <span class="keyword">for</span> (string token : tokens) &#123;</span><br><span class="line">            <span class="keyword">if</span> (token == <span class="string">&quot;+&quot;</span>) &#123;</span><br><span class="line">                <span class="type">int</span> a = s.<span class="built_in">top</span>(); s.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="type">int</span> b = s.<span class="built_in">top</span>(); s.<span class="built_in">pop</span>();</span><br><span class="line">                s.<span class="built_in">push</span>(a + b);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (token == <span class="string">&quot;-&quot;</span>) &#123;</span><br><span class="line">                <span class="type">int</span> a = s.<span class="built_in">top</span>(); s.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="type">int</span> b = s.<span class="built_in">top</span>(); s.<span class="built_in">pop</span>();</span><br><span class="line">                s.<span class="built_in">push</span>(b - a);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (token == <span class="string">&quot;*&quot;</span> ) &#123;</span><br><span class="line">                <span class="type">int</span> a = s.<span class="built_in">top</span>(); s.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="type">int</span> b = s.<span class="built_in">top</span>(); s.<span class="built_in">pop</span>();</span><br><span class="line">                s.<span class="built_in">push</span>(a * b);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (token == <span class="string">&quot;/&quot;</span>) &#123;</span><br><span class="line">                <span class="type">int</span> a = s.<span class="built_in">top</span>(); s.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="type">int</span> b = s.<span class="built_in">top</span>(); s.<span class="built_in">pop</span>();</span><br><span class="line">                s.<span class="built_in">push</span>(b / a);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                s.<span class="built_in">push</span>(<span class="built_in">stoi</span>(token));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.<span class="built_in">top</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Stack</tag>
-        <tag>Math</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>151. Reverse Words in a String</title>
     <url>/2023/01/23/151-Reverse-Words-in-a-String/</url>
     <content><![CDATA[<h1 id="151-Reverse-Words-in-a-String"><a href="#151-Reverse-Words-in-a-String" class="headerlink" title="151. Reverse Words in a String"></a><a href="https://leetcode.com/problems/reverse-words-in-a-string/">151. Reverse Words in a String</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -1198,6 +1153,51 @@
       <tags>
         <tag>String</tag>
         <tag>Two Pointers</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>150. Evaluate Reverse Polish Notation</title>
+    <url>/2023/12/08/150-Evaluate-Reverse-Polish-Notation/</url>
+    <content><![CDATA[<h1 id="150-Evaluate-Reverse-Polish-Notation"><a href="#150-Evaluate-Reverse-Polish-Notation" class="headerlink" title="150. Evaluate Reverse Polish Notation"></a><a href="https://leetcode.com/problems/evaluate-reverse-polish-notation/">150. Evaluate Reverse Polish Notation</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/math//">Math</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/stack//">Stack</a></p>
+<p>You are given an array of strings <code>tokens</code> that represents an arithmetic expression in a <a href="http://en.wikipedia.org/wiki/Reverse_Polish_notation">Reverse Polish Notation</a>.</p>
+<p>Evaluate the expression. Return <em>an integer that represents the value of the expression</em>.</p>
+<p><strong>Note</strong> that:</p>
+<ul>
+<li>The valid operators are <code>&#39;+&#39;</code>, <code>&#39;-&#39;</code>, <code>&#39;*&#39;</code>, and <code>&#39;/&#39;</code>.</li>
+<li>Each operand may be an integer or another expression.</li>
+<li>The division between two integers always <strong>truncates toward zero</strong>.</li>
+<li>There will not be any division by zero.</li>
+<li>The input represents a valid arithmetic expression in a reverse polish notation.</li>
+<li>The answer and all the intermediate calculations can be represented in a <strong>32-bit</strong> integer.</li>
+</ul>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: tokens = [<span class="string">&quot;2&quot;</span>,<span class="string">&quot;1&quot;</span>,<span class="string">&quot;+&quot;</span>,<span class="string">&quot;3&quot;</span>,<span class="string">&quot;*&quot;</span>]</span><br><span class="line">Output: 9</span><br><span class="line">Explanation: ((<span class="number">2</span> + <span class="number">1</span>) * <span class="number">3</span>) = <span class="number">9</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: tokens = [<span class="string">&quot;4&quot;</span>,<span class="string">&quot;13&quot;</span>,<span class="string">&quot;5&quot;</span>,<span class="string">&quot;/&quot;</span>,<span class="string">&quot;+&quot;</span>]</span><br><span class="line">Output: 6</span><br><span class="line">Explanation: (4 + (13 / 5)) = 6</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: tokens = [<span class="string">&quot;10&quot;</span>,<span class="string">&quot;6&quot;</span>,<span class="string">&quot;9&quot;</span>,<span class="string">&quot;3&quot;</span>,<span class="string">&quot;+&quot;</span>,<span class="string">&quot;-11&quot;</span>,<span class="string">&quot;*&quot;</span>,<span class="string">&quot;/&quot;</span>,<span class="string">&quot;*&quot;</span>,<span class="string">&quot;17&quot;</span>,<span class="string">&quot;+&quot;</span>,<span class="string">&quot;5&quot;</span>,<span class="string">&quot;+&quot;</span>]</span><br><span class="line">Output: 22</span><br><span class="line">Explanation: ((<span class="number">10</span> * (<span class="number">6</span> / ((<span class="number">9</span> + <span class="number">3</span>) * -<span class="number">11</span>))) + 17) + 5</span><br><span class="line">= ((<span class="number">10</span> * (<span class="number">6</span> / (<span class="number">12</span> * -<span class="number">11</span>))) + 17) + 5</span><br><span class="line">= ((<span class="number">10</span> * (<span class="number">6</span> / -<span class="number">132</span>)) + 17) + 5</span><br><span class="line">= ((<span class="number">10</span> * <span class="number">0</span>) + <span class="number">17</span>) + <span class="number">5</span></span><br><span class="line">= (<span class="number">0</span> + <span class="number">17</span>) + <span class="number">5</span></span><br><span class="line">= <span class="number">17</span> + <span class="number">5</span></span><br><span class="line">= <span class="number">22</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; tokens.length &lt;&#x3D; 10<sup>4</sup></li>
+<li><code>tokens[i]</code> is either an operator: <code>&quot;+&quot;</code>, <code>&quot;-&quot;</code>, <code>&quot;*&quot;</code>, or <code>&quot;/&quot;</code>, or an integer in the range <code>[-200, 200]</code>.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>stack</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">evalRPN</span><span class="params">(vector&lt;string&gt;&amp; tokens)</span> </span>&#123;</span><br><span class="line">        stack&lt;<span class="type">int</span>&gt; s;</span><br><span class="line">        <span class="keyword">for</span> (string token : tokens) &#123;</span><br><span class="line">            <span class="keyword">if</span> (token == <span class="string">&quot;+&quot;</span>) &#123;</span><br><span class="line">                <span class="type">int</span> a = s.<span class="built_in">top</span>(); s.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="type">int</span> b = s.<span class="built_in">top</span>(); s.<span class="built_in">pop</span>();</span><br><span class="line">                s.<span class="built_in">push</span>(a + b);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (token == <span class="string">&quot;-&quot;</span>) &#123;</span><br><span class="line">                <span class="type">int</span> a = s.<span class="built_in">top</span>(); s.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="type">int</span> b = s.<span class="built_in">top</span>(); s.<span class="built_in">pop</span>();</span><br><span class="line">                s.<span class="built_in">push</span>(b - a);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (token == <span class="string">&quot;*&quot;</span> ) &#123;</span><br><span class="line">                <span class="type">int</span> a = s.<span class="built_in">top</span>(); s.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="type">int</span> b = s.<span class="built_in">top</span>(); s.<span class="built_in">pop</span>();</span><br><span class="line">                s.<span class="built_in">push</span>(a * b);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (token == <span class="string">&quot;/&quot;</span>) &#123;</span><br><span class="line">                <span class="type">int</span> a = s.<span class="built_in">top</span>(); s.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="type">int</span> b = s.<span class="built_in">top</span>(); s.<span class="built_in">pop</span>();</span><br><span class="line">                s.<span class="built_in">push</span>(b / a);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                s.<span class="built_in">push</span>(<span class="built_in">stoi</span>(token));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.<span class="built_in">top</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Stack</tag>
+        <tag>Math</tag>
       </tags>
   </entry>
   <entry>
@@ -1522,48 +1522,6 @@
       </tags>
   </entry>
   <entry>
-    <title>1644. Lowest Common Ancestor of a Binary Tree II</title>
-    <url>/2023/08/29/1644-Lowest-Common-Ancestor-of-a-Binary-Tree-II/</url>
-    <content><![CDATA[<h1 id="1644-Lowest-Common-Ancestor-of-a-Binary-Tree-II"><a href="#1644-Lowest-Common-Ancestor-of-a-Binary-Tree-II" class="headerlink" title="1644. Lowest Common Ancestor of a Binary Tree II"></a><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-ii/">1644. Lowest Common Ancestor of a Binary Tree II</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/tree//">Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//">Binary Tree</a></p>
-<p>Given the <code>root</code> of a binary tree, return <em>the lowest common ancestor (LCA) of two given nodes,</em> <code>p</code> <em>and</em> <code>q</code>. If either node <code>p</code> or <code>q</code> <strong>does not exist</strong> in the tree, return <code>null</code>. All values of the nodes in the tree are <strong>unique</strong>.</p>
-<p>According to the <strong><a href="https://en.wikipedia.org/wiki/Lowest_common_ancestor">definition of LCA on Wikipedia</a></strong>: “The lowest common ancestor of two nodes <code>p</code> and <code>q</code> in a binary tree <code>T</code> is the lowest node that has both <code>p</code> and <code>q</code> as <strong>descendants</strong> (where we allow <strong>a node to be a descendant of itself</strong>)”. A <strong>descendant</strong> of a node <code>x</code> is a node <code>y</code> that is on the path from node <code>x</code> to some leaf node.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The LCA of nodes 5 and 1 is 3.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4</span><br><span class="line">Output: 5</span><br><span class="line">Explanation: The LCA of nodes 5 and 4 is 5\. A node can be a descendant of itself according to the definition of LCA.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 10</span><br><span class="line">Output: null</span><br><span class="line">Explanation: Node 10 does not exist <span class="keyword">in</span> the tree, so <span class="built_in">return</span> null.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in the tree is in the range [1, 10<sup>4</sup>].</li>
-<li>-10<sup>9</sup> &lt;&#x3D; Node.val &lt;&#x3D; 10<sup>9</sup></li>
-<li>All <code>Node.val</code> are <strong>unique</strong>.</li>
-<li><code>p != q</code></li>
-</ul>
-<p><strong>Follow up:</strong> Can you find the LCA traversing the tree, without checking nodes existence?</p>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>It’s possible that the nodes don’t exist, so we need to check every node, so it’s postorder traverse</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">bool</span> foundP = <span class="literal">false</span>, foundQ = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">TreeNode* <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode* root, TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        TreeNode* res = <span class="built_in">find</span>(root, p, q);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!foundP || !foundQ) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">TreeNode* <span class="title">find</span><span class="params">(TreeNode* root, TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) <span class="keyword">return</span> root;</span><br><span class="line"></span><br><span class="line">        TreeNode* left = <span class="built_in">find</span>(root-&gt;left, p, q);</span><br><span class="line">        TreeNode* right = <span class="built_in">find</span>(root-&gt;right, p, q);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (root == p) &#123;</span><br><span class="line">            foundP = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (root == q) &#123;</span><br><span class="line">            foundQ = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (left &amp;&amp; right) &#123;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> left ? left : right;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
-        <tag>Binary Tree</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>1650. Lowest Common Ancestor of a Binary Tree III</title>
     <url>/2023/08/30/1650-Lowest-Common-Ancestor-of-a-Binary-Tree-III/</url>
     <content><![CDATA[<h1 id="1650-Lowest-Common-Ancestor-of-a-Binary-Tree-III"><a href="#1650-Lowest-Common-Ancestor-of-a-Binary-Tree-III" class="headerlink" title="1650. Lowest Common Ancestor of a Binary Tree III"></a><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/">1650. Lowest Common Ancestor of a Binary Tree III</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -1604,6 +1562,48 @@
       <tags>
         <tag>Hash Table</tag>
         <tag>Tree</tag>
+        <tag>Binary Tree</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>1644. Lowest Common Ancestor of a Binary Tree II</title>
+    <url>/2023/08/29/1644-Lowest-Common-Ancestor-of-a-Binary-Tree-II/</url>
+    <content><![CDATA[<h1 id="1644-Lowest-Common-Ancestor-of-a-Binary-Tree-II"><a href="#1644-Lowest-Common-Ancestor-of-a-Binary-Tree-II" class="headerlink" title="1644. Lowest Common Ancestor of a Binary Tree II"></a><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-ii/">1644. Lowest Common Ancestor of a Binary Tree II</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/tree//">Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//">Binary Tree</a></p>
+<p>Given the <code>root</code> of a binary tree, return <em>the lowest common ancestor (LCA) of two given nodes,</em> <code>p</code> <em>and</em> <code>q</code>. If either node <code>p</code> or <code>q</code> <strong>does not exist</strong> in the tree, return <code>null</code>. All values of the nodes in the tree are <strong>unique</strong>.</p>
+<p>According to the <strong><a href="https://en.wikipedia.org/wiki/Lowest_common_ancestor">definition of LCA on Wikipedia</a></strong>: “The lowest common ancestor of two nodes <code>p</code> and <code>q</code> in a binary tree <code>T</code> is the lowest node that has both <code>p</code> and <code>q</code> as <strong>descendants</strong> (where we allow <strong>a node to be a descendant of itself</strong>)”. A <strong>descendant</strong> of a node <code>x</code> is a node <code>y</code> that is on the path from node <code>x</code> to some leaf node.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The LCA of nodes 5 and 1 is 3.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4</span><br><span class="line">Output: 5</span><br><span class="line">Explanation: The LCA of nodes 5 and 4 is 5\. A node can be a descendant of itself according to the definition of LCA.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 10</span><br><span class="line">Output: null</span><br><span class="line">Explanation: Node 10 does not exist <span class="keyword">in</span> the tree, so <span class="built_in">return</span> null.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is in the range [1, 10<sup>4</sup>].</li>
+<li>-10<sup>9</sup> &lt;&#x3D; Node.val &lt;&#x3D; 10<sup>9</sup></li>
+<li>All <code>Node.val</code> are <strong>unique</strong>.</li>
+<li><code>p != q</code></li>
+</ul>
+<p><strong>Follow up:</strong> Can you find the LCA traversing the tree, without checking nodes existence?</p>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>It’s possible that the nodes don’t exist, so we need to check every node, so it’s postorder traverse</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">bool</span> foundP = <span class="literal">false</span>, foundQ = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">TreeNode* <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode* root, TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        TreeNode* res = <span class="built_in">find</span>(root, p, q);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!foundP || !foundQ) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">TreeNode* <span class="title">find</span><span class="params">(TreeNode* root, TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) <span class="keyword">return</span> root;</span><br><span class="line"></span><br><span class="line">        TreeNode* left = <span class="built_in">find</span>(root-&gt;left, p, q);</span><br><span class="line">        TreeNode* right = <span class="built_in">find</span>(root-&gt;right, p, q);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (root == p) &#123;</span><br><span class="line">            foundP = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (root == q) &#123;</span><br><span class="line">            foundQ = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (left &amp;&amp; right) &#123;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> left ? left : right;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Tree</tag>
+        <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
       </tags>
   </entry>
@@ -2497,6 +2497,35 @@
       </tags>
   </entry>
   <entry>
+    <title>2235. Add Two Integers</title>
+    <url>/2022/12/27/2235-Add-Two-Integers/</url>
+    <content><![CDATA[<h1 id="2235-Add-Two-Integers"><a href="#2235-Add-Two-Integers" class="headerlink" title="2235. Add Two Integers"></a><a href="https://leetcode.com/problems/add-two-integers/">2235. Add Two Integers</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/math/">Math</a></p>
+<p>Given two integers <code>num1</code> and <code>num2</code>, return <em>the <strong>sum</strong> of the two integers</em>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: num1 = 12, num2 = 5</span><br><span class="line">Output: 17</span><br><span class="line">Explanation: num1 is 12, num2 is 5, and their <span class="built_in">sum</span> is 12 + 5 = 17, so 17 is returned.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: num1 = -10, num2 = 4</span><br><span class="line">Output: -6</span><br><span class="line">Explanation: num1 + num2 = -6, so -6 is returned.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>-100 &lt;= num1, num2 &lt;= 100</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>N&#x2F;A</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>Java</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">sum</span><span class="params">(<span class="type">int</span> num1, <span class="type">int</span> num2)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> num1 + num2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Math</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>222. Count Complete Tree Nodes</title>
     <url>/2023/08/30/222-Count-Complete-Tree-Nodes/</url>
     <content><![CDATA[<h1 id="222-Count-Complete-Tree-Nodes"><a href="#222-Count-Complete-Tree-Nodes" class="headerlink" title="222. Count Complete Tree Nodes"></a><a href="https://leetcode.com/problems/count-complete-tree-nodes/">222. Count Complete Tree Nodes</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
@@ -2534,35 +2563,6 @@
         <tag>Tree</tag>
         <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2235. Add Two Integers</title>
-    <url>/2022/12/27/2235-Add-Two-Integers/</url>
-    <content><![CDATA[<h1 id="2235-Add-Two-Integers"><a href="#2235-Add-Two-Integers" class="headerlink" title="2235. Add Two Integers"></a><a href="https://leetcode.com/problems/add-two-integers/">2235. Add Two Integers</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/math/">Math</a></p>
-<p>Given two integers <code>num1</code> and <code>num2</code>, return <em>the <strong>sum</strong> of the two integers</em>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: num1 = 12, num2 = 5</span><br><span class="line">Output: 17</span><br><span class="line">Explanation: num1 is 12, num2 is 5, and their <span class="built_in">sum</span> is 12 + 5 = 17, so 17 is returned.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: num1 = -10, num2 = 4</span><br><span class="line">Output: -6</span><br><span class="line">Explanation: num1 + num2 = -6, so -6 is returned.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>-100 &lt;= num1, num2 &lt;= 100</code></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>N&#x2F;A</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>Java</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">sum</span><span class="params">(<span class="type">int</span> num1, <span class="type">int</span> num2)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> num1 + num2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Math</tag>
       </tags>
   </entry>
   <entry>
@@ -4038,6 +4038,42 @@
       </tags>
   </entry>
   <entry>
+    <title>346. Moving Average from Data Stream</title>
+    <url>/2023/12/14/346-Moving-Average-from-Data-Stream/</url>
+    <content><![CDATA[<h1 id="346-Moving-Average-from-Data-Stream"><a href="#346-Moving-Average-from-Data-Stream" class="headerlink" title="346. Moving Average from Data Stream"></a><a href="https://leetcode.com/problems/moving-average-from-data-stream/">346. Moving Average from Data Stream</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/design//">Design</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/queue//">Queue</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/data-stream//">Data Stream</a></p>
+<p>Given a stream of integers and a window size, calculate the moving average of all integers in the sliding window.</p>
+<p>Implement the <code>MovingAverage</code> class:</p>
+<ul>
+<li><code>MovingAverage(int size)</code> Initializes the object with the size of the window <code>size</code>.</li>
+<li><code>double next(int val)</code> Returns the moving average of the last <code>size</code> values of the stream.</li>
+</ul>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input</span><br><span class="line">[<span class="string">&quot;MovingAverage&quot;</span>, <span class="string">&quot;next&quot;</span>, <span class="string">&quot;next&quot;</span>, <span class="string">&quot;next&quot;</span>, <span class="string">&quot;next&quot;</span>]</span><br><span class="line">[[3], [1], [10], [3], [5]]</span><br><span class="line">Output</span><br><span class="line">[null, 1.0, 5.5, 4.66667, 6.0]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">MovingAverage movingAverage = new MovingAverage(3);</span><br><span class="line">movingAverage.next(1); // <span class="built_in">return</span> 1.0 = 1 / 1</span><br><span class="line">movingAverage.next(10); // <span class="built_in">return</span> 5.5 = (1 + 10) / 2</span><br><span class="line">movingAverage.next(3); // <span class="built_in">return</span> 4.66667 = (1 + 10 + 3) / 3</span><br><span class="line">movingAverage.next(5); // <span class="built_in">return</span> 6.0 = (10 + 3 + 5) / 3</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= size &lt;= 1000</code></li>
+<li>-10<sup>5</sup> &lt;&#x3D; val &lt;&#x3D; 10<sup>5</sup></li>
+<li>At most 10<sup>4</sup> calls will be made to <code>next</code>.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>queue</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MovingAverage</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> size_;</span><br><span class="line">    <span class="type">double</span> sum_;</span><br><span class="line">    queue&lt;<span class="type">int</span>&gt; q;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">MovingAverage</span>(<span class="type">int</span> size) &#123;</span><br><span class="line">        size_ = size;</span><br><span class="line">        sum_ = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">next</span><span class="params">(<span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        sum_ += val;</span><br><span class="line">        q.<span class="built_in">push</span>(val);</span><br><span class="line">        <span class="keyword">if</span> (q.<span class="built_in">size</span>() &gt; size_) &#123;</span><br><span class="line">            sum_ -= q.<span class="built_in">front</span>();</span><br><span class="line">            q.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum_ / q.<span class="built_in">size</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MovingAverage object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MovingAverage* obj = new MovingAverage(size);</span></span><br><span class="line"><span class="comment"> * double param_1 = obj-&gt;next(val);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Design</tag>
+        <tag>Queue</tag>
+        <tag>Data Stream</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>347. Top K Frequent Elements</title>
     <url>/2023/11/06/347-Top-K-Frequent-Elements/</url>
     <content><![CDATA[<h1 id="347-Top-K-Frequent-Elements"><a href="#347-Top-K-Frequent-Elements" class="headerlink" title="347. Top K Frequent Elements"></a><a href="https://leetcode.com/problems/top-k-frequent-elements/">347. Top K Frequent Elements</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -4075,42 +4111,6 @@
         <tag>Quickselect</tag>
         <tag>Bucket Sort</tag>
         <tag>Counting</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>346. Moving Average from Data Stream</title>
-    <url>/2023/12/14/346-Moving-Average-from-Data-Stream/</url>
-    <content><![CDATA[<h1 id="346-Moving-Average-from-Data-Stream"><a href="#346-Moving-Average-from-Data-Stream" class="headerlink" title="346. Moving Average from Data Stream"></a><a href="https://leetcode.com/problems/moving-average-from-data-stream/">346. Moving Average from Data Stream</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/design//">Design</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/queue//">Queue</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/data-stream//">Data Stream</a></p>
-<p>Given a stream of integers and a window size, calculate the moving average of all integers in the sliding window.</p>
-<p>Implement the <code>MovingAverage</code> class:</p>
-<ul>
-<li><code>MovingAverage(int size)</code> Initializes the object with the size of the window <code>size</code>.</li>
-<li><code>double next(int val)</code> Returns the moving average of the last <code>size</code> values of the stream.</li>
-</ul>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input</span><br><span class="line">[<span class="string">&quot;MovingAverage&quot;</span>, <span class="string">&quot;next&quot;</span>, <span class="string">&quot;next&quot;</span>, <span class="string">&quot;next&quot;</span>, <span class="string">&quot;next&quot;</span>]</span><br><span class="line">[[3], [1], [10], [3], [5]]</span><br><span class="line">Output</span><br><span class="line">[null, 1.0, 5.5, 4.66667, 6.0]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">MovingAverage movingAverage = new MovingAverage(3);</span><br><span class="line">movingAverage.next(1); // <span class="built_in">return</span> 1.0 = 1 / 1</span><br><span class="line">movingAverage.next(10); // <span class="built_in">return</span> 5.5 = (1 + 10) / 2</span><br><span class="line">movingAverage.next(3); // <span class="built_in">return</span> 4.66667 = (1 + 10 + 3) / 3</span><br><span class="line">movingAverage.next(5); // <span class="built_in">return</span> 6.0 = (10 + 3 + 5) / 3</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= size &lt;= 1000</code></li>
-<li>-10<sup>5</sup> &lt;&#x3D; val &lt;&#x3D; 10<sup>5</sup></li>
-<li>At most 10<sup>4</sup> calls will be made to <code>next</code>.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>queue</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MovingAverage</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> size_;</span><br><span class="line">    <span class="type">double</span> sum_;</span><br><span class="line">    queue&lt;<span class="type">int</span>&gt; q;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">MovingAverage</span>(<span class="type">int</span> size) &#123;</span><br><span class="line">        size_ = size;</span><br><span class="line">        sum_ = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">next</span><span class="params">(<span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        sum_ += val;</span><br><span class="line">        q.<span class="built_in">push</span>(val);</span><br><span class="line">        <span class="keyword">if</span> (q.<span class="built_in">size</span>() &gt; size_) &#123;</span><br><span class="line">            sum_ -= q.<span class="built_in">front</span>();</span><br><span class="line">            q.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum_ / q.<span class="built_in">size</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MovingAverage object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MovingAverage* obj = new MovingAverage(size);</span></span><br><span class="line"><span class="comment"> * double param_1 = obj-&gt;next(val);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Design</tag>
-        <tag>Queue</tag>
-        <tag>Data Stream</tag>
       </tags>
   </entry>
   <entry>
@@ -4419,6 +4419,42 @@
         <tag>Math</tag>
         <tag>Design</tag>
         <tag>Randomized</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>387. First Unique Character in a String</title>
+    <url>/2023/12/19/387-First-Unique-Character-in-a-String/</url>
+    <content><![CDATA[<h1 id="387-First-Unique-Character-in-a-String"><a href="#387-First-Unique-Character-in-a-String" class="headerlink" title="387. First Unique Character in a String"></a><a href="https://leetcode.com/problems/first-unique-character-in-a-string/">387. First Unique Character in a String</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/string//">String</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/queue//">Queue</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/counting//">Counting</a></p>
+<p>Given a string <code>s</code>, <em>find the first non-repeating character in it and return its index</em>. If it does not exist, return <code>-1</code>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;leetcode&quot;</span></span><br><span class="line">Output: 0</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;loveleetcode&quot;</span></span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;aabb&quot;</span></span><br><span class="line">Output: -1</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; s.length &lt;&#x3D; 10<sup>5</sup></li>
+<li><code>s</code> consists of only lowercase English letters.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>map</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">firstUniqChar</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; m;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : s) &#123;</span><br><span class="line">            m[c]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (m[s[i]] == <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Hash Table</tag>
+        <tag>String</tag>
+        <tag>Queue</tag>
+        <tag>Counting</tag>
       </tags>
   </entry>
   <entry>
@@ -5417,48 +5453,6 @@
       </tags>
   </entry>
   <entry>
-    <title>652. Find Duplicate Subtrees</title>
-    <url>/2023/08/22/652-Find-Duplicate-Subtrees/</url>
-    <content><![CDATA[<h1 id="652-Find-Duplicate-Subtrees"><a href="#652-Find-Duplicate-Subtrees" class="headerlink" title="652. Find Duplicate Subtrees"></a><a href="https://leetcode.com/problems/find-duplicate-subtrees/">652. Find Duplicate Subtrees</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/tree//">Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//">Binary Tree</a></p>
-<p>Given the <code>root</code> of a binary tree, return all <strong>duplicate subtrees</strong>.</p>
-<p>For each kind of duplicate subtrees, you only need to return the root node of any <strong>one</strong> of them.</p>
-<p>Two trees are <strong>duplicate</strong> if they have the <strong>same structure</strong> with the <strong>same node values</strong>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/08/16/e1.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [1,2,3,4,null,2,4,null,null,4]</span><br><span class="line">Output: [[2,4],[4]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/08/16/e2.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [2,1,1]</span><br><span class="line">Output: [[1]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/08/16/e33.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [2,2,2,3,null,3,null]</span><br><span class="line">Output: [[2,3],[3]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of the nodes in the tree will be in the range <code>[1, 5000]</code></li>
-<li><code>-200 &lt;= Node.val &lt;= 200</code></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Serialize the (sub)tree to check if there’s duplicate</li>
-<li>Use map the avoid the duplicate in return, only push to res when freq[seri] &#x3D;&#x3D; 1</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;TreeNode*&gt; res;</span><br><span class="line">    map&lt;string, <span class="type">int</span>&gt; freq;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;TreeNode*&gt; <span class="title">findDuplicateSubtrees</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">serialize</span>(root);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">string <span class="title">serialize</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;#&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        string seri = <span class="built_in">serialize</span>(root-&gt;left)</span><br><span class="line">              + <span class="string">&#x27;,&#x27;</span> + <span class="built_in">serialize</span>(root-&gt;right)</span><br><span class="line">              + <span class="string">&quot;,&quot;</span> + <span class="built_in">to_string</span>(root-&gt;val);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (freq[seri] == <span class="number">1</span>) &#123;</span><br><span class="line">            res.<span class="built_in">push_back</span>(root);</span><br><span class="line">        &#125;</span><br><span class="line">        freq[seri]++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> seri;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Hash Table</tag>
-        <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
-        <tag>Binary Tree</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>648. Replace Words</title>
     <url>/2023/10/08/648-Replace-Words/</url>
     <content><![CDATA[<h1 id="648-Replace-Words"><a href="#648-Replace-Words" class="headerlink" title="648. Replace Words"></a><a href="https://leetcode.com/problems/replace-words/">648. Replace Words</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
@@ -5498,6 +5492,48 @@
         <tag>Hash Table</tag>
         <tag>String</tag>
         <tag>Trie</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>652. Find Duplicate Subtrees</title>
+    <url>/2023/08/22/652-Find-Duplicate-Subtrees/</url>
+    <content><![CDATA[<h1 id="652-Find-Duplicate-Subtrees"><a href="#652-Find-Duplicate-Subtrees" class="headerlink" title="652. Find Duplicate Subtrees"></a><a href="https://leetcode.com/problems/find-duplicate-subtrees/">652. Find Duplicate Subtrees</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/tree//">Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//">Binary Tree</a></p>
+<p>Given the <code>root</code> of a binary tree, return all <strong>duplicate subtrees</strong>.</p>
+<p>For each kind of duplicate subtrees, you only need to return the root node of any <strong>one</strong> of them.</p>
+<p>Two trees are <strong>duplicate</strong> if they have the <strong>same structure</strong> with the <strong>same node values</strong>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/08/16/e1.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [1,2,3,4,null,2,4,null,null,4]</span><br><span class="line">Output: [[2,4],[4]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/08/16/e2.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [2,1,1]</span><br><span class="line">Output: [[1]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/08/16/e33.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [2,2,2,3,null,3,null]</span><br><span class="line">Output: [[2,3],[3]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of the nodes in the tree will be in the range <code>[1, 5000]</code></li>
+<li><code>-200 &lt;= Node.val &lt;= 200</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Serialize the (sub)tree to check if there’s duplicate</li>
+<li>Use map the avoid the duplicate in return, only push to res when freq[seri] &#x3D;&#x3D; 1</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;TreeNode*&gt; res;</span><br><span class="line">    map&lt;string, <span class="type">int</span>&gt; freq;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;TreeNode*&gt; <span class="title">findDuplicateSubtrees</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">serialize</span>(root);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">string <span class="title">serialize</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;#&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        string seri = <span class="built_in">serialize</span>(root-&gt;left)</span><br><span class="line">              + <span class="string">&#x27;,&#x27;</span> + <span class="built_in">serialize</span>(root-&gt;right)</span><br><span class="line">              + <span class="string">&quot;,&quot;</span> + <span class="built_in">to_string</span>(root-&gt;val);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (freq[seri] == <span class="number">1</span>) &#123;</span><br><span class="line">            res.<span class="built_in">push_back</span>(root);</span><br><span class="line">        &#125;</span><br><span class="line">        freq[seri]++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> seri;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Hash Table</tag>
+        <tag>Tree</tag>
+        <tag>Depth-First Search</tag>
+        <tag>Binary Tree</tag>
       </tags>
   </entry>
   <entry>
@@ -7503,6 +7539,26 @@
       </categories>
   </entry>
   <entry>
+    <title>How to manage time</title>
+    <url>/2022/12/23/How-to-manage-time/</url>
+    <content><![CDATA[<h3 id="How-I-Have-Time-For-Everything"><a href="#How-I-Have-Time-For-Everything" class="headerlink" title="How I Have Time For Everything"></a>How I Have Time For Everything</h3><ol>
+<li><p>Focus Completely For 2-4 Hours Every Day</p>
+</li>
+<li><p>Do One Thing At A Time</p>
+</li>
+<li><p>Permanently Declutter Your Schedule</p>
+</li>
+</ol>
+<p><a href="https://www.youtube.com/watch?v=c3pzcV9yi24">LINK</a></p>
+]]></content>
+      <categories>
+        <category>Excerpt</category>
+      </categories>
+      <tags>
+        <tag>Career</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>How to overcome procrastination</title>
     <url>/2022/12/02/How-to-overcome-procrastination/</url>
     <content><![CDATA[<h3 id="What"><a href="#What" class="headerlink" title="What"></a>What</h3><p>Procrastination is when we avoid a task we said we would do, for no good reason, despite expecting our behavior to bring negative consequences.</p>
@@ -7522,23 +7578,203 @@
       </categories>
   </entry>
   <entry>
-    <title>How to manage time</title>
-    <url>/2022/12/23/How-to-manage-time/</url>
-    <content><![CDATA[<h3 id="How-I-Have-Time-For-Everything"><a href="#How-I-Have-Time-For-Everything" class="headerlink" title="How I Have Time For Everything"></a>How I Have Time For Everything</h3><ol>
-<li><p>Focus Completely For 2-4 Hours Every Day</p>
+    <title>How to setup personal VPN</title>
+    <url>/2023/04/21/How-to-setup-personal-VPN/</url>
+    <content><![CDATA[<p>Most ideas and actions are from this doc <a href="https://github.com/haoel/haoel.github.io">科学上网</a></p>
+<h2 id="1-Domain"><a href="#1-Domain" class="headerlink" title="1. Domain"></a>1. Domain</h2><p>Since I am going to use gost server, it requires one domain. I purchased one domain at goDaddy.com, it costs $5 per year.</p>
+<h2 id="2-VPC-related"><a href="#2-VPC-related" class="headerlink" title="2. VPC related"></a>2. VPC related</h2><p>I am using AWS LightSail, couple reasons:</p>
+<ol>
+<li>It’s cheap and first 3 months usage is free</li>
+<li>It’s easy to setup, like DNS related stuff</li>
+</ol>
+<h3 id="2-1-Create-instance"><a href="#2-1-Create-instance" class="headerlink" title="2.1 Create instance"></a>2.1 Create instance</h3><p>I would very like to use one instance from HKG, but now LightSail is not available in HKG, so i launched one instance in NRT.</p>
+<h3 id="2-2-Assign-static-IP-address"><a href="#2-2-Assign-static-IP-address" class="headerlink" title="2.2 Assign static IP address"></a>2.2 Assign static IP address</h3><p>Under the networking tab, create one static IP address and assign it to the instance. Also, enable 443 port from outside.</p>
+<h3 id="2-3-Create-domain"><a href="#2-3-Create-domain" class="headerlink" title="2.3 Create domain"></a>2.3 Create domain</h3><p>Under the DNS tab, create a DNS. After creation, go to goDaddy control console and change the name server to use the name servers for this DNS.</p>
+<h3 id="2-4-Gost-setup"><a href="#2-4-Gost-setup" class="headerlink" title="2.4 Gost setup"></a>2.4 Gost setup</h3><p>Login the instance. Git clone haoel’s repo, then run the install script under &#x2F;scripts folder.</p>
+<h2 id="3-Client"><a href="#3-Client" class="headerlink" title="3. Client"></a>3. Client</h2><h3 id="3-1-Chrome"><a href="#3-1-Chrome" class="headerlink" title="3.1 Chrome"></a>3.1 Chrome</h3><p>I would recommend switchyOmega extension for Chrome, just fill in the host, the user and password then the work is done.</p>
+<h3 id="3-2-Github"><a href="#3-2-Github" class="headerlink" title="3.2 Github"></a>3.2 Github</h3><p>To use proxy for other programs, we need to launch a gost client on the machine. It’s recommended to use docker.</p>
+<ol>
+<li>Install docker</li>
+<li>Run docker for different services<ol>
+<li><p>Shadowsocks</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -p 1984:1984 --name gost-ss --restart=always -d ginuerzh/gost -L=ss://aes-128-gcm:password@:1984 -F <span class="string">&#x27;https://user:password@host:443&#x27;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Do One Thing At A Time</p>
-</li>
-<li><p>Permanently Declutter Your Schedule</p>
+<li><p>Socks5 for github</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -p 1080:1080 --name gost-socks --restart=always -d ginuerzh/gost -L=socks5://:1080 -F <span class="string">&#x27;https://user:password@host:443&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p> Then change the ssh config file for github access</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">    Hostname github.com</span><br><span class="line">    ProxyCommand nc -x localhost:1085 %h %p</span><br></pre></td></tr></table></figure></li>
+</ol>
 </li>
 </ol>
-<p><a href="https://www.youtube.com/watch?v=c3pzcV9yi24">LINK</a></p>
+<h3 id="3-3-IOS"><a href="#3-3-IOS" class="headerlink" title="3.3 IOS"></a>3.3 IOS</h3><p>Download Shadowrocket, and setup the proxy.</p>
+]]></content>
+      <tags>
+        <tag>Tech</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to write a design doc/ORR</title>
+    <url>/2022/12/02/How-to-write-a-design-doc-ORR/</url>
+    <content><![CDATA[<h3 id="The-problem"><a href="#The-problem" class="headerlink" title="The problem"></a>The problem</h3><p>It can take 2~3 weeks for me to finish one design doc&#x2F;ORR. When there’s a need to write such a doc, I would postphone the work as late as possible. And when there’s no way to push it off, I wouldn’t start the work until the last evening + morning. Such behaviour damages my mental health and also the doc quality.</p>
+<h3 id="How-to-do-better-next-time"><a href="#How-to-do-better-next-time" class="headerlink" title="How to do better next time"></a>How to do better next time</h3><ul>
+<li>Setup the key stakeholder review day, internal review day early, so i can schedule work backwards</li>
+<li>Find some training from internal source, if there’s any, can use 1~2 days for this</li>
+<li>Find some example, can use half day for this</li>
+<li>Start to write, even just copying the example</li>
+<li>Break the tasks into smaller pieces. Start to lay out the architecture, so i can fill in each section later</li>
+<li>Setup a goal: what I must finish within today</li>
+</ul>
 ]]></content>
       <categories>
-        <category>Excerpt</category>
+        <category>Thoughts</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Learning from STJE failure</title>
+    <url>/2023/04/21/Learning-from-STJE-failure/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, these decrypted content cannot be verified, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="44ac31c326231c787d39257cc111686badaea6adf6a952f65ac01d226d4f0c2e">85fbf07caa70baa1ae613fbbfb8d9d937b53c3e801c535e726658d7bccc84a014e14ed5c6dbaf5a5f44cc85918254ec9f194a44b60d3705387e2f552a4bbbd34df96d182282490edd6c9875520f7517b332a4e1f06db8b8f901764752a14bfd5302702680baafadf7fc3d9df90a9c4b6ad19c2a79959de63aa32930830e7dba5703f86d00751e1d7e6991b4d7d209643eb0e2e6d337c0c9f7100a1857375793052d49205b372c8cc8f88029699f945f79527b93280f6ca0a3c0e80fbc89f19891fc7df40080081527ecbf395eedfedc37e56663443ed09178d5939eb4d9261ec591105663838bf7b4b9aae16accfecc393f60b614ecfefc90593410cfcdc2bef463600579a4907290d86ea0e09c7fb529e4ff4df077abde8fb8718641cd7c2180b65ff457ef23c70196297ca10b30abc4a7f881a9ae5ce6f693128c8f63836ed93dd71c8cc346ff7b4aa7d7fafce1a44b3cddc44b4b50efd0306261c6061e3e1bd558262166cbbc0e21238989f0df119aedc3c3c82c7abd7967766781d239ee82a0269b709bdadb2d3ac5e2e54fecdde954e2d42f8a584841b6dec1f68508b7568c14a283634375b7f6c3ec9aef17070c571e707a0904d56441c62a9d9b12e278a6d91c9d0b411a1377ad7f515a4c11f8c26c3c81c24ffcb441f1e1ff6fd75309f6f9aa5c912fee77849768aa77041fda43878989cee5a657db6fe8c1fc2394d1b310f2b65acfd5a7d656bbca9e0b59de1440d46d1c5ee7ab07aef8997b2bd8e1c49e757559331d11214f74bb9a1fb0eaebc82b13e6fd3af93cf2764a438c6669474ededd1220314a98ab0b33978d258926fc11a7343015ee271b18c861bd8539b8be010251137ab9944f34f0515553f5a2e38a2fe3cd9b2f55b06726990afb2b4df9d2b4470004341199564dbf70c1f7d8d395e47121a501913f5ed8685fcb4403ba0c2e5942e0992d5f4b27f082899af5cb5ef63c8dadbbcabd7ffd37b156e426f027673e9009d20819e9bd02932f3ef53185509f7f8f3d5b9681e514b764c6447bc382c51b9e7caa728668ba119d838e51776ab1ea8c0cdf81b61f75d47d25db4168fe6c257cf49a35bbf2aecb9df7cb07146ba6011715524c9fcf9e77eee098de7f1d726591052ca3636d1910392d3b2e02be9b2e08a5ffb075d4a36cb5ea93a7d5994eb2cfcaa56425612f593993a2243e36a64722b4107a0176fce59452f725b5caff31ff11dbc2b938c337f0b4b3b3525039706bcece60f66963edaa022bc166d5abd7299dda0ffe5659afb5c306b8c15c44b2f8828c8cc2897a8659935c6eced09622d6322637c901eeaa3c0</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
       <tags>
         <tag>Career</tag>
+        <tag>Personal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Learnship 01 - 2023/07/25</title>
+    <url>/2023/07/25/Learnship-01-2023-07-25/</url>
+    <content><![CDATA[<h2 id="Business-Language-Coaching-Target-Interview"><a href="#Business-Language-Coaching-Target-Interview" class="headerlink" title="Business Language Coaching Target Interview"></a>Business Language Coaching Target Interview</h2><h3 id="What-is-Business-Language-Coaching"><a href="#What-is-Business-Language-Coaching" class="headerlink" title="What is Business Language Coaching?"></a>What is Business Language Coaching?</h3><p>Learnship’s Business Language Coaching is designed for business professionals and executives from around the globe who regularly conduct business with English speakers. It is delivered by experienced native-level language coaches and targets developing professional communicative competence across a range of business areas or situations directly related to your career goals.</p>
+<p>Whether you need to prepare for an upcoming high-stakes presentation, or need to add range and nuance to your language and communication ability in industry or department-specific areas, Business Language Coaching can help you. The exact focus of your course can be discussed directly with your coach.</p>
+<h3 id="What-learning-resources-does-Business-Language-Coaching-use"><a href="#What-learning-resources-does-Business-Language-Coaching-use" class="headerlink" title="What learning resources does Business Language Coaching use?"></a>What learning resources does Business Language Coaching use?</h3><p>Our standard comprehensive courses take advantage of the structure that CERF-linked course materials provide. By contrast, Business Language Coaching sessions apply a range of tailored learning resources to the language-learning experience. These include the following and more:</p>
+<ul>
+<li>Case studies</li>
+<li>Your documents</li>
+<li>Discussion frameworks</li>
+<li>Newspaper articles</li>
+</ul>
+<h3 id="Where-can-language-coaching-help-you"><a href="#Where-can-language-coaching-help-you" class="headerlink" title="Where can language coaching help you?"></a>Where can language coaching help you?</h3><ul>
+<li>To develop nuance in spoken business English</li>
+<li>To strengthen the ability to build arguments at meetings</li>
+<li>To improve active listening</li>
+<li>To write effective business reports</li>
+<li>To write strategically effective emails</li>
+<li>To present multiple options to a senior group of business people</li>
+<li>To explain opportunities and risks of a proposed action</li>
+<li>To interrupt politely at meetings</li>
+<li>To summarize effectively</li>
+<li>To defend your interests firmly and politely</li>
+<li>To refer to statistics and diagrams to support a point</li>
+<li>To deal with sensitive interpersonal situations professionally and confidently</li>
+<li>To compare and contrast alternative options</li>
+<li>To write a project proposal</li>
+<li>To negotiate terms and conditions</li>
+<li>To lead virtual meetings</li>
+<li>To facilitate  effective meetings</li>
+<li>To pitch a concept as part of a sales presentation</li>
+<li>To describe technical processes</li>
+<li>To handle small talk situations calmly and positively</li>
+</ul>
+<h2 id="The-topics"><a href="#The-topics" class="headerlink" title="The topics"></a>The topics</h2><h3 id="Needs-for-the-course"><a href="#Needs-for-the-course" class="headerlink" title="Needs for the course"></a>Needs for the course</h3><ul>
+<li>difficulty accessing vocabulary in meetings &lt;– use flashcards, spaced repetition</li>
+<li>develop presentation skills(e.g. sprint review meeting, giving a demo of your work)<ul>
+<li>cadence</li>
+<li>can’t breath! not sure when to stop</li>
+<li>pausing + intonation</li>
+</ul>
+</li>
+<li>asking questions and communicating in a more native way<ul>
+<li>the right wording</li>
+<li>politeness</li>
+<li>appropriateness(directness, softening language)<ul>
+<li>def: using the right language for the situation</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="All-about-you"><a href="#All-about-you" class="headerlink" title="All about you"></a>All about you</h3><h4 id="My-name"><a href="#My-name" class="headerlink" title="My name:"></a>My name:</h4><p>My name is Yitao Zhou.</p>
+<h4 id="My-nationality"><a href="#My-nationality" class="headerlink" title="My nationality:"></a>My nationality:</h4><p>I was born and raised in China.</p>
+<h4 id="My-current-location"><a href="#My-current-location" class="headerlink" title="My current location:"></a>My current location:</h4><p>I am currently living at Boston, MA, U.S.</p>
+<h4 id="My-experience"><a href="#My-experience" class="headerlink" title="My experience:"></a>My experience:</h4><p>I was previously a student majored in Computer Science. After I got my undergraduate degree in China, I came to the U.S. to pursue my master’s degree. After the graduation, I worked for Amazon and live in Boston. I am a Mandarin native speaker, I have been learning English for several years.</p>
+<h4 id="My-hobbies"><a href="#My-hobbies" class="headerlink" title="My hobbies:"></a>My hobbies:</h4><p>I enjoy taking a short walk with my wife everyday. Also, we would watch 2~3 episodes each day, mostly detective stories(like True Detective, The Killing etc). During the weekend, we would take one day to do a small trip to nearby cities. The other day we just cook and rest at home. I am trying to develop a habit of reading recently.</p>
+<h4 id="Language-use"><a href="#Language-use" class="headerlink" title="Language use:"></a>Language use:</h4><p>Now I am a software development engineer working for Amazon Web Service, more specifically, the EFS organization.</p>
+<h2 id="Vocabulary"><a href="#Vocabulary" class="headerlink" title="Vocabulary"></a>Vocabulary</h2><ul>
+<li>We are used to watching…&#x2F;we typically watch…</li>
+<li>breathe</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Learnship</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Learnship 02 - 2023/08/01</title>
+    <url>/2023/08/01/Learnship-02-2023-08-01/</url>
+    <content><![CDATA[<h2 id="Small-talk-notes"><a href="#Small-talk-notes" class="headerlink" title="Small talk notes"></a>Small talk notes</h2><p>Only after all these steps <strong>are we</strong> convinced.<br>Only with these metrics <strong>can you</strong> measure.</p>
+<h2 id="Business-Language-Coaching-Session-2-Your-Presentation"><a href="#Business-Language-Coaching-Session-2-Your-Presentation" class="headerlink" title="Business Language Coaching - Session 2 - Your Presentation"></a>Business Language Coaching - Session 2 - Your Presentation</h2><ul>
+<li>Listen to and workshop your presentation</li>
+<li>Explore how pausing can help you communicate more successfully</li>
+</ul>
+<h3 id="Starting-point"><a href="#Starting-point" class="headerlink" title="Starting point"></a>Starting point</h3><p>Set the scene for your presentation. Tell me about:</p>
+<h4 id="The-context-topic"><a href="#The-context-topic" class="headerlink" title="The context &amp; topic"></a>The context &amp; topic</h4><ul>
+<li>Sprint review</li>
+<li>Showcase progression on specific work</li>
+</ul>
+<h4 id="The-audience-and-Your-aims"><a href="#The-audience-and-Your-aims" class="headerlink" title="The audience and Your aims"></a>The audience and Your aims</h4><ul>
+<li>Give general information in a non-technical way</li>
+</ul>
+<h4 id="Concerns"><a href="#Concerns" class="headerlink" title="Concerns"></a>Concerns</h4><ul>
+<li>Did I give enough background information? Did I make it clear enough?</li>
+<li>Did I give the full story?</li>
+</ul>
+<h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h3><h4 id="Good"><a href="#Good" class="headerlink" title="Good"></a>Good</h4><ul>
+<li>signposting phrases</li>
+<li>rhetorical questions: “So maybe you would ask…?”</li>
+<li>grammatically flawless</li>
+<li>pronunciation good</li>
+</ul>
+<h4 id="To-improve"><a href="#To-improve" class="headerlink" title="To improve"></a>To improve</h4><ul>
+<li>pausing</li>
+<li>pronunciation &amp; intonation</li>
+<li>keywords: cost reduction, extent, AZ, delegate &amp; destination, benefit</li>
+<li>explaining terminology</li>
+<li>repeating key words</li>
+<li>use analogies or examples</li>
+</ul>
+<h3 id="Voice-Power-Pausing"><a href="#Voice-Power-Pausing" class="headerlink" title="Voice Power: Pausing"></a>Voice Power: Pausing</h3><h4 id="Quotes"><a href="#Quotes" class="headerlink" title="Quotes"></a>Quotes</h4><blockquote>
+<p>Without good delivery, the best speaker cannot be of any account at all. - Cicero, Roman orator</p>
+</blockquote>
+<blockquote>
+<p>No word was ever as effective as a rightly timed pause. - Mark Twain, American author</p>
+</blockquote>
+<blockquote>
+<p>I learned that the spaces between words were as important as the words themselves. Gerry Spence, undefeated lawyer</p>
+</blockquote>
+<h3 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h3><ul>
+<li><p>Only after these steps we are convinced; Only with these metrics you can measure</p>
+</li>
+<li><p>it’s worse</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Learnship</tag>
       </tags>
   </entry>
   <entry>
@@ -9025,271 +9261,6 @@
       </tags>
   </entry>
   <entry>
-    <title>How to write a design doc/ORR</title>
-    <url>/2022/12/02/How-to-write-a-design-doc-ORR/</url>
-    <content><![CDATA[<h3 id="The-problem"><a href="#The-problem" class="headerlink" title="The problem"></a>The problem</h3><p>It can take 2~3 weeks for me to finish one design doc&#x2F;ORR. When there’s a need to write such a doc, I would postphone the work as late as possible. And when there’s no way to push it off, I wouldn’t start the work until the last evening + morning. Such behaviour damages my mental health and also the doc quality.</p>
-<h3 id="How-to-do-better-next-time"><a href="#How-to-do-better-next-time" class="headerlink" title="How to do better next time"></a>How to do better next time</h3><ul>
-<li>Setup the key stakeholder review day, internal review day early, so i can schedule work backwards</li>
-<li>Find some training from internal source, if there’s any, can use 1~2 days for this</li>
-<li>Find some example, can use half day for this</li>
-<li>Start to write, even just copying the example</li>
-<li>Break the tasks into smaller pieces. Start to lay out the architecture, so i can fill in each section later</li>
-<li>Setup a goal: what I must finish within today</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Thoughts</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>How to setup personal VPN</title>
-    <url>/2023/04/21/How-to-setup-personal-VPN/</url>
-    <content><![CDATA[<p>Most ideas and actions are from this doc <a href="https://github.com/haoel/haoel.github.io">科学上网</a></p>
-<h2 id="1-Domain"><a href="#1-Domain" class="headerlink" title="1. Domain"></a>1. Domain</h2><p>Since I am going to use gost server, it requires one domain. I purchased one domain at goDaddy.com, it costs $5 per year.</p>
-<h2 id="2-VPC-related"><a href="#2-VPC-related" class="headerlink" title="2. VPC related"></a>2. VPC related</h2><p>I am using AWS LightSail, couple reasons:</p>
-<ol>
-<li>It’s cheap and first 3 months usage is free</li>
-<li>It’s easy to setup, like DNS related stuff</li>
-</ol>
-<h3 id="2-1-Create-instance"><a href="#2-1-Create-instance" class="headerlink" title="2.1 Create instance"></a>2.1 Create instance</h3><p>I would very like to use one instance from HKG, but now LightSail is not available in HKG, so i launched one instance in NRT.</p>
-<h3 id="2-2-Assign-static-IP-address"><a href="#2-2-Assign-static-IP-address" class="headerlink" title="2.2 Assign static IP address"></a>2.2 Assign static IP address</h3><p>Under the networking tab, create one static IP address and assign it to the instance. Also, enable 443 port from outside.</p>
-<h3 id="2-3-Create-domain"><a href="#2-3-Create-domain" class="headerlink" title="2.3 Create domain"></a>2.3 Create domain</h3><p>Under the DNS tab, create a DNS. After creation, go to goDaddy control console and change the name server to use the name servers for this DNS.</p>
-<h3 id="2-4-Gost-setup"><a href="#2-4-Gost-setup" class="headerlink" title="2.4 Gost setup"></a>2.4 Gost setup</h3><p>Login the instance. Git clone haoel’s repo, then run the install script under &#x2F;scripts folder.</p>
-<h2 id="3-Client"><a href="#3-Client" class="headerlink" title="3. Client"></a>3. Client</h2><h3 id="3-1-Chrome"><a href="#3-1-Chrome" class="headerlink" title="3.1 Chrome"></a>3.1 Chrome</h3><p>I would recommend switchyOmega extension for Chrome, just fill in the host, the user and password then the work is done.</p>
-<h3 id="3-2-Github"><a href="#3-2-Github" class="headerlink" title="3.2 Github"></a>3.2 Github</h3><p>To use proxy for other programs, we need to launch a gost client on the machine. It’s recommended to use docker.</p>
-<ol>
-<li>Install docker</li>
-<li>Run docker for different services<ol>
-<li><p>Shadowsocks</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -p 1984:1984 --name gost-ss --restart=always -d ginuerzh/gost -L=ss://aes-128-gcm:password@:1984 -F <span class="string">&#x27;https://user:password@host:443&#x27;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Socks5 for github</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -p 1080:1080 --name gost-socks --restart=always -d ginuerzh/gost -L=socks5://:1080 -F <span class="string">&#x27;https://user:password@host:443&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p> Then change the ssh config file for github access</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">    Hostname github.com</span><br><span class="line">    ProxyCommand nc -x localhost:1085 %h %p</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-</ol>
-<h3 id="3-3-IOS"><a href="#3-3-IOS" class="headerlink" title="3.3 IOS"></a>3.3 IOS</h3><p>Download Shadowrocket, and setup the proxy.</p>
-]]></content>
-      <tags>
-        <tag>Tech</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Learning from STJE failure</title>
-    <url>/2023/04/21/Learning-from-STJE-failure/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, these decrypted content cannot be verified, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="44ac31c326231c787d39257cc111686badaea6adf6a952f65ac01d226d4f0c2e">85fbf07caa70baa1ae613fbbfb8d9d937b53c3e801c535e726658d7bccc84a014e14ed5c6dbaf5a5f44cc85918254ec9f194a44b60d3705387e2f552a4bbbd34df96d182282490edd6c9875520f7517b332a4e1f06db8b8f901764752a14bfd5302702680baafadf7fc3d9df90a9c4b6ad19c2a79959de63aa32930830e7dba5703f86d00751e1d7e6991b4d7d209643eb0e2e6d337c0c9f7100a1857375793052d49205b372c8cc8f88029699f945f79527b93280f6ca0a3c0e80fbc89f19891fc7df40080081527ecbf395eedfedc37e56663443ed09178d5939eb4d9261ec591105663838bf7b4b9aae16accfecc393f60b614ecfefc90593410cfcdc2bef463600579a4907290d86ea0e09c7fb529e4ff4df077abde8fb8718641cd7c2180b65ff457ef23c70196297ca10b30abc4a7f881a9ae5ce6f693128c8f63836ed93dd71c8cc346ff7b4aa7d7fafce1a44b3cddc44b4b50efd0306261c6061e3e1bd558262166cbbc0e21238989f0df119aedc3c3c82c7abd7967766781d239ee82a0269b709bdadb2d3ac5e2e54fecdde954e2d42f8a584841b6dec1f68508b7568c14a283634375b7f6c3ec9aef17070c571e707a0904d56441c62a9d9b12e278a6d91c9d0b411a1377ad7f515a4c11f8c26c3c81c24ffcb441f1e1ff6fd75309f6f9aa5c912fee77849768aa77041fda43878989cee5a657db6fe8c1fc2394d1b310f2b65acfd5a7d656bbca9e0b59de1440d46d1c5ee7ab07aef8997b2bd8e1c49e757559331d11214f74bb9a1fb0eaebc82b13e6fd3af93cf2764a438c6669474ededd1220314a98ab0b33978d258926fc11a7343015ee271b18c861bd8539b8be010251137ab9944f34f0515553f5a2e38a2fe3cd9b2f55b06726990afb2b4df9d2b4470004341199564dbf70c1f7d8d395e47121a501913f5ed8685fcb4403ba0c2e5942e0992d5f4b27f082899af5cb5ef63c8dadbbcabd7ffd37b156e426f027673e9009d20819e9bd02932f3ef53185509f7f8f3d5b9681e514b764c6447bc382c51b9e7caa728668ba119d838e51776ab1ea8c0cdf81b61f75d47d25db4168fe6c257cf49a35bbf2aecb9df7cb07146ba6011715524c9fcf9e77eee098de7f1d726591052ca3636d1910392d3b2e02be9b2e08a5ffb075d4a36cb5ea93a7d5994eb2cfcaa56425612f593993a2243e36a64722b4107a0176fce59452f725b5caff31ff11dbc2b938c337f0b4b3b3525039706bcece60f66963edaa022bc166d5abd7299dda0ffe5659afb5c306b8c15c44b2f8828c8cc2897a8659935c6eced09622d6322637c901eeaa3c0</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <tags>
-        <tag>Career</tag>
-        <tag>Personal</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Learnship 02 - 2023/08/01</title>
-    <url>/2023/08/01/Learnship-02-2023-08-01/</url>
-    <content><![CDATA[<h2 id="Small-talk-notes"><a href="#Small-talk-notes" class="headerlink" title="Small talk notes"></a>Small talk notes</h2><p>Only after all these steps <strong>are we</strong> convinced.<br>Only with these metrics <strong>can you</strong> measure.</p>
-<h2 id="Business-Language-Coaching-Session-2-Your-Presentation"><a href="#Business-Language-Coaching-Session-2-Your-Presentation" class="headerlink" title="Business Language Coaching - Session 2 - Your Presentation"></a>Business Language Coaching - Session 2 - Your Presentation</h2><ul>
-<li>Listen to and workshop your presentation</li>
-<li>Explore how pausing can help you communicate more successfully</li>
-</ul>
-<h3 id="Starting-point"><a href="#Starting-point" class="headerlink" title="Starting point"></a>Starting point</h3><p>Set the scene for your presentation. Tell me about:</p>
-<h4 id="The-context-topic"><a href="#The-context-topic" class="headerlink" title="The context &amp; topic"></a>The context &amp; topic</h4><ul>
-<li>Sprint review</li>
-<li>Showcase progression on specific work</li>
-</ul>
-<h4 id="The-audience-and-Your-aims"><a href="#The-audience-and-Your-aims" class="headerlink" title="The audience and Your aims"></a>The audience and Your aims</h4><ul>
-<li>Give general information in a non-technical way</li>
-</ul>
-<h4 id="Concerns"><a href="#Concerns" class="headerlink" title="Concerns"></a>Concerns</h4><ul>
-<li>Did I give enough background information? Did I make it clear enough?</li>
-<li>Did I give the full story?</li>
-</ul>
-<h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h3><h4 id="Good"><a href="#Good" class="headerlink" title="Good"></a>Good</h4><ul>
-<li>signposting phrases</li>
-<li>rhetorical questions: “So maybe you would ask…?”</li>
-<li>grammatically flawless</li>
-<li>pronunciation good</li>
-</ul>
-<h4 id="To-improve"><a href="#To-improve" class="headerlink" title="To improve"></a>To improve</h4><ul>
-<li>pausing</li>
-<li>pronunciation &amp; intonation</li>
-<li>keywords: cost reduction, extent, AZ, delegate &amp; destination, benefit</li>
-<li>explaining terminology</li>
-<li>repeating key words</li>
-<li>use analogies or examples</li>
-</ul>
-<h3 id="Voice-Power-Pausing"><a href="#Voice-Power-Pausing" class="headerlink" title="Voice Power: Pausing"></a>Voice Power: Pausing</h3><h4 id="Quotes"><a href="#Quotes" class="headerlink" title="Quotes"></a>Quotes</h4><blockquote>
-<p>Without good delivery, the best speaker cannot be of any account at all. - Cicero, Roman orator</p>
-</blockquote>
-<blockquote>
-<p>No word was ever as effective as a rightly timed pause. - Mark Twain, American author</p>
-</blockquote>
-<blockquote>
-<p>I learned that the spaces between words were as important as the words themselves. Gerry Spence, undefeated lawyer</p>
-</blockquote>
-<h3 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h3><ul>
-<li><p>Only after these steps we are convinced; Only with these metrics you can measure</p>
-</li>
-<li><p>it’s worse</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Learnship</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Learnship 01 - 2023/07/25</title>
-    <url>/2023/07/25/Learnship-01-2023-07-25/</url>
-    <content><![CDATA[<h2 id="Business-Language-Coaching-Target-Interview"><a href="#Business-Language-Coaching-Target-Interview" class="headerlink" title="Business Language Coaching Target Interview"></a>Business Language Coaching Target Interview</h2><h3 id="What-is-Business-Language-Coaching"><a href="#What-is-Business-Language-Coaching" class="headerlink" title="What is Business Language Coaching?"></a>What is Business Language Coaching?</h3><p>Learnship’s Business Language Coaching is designed for business professionals and executives from around the globe who regularly conduct business with English speakers. It is delivered by experienced native-level language coaches and targets developing professional communicative competence across a range of business areas or situations directly related to your career goals.</p>
-<p>Whether you need to prepare for an upcoming high-stakes presentation, or need to add range and nuance to your language and communication ability in industry or department-specific areas, Business Language Coaching can help you. The exact focus of your course can be discussed directly with your coach.</p>
-<h3 id="What-learning-resources-does-Business-Language-Coaching-use"><a href="#What-learning-resources-does-Business-Language-Coaching-use" class="headerlink" title="What learning resources does Business Language Coaching use?"></a>What learning resources does Business Language Coaching use?</h3><p>Our standard comprehensive courses take advantage of the structure that CERF-linked course materials provide. By contrast, Business Language Coaching sessions apply a range of tailored learning resources to the language-learning experience. These include the following and more:</p>
-<ul>
-<li>Case studies</li>
-<li>Your documents</li>
-<li>Discussion frameworks</li>
-<li>Newspaper articles</li>
-</ul>
-<h3 id="Where-can-language-coaching-help-you"><a href="#Where-can-language-coaching-help-you" class="headerlink" title="Where can language coaching help you?"></a>Where can language coaching help you?</h3><ul>
-<li>To develop nuance in spoken business English</li>
-<li>To strengthen the ability to build arguments at meetings</li>
-<li>To improve active listening</li>
-<li>To write effective business reports</li>
-<li>To write strategically effective emails</li>
-<li>To present multiple options to a senior group of business people</li>
-<li>To explain opportunities and risks of a proposed action</li>
-<li>To interrupt politely at meetings</li>
-<li>To summarize effectively</li>
-<li>To defend your interests firmly and politely</li>
-<li>To refer to statistics and diagrams to support a point</li>
-<li>To deal with sensitive interpersonal situations professionally and confidently</li>
-<li>To compare and contrast alternative options</li>
-<li>To write a project proposal</li>
-<li>To negotiate terms and conditions</li>
-<li>To lead virtual meetings</li>
-<li>To facilitate  effective meetings</li>
-<li>To pitch a concept as part of a sales presentation</li>
-<li>To describe technical processes</li>
-<li>To handle small talk situations calmly and positively</li>
-</ul>
-<h2 id="The-topics"><a href="#The-topics" class="headerlink" title="The topics"></a>The topics</h2><h3 id="Needs-for-the-course"><a href="#Needs-for-the-course" class="headerlink" title="Needs for the course"></a>Needs for the course</h3><ul>
-<li>difficulty accessing vocabulary in meetings &lt;– use flashcards, spaced repetition</li>
-<li>develop presentation skills(e.g. sprint review meeting, giving a demo of your work)<ul>
-<li>cadence</li>
-<li>can’t breath! not sure when to stop</li>
-<li>pausing + intonation</li>
-</ul>
-</li>
-<li>asking questions and communicating in a more native way<ul>
-<li>the right wording</li>
-<li>politeness</li>
-<li>appropriateness(directness, softening language)<ul>
-<li>def: using the right language for the situation</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="All-about-you"><a href="#All-about-you" class="headerlink" title="All about you"></a>All about you</h3><h4 id="My-name"><a href="#My-name" class="headerlink" title="My name:"></a>My name:</h4><p>My name is Yitao Zhou.</p>
-<h4 id="My-nationality"><a href="#My-nationality" class="headerlink" title="My nationality:"></a>My nationality:</h4><p>I was born and raised in China.</p>
-<h4 id="My-current-location"><a href="#My-current-location" class="headerlink" title="My current location:"></a>My current location:</h4><p>I am currently living at Boston, MA, U.S.</p>
-<h4 id="My-experience"><a href="#My-experience" class="headerlink" title="My experience:"></a>My experience:</h4><p>I was previously a student majored in Computer Science. After I got my undergraduate degree in China, I came to the U.S. to pursue my master’s degree. After the graduation, I worked for Amazon and live in Boston. I am a Mandarin native speaker, I have been learning English for several years.</p>
-<h4 id="My-hobbies"><a href="#My-hobbies" class="headerlink" title="My hobbies:"></a>My hobbies:</h4><p>I enjoy taking a short walk with my wife everyday. Also, we would watch 2~3 episodes each day, mostly detective stories(like True Detective, The Killing etc). During the weekend, we would take one day to do a small trip to nearby cities. The other day we just cook and rest at home. I am trying to develop a habit of reading recently.</p>
-<h4 id="Language-use"><a href="#Language-use" class="headerlink" title="Language use:"></a>Language use:</h4><p>Now I am a software development engineer working for Amazon Web Service, more specifically, the EFS organization.</p>
-<h2 id="Vocabulary"><a href="#Vocabulary" class="headerlink" title="Vocabulary"></a>Vocabulary</h2><ul>
-<li>We are used to watching…&#x2F;we typically watch…</li>
-<li>breathe</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Learnship</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Learnship 04 - 2023/08/17</title>
-    <url>/2023/08/17/Learnship-04-2023-08-17/</url>
-    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-4-Voice-Power-2"><a href="#Business-Language-Coaching-Session-4-Voice-Power-2" class="headerlink" title="Business Language Coaching - Session 4 - Voice Power(2)"></a>Business Language Coaching - Session 4 - Voice Power(2)</h2><ul>
-<li>review your homework assignments</li>
-<li>explore how pausing can help you communicate moe successfully</li>
-</ul>
-<h3 id="Voice-Power-Word-Stress"><a href="#Voice-Power-Word-Stress" class="headerlink" title="Voice Power: Word Stress"></a>Voice Power: Word Stress</h3><p><strong>Look back at the excerpt from last week, in particular at the highlighted words. What do you think are the effects and benefits of adding emphasis or stress to certain words in a sentence?</strong></p>
-<audio controls>
-  <source src="/audio/session3_2.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-
-<p>You *<strong>know</strong>, | there are a lot of <strong>myths</strong> about speaking in public. | Myth number <strong>one</strong> | is that what you actually <strong>say</strong> | is only <strong>seven</strong> percent of the message. | <strong>Thirty-eight</strong> percent is how you <strong>sound</strong> | and <strong>fifty-five</strong> percent is how you <strong>look</strong>. | But think about it. | I mean, | if that was <strong>true</strong>, | you could go to a talk in <strong>Swahili</strong> | and still understand <strong>ninety-three</strong> percent! | Myth number <strong>two</strong> is that public speaking is most people’s <strong>greatest</strong> fear | - just above <strong>death</strong>. | The comedian Jerry Seinfeld has a great <strong>joke</strong> about that. | He <strong>says</strong>, | “Come <strong>on</strong>, | if it <strong>really</strong> was their greatest fear, | at a <strong>funeral</strong> | the person giving the <strong>eulogy</strong> | would rather be in the <strong>box</strong>!”</p>
-<p>The benefits:</p>
-<ul>
-<li>people would pay attention</li>
-<li>easier to recall and recollect</li>
-<li>be more convincing</li>
-<li>expressing feeling&#x2F;emotions</li>
-</ul>
-<h3 id="Voice-Power-Word-Stress-1"><a href="#Voice-Power-Word-Stress-1" class="headerlink" title="Voice Power - Word Stress"></a>Voice Power - Word Stress</h3><p>**In English, word stress is an important part of how we communicate, and changing what we stress can radically change what we mean. In each extract below underline the main stress in the two sentences.</p>
-<audio controls>
-  <source src="/audio/session4_1.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-
-<p>a We haven’t seen a <strong>massive</strong> improvement yet. But it’s a <strong>good</strong> start.</p>
-<p>b We <strong>haven’t</strong> seen a massive improvement <strong>yet</strong>. But my guess is we soon <strong>will</strong>.</p>
-<hr>
-<p>c The <strong>market</strong> may be declining. But fortunately our <strong>market share</strong> isn’t.</p>
-<p>d The market may be <strong>declining</strong>. Or this could just be a <strong>temporary blip</strong>.</p>
-<hr>
-<p>e We do pretty well in the <strong>States</strong>. But we don’t do so well in <strong>Europe</strong>.</p>
-<p>f We do <strong>pretty well</strong> in the States. But not <strong>as well as</strong> we could be doing.</p>
-<hr>
-<p>g Turnover is <strong>up</strong> on Q3. But profits are <strong>down</strong>.</p>
-<p>h Turnover is up on <strong>Q3</strong>. But that was a particularly <strong>bad</strong> quarter.</p>
-<hr>
-<p>i It’s <strong>hard</strong> to gain a foothold in India. But not <strong>impossible</strong>.</p>
-<p>j It’s hard to gain a foothold <strong>in India</strong>. But harder <strong>still</strong> to gain one in <strong>China</strong>.</p>
-<hr>
-<p>k There are <strong>a couple of</strong> points I’d like to make. And <strong>both</strong> concern cash flow.</p>
-<p>l There are a couple of points <strong>I’d like</strong> to make. And <strong>then</strong> I’ll hand you over to Jan.</p>
-<p><strong>Work in opposing teams. You are going to re-enact two dramatic presentations from the classic business movie Other People’s Money.</strong></p>
-<p>The scene:</p>
-<blockquote>
-<p>Andrew Jorgenson is the patriarchal chairman of New England Wire and Cable. Once highly successful, his company has not kept up with new technology and both revenues and share price are down. Lawrence Garfield, known to his enemies as ‘Larry the Liquidator’, a corporate financier and one of the major stockholders, is trying to persuade the other stockholders at the annual general meeting to vote him in as the new chairman, so he can carry out his plan to sell off the company’s considerable assets before its share price falls any further. Of course, this will mean the closure of the firm and the loss of thousands of jobs.</p>
-</blockquote>
-<p><strong>Work together annotating this famous movie scene using the points below. Then rehearse and read it aloud.</strong></p>
-<p>TODO: listen to the audio and mark</p>
-<p>I want to <strong>share</strong> with you some of my thoughts <strong>concerning</strong> the vote that you’re going to make in the company that <strong>you</strong> own. This proud <strong>company</strong>, which has survived the <strong>death</strong> of its founder, numerous <strong>recessions</strong>, one major <strong>depression</strong>, and two world <strong>wars</strong>, is in <strong>imminent</strong> danger of self-destructing - on <strong>this</strong> day, in the town of its birth. There is the <strong>instrument</strong> of our destruction. I want <strong>you</strong> to look at <strong>him</strong> in all of his glory, Larry the Liquidator, the <strong>entrepreneur</strong> of post-industrial America, playing <strong>God</strong> with other people’s money. This man leaves <strong>nothing</strong>. He creates <strong>nothing</strong>, he builds <strong>nothing</strong>, he runs <strong>nothing</strong>.</p>
-<audio controls>
-  <source src="/audio/session4_2.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-
-<h3 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h3><ul>
-<li>several months back</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Learnship</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Learnship 03 - 2023/08/10</title>
     <url>/2023/08/10/Learnship-03-2023-08-10/</url>
     <content><![CDATA[<h2 id="Homework"><a href="#Homework" class="headerlink" title="Homework"></a>Homework</h2><p>Read and learn the grammar notes about <em>Inversion</em>.</p>
@@ -9442,6 +9413,71 @@ Your browser does not support the audio element.
       <categories>
         <category>Learning</category>
       </categories>
+      <tags>
+        <tag>Learnship</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Learnship 04 - 2023/08/17</title>
+    <url>/2023/08/17/Learnship-04-2023-08-17/</url>
+    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-4-Voice-Power-2"><a href="#Business-Language-Coaching-Session-4-Voice-Power-2" class="headerlink" title="Business Language Coaching - Session 4 - Voice Power(2)"></a>Business Language Coaching - Session 4 - Voice Power(2)</h2><ul>
+<li>review your homework assignments</li>
+<li>explore how pausing can help you communicate moe successfully</li>
+</ul>
+<h3 id="Voice-Power-Word-Stress"><a href="#Voice-Power-Word-Stress" class="headerlink" title="Voice Power: Word Stress"></a>Voice Power: Word Stress</h3><p><strong>Look back at the excerpt from last week, in particular at the highlighted words. What do you think are the effects and benefits of adding emphasis or stress to certain words in a sentence?</strong></p>
+<audio controls>
+  <source src="/audio/session3_2.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<p>You *<strong>know</strong>, | there are a lot of <strong>myths</strong> about speaking in public. | Myth number <strong>one</strong> | is that what you actually <strong>say</strong> | is only <strong>seven</strong> percent of the message. | <strong>Thirty-eight</strong> percent is how you <strong>sound</strong> | and <strong>fifty-five</strong> percent is how you <strong>look</strong>. | But think about it. | I mean, | if that was <strong>true</strong>, | you could go to a talk in <strong>Swahili</strong> | and still understand <strong>ninety-three</strong> percent! | Myth number <strong>two</strong> is that public speaking is most people’s <strong>greatest</strong> fear | - just above <strong>death</strong>. | The comedian Jerry Seinfeld has a great <strong>joke</strong> about that. | He <strong>says</strong>, | “Come <strong>on</strong>, | if it <strong>really</strong> was their greatest fear, | at a <strong>funeral</strong> | the person giving the <strong>eulogy</strong> | would rather be in the <strong>box</strong>!”</p>
+<p>The benefits:</p>
+<ul>
+<li>people would pay attention</li>
+<li>easier to recall and recollect</li>
+<li>be more convincing</li>
+<li>expressing feeling&#x2F;emotions</li>
+</ul>
+<h3 id="Voice-Power-Word-Stress-1"><a href="#Voice-Power-Word-Stress-1" class="headerlink" title="Voice Power - Word Stress"></a>Voice Power - Word Stress</h3><p>**In English, word stress is an important part of how we communicate, and changing what we stress can radically change what we mean. In each extract below underline the main stress in the two sentences.</p>
+<audio controls>
+  <source src="/audio/session4_1.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<p>a We haven’t seen a <strong>massive</strong> improvement yet. But it’s a <strong>good</strong> start.</p>
+<p>b We <strong>haven’t</strong> seen a massive improvement <strong>yet</strong>. But my guess is we soon <strong>will</strong>.</p>
+<hr>
+<p>c The <strong>market</strong> may be declining. But fortunately our <strong>market share</strong> isn’t.</p>
+<p>d The market may be <strong>declining</strong>. Or this could just be a <strong>temporary blip</strong>.</p>
+<hr>
+<p>e We do pretty well in the <strong>States</strong>. But we don’t do so well in <strong>Europe</strong>.</p>
+<p>f We do <strong>pretty well</strong> in the States. But not <strong>as well as</strong> we could be doing.</p>
+<hr>
+<p>g Turnover is <strong>up</strong> on Q3. But profits are <strong>down</strong>.</p>
+<p>h Turnover is up on <strong>Q3</strong>. But that was a particularly <strong>bad</strong> quarter.</p>
+<hr>
+<p>i It’s <strong>hard</strong> to gain a foothold in India. But not <strong>impossible</strong>.</p>
+<p>j It’s hard to gain a foothold <strong>in India</strong>. But harder <strong>still</strong> to gain one in <strong>China</strong>.</p>
+<hr>
+<p>k There are <strong>a couple of</strong> points I’d like to make. And <strong>both</strong> concern cash flow.</p>
+<p>l There are a couple of points <strong>I’d like</strong> to make. And <strong>then</strong> I’ll hand you over to Jan.</p>
+<p><strong>Work in opposing teams. You are going to re-enact two dramatic presentations from the classic business movie Other People’s Money.</strong></p>
+<p>The scene:</p>
+<blockquote>
+<p>Andrew Jorgenson is the patriarchal chairman of New England Wire and Cable. Once highly successful, his company has not kept up with new technology and both revenues and share price are down. Lawrence Garfield, known to his enemies as ‘Larry the Liquidator’, a corporate financier and one of the major stockholders, is trying to persuade the other stockholders at the annual general meeting to vote him in as the new chairman, so he can carry out his plan to sell off the company’s considerable assets before its share price falls any further. Of course, this will mean the closure of the firm and the loss of thousands of jobs.</p>
+</blockquote>
+<p><strong>Work together annotating this famous movie scene using the points below. Then rehearse and read it aloud.</strong></p>
+<p>TODO: listen to the audio and mark</p>
+<p>I want to <strong>share</strong> with you some of my thoughts <strong>concerning</strong> the vote that you’re going to make in the company that <strong>you</strong> own. This proud <strong>company</strong>, which has survived the <strong>death</strong> of its founder, numerous <strong>recessions</strong>, one major <strong>depression</strong>, and two world <strong>wars</strong>, is in <strong>imminent</strong> danger of self-destructing - on <strong>this</strong> day, in the town of its birth. There is the <strong>instrument</strong> of our destruction. I want <strong>you</strong> to look at <strong>him</strong> in all of his glory, Larry the Liquidator, the <strong>entrepreneur</strong> of post-industrial America, playing <strong>God</strong> with other people’s money. This man leaves <strong>nothing</strong>. He creates <strong>nothing</strong>, he builds <strong>nothing</strong>, he runs <strong>nothing</strong>.</p>
+<audio controls>
+  <source src="/audio/session4_2.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<h3 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h3><ul>
+<li>several months back</li>
+</ul>
+]]></content>
       <tags>
         <tag>Learnship</tag>
       </tags>
@@ -10003,71 +10039,6 @@ Your browser does not support the audio element.
       </tags>
   </entry>
   <entry>
-    <title>Learnship 11 - 2023/10/23</title>
-    <url>/2023/10/23/Learnship-11-2023-10-23/</url>
-    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-11-Using-Discourse-Markers-for-Cohesive-Speaking-Writing-2"><a href="#Business-Language-Coaching-Session-11-Using-Discourse-Markers-for-Cohesive-Speaking-Writing-2" class="headerlink" title="Business Language Coaching - Session 11 - Using Discourse Markers for Cohesive Speaking &amp; Writing(2)"></a>Business Language Coaching - Session 11 - Using Discourse Markers for Cohesive Speaking &amp; Writing(2)</h2><ul>
-<li>learn about discourse markers and how to use them to improve your speaking</li>
-<li>do some impromptu speaking activities</li>
-</ul>
-<h3 id="Starting-Point"><a href="#Starting-Point" class="headerlink" title="Starting Point"></a>Starting Point</h3><p>How did you get on with the exercises on discourse markers? Have you had the chance to practice using a range of discourse markers in your meetings at work?</p>
-<h3 id="Matching"><a href="#Matching" class="headerlink" title="Matching"></a>Matching</h3><p>In paris, match the pairs of sentences. Once you have matched all the sentences, highlight the discourse markers.</p>
-<ol>
-<li><p>I’m not addicted to social media at all. <strong>On the contrary</strong>, there are plenty of other things I’d rather be doing with my time.</p>
-</li>
-<li><p><strong>In addition to</strong> being quite stressful, social media can be very time-consuming.</p>
-</li>
-<li><p>Social media can boost your career prospects. <strong>As it so happens</strong>, I found my current job via a friend’s post.</p>
-</li>
-<li><p>I’ve always been an advocate of new technology. <strong>Having said that</strong>, I do think it has to be used with caution.</p>
-</li>
-<li><p>It’s true that technology has its downsides. <strong>Even so</strong>, I know I couldn’t live without it.</p>
-</li>
-<li><p>Phones are quite expansive. <strong>What’s more</strong>, they break quite easily.</p>
-</li>
-<li><p>Technology has many uses in business. <strong>Likewise</strong>, it has many applications within education too.</p>
-</li>
-<li><p>Some people are nervous about using it, but <strong>by and large</strong>, most people are in favour of technology.</p>
-</li>
-<li><p>I bought the new model <strong>on account of</strong> its high-quality camera.</p>
-</li>
-<li><p>I read about the dangers of too much screen time. <strong>Accordingly</strong>, I now only let my children watch 30 minutes of television a day.</p>
-</li>
-</ol>
-<h3 id="Speaking-game"><a href="#Speaking-game" class="headerlink" title="Speaking game"></a>Speaking game</h3><p>Look at the illustrations on the next page and the list of discourse markers. In your group, take turns in rolling the die and saying the sentence and discourse marker that correspond to the number on the die. Once you use one of the discourse markers, tick it off from the list. Whoever ticks off all the discourse markers first, wins the game!</p>
-<p>Remember, the first throw is to help you choose which sentence to say; the second throw is to help you choose which discourse marker to use. Follow the example your teacher gives you.</p>
-<p>Topic: Being a YouTuber or a streamer is not believed to be a very stable profession.</p>
-<ul>
-<li>Accordingly</li>
-<li>even so</li>
-</ul>
-<p>Topic: Many people argue that buying local products supports local communities.</p>
-<ul>
-<li>on the whole</li>
-<li>nevertheless</li>
-<li>on account of</li>
-</ul>
-<h3 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h3><ul>
-<li>the butcher</li>
-<li>gourmet burger</li>
-<li>merchandise</li>
-<li>on the contrary; quite the opposite&#x2F;reverse</li>
-<li>in addition to; on top of</li>
-<li>as it so happens; as a matter of fact</li>
-<li>having said that; admittedly</li>
-<li>even so; although</li>
-<li>what’s more; on top of that</li>
-<li>likewise; at the same time</li>
-<li>by and large; on the whole; more or less</li>
-<li>on account of; due to</li>
-<li>accordingly; so</li>
-<li>talking of…(change topic while referring to something recently said)</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Learnship</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Learnship 10 - 2023/10/19</title>
     <url>/2023/10/19/Learnship-10-2023-10-19/</url>
     <content><![CDATA[<h2 id="Business-Language-Coaching-Session-10-Using-Discourse-Markers-for-Cohesive-Speaking-Writing"><a href="#Business-Language-Coaching-Session-10-Using-Discourse-Markers-for-Cohesive-Speaking-Writing" class="headerlink" title="Business Language Coaching - Session 10 - Using Discourse Markers for Cohesive Speaking &amp; Writing"></a>Business Language Coaching - Session 10 - Using Discourse Markers for Cohesive Speaking &amp; Writing</h2><ul>
@@ -10221,6 +10192,71 @@ Your browser does not support the audio element.
 <li><p>I accept that you may not like an outsider telling you what is the right thing to do, but we have to recognize that this person is an expert, and they may well see things, opportunities, that we might not. Anyway, he’s on our side.</p>
 </li>
 </ol>
+]]></content>
+      <tags>
+        <tag>Learnship</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Learnship 11 - 2023/10/23</title>
+    <url>/2023/10/23/Learnship-11-2023-10-23/</url>
+    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-11-Using-Discourse-Markers-for-Cohesive-Speaking-Writing-2"><a href="#Business-Language-Coaching-Session-11-Using-Discourse-Markers-for-Cohesive-Speaking-Writing-2" class="headerlink" title="Business Language Coaching - Session 11 - Using Discourse Markers for Cohesive Speaking &amp; Writing(2)"></a>Business Language Coaching - Session 11 - Using Discourse Markers for Cohesive Speaking &amp; Writing(2)</h2><ul>
+<li>learn about discourse markers and how to use them to improve your speaking</li>
+<li>do some impromptu speaking activities</li>
+</ul>
+<h3 id="Starting-Point"><a href="#Starting-Point" class="headerlink" title="Starting Point"></a>Starting Point</h3><p>How did you get on with the exercises on discourse markers? Have you had the chance to practice using a range of discourse markers in your meetings at work?</p>
+<h3 id="Matching"><a href="#Matching" class="headerlink" title="Matching"></a>Matching</h3><p>In paris, match the pairs of sentences. Once you have matched all the sentences, highlight the discourse markers.</p>
+<ol>
+<li><p>I’m not addicted to social media at all. <strong>On the contrary</strong>, there are plenty of other things I’d rather be doing with my time.</p>
+</li>
+<li><p><strong>In addition to</strong> being quite stressful, social media can be very time-consuming.</p>
+</li>
+<li><p>Social media can boost your career prospects. <strong>As it so happens</strong>, I found my current job via a friend’s post.</p>
+</li>
+<li><p>I’ve always been an advocate of new technology. <strong>Having said that</strong>, I do think it has to be used with caution.</p>
+</li>
+<li><p>It’s true that technology has its downsides. <strong>Even so</strong>, I know I couldn’t live without it.</p>
+</li>
+<li><p>Phones are quite expansive. <strong>What’s more</strong>, they break quite easily.</p>
+</li>
+<li><p>Technology has many uses in business. <strong>Likewise</strong>, it has many applications within education too.</p>
+</li>
+<li><p>Some people are nervous about using it, but <strong>by and large</strong>, most people are in favour of technology.</p>
+</li>
+<li><p>I bought the new model <strong>on account of</strong> its high-quality camera.</p>
+</li>
+<li><p>I read about the dangers of too much screen time. <strong>Accordingly</strong>, I now only let my children watch 30 minutes of television a day.</p>
+</li>
+</ol>
+<h3 id="Speaking-game"><a href="#Speaking-game" class="headerlink" title="Speaking game"></a>Speaking game</h3><p>Look at the illustrations on the next page and the list of discourse markers. In your group, take turns in rolling the die and saying the sentence and discourse marker that correspond to the number on the die. Once you use one of the discourse markers, tick it off from the list. Whoever ticks off all the discourse markers first, wins the game!</p>
+<p>Remember, the first throw is to help you choose which sentence to say; the second throw is to help you choose which discourse marker to use. Follow the example your teacher gives you.</p>
+<p>Topic: Being a YouTuber or a streamer is not believed to be a very stable profession.</p>
+<ul>
+<li>Accordingly</li>
+<li>even so</li>
+</ul>
+<p>Topic: Many people argue that buying local products supports local communities.</p>
+<ul>
+<li>on the whole</li>
+<li>nevertheless</li>
+<li>on account of</li>
+</ul>
+<h3 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h3><ul>
+<li>the butcher</li>
+<li>gourmet burger</li>
+<li>merchandise</li>
+<li>on the contrary; quite the opposite&#x2F;reverse</li>
+<li>in addition to; on top of</li>
+<li>as it so happens; as a matter of fact</li>
+<li>having said that; admittedly</li>
+<li>even so; although</li>
+<li>what’s more; on top of that</li>
+<li>likewise; at the same time</li>
+<li>by and large; on the whole; more or less</li>
+<li>on account of; due to</li>
+<li>accordingly; so</li>
+<li>talking of…(change topic while referring to something recently said)</li>
+</ul>
 ]]></content>
       <tags>
         <tag>Learnship</tag>
@@ -10691,53 +10727,6 @@ Your browser does not support the audio element.
       </tags>
   </entry>
   <entry>
-    <title>芳草地参观记——球赛</title>
-    <url>/2019/02/06/%E8%8A%B3%E8%8D%89%E5%9C%B0%E5%8F%82%E8%A7%82%E8%AE%B0%E2%80%94%E2%80%94%E7%90%83%E8%B5%9B/</url>
-    <content><![CDATA[<h3 id="第六章-纷争-第一百一十四节"><a href="#第六章-纷争-第一百一十四节" class="headerlink" title="第六章 纷争 第一百一十四节"></a>第六章 纷争 第一百一十四节</h3><p>　　芳草地的体育场是临高第二大体育场——仅次于元老院当初修来阅兵办庆典的体育场。不过设施就简陋得多了。没有宏伟的主席台，也没有像样的看台：主席台和看台是铁架木板的简易建筑。在遇到校内大型的体育赛事的时候，学生们都是要自带板凳到体育场上来得。</p>
-<p>　　芳草地的体育场的利用率很高，二百个内务班的体育课排的满满的，早晚八节课，没有一节课体育场上不是同时有好几个班级在进行运动的。放学之后又缺少人工照明手段，所以此类比赛只有在春季之后白天渐长的时候才能安排。</p>
-<p>　　元老院引进的橄榄球赛是英国式橄榄球，相对来说对抗性不强，不需要复杂的护具，配以简单的藤制头盔和棉制护膝也能凑合了。</p>
-<p>　　橄榄球赛因为对抗性强，节奏紧张，颇有观赏性，又有强烈的团队合计的精神在内，而且在战术安排上更为复杂，对秉承“军国主义”思路的元老院来说是一项十分合适的体育项目。因而从盐场村开始就推广普及这项比赛。几年下来，在临高的归化民中已经渐渐形成了简陋的赛事体系。各个工厂机关、农庄、部队都有了业余队伍，芳草地学园不但自身有代表队，而且在学园内部也有分年龄层的学校联赛。</p>
-<p>　　比赛是在午后一点，黄禀坤要去观赛，参观团除了刘大霖下午要休憩片刻之外，其他人听说有澳洲人的球戏可看都纷纷表示要同去——肯定比在校园内听根本听不懂的课程来得有趣多了。</p>
-<p>　　本地缙绅愿意来观摩，董亦直当然是欢迎之极，对于这种可以扩散影响的事情，那真得是多多益善。</p>
-<p>　　此刻，观摩团的人已经坐到了体育场旁的看台上——比赛并不组织学生观摩，学习压力又大，所以场内只有三分之一的看台有人，还有些散兵游勇稀稀拉拉的分布在场地四周。</p>
-<p>　　因为不是正式的比赛，因而也不设专门的贵宾席，当然也没有人负责接待工作。还是在董元老的亲自过问下，才把参观团引领到距离场地最近的一排看台座位上。</p>
-<p>　　一行穿着长衫，留着发髻的缙绅文人坐在看台上，在董元老看来有一种强烈的不适感。</p>
-<p>　　果然长衫和发髻和元老院不般配。他暗暗嘀咕着。</p>
-<p>　　正当他发散性的思索到了剃发令的时候，一个学生跑过来报告比赛已经准备好了，只等他宣布开始了。</p>
-<p>　　董亦直不但是比赛的主持人，还是裁判，实际上他还是两队的教练——由于元老们中间并没有人真正玩过橄榄球的，更别说还是英式的了。只能看了书再当教练而已。董元老这个只会踢几脚足球的人也靠了书本和少量的视频资料就勉强上阵了。</p>
-<p>　　第一次开球之后，茉莉轩的士子们坐在看台上呆呆的望着球场——他们虽然看不懂场上的变化，当时大概明白就是两伙人抢一个球，然后拼命往门里踢。这种粗野的“球戏”让士子们目瞪口呆。他们中有的读书广博一点的，或者去过广州之类的大地方的，自然就把这种球戏和蹴鞠联系在一起。</p>
-<p>　　蹴鞠虽然在唐宋最为繁荣，但是明代在市井百姓中亦很流行，当时此时蹴鞠已经沦为一种表演性的“戏”或者自娱自乐的活动，失去了宋代以前两队对抗竞争的内容，甚至名气也不大好——专业蹴鞠组织“圆社”就是市井帮闲的角色，大多为大户人家和高级妓院服务。</p>
-<p>　　类似黄秉坤这样的“耕读世家”的良家子弟，甚至连蹴鞠这样的活动看都不看的，完全视其为一种下流社会的玩意。</p>
-<p>　　澳洲人也玩蹴鞠，让他们的第一个反应是澳洲人自称“大宋苗裔”还是有那么一点来头的，不然何至于要在学校里也开办这种球戏？想来这也是道君皇帝的遗泽。</p>
-<p>　　但是，随着球戏的深入，参观团的成员很快意识到，这“澳洲蹴鞠”和他们看过的蹴鞠毫不相干，不要说没什么花式的白打，光双方来回争抢，队员们互相配合这拼命带球达阵的气势倒有点排兵布阵的意思。</p>
-<p>　　虽然已经知道髡贼迟早要“造反”，但是看到一群十几岁的小孩子在场地上蹴鞠已经流露出一股强悍的斗杀之气，参观团成员们还是觉得一阵发自内心的忧虑——他们中的大多数倒不是为了大明担忧：大明朝廷距离他们实在有点远，存在感不高——而是这些澳洲人精心培育年轻学生，流露出来的气质已经是和他们是格格不入，这样一群人日后若是做了新朝的官，也成了“士大夫”，自己这些人如何自处？还能不能算得上新朝的“士”？</p>
-<p>　　想到这里，几个秀才已经有些坐立不安的感觉了。“学成文武艺，货于帝王家”，这是自古以来读书人的念书的终极目的。如今这即将要另树旗的新“帝王家”看起来根本不稀罕自己的“文武艺”，这书不就白念了？！心思活络，贪慕富贵的，早就在偷偷的想不知道这澳洲学问该从哪几本书开始念才行？</p>
-<p>　　黄秉坤正在凝神观看场上的赛事——他渐渐的有点看出门道来了，开始他还只觉得这是一种蛮力之戏，无非是看谁跑得快，力气大而已，但是渐渐的他发觉其中颇有排兵布阵的奥妙。更为难得的是，每队队员在夺球送球时候的配合堪称精妙，前后跑动、夹击、策应……无不行云流水，一气呵成——这要打起仗来，就是一等一的精兵，再想到那队形严整的跑步和做操，黄秉坤忽发奇想：莫非髡贼是以军法治国？</p>
-<p>　　忽然感到有人拍了他一下，转过头一看正是王教谕，王先生的脸因为羞愤而扭曲起来了。他低声道：“真是世风日下！败坏人心！”</p>
-<p>　　黄秉坤正莫名其妙间，顺着他的目光看去，却见一处看台上，是二十多个女学生，也分为两队，各持红蓝一色的绸花，随着场上的节奏在那里又唱又跳。原本只是盖住膝盖的裙子随着她们的跳动不时翻动起来，露出及膝袜上面一点点小麦色的大腿。</p>
-<p>　　在她们的带动下，场边观战的同学们或是叫喊，或是欢呼，十分的热闹。让这边观战的参观团一隅显得特别冷清。</p>
-<p>　　黄秉坤对女学生的绝对领域没什么兴趣——他觉得这都不要紧，要紧的是髡贼正在不遗余力的做大明药丸，这样下去，不仅大明要完，就是这华夏的万世一统恐怕也得亡在这伙假宋的手中！</p>
-<p>　　王赐见他不说话，正要再说几句，忽然场上响起了号子，有一队宣布换人了。</p>
-<p>　　上场的不是别人，正是黄平。黄秉坤还是第一次看到自己的小厮穿着这样的短衣短裤——要在黄家寨里，黄平这样的在宅邸内奔走服役的小厮是绝对不许穿着露腿露胳膊有辱斯文的衣服的。</p>
-<p>　　只见自己的小厮黄平穿着的短衣的前胸背后都有个大大的“大食数”，头戴藤盔，关节上全部缠绕着厚厚的带子。黄秉坤忽然发现自己身边这个瘦小的男孩已经长高长壮了，他裸露出得胳膊和大腿上都是结实的肌肉，在场地上奔跑喊叫着。</p>
-<p>　　上场不一会儿，黄平就配合着打了一次进攻，虽然没有达阵得分，但是他在进攻中的表现出来的力量和机敏性却让黄秉坤刮目相看——自己怎么从来没发觉这少年有这么大的本事？要知道黄家的家仆们都要练武，黄平是出了名的“无用”，连很简单的太祖长拳都学不来。</p>
-<p>　　“澳洲人真有点石成金的本事。”正在感慨的的黄秉坤忽然听到了刘大霖的声音。</p>
-<p>　　“山长，您——”</p>
-<p>　　“醒了，听说你们都在这里观战，我也来凑个热闹。”刘大霖道。</p>
-<p>　　“这里日头大，我们还是到席棚下观战好了。”黄秉坤赶紧扶着刘大霖到了一边的遮阳篷下。刘大霖似乎对这充满了活力的运动颇有兴趣，不时的看着场上的比赛呵呵的笑。黄秉坤却再也没有看下去的欲望。突然，一阵剧烈的欢呼声把黄秉坤从发呆中拉出来，只见穿着红衣的黄平在场地上高高的举着双手快速地跑着，脸上洋溢的幸福是黄秉坤不曾看到过的。他正懵懂间，刘大霖却告诉他了：</p>
-<p>　　“这是得分了。”</p>
-<p>　　“山长？！”黄秉坤很是惊讶。山长行动不便，很少出门，居然对髡贼的事情知道的这么清楚！</p>
-<p>　　“我家管家的孙子就在这里念书，他也喜欢这橄榄球戏，我也知道一二。”</p>
-<p>　　黄秉坤正要说什么，黄平挣脱了背后一脸兴奋想要拉住他，抱住他的队友的追逐，跑向自己同学的看台，里面一个女生也伸出双手，跳了出来，和他紧紧的拥抱在一起。这一举动顿时让黄秉坤傻了眼，脑海里顿时一片空白，只觉得有什么东西在胸中坍塌了下来。阳光照耀在整个场地上，亮晃晃的，唯独他站得地方有着一片长长的阴影。</p>
-]]></content>
-      <categories>
-        <category>Excerpt</category>
-      </categories>
-      <tags>
-        <tag>临高启明</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>胜利阅兵</title>
     <url>/2019/02/13/%E8%83%9C%E5%88%A9%E9%98%85%E5%85%B5/</url>
     <content><![CDATA[<h3 id="第四章-新澳洲-第一百零八节"><a href="#第四章-新澳洲-第一百零八节" class="headerlink" title="第四章 新澳洲 第一百零八节"></a>第四章 新澳洲 第一百零八节</h3><p>　　宗教办在澄迈城下举行的“慰灵法会”取得了很大的成功。元老院认为人已经杀得够多了，用不着再故弄玄虚的折腾死人。所以不管是斩首示众还是把尸体挂在树上从澄迈一路挂到琼山，乃至古风盎然的“京观”都没搞。俘虏和民工们在靠近大海的地方设立了若干个大火葬堆，焚化了尸体，又修筑了几个考究的集体墓穴将骨灰掩埋，又立了“阵亡者纪念碑”。教会、新道教和就地征发的和尚在当地连做了三天法会，累得吴石芒一干人歪歪扭扭，而且焚烧尸体当天的臭味更是让他们好几天没有食欲。</p>
@@ -10825,6 +10814,53 @@ Your browser does not support the audio element.
 <p>　　文德嗣最后说：“你们大家，每一位同志，我代表元老院，代表全体人民，诚心诚意的为你们所做的一切表示感谢。”</p>
 <p>　　他看着演习场上的人们：</p>
 <p>　　“你们获得了元老院和人民授予你们的军旗，你们无愧于军旗的荣誉和使命。”</p>
+]]></content>
+      <categories>
+        <category>Excerpt</category>
+      </categories>
+      <tags>
+        <tag>临高启明</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>芳草地参观记——球赛</title>
+    <url>/2019/02/06/%E8%8A%B3%E8%8D%89%E5%9C%B0%E5%8F%82%E8%A7%82%E8%AE%B0%E2%80%94%E2%80%94%E7%90%83%E8%B5%9B/</url>
+    <content><![CDATA[<h3 id="第六章-纷争-第一百一十四节"><a href="#第六章-纷争-第一百一十四节" class="headerlink" title="第六章 纷争 第一百一十四节"></a>第六章 纷争 第一百一十四节</h3><p>　　芳草地的体育场是临高第二大体育场——仅次于元老院当初修来阅兵办庆典的体育场。不过设施就简陋得多了。没有宏伟的主席台，也没有像样的看台：主席台和看台是铁架木板的简易建筑。在遇到校内大型的体育赛事的时候，学生们都是要自带板凳到体育场上来得。</p>
+<p>　　芳草地的体育场的利用率很高，二百个内务班的体育课排的满满的，早晚八节课，没有一节课体育场上不是同时有好几个班级在进行运动的。放学之后又缺少人工照明手段，所以此类比赛只有在春季之后白天渐长的时候才能安排。</p>
+<p>　　元老院引进的橄榄球赛是英国式橄榄球，相对来说对抗性不强，不需要复杂的护具，配以简单的藤制头盔和棉制护膝也能凑合了。</p>
+<p>　　橄榄球赛因为对抗性强，节奏紧张，颇有观赏性，又有强烈的团队合计的精神在内，而且在战术安排上更为复杂，对秉承“军国主义”思路的元老院来说是一项十分合适的体育项目。因而从盐场村开始就推广普及这项比赛。几年下来，在临高的归化民中已经渐渐形成了简陋的赛事体系。各个工厂机关、农庄、部队都有了业余队伍，芳草地学园不但自身有代表队，而且在学园内部也有分年龄层的学校联赛。</p>
+<p>　　比赛是在午后一点，黄禀坤要去观赛，参观团除了刘大霖下午要休憩片刻之外，其他人听说有澳洲人的球戏可看都纷纷表示要同去——肯定比在校园内听根本听不懂的课程来得有趣多了。</p>
+<p>　　本地缙绅愿意来观摩，董亦直当然是欢迎之极，对于这种可以扩散影响的事情，那真得是多多益善。</p>
+<p>　　此刻，观摩团的人已经坐到了体育场旁的看台上——比赛并不组织学生观摩，学习压力又大，所以场内只有三分之一的看台有人，还有些散兵游勇稀稀拉拉的分布在场地四周。</p>
+<p>　　因为不是正式的比赛，因而也不设专门的贵宾席，当然也没有人负责接待工作。还是在董元老的亲自过问下，才把参观团引领到距离场地最近的一排看台座位上。</p>
+<p>　　一行穿着长衫，留着发髻的缙绅文人坐在看台上，在董元老看来有一种强烈的不适感。</p>
+<p>　　果然长衫和发髻和元老院不般配。他暗暗嘀咕着。</p>
+<p>　　正当他发散性的思索到了剃发令的时候，一个学生跑过来报告比赛已经准备好了，只等他宣布开始了。</p>
+<p>　　董亦直不但是比赛的主持人，还是裁判，实际上他还是两队的教练——由于元老们中间并没有人真正玩过橄榄球的，更别说还是英式的了。只能看了书再当教练而已。董元老这个只会踢几脚足球的人也靠了书本和少量的视频资料就勉强上阵了。</p>
+<p>　　第一次开球之后，茉莉轩的士子们坐在看台上呆呆的望着球场——他们虽然看不懂场上的变化，当时大概明白就是两伙人抢一个球，然后拼命往门里踢。这种粗野的“球戏”让士子们目瞪口呆。他们中有的读书广博一点的，或者去过广州之类的大地方的，自然就把这种球戏和蹴鞠联系在一起。</p>
+<p>　　蹴鞠虽然在唐宋最为繁荣，但是明代在市井百姓中亦很流行，当时此时蹴鞠已经沦为一种表演性的“戏”或者自娱自乐的活动，失去了宋代以前两队对抗竞争的内容，甚至名气也不大好——专业蹴鞠组织“圆社”就是市井帮闲的角色，大多为大户人家和高级妓院服务。</p>
+<p>　　类似黄秉坤这样的“耕读世家”的良家子弟，甚至连蹴鞠这样的活动看都不看的，完全视其为一种下流社会的玩意。</p>
+<p>　　澳洲人也玩蹴鞠，让他们的第一个反应是澳洲人自称“大宋苗裔”还是有那么一点来头的，不然何至于要在学校里也开办这种球戏？想来这也是道君皇帝的遗泽。</p>
+<p>　　但是，随着球戏的深入，参观团的成员很快意识到，这“澳洲蹴鞠”和他们看过的蹴鞠毫不相干，不要说没什么花式的白打，光双方来回争抢，队员们互相配合这拼命带球达阵的气势倒有点排兵布阵的意思。</p>
+<p>　　虽然已经知道髡贼迟早要“造反”，但是看到一群十几岁的小孩子在场地上蹴鞠已经流露出一股强悍的斗杀之气，参观团成员们还是觉得一阵发自内心的忧虑——他们中的大多数倒不是为了大明担忧：大明朝廷距离他们实在有点远，存在感不高——而是这些澳洲人精心培育年轻学生，流露出来的气质已经是和他们是格格不入，这样一群人日后若是做了新朝的官，也成了“士大夫”，自己这些人如何自处？还能不能算得上新朝的“士”？</p>
+<p>　　想到这里，几个秀才已经有些坐立不安的感觉了。“学成文武艺，货于帝王家”，这是自古以来读书人的念书的终极目的。如今这即将要另树旗的新“帝王家”看起来根本不稀罕自己的“文武艺”，这书不就白念了？！心思活络，贪慕富贵的，早就在偷偷的想不知道这澳洲学问该从哪几本书开始念才行？</p>
+<p>　　黄秉坤正在凝神观看场上的赛事——他渐渐的有点看出门道来了，开始他还只觉得这是一种蛮力之戏，无非是看谁跑得快，力气大而已，但是渐渐的他发觉其中颇有排兵布阵的奥妙。更为难得的是，每队队员在夺球送球时候的配合堪称精妙，前后跑动、夹击、策应……无不行云流水，一气呵成——这要打起仗来，就是一等一的精兵，再想到那队形严整的跑步和做操，黄秉坤忽发奇想：莫非髡贼是以军法治国？</p>
+<p>　　忽然感到有人拍了他一下，转过头一看正是王教谕，王先生的脸因为羞愤而扭曲起来了。他低声道：“真是世风日下！败坏人心！”</p>
+<p>　　黄秉坤正莫名其妙间，顺着他的目光看去，却见一处看台上，是二十多个女学生，也分为两队，各持红蓝一色的绸花，随着场上的节奏在那里又唱又跳。原本只是盖住膝盖的裙子随着她们的跳动不时翻动起来，露出及膝袜上面一点点小麦色的大腿。</p>
+<p>　　在她们的带动下，场边观战的同学们或是叫喊，或是欢呼，十分的热闹。让这边观战的参观团一隅显得特别冷清。</p>
+<p>　　黄秉坤对女学生的绝对领域没什么兴趣——他觉得这都不要紧，要紧的是髡贼正在不遗余力的做大明药丸，这样下去，不仅大明要完，就是这华夏的万世一统恐怕也得亡在这伙假宋的手中！</p>
+<p>　　王赐见他不说话，正要再说几句，忽然场上响起了号子，有一队宣布换人了。</p>
+<p>　　上场的不是别人，正是黄平。黄秉坤还是第一次看到自己的小厮穿着这样的短衣短裤——要在黄家寨里，黄平这样的在宅邸内奔走服役的小厮是绝对不许穿着露腿露胳膊有辱斯文的衣服的。</p>
+<p>　　只见自己的小厮黄平穿着的短衣的前胸背后都有个大大的“大食数”，头戴藤盔，关节上全部缠绕着厚厚的带子。黄秉坤忽然发现自己身边这个瘦小的男孩已经长高长壮了，他裸露出得胳膊和大腿上都是结实的肌肉，在场地上奔跑喊叫着。</p>
+<p>　　上场不一会儿，黄平就配合着打了一次进攻，虽然没有达阵得分，但是他在进攻中的表现出来的力量和机敏性却让黄秉坤刮目相看——自己怎么从来没发觉这少年有这么大的本事？要知道黄家的家仆们都要练武，黄平是出了名的“无用”，连很简单的太祖长拳都学不来。</p>
+<p>　　“澳洲人真有点石成金的本事。”正在感慨的的黄秉坤忽然听到了刘大霖的声音。</p>
+<p>　　“山长，您——”</p>
+<p>　　“醒了，听说你们都在这里观战，我也来凑个热闹。”刘大霖道。</p>
+<p>　　“这里日头大，我们还是到席棚下观战好了。”黄秉坤赶紧扶着刘大霖到了一边的遮阳篷下。刘大霖似乎对这充满了活力的运动颇有兴趣，不时的看着场上的比赛呵呵的笑。黄秉坤却再也没有看下去的欲望。突然，一阵剧烈的欢呼声把黄秉坤从发呆中拉出来，只见穿着红衣的黄平在场地上高高的举着双手快速地跑着，脸上洋溢的幸福是黄秉坤不曾看到过的。他正懵懂间，刘大霖却告诉他了：</p>
+<p>　　“这是得分了。”</p>
+<p>　　“山长？！”黄秉坤很是惊讶。山长行动不便，很少出门，居然对髡贼的事情知道的这么清楚！</p>
+<p>　　“我家管家的孙子就在这里念书，他也喜欢这橄榄球戏，我也知道一二。”</p>
+<p>　　黄秉坤正要说什么，黄平挣脱了背后一脸兴奋想要拉住他，抱住他的队友的追逐，跑向自己同学的看台，里面一个女生也伸出双手，跳了出来，和他紧紧的拥抱在一起。这一举动顿时让黄秉坤傻了眼，脑海里顿时一片空白，只觉得有什么东西在胸中坍塌了下来。阳光照耀在整个场地上，亮晃晃的，唯独他站得地方有着一片长长的阴影。</p>
 ]]></content>
       <categories>
         <category>Excerpt</category>

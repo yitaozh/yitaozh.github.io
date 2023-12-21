@@ -17,7 +17,7 @@ New page.
 
 ## DDIA progress
 
-Un bundling Databases, page 499.
+Aiming for Correctness, page 515.
 
 ## The problems not solved
 

@@ -17,7 +17,7 @@ New page.
 
 ## DDIA progress
 
-Aiming for Correctness, page 515.
+Privacy and Tracking, page 536.
 
 ## The problems not solved
 

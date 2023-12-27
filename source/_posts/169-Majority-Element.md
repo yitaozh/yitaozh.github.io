@@ -44,6 +44,10 @@ Output: 2
 
 **Follow-up:** Could you solve the problem in linear time and in `O(1)` space?
 
+## Hints/Notes
+
+* use a count variable to solve it in O(1) space
+
 ## Solution
 
 Language: **C++**

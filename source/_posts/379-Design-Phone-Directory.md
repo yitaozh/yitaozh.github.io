@@ -55,7 +55,7 @@ phoneDirectory.check(2);   // Number 2 is available again, return true.
 
 ## Hints/Notes
 
-* use map + queue
+* use set + queue
 
 ## Solution
 

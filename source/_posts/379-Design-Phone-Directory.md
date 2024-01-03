@@ -53,6 +53,10 @@ phoneDirectory.check(2);   // Number 2 is available again, return true.
 * `0 <= number < maxNumbers`
 * At most 2 * 10<sup>4</sup> calls will be made to `get`, `check`, and `release`.
 
+## Hints/Notes
+
+* use map + queue
+
 ## Solution
 
 Language: **C++**

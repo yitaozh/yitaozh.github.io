@@ -131,13 +131,6 @@ hide_posts:
   # Add "noindex" meta tag to prevent hidden posts from being indexed by search engines
   noindex: true
 
-symbols_count_time:
-  symbols: true
-  time: true
-  total_symbols: true
-  total_time: true
-  exclude_codeblock: false
-
 search:
   path: search.xml
   field: post

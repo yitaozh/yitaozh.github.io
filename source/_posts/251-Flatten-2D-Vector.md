@@ -3,7 +3,10 @@ title: 251. Flatten 2D Vector
 categories: Leetcode
 date: 2024-03-27 17:33:20
 tags:
-    -
+    - Array
+    - Two Pointers
+    - Design
+    - Iterator
 ---
 
 # [251. Flatten 2D Vector](https://leetcode.com/problems/flatten-2d-vector/description/)

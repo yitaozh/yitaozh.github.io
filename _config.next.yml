@@ -54,16 +54,16 @@ font:
   #   size: 0.9
 
   # Font settings for posts (.post-body).
-  posts:
-    external: true
-    family: Monda
-    size: 0.75
+  # posts:
+  #   external: true
+  #   family: Monda
+  #   size: 0.75
 
   # Font settings for <code> and code blocks.
-  codes:
-    external: true
-    family: Monda
-    size: 0.75
+  # codes:
+  #   external: true
+  #   family: Monda
+  #   size: 0.75
 
 menu:
   home: / || fa fa-home

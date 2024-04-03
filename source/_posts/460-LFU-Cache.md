@@ -73,6 +73,7 @@ lfu.get(4);      // return 4
 
 * need a map to record all elements with same freq, i.e. a freqToKeys map
 * need a map to record one element's position in the above map's value
+* need rewrite next time
 
 ## Solution
 

@@ -65,12 +65,12 @@ New page.
 
 ## The problems not recorded
 
-257, 129, 199, 298, 988, 1022, 1457
+129, 199, 298, 988, 1022, 1457
 
 ## The dates
 
-Review date: 2023-10-21
-New question date: 2023-12-28
+Review date: 2023-10-24
+New question date: 2023-12-30
 
 ## The problems not noted
 

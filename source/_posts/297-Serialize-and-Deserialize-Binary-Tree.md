@@ -11,7 +11,7 @@ tags:
     - Binary Tree
 ---
 
-# [297\. Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)
+[297\. Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)
 
 ## Description
 
@@ -49,7 +49,7 @@ Output: []
 ## Hints/Notes
 
 * preorder done
-* postorder tbd
+* postorder done
 * levelorder tbd
 
 ## Solution

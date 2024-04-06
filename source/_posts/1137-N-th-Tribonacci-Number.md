@@ -8,7 +8,7 @@ tags:
     - Memoization
 ---
 
-# [1137\. N-th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number/)
+[1137\. N-th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number/)
 
 ## Description
 

@@ -11,7 +11,7 @@ tags:
     - Binary Tree
 ---
 
-# [654\. Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree/)
+[654\. Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree/)
 
 ## Description
 

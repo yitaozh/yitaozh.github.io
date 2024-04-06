@@ -8,7 +8,7 @@ tags:
     - String
 ---
 
-# [734. Sentence Similarity](https://leetcode.com/problems/sentence-similarity/)
+[734. Sentence Similarity](https://leetcode.com/problems/sentence-similarity/)
 
 We can represent a sentence as an array of words, for example, the sentence `"I am happy with leetcode"` can be represented as `arr = ["I","am",happy","with","leetcode"]`.
 

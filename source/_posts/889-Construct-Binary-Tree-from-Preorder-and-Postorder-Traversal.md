@@ -10,7 +10,7 @@ tags:
     - Binary Tree
 ---
 
-# [889\. Construct Binary Tree from Preorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/)
+[889\. Construct Binary Tree from Preorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/)
 
 ## Description
 

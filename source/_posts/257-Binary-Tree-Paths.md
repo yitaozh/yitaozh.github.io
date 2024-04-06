@@ -10,7 +10,7 @@ tags:
     - Binary Tree
 ---
 
-# [257. Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths/description/)
+[257. Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths/description/)
 
 Given the `root` of a binary tree, return all root-to-leaf paths in **any order** .
 

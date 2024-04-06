@@ -10,7 +10,7 @@ tags:
     - Ordered Set
 ---
 
-# [220\. Contains Duplicate III](https://leetcode.com/problems/contains-duplicate-iii/)
+[220\. Contains Duplicate III](https://leetcode.com/problems/contains-duplicate-iii/)
 
 ## Description
 

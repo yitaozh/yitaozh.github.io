@@ -9,7 +9,7 @@ tags:
     - Doubly-Linked List
 ---
 
-# [146\. LRU Cache](https://leetcode.com/problems/lru-cache/)
+[146\. LRU Cache](https://leetcode.com/problems/lru-cache/)
 
 ## Description
 

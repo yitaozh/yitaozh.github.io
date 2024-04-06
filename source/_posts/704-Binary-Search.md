@@ -7,7 +7,7 @@ tags:
     - Binary Search
 ---
 
-# [792\. Binary Search](https://leetcode.com/problems/binary-search/)
+[792\. Binary Search](https://leetcode.com/problems/binary-search/)
 
 ## Description
 

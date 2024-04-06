@@ -8,7 +8,7 @@ tags:
     - Depth-First Search
 ---
 
-# [388\. Longest Absolute File Path](https://leetcode.com/problems/longest-absolute-file-path/)
+[388\. Longest Absolute File Path](https://leetcode.com/problems/longest-absolute-file-path/)
 
 ## Description
 

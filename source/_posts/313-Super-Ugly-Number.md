@@ -8,7 +8,7 @@ tags:
     - Dynamic Programming
 ---
 
-# [313\. Super Ugly Number](https://leetcode.com/problems/super-ugly-number/)
+[313\. Super Ugly Number](https://leetcode.com/problems/super-ugly-number/)
 
 ## Description
 

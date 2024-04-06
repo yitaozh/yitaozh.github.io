@@ -8,7 +8,7 @@ tags:
     - Number Theory
 ---
 
-# [1201\. Ugly Number III](https://leetcode.com/problems/ugly-number-iii/)
+[1201\. Ugly Number III](https://leetcode.com/problems/ugly-number-iii/)
 
 ## Description
 

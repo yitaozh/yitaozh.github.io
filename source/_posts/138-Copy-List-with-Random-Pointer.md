@@ -7,7 +7,7 @@ tags:
     - Linked List
 ---
 
-# [138\. Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)
+[138\. Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)
 
 ## Description
 

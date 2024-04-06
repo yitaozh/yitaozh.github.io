@@ -9,7 +9,7 @@ tags:
     - Sorting
 ---
 
-# [870\. Advantage Shuffle](https://leetcode.com/problems/advantage-shuffle/)
+[870\. Advantage Shuffle](https://leetcode.com/problems/advantage-shuffle/)
 
 ## Description
 

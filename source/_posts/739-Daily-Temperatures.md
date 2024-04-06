@@ -8,7 +8,7 @@ tags:
     - Monotonic Stack
 ---
 
-# [739\. Daily Temperatures](https://leetcode.com/problems/daily-temperatures/)
+[739\. Daily Temperatures](https://leetcode.com/problems/daily-temperatures/)
 
 ## Description
 

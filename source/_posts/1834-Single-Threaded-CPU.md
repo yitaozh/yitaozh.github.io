@@ -8,7 +8,7 @@ tags:
     - Heap (Priority Queue)
 ---
 
-# [1834\. Single-Threaded CPU](https://leetcode.com/problems/single-threaded-cpu/)
+[1834\. Single-Threaded CPU](https://leetcode.com/problems/single-threaded-cpu/)
 
 ## Description
 

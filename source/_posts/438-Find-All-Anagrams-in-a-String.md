@@ -8,7 +8,7 @@ tags:
     - Sliding Window
 ---
 
-# [438\. Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/)
+[438\. Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/)
 
 ## Description
 

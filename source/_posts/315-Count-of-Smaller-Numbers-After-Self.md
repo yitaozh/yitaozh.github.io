@@ -11,7 +11,7 @@ tags:
     - Merge Sort
     - Ordered Set
 ---
-# [315\. Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self/)
+[315\. Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self/)
 
 ## Description
 

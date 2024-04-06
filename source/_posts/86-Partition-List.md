@@ -7,7 +7,7 @@ tags:
     - Two Pointers
 ---
 
-# [86\. Partition List](https://leetcode.com/problems/partition-list/)
+[86\. Partition List](https://leetcode.com/problems/partition-list/)
 
 ## Description
 

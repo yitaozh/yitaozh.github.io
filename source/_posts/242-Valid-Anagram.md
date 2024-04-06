@@ -8,7 +8,7 @@ tags:
     - Sorting
 ---
 
-# [242\. Valid Anagram](https://leetcode.com/problems/valid-anagram/)
+[242\. Valid Anagram](https://leetcode.com/problems/valid-anagram/)
 
 ## Description
 

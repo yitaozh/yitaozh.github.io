@@ -10,7 +10,7 @@ tags:
     - Prefix Sum
 ---
 
-# [1094\. Car Pooling](https://leetcode.com/problems/car-pooling/)
+[1094\. Car Pooling](https://leetcode.com/problems/car-pooling/)
 
 ## Description
 

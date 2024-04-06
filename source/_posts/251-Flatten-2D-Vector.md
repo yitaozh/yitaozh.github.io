@@ -9,7 +9,7 @@ tags:
     - Iterator
 ---
 
-# [251. Flatten 2D Vector](https://leetcode.com/problems/flatten-2d-vector/description/)
+[251. Flatten 2D Vector](https://leetcode.com/problems/flatten-2d-vector/description/)
 
 ## Description
 

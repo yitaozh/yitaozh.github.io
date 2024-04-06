@@ -9,7 +9,7 @@ tags:
     - Binary Tree
 ---
 
-# [652\. Find Duplicate Subtrees](https://leetcode.com/problems/find-duplicate-subtrees/)
+[652\. Find Duplicate Subtrees](https://leetcode.com/problems/find-duplicate-subtrees/)
 
 ## Description
 

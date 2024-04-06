@@ -8,7 +8,7 @@ tags:
     - Prefix Sum
 ---
 
-# [1314\. Matrix Block Sum](https://leetcode.com/problems/matrix-block-sum/)
+[1314\. Matrix Block Sum](https://leetcode.com/problems/matrix-block-sum/)
 
 ## Description
 

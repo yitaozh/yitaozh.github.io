@@ -7,7 +7,7 @@ tags:
     - Heap (Priority Queue)
 ---
 
-# [1845\. Seat Reservation Manager](https://leetcode.com/problems/seat-reservation-manager/)
+[1845\. Seat Reservation Manager](https://leetcode.com/problems/seat-reservation-manager/)
 
 ## Description
 

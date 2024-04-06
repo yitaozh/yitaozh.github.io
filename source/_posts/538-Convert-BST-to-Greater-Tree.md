@@ -9,7 +9,7 @@ tags:
     - Binary Tree
 ---
 
-# [538\. Convert BST to Greater Tree](https://leetcode.com/problems/convert-bst-to-greater-tree/)
+[538\. Convert BST to Greater Tree](https://leetcode.com/problems/convert-bst-to-greater-tree/)
 
 ## Description
 

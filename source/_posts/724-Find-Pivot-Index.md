@@ -7,7 +7,7 @@ tags:
     - Prefix Sum
 ---
 
-# [724\. Find Pivot Index](https://leetcode.com/problems/find-pivot-index/)
+[724\. Find Pivot Index](https://leetcode.com/problems/find-pivot-index/)
 
 ## Description
 

@@ -11,7 +11,7 @@ tags:
     - Hash Function
 ---
 
-# [187\. Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/)
+[187\. Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/)
 
 ## Description
 

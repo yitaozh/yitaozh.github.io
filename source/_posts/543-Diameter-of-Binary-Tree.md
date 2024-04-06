@@ -8,7 +8,7 @@ tags:
     - Binary Tree
 ---
 
-# [543\. Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)
+[543\. Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)
 
 ## Description
 

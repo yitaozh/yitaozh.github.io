@@ -10,7 +10,7 @@ tags:
     - Queue
 ---
 
-# [362\. Design Hit Counter](https://leetcode.com/problems/design-hit-counter/)
+[362\. Design Hit Counter](https://leetcode.com/problems/design-hit-counter/)
 
 ## Description
 

@@ -9,7 +9,7 @@ tags:
     - Queue
 ---
 
-# [641\. Design Circular Deque](https://leetcode.com/problems/design-circular-deque/)
+[641\. Design Circular Deque](https://leetcode.com/problems/design-circular-deque/)
 
 ## Description
 

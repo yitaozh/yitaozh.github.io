@@ -7,7 +7,7 @@ tags:
     - Prefix Sum
 ---
 
-# [370. Range Addition](https://leetcode.com/problems/range-addition/)
+[370. Range Addition](https://leetcode.com/problems/range-addition/)
 
 You are given an integer `length` and an array `updates` where `updates[i] = [startIdx<sub>i</sub>, endIdx<sub>i</sub>, inc<sub>i</sub>]`.
 

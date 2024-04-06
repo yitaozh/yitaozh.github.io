@@ -9,7 +9,7 @@ tags:
     - Graph
 ---
 
-# [785\. Is Graph Bipartite?](https://leetcode.com/problems/is-graph-bipartite/)
+[785\. Is Graph Bipartite?](https://leetcode.com/problems/is-graph-bipartite/)
 
 ## Description
 

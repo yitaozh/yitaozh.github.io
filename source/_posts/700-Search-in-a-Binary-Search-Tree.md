@@ -8,7 +8,7 @@ tags:
     - Binary Tree
 ---
 
-# [700\. Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree/)
+[700\. Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree/)
 
 ## Description
 

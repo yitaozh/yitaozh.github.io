@@ -7,7 +7,7 @@ tags:
     - String
 ---
 
-# [344\. Reverse String](https://leetcode.com/problems/reverse-string/)
+[344\. Reverse String](https://leetcode.com/problems/reverse-string/)
 
 ## Description
 

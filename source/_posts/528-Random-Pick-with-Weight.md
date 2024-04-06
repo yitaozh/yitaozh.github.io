@@ -10,7 +10,7 @@ tags:
     - Randomized
 ---
 
-# [912\. Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/)
+[912\. Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/)
 
 ## Description
 

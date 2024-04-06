@@ -10,7 +10,7 @@ tags:
     - Monotonic Queue
 ---
 
-# [918\. Maximum Sum Circular Subarray](https://leetcode.com/problems/maximum-sum-circular-subarray/)
+[918\. Maximum Sum Circular Subarray](https://leetcode.com/problems/maximum-sum-circular-subarray/)
 
 ## Description
 

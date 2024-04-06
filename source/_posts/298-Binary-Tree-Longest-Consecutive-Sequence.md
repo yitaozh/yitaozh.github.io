@@ -8,7 +8,7 @@ tags:
     - Binary Tree
 ---
 
-# [298. Binary Tree Longest Consecutive Sequence](https://leetcode.com/problems/binary-tree-longest-consecutive-sequence/description/)
+[298. Binary Tree Longest Consecutive Sequence](https://leetcode.com/problems/binary-tree-longest-consecutive-sequence/description/)
 
 Given the `root` of a binary tree, return the length of the longest **consecutive sequence path** .
 

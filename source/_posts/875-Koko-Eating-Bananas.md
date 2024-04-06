@@ -7,7 +7,7 @@ tags:
     - Binary Search
 ---
 
-# [875\. Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)
+[875\. Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/)
 
 ## Description
 

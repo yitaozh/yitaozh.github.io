@@ -6,7 +6,7 @@ tags:
     - DDIA
 ---
 
-## [Designing Data-Intensive Applications](https://www.goodreads.com/book/show/23463279-designing-data-intensive-applications)
+[Designing Data-Intensive Applications](https://www.goodreads.com/book/show/23463279-designing-data-intensive-applications)
 
 - [Reliable, scalable, and maintainable applications](#reliable-scalable-and-maintainable-applications)
   - [Reliability](#reliability)

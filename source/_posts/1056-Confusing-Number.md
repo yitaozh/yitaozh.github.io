@@ -6,7 +6,7 @@ tags:
     - Math
 ---
 
-# [1056\. Confusing Number](https://leetcode.com/problems/confusing-number/)
+[1056\. Confusing Number](https://leetcode.com/problems/confusing-number/)
 
 ## Description
 

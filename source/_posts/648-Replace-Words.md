@@ -9,7 +9,7 @@ tags:
     - Trie
 ---
 
-# [648\. Replace Words](https://leetcode.com/problems/replace-words/)
+[648\. Replace Words](https://leetcode.com/problems/replace-words/)
 
 ## Description
 

@@ -47,7 +47,7 @@ Output: 3
 
 ## Hints/Notes
 
-* N/A
+* traverse the tree
 
 ## Solution
 

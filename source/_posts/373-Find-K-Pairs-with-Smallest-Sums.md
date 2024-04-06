@@ -55,6 +55,7 @@ Explanation: All possible pairs are returned from the sequence: [1,3],[2,3]
 ## Hints/Notes
 
 * Priority queue
+* Don't think about moving 2 needles together, pair the first item in 1st list with all items in the 2nd list
 
 ## Solution
 

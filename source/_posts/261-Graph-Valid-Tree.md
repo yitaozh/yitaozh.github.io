@@ -51,6 +51,7 @@ Output: false
 ## Hints/Notes
 
 * Union find
+* A valid tree doesn't have a cycle, and there's only one component
 
 ## Solution
 

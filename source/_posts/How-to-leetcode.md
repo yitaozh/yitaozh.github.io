@@ -67,10 +67,9 @@ New page.
 
 199, 298, 988, 1022, 1457
 
-## The dates
+## The best way to record the progression
 
-Review date: 2023-10-25
-New question date: 2024-01-01
+Screenshot the next day's list
 
 ## The problems not noted
 

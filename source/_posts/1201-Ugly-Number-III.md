@@ -53,6 +53,7 @@ Explanation: The ugly numbers are 2, 4, 6, 8, 10, 11, 12, 13... The 5th is 10.
 ## Hints/Notes
 
 * binary search
+* The difference between this and lc 264: it's divisible, not a, b, c are the only factors
 
 ## Solution
 

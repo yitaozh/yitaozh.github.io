@@ -2461,6 +2461,52 @@
       </tags>
   </entry>
   <entry>
+    <title>210. Course Schedule II</title>
+    <url>/2023/09/01/210-Course-Schedule-II/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/course-schedule-ii/">210. Course Schedule II</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/breadth-first-search//">Breadth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/graph//">Graph</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/topological-sort//">Topological Sort</a></p>
+<p>There are a total of <code>numCourses</code> courses you have to take, labeled from <code>0</code> to <code>numCourses - 1</code>. You are given an array <code>prerequisites</code> where prerequisites[i] &#x3D; [a<sub>i</sub>, b<sub>i</sub>] indicates that you <strong>must</strong> take course b<sub>i</sub> first if you want to take course a<sub>i</sub>.</p>
+<ul>
+<li>For example, the pair <code>[0, 1]</code>, indicates that to take course <code>0</code> you have to first take course <code>1</code>.</li>
+</ul>
+<p>Return <em>the ordering of courses you should take to finish all courses</em>. If there are many valid answers, return <strong>any</strong> of them. If it is impossible to finish all courses, return <strong>an empty array</strong>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: numCourses = 2, prerequisites = [[1,0]]</span><br><span class="line">Output: [0,1]</span><br><span class="line">Explanation: There are a total of 2 courses to take. To take course 1 you should have finished course 0\. So the correct course order is [0,1].</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]</span><br><span class="line">Output: [0,2,1,3]</span><br><span class="line">Explanation: There are a total of 4 courses to take. To take course 3 you should have finished both courses 1 and 2\. Both courses 1 and 2 should be taken after you finished course 0.</span><br><span class="line">So one correct course order is [0,1,2,3]. Another correct ordering is [0,2,1,3].</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: numCourses = 1, prerequisites = []</span><br><span class="line">Output: [0]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= numCourses &lt;= 2000</code></li>
+<li><code>0 &lt;= prerequisites.length &lt;= numCourses * (numCourses - 1)</code></li>
+<li><code>prerequisites[i].length == 2</code></li>
+<li>0 &lt;&#x3D; a<sub>i</sub>, b<sub>i</sub> &lt; numCourses</li>
+<li>a<sub>i</sub> !&#x3D; b<sub>i</sub></li>
+<li>All the pairs [a<sub>i</sub>, b<sub>i</sub>] are <strong>distinct</strong>.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Build the graph first</li>
+<li>Use postOrder to record the route</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; graph;</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; visited;</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; onPath;</span><br><span class="line">    <span class="type">bool</span> can = <span class="literal">true</span>;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; postOrder;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">findOrder</span><span class="params">(<span class="type">int</span> numCourses, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; prerequisites)</span> </span>&#123;</span><br><span class="line">        graph = vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;(numCourses, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;());</span><br><span class="line">        visited = <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(numCourses, <span class="literal">false</span>);</span><br><span class="line">        onPath = <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(numCourses, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> pair : prerequisites) &#123;</span><br><span class="line">            <span class="type">int</span> from = pair[<span class="number">0</span>], to = pair[<span class="number">1</span>];</span><br><span class="line">            graph[from].<span class="built_in">push_back</span>(to);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; numCourses; i++) &#123;</span><br><span class="line">            <span class="built_in">traverse</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!can) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> postOrder;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(<span class="type">int</span> node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (onPath[node]) &#123;</span><br><span class="line">            can = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (onPath[node] || visited[node]) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        visited[node] = <span class="literal">true</span>;</span><br><span class="line">        onPath[node] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i : graph[node]) &#123;</span><br><span class="line">            <span class="built_in">traverse</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        postOrder.<span class="built_in">push_back</span>(node);</span><br><span class="line">        onPath[node] = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Breadth-First Search</tag>
+        <tag>Graph</tag>
+        <tag>Topological Sort</tag>
+        <tag>Depth-First</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>208. Implement Trie (Prefix Tree)</title>
     <url>/2023/10/06/208-Implement-Trie-Prefix-Tree/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/implement-trie-prefix-tree/">208. Implement Trie (Prefix Tree)</a></p>
@@ -2539,52 +2585,6 @@
       <tags>
         <tag>Linked List</tag>
         <tag>Recursion</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>210. Course Schedule II</title>
-    <url>/2023/09/01/210-Course-Schedule-II/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/course-schedule-ii/">210. Course Schedule II</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/breadth-first-search//">Breadth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/graph//">Graph</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/topological-sort//">Topological Sort</a></p>
-<p>There are a total of <code>numCourses</code> courses you have to take, labeled from <code>0</code> to <code>numCourses - 1</code>. You are given an array <code>prerequisites</code> where prerequisites[i] &#x3D; [a<sub>i</sub>, b<sub>i</sub>] indicates that you <strong>must</strong> take course b<sub>i</sub> first if you want to take course a<sub>i</sub>.</p>
-<ul>
-<li>For example, the pair <code>[0, 1]</code>, indicates that to take course <code>0</code> you have to first take course <code>1</code>.</li>
-</ul>
-<p>Return <em>the ordering of courses you should take to finish all courses</em>. If there are many valid answers, return <strong>any</strong> of them. If it is impossible to finish all courses, return <strong>an empty array</strong>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: numCourses = 2, prerequisites = [[1,0]]</span><br><span class="line">Output: [0,1]</span><br><span class="line">Explanation: There are a total of 2 courses to take. To take course 1 you should have finished course 0\. So the correct course order is [0,1].</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]</span><br><span class="line">Output: [0,2,1,3]</span><br><span class="line">Explanation: There are a total of 4 courses to take. To take course 3 you should have finished both courses 1 and 2\. Both courses 1 and 2 should be taken after you finished course 0.</span><br><span class="line">So one correct course order is [0,1,2,3]. Another correct ordering is [0,2,1,3].</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: numCourses = 1, prerequisites = []</span><br><span class="line">Output: [0]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= numCourses &lt;= 2000</code></li>
-<li><code>0 &lt;= prerequisites.length &lt;= numCourses * (numCourses - 1)</code></li>
-<li><code>prerequisites[i].length == 2</code></li>
-<li>0 &lt;&#x3D; a<sub>i</sub>, b<sub>i</sub> &lt; numCourses</li>
-<li>a<sub>i</sub> !&#x3D; b<sub>i</sub></li>
-<li>All the pairs [a<sub>i</sub>, b<sub>i</sub>] are <strong>distinct</strong>.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Build the graph first</li>
-<li>Use postOrder to record the route</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; graph;</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; visited;</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; onPath;</span><br><span class="line">    <span class="type">bool</span> can = <span class="literal">true</span>;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; postOrder;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">findOrder</span><span class="params">(<span class="type">int</span> numCourses, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; prerequisites)</span> </span>&#123;</span><br><span class="line">        graph = vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;(numCourses, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;());</span><br><span class="line">        visited = <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(numCourses, <span class="literal">false</span>);</span><br><span class="line">        onPath = <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(numCourses, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> pair : prerequisites) &#123;</span><br><span class="line">            <span class="type">int</span> from = pair[<span class="number">0</span>], to = pair[<span class="number">1</span>];</span><br><span class="line">            graph[from].<span class="built_in">push_back</span>(to);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; numCourses; i++) &#123;</span><br><span class="line">            <span class="built_in">traverse</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!can) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> postOrder;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(<span class="type">int</span> node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (onPath[node]) &#123;</span><br><span class="line">            can = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (onPath[node] || visited[node]) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        visited[node] = <span class="literal">true</span>;</span><br><span class="line">        onPath[node] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i : graph[node]) &#123;</span><br><span class="line">            <span class="built_in">traverse</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        postOrder.<span class="built_in">push_back</span>(node);</span><br><span class="line">        onPath[node] = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Breadth-First Search</tag>
-        <tag>Graph</tag>
-        <tag>Topological Sort</tag>
-        <tag>Depth-First</tag>
       </tags>
   </entry>
   <entry>
@@ -2949,6 +2949,44 @@
       </tags>
   </entry>
   <entry>
+    <title>230. Kth Smallest Element in a BST</title>
+    <url>/2023/08/26/230-Kth-Smallest-Element-in-a-BST/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/kth-smallest-element-in-a-bst/">230. Kth Smallest Element in a BST</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/tree//">Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-search-tree//">Binary Search Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//">Binary Tree</a></p>
+<p>Given the <code>root</code> of a binary search tree, and an integer <code>k</code>, return <em>the</em> k<sup>th</sup> <em>smallest value (<strong>1-indexed</strong>) of all the values of the nodes in the tree</em>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/01/28/kthtree1.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [3,1,4,null,2], k = 1</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/01/28/kthtree2.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [5,3,6,2,4,null,null,1], k = 3</span><br><span class="line">Output: 3</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is <code>n</code>.</li>
+<li>1 &lt;&#x3D; k &lt;&#x3D; n &lt;&#x3D; 10<sup>4</sup></li>
+<li>0 &lt;&#x3D; Node.val &lt;&#x3D; 10<sup>4</sup></li>
+</ul>
+<p><strong>Follow up:</strong> If the BST is modified often (i.e., we can do insert and delete operations) and you need to find the kth smallest frequently, how would you optimize?</p>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>traverse the tree</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> index = <span class="number">1</span>, res = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">kthSmallest</span><span class="params">(TreeNode* root, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">traverse</span>(root, k);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(TreeNode* root, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!root) <span class="keyword">return</span>;</span><br><span class="line">        <span class="built_in">traverse</span>(root-&gt;left, k);</span><br><span class="line">        <span class="keyword">if</span> (index++ == k) &#123;</span><br><span class="line">            res = root-&gt;val;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">traverse</span>(root-&gt;right, k);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Tree</tag>
+        <tag>Depth-First Search</tag>
+        <tag>Binary Tree</tag>
+        <tag>Binary Search Tree</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>232. Implement Queue using Stacks</title>
     <url>/2023/11/07/232-Implement-Queue-using-Stacks/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/implement-queue-using-stacks/">232. Implement Queue using Stacks</a></p>
@@ -2990,44 +3028,6 @@
         <tag>Stack</tag>
         <tag>Design</tag>
         <tag>Queue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>230. Kth Smallest Element in a BST</title>
-    <url>/2023/08/26/230-Kth-Smallest-Element-in-a-BST/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/kth-smallest-element-in-a-bst/">230. Kth Smallest Element in a BST</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/tree//">Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-search-tree//">Binary Search Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//">Binary Tree</a></p>
-<p>Given the <code>root</code> of a binary search tree, and an integer <code>k</code>, return <em>the</em> k<sup>th</sup> <em>smallest value (<strong>1-indexed</strong>) of all the values of the nodes in the tree</em>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/01/28/kthtree1.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [3,1,4,null,2], k = 1</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/01/28/kthtree2.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [5,3,6,2,4,null,null,1], k = 3</span><br><span class="line">Output: 3</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in the tree is <code>n</code>.</li>
-<li>1 &lt;&#x3D; k &lt;&#x3D; n &lt;&#x3D; 10<sup>4</sup></li>
-<li>0 &lt;&#x3D; Node.val &lt;&#x3D; 10<sup>4</sup></li>
-</ul>
-<p><strong>Follow up:</strong> If the BST is modified often (i.e., we can do insert and delete operations) and you need to find the kth smallest frequently, how would you optimize?</p>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>traverse the tree</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> index = <span class="number">1</span>, res = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">kthSmallest</span><span class="params">(TreeNode* root, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">traverse</span>(root, k);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(TreeNode* root, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!root) <span class="keyword">return</span>;</span><br><span class="line">        <span class="built_in">traverse</span>(root-&gt;left, k);</span><br><span class="line">        <span class="keyword">if</span> (index++ == k) &#123;</span><br><span class="line">            res = root-&gt;val;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">traverse</span>(root-&gt;right, k);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
-        <tag>Binary Tree</tag>
-        <tag>Binary Search Tree</tag>
       </tags>
   </entry>
   <entry>
@@ -3189,6 +3189,44 @@
       </tags>
   </entry>
   <entry>
+    <title>239. Sliding Window Maximum</title>
+    <url>/2023/09/20/239-Sliding-Window-Maximum/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/sliding-window-maximum/">239. Sliding Window Maximum</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Hard</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/queue//">Queue</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sliding-window//">Sliding Window</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/heap-priority-queue//">Heap (Priority Queue)</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/monotonic-queue//">Monotonic Queue</a></p>
+<p>You are given an array of integers <code>nums</code>, there is a sliding window of size <code>k</code> which is moving from the very left of the array to the very right. You can only see the <code>k</code> numbers in the window. Each time the sliding window moves right by one position.</p>
+<p>Return <em>the max sliding window</em>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [1,3,-1,-3,5,3,6,7], k = 3</span><br><span class="line">Output: [3,3,5,5,6,7]</span><br><span class="line">Explanation:</span><br><span class="line">Window position                Max</span><br><span class="line">---------------               -----</span><br><span class="line">[1  3  -1] -3  5  3  6  7       3</span><br><span class="line"> 1 [3  -1  -3] 5  3  6  7       3</span><br><span class="line"> 1  3 [-1  -3  5] 3  6  7       5</span><br><span class="line"> 1  3  -1 [-3  5  3] 6  7       5</span><br><span class="line"> 1  3  -1  -3 [5  3  6] 7       6</span><br><span class="line"> 1  3  -1  -3  5 [3  6  7]      7</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [1], k = 1</span><br><span class="line">Output: [1]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; nums.length &lt;&#x3D; 10<sup>5</sup></li>
+<li>-10<sup>4</sup> &lt;&#x3D; nums[i] &lt;&#x3D; 10<sup>4</sup></li>
+<li><code>1 &lt;= k &lt;= nums.length</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Monotonic Queue</li>
+<li>Corner case: we cannot use less than or equal to when pop previous elements, because it can potentially pop out the newly added value</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">maxSlidingWindow</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        list&lt;<span class="type">int</span>&gt; window;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">while</span> (!window.<span class="built_in">empty</span>() &amp;&amp; window.<span class="built_in">back</span>() &lt; nums[i]) &#123;</span><br><span class="line">                window.<span class="built_in">pop_back</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            window.<span class="built_in">push_back</span>(nums[i]);</span><br><span class="line">            <span class="keyword">if</span> (i &gt;= k - <span class="number">1</span>) &#123;</span><br><span class="line">                res.<span class="built_in">push_back</span>(window.<span class="built_in">front</span>());</span><br><span class="line">                <span class="keyword">if</span> (window.<span class="built_in">front</span>() == nums[i - k + <span class="number">1</span>]) &#123;</span><br><span class="line">                    window.<span class="built_in">pop_front</span>();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Sliding Window</tag>
+        <tag>Heap (Priority Queue)</tag>
+        <tag>Queue</tag>
+        <tag>Monotonic Queue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>240. Search a 2D Matrix II</title>
     <url>/2023/12/01/240-Search-a-2D-Matrix-II/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/search-a-2d-matrix-ii/">240. Search a 2D Matrix II</a></p>
@@ -3231,44 +3269,6 @@
         <tag>Binary Search</tag>
         <tag>Divide and Conquer</tag>
         <tag>Matrix</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>239. Sliding Window Maximum</title>
-    <url>/2023/09/20/239-Sliding-Window-Maximum/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/sliding-window-maximum/">239. Sliding Window Maximum</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Hard</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/queue//">Queue</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sliding-window//">Sliding Window</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/heap-priority-queue//">Heap (Priority Queue)</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/monotonic-queue//">Monotonic Queue</a></p>
-<p>You are given an array of integers <code>nums</code>, there is a sliding window of size <code>k</code> which is moving from the very left of the array to the very right. You can only see the <code>k</code> numbers in the window. Each time the sliding window moves right by one position.</p>
-<p>Return <em>the max sliding window</em>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [1,3,-1,-3,5,3,6,7], k = 3</span><br><span class="line">Output: [3,3,5,5,6,7]</span><br><span class="line">Explanation:</span><br><span class="line">Window position                Max</span><br><span class="line">---------------               -----</span><br><span class="line">[1  3  -1] -3  5  3  6  7       3</span><br><span class="line"> 1 [3  -1  -3] 5  3  6  7       3</span><br><span class="line"> 1  3 [-1  -3  5] 3  6  7       5</span><br><span class="line"> 1  3  -1 [-3  5  3] 6  7       5</span><br><span class="line"> 1  3  -1  -3 [5  3  6] 7       6</span><br><span class="line"> 1  3  -1  -3  5 [3  6  7]      7</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [1], k = 1</span><br><span class="line">Output: [1]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>1 &lt;&#x3D; nums.length &lt;&#x3D; 10<sup>5</sup></li>
-<li>-10<sup>4</sup> &lt;&#x3D; nums[i] &lt;&#x3D; 10<sup>4</sup></li>
-<li><code>1 &lt;= k &lt;= nums.length</code></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Monotonic Queue</li>
-<li>Corner case: we cannot use less than or equal to when pop previous elements, because it can potentially pop out the newly added value</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">maxSlidingWindow</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        list&lt;<span class="type">int</span>&gt; window;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">while</span> (!window.<span class="built_in">empty</span>() &amp;&amp; window.<span class="built_in">back</span>() &lt; nums[i]) &#123;</span><br><span class="line">                window.<span class="built_in">pop_back</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            window.<span class="built_in">push_back</span>(nums[i]);</span><br><span class="line">            <span class="keyword">if</span> (i &gt;= k - <span class="number">1</span>) &#123;</span><br><span class="line">                res.<span class="built_in">push_back</span>(window.<span class="built_in">front</span>());</span><br><span class="line">                <span class="keyword">if</span> (window.<span class="built_in">front</span>() == nums[i - k + <span class="number">1</span>]) &#123;</span><br><span class="line">                    window.<span class="built_in">pop_front</span>();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Sliding Window</tag>
-        <tag>Heap (Priority Queue)</tag>
-        <tag>Queue</tag>
-        <tag>Monotonic Queue</tag>
       </tags>
   </entry>
   <entry>
@@ -3489,6 +3489,7 @@
 </ul>
 <h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>Union find</li>
+<li>A valid tree doesn’t have a cycle, and there’s only one component</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; parent;</span><br><span class="line">    <span class="type">int</span> count;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">validTree</span><span class="params">(<span class="type">int</span> n, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; edges)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            parent.<span class="built_in">push_back</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line">        count = n;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> edge : edges) &#123;</span><br><span class="line">            <span class="type">int</span> p = edge[<span class="number">0</span>];</span><br><span class="line">            <span class="type">int</span> q = edge[<span class="number">1</span>];</span><br><span class="line">            <span class="type">int</span> rootP = <span class="built_in">find</span>(p);</span><br><span class="line">            <span class="type">int</span> rootQ = <span class="built_in">find</span>(q);</span><br><span class="line">            <span class="keyword">if</span> (rootP == rootQ) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                parent[rootP] = rootQ;</span><br><span class="line">                count--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> count == <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (parent[node] != node) &#123;</span><br><span class="line">            parent[node] = <span class="built_in">find</span>(parent[node]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> parent[node];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -3929,6 +3930,43 @@
       </tags>
   </entry>
   <entry>
+    <title>300. Longest Increasing Subsequence</title>
+    <url>/2023/11/09/300-Longest-Increasing-Subsequence/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/longest-increasing-subsequence/">300. Longest Increasing Subsequence</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-search//">Binary Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/dynamic-programming//">Dynamic Programming</a></p>
+<p>Given an integer array <code>nums</code>, return <em>the length of the longest <strong>strictly increasing</strong></em> <span data-keyword="subsequence-array" class=" cursor-pointer relative text-dark-blue-s text-sm"></span><em><strong>subsequence</strong></em>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [10,9,2,5,3,7,101,18]</span><br><span class="line">Output: 4</span><br><span class="line">Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [0,1,0,3,2,3]</span><br><span class="line">Output: 4</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [7,7,7,7,7,7,7]</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 2500</code></li>
+<li>-10<sup>4</sup> &lt;&#x3D; nums[i] &lt;&#x3D; 10<sup>4</sup></li>
+</ul>
+<p><strong>Follow up:</strong> Can you come up with an algorithm that runs in <code>O(n log(n))</code> time complexity?</p>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>dp</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lengthOfLIS</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(nums.size(), <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="type">int</span> longest = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[j] &lt; nums[i]) &#123;</span><br><span class="line">                    res[i] = <span class="built_in">max</span>(res[i], res[j] + <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            longest = <span class="built_in">max</span>(longest, res[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> longest;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Binary Search</tag>
+        <tag>Dynamic Programming</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>303. Range Sum Query - Immutable</title>
     <url>/2023/01/19/303-Range-Sum-Query-Immutable/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/range-sum-query-immutable/">303. Range Sum Query - Immutable</a></p>
@@ -3966,43 +4004,6 @@
         <tag>Array</tag>
         <tag>Prefix Sum</tag>
         <tag>Design</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>300. Longest Increasing Subsequence</title>
-    <url>/2023/11/09/300-Longest-Increasing-Subsequence/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/longest-increasing-subsequence/">300. Longest Increasing Subsequence</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-search//">Binary Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/dynamic-programming//">Dynamic Programming</a></p>
-<p>Given an integer array <code>nums</code>, return <em>the length of the longest <strong>strictly increasing</strong></em> <span data-keyword="subsequence-array" class=" cursor-pointer relative text-dark-blue-s text-sm"></span><em><strong>subsequence</strong></em>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [10,9,2,5,3,7,101,18]</span><br><span class="line">Output: 4</span><br><span class="line">Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [0,1,0,3,2,3]</span><br><span class="line">Output: 4</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [7,7,7,7,7,7,7]</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= nums.length &lt;= 2500</code></li>
-<li>-10<sup>4</sup> &lt;&#x3D; nums[i] &lt;&#x3D; 10<sup>4</sup></li>
-</ul>
-<p><strong>Follow up:</strong> Can you come up with an algorithm that runs in <code>O(n log(n))</code> time complexity?</p>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>dp</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lengthOfLIS</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(nums.size(), <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="type">int</span> longest = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[j] &lt; nums[i]) &#123;</span><br><span class="line">                    res[i] = <span class="built_in">max</span>(res[i], res[j] + <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            longest = <span class="built_in">max</span>(longest, res[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> longest;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Binary Search</tag>
-        <tag>Dynamic Programming</tag>
       </tags>
   </entry>
   <entry>
@@ -4563,44 +4564,6 @@
       </tags>
   </entry>
   <entry>
-    <title>354. Russian Doll Envelopes</title>
-    <url>/2023/11/09/354-Russian-Doll-Envelopes/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/russian-doll-envelopes/">354. Russian Doll Envelopes</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Hard</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-search//">Binary Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/dynamic-programming//">Dynamic Programming</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sorting//">Sorting</a></p>
-<p>You are given a 2D array of integers <code>envelopes</code> where envelopes[i] &#x3D; [w<sub>i</sub>, h<sub>i</sub>] represents the width and the height of an envelope.</p>
-<p>One envelope can fit into another if and only if both the width and height of one envelope are greater than the other envelope’s width and height.</p>
-<p>Return <em>the maximum number of envelopes you can Russian doll (i.e., put one inside the other)</em>.</p>
-<p><strong>Note:</strong> You cannot rotate an envelope.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: envelopes = [[5,4],[6,4],[6,7],[2,3]]</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The maximum number of envelopes you can Russian doll is 3 ([2,3] =&gt; [5,4] =&gt; [6,7]).</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: envelopes = [[1,1],[1,1],[1,1]]</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>1 &lt;&#x3D; envelopes.length &lt;&#x3D; 10<sup>5</sup></li>
-<li><code>envelopes[i].length == 2</code></li>
-<li>1 &lt;&#x3D; w<sub>i</sub>, h<sub>i</sub> &lt;&#x3D; 10<sup>5</sup></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>dp</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxEnvelopes</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; envelopes)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> cmp = [](vector&lt;<span class="type">int</span>&gt; lhs, vector&lt;<span class="type">int</span>&gt; rhs) &#123;</span><br><span class="line">            <span class="keyword">if</span> (lhs[<span class="number">0</span>] != rhs[<span class="number">0</span>]) &#123;</span><br><span class="line">                <span class="keyword">return</span> lhs[<span class="number">0</span>] &lt; rhs[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> lhs[<span class="number">1</span>] &gt; rhs[<span class="number">1</span>];</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="built_in">sort</span>(envelopes.<span class="built_in">begin</span>(), envelopes.<span class="built_in">end</span>(), cmp);</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(envelopes.size(), <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; envelopes.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (envelopes[i][<span class="number">1</span>] &gt; envelopes[j][<span class="number">1</span>]) &#123;</span><br><span class="line">                    dp[i] = <span class="built_in">max</span>(dp[i], dp[j] + <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            res = <span class="built_in">max</span>(res, dp[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Binary Search</tag>
-        <tag>Sorting</tag>
-        <tag>Dynamic Programming</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>353. Design Snake Game</title>
     <url>/2023/12/27/353-Design-Snake-Game/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/design-snake-game/">353. Design Snake Game</a></p>
@@ -4650,6 +4613,80 @@
       </tags>
   </entry>
   <entry>
+    <title>354. Russian Doll Envelopes</title>
+    <url>/2023/11/09/354-Russian-Doll-Envelopes/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/russian-doll-envelopes/">354. Russian Doll Envelopes</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Hard</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-search//">Binary Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/dynamic-programming//">Dynamic Programming</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sorting//">Sorting</a></p>
+<p>You are given a 2D array of integers <code>envelopes</code> where envelopes[i] &#x3D; [w<sub>i</sub>, h<sub>i</sub>] represents the width and the height of an envelope.</p>
+<p>One envelope can fit into another if and only if both the width and height of one envelope are greater than the other envelope’s width and height.</p>
+<p>Return <em>the maximum number of envelopes you can Russian doll (i.e., put one inside the other)</em>.</p>
+<p><strong>Note:</strong> You cannot rotate an envelope.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: envelopes = [[5,4],[6,4],[6,7],[2,3]]</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The maximum number of envelopes you can Russian doll is 3 ([2,3] =&gt; [5,4] =&gt; [6,7]).</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: envelopes = [[1,1],[1,1],[1,1]]</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; envelopes.length &lt;&#x3D; 10<sup>5</sup></li>
+<li><code>envelopes[i].length == 2</code></li>
+<li>1 &lt;&#x3D; w<sub>i</sub>, h<sub>i</sub> &lt;&#x3D; 10<sup>5</sup></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>dp</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxEnvelopes</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; envelopes)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> cmp = [](vector&lt;<span class="type">int</span>&gt; lhs, vector&lt;<span class="type">int</span>&gt; rhs) &#123;</span><br><span class="line">            <span class="keyword">if</span> (lhs[<span class="number">0</span>] != rhs[<span class="number">0</span>]) &#123;</span><br><span class="line">                <span class="keyword">return</span> lhs[<span class="number">0</span>] &lt; rhs[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> lhs[<span class="number">1</span>] &gt; rhs[<span class="number">1</span>];</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="built_in">sort</span>(envelopes.<span class="built_in">begin</span>(), envelopes.<span class="built_in">end</span>(), cmp);</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(envelopes.size(), <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; envelopes.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (envelopes[i][<span class="number">1</span>] &gt; envelopes[j][<span class="number">1</span>]) &#123;</span><br><span class="line">                    dp[i] = <span class="built_in">max</span>(dp[i], dp[j] + <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            res = <span class="built_in">max</span>(res, dp[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Binary Search</tag>
+        <tag>Sorting</tag>
+        <tag>Dynamic Programming</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>360. Sort Transformed Array</title>
+    <url>/2023/11/11/360-Sort-Transformed-Array/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/sort-transformed-array/">360. Sort Transformed Array</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/math//">Math</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/two-pointers//">Two Pointers</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sorting//">Sorting</a></p>
+<p>Given a <strong>sorted</strong> integer array <code>nums</code> and three integers <code>a</code>, <code>b</code> and <code>c</code>, apply a quadratic function of the form f(x) &#x3D; ax<sup>2</sup> + bx + c to each element <code>nums[i]</code> in the array, and return <em>the array in a sorted order</em>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [-4,-2,2,4], a = 1, b = 3, c = 5</span><br><span class="line">Output: [3,9,15,33]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [-4,-2,2,4], a = -1, b = 3, c = 5</span><br><span class="line">Output: [-23,-5,1,7]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 200</code></li>
+<li><code>-100 &lt;= nums[i], a, b, c &lt;= 100</code></li>
+<li><code>nums</code> is sorted in <strong>ascending</strong> order.</li>
+</ul>
+<p><strong>Follow up:</strong> Could you solve it in <code>O(n)</code> time?</p>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Two pointers, start and end of the array</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortTransformedArray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>, j = nums.<span class="built_in">size</span>() - <span class="number">1</span>, idx = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (a &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            idx = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(nums.size(), <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt;= j) &#123;</span><br><span class="line">            <span class="type">int</span> v1 = <span class="built_in">f</span>(a, b, c, nums[i]);</span><br><span class="line">            <span class="type">int</span> v2 = <span class="built_in">f</span>(a, b, c, nums[j]);</span><br><span class="line">            <span class="keyword">if</span> (a &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (v1 &lt; v2) &#123;</span><br><span class="line">                    res[idx++] = v1;</span><br><span class="line">                    i++;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    res[idx++] = v2;</span><br><span class="line">                    j--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (v1 &lt; v2) &#123;</span><br><span class="line">                    res[idx--] = v2;</span><br><span class="line">                    j--;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    res[idx--] = v1;</span><br><span class="line">                    i++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c, <span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a * x * x + b * x + c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Math</tag>
+        <tag>Sorting</tag>
+        <tag>Two Pointers</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>355. Design Twitter</title>
     <url>/2023/11/08/355-Design-Twitter/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/design-twitter/">355. Design Twitter</a></p>
@@ -4689,42 +4726,6 @@
         <tag>Linked List</tag>
         <tag>Heap (Priority Queue)</tag>
         <tag>Design</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>360. Sort Transformed Array</title>
-    <url>/2023/11/11/360-Sort-Transformed-Array/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/sort-transformed-array/">360. Sort Transformed Array</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/math//">Math</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/two-pointers//">Two Pointers</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sorting//">Sorting</a></p>
-<p>Given a <strong>sorted</strong> integer array <code>nums</code> and three integers <code>a</code>, <code>b</code> and <code>c</code>, apply a quadratic function of the form f(x) &#x3D; ax<sup>2</sup> + bx + c to each element <code>nums[i]</code> in the array, and return <em>the array in a sorted order</em>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [-4,-2,2,4], a = 1, b = 3, c = 5</span><br><span class="line">Output: [3,9,15,33]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [-4,-2,2,4], a = -1, b = 3, c = 5</span><br><span class="line">Output: [-23,-5,1,7]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= nums.length &lt;= 200</code></li>
-<li><code>-100 &lt;= nums[i], a, b, c &lt;= 100</code></li>
-<li><code>nums</code> is sorted in <strong>ascending</strong> order.</li>
-</ul>
-<p><strong>Follow up:</strong> Could you solve it in <code>O(n)</code> time?</p>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Two pointers, start and end of the array</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortTransformedArray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>, j = nums.<span class="built_in">size</span>() - <span class="number">1</span>, idx = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (a &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            idx = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(nums.size(), <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt;= j) &#123;</span><br><span class="line">            <span class="type">int</span> v1 = <span class="built_in">f</span>(a, b, c, nums[i]);</span><br><span class="line">            <span class="type">int</span> v2 = <span class="built_in">f</span>(a, b, c, nums[j]);</span><br><span class="line">            <span class="keyword">if</span> (a &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (v1 &lt; v2) &#123;</span><br><span class="line">                    res[idx++] = v1;</span><br><span class="line">                    i++;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    res[idx++] = v2;</span><br><span class="line">                    j--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (v1 &lt; v2) &#123;</span><br><span class="line">                    res[idx--] = v2;</span><br><span class="line">                    j--;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    res[idx--] = v1;</span><br><span class="line">                    i++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c, <span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a * x * x + b * x + c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Math</tag>
-        <tag>Sorting</tag>
-        <tag>Two Pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -5205,40 +5206,6 @@
       </tags>
   </entry>
   <entry>
-    <title>438. Find All Anagrams in a String</title>
-    <url>/2023/01/18/438-Find-All-Anagrams-in-a-String/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/find-all-anagrams-in-a-string/">438. Find All Anagrams in a String</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/hash-table/">Hash Table</a>, <a href="https://leetcode.com/tag/string/">String</a>, <a href="https://leetcode.com/tag/sliding-window/">Sliding Window</a></p>
-<p>Given two strings <code>s</code> and <code>p</code>, return <em>an array of all the start indices of</em> <code>p</code><em>‘s anagrams in</em> <code>s</code>. You may return the answer in <strong>any order</strong>.</p>
-<p>An <strong>Anagram</strong> is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: s = &quot;cbaebabacd&quot;, p = &quot;abc&quot;</span><br><span class="line">Output: [0,6]</span><br><span class="line">Explanation:</span><br><span class="line">The substring with start index = 0 is &quot;cba&quot;, which is an anagram of &quot;abc&quot;.</span><br><span class="line">The substring with start index = 6 is &quot;bac&quot;, which is an anagram of &quot;abc&quot;.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: s = &quot;abab&quot;, p = &quot;ab&quot;</span><br><span class="line">Output: [0,1,2]</span><br><span class="line">Explanation:</span><br><span class="line">The substring with start index = 0 is &quot;ab&quot;, which is an anagram of &quot;ab&quot;.</span><br><span class="line">The substring with start index = 1 is &quot;ba&quot;, which is an anagram of &quot;ab&quot;.</span><br><span class="line">The substring with start index = 2 is &quot;ab&quot;, which is an anagram of &quot;ab&quot;.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>1 &lt;&#x3D; s.length, p.length &lt;&#x3D; 3 * 10<sup>4</sup></li>
-<li><code>s</code> and <code>p</code> consist of lowercase English letters.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Sliding window</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">findAnagrams</span><span class="params">(string s, string p)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; need, window;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : p) need[c]++;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, valid = <span class="number">0</span>, len = p.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; s.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="type">char</span> c = s[right++];</span><br><span class="line">            <span class="keyword">if</span> (need.<span class="built_in">count</span>(c)) &#123;</span><br><span class="line">                window[c]++;</span><br><span class="line">                <span class="keyword">if</span> (window[c] == need[c]) &#123;</span><br><span class="line">                    valid++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (right - left == len) &#123;</span><br><span class="line">                <span class="keyword">if</span> (valid == need.<span class="built_in">size</span>()) &#123;</span><br><span class="line">                    res.<span class="built_in">push_back</span>(left);</span><br><span class="line">                &#125;</span><br><span class="line">                c = s[left++];</span><br><span class="line">                <span class="keyword">if</span> (need.<span class="built_in">count</span>(c)) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (window[c] == need[c]) &#123;</span><br><span class="line">                        valid--;</span><br><span class="line">                    &#125;</span><br><span class="line">                    window[c]--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Hash Table</tag>
-        <tag>Sliding Window</tag>
-        <tag>String</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>424. Longest Repeating Character Replacement</title>
     <url>/2023/12/04/424-Longest-Repeating-Character-Replacement/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/longest-repeating-character-replacement/">424. Longest Repeating Character Replacement</a></p>
@@ -5264,6 +5231,40 @@
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">characterReplacement</span><span class="params">(string s, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">count</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, res = <span class="number">0</span>, windowMaxCount = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; s.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            count[s[right] - <span class="string">&#x27;A&#x27;</span>]++;</span><br><span class="line">            windowMaxCount = <span class="built_in">max</span>(windowMaxCount, count[s[right] - <span class="string">&#x27;A&#x27;</span>]);</span><br><span class="line">            <span class="keyword">while</span> (left &lt;= right &amp;&amp; right - left + <span class="number">1</span> - windowMaxCount &gt; k) &#123;</span><br><span class="line">                count[s[left++] - <span class="string">&#x27;A&#x27;</span>]--;</span><br><span class="line">            &#125;</span><br><span class="line">            right++;</span><br><span class="line">            res = <span class="built_in">max</span>(res, right - left);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Hash Table</tag>
+        <tag>Sliding Window</tag>
+        <tag>String</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>438. Find All Anagrams in a String</title>
+    <url>/2023/01/18/438-Find-All-Anagrams-in-a-String/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/find-all-anagrams-in-a-string/">438. Find All Anagrams in a String</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/hash-table/">Hash Table</a>, <a href="https://leetcode.com/tag/string/">String</a>, <a href="https://leetcode.com/tag/sliding-window/">Sliding Window</a></p>
+<p>Given two strings <code>s</code> and <code>p</code>, return <em>an array of all the start indices of</em> <code>p</code><em>‘s anagrams in</em> <code>s</code>. You may return the answer in <strong>any order</strong>.</p>
+<p>An <strong>Anagram</strong> is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: s = &quot;cbaebabacd&quot;, p = &quot;abc&quot;</span><br><span class="line">Output: [0,6]</span><br><span class="line">Explanation:</span><br><span class="line">The substring with start index = 0 is &quot;cba&quot;, which is an anagram of &quot;abc&quot;.</span><br><span class="line">The substring with start index = 6 is &quot;bac&quot;, which is an anagram of &quot;abc&quot;.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: s = &quot;abab&quot;, p = &quot;ab&quot;</span><br><span class="line">Output: [0,1,2]</span><br><span class="line">Explanation:</span><br><span class="line">The substring with start index = 0 is &quot;ab&quot;, which is an anagram of &quot;ab&quot;.</span><br><span class="line">The substring with start index = 1 is &quot;ba&quot;, which is an anagram of &quot;ab&quot;.</span><br><span class="line">The substring with start index = 2 is &quot;ab&quot;, which is an anagram of &quot;ab&quot;.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; s.length, p.length &lt;&#x3D; 3 * 10<sup>4</sup></li>
+<li><code>s</code> and <code>p</code> consist of lowercase English letters.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Sliding window</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">findAnagrams</span><span class="params">(string s, string p)</span> </span>&#123;</span><br><span class="line">        unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; need, window;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : p) need[c]++;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, valid = <span class="number">0</span>, len = p.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; s.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="type">char</span> c = s[right++];</span><br><span class="line">            <span class="keyword">if</span> (need.<span class="built_in">count</span>(c)) &#123;</span><br><span class="line">                window[c]++;</span><br><span class="line">                <span class="keyword">if</span> (window[c] == need[c]) &#123;</span><br><span class="line">                    valid++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (right - left == len) &#123;</span><br><span class="line">                <span class="keyword">if</span> (valid == need.<span class="built_in">size</span>()) &#123;</span><br><span class="line">                    res.<span class="built_in">push_back</span>(left);</span><br><span class="line">                &#125;</span><br><span class="line">                c = s[left++];</span><br><span class="line">                <span class="keyword">if</span> (need.<span class="built_in">count</span>(c)) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (window[c] == need[c]) &#123;</span><br><span class="line">                        valid--;</span><br><span class="line">                    &#125;</span><br><span class="line">                    window[c]--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Leetcode</category>
@@ -6355,6 +6356,44 @@
       </tags>
   </entry>
   <entry>
+    <title>700. Search in a Binary Search Tree</title>
+    <url>/2023/08/27/700-Search-in-a-Binary-Search-Tree/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/search-in-a-binary-search-tree/">700. Search in a Binary Search Tree</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/tree//">Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-search-tree//">Binary Search Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//">Binary Tree</a></p>
+<p>You are given the <code>root</code> of a binary search tree (BST) and an integer <code>val</code>.</p>
+<p>Find the node in the BST that the node’s value equals <code>val</code> and return the subtree rooted with that node. If such a node does not exist, return <code>null</code>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/01/12/tree1.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3], val = 2</span><br><span class="line">Output: [2,1,3]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/01/12/tree2.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3], val = 5</span><br><span class="line">Output: []</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is in the range <code>[1, 5000]</code>.</li>
+<li>1 &lt;&#x3D; Node.val &lt;&#x3D; 10<sup>7</sup></li>
+<li><code>root</code> is a binary search tree.</li>
+<li>1 &lt;&#x3D; val &lt;&#x3D; 10<sup>7</sup></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Use the property of BST</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">searchBST</span><span class="params">(TreeNode* root, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) <span class="keyword">return</span> root;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;val &lt; val) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">searchBST</span>(root-&gt;right, val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;val &gt; val) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">searchBST</span>(root-&gt;left, val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Tree</tag>
+        <tag>Binary Tree</tag>
+        <tag>Binary Search Tree</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>692. Top K Frequent Words</title>
     <url>/2023/11/06/692-Top-K-Frequent-Words/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/top-k-frequent-words/">692. Top K Frequent Words</a></p>
@@ -6393,44 +6432,6 @@
         <tag>Counting</tag>
         <tag>Trie</tag>
         <tag>Bucket Sort</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>700. Search in a Binary Search Tree</title>
-    <url>/2023/08/27/700-Search-in-a-Binary-Search-Tree/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/search-in-a-binary-search-tree/">700. Search in a Binary Search Tree</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/tree//">Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-search-tree//">Binary Search Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//">Binary Tree</a></p>
-<p>You are given the <code>root</code> of a binary search tree (BST) and an integer <code>val</code>.</p>
-<p>Find the node in the BST that the node’s value equals <code>val</code> and return the subtree rooted with that node. If such a node does not exist, return <code>null</code>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/01/12/tree1.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3], val = 2</span><br><span class="line">Output: [2,1,3]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/01/12/tree2.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [4,2,7,1,3], val = 5</span><br><span class="line">Output: []</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in the tree is in the range <code>[1, 5000]</code>.</li>
-<li>1 &lt;&#x3D; Node.val &lt;&#x3D; 10<sup>7</sup></li>
-<li><code>root</code> is a binary search tree.</li>
-<li>1 &lt;&#x3D; val &lt;&#x3D; 10<sup>7</sup></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Use the property of BST</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">searchBST</span><span class="params">(TreeNode* root, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) <span class="keyword">return</span> root;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;val &lt; val) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">searchBST</span>(root-&gt;right, val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;val &gt; val) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">searchBST</span>(root-&gt;left, val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Tree</tag>
-        <tag>Binary Tree</tag>
-        <tag>Binary Search Tree</tag>
       </tags>
   </entry>
   <entry>
@@ -7322,6 +7323,46 @@
       </tags>
   </entry>
   <entry>
+    <title>886. Possible Bipartition</title>
+    <url>/2023/09/02/886-Possible-Bipartition/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/possible-bipartition/">886. Possible Bipartition</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/breadth-first-search//">Breadth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/union-find//">Union Find</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/graph//">Graph</a></p>
+<p>We want to split a group of <code>n</code> people (labeled from <code>1</code> to <code>n</code>) into two groups of <strong>any size</strong>. Each person may dislike some other people, and they should not go into the same group.</p>
+<p>Given the integer <code>n</code> and the array <code>dislikes</code> where dislikes[i] &#x3D; [a<sub>i</sub>, b<sub>i</sub>] indicates that the person labeled a<sub>i</sub> does not like the person labeled b<sub>i</sub>, return <code>true</code> <em>if it is possible to split everyone into two groups in this way</em>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 4, dislikes = [[1,2],[1,3],[2,4]]</span><br><span class="line">Output: <span class="literal">true</span></span><br><span class="line">Explanation: The first group has [1,4], and the second group has [2,3].</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 3, dislikes = [[1,2],[1,3],[2,3]]</span><br><span class="line">Output: <span class="literal">false</span></span><br><span class="line">Explanation: We need at least 3 <span class="built_in">groups</span> to divide them. We cannot put them <span class="keyword">in</span> two <span class="built_in">groups</span>.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= n &lt;= 2000</code></li>
+<li>0 &lt;&#x3D; dislikes.length &lt;&#x3D; 10<sup>4</sup></li>
+<li><code>dislikes[i].length == 2</code></li>
+<li>1 &lt;&#x3D; a<sub>i</sub> &lt; b<sub>i</sub> &lt;&#x3D; n</li>
+<li>All the pairs of <code>dislikes</code> are <strong>unique</strong>.</li>
+</ul>
+<h2 id="Hints-Nodes"><a href="#Hints-Nodes" class="headerlink" title="Hints&#x2F;Nodes"></a>Hints&#x2F;Nodes</h2><ul>
+<li>Build the map, then it’s find bipartition of the graph</li>
+<li>Use two vectors: visited and color</li>
+<li>Use a global boolean ok for fast return</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; graph;</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; visited;</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; color;</span><br><span class="line">    <span class="type">int</span> ok = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">possibleBipartition</span><span class="params">(<span class="type">int</span> n, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; dislikes)</span> </span>&#123;</span><br><span class="line">        graph = vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;(n + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;());</span><br><span class="line">        visited = <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(n + <span class="number">1</span>, <span class="literal">false</span>);</span><br><span class="line">        color = <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(n + <span class="number">1</span>, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">buildGraph</span>(dislikes);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="built_in">traverse</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ok;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">buildGraph</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; dislikes)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> pair : dislikes) &#123;</span><br><span class="line">            <span class="type">int</span> n1 = pair[<span class="number">0</span>];</span><br><span class="line">            <span class="type">int</span> n2 = pair[<span class="number">1</span>];</span><br><span class="line">            graph[n1].<span class="built_in">push_back</span>(n2);</span><br><span class="line">            graph[n2].<span class="built_in">push_back</span>(n1);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(<span class="type">int</span> node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!ok) <span class="keyword">return</span>;</span><br><span class="line">        visited[node] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> to : graph[node]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (visited[to]) &#123;</span><br><span class="line">                <span class="keyword">if</span> (color[to] == color[node]) &#123;</span><br><span class="line">                    ok = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                color[to] = !color[node];</span><br><span class="line">                <span class="built_in">traverse</span>(to);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Depth-First Search</tag>
+        <tag>Breadth-First Search</tag>
+        <tag>Union Find</tag>
+        <tag>Graph</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>889. Construct Binary Tree from Preorder and Postorder Traversal</title>
     <url>/2023/08/22/889-Construct-Binary-Tree-from-Preorder-and-Postorder-Traversal/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/">889. Construct Binary Tree from Preorder and Postorder Traversal</a></p>
@@ -7362,46 +7403,6 @@
         <tag>Tree</tag>
         <tag>Binary Tree</tag>
         <tag>Divide and Conquer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>886. Possible Bipartition</title>
-    <url>/2023/09/02/886-Possible-Bipartition/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/possible-bipartition/">886. Possible Bipartition</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/breadth-first-search//">Breadth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/union-find//">Union Find</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/graph//">Graph</a></p>
-<p>We want to split a group of <code>n</code> people (labeled from <code>1</code> to <code>n</code>) into two groups of <strong>any size</strong>. Each person may dislike some other people, and they should not go into the same group.</p>
-<p>Given the integer <code>n</code> and the array <code>dislikes</code> where dislikes[i] &#x3D; [a<sub>i</sub>, b<sub>i</sub>] indicates that the person labeled a<sub>i</sub> does not like the person labeled b<sub>i</sub>, return <code>true</code> <em>if it is possible to split everyone into two groups in this way</em>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 4, dislikes = [[1,2],[1,3],[2,4]]</span><br><span class="line">Output: <span class="literal">true</span></span><br><span class="line">Explanation: The first group has [1,4], and the second group has [2,3].</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 3, dislikes = [[1,2],[1,3],[2,3]]</span><br><span class="line">Output: <span class="literal">false</span></span><br><span class="line">Explanation: We need at least 3 <span class="built_in">groups</span> to divide them. We cannot put them <span class="keyword">in</span> two <span class="built_in">groups</span>.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= n &lt;= 2000</code></li>
-<li>0 &lt;&#x3D; dislikes.length &lt;&#x3D; 10<sup>4</sup></li>
-<li><code>dislikes[i].length == 2</code></li>
-<li>1 &lt;&#x3D; a<sub>i</sub> &lt; b<sub>i</sub> &lt;&#x3D; n</li>
-<li>All the pairs of <code>dislikes</code> are <strong>unique</strong>.</li>
-</ul>
-<h2 id="Hints-Nodes"><a href="#Hints-Nodes" class="headerlink" title="Hints&#x2F;Nodes"></a>Hints&#x2F;Nodes</h2><ul>
-<li>Build the map, then it’s find bipartition of the graph</li>
-<li>Use two vectors: visited and color</li>
-<li>Use a global boolean ok for fast return</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; graph;</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; visited;</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; color;</span><br><span class="line">    <span class="type">int</span> ok = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">possibleBipartition</span><span class="params">(<span class="type">int</span> n, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; dislikes)</span> </span>&#123;</span><br><span class="line">        graph = vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;(n + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;());</span><br><span class="line">        visited = <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(n + <span class="number">1</span>, <span class="literal">false</span>);</span><br><span class="line">        color = <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(n + <span class="number">1</span>, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">buildGraph</span>(dislikes);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="built_in">traverse</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ok;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">buildGraph</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; dislikes)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> pair : dislikes) &#123;</span><br><span class="line">            <span class="type">int</span> n1 = pair[<span class="number">0</span>];</span><br><span class="line">            <span class="type">int</span> n2 = pair[<span class="number">1</span>];</span><br><span class="line">            graph[n1].<span class="built_in">push_back</span>(n2);</span><br><span class="line">            graph[n2].<span class="built_in">push_back</span>(n1);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(<span class="type">int</span> node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!ok) <span class="keyword">return</span>;</span><br><span class="line">        visited[node] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> to : graph[node]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (visited[to]) &#123;</span><br><span class="line">                <span class="keyword">if</span> (color[to] == color[node]) &#123;</span><br><span class="line">                    ok = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                color[to] = !color[node];</span><br><span class="line">                <span class="built_in">traverse</span>(to);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Depth-First Search</tag>
-        <tag>Breadth-First Search</tag>
-        <tag>Union Find</tag>
-        <tag>Graph</tag>
       </tags>
   </entry>
   <entry>
@@ -8279,6 +8280,26 @@
       </tags>
   </entry>
   <entry>
+    <title>How to manage time</title>
+    <url>/2022/12/23/How-to-manage-time/</url>
+    <content><![CDATA[<h3 id="How-I-Have-Time-For-Everything"><a href="#How-I-Have-Time-For-Everything" class="headerlink" title="How I Have Time For Everything"></a>How I Have Time For Everything</h3><ol>
+<li><p>Focus Completely For 2-4 Hours Every Day</p>
+</li>
+<li><p>Do One Thing At A Time</p>
+</li>
+<li><p>Permanently Declutter Your Schedule</p>
+</li>
+</ol>
+<p><a href="https://www.youtube.com/watch?v=c3pzcV9yi24">LINK</a></p>
+]]></content>
+      <categories>
+        <category>Excerpt</category>
+      </categories>
+      <tags>
+        <tag>Career</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>How to leetcode</title>
     <url>/2022/12/20/How-to-leetcode/</url>
     <content><![CDATA[<h3 id="The-motivation"><a href="#The-motivation" class="headerlink" title="The motivation"></a>The motivation</h3><p>A good software developer doesn’t necessarily need to be a good IOer, but in general a good IOer is more likely to be a good software developer. This logic makes coding more and more important in tech interview.</p>
@@ -8323,26 +8344,6 @@
       <categories>
         <category>Thoughts</category>
       </categories>
-  </entry>
-  <entry>
-    <title>How to manage time</title>
-    <url>/2022/12/23/How-to-manage-time/</url>
-    <content><![CDATA[<h3 id="How-I-Have-Time-For-Everything"><a href="#How-I-Have-Time-For-Everything" class="headerlink" title="How I Have Time For Everything"></a>How I Have Time For Everything</h3><ol>
-<li><p>Focus Completely For 2-4 Hours Every Day</p>
-</li>
-<li><p>Do One Thing At A Time</p>
-</li>
-<li><p>Permanently Declutter Your Schedule</p>
-</li>
-</ol>
-<p><a href="https://www.youtube.com/watch?v=c3pzcV9yi24">LINK</a></p>
-]]></content>
-      <categories>
-        <category>Excerpt</category>
-      </categories>
-      <tags>
-        <tag>Career</tag>
-      </tags>
   </entry>
   <entry>
     <title>How to overcome procrastination</title>
@@ -9927,63 +9928,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Learnship 02 - 2023/08/01</title>
-    <url>/2023/08/01/Learnship-02-2023-08-01/</url>
-    <content><![CDATA[<h2 id="Small-talk-notes"><a href="#Small-talk-notes" class="headerlink" title="Small talk notes"></a>Small talk notes</h2><p>Only after all these steps <strong>are we</strong> convinced.<br>Only with these metrics <strong>can you</strong> measure.</p>
-<h2 id="Business-Language-Coaching-Session-2-Your-Presentation"><a href="#Business-Language-Coaching-Session-2-Your-Presentation" class="headerlink" title="Business Language Coaching - Session 2 - Your Presentation"></a>Business Language Coaching - Session 2 - Your Presentation</h2><ul>
-<li>Listen to and workshop your presentation</li>
-<li>Explore how pausing can help you communicate more successfully</li>
-</ul>
-<h3 id="Starting-point"><a href="#Starting-point" class="headerlink" title="Starting point"></a>Starting point</h3><p>Set the scene for your presentation. Tell me about:</p>
-<h4 id="The-context-topic"><a href="#The-context-topic" class="headerlink" title="The context &amp; topic"></a>The context &amp; topic</h4><ul>
-<li>Sprint review</li>
-<li>Showcase progression on specific work</li>
-</ul>
-<h4 id="The-audience-and-Your-aims"><a href="#The-audience-and-Your-aims" class="headerlink" title="The audience and Your aims"></a>The audience and Your aims</h4><ul>
-<li>Give general information in a non-technical way</li>
-</ul>
-<h4 id="Concerns"><a href="#Concerns" class="headerlink" title="Concerns"></a>Concerns</h4><ul>
-<li>Did I give enough background information? Did I make it clear enough?</li>
-<li>Did I give the full story?</li>
-</ul>
-<h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h3><h4 id="Good"><a href="#Good" class="headerlink" title="Good"></a>Good</h4><ul>
-<li>signposting phrases</li>
-<li>rhetorical questions: “So maybe you would ask…?”</li>
-<li>grammatically flawless</li>
-<li>pronunciation good</li>
-</ul>
-<h4 id="To-improve"><a href="#To-improve" class="headerlink" title="To improve"></a>To improve</h4><ul>
-<li>pausing</li>
-<li>pronunciation &amp; intonation</li>
-<li>keywords: cost reduction, extent, AZ, delegate &amp; destination, benefit</li>
-<li>explaining terminology</li>
-<li>repeating key words</li>
-<li>use analogies or examples</li>
-</ul>
-<h3 id="Voice-Power-Pausing"><a href="#Voice-Power-Pausing" class="headerlink" title="Voice Power: Pausing"></a>Voice Power: Pausing</h3><h4 id="Quotes"><a href="#Quotes" class="headerlink" title="Quotes"></a>Quotes</h4><blockquote>
-<p>Without good delivery, the best speaker cannot be of any account at all. - Cicero, Roman orator</p>
-</blockquote>
-<blockquote>
-<p>No word was ever as effective as a rightly timed pause. - Mark Twain, American author</p>
-</blockquote>
-<blockquote>
-<p>I learned that the spaces between words were as important as the words themselves. Gerry Spence, undefeated lawyer</p>
-</blockquote>
-<h3 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h3><ul>
-<li><p>Only after these steps we are convinced; Only with these metrics you can measure</p>
-</li>
-<li><p>it’s worse</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Learning</category>
-      </categories>
-      <tags>
-        <tag>Learnship</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Learnship 01 - 2023/07/25</title>
     <url>/2023/07/25/Learnship-01-2023-07-25/</url>
     <content><![CDATA[<h2 id="Business-Language-Coaching-Target-Interview"><a href="#Business-Language-Coaching-Target-Interview" class="headerlink" title="Business Language Coaching Target Interview"></a>Business Language Coaching Target Interview</h2><h3 id="What-is-Business-Language-Coaching"><a href="#What-is-Business-Language-Coaching" class="headerlink" title="What is Business Language Coaching?"></a>What is Business Language Coaching?</h3><p>Learnship’s Business Language Coaching is designed for business professionals and executives from around the globe who regularly conduct business with English speakers. It is delivered by experienced native-level language coaches and targets developing professional communicative competence across a range of business areas or situations directly related to your career goals.</p>
@@ -10044,6 +9988,63 @@
 <h2 id="Vocabulary"><a href="#Vocabulary" class="headerlink" title="Vocabulary"></a>Vocabulary</h2><ul>
 <li>We are used to watching…&#x2F;we typically watch…</li>
 <li>breathe</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
+      <tags>
+        <tag>Learnship</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Learnship 02 - 2023/08/01</title>
+    <url>/2023/08/01/Learnship-02-2023-08-01/</url>
+    <content><![CDATA[<h2 id="Small-talk-notes"><a href="#Small-talk-notes" class="headerlink" title="Small talk notes"></a>Small talk notes</h2><p>Only after all these steps <strong>are we</strong> convinced.<br>Only with these metrics <strong>can you</strong> measure.</p>
+<h2 id="Business-Language-Coaching-Session-2-Your-Presentation"><a href="#Business-Language-Coaching-Session-2-Your-Presentation" class="headerlink" title="Business Language Coaching - Session 2 - Your Presentation"></a>Business Language Coaching - Session 2 - Your Presentation</h2><ul>
+<li>Listen to and workshop your presentation</li>
+<li>Explore how pausing can help you communicate more successfully</li>
+</ul>
+<h3 id="Starting-point"><a href="#Starting-point" class="headerlink" title="Starting point"></a>Starting point</h3><p>Set the scene for your presentation. Tell me about:</p>
+<h4 id="The-context-topic"><a href="#The-context-topic" class="headerlink" title="The context &amp; topic"></a>The context &amp; topic</h4><ul>
+<li>Sprint review</li>
+<li>Showcase progression on specific work</li>
+</ul>
+<h4 id="The-audience-and-Your-aims"><a href="#The-audience-and-Your-aims" class="headerlink" title="The audience and Your aims"></a>The audience and Your aims</h4><ul>
+<li>Give general information in a non-technical way</li>
+</ul>
+<h4 id="Concerns"><a href="#Concerns" class="headerlink" title="Concerns"></a>Concerns</h4><ul>
+<li>Did I give enough background information? Did I make it clear enough?</li>
+<li>Did I give the full story?</li>
+</ul>
+<h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h3><h4 id="Good"><a href="#Good" class="headerlink" title="Good"></a>Good</h4><ul>
+<li>signposting phrases</li>
+<li>rhetorical questions: “So maybe you would ask…?”</li>
+<li>grammatically flawless</li>
+<li>pronunciation good</li>
+</ul>
+<h4 id="To-improve"><a href="#To-improve" class="headerlink" title="To improve"></a>To improve</h4><ul>
+<li>pausing</li>
+<li>pronunciation &amp; intonation</li>
+<li>keywords: cost reduction, extent, AZ, delegate &amp; destination, benefit</li>
+<li>explaining terminology</li>
+<li>repeating key words</li>
+<li>use analogies or examples</li>
+</ul>
+<h3 id="Voice-Power-Pausing"><a href="#Voice-Power-Pausing" class="headerlink" title="Voice Power: Pausing"></a>Voice Power: Pausing</h3><h4 id="Quotes"><a href="#Quotes" class="headerlink" title="Quotes"></a>Quotes</h4><blockquote>
+<p>Without good delivery, the best speaker cannot be of any account at all. - Cicero, Roman orator</p>
+</blockquote>
+<blockquote>
+<p>No word was ever as effective as a rightly timed pause. - Mark Twain, American author</p>
+</blockquote>
+<blockquote>
+<p>I learned that the spaces between words were as important as the words themselves. Gerry Spence, undefeated lawyer</p>
+</blockquote>
+<h3 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h3><ul>
+<li><p>Only after these steps we are convinced; Only with these metrics you can measure</p>
+</li>
+<li><p>it’s worse</p>
+</li>
 </ul>
 ]]></content>
       <categories>
@@ -10206,71 +10207,6 @@ Your browser does not support the audio element.
       <categories>
         <category>Learning</category>
       </categories>
-      <tags>
-        <tag>Learnship</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Learnship 04 - 2023/08/17</title>
-    <url>/2023/08/17/Learnship-04-2023-08-17/</url>
-    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-4-Voice-Power-2"><a href="#Business-Language-Coaching-Session-4-Voice-Power-2" class="headerlink" title="Business Language Coaching - Session 4 - Voice Power(2)"></a>Business Language Coaching - Session 4 - Voice Power(2)</h2><ul>
-<li>review your homework assignments</li>
-<li>explore how pausing can help you communicate moe successfully</li>
-</ul>
-<h3 id="Voice-Power-Word-Stress"><a href="#Voice-Power-Word-Stress" class="headerlink" title="Voice Power: Word Stress"></a>Voice Power: Word Stress</h3><p><strong>Look back at the excerpt from last week, in particular at the highlighted words. What do you think are the effects and benefits of adding emphasis or stress to certain words in a sentence?</strong></p>
-<audio controls>
-  <source src="/audio/session3_2.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-
-<p>You *<strong>know</strong>, | there are a lot of <strong>myths</strong> about speaking in public. | Myth number <strong>one</strong> | is that what you actually <strong>say</strong> | is only <strong>seven</strong> percent of the message. | <strong>Thirty-eight</strong> percent is how you <strong>sound</strong> | and <strong>fifty-five</strong> percent is how you <strong>look</strong>. | But think about it. | I mean, | if that was <strong>true</strong>, | you could go to a talk in <strong>Swahili</strong> | and still understand <strong>ninety-three</strong> percent! | Myth number <strong>two</strong> is that public speaking is most people’s <strong>greatest</strong> fear | - just above <strong>death</strong>. | The comedian Jerry Seinfeld has a great <strong>joke</strong> about that. | He <strong>says</strong>, | “Come <strong>on</strong>, | if it <strong>really</strong> was their greatest fear, | at a <strong>funeral</strong> | the person giving the <strong>eulogy</strong> | would rather be in the <strong>box</strong>!”</p>
-<p>The benefits:</p>
-<ul>
-<li>people would pay attention</li>
-<li>easier to recall and recollect</li>
-<li>be more convincing</li>
-<li>expressing feeling&#x2F;emotions</li>
-</ul>
-<h3 id="Voice-Power-Word-Stress-1"><a href="#Voice-Power-Word-Stress-1" class="headerlink" title="Voice Power - Word Stress"></a>Voice Power - Word Stress</h3><p>**In English, word stress is an important part of how we communicate, and changing what we stress can radically change what we mean. In each extract below underline the main stress in the two sentences.</p>
-<audio controls>
-  <source src="/audio/session4_1.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-
-<p>a We haven’t seen a <strong>massive</strong> improvement yet. But it’s a <strong>good</strong> start.</p>
-<p>b We <strong>haven’t</strong> seen a massive improvement <strong>yet</strong>. But my guess is we soon <strong>will</strong>.</p>
-<hr>
-<p>c The <strong>market</strong> may be declining. But fortunately our <strong>market share</strong> isn’t.</p>
-<p>d The market may be <strong>declining</strong>. Or this could just be a <strong>temporary blip</strong>.</p>
-<hr>
-<p>e We do pretty well in the <strong>States</strong>. But we don’t do so well in <strong>Europe</strong>.</p>
-<p>f We do <strong>pretty well</strong> in the States. But not <strong>as well as</strong> we could be doing.</p>
-<hr>
-<p>g Turnover is <strong>up</strong> on Q3. But profits are <strong>down</strong>.</p>
-<p>h Turnover is up on <strong>Q3</strong>. But that was a particularly <strong>bad</strong> quarter.</p>
-<hr>
-<p>i It’s <strong>hard</strong> to gain a foothold in India. But not <strong>impossible</strong>.</p>
-<p>j It’s hard to gain a foothold <strong>in India</strong>. But harder <strong>still</strong> to gain one in <strong>China</strong>.</p>
-<hr>
-<p>k There are <strong>a couple of</strong> points I’d like to make. And <strong>both</strong> concern cash flow.</p>
-<p>l There are a couple of points <strong>I’d like</strong> to make. And <strong>then</strong> I’ll hand you over to Jan.</p>
-<p><strong>Work in opposing teams. You are going to re-enact two dramatic presentations from the classic business movie Other People’s Money.</strong></p>
-<p>The scene:</p>
-<blockquote>
-<p>Andrew Jorgenson is the patriarchal chairman of New England Wire and Cable. Once highly successful, his company has not kept up with new technology and both revenues and share price are down. Lawrence Garfield, known to his enemies as ‘Larry the Liquidator’, a corporate financier and one of the major stockholders, is trying to persuade the other stockholders at the annual general meeting to vote him in as the new chairman, so he can carry out his plan to sell off the company’s considerable assets before its share price falls any further. Of course, this will mean the closure of the firm and the loss of thousands of jobs.</p>
-</blockquote>
-<p><strong>Work together annotating this famous movie scene using the points below. Then rehearse and read it aloud.</strong></p>
-<p>TODO: listen to the audio and mark</p>
-<p>I want to <strong>share</strong> with you some of my thoughts <strong>concerning</strong> the vote that you’re going to make in the company that <strong>you</strong> own. This proud <strong>company</strong>, which has survived the <strong>death</strong> of its founder, numerous <strong>recessions</strong>, one major <strong>depression</strong>, and two world <strong>wars</strong>, is in <strong>imminent</strong> danger of self-destructing - on <strong>this</strong> day, in the town of its birth. There is the <strong>instrument</strong> of our destruction. I want <strong>you</strong> to look at <strong>him</strong> in all of his glory, Larry the Liquidator, the <strong>entrepreneur</strong> of post-industrial America, playing <strong>God</strong> with other people’s money. This man leaves <strong>nothing</strong>. He creates <strong>nothing</strong>, he builds <strong>nothing</strong>, he runs <strong>nothing</strong>.</p>
-<audio controls>
-  <source src="/audio/session4_2.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-
-<h3 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h3><ul>
-<li>several months back</li>
-</ul>
-]]></content>
       <tags>
         <tag>Learnship</tag>
       </tags>
@@ -10663,6 +10599,71 @@ Your browser does not support the audio element.
 <li>If I had trained to become a lawyer, I would be happier now. (mixed conditional - consequence in present)</li>
 <li>If they offered you the job would you take it?</li>
 <li>obsolescence</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Learnship</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Learnship 04 - 2023/08/17</title>
+    <url>/2023/08/17/Learnship-04-2023-08-17/</url>
+    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-4-Voice-Power-2"><a href="#Business-Language-Coaching-Session-4-Voice-Power-2" class="headerlink" title="Business Language Coaching - Session 4 - Voice Power(2)"></a>Business Language Coaching - Session 4 - Voice Power(2)</h2><ul>
+<li>review your homework assignments</li>
+<li>explore how pausing can help you communicate moe successfully</li>
+</ul>
+<h3 id="Voice-Power-Word-Stress"><a href="#Voice-Power-Word-Stress" class="headerlink" title="Voice Power: Word Stress"></a>Voice Power: Word Stress</h3><p><strong>Look back at the excerpt from last week, in particular at the highlighted words. What do you think are the effects and benefits of adding emphasis or stress to certain words in a sentence?</strong></p>
+<audio controls>
+  <source src="/audio/session3_2.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<p>You *<strong>know</strong>, | there are a lot of <strong>myths</strong> about speaking in public. | Myth number <strong>one</strong> | is that what you actually <strong>say</strong> | is only <strong>seven</strong> percent of the message. | <strong>Thirty-eight</strong> percent is how you <strong>sound</strong> | and <strong>fifty-five</strong> percent is how you <strong>look</strong>. | But think about it. | I mean, | if that was <strong>true</strong>, | you could go to a talk in <strong>Swahili</strong> | and still understand <strong>ninety-three</strong> percent! | Myth number <strong>two</strong> is that public speaking is most people’s <strong>greatest</strong> fear | - just above <strong>death</strong>. | The comedian Jerry Seinfeld has a great <strong>joke</strong> about that. | He <strong>says</strong>, | “Come <strong>on</strong>, | if it <strong>really</strong> was their greatest fear, | at a <strong>funeral</strong> | the person giving the <strong>eulogy</strong> | would rather be in the <strong>box</strong>!”</p>
+<p>The benefits:</p>
+<ul>
+<li>people would pay attention</li>
+<li>easier to recall and recollect</li>
+<li>be more convincing</li>
+<li>expressing feeling&#x2F;emotions</li>
+</ul>
+<h3 id="Voice-Power-Word-Stress-1"><a href="#Voice-Power-Word-Stress-1" class="headerlink" title="Voice Power - Word Stress"></a>Voice Power - Word Stress</h3><p>**In English, word stress is an important part of how we communicate, and changing what we stress can radically change what we mean. In each extract below underline the main stress in the two sentences.</p>
+<audio controls>
+  <source src="/audio/session4_1.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<p>a We haven’t seen a <strong>massive</strong> improvement yet. But it’s a <strong>good</strong> start.</p>
+<p>b We <strong>haven’t</strong> seen a massive improvement <strong>yet</strong>. But my guess is we soon <strong>will</strong>.</p>
+<hr>
+<p>c The <strong>market</strong> may be declining. But fortunately our <strong>market share</strong> isn’t.</p>
+<p>d The market may be <strong>declining</strong>. Or this could just be a <strong>temporary blip</strong>.</p>
+<hr>
+<p>e We do pretty well in the <strong>States</strong>. But we don’t do so well in <strong>Europe</strong>.</p>
+<p>f We do <strong>pretty well</strong> in the States. But not <strong>as well as</strong> we could be doing.</p>
+<hr>
+<p>g Turnover is <strong>up</strong> on Q3. But profits are <strong>down</strong>.</p>
+<p>h Turnover is up on <strong>Q3</strong>. But that was a particularly <strong>bad</strong> quarter.</p>
+<hr>
+<p>i It’s <strong>hard</strong> to gain a foothold in India. But not <strong>impossible</strong>.</p>
+<p>j It’s hard to gain a foothold <strong>in India</strong>. But harder <strong>still</strong> to gain one in <strong>China</strong>.</p>
+<hr>
+<p>k There are <strong>a couple of</strong> points I’d like to make. And <strong>both</strong> concern cash flow.</p>
+<p>l There are a couple of points <strong>I’d like</strong> to make. And <strong>then</strong> I’ll hand you over to Jan.</p>
+<p><strong>Work in opposing teams. You are going to re-enact two dramatic presentations from the classic business movie Other People’s Money.</strong></p>
+<p>The scene:</p>
+<blockquote>
+<p>Andrew Jorgenson is the patriarchal chairman of New England Wire and Cable. Once highly successful, his company has not kept up with new technology and both revenues and share price are down. Lawrence Garfield, known to his enemies as ‘Larry the Liquidator’, a corporate financier and one of the major stockholders, is trying to persuade the other stockholders at the annual general meeting to vote him in as the new chairman, so he can carry out his plan to sell off the company’s considerable assets before its share price falls any further. Of course, this will mean the closure of the firm and the loss of thousands of jobs.</p>
+</blockquote>
+<p><strong>Work together annotating this famous movie scene using the points below. Then rehearse and read it aloud.</strong></p>
+<p>TODO: listen to the audio and mark</p>
+<p>I want to <strong>share</strong> with you some of my thoughts <strong>concerning</strong> the vote that you’re going to make in the company that <strong>you</strong> own. This proud <strong>company</strong>, which has survived the <strong>death</strong> of its founder, numerous <strong>recessions</strong>, one major <strong>depression</strong>, and two world <strong>wars</strong>, is in <strong>imminent</strong> danger of self-destructing - on <strong>this</strong> day, in the town of its birth. There is the <strong>instrument</strong> of our destruction. I want <strong>you</strong> to look at <strong>him</strong> in all of his glory, Larry the Liquidator, the <strong>entrepreneur</strong> of post-industrial America, playing <strong>God</strong> with other people’s money. This man leaves <strong>nothing</strong>. He creates <strong>nothing</strong>, he builds <strong>nothing</strong>, he runs <strong>nothing</strong>.</p>
+<audio controls>
+  <source src="/audio/session4_2.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<h3 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h3><ul>
+<li>several months back</li>
 </ul>
 ]]></content>
       <tags>

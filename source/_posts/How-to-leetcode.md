@@ -71,6 +71,8 @@ New page.
 
 Screenshot the next day's list
 
+New question date: 2024-01-02
+
 ## The problems not noted
 
 ```bash

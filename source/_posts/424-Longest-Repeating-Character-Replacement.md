@@ -62,7 +62,7 @@ public:
         while (right < s.size()) {
             count[s[right] - 'A']++;
             windowMaxCount = max(windowMaxCount, count[s[right] - 'A']);
-            if (left <= right && right - left + 1 - windowMaxCount > k) {
+            if (right - left + 1 - windowMaxCount > k) {
                 count[s[left++] - 'A']--;
             }
             right++;

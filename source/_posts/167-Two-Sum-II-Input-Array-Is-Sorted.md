@@ -58,7 +58,7 @@ Explanation: The sum of -1 and 0 is -1\. Therefore index1 = 1, index2 = 2\. We r
 
 ## Hints/Notes
 
-* It's very like binary search
+* Two pointers, from start and end
 
 ## Solution
 

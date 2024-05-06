@@ -70,6 +70,7 @@ snakeGame.move("U"); // return -1, game over because snake collides with border
 ## Hints/Notes
 
 * use a queue + set to record where the head/tail is and if one node is in the snake
+* remove the previous tail first before checking if the snake is hitting itself
 
 ## Solution
 

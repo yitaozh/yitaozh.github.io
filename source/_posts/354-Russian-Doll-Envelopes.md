@@ -49,6 +49,7 @@ Output: 1
 ## Hints/Notes
 
 * dp
+* sort the w in order but h reversely
 
 ## Solution
 

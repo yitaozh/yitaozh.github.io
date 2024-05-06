@@ -57,6 +57,7 @@ stockSpanner.next(85);  // return 6
 ## Hints/Notes
 
 * monotonic stack
+* use a pair with count to record number of eliminated entries
 
 ## Solution
 

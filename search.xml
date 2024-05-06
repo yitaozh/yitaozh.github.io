@@ -3348,42 +3348,6 @@
       </tags>
   </entry>
   <entry>
-    <title>257. Binary Tree Paths</title>
-    <url>/2024/04/03/257-Binary-Tree-Paths/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/binary-tree-paths/description/">257. Binary Tree Paths</a></p>
-<p>Given the <code>root</code> of a binary tree, return all root-to-leaf paths in <strong>any order</strong> .</p>
-<p>A <strong>leaf</strong>  is a node with no children.</p>
-<p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/12/paths-tree.jpg" style="width: 207px; height: 293px;">
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [1,2,3,null,5]</span><br><span class="line">Output: [<span class="string">&quot;1-&gt;2-&gt;5&quot;</span>,<span class="string">&quot;1-&gt;3&quot;</span>]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [1]</span><br><span class="line">Output: [<span class="string">&quot;1&quot;</span>]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in the tree is in the range <code>[1, 100]</code>.</li>
-<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>traverse the tree</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;string&gt; res;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">binaryTreePaths</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">traverse</span>(root, <span class="string">&quot;&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(TreeNode* root, string path)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!root) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        path += <span class="built_in">to_string</span>(root-&gt;val);</span><br><span class="line">        <span class="type">bool</span> node = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;left) &#123;</span><br><span class="line">            <span class="built_in">traverse</span>(root-&gt;left, path + <span class="string">&quot;-&gt;&quot;</span>);</span><br><span class="line">            node = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;right) &#123;</span><br><span class="line">            <span class="built_in">traverse</span>(root-&gt;right, path + <span class="string">&quot;-&gt;&quot;</span>);</span><br><span class="line">            node = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (node) &#123;</span><br><span class="line">            res.<span class="built_in">push_back</span>(path);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
-        <tag>Binary Tree</tag>
-        <tag>String</tag>
-        <tag>Backtracking</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>251. Flatten 2D Vector</title>
     <url>/2024/03/27/251-Flatten-2D-Vector/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/flatten-2d-vector/description/">251. Flatten 2D Vector</a></p>
@@ -3419,6 +3383,42 @@
         <tag>Two Pointers</tag>
         <tag>Design</tag>
         <tag>Iterator</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>257. Binary Tree Paths</title>
+    <url>/2024/04/03/257-Binary-Tree-Paths/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/binary-tree-paths/description/">257. Binary Tree Paths</a></p>
+<p>Given the <code>root</code> of a binary tree, return all root-to-leaf paths in <strong>any order</strong> .</p>
+<p>A <strong>leaf</strong>  is a node with no children.</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/12/paths-tree.jpg" style="width: 207px; height: 293px;">
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [1,2,3,null,5]</span><br><span class="line">Output: [<span class="string">&quot;1-&gt;2-&gt;5&quot;</span>,<span class="string">&quot;1-&gt;3&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [1]</span><br><span class="line">Output: [<span class="string">&quot;1&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is in the range <code>[1, 100]</code>.</li>
+<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>traverse the tree</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;string&gt; res;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">binaryTreePaths</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">traverse</span>(root, <span class="string">&quot;&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(TreeNode* root, string path)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!root) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        path += <span class="built_in">to_string</span>(root-&gt;val);</span><br><span class="line">        <span class="type">bool</span> node = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;left) &#123;</span><br><span class="line">            <span class="built_in">traverse</span>(root-&gt;left, path + <span class="string">&quot;-&gt;&quot;</span>);</span><br><span class="line">            node = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;right) &#123;</span><br><span class="line">            <span class="built_in">traverse</span>(root-&gt;right, path + <span class="string">&quot;-&gt;&quot;</span>);</span><br><span class="line">            node = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (node) &#123;</span><br><span class="line">            res.<span class="built_in">push_back</span>(path);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Tree</tag>
+        <tag>Depth-First Search</tag>
+        <tag>Binary Tree</tag>
+        <tag>String</tag>
+        <tag>Backtracking</tag>
       </tags>
   </entry>
   <entry>
@@ -5116,6 +5116,7 @@
 </ul>
 <h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>sliding window</li>
+<li>need to introduce a new parameter distinct count and enumerate on it</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longestSubstring</span><span class="params">(string s, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> maxLen = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">26</span>; i++) &#123;</span><br><span class="line">            maxLen = <span class="built_in">max</span>(maxLen, <span class="built_in">longest</span>(s, k, i));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxLen;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longest</span><span class="params">(string &amp;s, <span class="type">int</span> k, <span class="type">int</span> count)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, currCount = <span class="number">0</span>, currValid = <span class="number">0</span>, maxLen = <span class="number">0</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">freq</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; s.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (freq[s[right] - <span class="string">&#x27;a&#x27;</span>] == <span class="number">0</span>) &#123;</span><br><span class="line">                currCount++;</span><br><span class="line">            &#125;</span><br><span class="line">            freq[s[right] - <span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">            <span class="keyword">if</span> (freq[s[right] - <span class="string">&#x27;a&#x27;</span>] == k) &#123;</span><br><span class="line">                currValid++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (currCount == currValid) &#123;</span><br><span class="line">                maxLen = <span class="built_in">max</span>(maxLen, right - left + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (left &lt; right &amp;&amp; currCount &gt; count) &#123;</span><br><span class="line">                <span class="keyword">if</span> (freq[s[left] - <span class="string">&#x27;a&#x27;</span>] == k) &#123;</span><br><span class="line">                    currValid--;</span><br><span class="line">                &#125;</span><br><span class="line">                freq[s[left] -<span class="string">&#x27;a&#x27;</span>]--;</span><br><span class="line">                <span class="keyword">if</span> (freq[s[left] - <span class="string">&#x27;a&#x27;</span>] == <span class="number">0</span>) &#123;</span><br><span class="line">                    currCount--;</span><br><span class="line">                &#125;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxLen;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -5592,38 +5593,6 @@
       </tags>
   </entry>
   <entry>
-    <title>5. Longest Palindromic Substring</title>
-    <url>/2023/01/19/5-Longest-Palindromic-Substring/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/longest-palindromic-substring/">5. Longest Palindromic Substring</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/string/">String</a>, <a href="https://leetcode.com/tag/dynamic-programming/">Dynamic Programming</a></p>
-<p>Given a string <code>s</code>, return <em>the longest</em> <span data-keyword="palindromic-string"><em>palindromic</em></span> <span data-keyword="substring-nonempty"><em>substring</em></span> in <code>s</code>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;babad&quot;</span></span><br><span class="line">Output: <span class="string">&quot;bab&quot;</span></span><br><span class="line">Explanation: <span class="string">&quot;aba&quot;</span> is also a valid answer.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;cbbd&quot;</span></span><br><span class="line">Output: <span class="string">&quot;bb&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= s.length &lt;= 1000</code></li>
-<li><code>s</code> consist of only digits and English letters.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Use a helper function to get the longest palindromic string from one index</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">longestPalindrome</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            string s1 = <span class="built_in">palindrom</span>(s, i, i);</span><br><span class="line">            string s2 = <span class="built_in">palindrom</span>(s, i, i + <span class="number">1</span>);</span><br><span class="line">            res = res.<span class="built_in">size</span>() &gt; s1.<span class="built_in">size</span>() ? res : s1;</span><br><span class="line">            res = res.<span class="built_in">size</span>() &gt; s2.<span class="built_in">size</span>() ? res : s2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">string <span class="title">palindrom</span><span class="params">(string s, <span class="type">int</span> left, <span class="type">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (left &gt;= <span class="number">0</span> &amp;&amp; right &lt; s.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s[left] != s[right]) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            left--;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.<span class="built_in">substr</span>(left + <span class="number">1</span>, right - left - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>String</tag>
-        <tag>Dynamic Programming</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>503. Next Greater Element II</title>
     <url>/2023/09/10/503-Next-Greater-Element-II/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/next-greater-element-ii/">503. Next Greater Element II</a></p>
@@ -5655,6 +5624,38 @@
         <tag>Array</tag>
         <tag>Stack</tag>
         <tag>Monotonic Stack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>5. Longest Palindromic Substring</title>
+    <url>/2023/01/19/5-Longest-Palindromic-Substring/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/longest-palindromic-substring/">5. Longest Palindromic Substring</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/string/">String</a>, <a href="https://leetcode.com/tag/dynamic-programming/">Dynamic Programming</a></p>
+<p>Given a string <code>s</code>, return <em>the longest</em> <span data-keyword="palindromic-string"><em>palindromic</em></span> <span data-keyword="substring-nonempty"><em>substring</em></span> in <code>s</code>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;babad&quot;</span></span><br><span class="line">Output: <span class="string">&quot;bab&quot;</span></span><br><span class="line">Explanation: <span class="string">&quot;aba&quot;</span> is also a valid answer.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;cbbd&quot;</span></span><br><span class="line">Output: <span class="string">&quot;bb&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= s.length &lt;= 1000</code></li>
+<li><code>s</code> consist of only digits and English letters.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Use a helper function to get the longest palindromic string from one index</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">longestPalindrome</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            string s1 = <span class="built_in">palindrom</span>(s, i, i);</span><br><span class="line">            string s2 = <span class="built_in">palindrom</span>(s, i, i + <span class="number">1</span>);</span><br><span class="line">            res = res.<span class="built_in">size</span>() &gt; s1.<span class="built_in">size</span>() ? res : s1;</span><br><span class="line">            res = res.<span class="built_in">size</span>() &gt; s2.<span class="built_in">size</span>() ? res : s2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">string <span class="title">palindrom</span><span class="params">(string s, <span class="type">int</span> left, <span class="type">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (left &gt;= <span class="number">0</span> &amp;&amp; right &lt; s.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s[left] != s[right]) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            left--;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.<span class="built_in">substr</span>(left + <span class="number">1</span>, right - left - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>String</tag>
+        <tag>Dynamic Programming</tag>
       </tags>
   </entry>
   <entry>
@@ -6139,49 +6140,6 @@
       </tags>
   </entry>
   <entry>
-    <title>652. Find Duplicate Subtrees</title>
-    <url>/2023/08/22/652-Find-Duplicate-Subtrees/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/find-duplicate-subtrees/">652. Find Duplicate Subtrees</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/tree//">Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//">Binary Tree</a></p>
-<p>Given the <code>root</code> of a binary tree, return all <strong>duplicate subtrees</strong>.</p>
-<p>For each kind of duplicate subtrees, you only need to return the root node of any <strong>one</strong> of them.</p>
-<p>Two trees are <strong>duplicate</strong> if they have the <strong>same structure</strong> with the <strong>same node values</strong>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/08/16/e1.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [1,2,3,4,null,2,4,null,null,4]</span><br><span class="line">Output: [[2,4],[4]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/08/16/e2.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [2,1,1]</span><br><span class="line">Output: [[1]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/08/16/e33.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [2,2,2,3,null,3,null]</span><br><span class="line">Output: [[2,3],[3]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of the nodes in the tree will be in the range <code>[1, 5000]</code></li>
-<li><code>-200 &lt;= Node.val &lt;= 200</code></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Serialize the (sub)tree to check if there’s duplicate</li>
-<li>Use map the avoid the duplicate in return, only push to res when freq[seri] &#x3D;&#x3D; 1</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;TreeNode*&gt; res;</span><br><span class="line">    map&lt;string, <span class="type">int</span>&gt; freq;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;TreeNode*&gt; <span class="title">findDuplicateSubtrees</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">serialize</span>(root);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">string <span class="title">serialize</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;#&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        string seri = <span class="built_in">serialize</span>(root-&gt;left)</span><br><span class="line">              + <span class="string">&#x27;,&#x27;</span> + <span class="built_in">serialize</span>(root-&gt;right)</span><br><span class="line">              + <span class="string">&quot;,&quot;</span> + <span class="built_in">to_string</span>(root-&gt;val);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (freq[seri] == <span class="number">1</span>) &#123;</span><br><span class="line">            res.<span class="built_in">push_back</span>(root);</span><br><span class="line">        &#125;</span><br><span class="line">        freq[seri]++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> seri;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Hash Table</tag>
-        <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
-        <tag>Binary Tree</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>648. Replace Words</title>
     <url>/2023/10/08/648-Replace-Words/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/replace-words/">648. Replace Words</a></p>
@@ -6222,6 +6180,49 @@
         <tag>Hash Table</tag>
         <tag>String</tag>
         <tag>Trie</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>652. Find Duplicate Subtrees</title>
+    <url>/2023/08/22/652-Find-Duplicate-Subtrees/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/find-duplicate-subtrees/">652. Find Duplicate Subtrees</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/tree//">Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//">Binary Tree</a></p>
+<p>Given the <code>root</code> of a binary tree, return all <strong>duplicate subtrees</strong>.</p>
+<p>For each kind of duplicate subtrees, you only need to return the root node of any <strong>one</strong> of them.</p>
+<p>Two trees are <strong>duplicate</strong> if they have the <strong>same structure</strong> with the <strong>same node values</strong>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/08/16/e1.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [1,2,3,4,null,2,4,null,null,4]</span><br><span class="line">Output: [[2,4],[4]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/08/16/e2.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [2,1,1]</span><br><span class="line">Output: [[1]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/08/16/e33.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [2,2,2,3,null,3,null]</span><br><span class="line">Output: [[2,3],[3]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of the nodes in the tree will be in the range <code>[1, 5000]</code></li>
+<li><code>-200 &lt;= Node.val &lt;= 200</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Serialize the (sub)tree to check if there’s duplicate</li>
+<li>Use map the avoid the duplicate in return, only push to res when freq[seri] &#x3D;&#x3D; 1</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;TreeNode*&gt; res;</span><br><span class="line">    map&lt;string, <span class="type">int</span>&gt; freq;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;TreeNode*&gt; <span class="title">findDuplicateSubtrees</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">serialize</span>(root);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">string <span class="title">serialize</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;#&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        string seri = <span class="built_in">serialize</span>(root-&gt;left)</span><br><span class="line">              + <span class="string">&#x27;,&#x27;</span> + <span class="built_in">serialize</span>(root-&gt;right)</span><br><span class="line">              + <span class="string">&quot;,&quot;</span> + <span class="built_in">to_string</span>(root-&gt;val);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (freq[seri] == <span class="number">1</span>) &#123;</span><br><span class="line">            res.<span class="built_in">push_back</span>(root);</span><br><span class="line">        &#125;</span><br><span class="line">        freq[seri]++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> seri;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Hash Table</tag>
+        <tag>Tree</tag>
+        <tag>Depth-First Search</tag>
+        <tag>Binary Tree</tag>
       </tags>
   </entry>
   <entry>
@@ -8329,98 +8330,6 @@
       </categories>
   </entry>
   <entry>
-    <title>How to manage time</title>
-    <url>/2022/12/23/How-to-manage-time/</url>
-    <content><![CDATA[<h3 id="How-I-Have-Time-For-Everything"><a href="#How-I-Have-Time-For-Everything" class="headerlink" title="How I Have Time For Everything"></a>How I Have Time For Everything</h3><ol>
-<li><p>Focus Completely For 2-4 Hours Every Day</p>
-</li>
-<li><p>Do One Thing At A Time</p>
-</li>
-<li><p>Permanently Declutter Your Schedule</p>
-</li>
-</ol>
-<p><a href="https://www.youtube.com/watch?v=c3pzcV9yi24">LINK</a></p>
-]]></content>
-      <categories>
-        <category>Excerpt</category>
-      </categories>
-      <tags>
-        <tag>Career</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to overcome procrastination</title>
-    <url>/2022/12/02/How-to-overcome-procrastination/</url>
-    <content><![CDATA[<h3 id="What"><a href="#What" class="headerlink" title="What"></a>What</h3><p>Procrastination is when we avoid a task we said we would do, for no good reason, despite expecting our behavior to bring negative consequences.</p>
-<h3 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h3><p>Many people procrastinate because they care too much.</p>
-<p>Procrastinators often report a high fear of failure, putting things off because they’re afarid their work won’t live up to their high standards.</p>
-<h3 id="Effect"><a href="#Effect" class="headerlink" title="Effect"></a>Effect</h3><p>Frequent procrastinators are likely to suffer from anxiety and depression, ongoing feelings of shame, higher stress levels and physical ailments associated with high stress.</p>
-<h3 id="How"><a href="#How" class="headerlink" title="How"></a>How</h3><p>To short-circuit this stress response, we need to address and reduce these negative emotions.</p>
-<ol>
-<li>breaking a task into smaller elements</li>
-<li>journaling about why it’s stressing you out</li>
-<li>try removing nearby distractions that make it easy to impulsively procrastinate</li>
-<li>forgiving yourself, and making a plan to do better next time</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Thoughts</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>How to setup personal VPN</title>
-    <url>/2023/04/21/How-to-setup-personal-VPN/</url>
-    <content><![CDATA[<p>Most ideas and actions are from this doc <a href="https://github.com/haoel/haoel.github.io">科学上网</a></p>
-<h2 id="1-Domain"><a href="#1-Domain" class="headerlink" title="1. Domain"></a>1. Domain</h2><p>Since I am going to use gost server, it requires one domain. I purchased one domain at goDaddy.com, it costs $5 per year.</p>
-<h2 id="2-VPC-related"><a href="#2-VPC-related" class="headerlink" title="2. VPC related"></a>2. VPC related</h2><p>I am using AWS LightSail, couple reasons:</p>
-<ol>
-<li>It’s cheap and first 3 months usage is free</li>
-<li>It’s easy to setup, like DNS related stuff</li>
-</ol>
-<h3 id="2-1-Create-instance"><a href="#2-1-Create-instance" class="headerlink" title="2.1 Create instance"></a>2.1 Create instance</h3><p>I would very like to use one instance from HKG, but now LightSail is not available in HKG, so i launched one instance in NRT.</p>
-<h3 id="2-2-Assign-static-IP-address"><a href="#2-2-Assign-static-IP-address" class="headerlink" title="2.2 Assign static IP address"></a>2.2 Assign static IP address</h3><p>Under the networking tab, create one static IP address and assign it to the instance. Also, enable 443 port from outside.</p>
-<h3 id="2-3-Create-domain"><a href="#2-3-Create-domain" class="headerlink" title="2.3 Create domain"></a>2.3 Create domain</h3><p>Under the DNS tab, create a DNS. After creation, go to goDaddy control console and change the name server to use the name servers for this DNS.</p>
-<h3 id="2-4-Gost-setup"><a href="#2-4-Gost-setup" class="headerlink" title="2.4 Gost setup"></a>2.4 Gost setup</h3><p>Login the instance. Git clone haoel’s repo, then run the install script under &#x2F;scripts folder.</p>
-<h2 id="3-Client"><a href="#3-Client" class="headerlink" title="3. Client"></a>3. Client</h2><h3 id="3-1-Chrome"><a href="#3-1-Chrome" class="headerlink" title="3.1 Chrome"></a>3.1 Chrome</h3><p>I would recommend switchyOmega extension for Chrome, just fill in the host, the user and password then the work is done.</p>
-<h3 id="3-2-Github"><a href="#3-2-Github" class="headerlink" title="3.2 Github"></a>3.2 Github</h3><p>To use proxy for other programs, we need to launch a gost client on the machine. It’s recommended to use docker.</p>
-<ol>
-<li>Install docker</li>
-<li>Run docker for different services<ol>
-<li><p>Shadowsocks</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -p 1984:1984 --name gost-ss --restart=always -d ginuerzh/gost -L=ss://aes-128-gcm:password@:1984 -F <span class="string">&#x27;https://user:password@host:443&#x27;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Socks5 for github</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -p 1080:1080 --name gost-socks --restart=always -d ginuerzh/gost -L=socks5://:1080 -F <span class="string">&#x27;https://user:password@host:443&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p> Then change the ssh config file for github access</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">    Hostname github.com</span><br><span class="line">    ProxyCommand nc -x localhost:1085 %h %p</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-</ol>
-<h3 id="3-3-IOS"><a href="#3-3-IOS" class="headerlink" title="3.3 IOS"></a>3.3 IOS</h3><p>Download Shadowrocket, and setup the proxy.</p>
-]]></content>
-      <tags>
-        <tag>Tech</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to write a design doc/ORR</title>
-    <url>/2022/12/02/How-to-write-a-design-doc-ORR/</url>
-    <content><![CDATA[<h3 id="The-problem"><a href="#The-problem" class="headerlink" title="The problem"></a>The problem</h3><p>It can take 2~3 weeks for me to finish one design doc&#x2F;ORR. When there’s a need to write such a doc, I would postphone the work as late as possible. And when there’s no way to push it off, I wouldn’t start the work until the last evening + morning. Such behaviour damages my mental health and also the doc quality.</p>
-<h3 id="How-to-do-better-next-time"><a href="#How-to-do-better-next-time" class="headerlink" title="How to do better next time"></a>How to do better next time</h3><ul>
-<li>Setup the key stakeholder review day, internal review day early, so i can schedule work backwards</li>
-<li>Find some training from internal source, if there’s any, can use 1~2 days for this</li>
-<li>Find some example, can use half day for this</li>
-<li>Start to write, even just copying the example</li>
-<li>Break the tasks into smaller pieces. Start to lay out the architecture, so i can fill in each section later</li>
-<li>Setup a goal: what I must finish within today</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Thoughts</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Designing Data-Intensive Applications</title>
     <url>/2023/01/05/Designing-Data-Intensive-Applications/</url>
     <content><![CDATA[<p><a href="https://www.goodreads.com/book/show/23463279-designing-data-intensive-applications">Designing Data-Intensive Applications</a></p>
@@ -9911,6 +9820,98 @@
       </tags>
   </entry>
   <entry>
+    <title>How to overcome procrastination</title>
+    <url>/2022/12/02/How-to-overcome-procrastination/</url>
+    <content><![CDATA[<h3 id="What"><a href="#What" class="headerlink" title="What"></a>What</h3><p>Procrastination is when we avoid a task we said we would do, for no good reason, despite expecting our behavior to bring negative consequences.</p>
+<h3 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h3><p>Many people procrastinate because they care too much.</p>
+<p>Procrastinators often report a high fear of failure, putting things off because they’re afarid their work won’t live up to their high standards.</p>
+<h3 id="Effect"><a href="#Effect" class="headerlink" title="Effect"></a>Effect</h3><p>Frequent procrastinators are likely to suffer from anxiety and depression, ongoing feelings of shame, higher stress levels and physical ailments associated with high stress.</p>
+<h3 id="How"><a href="#How" class="headerlink" title="How"></a>How</h3><p>To short-circuit this stress response, we need to address and reduce these negative emotions.</p>
+<ol>
+<li>breaking a task into smaller elements</li>
+<li>journaling about why it’s stressing you out</li>
+<li>try removing nearby distractions that make it easy to impulsively procrastinate</li>
+<li>forgiving yourself, and making a plan to do better next time</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Thoughts</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>How to manage time</title>
+    <url>/2022/12/23/How-to-manage-time/</url>
+    <content><![CDATA[<h3 id="How-I-Have-Time-For-Everything"><a href="#How-I-Have-Time-For-Everything" class="headerlink" title="How I Have Time For Everything"></a>How I Have Time For Everything</h3><ol>
+<li><p>Focus Completely For 2-4 Hours Every Day</p>
+</li>
+<li><p>Do One Thing At A Time</p>
+</li>
+<li><p>Permanently Declutter Your Schedule</p>
+</li>
+</ol>
+<p><a href="https://www.youtube.com/watch?v=c3pzcV9yi24">LINK</a></p>
+]]></content>
+      <categories>
+        <category>Excerpt</category>
+      </categories>
+      <tags>
+        <tag>Career</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to setup personal VPN</title>
+    <url>/2023/04/21/How-to-setup-personal-VPN/</url>
+    <content><![CDATA[<p>Most ideas and actions are from this doc <a href="https://github.com/haoel/haoel.github.io">科学上网</a></p>
+<h2 id="1-Domain"><a href="#1-Domain" class="headerlink" title="1. Domain"></a>1. Domain</h2><p>Since I am going to use gost server, it requires one domain. I purchased one domain at goDaddy.com, it costs $5 per year.</p>
+<h2 id="2-VPC-related"><a href="#2-VPC-related" class="headerlink" title="2. VPC related"></a>2. VPC related</h2><p>I am using AWS LightSail, couple reasons:</p>
+<ol>
+<li>It’s cheap and first 3 months usage is free</li>
+<li>It’s easy to setup, like DNS related stuff</li>
+</ol>
+<h3 id="2-1-Create-instance"><a href="#2-1-Create-instance" class="headerlink" title="2.1 Create instance"></a>2.1 Create instance</h3><p>I would very like to use one instance from HKG, but now LightSail is not available in HKG, so i launched one instance in NRT.</p>
+<h3 id="2-2-Assign-static-IP-address"><a href="#2-2-Assign-static-IP-address" class="headerlink" title="2.2 Assign static IP address"></a>2.2 Assign static IP address</h3><p>Under the networking tab, create one static IP address and assign it to the instance. Also, enable 443 port from outside.</p>
+<h3 id="2-3-Create-domain"><a href="#2-3-Create-domain" class="headerlink" title="2.3 Create domain"></a>2.3 Create domain</h3><p>Under the DNS tab, create a DNS. After creation, go to goDaddy control console and change the name server to use the name servers for this DNS.</p>
+<h3 id="2-4-Gost-setup"><a href="#2-4-Gost-setup" class="headerlink" title="2.4 Gost setup"></a>2.4 Gost setup</h3><p>Login the instance. Git clone haoel’s repo, then run the install script under &#x2F;scripts folder.</p>
+<h2 id="3-Client"><a href="#3-Client" class="headerlink" title="3. Client"></a>3. Client</h2><h3 id="3-1-Chrome"><a href="#3-1-Chrome" class="headerlink" title="3.1 Chrome"></a>3.1 Chrome</h3><p>I would recommend switchyOmega extension for Chrome, just fill in the host, the user and password then the work is done.</p>
+<h3 id="3-2-Github"><a href="#3-2-Github" class="headerlink" title="3.2 Github"></a>3.2 Github</h3><p>To use proxy for other programs, we need to launch a gost client on the machine. It’s recommended to use docker.</p>
+<ol>
+<li>Install docker</li>
+<li>Run docker for different services<ol>
+<li><p>Shadowsocks</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -p 1984:1984 --name gost-ss --restart=always -d ginuerzh/gost -L=ss://aes-128-gcm:password@:1984 -F <span class="string">&#x27;https://user:password@host:443&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Socks5 for github</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -p 1080:1080 --name gost-socks --restart=always -d ginuerzh/gost -L=socks5://:1080 -F <span class="string">&#x27;https://user:password@host:443&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p> Then change the ssh config file for github access</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">    Hostname github.com</span><br><span class="line">    ProxyCommand nc -x localhost:1085 %h %p</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<h3 id="3-3-IOS"><a href="#3-3-IOS" class="headerlink" title="3.3 IOS"></a>3.3 IOS</h3><p>Download Shadowrocket, and setup the proxy.</p>
+]]></content>
+      <tags>
+        <tag>Tech</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to write a design doc/ORR</title>
+    <url>/2022/12/02/How-to-write-a-design-doc-ORR/</url>
+    <content><![CDATA[<h3 id="The-problem"><a href="#The-problem" class="headerlink" title="The problem"></a>The problem</h3><p>It can take 2~3 weeks for me to finish one design doc&#x2F;ORR. When there’s a need to write such a doc, I would postphone the work as late as possible. And when there’s no way to push it off, I wouldn’t start the work until the last evening + morning. Such behaviour damages my mental health and also the doc quality.</p>
+<h3 id="How-to-do-better-next-time"><a href="#How-to-do-better-next-time" class="headerlink" title="How to do better next time"></a>How to do better next time</h3><ul>
+<li>Setup the key stakeholder review day, internal review day early, so i can schedule work backwards</li>
+<li>Find some training from internal source, if there’s any, can use 1~2 days for this</li>
+<li>Find some example, can use half day for this</li>
+<li>Start to write, even just copying the example</li>
+<li>Break the tasks into smaller pieces. Start to lay out the architecture, so i can fill in each section later</li>
+<li>Setup a goal: what I must finish within today</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Thoughts</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Learning from STJE failure</title>
     <url>/2023/04/21/Learning-from-STJE-failure/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, these decrypted content cannot be verified, but you can still have a look.">
@@ -11174,6 +11175,64 @@ Your browser does not support the audio element.
       </tags>
   </entry>
   <entry>
+    <title>Learnship 14 - 2023/11/02</title>
+    <url>/2023/11/02/Learnship-14-2023-11-02/</url>
+    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-14-Closing-A-Presentation-2"><a href="#Business-Language-Coaching-Session-14-Closing-A-Presentation-2" class="headerlink" title="Business Language Coaching - Session 14 - Closing A Presentation (2)"></a>Business Language Coaching - Session 14 - Closing A Presentation (2)</h2><ul>
+<li>compare some different communicative strategies for closing a presentation</li>
+<li>build a presentation close together</li>
+</ul>
+<h3 id="Impromptu-presentation-practice"><a href="#Impromptu-presentation-practice" class="headerlink" title="Impromptu presentation practice"></a>Impromptu presentation practice</h3><p>Topic: International charities are not always the most deserving of our donations.</p>
+<ul>
+<li>conversely</li>
+<li>in addition to</li>
+<li>with that in mind</li>
+<li>nevertheless</li>
+</ul>
+<h3 id="Group-the-expressions-according-to-which-closing-technique-they-can-best-be-used-for"><a href="#Group-the-expressions-according-to-which-closing-technique-they-can-best-be-used-for" class="headerlink" title="Group the expressions according to which closing technique they can best be used for."></a>Group the expressions according to which closing technique they can best be used for.</h3><p>Summary:</p>
+<ul>
+<li>Let’s take a look back at what we’ve spoken about this morning.</li>
+<li>Here, at a glance, are the main points I’ve made …</li>
+<li>So, how to sum up?</li>
+<li>In a nutshell, then …</li>
+</ul>
+<p>Wisdom:</p>
+<ul>
+<li>I’m reminded of the words of …</li>
+<li>We have a saying where I come from …</li>
+<li>In the famous words of …</li>
+</ul>
+<p>Action:</p>
+<ul>
+<li>Now let’s get out there and …!</li>
+<li>I’m counting on you to …</li>
+<li>So, next time you …, remember to …</li>
+</ul>
+<p>Emotion:</p>
+<ul>
+<li>If you take just one thing from this talk, take this …</li>
+<li>In the end, this is what matters</li>
+<li>So what does all this really mean for you - personally?</li>
+</ul>
+<h3 id="Task-Creating-a-close-for-one-of-your-demos"><a href="#Task-Creating-a-close-for-one-of-your-demos" class="headerlink" title="Task: Creating a close for one of your demos"></a>Task: Creating a close for one of your demos</h3><p>Using what you’ve learned about how to create a memorable presentation close, choose one of the approaches and brainstorm ideas for what you could say at the end of your demo.</p>
+<ul>
+<li>OK, so we’re going to save X each year and with that we can Y …</li>
+<li>So, how to actually put this into practice? &#x2F; So, how do we get there?</li>
+</ul>
+<p>Summary -&gt; next steps</p>
+<h2 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h2><ul>
+<li>the snow season is much* longer</li>
+<li>to be deserving of</li>
+<li>conversely(no need for ‘but’)</li>
+<li>at fault: responsible for</li>
+<li>I have done* the categorizing</li>
+<li>so, I’m looking forwarding to updating you …</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Learnship</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Learnship 15 - 2023/11/06</title>
     <url>/2023/11/06/Learnship-15-2023-11-06/</url>
     <content><![CDATA[<h2 id="Business-Language-Coaching-Session-15-Closing-A-Presentation-3"><a href="#Business-Language-Coaching-Session-15-Closing-A-Presentation-3" class="headerlink" title="Business Language Coaching - Session 15 - Closing A Presentation (3)"></a>Business Language Coaching - Session 15 - Closing A Presentation (3)</h2><ul>
@@ -11264,64 +11323,6 @@ Your browser does not support the audio element.
 <li>President Biden (no definite article)</li>
 <li>Ireland (no article)</li>
 <li>a trip</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Learnship</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Learnship 14 - 2023/11/02</title>
-    <url>/2023/11/02/Learnship-14-2023-11-02/</url>
-    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-14-Closing-A-Presentation-2"><a href="#Business-Language-Coaching-Session-14-Closing-A-Presentation-2" class="headerlink" title="Business Language Coaching - Session 14 - Closing A Presentation (2)"></a>Business Language Coaching - Session 14 - Closing A Presentation (2)</h2><ul>
-<li>compare some different communicative strategies for closing a presentation</li>
-<li>build a presentation close together</li>
-</ul>
-<h3 id="Impromptu-presentation-practice"><a href="#Impromptu-presentation-practice" class="headerlink" title="Impromptu presentation practice"></a>Impromptu presentation practice</h3><p>Topic: International charities are not always the most deserving of our donations.</p>
-<ul>
-<li>conversely</li>
-<li>in addition to</li>
-<li>with that in mind</li>
-<li>nevertheless</li>
-</ul>
-<h3 id="Group-the-expressions-according-to-which-closing-technique-they-can-best-be-used-for"><a href="#Group-the-expressions-according-to-which-closing-technique-they-can-best-be-used-for" class="headerlink" title="Group the expressions according to which closing technique they can best be used for."></a>Group the expressions according to which closing technique they can best be used for.</h3><p>Summary:</p>
-<ul>
-<li>Let’s take a look back at what we’ve spoken about this morning.</li>
-<li>Here, at a glance, are the main points I’ve made …</li>
-<li>So, how to sum up?</li>
-<li>In a nutshell, then …</li>
-</ul>
-<p>Wisdom:</p>
-<ul>
-<li>I’m reminded of the words of …</li>
-<li>We have a saying where I come from …</li>
-<li>In the famous words of …</li>
-</ul>
-<p>Action:</p>
-<ul>
-<li>Now let’s get out there and …!</li>
-<li>I’m counting on you to …</li>
-<li>So, next time you …, remember to …</li>
-</ul>
-<p>Emotion:</p>
-<ul>
-<li>If you take just one thing from this talk, take this …</li>
-<li>In the end, this is what matters</li>
-<li>So what does all this really mean for you - personally?</li>
-</ul>
-<h3 id="Task-Creating-a-close-for-one-of-your-demos"><a href="#Task-Creating-a-close-for-one-of-your-demos" class="headerlink" title="Task: Creating a close for one of your demos"></a>Task: Creating a close for one of your demos</h3><p>Using what you’ve learned about how to create a memorable presentation close, choose one of the approaches and brainstorm ideas for what you could say at the end of your demo.</p>
-<ul>
-<li>OK, so we’re going to save X each year and with that we can Y …</li>
-<li>So, how to actually put this into practice? &#x2F; So, how do we get there?</li>
-</ul>
-<p>Summary -&gt; next steps</p>
-<h2 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h2><ul>
-<li>the snow season is much* longer</li>
-<li>to be deserving of</li>
-<li>conversely(no need for ‘but’)</li>
-<li>at fault: responsible for</li>
-<li>I have done* the categorizing</li>
-<li>so, I’m looking forwarding to updating you …</li>
 </ul>
 ]]></content>
       <tags>

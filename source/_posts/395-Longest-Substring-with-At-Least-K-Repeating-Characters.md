@@ -46,6 +46,7 @@ Explanation: The longest substring is "ababb", as 'a' is repeated 2 times and 'b
 ## Hints/Notes
 
 * sliding window
+* need to introduce a new parameter distinct count and enumerate on it
 
 ## Solution
 

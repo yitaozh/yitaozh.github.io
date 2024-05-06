@@ -73,25 +73,29 @@ Language: **C++**
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution {
+class Solution {
 public:
-    void reorderList(ListNode* head) {
-        stack<ListNode*> s;
-        ListNode* tmp = head;
-        while (tmp) {
-            s.push(tmp);
-            tmp = tmp->next;
-        }
-        tmp = head;
-        while (tmp != s.top() && s.top()->next != tmp) {
-            ListNode* tail = s.top();
-            s.pop();
-            ListNode* next = tmp->next;
-            tmp->next = tail;
-            tail->next = next;
-            tmp = next;
-        }
-        if (tmp == s.top()) tmp->next = nullptr; else tmp->next->next = nullptr;
-    }
+    void reorderList(ListNode* head) {
+        stack<ListNode*> s;
+        ListNode* tmp = head;
+        while (tmp) {
+            s.push(tmp);
+            tmp = tmp->next;
+        }
+        tmp = head;
+        while (tmp != s.top() && tmp->next != s.top()) {
+            ListNode* tail = s.top();
+            s.pop();
+            ListNode* next = tmp->next;
+            tmp->next = tail;
+            tail->next = next;
+            tmp = next;
+        }
+        if (tmp == s.top()) {
+            tmp->next = nullptr;
+        } else {
+            tmp->next->next = nullptr;
+        }
+    }
 };
 ```

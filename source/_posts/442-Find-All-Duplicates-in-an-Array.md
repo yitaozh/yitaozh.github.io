@@ -50,6 +50,7 @@ Output: []
 ## Hints/Notes
 
 * flip the array element(negative) to mark if one element has appeared previously
+* we can use this solution because each element appears either once or twice
 
 ## Solution
 

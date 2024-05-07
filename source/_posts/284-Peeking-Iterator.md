@@ -57,6 +57,7 @@ peekingIterator.hasNext(); // return False
 ## Hints/Notes
 
 * store the next value internally
+* the internal next value would always be one step ahead of the next()
 
 ## Solution
 

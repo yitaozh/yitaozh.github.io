@@ -56,6 +56,7 @@ vector2D.hasNext(); // return False
 ## Hints/Notes
 
 - update i, j correctly
+- we need to use while in hasNext() because there can be empty vectors
 
 ## Solution
 

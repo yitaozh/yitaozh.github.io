@@ -146,7 +146,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">228</span>
+          <span class="site-state-item-count">229</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -203,6 +203,129 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yitaozh.github.io/2024/05/07/3105-Longest-Strictly-Increasing-or-Strictly-Decreasing-Subarray/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Echo Joy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Echo's Home">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Echo's Home">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/07/3105-Longest-Strictly-Increasing-or-Strictly-Decreasing-Subarray/" class="post-title-link" itemprop="url">3105. Longest Strictly Increasing or Strictly Decreasing Subarray</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-05-07 23:47:15" itemprop="dateCreated datePublished" datetime="2024-05-07T23:47:15+00:00">2024-05-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-05-08 03:50:12" itemprop="dateModified" datetime="2024-05-08T03:50:12+00:00">2024-05-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/longest-strictly-increasing-or-strictly-decreasing-subarray/description/">3105. Longest Strictly Increasing or Strictly Decreasing Subarray</a></p>
+<p>You are given an array of integers <code>nums</code>. Return the length of the <strong>longest</strong>  <div aria-expanded="false" data-headlessui-state="" id="headlessui-popover-button-:rt:">subarray<div style="position: fixed; z-index: 40; inset: 0px auto auto 0px; transform: translate(504px, 214px);"> of <code>nums</code> which is either <strong><div aria-expanded="false" data-headlessui-state="" id="headlessui-popover-button-:rv:">strictly increasing<div style="position: fixed; z-index: 40; inset: 0px auto auto 0px; transform: translate(736px, 214px);"></strong>  or <strong><div aria-expanded="false" data-headlessui-state="" id="headlessui-popover-button-:r11:">strictly decreasing<div style="position: fixed; z-index: 40; inset: 0px auto auto 0px; transform: translate(86px, 235px);"></strong> .</p>
+<p><strong>Example 1:</strong></p>
+<div class="example-block">
+Input: nums = [1,4,3,3,2]
+
+<p>Output: 2</p>
+<p>Explanation:</p>
+<p>The strictly increasing subarrays of <code>nums</code> are <code>[1]</code>, <code>[2]</code>, <code>[3]</code>, <code>[3]</code>, <code>[4]</code>, and <code>[1,4]</code>.</p>
+<p>The strictly decreasing subarrays of <code>nums</code> are <code>[1]</code>, <code>[2]</code>, <code>[3]</code>, <code>[3]</code>, <code>[4]</code>, <code>[3,2]</code>, and <code>[4,3]</code>.</p>
+<p>Hence, we return <code>2</code>.</p>
+<p><strong>Example 2:</strong></p>
+<div class="example-block">
+Input: nums = [3,3,3,3]
+
+<p>Output: 1</p>
+<p>Explanation:</p>
+<p>The strictly increasing subarrays of <code>nums</code> are <code>[3]</code>, <code>[3]</code>, <code>[3]</code>, and <code>[3]</code>.</p>
+<p>The strictly decreasing subarrays of <code>nums</code> are <code>[3]</code>, <code>[3]</code>, <code>[3]</code>, and <code>[3]</code>.</p>
+<p>Hence, we return <code>1</code>.</p>
+<p><strong>Example 3:</strong></p>
+<div class="example-block">
+Input: nums = [3,2,1]
+
+<p>Output: 3</p>
+<p>Explanation:</p>
+<p>The strictly increasing subarrays of <code>nums</code> are <code>[3]</code>, <code>[2]</code>, and <code>[1]</code>.</p>
+<p>The strictly decreasing subarrays of <code>nums</code> are <code>[3]</code>, <code>[2]</code>, <code>[1]</code>, <code>[3,2]</code>, <code>[2,1]</code>, and <code>[3,2,1]</code>.</p>
+<p>Hence, we return <code>3</code>.</p>
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 50</code></li>
+<li><code>1 &lt;= nums[i] &lt;= 50</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>iterate the array twice</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longestMonotonicSubarray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> curLen = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] &gt; nums[i - <span class="number">1</span>]) &#123;</span><br><span class="line">                curLen += <span class="number">1</span>;</span><br><span class="line">                res = <span class="built_in">max</span>(res, curLen);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                curLen = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        curLen = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] &lt; nums[i - <span class="number">1</span>]) &#123;</span><br><span class="line">                curLen += <span class="number">1</span>;</span><br><span class="line">                res = <span class="built_in">max</span>(res, curLen);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                curLen = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://yitaozh.github.io/2024/04/03/1457-Pseudo-Palindromic-Paths-in-a-Binary-Tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -239,7 +362,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-05-07 19:55:15" itemprop="dateModified" datetime="2024-05-07T19:55:15+00:00">2024-05-07</time>
+      <time title="Modified: 2024-05-08 03:50:12" itemprop="dateModified" datetime="2024-05-08T03:50:12+00:00">2024-05-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -333,7 +456,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-05-07 19:55:15" itemprop="dateModified" datetime="2024-05-07T19:55:15+00:00">2024-05-07</time>
+      <time title="Modified: 2024-05-08 03:50:12" itemprop="dateModified" datetime="2024-05-08T03:50:12+00:00">2024-05-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -429,7 +552,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-05-07 19:55:15" itemprop="dateModified" datetime="2024-05-07T19:55:15+00:00">2024-05-07</time>
+      <time title="Modified: 2024-05-08 03:50:12" itemprop="dateModified" datetime="2024-05-08T03:50:12+00:00">2024-05-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -523,7 +646,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-05-07 19:55:15" itemprop="dateModified" datetime="2024-05-07T19:55:15+00:00">2024-05-07</time>
+      <time title="Modified: 2024-05-08 03:50:12" itemprop="dateModified" datetime="2024-05-08T03:50:12+00:00">2024-05-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -617,7 +740,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-05-07 19:55:15" itemprop="dateModified" datetime="2024-05-07T19:55:15+00:00">2024-05-07</time>
+      <time title="Modified: 2024-05-08 03:50:12" itemprop="dateModified" datetime="2024-05-08T03:50:12+00:00">2024-05-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -711,7 +834,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-05-07 19:55:15" itemprop="dateModified" datetime="2024-05-07T19:55:15+00:00">2024-05-07</time>
+      <time title="Modified: 2024-05-08 03:50:12" itemprop="dateModified" datetime="2024-05-08T03:50:12+00:00">2024-05-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -805,7 +928,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-05-07 19:55:15" itemprop="dateModified" datetime="2024-05-07T19:55:15+00:00">2024-05-07</time>
+      <time title="Modified: 2024-05-08 03:50:12" itemprop="dateModified" datetime="2024-05-08T03:50:12+00:00">2024-05-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -899,7 +1022,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-05-07 19:55:15" itemprop="dateModified" datetime="2024-05-07T19:55:15+00:00">2024-05-07</time>
+      <time title="Modified: 2024-05-08 03:50:12" itemprop="dateModified" datetime="2024-05-08T03:50:12+00:00">2024-05-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -992,7 +1115,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-05-07 19:55:15" itemprop="dateModified" datetime="2024-05-07T19:55:15+00:00">2024-05-07</time>
+      <time title="Modified: 2024-05-08 03:50:12" itemprop="dateModified" datetime="2024-05-08T03:50:12+00:00">2024-05-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1019,99 +1142,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/01/03/284-Peeking-Iterator/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yitaozh.github.io/2024/01/03/379-Design-Phone-Directory/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Echo Joy">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Echo's Home">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Echo's Home">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/03/379-Design-Phone-Directory/" class="post-title-link" itemprop="url">379. Design Phone Directory</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-01-03 18:02:19" itemprop="dateCreated datePublished" datetime="2024-01-03T18:02:19+00:00">2024-01-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-05-07 19:55:15" itemprop="dateModified" datetime="2024-05-07T19:55:15+00:00">2024-05-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/design-phone-directory/">379. Design Phone Directory</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/01/03/379-Design-Phone-Directory/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>

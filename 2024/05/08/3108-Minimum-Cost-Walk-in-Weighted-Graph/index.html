@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yitaozh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"author":"Echo Joy"},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="3108. Minimum Cost Walk in Weighted Graph There is an undirected weighted graph with n vertices labeled from 0 to n - 1. You are given the integer n and an array edges, where edges[i] &#x3D; [ui, vi, wi] i">
+    <meta name="description" content="3108. Minimum Cost Walk in Weighted Graph DescriptionThere is an undirected weighted graph with n vertices labeled from 0 to n - 1.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="3108. Minimum Cost Walk in Weighted Graph">
 <meta property="og:url" content="https://yitaozh.github.io/2024/05/08/3108-Minimum-Cost-Walk-in-Weighted-Graph/index.html">
 <meta property="og:site_name" content="Echo&#39;s Home">
-<meta property="og:description" content="3108. Minimum Cost Walk in Weighted Graph There is an undirected weighted graph with n vertices labeled from 0 to n - 1. You are given the integer n and an array edges, where edges[i] &#x3D; [ui, vi, wi] i">
+<meta property="og:description" content="3108. Minimum Cost Walk in Weighted Graph DescriptionThere is an undirected weighted graph with n vertices labeled from 0 to n - 1.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-05-08T13:28:08.000Z">
-<meta property="article:modified_time" content="2024-05-08T17:31:20.888Z">
+<meta property="article:modified_time" content="2024-05-08T18:09:00.135Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="Array">
 <meta property="article:tag" content="Union Find">
@@ -142,7 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hints-Notes"><span class="nav-number">1.</span> <span class="nav-text">Hints&#x2F;Notes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">2.</span> <span class="nav-text">Solution</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hints-Notes"><span class="nav-number">2.</span> <span class="nav-text">Hints&#x2F;Notes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">3.</span> <span class="nav-text">Solution</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -155,7 +155,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">232</span>
+          <span class="site-state-item-count">235</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -243,7 +243,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-05-08 13:28:08 / Modified: 17:31:20" itemprop="dateCreated datePublished" datetime="2024-05-08T13:28:08+00:00">2024-05-08</time>
+      <time title="Created: 2024-05-08 13:28:08 / Modified: 18:09:00" itemprop="dateCreated datePublished" datetime="2024-05-08T13:28:08+00:00">2024-05-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -265,7 +265,7 @@
     
     
     <div class="post-body" itemprop="articleBody"><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/minimum-cost-walk-in-weighted-graph/description/">3108. Minimum Cost Walk in Weighted Graph</a></p>
-<p>There is an undirected weighted graph with <code>n</code> vertices labeled from <code>0</code> to <code>n - 1</code>.</p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>There is an undirected weighted graph with <code>n</code> vertices labeled from <code>0</code> to <code>n - 1</code>.</p>
 <p>You are given the integer <code>n</code> and an array <code>edges</code>, where <code>edges[i] = [ui, vi, wi]</code> indicates that there is an edge between vertices <code>ui</code> and <code>vi</code> with a weight of <code>wi</code>.</p>
 <p>A walk on a graph is a sequence of vertices and edges. The walk starts and ends with a vertex, and each edge connects the vertex that comes before it and the vertex that comes after it. It’s important to note that a walk may visit the same edge or vertex more than once.</p>
 <p>The <strong>cost</strong>  of a walk starting at node <code>u</code> and ending at node <code>v</code> is defined as the bitwise <code>AND</code> of the weights of the edges traversed during the walk. In other words, if the sequence of edge weights encountered during the walk is <code>w0, w1, w2, ..., wk</code>, then the cost is calculated as <code>w0 &amp;amp; w1 &amp;amp; w2 &amp;amp; ... &amp;amp; wk</code>, where <code>&amp;amp;</code> denotes the bitwise <code>AND</code> operator.</p>
@@ -319,6 +319,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2024/05/08/3110-Score-of-a-String/" rel="next" title="3110. Score of a String">
+                  3110. Score of a String <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>

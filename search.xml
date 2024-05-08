@@ -717,46 +717,6 @@
       </tags>
   </entry>
   <entry>
-    <title>1314. Matrix Block Sum</title>
-    <url>/2023/11/12/1314-Matrix-Block-Sum/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/matrix-block-sum/">1314. Matrix Block Sum</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/matrix//">Matrix</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/prefix-sum//">Prefix Sum</a></p>
-<p>Given a <code>m x n</code> matrix <code>mat</code> and an integer <code>k</code>, return <em>a matrix</em> <code>answer</code> <em>where each</em> <code>answer[i][j]</code> <em>is the sum of all elements</em> <code>mat[r][c]</code> <em>for</em>:</p>
-<ul>
-<li><code>i - k &lt;= r &lt;= i + k,</code></li>
-<li><code>j - k &lt;= c &lt;= j + k</code>, and</li>
-<li><code>(r, c)</code> is a valid position in the matrix.</li>
-</ul>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: mat = [[1,2,3],[4,5,6],[7,8,9]], k = 1</span><br><span class="line">Output: [[12,21,16],[27,45,33],[24,39,28]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: mat = [[1,2,3],[4,5,6],[7,8,9]], k = 2</span><br><span class="line">Output: [[45,45,45],[45,45,45],[45,45,45]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>m == mat.length</code></li>
-<li><code>n == mat[i].length</code></li>
-<li><code>1 &lt;= m, n, k &lt;= 100</code></li>
-<li><code>1 &lt;= mat[i][j] &lt;= 100</code></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>matrix preSum</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">matrixBlockSum</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; mat, <span class="type">int</span> k) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">preSum</span>(mat.<span class="built_in">size</span>() + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(mat[<span class="number">0</span>].<span class="built_in">size</span>() + <span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; mat.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; mat[<span class="number">0</span>].<span class="built_in">size</span>(); j++) &#123;</span><br><span class="line">                preSum[i + <span class="number">1</span>][j + <span class="number">1</span>] = preSum[i][j + <span class="number">1</span>] + preSum[i + <span class="number">1</span>][j] - preSum[i][j] + mat[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">res</span>(mat.<span class="built_in">size</span>(), <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(mat[<span class="number">0</span>].<span class="built_in">size</span>(), <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; mat.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; mat[<span class="number">0</span>].<span class="built_in">size</span>(); j++) &#123;</span><br><span class="line">                <span class="type">int</span> up = <span class="built_in">max</span>(<span class="number">0</span>, i - k);</span><br><span class="line">                <span class="type">int</span> down = <span class="built_in">min</span>(i + k + <span class="number">1</span>, (<span class="type">int</span>)mat.<span class="built_in">size</span>());</span><br><span class="line">                <span class="type">int</span> left = <span class="built_in">max</span>(<span class="number">0</span>, j - k);</span><br><span class="line">                <span class="type">int</span> right = <span class="built_in">min</span>(j + k + <span class="number">1</span>, (<span class="type">int</span>)mat[<span class="number">0</span>].<span class="built_in">size</span>());</span><br><span class="line">                res[i][j] = preSum[down][right] - preSum[down][left] - preSum[up][right] + preSum[up][left];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Prefix Sum</tag>
-        <tag>Matrix</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>129. Sum Root to Leaf Numbers</title>
     <url>/2024/04/03/129-Sum-Root-to-Leaf-Numbers/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/sum-root-to-leaf-numbers/description/">129. Sum Root to Leaf Numbers</a></p>
@@ -796,6 +756,46 @@
         <tag>Tree</tag>
         <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>1314. Matrix Block Sum</title>
+    <url>/2023/11/12/1314-Matrix-Block-Sum/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/matrix-block-sum/">1314. Matrix Block Sum</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/matrix//">Matrix</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/prefix-sum//">Prefix Sum</a></p>
+<p>Given a <code>m x n</code> matrix <code>mat</code> and an integer <code>k</code>, return <em>a matrix</em> <code>answer</code> <em>where each</em> <code>answer[i][j]</code> <em>is the sum of all elements</em> <code>mat[r][c]</code> <em>for</em>:</p>
+<ul>
+<li><code>i - k &lt;= r &lt;= i + k,</code></li>
+<li><code>j - k &lt;= c &lt;= j + k</code>, and</li>
+<li><code>(r, c)</code> is a valid position in the matrix.</li>
+</ul>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: mat = [[1,2,3],[4,5,6],[7,8,9]], k = 1</span><br><span class="line">Output: [[12,21,16],[27,45,33],[24,39,28]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: mat = [[1,2,3],[4,5,6],[7,8,9]], k = 2</span><br><span class="line">Output: [[45,45,45],[45,45,45],[45,45,45]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>m == mat.length</code></li>
+<li><code>n == mat[i].length</code></li>
+<li><code>1 &lt;= m, n, k &lt;= 100</code></li>
+<li><code>1 &lt;= mat[i][j] &lt;= 100</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>matrix preSum</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">matrixBlockSum</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; mat, <span class="type">int</span> k) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">preSum</span>(mat.<span class="built_in">size</span>() + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(mat[<span class="number">0</span>].<span class="built_in">size</span>() + <span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; mat.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; mat[<span class="number">0</span>].<span class="built_in">size</span>(); j++) &#123;</span><br><span class="line">                preSum[i + <span class="number">1</span>][j + <span class="number">1</span>] = preSum[i][j + <span class="number">1</span>] + preSum[i + <span class="number">1</span>][j] - preSum[i][j] + mat[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">res</span>(mat.<span class="built_in">size</span>(), <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(mat[<span class="number">0</span>].<span class="built_in">size</span>(), <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; mat.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; mat[<span class="number">0</span>].<span class="built_in">size</span>(); j++) &#123;</span><br><span class="line">                <span class="type">int</span> up = <span class="built_in">max</span>(<span class="number">0</span>, i - k);</span><br><span class="line">                <span class="type">int</span> down = <span class="built_in">min</span>(i + k + <span class="number">1</span>, (<span class="type">int</span>)mat.<span class="built_in">size</span>());</span><br><span class="line">                <span class="type">int</span> left = <span class="built_in">max</span>(<span class="number">0</span>, j - k);</span><br><span class="line">                <span class="type">int</span> right = <span class="built_in">min</span>(j + k + <span class="number">1</span>, (<span class="type">int</span>)mat[<span class="number">0</span>].<span class="built_in">size</span>());</span><br><span class="line">                res[i][j] = preSum[down][right] - preSum[down][left] - preSum[up][right] + preSum[up][left];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Prefix Sum</tag>
+        <tag>Matrix</tag>
       </tags>
   </entry>
   <entry>
@@ -2588,47 +2588,6 @@
       </tags>
   </entry>
   <entry>
-    <title>211. Design Add and Search Words Data Structure</title>
-    <url>/2023/10/09/211-Design-Add-and-Search-Words-Data-Structure/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/design-add-and-search-words-data-structure/">211. Design Add and Search Words Data Structure</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/string//">String</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/design//">Design</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/trie//">Trie</a></p>
-<p>Design a data structure that supports adding new words and finding if a string matches any previously added string.</p>
-<p>Implement the <code>WordDictionary</code> class:</p>
-<ul>
-<li><code>WordDictionary()</code> Initializes the object.</li>
-<li><code>void addWord(word)</code> Adds <code>word</code> to the data structure, it can be matched later.</li>
-<li><code>bool search(word)</code> Returns <code>true</code> if there is any string in the data structure that matches <code>word</code> or <code>false</code> otherwise. <code>word</code> may contain dots <code>&#39;.&#39;</code> where dots can be matched with any letter.</li>
-</ul>
-<p><strong>Example:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input</span><br><span class="line">[<span class="string">&quot;WordDictionary&quot;</span>,<span class="string">&quot;addWord&quot;</span>,<span class="string">&quot;addWord&quot;</span>,<span class="string">&quot;addWord&quot;</span>,<span class="string">&quot;search&quot;</span>,<span class="string">&quot;search&quot;</span>,<span class="string">&quot;search&quot;</span>,<span class="string">&quot;search&quot;</span>]</span><br><span class="line">[[],[<span class="string">&quot;bad&quot;</span>],[<span class="string">&quot;dad&quot;</span>],[<span class="string">&quot;mad&quot;</span>],[<span class="string">&quot;pad&quot;</span>],[<span class="string">&quot;bad&quot;</span>],[<span class="string">&quot;.ad&quot;</span>],[<span class="string">&quot;b..&quot;</span>]]</span><br><span class="line">Output</span><br><span class="line">[null,null,null,null,<span class="literal">false</span>,<span class="literal">true</span>,<span class="literal">true</span>,<span class="literal">true</span>]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">WordDictionary wordDictionary = new WordDictionary();</span><br><span class="line">wordDictionary.addWord(<span class="string">&quot;bad&quot;</span>);</span><br><span class="line">wordDictionary.addWord(<span class="string">&quot;dad&quot;</span>);</span><br><span class="line">wordDictionary.addWord(<span class="string">&quot;mad&quot;</span>);</span><br><span class="line">wordDictionary.search(<span class="string">&quot;pad&quot;</span>); // <span class="built_in">return</span> False</span><br><span class="line">wordDictionary.search(<span class="string">&quot;bad&quot;</span>); // <span class="built_in">return</span> True</span><br><span class="line">wordDictionary.search(<span class="string">&quot;.ad&quot;</span>); // <span class="built_in">return</span> True</span><br><span class="line">wordDictionary.search(<span class="string">&quot;b..&quot;</span>); // <span class="built_in">return</span> True</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= word.length &lt;= 25</code></li>
-<li><code>word</code> in <code>addWord</code> consists of lowercase English letters.</li>
-<li><code>word</code> in <code>search</code> consist of <code>&#39;.&#39;</code> or lowercase English letters.</li>
-<li>There will be at most <code>2</code> dots in <code>word</code> for <code>search</code> queries.</li>
-<li>At most 10<sup>4</sup> calls will be made to <code>addWord</code> and <code>search</code>.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Trie</li>
-<li>Need a for loop for wildcard matching, also need a helper function tracking the index</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">WordDictionary</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">TrieNode</span> &#123;</span><br><span class="line">        <span class="type">bool</span> end;</span><br><span class="line">        vector&lt;TrieNode*&gt; children;</span><br><span class="line">        <span class="built_in">TrieNode</span>() &#123;</span><br><span class="line">            end = <span class="literal">false</span>;</span><br><span class="line">            children = <span class="built_in">vector</span>&lt;TrieNode*&gt;(<span class="number">26</span>, <span class="literal">nullptr</span>);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    TrieNode* root;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">WordDictionary</span>() &#123;</span><br><span class="line">        root = <span class="keyword">new</span> <span class="built_in">TrieNode</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">addWord</span><span class="params">(string word)</span> </span>&#123;</span><br><span class="line">        TrieNode* head = root;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : word) &#123;</span><br><span class="line">            <span class="keyword">if</span> (head-&gt;children[c - <span class="string">&#x27;a&#x27;</span>] == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">                head-&gt;children[c - <span class="string">&#x27;a&#x27;</span>] = <span class="keyword">new</span> <span class="built_in">TrieNode</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            head = head-&gt;children[c - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        head-&gt;end = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">search</span><span class="params">(string word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">searchWithPatern</span>(root, <span class="number">0</span>, word);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">searchWithPatern</span><span class="params">(TrieNode* head, <span class="type">int</span> index, string&amp; word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (index == word.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">return</span> head-&gt;end;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">char</span> c = word[index];</span><br><span class="line">        <span class="keyword">if</span> (c != <span class="string">&#x27;.&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">searchWithPatern</span>(head-&gt;children[c - <span class="string">&#x27;a&#x27;</span>], index + <span class="number">1</span>, word);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (TrieNode* node : head-&gt;children) &#123;</span><br><span class="line">                <span class="keyword">if</span> (node) &#123;</span><br><span class="line">                    <span class="type">bool</span> branchMatch = <span class="built_in">searchWithPatern</span>(node, index + <span class="number">1</span>, word);</span><br><span class="line">                    <span class="keyword">if</span> (branchMatch) &#123;</span><br><span class="line">                        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your WordDictionary object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * WordDictionary* obj = new WordDictionary();</span></span><br><span class="line"><span class="comment"> * obj-&gt;addWord(word);</span></span><br><span class="line"><span class="comment"> * bool param_2 = obj-&gt;search(word);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Depth-First Search</tag>
-        <tag>String</tag>
-        <tag>Design</tag>
-        <tag>Trie</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>215. Kth Largest Element in an Array</title>
     <url>/2023/08/28/215-Kth-Largest-Element-in-an-Array/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/kth-largest-element-in-an-array/">215. Kth Largest Element in an Array</a></p>
@@ -2670,40 +2629,44 @@
       </tags>
   </entry>
   <entry>
-    <title>219. Contains Duplicate II</title>
-    <url>/2023/12/05/219-Contains-Duplicate-II/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/contains-duplicate-ii/">219. Contains Duplicate II</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sliding-window//">Sliding Window</a></p>
-<p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <code>true</code> <em>if there are two <strong>distinct indices</strong></em> <code>i</code> <em>and</em> <code>j</code> <em>in the array such that</em> <code>nums[i] == nums[j]</code> <em>and</em> <code>abs(i - j) &lt;= k</code>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [1,2,3,1], k = 3</span><br><span class="line">Output: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [1,0,1,1], k = 1</span><br><span class="line">Output: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [1,2,3,1,2,3], k = 2</span><br><span class="line">Output: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+    <title>211. Design Add and Search Words Data Structure</title>
+    <url>/2023/10/09/211-Design-Add-and-Search-Words-Data-Structure/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/design-add-and-search-words-data-structure/">211. Design Add and Search Words Data Structure</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/string//">String</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/design//">Design</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/trie//">Trie</a></p>
+<p>Design a data structure that supports adding new words and finding if a string matches any previously added string.</p>
+<p>Implement the <code>WordDictionary</code> class:</p>
+<ul>
+<li><code>WordDictionary()</code> Initializes the object.</li>
+<li><code>void addWord(word)</code> Adds <code>word</code> to the data structure, it can be matched later.</li>
+<li><code>bool search(word)</code> Returns <code>true</code> if there is any string in the data structure that matches <code>word</code> or <code>false</code> otherwise. <code>word</code> may contain dots <code>&#39;.&#39;</code> where dots can be matched with any letter.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input</span><br><span class="line">[<span class="string">&quot;WordDictionary&quot;</span>,<span class="string">&quot;addWord&quot;</span>,<span class="string">&quot;addWord&quot;</span>,<span class="string">&quot;addWord&quot;</span>,<span class="string">&quot;search&quot;</span>,<span class="string">&quot;search&quot;</span>,<span class="string">&quot;search&quot;</span>,<span class="string">&quot;search&quot;</span>]</span><br><span class="line">[[],[<span class="string">&quot;bad&quot;</span>],[<span class="string">&quot;dad&quot;</span>],[<span class="string">&quot;mad&quot;</span>],[<span class="string">&quot;pad&quot;</span>],[<span class="string">&quot;bad&quot;</span>],[<span class="string">&quot;.ad&quot;</span>],[<span class="string">&quot;b..&quot;</span>]]</span><br><span class="line">Output</span><br><span class="line">[null,null,null,null,<span class="literal">false</span>,<span class="literal">true</span>,<span class="literal">true</span>,<span class="literal">true</span>]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">WordDictionary wordDictionary = new WordDictionary();</span><br><span class="line">wordDictionary.addWord(<span class="string">&quot;bad&quot;</span>);</span><br><span class="line">wordDictionary.addWord(<span class="string">&quot;dad&quot;</span>);</span><br><span class="line">wordDictionary.addWord(<span class="string">&quot;mad&quot;</span>);</span><br><span class="line">wordDictionary.search(<span class="string">&quot;pad&quot;</span>); // <span class="built_in">return</span> False</span><br><span class="line">wordDictionary.search(<span class="string">&quot;bad&quot;</span>); // <span class="built_in">return</span> True</span><br><span class="line">wordDictionary.search(<span class="string">&quot;.ad&quot;</span>); // <span class="built_in">return</span> True</span><br><span class="line">wordDictionary.search(<span class="string">&quot;b..&quot;</span>); // <span class="built_in">return</span> True</span><br></pre></td></tr></table></figure>
 
 <p><strong>Constraints:</strong></p>
 <ul>
-<li>1 &lt;&#x3D; nums.length &lt;&#x3D; 10<sup>5</sup></li>
-<li>-10<sup>9</sup> &lt;&#x3D; nums[i] &lt;&#x3D; 10<sup>9</sup></li>
-<li>0 &lt;&#x3D; k &lt;&#x3D; 10<sup>5</sup></li>
+<li><code>1 &lt;= word.length &lt;= 25</code></li>
+<li><code>word</code> in <code>addWord</code> consists of lowercase English letters.</li>
+<li><code>word</code> in <code>search</code> consist of <code>&#39;.&#39;</code> or lowercase English letters.</li>
+<li>There will be at most <code>2</code> dots in <code>word</code> for <code>search</code> queries.</li>
+<li>At most 10<sup>4</sup> calls will be made to <code>addWord</code> and <code>search</code>.</li>
 </ul>
 <h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>sliding window</li>
+<li>Trie</li>
+<li>Need a for loop for wildcard matching, also need a helper function tracking the index</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">containsNearbyDuplicate</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line">        map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; m;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; nums.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (m[nums[right]] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            m[nums[right]]++;</span><br><span class="line">            right++;</span><br><span class="line">            <span class="keyword">if</span> (right - left &gt; k) &#123;</span><br><span class="line">                m[nums[left]]--;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;   </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">WordDictionary</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">TrieNode</span> &#123;</span><br><span class="line">        <span class="type">bool</span> end;</span><br><span class="line">        vector&lt;TrieNode*&gt; children;</span><br><span class="line">        <span class="built_in">TrieNode</span>() &#123;</span><br><span class="line">            end = <span class="literal">false</span>;</span><br><span class="line">            children = <span class="built_in">vector</span>&lt;TrieNode*&gt;(<span class="number">26</span>, <span class="literal">nullptr</span>);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    TrieNode* root;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">WordDictionary</span>() &#123;</span><br><span class="line">        root = <span class="keyword">new</span> <span class="built_in">TrieNode</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">addWord</span><span class="params">(string word)</span> </span>&#123;</span><br><span class="line">        TrieNode* head = root;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : word) &#123;</span><br><span class="line">            <span class="keyword">if</span> (head-&gt;children[c - <span class="string">&#x27;a&#x27;</span>] == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">                head-&gt;children[c - <span class="string">&#x27;a&#x27;</span>] = <span class="keyword">new</span> <span class="built_in">TrieNode</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            head = head-&gt;children[c - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        head-&gt;end = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">search</span><span class="params">(string word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">searchWithPatern</span>(root, <span class="number">0</span>, word);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">searchWithPatern</span><span class="params">(TrieNode* head, <span class="type">int</span> index, string&amp; word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (index == word.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">return</span> head-&gt;end;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">char</span> c = word[index];</span><br><span class="line">        <span class="keyword">if</span> (c != <span class="string">&#x27;.&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">searchWithPatern</span>(head-&gt;children[c - <span class="string">&#x27;a&#x27;</span>], index + <span class="number">1</span>, word);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (TrieNode* node : head-&gt;children) &#123;</span><br><span class="line">                <span class="keyword">if</span> (node) &#123;</span><br><span class="line">                    <span class="type">bool</span> branchMatch = <span class="built_in">searchWithPatern</span>(node, index + <span class="number">1</span>, word);</span><br><span class="line">                    <span class="keyword">if</span> (branchMatch) &#123;</span><br><span class="line">                        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your WordDictionary object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * WordDictionary* obj = new WordDictionary();</span></span><br><span class="line"><span class="comment"> * obj-&gt;addWord(word);</span></span><br><span class="line"><span class="comment"> * bool param_2 = obj-&gt;search(word);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>Array</tag>
-        <tag>Hash Table</tag>
-        <tag>Sliding Window</tag>
+        <tag>Depth-First Search</tag>
+        <tag>String</tag>
+        <tag>Design</tag>
+        <tag>Trie</tag>
       </tags>
   </entry>
   <entry>
@@ -2749,6 +2712,43 @@
         <tag>Sorting</tag>
         <tag>Ordered Set</tag>
         <tag>Bucket Sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>219. Contains Duplicate II</title>
+    <url>/2023/12/05/219-Contains-Duplicate-II/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/contains-duplicate-ii/">219. Contains Duplicate II</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sliding-window//">Sliding Window</a></p>
+<p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <code>true</code> <em>if there are two <strong>distinct indices</strong></em> <code>i</code> <em>and</em> <code>j</code> <em>in the array such that</em> <code>nums[i] == nums[j]</code> <em>and</em> <code>abs(i - j) &lt;= k</code>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [1,2,3,1], k = 3</span><br><span class="line">Output: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [1,0,1,1], k = 1</span><br><span class="line">Output: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [1,2,3,1,2,3], k = 2</span><br><span class="line">Output: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; nums.length &lt;&#x3D; 10<sup>5</sup></li>
+<li>-10<sup>9</sup> &lt;&#x3D; nums[i] &lt;&#x3D; 10<sup>9</sup></li>
+<li>0 &lt;&#x3D; k &lt;&#x3D; 10<sup>5</sup></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>sliding window</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">containsNearbyDuplicate</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line">        map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; m;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; nums.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (m[nums[right]] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            m[nums[right]]++;</span><br><span class="line">            right++;</span><br><span class="line">            <span class="keyword">if</span> (right - left &gt; k) &#123;</span><br><span class="line">                m[nums[left]]--;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;   </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Hash Table</tag>
+        <tag>Sliding Window</tag>
       </tags>
   </entry>
   <entry>
@@ -4058,7 +4058,7 @@
     <title>3105. Longest Strictly Increasing or Strictly Decreasing Subarray</title>
     <url>/2024/05/07/3105-Longest-Strictly-Increasing-or-Strictly-Decreasing-Subarray/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/longest-strictly-increasing-or-strictly-decreasing-subarray/description/">3105. Longest Strictly Increasing or Strictly Decreasing Subarray</a></p>
-<p>You are given an array of integers <code>nums</code>. Return the length of the <strong>longest</strong>  subarray of <code>nums</code> which is either <strong>strictly increasing</strong>  or <strong>strictly decreasing</strong>.</p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given an array of integers <code>nums</code>. Return the length of the <strong>longest</strong>  subarray of <code>nums</code> which is either <strong>strictly increasing</strong>  or <strong>strictly decreasing</strong>.</p>
 <p><strong>Example 1:</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [1,4,3,3,2]</span><br><span class="line"></span><br><span class="line">Output: 2</span><br><span class="line"></span><br><span class="line">Explanation:</span><br><span class="line"></span><br><span class="line">The strictly increasing subarrays of `nums` are `[1]`, `[2]`, `[3]`, `[3]`, `[4]`, and `[1,4]`.</span><br><span class="line"></span><br><span class="line">The strictly decreasing subarrays of `nums` are `[1]`, `[2]`, `[3]`, `[3]`, `[4]`, `[3,2]`, and `[4,3]`.</span><br><span class="line"></span><br><span class="line">Hence, we <span class="built_in">return</span> `2`.</span><br></pre></td></tr></table></figure>
 
@@ -4084,6 +4084,41 @@
       </categories>
       <tags>
         <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3106. Lexicographically Smallest String After Operations With Constraint</title>
+    <url>/2024/05/08/3106-Lexicographically-Smallest-String-After-Operations-With-Constraint/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/lexicographically-smallest-string-after-operations-with-constraint/description/">3106. Lexicographically Smallest String After Operations With Constraint</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given a string <code>s</code> and an integer <code>k</code>.</p>
+<p>Define a function <code>distance(s1, s2)</code> between two strings <code>s1</code> and <code>s2</code> of the same length <code>n</code> as:</p>
+<ul>
+<li>The <strong>sum</strong>  of the <strong>minimum distance</strong>  between <code>s1[i]</code> and <code>s2[i]</code> when the characters from <code>&#39;a&#39;</code> to <code>&#39;z&#39;</code> are placed in a <strong>cyclic</strong>  order, for all <code>i</code> in the range <code>[0, n - 1]</code>.</li>
+</ul>
+<p>For example, <code>distance(&quot;ab&quot;, &quot;cd&quot;) == 4</code>, and <code>distance(&quot;a&quot;, &quot;z&quot;) == 1</code>.</p>
+<p>You can <strong>change</strong>  any letter of <code>s</code> to <strong>any</strong>  other lowercase English letter, <strong>any</strong>  number of times.</p>
+<p>Return a string denoting the <strong>lexicographically smallest</strong>  string <code>t</code> you can get after some changes, such that <code>distance(s, t) &lt;= k</code>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;zbbz&quot;</span>, k = 3</span><br><span class="line"></span><br><span class="line">Output: <span class="string">&quot;aaaz&quot;</span></span><br><span class="line"></span><br><span class="line">Explanation:</span><br><span class="line"></span><br><span class="line">Change `s` to `<span class="string">&quot;aaaz&quot;</span>`. The distance between `<span class="string">&quot;zbbz&quot;</span>` and `<span class="string">&quot;aaaz&quot;</span>` is equal to `k = 3`.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;xaxcd&quot;</span>, k = 4</span><br><span class="line"></span><br><span class="line">Output: <span class="string">&quot;aawcd&quot;</span></span><br><span class="line"></span><br><span class="line">Explanation:</span><br><span class="line"></span><br><span class="line">The distance between <span class="string">&quot;xaxcd&quot;</span> and <span class="string">&quot;aawcd&quot;</span> is equal to k = 4.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;lol&quot;</span>, k = 0</span><br><span class="line"></span><br><span class="line">Output: <span class="string">&quot;lol&quot;</span></span><br><span class="line"></span><br><span class="line">Explanation:</span><br><span class="line"></span><br><span class="line">It<span class="string">&#x27;s impossible to change any character as `k = 0`.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">**Constraints:**</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">- `1 &lt;= s.length &lt;= 100`</span></span><br><span class="line"><span class="string">- `0 &lt;= k &lt;= 2000`</span></span><br><span class="line"><span class="string">- `s` consists only of lowercase English letters.</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>change as many letters to ‘a’ first, then do just append</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">getSmallestString</span><span class="params">(string s, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> idx = <span class="number">0</span>;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="keyword">while</span> (idx &lt; s.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="type">char</span> c = s[idx];</span><br><span class="line">            <span class="type">bool</span> forward = <span class="literal">true</span>;</span><br><span class="line">            <span class="type">int</span> distance = <span class="built_in">min</span>(c - <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;z&#x27;</span> - c + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span> (k &gt;= distance) &#123;</span><br><span class="line">                res += <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">                k -= distance;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                res += c - k;</span><br><span class="line">                k = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            idx++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>String</tag>
+        <tag>Greedy</tag>
       </tags>
   </entry>
   <entry>
@@ -4765,6 +4800,40 @@
       </tags>
   </entry>
   <entry>
+    <title>370. Range Addition</title>
+    <url>/2023/01/23/370-Range-Addition/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/range-addition/">370. Range Addition</a></p>
+<p>You are given an integer <code>length</code> and an array <code>updates</code> where <code>updates[i] = [startIdx&lt;sub&gt;i&lt;/sub&gt;, endIdx&lt;sub&gt;i&lt;/sub&gt;, inc&lt;sub&gt;i&lt;/sub&gt;]</code>.</p>
+<p>You have an array <code>arr</code> of length <code>length</code> with all zeros, and you have some operation to apply on <code>arr</code>. In the <code>i^th</code> operation, you should increment all the elements <code>arr[startIdx&lt;sub&gt;i&lt;/sub&gt;], arr[startIdx&lt;sub&gt;i&lt;/sub&gt; + 1], ..., arr[endIdx&lt;sub&gt;i&lt;/sub&gt;]</code> by <code>inc&lt;sub&gt;i&lt;/sub&gt;</code>.</p>
+<p>Return <code>arr</code> after applying all the <code>updates</code>.</p>
+<p><strong>Example 1:</strong><br><img alt="" src="https://assets.leetcode.com/uploads/2021/03/27/rangeadd-grid.jpg" style="width: 413px; height: 573px;"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: length = 5, updates = [[1,3,2],[2,4,3],[0,2,-2]]</span><br><span class="line">Output: [-2,0,3,5,3]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: length = 10, updates = [[2,4,6],[5,6,8],[1,9,-4]]</span><br><span class="line">Output: [0,-4,2,2,2,4,4,-4,-4,-4]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= length &lt;= 10^5</code></li>
+<li><code>0 &lt;= updates.length &lt;= 10^4</code></li>
+<li><code>0 &lt;= startIdx&lt;sub&gt;i&lt;/sub&gt; &lt;= endIdx&lt;sub&gt;i&lt;/sub&gt; &lt; length</code></li>
+<li><code>-1000 &lt;= inc&lt;sub&gt;i&lt;/sub&gt; &lt;= 1000</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Use the diff array</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">getModifiedArray</span><span class="params">(<span class="type">int</span> length, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; updates)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">diffs</span><span class="params">(length, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (vector&lt;<span class="type">int</span>&gt; update : updates) &#123;</span><br><span class="line">            <span class="type">int</span> start = update[<span class="number">0</span>], end = update[<span class="number">1</span>], val = update[<span class="number">2</span>];</span><br><span class="line">            diffs[start] += val;</span><br><span class="line">            <span class="keyword">if</span> (end + <span class="number">1</span> &lt; length) &#123;</span><br><span class="line">                diffs[end + <span class="number">1</span>] -= val;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        res.<span class="built_in">push_back</span>(diffs[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; length; i++) &#123;</span><br><span class="line">            res.<span class="built_in">push_back</span>(diffs[i - <span class="number">1</span>] + diffs[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Prefix Sum</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>362. Design Hit Counter</title>
     <url>/2023/12/14/362-Design-Hit-Counter/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/design-hit-counter/">362. Design Hit Counter</a></p>
@@ -4803,40 +4872,6 @@
         <tag>Binary Search</tag>
         <tag>Design</tag>
         <tag>Queue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>370. Range Addition</title>
-    <url>/2023/01/23/370-Range-Addition/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/range-addition/">370. Range Addition</a></p>
-<p>You are given an integer <code>length</code> and an array <code>updates</code> where <code>updates[i] = [startIdx&lt;sub&gt;i&lt;/sub&gt;, endIdx&lt;sub&gt;i&lt;/sub&gt;, inc&lt;sub&gt;i&lt;/sub&gt;]</code>.</p>
-<p>You have an array <code>arr</code> of length <code>length</code> with all zeros, and you have some operation to apply on <code>arr</code>. In the <code>i^th</code> operation, you should increment all the elements <code>arr[startIdx&lt;sub&gt;i&lt;/sub&gt;], arr[startIdx&lt;sub&gt;i&lt;/sub&gt; + 1], ..., arr[endIdx&lt;sub&gt;i&lt;/sub&gt;]</code> by <code>inc&lt;sub&gt;i&lt;/sub&gt;</code>.</p>
-<p>Return <code>arr</code> after applying all the <code>updates</code>.</p>
-<p><strong>Example 1:</strong><br><img alt="" src="https://assets.leetcode.com/uploads/2021/03/27/rangeadd-grid.jpg" style="width: 413px; height: 573px;"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: length = 5, updates = [[1,3,2],[2,4,3],[0,2,-2]]</span><br><span class="line">Output: [-2,0,3,5,3]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: length = 10, updates = [[2,4,6],[5,6,8],[1,9,-4]]</span><br><span class="line">Output: [0,-4,2,2,2,4,4,-4,-4,-4]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= length &lt;= 10^5</code></li>
-<li><code>0 &lt;= updates.length &lt;= 10^4</code></li>
-<li><code>0 &lt;= startIdx&lt;sub&gt;i&lt;/sub&gt; &lt;= endIdx&lt;sub&gt;i&lt;/sub&gt; &lt; length</code></li>
-<li><code>-1000 &lt;= inc&lt;sub&gt;i&lt;/sub&gt; &lt;= 1000</code></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Use the diff array</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">getModifiedArray</span><span class="params">(<span class="type">int</span> length, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; updates)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">diffs</span><span class="params">(length, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (vector&lt;<span class="type">int</span>&gt; update : updates) &#123;</span><br><span class="line">            <span class="type">int</span> start = update[<span class="number">0</span>], end = update[<span class="number">1</span>], val = update[<span class="number">2</span>];</span><br><span class="line">            diffs[start] += val;</span><br><span class="line">            <span class="keyword">if</span> (end + <span class="number">1</span> &lt; length) &#123;</span><br><span class="line">                diffs[end + <span class="number">1</span>] -= val;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        res.<span class="built_in">push_back</span>(diffs[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; length; i++) &#123;</span><br><span class="line">            res.<span class="built_in">push_back</span>(diffs[i - <span class="number">1</span>] + diffs[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Prefix Sum</tag>
       </tags>
   </entry>
   <entry>
@@ -5267,7 +5302,7 @@
 <li>need to think more about correctness</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">characterReplacement</span><span class="params">(string s, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">count</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, res = <span class="number">0</span>, windowMaxCount = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; s.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            count[s[right] - <span class="string">&#x27;A&#x27;</span>]++;</span><br><span class="line">            windowMaxCount = <span class="built_in">max</span>(windowMaxCount, count[s[right] - <span class="string">&#x27;A&#x27;</span>]);</span><br><span class="line">            <span class="keyword">if</span> (left &lt;= right &amp;&amp; right - left + <span class="number">1</span> - windowMaxCount &gt; k) &#123;</span><br><span class="line">                count[s[left++] - <span class="string">&#x27;A&#x27;</span>]--;</span><br><span class="line">            &#125;</span><br><span class="line">            right++;</span><br><span class="line">            res = <span class="built_in">max</span>(res, right - left);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">characterReplacement</span><span class="params">(string s, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">count</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, res = <span class="number">0</span>, windowMaxCount = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; s.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            count[s[right] - <span class="string">&#x27;A&#x27;</span>]++;</span><br><span class="line">            windowMaxCount = <span class="built_in">max</span>(windowMaxCount, count[s[right] - <span class="string">&#x27;A&#x27;</span>]);</span><br><span class="line">            <span class="keyword">if</span> (right - left + <span class="number">1</span> - windowMaxCount &gt; k) &#123;</span><br><span class="line">                count[s[left++] - <span class="string">&#x27;A&#x27;</span>]--;</span><br><span class="line">            &#125;</span><br><span class="line">            right++;</span><br><span class="line">            res = <span class="built_in">max</span>(res, right - left);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Leetcode</category>
@@ -8373,26 +8408,6 @@
       </categories>
   </entry>
   <entry>
-    <title>How to manage time</title>
-    <url>/2022/12/23/How-to-manage-time/</url>
-    <content><![CDATA[<h3 id="How-I-Have-Time-For-Everything"><a href="#How-I-Have-Time-For-Everything" class="headerlink" title="How I Have Time For Everything"></a>How I Have Time For Everything</h3><ol>
-<li><p>Focus Completely For 2-4 Hours Every Day</p>
-</li>
-<li><p>Do One Thing At A Time</p>
-</li>
-<li><p>Permanently Declutter Your Schedule</p>
-</li>
-</ol>
-<p><a href="https://www.youtube.com/watch?v=c3pzcV9yi24">LINK</a></p>
-]]></content>
-      <categories>
-        <category>Excerpt</category>
-      </categories>
-      <tags>
-        <tag>Career</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Designing Data-Intensive Applications</title>
     <url>/2023/01/05/Designing-Data-Intensive-Applications/</url>
     <content><![CDATA[<p><a href="https://www.goodreads.com/book/show/23463279-designing-data-intensive-applications">Designing Data-Intensive Applications</a></p>
@@ -9883,6 +9898,26 @@
       </tags>
   </entry>
   <entry>
+    <title>How to manage time</title>
+    <url>/2022/12/23/How-to-manage-time/</url>
+    <content><![CDATA[<h3 id="How-I-Have-Time-For-Everything"><a href="#How-I-Have-Time-For-Everything" class="headerlink" title="How I Have Time For Everything"></a>How I Have Time For Everything</h3><ol>
+<li><p>Focus Completely For 2-4 Hours Every Day</p>
+</li>
+<li><p>Do One Thing At A Time</p>
+</li>
+<li><p>Permanently Declutter Your Schedule</p>
+</li>
+</ol>
+<p><a href="https://www.youtube.com/watch?v=c3pzcV9yi24">LINK</a></p>
+]]></content>
+      <categories>
+        <category>Excerpt</category>
+      </categories>
+      <tags>
+        <tag>Career</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>How to overcome procrastination</title>
     <url>/2022/12/02/How-to-overcome-procrastination/</url>
     <content><![CDATA[<h3 id="What"><a href="#What" class="headerlink" title="What"></a>What</h3><p>Procrastination is when we avoid a task we said we would do, for no good reason, despite expecting our behavior to bring negative consequences.</p>
@@ -10880,71 +10915,6 @@ Your browser does not support the audio element.
       </tags>
   </entry>
   <entry>
-    <title>Learnship 11 - 2023/10/23</title>
-    <url>/2023/10/23/Learnship-11-2023-10-23/</url>
-    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-11-Using-Discourse-Markers-for-Cohesive-Speaking-Writing-2"><a href="#Business-Language-Coaching-Session-11-Using-Discourse-Markers-for-Cohesive-Speaking-Writing-2" class="headerlink" title="Business Language Coaching - Session 11 - Using Discourse Markers for Cohesive Speaking &amp; Writing(2)"></a>Business Language Coaching - Session 11 - Using Discourse Markers for Cohesive Speaking &amp; Writing(2)</h2><ul>
-<li>learn about discourse markers and how to use them to improve your speaking</li>
-<li>do some impromptu speaking activities</li>
-</ul>
-<h3 id="Starting-Point"><a href="#Starting-Point" class="headerlink" title="Starting Point"></a>Starting Point</h3><p>How did you get on with the exercises on discourse markers? Have you had the chance to practice using a range of discourse markers in your meetings at work?</p>
-<h3 id="Matching"><a href="#Matching" class="headerlink" title="Matching"></a>Matching</h3><p>In paris, match the pairs of sentences. Once you have matched all the sentences, highlight the discourse markers.</p>
-<ol>
-<li><p>I’m not addicted to social media at all. <strong>On the contrary</strong>, there are plenty of other things I’d rather be doing with my time.</p>
-</li>
-<li><p><strong>In addition to</strong> being quite stressful, social media can be very time-consuming.</p>
-</li>
-<li><p>Social media can boost your career prospects. <strong>As it so happens</strong>, I found my current job via a friend’s post.</p>
-</li>
-<li><p>I’ve always been an advocate of new technology. <strong>Having said that</strong>, I do think it has to be used with caution.</p>
-</li>
-<li><p>It’s true that technology has its downsides. <strong>Even so</strong>, I know I couldn’t live without it.</p>
-</li>
-<li><p>Phones are quite expansive. <strong>What’s more</strong>, they break quite easily.</p>
-</li>
-<li><p>Technology has many uses in business. <strong>Likewise</strong>, it has many applications within education too.</p>
-</li>
-<li><p>Some people are nervous about using it, but <strong>by and large</strong>, most people are in favour of technology.</p>
-</li>
-<li><p>I bought the new model <strong>on account of</strong> its high-quality camera.</p>
-</li>
-<li><p>I read about the dangers of too much screen time. <strong>Accordingly</strong>, I now only let my children watch 30 minutes of television a day.</p>
-</li>
-</ol>
-<h3 id="Speaking-game"><a href="#Speaking-game" class="headerlink" title="Speaking game"></a>Speaking game</h3><p>Look at the illustrations on the next page and the list of discourse markers. In your group, take turns in rolling the die and saying the sentence and discourse marker that correspond to the number on the die. Once you use one of the discourse markers, tick it off from the list. Whoever ticks off all the discourse markers first, wins the game!</p>
-<p>Remember, the first throw is to help you choose which sentence to say; the second throw is to help you choose which discourse marker to use. Follow the example your teacher gives you.</p>
-<p>Topic: Being a YouTuber or a streamer is not believed to be a very stable profession.</p>
-<ul>
-<li>Accordingly</li>
-<li>even so</li>
-</ul>
-<p>Topic: Many people argue that buying local products supports local communities.</p>
-<ul>
-<li>on the whole</li>
-<li>nevertheless</li>
-<li>on account of</li>
-</ul>
-<h3 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h3><ul>
-<li>the butcher</li>
-<li>gourmet burger</li>
-<li>merchandise</li>
-<li>on the contrary; quite the opposite&#x2F;reverse</li>
-<li>in addition to; on top of</li>
-<li>as it so happens; as a matter of fact</li>
-<li>having said that; admittedly</li>
-<li>even so; although</li>
-<li>what’s more; on top of that</li>
-<li>likewise; at the same time</li>
-<li>by and large; on the whole; more or less</li>
-<li>on account of; due to</li>
-<li>accordingly; so</li>
-<li>talking of…(change topic while referring to something recently said)</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Learnship</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Learnship 10 - 2023/10/19</title>
     <url>/2023/10/19/Learnship-10-2023-10-19/</url>
     <content><![CDATA[<h2 id="Business-Language-Coaching-Session-10-Using-Discourse-Markers-for-Cohesive-Speaking-Writing"><a href="#Business-Language-Coaching-Session-10-Using-Discourse-Markers-for-Cohesive-Speaking-Writing" class="headerlink" title="Business Language Coaching - Session 10 - Using Discourse Markers for Cohesive Speaking &amp; Writing"></a>Business Language Coaching - Session 10 - Using Discourse Markers for Cohesive Speaking &amp; Writing</h2><ul>
@@ -11098,6 +11068,71 @@ Your browser does not support the audio element.
 <li><p>I accept that you may not like an outsider telling you what is the right thing to do, but we have to recognize that this person is an expert, and they may well see things, opportunities, that we might not. Anyway, he’s on our side.</p>
 </li>
 </ol>
+]]></content>
+      <tags>
+        <tag>Learnship</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Learnship 11 - 2023/10/23</title>
+    <url>/2023/10/23/Learnship-11-2023-10-23/</url>
+    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-11-Using-Discourse-Markers-for-Cohesive-Speaking-Writing-2"><a href="#Business-Language-Coaching-Session-11-Using-Discourse-Markers-for-Cohesive-Speaking-Writing-2" class="headerlink" title="Business Language Coaching - Session 11 - Using Discourse Markers for Cohesive Speaking &amp; Writing(2)"></a>Business Language Coaching - Session 11 - Using Discourse Markers for Cohesive Speaking &amp; Writing(2)</h2><ul>
+<li>learn about discourse markers and how to use them to improve your speaking</li>
+<li>do some impromptu speaking activities</li>
+</ul>
+<h3 id="Starting-Point"><a href="#Starting-Point" class="headerlink" title="Starting Point"></a>Starting Point</h3><p>How did you get on with the exercises on discourse markers? Have you had the chance to practice using a range of discourse markers in your meetings at work?</p>
+<h3 id="Matching"><a href="#Matching" class="headerlink" title="Matching"></a>Matching</h3><p>In paris, match the pairs of sentences. Once you have matched all the sentences, highlight the discourse markers.</p>
+<ol>
+<li><p>I’m not addicted to social media at all. <strong>On the contrary</strong>, there are plenty of other things I’d rather be doing with my time.</p>
+</li>
+<li><p><strong>In addition to</strong> being quite stressful, social media can be very time-consuming.</p>
+</li>
+<li><p>Social media can boost your career prospects. <strong>As it so happens</strong>, I found my current job via a friend’s post.</p>
+</li>
+<li><p>I’ve always been an advocate of new technology. <strong>Having said that</strong>, I do think it has to be used with caution.</p>
+</li>
+<li><p>It’s true that technology has its downsides. <strong>Even so</strong>, I know I couldn’t live without it.</p>
+</li>
+<li><p>Phones are quite expansive. <strong>What’s more</strong>, they break quite easily.</p>
+</li>
+<li><p>Technology has many uses in business. <strong>Likewise</strong>, it has many applications within education too.</p>
+</li>
+<li><p>Some people are nervous about using it, but <strong>by and large</strong>, most people are in favour of technology.</p>
+</li>
+<li><p>I bought the new model <strong>on account of</strong> its high-quality camera.</p>
+</li>
+<li><p>I read about the dangers of too much screen time. <strong>Accordingly</strong>, I now only let my children watch 30 minutes of television a day.</p>
+</li>
+</ol>
+<h3 id="Speaking-game"><a href="#Speaking-game" class="headerlink" title="Speaking game"></a>Speaking game</h3><p>Look at the illustrations on the next page and the list of discourse markers. In your group, take turns in rolling the die and saying the sentence and discourse marker that correspond to the number on the die. Once you use one of the discourse markers, tick it off from the list. Whoever ticks off all the discourse markers first, wins the game!</p>
+<p>Remember, the first throw is to help you choose which sentence to say; the second throw is to help you choose which discourse marker to use. Follow the example your teacher gives you.</p>
+<p>Topic: Being a YouTuber or a streamer is not believed to be a very stable profession.</p>
+<ul>
+<li>Accordingly</li>
+<li>even so</li>
+</ul>
+<p>Topic: Many people argue that buying local products supports local communities.</p>
+<ul>
+<li>on the whole</li>
+<li>nevertheless</li>
+<li>on account of</li>
+</ul>
+<h3 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h3><ul>
+<li>the butcher</li>
+<li>gourmet burger</li>
+<li>merchandise</li>
+<li>on the contrary; quite the opposite&#x2F;reverse</li>
+<li>in addition to; on top of</li>
+<li>as it so happens; as a matter of fact</li>
+<li>having said that; admittedly</li>
+<li>even so; although</li>
+<li>what’s more; on top of that</li>
+<li>likewise; at the same time</li>
+<li>by and large; on the whole; more or less</li>
+<li>on account of; due to</li>
+<li>accordingly; so</li>
+<li>talking of…(change topic while referring to something recently said)</li>
+</ul>
 ]]></content>
       <tags>
         <tag>Learnship</tag>

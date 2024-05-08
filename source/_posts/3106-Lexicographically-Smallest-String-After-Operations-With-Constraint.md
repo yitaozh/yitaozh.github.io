@@ -67,7 +67,7 @@ It's impossible to change any character as `k = 0`.
 
 ## Hints/Notes
 
-- change as many letters to 'a' first, then do just append
+- change as many letters to 'a' first, then append the remaining
 
 ## Solution
 

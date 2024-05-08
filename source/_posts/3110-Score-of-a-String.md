@@ -3,6 +3,7 @@ title: 3110. Score of a String
 categories: Leetcode
 date: 2024-05-08 13:37:07
 tags:
+    - String
 ---
 
 [3110. Score of a String](https://leetcode.com/problems/score-of-a-string/description/)

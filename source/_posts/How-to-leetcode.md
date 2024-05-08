@@ -65,13 +65,13 @@ New page.
 
 ## The problems not recorded
 
-199, 298, 988, 1022, 1457
+Contest 392, 128, 393, 394, 129, 395, 396
 
 ## The best way to record the progression
 
 Screenshot the next day's list
 
-New question date: 2024-01-02
+New question date: 2024-01-09
 
 ## The problems not noted
 

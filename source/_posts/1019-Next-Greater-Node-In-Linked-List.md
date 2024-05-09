@@ -49,6 +49,7 @@ Output: [7,0,5,5,0]
 
 ## Hints/Notes
 
+* translate the linked list to array first
 * stack
 
 ## Solution

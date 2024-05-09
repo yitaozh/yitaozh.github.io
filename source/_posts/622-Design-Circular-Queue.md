@@ -117,6 +117,7 @@ public:
             tail = nullptr;
         } else {
             head = head->next;
+            tail->next = head;
         }
         delete(tmp);
         return true;

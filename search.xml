@@ -137,7 +137,7 @@
 <li>1 &lt;&#x3D; Node.val &lt;&#x3D; 10<sup>9</sup></li>
 </ul>
 <h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>translate the linked list to array first</li>
+<li>transform the linked list to array first</li>
 <li>stack</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
@@ -269,47 +269,6 @@
       </tags>
   </entry>
   <entry>
-    <title>106. Construct Binary Tree from Inorder and Postorder Traversal</title>
-    <url>/2023/08/22/106-Construct-Binary-Tree-from-Inorder-and-Postorder-Traversal/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/">106. Construct Binary Tree from Inorder and Postorder Traversal</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/divide-and-conquer//">Divide and Conquer</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/tree//">Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//">Binary Tree</a></p>
-<p>Given two integer arrays <code>inorder</code> and <code>postorder</code> where <code>inorder</code> is the inorder traversal of a binary tree and <code>postorder</code> is the postorder traversal of the same tree, construct and return <em>the binary tree</em>.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2021/02/19/tree.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: inorder = [9,3,15,20,7], postorder = [9,15,7,20,3]</span><br><span class="line">Output: [3,9,20,null,null,15,7]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: inorder = [-1], postorder = [-1]</span><br><span class="line">Output: [-1]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= inorder.length &lt;= 3000</code></li>
-<li><code>postorder.length == inorder.length</code></li>
-<li><code>-3000 &lt;= inorder[i], postorder[i] &lt;= 3000</code></li>
-<li><code>inorder</code> and <code>postorder</code> consist of <strong>unique</strong> values.</li>
-<li>Each value of <code>postorder</code> also appears in <code>inorder</code>.</li>
-<li><code>inorder</code> is <strong>guaranteed</strong> to be the inorder traversal of the tree.</li>
-<li><code>postorder</code> is <strong>guaranteed</strong> to be the postorder traversal of the tree.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Draw the tree and find the pattern of root’s location</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; valToIndex;</span><br><span class="line"></span><br><span class="line">    <span class="function">TreeNode* <span class="title">buildTree</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; inorder, vector&lt;<span class="type">int</span>&gt;&amp; postorder)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> size = inorder.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            valToIndex[inorder[i]] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">build</span>(inorder, <span class="number">0</span>, size - <span class="number">1</span>, postorder, <span class="number">0</span>, size - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">TreeNode* <span class="title">build</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; inorder, <span class="type">int</span> inStart, <span class="type">int</span> inEnd,</span></span></span><br><span class="line"><span class="params"><span class="function">                    vector&lt;<span class="type">int</span>&gt;&amp; postorder, <span class="type">int</span> postStart, <span class="type">int</span> postEnd)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (inStart &gt; inEnd) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> rootVal = postorder[postEnd];</span><br><span class="line">        <span class="type">int</span> rootIndex = valToIndex[rootVal];</span><br><span class="line"></span><br><span class="line">        TreeNode* root = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(rootVal);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> leftSize = rootIndex - inStart;</span><br><span class="line">        root-&gt;left = <span class="built_in">build</span>(inorder, inStart, rootIndex - <span class="number">1</span>,</span><br><span class="line">                           postorder, postStart, postStart + leftSize - <span class="number">1</span>);</span><br><span class="line">        root-&gt;right = <span class="built_in">build</span>(inorder, rootIndex + <span class="number">1</span>, inEnd,</span><br><span class="line">                            postorder, postStart + leftSize, postEnd - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Hash Table</tag>
-        <tag>Tree</tag>
-        <tag>Binary Tree</tag>
-        <tag>Divide and Conquer</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>1056. Confusing Number</title>
     <url>/2023/01/20/1056-Confusing-Number/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/confusing-number/">1056. Confusing Number</a></p>
@@ -356,6 +315,83 @@
       </tags>
   </entry>
   <entry>
+    <title>1071. Greatest Common Divisor of Strings</title>
+    <url>/2023/02/01/1071-Greatest-Common-Divisor-of-Strings/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/greatest-common-divisor-of-strings/">1071. Greatest Common Divisor of Strings</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/math/">Math</a>, <a href="https://leetcode.com/tag/string/">String</a></p>
+<p>For two strings <code>s</code> and <code>t</code>, we say “<code>t</code> divides <code>s</code>“ if and only if <code>s = t + ... + t</code> (i.e., <code>t</code> is concatenated with itself one or more times).</p>
+<p>Given two strings <code>str1</code> and <code>str2</code>, return <em>the largest string</em> <code>x</code> <em>such that</em> <code>x</code> <em>divides both</em> <code>str1</code> <em>and</em> <code>str2</code>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: str1 = &quot;ABCABC&quot;, str2 = &quot;ABC&quot;</span><br><span class="line">Output: &quot;ABC&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: str1 = &quot;ABABAB&quot;, str2 = &quot;ABAB&quot;</span><br><span class="line">Output: &quot;AB&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: str1 = &quot;LEET&quot;, str2 = &quot;CODE&quot;</span><br><span class="line">Output: &quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= str1.length, str2.length &lt;= 1000</code></li>
+<li><code>str1</code> and <code>str2</code> consist of English uppercase letters.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Think about it methmatically, like str1 is k subStrings and str2 is l subStrings</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">gcdOfStrings</span><span class="params">(string str1, string str2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (str1 + str2 != str2 + str1) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> gcdLength = <span class="built_in">gcd</span>(str1.<span class="built_in">size</span>(), str2.<span class="built_in">size</span>());</span><br><span class="line">        <span class="keyword">return</span> str1.<span class="built_in">substr</span>(<span class="number">0</span>, gcdLength);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Math</tag>
+        <tag>String</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>106. Construct Binary Tree from Inorder and Postorder Traversal</title>
+    <url>/2023/08/22/106-Construct-Binary-Tree-from-Inorder-and-Postorder-Traversal/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/">106. Construct Binary Tree from Inorder and Postorder Traversal</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/divide-and-conquer//">Divide and Conquer</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/tree//">Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//">Binary Tree</a></p>
+<p>Given two integer arrays <code>inorder</code> and <code>postorder</code> where <code>inorder</code> is the inorder traversal of a binary tree and <code>postorder</code> is the postorder traversal of the same tree, construct and return <em>the binary tree</em>.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/02/19/tree.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: inorder = [9,3,15,20,7], postorder = [9,15,7,20,3]</span><br><span class="line">Output: [3,9,20,null,null,15,7]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: inorder = [-1], postorder = [-1]</span><br><span class="line">Output: [-1]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= inorder.length &lt;= 3000</code></li>
+<li><code>postorder.length == inorder.length</code></li>
+<li><code>-3000 &lt;= inorder[i], postorder[i] &lt;= 3000</code></li>
+<li><code>inorder</code> and <code>postorder</code> consist of <strong>unique</strong> values.</li>
+<li>Each value of <code>postorder</code> also appears in <code>inorder</code>.</li>
+<li><code>inorder</code> is <strong>guaranteed</strong> to be the inorder traversal of the tree.</li>
+<li><code>postorder</code> is <strong>guaranteed</strong> to be the postorder traversal of the tree.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Draw the tree and find the pattern of root’s location</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; valToIndex;</span><br><span class="line"></span><br><span class="line">    <span class="function">TreeNode* <span class="title">buildTree</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; inorder, vector&lt;<span class="type">int</span>&gt;&amp; postorder)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> size = inorder.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            valToIndex[inorder[i]] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">build</span>(inorder, <span class="number">0</span>, size - <span class="number">1</span>, postorder, <span class="number">0</span>, size - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">TreeNode* <span class="title">build</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; inorder, <span class="type">int</span> inStart, <span class="type">int</span> inEnd,</span></span></span><br><span class="line"><span class="params"><span class="function">                    vector&lt;<span class="type">int</span>&gt;&amp; postorder, <span class="type">int</span> postStart, <span class="type">int</span> postEnd)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (inStart &gt; inEnd) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> rootVal = postorder[postEnd];</span><br><span class="line">        <span class="type">int</span> rootIndex = valToIndex[rootVal];</span><br><span class="line"></span><br><span class="line">        TreeNode* root = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(rootVal);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> leftSize = rootIndex - inStart;</span><br><span class="line">        root-&gt;left = <span class="built_in">build</span>(inorder, inStart, rootIndex - <span class="number">1</span>,</span><br><span class="line">                           postorder, postStart, postStart + leftSize - <span class="number">1</span>);</span><br><span class="line">        root-&gt;right = <span class="built_in">build</span>(inorder, rootIndex + <span class="number">1</span>, inEnd,</span><br><span class="line">                            postorder, postStart + leftSize, postEnd - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Hash Table</tag>
+        <tag>Tree</tag>
+        <tag>Binary Tree</tag>
+        <tag>Divide and Conquer</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>1094. Car Pooling</title>
     <url>/2023/01/23/1094-Car-Pooling/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/car-pooling/">1094. Car Pooling</a></p>
@@ -396,42 +432,6 @@
       </tags>
   </entry>
   <entry>
-    <title>1071. Greatest Common Divisor of Strings</title>
-    <url>/2023/02/01/1071-Greatest-Common-Divisor-of-Strings/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/greatest-common-divisor-of-strings/">1071. Greatest Common Divisor of Strings</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/math/">Math</a>, <a href="https://leetcode.com/tag/string/">String</a></p>
-<p>For two strings <code>s</code> and <code>t</code>, we say “<code>t</code> divides <code>s</code>“ if and only if <code>s = t + ... + t</code> (i.e., <code>t</code> is concatenated with itself one or more times).</p>
-<p>Given two strings <code>str1</code> and <code>str2</code>, return <em>the largest string</em> <code>x</code> <em>such that</em> <code>x</code> <em>divides both</em> <code>str1</code> <em>and</em> <code>str2</code>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: str1 = &quot;ABCABC&quot;, str2 = &quot;ABC&quot;</span><br><span class="line">Output: &quot;ABC&quot;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: str1 = &quot;ABABAB&quot;, str2 = &quot;ABAB&quot;</span><br><span class="line">Output: &quot;AB&quot;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: str1 = &quot;LEET&quot;, str2 = &quot;CODE&quot;</span><br><span class="line">Output: &quot;&quot;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= str1.length, str2.length &lt;= 1000</code></li>
-<li><code>str1</code> and <code>str2</code> consist of English uppercase letters.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Think about it methmatically, like str1 is k subStrings and str2 is l subStrings</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">gcdOfStrings</span><span class="params">(string str1, string str2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (str1 + str2 != str2 + str1) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> gcdLength = <span class="built_in">gcd</span>(str1.<span class="built_in">size</span>(), str2.<span class="built_in">size</span>());</span><br><span class="line">        <span class="keyword">return</span> str1.<span class="built_in">substr</span>(<span class="number">0</span>, gcdLength);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Math</tag>
-        <tag>String</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>1109. Corporate Flight Bookings</title>
     <url>/2023/01/23/1109-Corporate-Flight-Bookings/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/corporate-flight-bookings/">1109. Corporate Flight Bookings</a></p>
@@ -466,6 +466,44 @@
       <tags>
         <tag>Array</tag>
         <tag>Prefix Sum</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>1124. Longest Well-Performing Interval</title>
+    <url>/2023/11/13/1124-Longest-Well-Performing-Interval/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/longest-well-performing-interval/">1124. Longest Well-Performing Interval</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/stack//">Stack</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/monotonic-stack//">Monotonic Stack</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/prefix-sum//">Prefix Sum</a></p>
+<p>We are given <code>hours</code>, a list of the number of hours worked per day for a given employee.</p>
+<p>A day is considered to be a <em>tiring day</em> if and only if the number of hours worked is (strictly) greater than <code>8</code>.</p>
+<p>A <em>well-performing interval</em> is an interval of days for which the number of tiring days is strictly larger than the number of non-tiring days.</p>
+<p>Return the length of the longest well-performing interval.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: hours = [9,9,6,0,6,6,9]</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The longest well-performing interval is [9,9,6].</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: hours = [6,6,6]</span><br><span class="line">Output: 0</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; hours.length &lt;&#x3D; 10<sup>4</sup></li>
+<li><code>0 &lt;= hours[i] &lt;= 16</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>preSum + map</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longestWPI</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; hours)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> size = hours.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">preSum</span><span class="params">(size + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            preSum[i + <span class="number">1</span>] = preSum[i] + (hours[i] &gt; <span class="number">8</span> ? <span class="number">1</span> : <span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; m;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= size; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!m.<span class="built_in">contains</span>(preSum[i])) &#123;</span><br><span class="line">                m[preSum[i]] = i;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (preSum[i] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                res = <span class="built_in">max</span>(res, i);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (m.<span class="built_in">contains</span>(preSum[i] - <span class="number">1</span>)) &#123;</span><br><span class="line">                    res = <span class="built_in">max</span>(res, i - m[preSum[i] - <span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Hash Table</tag>
+        <tag>Prefix Sum</tag>
+        <tag>Stack</tag>
+        <tag>Monotonic Stack</tag>
       </tags>
   </entry>
   <entry>
@@ -513,44 +551,6 @@
         <tag>Union Find</tag>
         <tag>Graph</tag>
         <tag>Minimum Spanning Tree</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>1124. Longest Well-Performing Interval</title>
-    <url>/2023/11/13/1124-Longest-Well-Performing-Interval/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/longest-well-performing-interval/">1124. Longest Well-Performing Interval</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/stack//">Stack</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/monotonic-stack//">Monotonic Stack</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/prefix-sum//">Prefix Sum</a></p>
-<p>We are given <code>hours</code>, a list of the number of hours worked per day for a given employee.</p>
-<p>A day is considered to be a <em>tiring day</em> if and only if the number of hours worked is (strictly) greater than <code>8</code>.</p>
-<p>A <em>well-performing interval</em> is an interval of days for which the number of tiring days is strictly larger than the number of non-tiring days.</p>
-<p>Return the length of the longest well-performing interval.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: hours = [9,9,6,0,6,6,9]</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The longest well-performing interval is [9,9,6].</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: hours = [6,6,6]</span><br><span class="line">Output: 0</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>1 &lt;&#x3D; hours.length &lt;&#x3D; 10<sup>4</sup></li>
-<li><code>0 &lt;= hours[i] &lt;= 16</code></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>preSum + map</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longestWPI</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; hours)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> size = hours.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">preSum</span><span class="params">(size + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            preSum[i + <span class="number">1</span>] = preSum[i] + (hours[i] &gt; <span class="number">8</span> ? <span class="number">1</span> : <span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; m;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= size; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!m.<span class="built_in">contains</span>(preSum[i])) &#123;</span><br><span class="line">                m[preSum[i]] = i;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (preSum[i] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                res = <span class="built_in">max</span>(res, i);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (m.<span class="built_in">contains</span>(preSum[i] - <span class="number">1</span>)) &#123;</span><br><span class="line">                    res = <span class="built_in">max</span>(res, i - m[preSum[i] - <span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Hash Table</tag>
-        <tag>Prefix Sum</tag>
-        <tag>Stack</tag>
-        <tag>Monotonic Stack</tag>
       </tags>
   </entry>
   <entry>
@@ -1024,46 +1024,6 @@
       </tags>
   </entry>
   <entry>
-    <title>1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit</title>
-    <url>/2023/12/17/1438-Longest-Continuous-Subarray-With-Absolute-Diff-Less-Than-or-Equal-to-Limit/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/">1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/queue//">Queue</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sliding-window//">Sliding Window</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/heap-priority-queue//">Heap (Priority Queue)</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/ordered-set//">Ordered Set</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/monotonic-queue//">Monotonic Queue</a></p>
-<p>Given an array of integers <code>nums</code> and an integer <code>limit</code>, return the size of the longest <strong>non-empty</strong> subarray such that the absolute difference between any two elements of this subarray is less than or equal to <code>limit</code><em>.</em></p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [8,2,4,7], <span class="built_in">limit</span> = 4</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: All subarrays are:</span><br><span class="line">[8] with maximum absolute diff |8-8| = 0 &lt;= 4.</span><br><span class="line">[8,2] with maximum absolute diff |8-2| = 6 &gt; 4\.</span><br><span class="line">[8,2,4] with maximum absolute diff |8-2| = 6 &gt; 4.</span><br><span class="line">[8,2,4,7] with maximum absolute diff |8-2| = 6 &gt; 4.</span><br><span class="line">[2] with maximum absolute diff |2-2| = 0 &lt;= 4.</span><br><span class="line">[2,4] with maximum absolute diff |2-4| = 2 &lt;= 4.</span><br><span class="line">[2,4,7] with maximum absolute diff |2-7| = 5 &gt; 4.</span><br><span class="line">[4] with maximum absolute diff |4-4| = 0 &lt;= 4.</span><br><span class="line">[4,7] with maximum absolute diff |4-7| = 3 &lt;= 4.</span><br><span class="line">[7] with maximum absolute diff |7-7| = 0 &lt;= 4\.</span><br><span class="line">Therefore, the size of the longest subarray is 2.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [10,1,2,4,7,2], <span class="built_in">limit</span> = 5</span><br><span class="line">Output: 4</span><br><span class="line">Explanation: The subarray [2,4,7,2] is the longest since the maximum absolute diff is |2-7| = 5 &lt;= 5.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [4,2,2,2,4,4,2,2], <span class="built_in">limit</span> = 0</span><br><span class="line">Output: 3</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>1 &lt;&#x3D; nums.length &lt;&#x3D; 10<sup>5</sup></li>
-<li>1 &lt;&#x3D; nums[i] &lt;&#x3D; 10<sup>9</sup></li>
-<li>0 &lt;&#x3D; limit &lt;&#x3D; 10<sup>9</sup></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>monotonic queue</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longestSubarray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> limit)</span> </span>&#123;</span><br><span class="line">        deque&lt;<span class="type">int</span>&gt; minQ;</span><br><span class="line">        deque&lt;<span class="type">int</span>&gt; maxQ;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; nums.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">while</span> (!minQ.<span class="built_in">empty</span>() &amp;&amp; minQ.<span class="built_in">back</span>() &gt; nums[right]) &#123;</span><br><span class="line">                minQ.<span class="built_in">pop_back</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (!maxQ.<span class="built_in">empty</span>() &amp;&amp; maxQ.<span class="built_in">back</span>() &lt; nums[right]) &#123;</span><br><span class="line">                maxQ.<span class="built_in">pop_back</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            minQ.<span class="built_in">push_back</span>(nums[right]);</span><br><span class="line">            maxQ.<span class="built_in">push_back</span>(nums[right]);</span><br><span class="line">            <span class="keyword">while</span> ((maxQ.<span class="built_in">front</span>() - minQ.<span class="built_in">front</span>() &gt; limit) &amp;&amp; left &lt; right) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[left] == minQ.<span class="built_in">front</span>()) &#123;</span><br><span class="line">                    minQ.<span class="built_in">pop_front</span>();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (nums[left] == maxQ.<span class="built_in">front</span>()) &#123;</span><br><span class="line">                    maxQ.<span class="built_in">pop_front</span>();</span><br><span class="line">                &#125;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            res = <span class="built_in">max</span>(res, right - left + <span class="number">1</span>);</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Sliding Window</tag>
-        <tag>Heap (Priority Queue)</tag>
-        <tag>Queue</tag>
-        <tag>Ordered Set</tag>
-        <tag>Monotonic Queue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>144. Binary Tree Preorder Traversal</title>
     <url>/2023/02/02/144-Binary-Tree-Preorder-Traversal/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/binary-tree-preorder-traversal/">144. Binary Tree Preorder Traversal</a></p>
@@ -1103,6 +1063,46 @@
         <tag>Tree</tag>
         <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit</title>
+    <url>/2023/12/17/1438-Longest-Continuous-Subarray-With-Absolute-Diff-Less-Than-or-Equal-to-Limit/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/">1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/queue//">Queue</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sliding-window//">Sliding Window</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/heap-priority-queue//">Heap (Priority Queue)</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/ordered-set//">Ordered Set</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/monotonic-queue//">Monotonic Queue</a></p>
+<p>Given an array of integers <code>nums</code> and an integer <code>limit</code>, return the size of the longest <strong>non-empty</strong> subarray such that the absolute difference between any two elements of this subarray is less than or equal to <code>limit</code><em>.</em></p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [8,2,4,7], <span class="built_in">limit</span> = 4</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: All subarrays are:</span><br><span class="line">[8] with maximum absolute diff |8-8| = 0 &lt;= 4.</span><br><span class="line">[8,2] with maximum absolute diff |8-2| = 6 &gt; 4\.</span><br><span class="line">[8,2,4] with maximum absolute diff |8-2| = 6 &gt; 4.</span><br><span class="line">[8,2,4,7] with maximum absolute diff |8-2| = 6 &gt; 4.</span><br><span class="line">[2] with maximum absolute diff |2-2| = 0 &lt;= 4.</span><br><span class="line">[2,4] with maximum absolute diff |2-4| = 2 &lt;= 4.</span><br><span class="line">[2,4,7] with maximum absolute diff |2-7| = 5 &gt; 4.</span><br><span class="line">[4] with maximum absolute diff |4-4| = 0 &lt;= 4.</span><br><span class="line">[4,7] with maximum absolute diff |4-7| = 3 &lt;= 4.</span><br><span class="line">[7] with maximum absolute diff |7-7| = 0 &lt;= 4\.</span><br><span class="line">Therefore, the size of the longest subarray is 2.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [10,1,2,4,7,2], <span class="built_in">limit</span> = 5</span><br><span class="line">Output: 4</span><br><span class="line">Explanation: The subarray [2,4,7,2] is the longest since the maximum absolute diff is |2-7| = 5 &lt;= 5.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [4,2,2,2,4,4,2,2], <span class="built_in">limit</span> = 0</span><br><span class="line">Output: 3</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; nums.length &lt;&#x3D; 10<sup>5</sup></li>
+<li>1 &lt;&#x3D; nums[i] &lt;&#x3D; 10<sup>9</sup></li>
+<li>0 &lt;&#x3D; limit &lt;&#x3D; 10<sup>9</sup></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>monotonic queue</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longestSubarray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> limit)</span> </span>&#123;</span><br><span class="line">        deque&lt;<span class="type">int</span>&gt; minQ;</span><br><span class="line">        deque&lt;<span class="type">int</span>&gt; maxQ;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; nums.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">while</span> (!minQ.<span class="built_in">empty</span>() &amp;&amp; minQ.<span class="built_in">back</span>() &gt; nums[right]) &#123;</span><br><span class="line">                minQ.<span class="built_in">pop_back</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (!maxQ.<span class="built_in">empty</span>() &amp;&amp; maxQ.<span class="built_in">back</span>() &lt; nums[right]) &#123;</span><br><span class="line">                maxQ.<span class="built_in">pop_back</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            minQ.<span class="built_in">push_back</span>(nums[right]);</span><br><span class="line">            maxQ.<span class="built_in">push_back</span>(nums[right]);</span><br><span class="line">            <span class="keyword">while</span> ((maxQ.<span class="built_in">front</span>() - minQ.<span class="built_in">front</span>() &gt; limit) &amp;&amp; left &lt; right) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[left] == minQ.<span class="built_in">front</span>()) &#123;</span><br><span class="line">                    minQ.<span class="built_in">pop_front</span>();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (nums[left] == maxQ.<span class="built_in">front</span>()) &#123;</span><br><span class="line">                    maxQ.<span class="built_in">pop_front</span>();</span><br><span class="line">                &#125;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            res = <span class="built_in">max</span>(res, right - left + <span class="number">1</span>);</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Sliding Window</tag>
+        <tag>Heap (Priority Queue)</tag>
+        <tag>Queue</tag>
+        <tag>Ordered Set</tag>
+        <tag>Monotonic Queue</tag>
       </tags>
   </entry>
   <entry>
@@ -1769,6 +1769,46 @@
       </tags>
   </entry>
   <entry>
+    <title>1658. Minimum Operations to Reduce X to Zero</title>
+    <url>/2023/12/04/1658-Minimum-Operations-to-Reduce-X-to-Zero/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero/">1658. Minimum Operations to Reduce X to Zero</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-search//">Binary Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sliding-window//">Sliding Window</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/prefix-sum//">Prefix Sum</a></p>
+<p>You are given an integer array <code>nums</code> and an integer <code>x</code>. In one operation, you can either remove the leftmost or the rightmost element from the array <code>nums</code> and subtract its value from <code>x</code>. Note that this <strong>modifies</strong> the array for future operations.</p>
+<p>Return <em>the <strong>minimum number</strong> of operations to reduce</em> <code>x</code> <em>to <strong>exactly</strong></em> <code>0</code> <em>if it is possible</em><em>, otherwise, return</em> <code>-1</code>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [1,1,4,2,3], x = 5</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: The optimal solution is to remove the last two elements to reduce x to zero.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [5,6,7,8,9], x = 4</span><br><span class="line">Output: -1</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [3,2,20,1,1,3], x = 10</span><br><span class="line">Output: 5</span><br><span class="line">Explanation: The optimal solution is to remove the last three elements and the first two elements (5 operations <span class="keyword">in</span> total) to reduce x to zero.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; nums.length &lt;&#x3D; 10<sup>5</sup></li>
+<li>1 &lt;&#x3D; nums[i] &lt;&#x3D; 10<sup>4</sup></li>
+<li>1 &lt;&#x3D; x &lt;&#x3D; 10<sup>9</sup></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Sliding window</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minOperations</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> sum = <span class="number">0</span>, size = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> num : nums) &#123;</span><br><span class="line">            sum += num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> target = sum - x, left = <span class="number">0</span>, right = <span class="number">0</span>, res = INT_MAX;</span><br><span class="line">        sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; nums.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            sum += nums[right];</span><br><span class="line">            <span class="keyword">if</span> (sum &gt; target) &#123;</span><br><span class="line">                <span class="keyword">while</span> (sum &gt; target &amp;&amp; left &lt;= right) &#123;</span><br><span class="line">                    sum -= nums[left];</span><br><span class="line">                    left++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (sum == target) &#123;</span><br><span class="line">                res = <span class="built_in">min</span>(res, size - right + left - <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            right++; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res == INT_MAX ? <span class="number">-1</span> : res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Hash Table</tag>
+        <tag>Binary Search</tag>
+        <tag>Sliding Window</tag>
+        <tag>Prefix Sum</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>167. Two Sum II - Input Array Is Sorted</title>
     <url>/2023/01/19/167-Two-Sum-II-Input-Array-Is-Sorted/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/">167. Two Sum II - Input Array Is Sorted</a></p>
@@ -1808,46 +1848,6 @@
         <tag>Array</tag>
         <tag>Binary Search</tag>
         <tag>Two Pointers</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>1658. Minimum Operations to Reduce X to Zero</title>
-    <url>/2023/12/04/1658-Minimum-Operations-to-Reduce-X-to-Zero/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero/">1658. Minimum Operations to Reduce X to Zero</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-search//">Binary Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sliding-window//">Sliding Window</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/prefix-sum//">Prefix Sum</a></p>
-<p>You are given an integer array <code>nums</code> and an integer <code>x</code>. In one operation, you can either remove the leftmost or the rightmost element from the array <code>nums</code> and subtract its value from <code>x</code>. Note that this <strong>modifies</strong> the array for future operations.</p>
-<p>Return <em>the <strong>minimum number</strong> of operations to reduce</em> <code>x</code> <em>to <strong>exactly</strong></em> <code>0</code> <em>if it is possible</em><em>, otherwise, return</em> <code>-1</code>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [1,1,4,2,3], x = 5</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: The optimal solution is to remove the last two elements to reduce x to zero.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [5,6,7,8,9], x = 4</span><br><span class="line">Output: -1</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [3,2,20,1,1,3], x = 10</span><br><span class="line">Output: 5</span><br><span class="line">Explanation: The optimal solution is to remove the last three elements and the first two elements (5 operations <span class="keyword">in</span> total) to reduce x to zero.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>1 &lt;&#x3D; nums.length &lt;&#x3D; 10<sup>5</sup></li>
-<li>1 &lt;&#x3D; nums[i] &lt;&#x3D; 10<sup>4</sup></li>
-<li>1 &lt;&#x3D; x &lt;&#x3D; 10<sup>9</sup></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Sliding window</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minOperations</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> sum = <span class="number">0</span>, size = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> num : nums) &#123;</span><br><span class="line">            sum += num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> target = sum - x, left = <span class="number">0</span>, right = <span class="number">0</span>, res = INT_MAX;</span><br><span class="line">        sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; nums.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            sum += nums[right];</span><br><span class="line">            <span class="keyword">if</span> (sum &gt; target) &#123;</span><br><span class="line">                <span class="keyword">while</span> (sum &gt; target &amp;&amp; left &lt;= right) &#123;</span><br><span class="line">                    sum -= nums[left];</span><br><span class="line">                    left++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (sum == target) &#123;</span><br><span class="line">                res = <span class="built_in">min</span>(res, size - right + left - <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            right++; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res == INT_MAX ? <span class="number">-1</span> : res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Hash Table</tag>
-        <tag>Binary Search</tag>
-        <tag>Sliding Window</tag>
-        <tag>Prefix Sum</tag>
       </tags>
   </entry>
   <entry>
@@ -2180,6 +2180,47 @@
       </tags>
   </entry>
   <entry>
+    <title>19. Remove Nth Node From End of List</title>
+    <url>/2023/01/03/19-Remove-Nth-Node-From-End-of-List/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/">19. Remove Nth Node From End of List</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/linked-list/">Linked List</a>, <a href="https://leetcode.com/tag/two-pointers/">Two Pointers</a></p>
+<p>Given the <code>head</code> of a linked list, remove the n<sup>th</sup> node from the end of the list and return its head.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/10/03/remove_ex1.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: <span class="built_in">head</span> = [1,2,3,4,5], n = 2</span><br><span class="line">Output: [1,2,3,5]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: <span class="built_in">head</span> = [1], n = 1</span><br><span class="line">Output: []</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: <span class="built_in">head</span> = [1,2], n = 1</span><br><span class="line">Output: [1]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the list is <code>sz</code>.</li>
+<li><code>1 &lt;= sz &lt;= 30</code></li>
+<li><code>0 &lt;= Node.val &lt;= 100</code></li>
+<li><code>1 &lt;= n &lt;= sz</code></li>
+</ul>
+<p><strong>Follow up:</strong> Could you do this in one pass?</p>
+<hr>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Use 2 pointers to get the Nth from the end first, helper function</li>
+<li>Use dummy to avoid the nullptr corner case</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode *dummy = <span class="keyword">new</span> <span class="built_in">ListNode</span>();</span><br><span class="line">        dummy-&gt;next = head;</span><br><span class="line">        ListNode *nth = <span class="built_in">findFromEnd</span>(dummy, n + <span class="number">1</span>);</span><br><span class="line">        nth-&gt;next = nth-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">ListNode* <span class="title">findFromEnd</span><span class="params">(ListNode* head, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode *p1 = head, *p2 = head;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            p1 = p1-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (p1) &#123;</span><br><span class="line">            p1 = p1-&gt;next;</span><br><span class="line">            p2 = p2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Linked List</tag>
+        <tag>Two Pointers</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>187. Repeated DNA Sequences</title>
     <url>/2023/01/25/187-Repeated-DNA-Sequences/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/repeated-dna-sequences/">187. Repeated DNA Sequences</a></p>
@@ -2222,47 +2263,6 @@
         <tag>Bit Manipulation</tag>
         <tag>Rolling Hash</tag>
         <tag>Hash Function</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>19. Remove Nth Node From End of List</title>
-    <url>/2023/01/03/19-Remove-Nth-Node-From-End-of-List/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/">19. Remove Nth Node From End of List</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/linked-list/">Linked List</a>, <a href="https://leetcode.com/tag/two-pointers/">Two Pointers</a></p>
-<p>Given the <code>head</code> of a linked list, remove the n<sup>th</sup> node from the end of the list and return its head.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/10/03/remove_ex1.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: <span class="built_in">head</span> = [1,2,3,4,5], n = 2</span><br><span class="line">Output: [1,2,3,5]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: <span class="built_in">head</span> = [1], n = 1</span><br><span class="line">Output: []</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: <span class="built_in">head</span> = [1,2], n = 1</span><br><span class="line">Output: [1]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in the list is <code>sz</code>.</li>
-<li><code>1 &lt;= sz &lt;= 30</code></li>
-<li><code>0 &lt;= Node.val &lt;= 100</code></li>
-<li><code>1 &lt;= n &lt;= sz</code></li>
-</ul>
-<p><strong>Follow up:</strong> Could you do this in one pass?</p>
-<hr>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Use 2 pointers to get the Nth from the end first, helper function</li>
-<li>Use dummy to avoid the nullptr corner case</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode *dummy = <span class="keyword">new</span> <span class="built_in">ListNode</span>();</span><br><span class="line">        dummy-&gt;next = head;</span><br><span class="line">        ListNode *nth = <span class="built_in">findFromEnd</span>(dummy, n + <span class="number">1</span>);</span><br><span class="line">        nth-&gt;next = nth-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">ListNode* <span class="title">findFromEnd</span><span class="params">(ListNode* head, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode *p1 = head, *p2 = head;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            p1 = p1-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (p1) &#123;</span><br><span class="line">            p1 = p1-&gt;next;</span><br><span class="line">            p2 = p2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Linked List</tag>
-        <tag>Two Pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -3228,6 +3228,41 @@
       </tags>
   </entry>
   <entry>
+    <title>242. Valid Anagram</title>
+    <url>/2023/12/18/242-Valid-Anagram/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/valid-anagram/">242. Valid Anagram</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/string//">String</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sorting//">Sorting</a></p>
+<p>Given two strings <code>s</code> and <code>t</code>, return <code>true</code> <em>if</em> <code>t</code> <em>is an anagram of</em> <code>s</code><em>, and</em> <code>false</code> <em>otherwise</em>.</p>
+<p>An <strong>Anagram</strong> is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;anagram&quot;</span>, t = <span class="string">&quot;nagaram&quot;</span></span><br><span class="line">Output: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;rat&quot;</span>, t = <span class="string">&quot;car&quot;</span></span><br><span class="line">Output: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; s.length, t.length &lt;&#x3D; 5 * 10<sup>4</sup></li>
+<li><code>s</code> and <code>t</code> consist of lowercase English letters.</li>
+</ul>
+<p><strong>Follow up:</strong> What if the inputs contain Unicode characters? How would you adapt your solution to such a case?</p>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>map</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isAnagram</span><span class="params">(string s, string t)</span> </span>&#123;</span><br><span class="line">        map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; count;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : s) &#123;</span><br><span class="line">            count[c]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : t) &#123;</span><br><span class="line">            count[c]--;</span><br><span class="line">            <span class="keyword">if</span> (count[c] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : s) &#123;</span><br><span class="line">            <span class="keyword">if</span> (count[c] != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Hash Table</tag>
+        <tag>String</tag>
+        <tag>Sorting</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>240. Search a 2D Matrix II</title>
     <url>/2023/12/01/240-Search-a-2D-Matrix-II/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/search-a-2d-matrix-ii/">240. Search a 2D Matrix II</a></p>
@@ -3270,41 +3305,6 @@
         <tag>Binary Search</tag>
         <tag>Divide and Conquer</tag>
         <tag>Matrix</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>242. Valid Anagram</title>
-    <url>/2023/12/18/242-Valid-Anagram/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/valid-anagram/">242. Valid Anagram</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/string//">String</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sorting//">Sorting</a></p>
-<p>Given two strings <code>s</code> and <code>t</code>, return <code>true</code> <em>if</em> <code>t</code> <em>is an anagram of</em> <code>s</code><em>, and</em> <code>false</code> <em>otherwise</em>.</p>
-<p>An <strong>Anagram</strong> is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;anagram&quot;</span>, t = <span class="string">&quot;nagaram&quot;</span></span><br><span class="line">Output: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;rat&quot;</span>, t = <span class="string">&quot;car&quot;</span></span><br><span class="line">Output: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>1 &lt;&#x3D; s.length, t.length &lt;&#x3D; 5 * 10<sup>4</sup></li>
-<li><code>s</code> and <code>t</code> consist of lowercase English letters.</li>
-</ul>
-<p><strong>Follow up:</strong> What if the inputs contain Unicode characters? How would you adapt your solution to such a case?</p>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>map</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isAnagram</span><span class="params">(string s, string t)</span> </span>&#123;</span><br><span class="line">        map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; count;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : s) &#123;</span><br><span class="line">            count[c]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : t) &#123;</span><br><span class="line">            count[c]--;</span><br><span class="line">            <span class="keyword">if</span> (count[c] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : s) &#123;</span><br><span class="line">            <span class="keyword">if</span> (count[c] != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Hash Table</tag>
-        <tag>Sorting</tag>
-        <tag>String</tag>
       </tags>
   </entry>
   <entry>
@@ -3819,43 +3819,6 @@
       </tags>
   </entry>
   <entry>
-    <title>298. Binary Tree Longest Consecutive Sequence</title>
-    <url>/2024/04/03/298-Binary-Tree-Longest-Consecutive-Sequence/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/binary-tree-longest-consecutive-sequence/description/">298. Binary Tree Longest Consecutive Sequence</a></p>
-<p>Given the <code>root</code> of a binary tree, return the length of the longest <strong>consecutive sequence path</strong> .</p>
-<p>A <strong>consecutive sequence path</strong>  is a path where the values <strong>increase by one</strong>  along the path.</p>
-<p>Note that the path can start <strong>at any node</strong>  in the tree, and you cannot go from a node to its parent in the path.</p>
-<p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/14/consec1-1-tree.jpg" style="width: 306px; height: 400px;">
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [1,null,3,2,4,null,null,null,5]</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: Longest consecutive sequence path is 3-4-5, so <span class="built_in">return</span> 3.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/14/consec1-2-tree.jpg" style="width: 249px; height: 400px;">
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [2,null,3,2,null,1]</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: Longest consecutive sequence path is 2-3, not 3-2-1, so <span class="built_in">return</span> 2.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in the tree is in the range <code>[1, 3 * 10^4]</code>.</li>
-<li><code>-3 * 10^4 &lt;= Node.val &lt;= 3 * 10^4</code></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>traverse the tree</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longestConsecutive</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">traverse</span>(root, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(TreeNode* root, <span class="type">int</span> cur)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;left) &#123;</span><br><span class="line">            <span class="keyword">if</span> (root-&gt;left-&gt;val == root-&gt;val + <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="built_in">traverse</span>(root-&gt;left, cur + <span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">traverse</span>(root-&gt;left, <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;right) &#123;</span><br><span class="line">            <span class="keyword">if</span> (root-&gt;right-&gt;val == root-&gt;val + <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="built_in">traverse</span>(root-&gt;right, cur + <span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">traverse</span>(root-&gt;right, <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        res = <span class="built_in">max</span>(res, cur);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
-        <tag>Binary Tree</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>297. Serialize and Deserialize Binary Tree</title>
     <url>/2023/08/22/297-Serialize-and-Deserialize-Binary-Tree/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree/">297. Serialize and Deserialize Binary Tree</a></p>
@@ -3894,6 +3857,43 @@
         <tag>Breadth-First Search</tag>
         <tag>String</tag>
         <tag>Design</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>298. Binary Tree Longest Consecutive Sequence</title>
+    <url>/2024/04/03/298-Binary-Tree-Longest-Consecutive-Sequence/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/binary-tree-longest-consecutive-sequence/description/">298. Binary Tree Longest Consecutive Sequence</a></p>
+<p>Given the <code>root</code> of a binary tree, return the length of the longest <strong>consecutive sequence path</strong> .</p>
+<p>A <strong>consecutive sequence path</strong>  is a path where the values <strong>increase by one</strong>  along the path.</p>
+<p>Note that the path can start <strong>at any node</strong>  in the tree, and you cannot go from a node to its parent in the path.</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/14/consec1-1-tree.jpg" style="width: 306px; height: 400px;">
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [1,null,3,2,4,null,null,null,5]</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: Longest consecutive sequence path is 3-4-5, so <span class="built_in">return</span> 3.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/14/consec1-2-tree.jpg" style="width: 249px; height: 400px;">
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [2,null,3,2,null,1]</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: Longest consecutive sequence path is 2-3, not 3-2-1, so <span class="built_in">return</span> 2.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is in the range <code>[1, 3 * 10^4]</code>.</li>
+<li><code>-3 * 10^4 &lt;= Node.val &lt;= 3 * 10^4</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>traverse the tree</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longestConsecutive</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">traverse</span>(root, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(TreeNode* root, <span class="type">int</span> cur)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;left) &#123;</span><br><span class="line">            <span class="keyword">if</span> (root-&gt;left-&gt;val == root-&gt;val + <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="built_in">traverse</span>(root-&gt;left, cur + <span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">traverse</span>(root-&gt;left, <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;right) &#123;</span><br><span class="line">            <span class="keyword">if</span> (root-&gt;right-&gt;val == root-&gt;val + <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="built_in">traverse</span>(root-&gt;right, cur + <span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">traverse</span>(root-&gt;right, <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        res = <span class="built_in">max</span>(res, cur);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Tree</tag>
+        <tag>Depth-First Search</tag>
+        <tag>Binary Tree</tag>
       </tags>
   </entry>
   <entry>
@@ -4718,39 +4718,6 @@
       </tags>
   </entry>
   <entry>
-    <title>344. Reverse String</title>
-    <url>/2023/01/19/344-Reverse-String/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/reverse-string/">344. Reverse String</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/two-pointers/">Two Pointers</a>, <a href="https://leetcode.com/tag/string/">String</a></p>
-<p>Write a function that reverses a string. The input string is given as an array of characters <code>s</code>.</p>
-<p>You must do this by modifying the input array <a href="https://en.wikipedia.org/wiki/In-place_algorithm">in-place</a> with <code>O(1)</code> extra memory.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = [<span class="string">&quot;h&quot;</span>,<span class="string">&quot;e&quot;</span>,<span class="string">&quot;l&quot;</span>,<span class="string">&quot;l&quot;</span>,<span class="string">&quot;o&quot;</span>]</span><br><span class="line">Output: [<span class="string">&quot;o&quot;</span>,<span class="string">&quot;l&quot;</span>,<span class="string">&quot;l&quot;</span>,<span class="string">&quot;e&quot;</span>,<span class="string">&quot;h&quot;</span>]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = [<span class="string">&quot;H&quot;</span>,<span class="string">&quot;a&quot;</span>,<span class="string">&quot;n&quot;</span>,<span class="string">&quot;n&quot;</span>,<span class="string">&quot;a&quot;</span>,<span class="string">&quot;h&quot;</span>]</span><br><span class="line">Output: [<span class="string">&quot;h&quot;</span>,<span class="string">&quot;a&quot;</span>,<span class="string">&quot;n&quot;</span>,<span class="string">&quot;n&quot;</span>,<span class="string">&quot;a&quot;</span>,<span class="string">&quot;H&quot;</span>]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>1 &lt;&#x3D; s.length &lt;&#x3D; 10<sup>5</sup></li>
-<li><code>s[i]</code> is a <a href="https://en.wikipedia.org/wiki/ASCII#Printable_characters">printable ascii character</a>.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>N&#x2F;A</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">reverseString</span><span class="params">(vector&lt;<span class="type">char</span>&gt;&amp; s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = s.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">char</span> c = s[right];</span><br><span class="line">            s[right] = s[left];</span><br><span class="line">            s[left] = c;</span><br><span class="line">            left++;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>String</tag>
-        <tag>Two Pointers</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>341. Flatten Nested List Iterator</title>
     <url>/2023/08/28/341-Flatten-Nested-List-Iterator/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/flatten-nested-list-iterator/">341. Flatten Nested List Iterator</a></p>
@@ -4796,6 +4763,39 @@
         <tag>Design</tag>
         <tag>Queue</tag>
         <tag>Iterator</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>344. Reverse String</title>
+    <url>/2023/01/19/344-Reverse-String/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/reverse-string/">344. Reverse String</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/two-pointers/">Two Pointers</a>, <a href="https://leetcode.com/tag/string/">String</a></p>
+<p>Write a function that reverses a string. The input string is given as an array of characters <code>s</code>.</p>
+<p>You must do this by modifying the input array <a href="https://en.wikipedia.org/wiki/In-place_algorithm">in-place</a> with <code>O(1)</code> extra memory.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = [<span class="string">&quot;h&quot;</span>,<span class="string">&quot;e&quot;</span>,<span class="string">&quot;l&quot;</span>,<span class="string">&quot;l&quot;</span>,<span class="string">&quot;o&quot;</span>]</span><br><span class="line">Output: [<span class="string">&quot;o&quot;</span>,<span class="string">&quot;l&quot;</span>,<span class="string">&quot;l&quot;</span>,<span class="string">&quot;e&quot;</span>,<span class="string">&quot;h&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = [<span class="string">&quot;H&quot;</span>,<span class="string">&quot;a&quot;</span>,<span class="string">&quot;n&quot;</span>,<span class="string">&quot;n&quot;</span>,<span class="string">&quot;a&quot;</span>,<span class="string">&quot;h&quot;</span>]</span><br><span class="line">Output: [<span class="string">&quot;h&quot;</span>,<span class="string">&quot;a&quot;</span>,<span class="string">&quot;n&quot;</span>,<span class="string">&quot;n&quot;</span>,<span class="string">&quot;a&quot;</span>,<span class="string">&quot;H&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; s.length &lt;&#x3D; 10<sup>5</sup></li>
+<li><code>s[i]</code> is a <a href="https://en.wikipedia.org/wiki/ASCII#Printable_characters">printable ascii character</a>.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>N&#x2F;A</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">reverseString</span><span class="params">(vector&lt;<span class="type">char</span>&gt;&amp; s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = s.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">char</span> c = s[right];</span><br><span class="line">            s[right] = s[left];</span><br><span class="line">            s[left] = c;</span><br><span class="line">            left++;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>String</tag>
+        <tag>Two Pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -4966,6 +4966,42 @@
       </tags>
   </entry>
   <entry>
+    <title>360. Sort Transformed Array</title>
+    <url>/2023/11/11/360-Sort-Transformed-Array/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/sort-transformed-array/">360. Sort Transformed Array</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/math//">Math</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/two-pointers//">Two Pointers</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sorting//">Sorting</a></p>
+<p>Given a <strong>sorted</strong> integer array <code>nums</code> and three integers <code>a</code>, <code>b</code> and <code>c</code>, apply a quadratic function of the form f(x) &#x3D; ax<sup>2</sup> + bx + c to each element <code>nums[i]</code> in the array, and return <em>the array in a sorted order</em>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [-4,-2,2,4], a = 1, b = 3, c = 5</span><br><span class="line">Output: [3,9,15,33]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [-4,-2,2,4], a = -1, b = 3, c = 5</span><br><span class="line">Output: [-23,-5,1,7]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 200</code></li>
+<li><code>-100 &lt;= nums[i], a, b, c &lt;= 100</code></li>
+<li><code>nums</code> is sorted in <strong>ascending</strong> order.</li>
+</ul>
+<p><strong>Follow up:</strong> Could you solve it in <code>O(n)</code> time?</p>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Two pointers, start and end of the array</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortTransformedArray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>, j = nums.<span class="built_in">size</span>() - <span class="number">1</span>, idx = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (a &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            idx = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(nums.size(), <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt;= j) &#123;</span><br><span class="line">            <span class="type">int</span> v1 = <span class="built_in">f</span>(a, b, c, nums[i]);</span><br><span class="line">            <span class="type">int</span> v2 = <span class="built_in">f</span>(a, b, c, nums[j]);</span><br><span class="line">            <span class="keyword">if</span> (a &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (v1 &lt; v2) &#123;</span><br><span class="line">                    res[idx++] = v1;</span><br><span class="line">                    i++;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    res[idx++] = v2;</span><br><span class="line">                    j--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (v1 &lt; v2) &#123;</span><br><span class="line">                    res[idx--] = v2;</span><br><span class="line">                    j--;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    res[idx--] = v1;</span><br><span class="line">                    i++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c, <span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a * x * x + b * x + c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Math</tag>
+        <tag>Sorting</tag>
+        <tag>Two Pointers</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>355. Design Twitter</title>
     <url>/2023/11/08/355-Design-Twitter/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/design-twitter/">355. Design Twitter</a></p>
@@ -5005,42 +5041,6 @@
         <tag>Linked List</tag>
         <tag>Heap (Priority Queue)</tag>
         <tag>Design</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>360. Sort Transformed Array</title>
-    <url>/2023/11/11/360-Sort-Transformed-Array/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/sort-transformed-array/">360. Sort Transformed Array</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/math//">Math</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/two-pointers//">Two Pointers</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sorting//">Sorting</a></p>
-<p>Given a <strong>sorted</strong> integer array <code>nums</code> and three integers <code>a</code>, <code>b</code> and <code>c</code>, apply a quadratic function of the form f(x) &#x3D; ax<sup>2</sup> + bx + c to each element <code>nums[i]</code> in the array, and return <em>the array in a sorted order</em>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [-4,-2,2,4], a = 1, b = 3, c = 5</span><br><span class="line">Output: [3,9,15,33]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [-4,-2,2,4], a = -1, b = 3, c = 5</span><br><span class="line">Output: [-23,-5,1,7]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= nums.length &lt;= 200</code></li>
-<li><code>-100 &lt;= nums[i], a, b, c &lt;= 100</code></li>
-<li><code>nums</code> is sorted in <strong>ascending</strong> order.</li>
-</ul>
-<p><strong>Follow up:</strong> Could you solve it in <code>O(n)</code> time?</p>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Two pointers, start and end of the array</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortTransformedArray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>, j = nums.<span class="built_in">size</span>() - <span class="number">1</span>, idx = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (a &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            idx = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(nums.size(), <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt;= j) &#123;</span><br><span class="line">            <span class="type">int</span> v1 = <span class="built_in">f</span>(a, b, c, nums[i]);</span><br><span class="line">            <span class="type">int</span> v2 = <span class="built_in">f</span>(a, b, c, nums[j]);</span><br><span class="line">            <span class="keyword">if</span> (a &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (v1 &lt; v2) &#123;</span><br><span class="line">                    res[idx++] = v1;</span><br><span class="line">                    i++;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    res[idx++] = v2;</span><br><span class="line">                    j--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (v1 &lt; v2) &#123;</span><br><span class="line">                    res[idx--] = v2;</span><br><span class="line">                    j--;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    res[idx--] = v1;</span><br><span class="line">                    i++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c, <span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a * x * x + b * x + c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Math</tag>
-        <tag>Sorting</tag>
-        <tag>Two Pointers</tag>
       </tags>
   </entry>
   <entry>
@@ -5244,6 +5244,43 @@
       </tags>
   </entry>
   <entry>
+    <title>387. First Unique Character in a String</title>
+    <url>/2023/12/19/387-First-Unique-Character-in-a-String/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/first-unique-character-in-a-string/">387. First Unique Character in a String</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/string//">String</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/queue//">Queue</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/counting//">Counting</a></p>
+<p>Given a string <code>s</code>, <em>find the first non-repeating character in it and return its index</em>. If it does not exist, return <code>-1</code>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;leetcode&quot;</span></span><br><span class="line">Output: 0</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;loveleetcode&quot;</span></span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;aabb&quot;</span></span><br><span class="line">Output: -1</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>1 &lt;&#x3D; s.length &lt;&#x3D; 10<sup>5</sup></li>
+<li><code>s</code> consists of only lowercase English letters.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>map</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">firstUniqChar</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; m;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : s) &#123;</span><br><span class="line">            m[c]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (m[s[i]] == <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Hash Table</tag>
+        <tag>String</tag>
+        <tag>Queue</tag>
+        <tag>Counting</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>380. Insert Delete GetRandom O(1)</title>
     <url>/2023/01/31/380-Insert-Delete-GetRandom-O-1/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/insert-delete-getrandom-o1/">380. Insert Delete GetRandom O(1)</a></p>
@@ -5282,43 +5319,6 @@
         <tag>Math</tag>
         <tag>Design</tag>
         <tag>Randomized</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>387. First Unique Character in a String</title>
-    <url>/2023/12/19/387-First-Unique-Character-in-a-String/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/first-unique-character-in-a-string/">387. First Unique Character in a String</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/string//">String</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/queue//">Queue</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/counting//">Counting</a></p>
-<p>Given a string <code>s</code>, <em>find the first non-repeating character in it and return its index</em>. If it does not exist, return <code>-1</code>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;leetcode&quot;</span></span><br><span class="line">Output: 0</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;loveleetcode&quot;</span></span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;aabb&quot;</span></span><br><span class="line">Output: -1</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>1 &lt;&#x3D; s.length &lt;&#x3D; 10<sup>5</sup></li>
-<li><code>s</code> consists of only lowercase English letters.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>map</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">firstUniqChar</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; m;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : s) &#123;</span><br><span class="line">            m[c]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (m[s[i]] == <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Hash Table</tag>
-        <tag>String</tag>
-        <tag>Queue</tag>
-        <tag>Counting</tag>
       </tags>
   </entry>
   <entry>
@@ -5372,6 +5372,43 @@
       </tags>
   </entry>
   <entry>
+    <title>389. Find the Difference</title>
+    <url>/2023/12/26/389-Find-the-Difference/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/find-the-difference/">389. Find the Difference</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/string//">String</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/bit-manipulation//">Bit Manipulation</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sorting//">Sorting</a></p>
+<p>You are given two strings <code>s</code> and <code>t</code>.</p>
+<p>String <code>t</code> is generated by random shuffling string <code>s</code> and then add one more letter at a random position.</p>
+<p>Return the letter that was added to <code>t</code>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;abcd&quot;</span>, t = <span class="string">&quot;abcde&quot;</span></span><br><span class="line">Output: <span class="string">&quot;e&quot;</span></span><br><span class="line">Explanation: <span class="string">&#x27;e&#x27;</span> is the letter that was added.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;&quot;</span>, t = <span class="string">&quot;y&quot;</span></span><br><span class="line">Output: <span class="string">&quot;y&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>0 &lt;= s.length &lt;= 1000</code></li>
+<li><code>t.length == s.length + 1</code></li>
+<li><code>s</code> and <code>t</code> consist of lowercase English letters.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>use xor operation</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">char</span> <span class="title">findTheDifference</span><span class="params">(string s, string t)</span> </span>&#123;</span><br><span class="line">        <span class="type">char</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : s) &#123;</span><br><span class="line">            res ^= c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : t) &#123;</span><br><span class="line">            res ^= c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Hash Table</tag>
+        <tag>String</tag>
+        <tag>Sorting</tag>
+        <tag>Bit Manipulation</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>395. Longest Substring with At Least K Repeating Characters</title>
     <url>/2023/12/07/395-Longest-Substring-with-At-Least-K-Repeating-Characters/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/longest-substring-with-at-least-k-repeating-characters/">395. Longest Substring with At Least K Repeating Characters</a></p>
@@ -5406,43 +5443,6 @@
         <tag>Divide and Conquer</tag>
         <tag>String</tag>
         <tag>Sliding Windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>389. Find the Difference</title>
-    <url>/2023/12/26/389-Find-the-Difference/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/find-the-difference/">389. Find the Difference</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/string//">String</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/bit-manipulation//">Bit Manipulation</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/sorting//">Sorting</a></p>
-<p>You are given two strings <code>s</code> and <code>t</code>.</p>
-<p>String <code>t</code> is generated by random shuffling string <code>s</code> and then add one more letter at a random position.</p>
-<p>Return the letter that was added to <code>t</code>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;abcd&quot;</span>, t = <span class="string">&quot;abcde&quot;</span></span><br><span class="line">Output: <span class="string">&quot;e&quot;</span></span><br><span class="line">Explanation: <span class="string">&#x27;e&#x27;</span> is the letter that was added.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;&quot;</span>, t = <span class="string">&quot;y&quot;</span></span><br><span class="line">Output: <span class="string">&quot;y&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>0 &lt;= s.length &lt;= 1000</code></li>
-<li><code>t.length == s.length + 1</code></li>
-<li><code>s</code> and <code>t</code> consist of lowercase English letters.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>use xor operation</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">char</span> <span class="title">findTheDifference</span><span class="params">(string s, string t)</span> </span>&#123;</span><br><span class="line">        <span class="type">char</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : s) &#123;</span><br><span class="line">            res ^= c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : t) &#123;</span><br><span class="line">            res ^= c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Hash Table</tag>
-        <tag>Sorting</tag>
-        <tag>String</tag>
-        <tag>Bit Manipulation</tag>
       </tags>
   </entry>
   <entry>
@@ -5631,6 +5631,40 @@
       </tags>
   </entry>
   <entry>
+    <title>448. Find All Numbers Disappeared in an Array</title>
+    <url>/2023/12/26/448-Find-All-Numbers-Disappeared-in-an-Array/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/">448. Find All Numbers Disappeared in an Array</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a></p>
+<p>Given an array <code>nums</code> of <code>n</code> integers where <code>nums[i]</code> is in the range <code>[1, n]</code>, return <em>an array of all the integers in the range</em> <code>[1, n]</code> <em>that do not appear in</em> <code>nums</code>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [4,3,2,7,8,2,3,1]</span><br><span class="line">Output: [5,6]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [1,1]</span><br><span class="line">Output: [2]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>n == nums.length</code></li>
+<li>1 &lt;&#x3D; n &lt;&#x3D; 10<sup>5</sup></li>
+<li><code>1 &lt;= nums[i] &lt;= n</code></li>
+</ul>
+<p><strong>Follow up:</strong> Could you do it without extra space and in <code>O(n)</code> runtime? You may assume the returned list does not count as extra space.</p>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>make element at index negative to mark the element has been traversed</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">findDisappearedNumbers</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> num : nums) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[<span class="built_in">abs</span>(num) - <span class="number">1</span>] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                nums[<span class="built_in">abs</span>(num) - <span class="number">1</span>] *= <span class="number">-1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                res.<span class="built_in">push_back</span>(i + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Hash Table</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>451. Sort Characters By Frequency</title>
     <url>/2023/11/06/451-Sort-Characters-By-Frequency/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/sort-characters-by-frequency/">451. Sort Characters By Frequency</a></p>
@@ -5663,45 +5697,11 @@
       </categories>
       <tags>
         <tag>Hash Table</tag>
+        <tag>String</tag>
         <tag>Sorting</tag>
         <tag>Heap (Priority Queue)</tag>
-        <tag>String</tag>
         <tag>Counting</tag>
         <tag>Bucket Sort</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>448. Find All Numbers Disappeared in an Array</title>
-    <url>/2023/12/26/448-Find-All-Numbers-Disappeared-in-an-Array/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/">448. Find All Numbers Disappeared in an Array</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/hash-table//">Hash Table</a></p>
-<p>Given an array <code>nums</code> of <code>n</code> integers where <code>nums[i]</code> is in the range <code>[1, n]</code>, return <em>an array of all the integers in the range</em> <code>[1, n]</code> <em>that do not appear in</em> <code>nums</code>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [4,3,2,7,8,2,3,1]</span><br><span class="line">Output: [5,6]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: nums = [1,1]</span><br><span class="line">Output: [2]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>n == nums.length</code></li>
-<li>1 &lt;&#x3D; n &lt;&#x3D; 10<sup>5</sup></li>
-<li><code>1 &lt;= nums[i] &lt;= n</code></li>
-</ul>
-<p><strong>Follow up:</strong> Could you do it without extra space and in <code>O(n)</code> runtime? You may assume the returned list does not count as extra space.</p>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>make element at index negative to mark the element has been traversed</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">findDisappearedNumbers</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> num : nums) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[<span class="built_in">abs</span>(num) - <span class="number">1</span>] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                nums[<span class="built_in">abs</span>(num) - <span class="number">1</span>] *= <span class="number">-1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                res.<span class="built_in">push_back</span>(i + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Hash Table</tag>
       </tags>
   </entry>
   <entry>
@@ -5820,8 +5820,8 @@
       <tags>
         <tag>Array</tag>
         <tag>Hash Table</tag>
-        <tag>Sorting</tag>
         <tag>String</tag>
+        <tag>Sorting</tag>
       </tags>
   </entry>
   <entry>
@@ -6334,6 +6334,39 @@
       </tags>
   </entry>
   <entry>
+    <title>59. Spiral Matrix II</title>
+    <url>/2023/01/23/59-Spiral-Matrix-II/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/spiral-matrix-ii/">59. Spiral Matrix II</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/array/">Array</a>, <a href="https://leetcode.com/tag/matrix/">Matrix</a>, <a href="https://leetcode.com/tag/simulation/">Simulation</a></p>
+<p>Given a positive integer <code>n</code>, generate an <code>n x n</code> <code>matrix</code> filled with elements from <code>1</code> to n<sup>2</sup> in spiral order.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2020/11/13/spiraln.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 3</span><br><span class="line">Output: [[1,2,3],[8,9,4],[7,6,5]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 1</span><br><span class="line">Output: [[1]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= n &lt;= 20</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Traverse the four sides in one iteration</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">generateMatrix</span>(<span class="type">int</span> n) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">res</span>(n, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n, <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = n - <span class="number">1</span>, up = <span class="number">0</span>, down = n - <span class="number">1</span>, val = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (val &lt;= n * n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (up &lt;= down) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = left; i &lt;= right; i++) &#123;</span><br><span class="line">                    res[up][i] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                up++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (left &lt;= right) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = up; i &lt;= down; i++) &#123;</span><br><span class="line">                    res[i][right] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (up &lt;= down) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = right; i &gt;= left; i--) &#123;</span><br><span class="line">                    res[down][i] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                down--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (left &lt;= right) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = down; i &gt;= up; i--) &#123;</span><br><span class="line">                    res[i][left] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Simulation</tag>
+        <tag>Matrix</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>622. Design Circular Queue</title>
     <url>/2023/12/15/622-Design-Circular-Queue/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/design-circular-queue/">622. Design Circular Queue</a></p>
@@ -6375,39 +6408,6 @@
         <tag>Linked List</tag>
         <tag>Design</tag>
         <tag>Queue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>59. Spiral Matrix II</title>
-    <url>/2023/01/23/59-Spiral-Matrix-II/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/spiral-matrix-ii/">59. Spiral Matrix II</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/array/">Array</a>, <a href="https://leetcode.com/tag/matrix/">Matrix</a>, <a href="https://leetcode.com/tag/simulation/">Simulation</a></p>
-<p>Given a positive integer <code>n</code>, generate an <code>n x n</code> <code>matrix</code> filled with elements from <code>1</code> to n<sup>2</sup> in spiral order.</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2020/11/13/spiraln.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 3</span><br><span class="line">Output: [[1,2,3],[8,9,4],[7,6,5]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: n = 1</span><br><span class="line">Output: [[1]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= n &lt;= 20</code></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Traverse the four sides in one iteration</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">generateMatrix</span>(<span class="type">int</span> n) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">res</span>(n, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n, <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = n - <span class="number">1</span>, up = <span class="number">0</span>, down = n - <span class="number">1</span>, val = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (val &lt;= n * n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (up &lt;= down) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = left; i &lt;= right; i++) &#123;</span><br><span class="line">                    res[up][i] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                up++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (left &lt;= right) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = up; i &lt;= down; i++) &#123;</span><br><span class="line">                    res[i][right] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (up &lt;= down) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = right; i &gt;= left; i--) &#123;</span><br><span class="line">                    res[down][i] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                down--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (left &lt;= right) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = down; i &gt;= up; i--) &#123;</span><br><span class="line">                    res[i][left] = val++;</span><br><span class="line">                &#125;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Simulation</tag>
-        <tag>Matrix</tag>
       </tags>
   </entry>
   <entry>
@@ -6705,9 +6705,9 @@
       </categories>
       <tags>
         <tag>Hash Table</tag>
+        <tag>String</tag>
         <tag>Sorting</tag>
         <tag>Heap (Priority Queue)</tag>
-        <tag>String</tag>
         <tag>Counting</tag>
         <tag>Trie</tag>
         <tag>Bucket Sort</tag>
@@ -8282,56 +8282,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Career development</title>
-    <url>/2022/12/23/Career-development/</url>
-    <content><![CDATA[<h3 id="3-Career-Killers-for-Software-Engineers"><a href="#3-Career-Killers-for-Software-Engineers" class="headerlink" title="3 Career Killers for Software Engineers"></a>3 Career Killers for Software Engineers</h3><ol>
-<li><p>Not thinking clearly about staying or leaving</p>
-<ul>
-<li>Considerations: 1. Manager 2. Pay</li>
-<li>Sure, that hop could increase your compensation but you could be leaving a good team and moving to something worse.</li>
-<li>If you’re in a bad environment, don’t believe promises but watch the management’s actions to see if they’re actually dealing with the root problem.</li>
-<li>Ultimately, if you’re in a good spot, don’t throw it all away. You’ll only recognize your golden ages from hindsight.</li>
-</ul>
-</li>
-<li><p>Preferring Output Over Impact</p>
-<ul>
-<li>Finding task that differentiate yourself.</li>
-<li>Finding a meaningful refactor that prevents future bugs is better than routinely integrating package updates.<br> Great to have a nose for outsized impact.</li>
-</ul>
-</li>
-<li><p>Get Your Money Right</p>
-<p> Time in the market is better than timing in the market.</p>
-</li>
-</ol>
-<p><a href="https://www.youtube.com/watch?v=uX719LQBLXw">LINK</a></p>
-<h3 id="Three-Things-Preventing-Your-Promotion-to-Senior-Engineer"><a href="#Three-Things-Preventing-Your-Promotion-to-Senior-Engineer" class="headerlink" title="Three Things Preventing Your Promotion to Senior Engineer"></a>Three Things Preventing Your Promotion to Senior Engineer</h3><h4 id="Universal-Trait"><a href="#Universal-Trait" class="headerlink" title="Universal Trait"></a>Universal Trait</h4><ol>
-<li><p>Technically deep and delivers</p>
-</li>
-<li><p>Rejects hyperbolic discounting</p>
-</li>
-<li><p>Expert time manager</p>
-</li>
-<li><p>By growing others nearby</p>
-</li>
-</ol>
-<h4 id="Pitfall"><a href="#Pitfall" class="headerlink" title="Pitfall"></a>Pitfall</h4><ol>
-<li><p>Over-indexes on delivery and tech depth</p>
-</li>
-<li><p>conflates leadership with management</p>
-</li>
-<li><p>Unsustainable time management</p>
-</li>
-</ol>
-<p><a href="https://www.youtube.com/watch?v=4i5iFlP01mQ">LINK</a></p>
-]]></content>
-      <categories>
-        <category>Excerpt</category>
-      </categories>
-      <tags>
-        <tag>Career</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Budget &amp; Expense</title>
     <url>/2022/11/20/Budget&amp;Expense/</url>
     <content><![CDATA[<h2 id="The-accouting-process"><a href="#The-accouting-process" class="headerlink" title="The accouting process"></a>The accouting process</h2><h3 id="When"><a href="#When" class="headerlink" title="When"></a>When</h3><p>Use the first and second week to submit reimbursements, do the bookkeeping on the second week’s Thursday afternoon, next time: 2023&#x2F;08&#x2F;10</p>
@@ -8561,204 +8511,6 @@
 ]]></content>
       <tags>
         <tag>Finance</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to become a SDM</title>
-    <url>/2022/12/02/How-to-become-a-SDM/</url>
-    <content><![CDATA[<h3 id="SDM-and-time-management"><a href="#SDM-and-time-management" class="headerlink" title="SDM and time management"></a>SDM and time management</h3><p>工作的本质是时间管理，任务优先级管理和目标管理。我们可以将具体工程实现抽象成上面一般概念，从而形成方法论：一件事到底怎么做就可以做成？能够做好manager，自己的生活也不会过得差，也大概率能管理好自己一生。其实对于技术出身尤其是很多 STEM 的PhD，都有非常好潜质去做一个好的manager，就是因为PhD不仅仅是学术技能的训练，关键也是怎么把事情做好的训练。</p>
-<p>如果说Team Leader 不仅仅需要关注自己实际工作对于项目的推进，还需要指导和帮助下属设定和完成目标，那么好的manager就是后者工作方向上更进一步：在已经洞察工作方法论的基础上设定一个能够摸得着，但需要一定努力的，同时又能尽可能地体现出团队整体工作价值的目标。</p>
-<p>在资源能够合理支持的情况，manager对于工作的态度永远都是“多多益善”。这也就是我们通常说的赋能（empower)。这些支持工作包括识别手下的人物性格特征（比方说充满才华，桀骜不驯），创造安定的工作环境（人事变动平稳可预期），工作目标分配得当（下面case A 就适合independent contributor先进行攻略），有效的监督和辅导（反馈的技巧）。</p>
-<p><a href="https://www.zhihu.com/question/509427117/answer/2689826912">https://www.zhihu.com/question/509427117/answer/2689826912</a></p>
-<h3 id="How-to-become-a-SDM"><a href="#How-to-become-a-SDM" class="headerlink" title="How to become a SDM"></a>How to become a SDM</h3><h4 id="首先确定自己为什么要当M。"><a href="#首先确定自己为什么要当M。" class="headerlink" title="首先确定自己为什么要当M。"></a>首先确定自己为什么要当M。</h4><p>这是非常重要的一步。M和IC是两种完全不同的工作。对于IC而言，每天的工作是比较清晰的：遇到问题解决问题，需要些code写code。基本上技术之外的事情可以不太管。</p>
-<p>但对于M而言，你可能打交道最多的是“人”。具体的工作内容差不多是这样的：每个Q的工作计划和资源调配、工作产出的跟踪、跨部门沟通解决冲突矛盾、绩效评估、reorg等等</p>
-<p>那么既然拿着一样的薪水，为什么要从IC到M呢？我自己的原因是这样的。我是比较Impact driven的。现在的软件工业是团队作战，那么如果要取得更大的成就，就需要团队的力量。我更喜欢的是带领一个团队去完成更大的事情，而不是自己一个人来解决小而精美的问题。所以其实理由还是比较简单直接的。</p>
-<p>每个人的理由可能不同，但一定要明确理由。（后面FAQ我可以多说两句）</p>
-<h4 id="找坑"><a href="#找坑" class="headerlink" title="找坑"></a>找坑</h4><p>每个公司的汇报线都是金字塔形的，也就是说M的位置比IC的数量肯定是要少一个数量级左右的。如果你想走这条路，肯定是要找到需要manager的地方。要么是这个地方快速发展，短期内需要招很多人，要么是这个地方正好有一个manager走了。</p>
-<p>你以为这种情况下你就有机会了？其实不尽然，我们马上就能看到这个事儿的“二十二条军规”了：</p>
-<ul>
-<li>大部分公开招聘manager的场合，都要求候选人已经有management经验。</li>
-<li>即使你有management能力，别人也不会轻易信任你，把团队交给你。</li>
-</ul>
-<p>简单的说就是，一个不靠谱的manager对团队的负面影响过大。大家都会谨慎谨慎再谨慎。所以这条路是很难走的</p>
-<p>那怎么办？其实最好的方式就是：在一个你已经熟悉的团队里面，培养周围人对你的信任，并主动要求成为manager。（我也是走的这条路，会比较顺）</p>
-<h4 id="坐稳"><a href="#坐稳" class="headerlink" title="坐稳"></a>坐稳</h4><p>前面说了如何变成一个manager，但实际情况是很多M在成为M后又后悔，返回到了IC的序列中。简单的说就是好的IC未必是好的M。我这里提几点吧：</p>
-<ul>
-<li>克制自己上手写代码的冲动。M通常会议较多，你下手通常只会拖累团队，不会带来啥正面的效果。</li>
-<li>多花时间和人交流，而不是机器。M对付的是人，不仅仅是上+下，还有横向的合作。纵横交错的关系网才能让你的工作变得更顺畅。</li>
-<li>遇事果断，该做就做，不管是reorg还是招人开人。犹豫是manager最需要避免的东西。</li>
-</ul>
-<p><a href="https://www.zhihu.com/question/509427117/answer/2692601966">https://www.zhihu.com/question/509427117/answer/2692601966</a></p>
-]]></content>
-      <categories>
-        <category>Excerpt</category>
-      </categories>
-      <tags>
-        <tag>Career</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to leetcode</title>
-    <url>/2022/12/20/How-to-leetcode/</url>
-    <content><![CDATA[<h3 id="The-motivation"><a href="#The-motivation" class="headerlink" title="The motivation"></a>The motivation</h3><p>A good software developer doesn’t necessarily need to be a good IOer, but in general a good IOer is more likely to be a good software developer. This logic makes coding more and more important in tech interview.</p>
-<h3 id="The-daily-routine"><a href="#The-daily-routine" class="headerlink" title="The daily routine"></a>The daily routine</h3><p>Now I need to review first, review 3 days per day until I can catch the current date. Only do new exercise when I need to refresh the calendar of memoCard.</p>
-<p>After that, do 2 days exercise per day. Until I can catch the current date.</p>
-<p>After that, 2 new problems daily during workday(preferably in the morning). Then do the revision whenever possible.</p>
-<h3 id="The-environment"><a href="#The-environment" class="headerlink" title="The environment"></a>The environment</h3><p>I am currently using leetcode website.</p>
-<h3 id="How-to-leetcode"><a href="#How-to-leetcode" class="headerlink" title="How to leetcode"></a>How to leetcode</h3><p><a href="https://zhuanlan.zhihu.com/p/492026165">论如何 4 个月高效刷满 500 题并形成长期记忆</a></p>
-<ol>
-<li><p>始终保持匀速前进，既不松懈倦怠，亦不急于求成</p>
-</li>
-<li><p>定时归纳总结, 按类训练</p>
-</li>
-<li><p>深度理解人的记忆规律，高频率高效复习</p>
-</li>
-<li><p>拥抱孤独，过滤外界杂音，平稳心态</p>
-</li>
-</ol>
-<h3 id="The-order-to-solve-problems"><a href="#The-order-to-solve-problems" class="headerlink" title="The order to solve problems"></a>The order to solve problems</h3><ol>
-<li><p>Go through <a href="https://labuladong.github.io/algo/">LABULADONG 的算法网站</a> once first.</p>
-</li>
-<li><p>The <a href="https://leetcode.com/explore/featured/">Explore</a> is a great place next. Finish all courses.</p>
-</li>
-<li><p>Use the daily problem and study plan tool</p>
-</li>
-</ol>
-<h3 id="The-steps-to-tackle-one-problem"><a href="#The-steps-to-tackle-one-problem" class="headerlink" title="The steps to tackle one problem"></a>The steps to tackle one problem</h3><p>If not idea at all, just check the comments. No need to wait for 5, 10 minutes</p>
-<h3 id="Advance"><a href="#Advance" class="headerlink" title="Advance"></a>Advance</h3><ul>
-<li>Weekly contest, then codeforce</li>
-<li>Watch this <a href="https://www.youtube.com/@BackToBackSWE/videos">video series</a> to learn how to speak the story</li>
-</ul>
-<h2 id="Current-leetcode-blog"><a href="#Current-leetcode-blog" class="headerlink" title="Current leetcode blog"></a>Current leetcode blog</h2><p><a href="https://labuladong.online/algo/problem-set/binary-tree-traverse-2/">用「遍历」思维解题 II</a></p>
-<h2 id="Last-problem-solved"><a href="#Last-problem-solved" class="headerlink" title="Last problem solved"></a>Last problem solved</h2><p>New page.</p>
-<p><del><a href="https://leetcode.com/problems/network-delay-time/">743. Network Delay Time</a></del></p>
-<h2 id="The-problems-not-solved"><a href="#The-problems-not-solved" class="headerlink" title="The problems not solved"></a>The problems not solved</h2><p>1696 and 1425 in <a href="https://appktavsiei5995.pc.xiaoe-tech.com/p/t_pc/course_pc_detail/image_text/i_62a692efe4b01a48520b9b9b?product_id=p_627cd0eae4b0cedf38b0ef74&content_app_id=&type=8&parent_pro_id=p_62654124e4b09dda125f9a8d">【强化练习】单调队列的通用实现及经典习题</a></p>
-<p>Weekly contest 393 t3, t4</p>
-<p>Weekly Contest 394 t3, t4</p>
-<p>Biweekly Contest 129 t4</p>
-<p>Weekly Contest 395 t4</p>
-<p>Weekly Contest 396 t4</p>
-<h2 id="The-problems-not-recorded"><a href="#The-problems-not-recorded" class="headerlink" title="The problems not recorded"></a>The problems not recorded</h2><p>Contest 393, 394, 129, 395, 396</p>
-<h2 id="The-best-way-to-record-the-progression"><a href="#The-best-way-to-record-the-progression" class="headerlink" title="The best way to record the progression"></a>The best way to record the progression</h2><p>Screenshot the next day’s list</p>
-<p>New question date: 2024-01-17</p>
-<h2 id="The-problems-not-noted"><a href="#The-problems-not-noted" class="headerlink" title="The problems not noted"></a>The problems not noted</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find <span class="built_in">source</span>/_posts/ -name <span class="string">&quot;[0-9]*&quot;</span> |  xargs grep -L <span class="string">&quot;Hints&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="The-problems-not-tagged"><a href="#The-problems-not-tagged" class="headerlink" title="The problems not tagged"></a>The problems not tagged</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find <span class="built_in">source</span>/_posts/ -name <span class="string">&quot;[0-9]*&quot;</span> | xargs grep -A 1 <span class="string">&quot;tags&quot;</span> | grep -e <span class="string">&quot;---&quot;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Thoughts</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>How to manage time</title>
-    <url>/2022/12/23/How-to-manage-time/</url>
-    <content><![CDATA[<h3 id="How-I-Have-Time-For-Everything"><a href="#How-I-Have-Time-For-Everything" class="headerlink" title="How I Have Time For Everything"></a>How I Have Time For Everything</h3><ol>
-<li><p>Focus Completely For 2-4 Hours Every Day</p>
-</li>
-<li><p>Do One Thing At A Time</p>
-</li>
-<li><p>Permanently Declutter Your Schedule</p>
-</li>
-</ol>
-<p><a href="https://www.youtube.com/watch?v=c3pzcV9yi24">LINK</a></p>
-]]></content>
-      <categories>
-        <category>Excerpt</category>
-      </categories>
-      <tags>
-        <tag>Career</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to overcome procrastination</title>
-    <url>/2022/12/02/How-to-overcome-procrastination/</url>
-    <content><![CDATA[<h3 id="What"><a href="#What" class="headerlink" title="What"></a>What</h3><p>Procrastination is when we avoid a task we said we would do, for no good reason, despite expecting our behavior to bring negative consequences.</p>
-<h3 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h3><p>Many people procrastinate because they care too much.</p>
-<p>Procrastinators often report a high fear of failure, putting things off because they’re afarid their work won’t live up to their high standards.</p>
-<h3 id="Effect"><a href="#Effect" class="headerlink" title="Effect"></a>Effect</h3><p>Frequent procrastinators are likely to suffer from anxiety and depression, ongoing feelings of shame, higher stress levels and physical ailments associated with high stress.</p>
-<h3 id="How"><a href="#How" class="headerlink" title="How"></a>How</h3><p>To short-circuit this stress response, we need to address and reduce these negative emotions.</p>
-<ol>
-<li>breaking a task into smaller elements</li>
-<li>journaling about why it’s stressing you out</li>
-<li>try removing nearby distractions that make it easy to impulsively procrastinate</li>
-<li>forgiving yourself, and making a plan to do better next time</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Thoughts</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>How to setup personal VPN</title>
-    <url>/2023/04/21/How-to-setup-personal-VPN/</url>
-    <content><![CDATA[<p>Most ideas and actions are from this doc <a href="https://github.com/haoel/haoel.github.io">科学上网</a></p>
-<h2 id="1-Domain"><a href="#1-Domain" class="headerlink" title="1. Domain"></a>1. Domain</h2><p>Since I am going to use gost server, it requires one domain. I purchased one domain at goDaddy.com, it costs $5 per year.</p>
-<h2 id="2-VPC-related"><a href="#2-VPC-related" class="headerlink" title="2. VPC related"></a>2. VPC related</h2><p>I am using AWS LightSail, couple reasons:</p>
-<ol>
-<li>It’s cheap and first 3 months usage is free</li>
-<li>It’s easy to setup, like DNS related stuff</li>
-</ol>
-<h3 id="2-1-Create-instance"><a href="#2-1-Create-instance" class="headerlink" title="2.1 Create instance"></a>2.1 Create instance</h3><p>I would very like to use one instance from HKG, but now LightSail is not available in HKG, so i launched one instance in NRT.</p>
-<h3 id="2-2-Assign-static-IP-address"><a href="#2-2-Assign-static-IP-address" class="headerlink" title="2.2 Assign static IP address"></a>2.2 Assign static IP address</h3><p>Under the networking tab, create one static IP address and assign it to the instance. Also, enable 443 port from outside.</p>
-<h3 id="2-3-Create-domain"><a href="#2-3-Create-domain" class="headerlink" title="2.3 Create domain"></a>2.3 Create domain</h3><p>Under the DNS tab, create a DNS. After creation, go to goDaddy control console and change the name server to use the name servers for this DNS.</p>
-<h3 id="2-4-Gost-setup"><a href="#2-4-Gost-setup" class="headerlink" title="2.4 Gost setup"></a>2.4 Gost setup</h3><p>Login the instance. Git clone haoel’s repo, then run the install script under &#x2F;scripts folder.</p>
-<h2 id="3-Client"><a href="#3-Client" class="headerlink" title="3. Client"></a>3. Client</h2><h3 id="3-1-Chrome"><a href="#3-1-Chrome" class="headerlink" title="3.1 Chrome"></a>3.1 Chrome</h3><p>I would recommend switchyOmega extension for Chrome, just fill in the host, the user and password then the work is done.</p>
-<h3 id="3-2-Github"><a href="#3-2-Github" class="headerlink" title="3.2 Github"></a>3.2 Github</h3><p>To use proxy for other programs, we need to launch a gost client on the machine. It’s recommended to use docker.</p>
-<ol>
-<li>Install docker</li>
-<li>Run docker for different services<ol>
-<li><p>Shadowsocks</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -p 1984:1984 --name gost-ss --restart=always -d ginuerzh/gost -L=ss://aes-128-gcm:password@:1984 -F <span class="string">&#x27;https://user:password@host:443&#x27;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Socks5 for github</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -p 1080:1080 --name gost-socks --restart=always -d ginuerzh/gost -L=socks5://:1080 -F <span class="string">&#x27;https://user:password@host:443&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p> Then change the ssh config file for github access</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">    Hostname github.com</span><br><span class="line">    ProxyCommand nc -x localhost:1085 %h %p</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-</ol>
-<h3 id="3-3-IOS"><a href="#3-3-IOS" class="headerlink" title="3.3 IOS"></a>3.3 IOS</h3><p>Download Shadowrocket, and setup the proxy.</p>
-]]></content>
-      <tags>
-        <tag>Tech</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to write a design doc/ORR</title>
-    <url>/2022/12/02/How-to-write-a-design-doc-ORR/</url>
-    <content><![CDATA[<h3 id="The-problem"><a href="#The-problem" class="headerlink" title="The problem"></a>The problem</h3><p>It can take 2~3 weeks for me to finish one design doc&#x2F;ORR. When there’s a need to write such a doc, I would postphone the work as late as possible. And when there’s no way to push it off, I wouldn’t start the work until the last evening + morning. Such behaviour damages my mental health and also the doc quality.</p>
-<h3 id="How-to-do-better-next-time"><a href="#How-to-do-better-next-time" class="headerlink" title="How to do better next time"></a>How to do better next time</h3><ul>
-<li>Setup the key stakeholder review day, internal review day early, so i can schedule work backwards</li>
-<li>Find some training from internal source, if there’s any, can use 1~2 days for this</li>
-<li>Find some example, can use half day for this</li>
-<li>Start to write, even just copying the example</li>
-<li>Break the tasks into smaller pieces. Start to lay out the architecture, so i can fill in each section later</li>
-<li>Setup a goal: what I must finish within today</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Thoughts</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Learning from STJE failure</title>
-    <url>/2023/04/21/Learning-from-STJE-failure/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, these decrypted content cannot be verified, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="44ac31c326231c787d39257cc111686badaea6adf6a952f65ac01d226d4f0c2e">85fbf07caa70baa1ae613fbbfb8d9d937b53c3e801c535e726658d7bccc84a014e14ed5c6dbaf5a5f44cc85918254ec9f194a44b60d3705387e2f552a4bbbd34df96d182282490edd6c9875520f7517b332a4e1f06db8b8f901764752a14bfd5302702680baafadf7fc3d9df90a9c4b6ad19c2a79959de63aa32930830e7dba5703f86d00751e1d7e6991b4d7d209643eb0e2e6d337c0c9f7100a1857375793052d49205b372c8cc8f88029699f945f79527b93280f6ca0a3c0e80fbc89f19891fc7df40080081527ecbf395eedfedc37e56663443ed09178d5939eb4d9261ec591105663838bf7b4b9aae16accfecc393f60b614ecfefc90593410cfcdc2bef463600579a4907290d86ea0e09c7fb529e4ff4df077abde8fb8718641cd7c2180b65ff457ef23c70196297ca10b30abc4a7f881a9ae5ce6f693128c8f63836ed93dd71c8cc346ff7b4aa7d7fafce1a44b3cddc44b4b50efd0306261c6061e3e1bd558262166cbbc0e21238989f0df119aedc3c3c82c7abd7967766781d239ee82a0269b709bdadb2d3ac5e2e54fecdde954e2d42f8a584841b6dec1f68508b7568c14a283634375b7f6c3ec9aef17070c571e707a0904d56441c62a9d9b12e278a6d91c9d0b411a1377ad7f515a4c11f8c26c3c81c24ffcb441f1e1ff6fd75309f6f9aa5c912fee77849768aa77041fda43878989cee5a657db6fe8c1fc2394d1b310f2b65acfd5a7d656bbca9e0b59de1440d46d1c5ee7ab07aef8997b2bd8e1c49e757559331d11214f74bb9a1fb0eaebc82b13e6fd3af93cf2764a438c6669474ededd1220314a98ab0b33978d258926fc11a7343015ee271b18c861bd8539b8be010251137ab9944f34f0515553f5a2e38a2fe3cd9b2f55b06726990afb2b4df9d2b4470004341199564dbf70c1f7d8d395e47121a501913f5ed8685fcb4403ba0c2e5942e0992d5f4b27f082899af5cb5ef63c8dadbbcabd7ffd37b156e426f027673e9009d20819e9bd02932f3ef53185509f7f8f3d5b9681e514b764c6447bc382c51b9e7caa728668ba119d838e51776ab1ea8c0cdf81b61f75d47d25db4168fe6c257cf49a35bbf2aecb9df7cb07146ba6011715524c9fcf9e77eee098de7f1d726591052ca3636d1910392d3b2e02be9b2e08a5ffb075d4a36cb5ea93a7d5994eb2cfcaa56425612f593993a2243e36a64722b4107a0176fce59452f725b5caff31ff11dbc2b938c337f0b4b3b3525039706bcece60f66963edaa022bc166d5abd7299dda0ffe5659afb5c306b8c15c44b2f8828c8cc2897a8659935c6eced09622d6322637c901eeaa3c0</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <tags>
-        <tag>Career</tag>
-        <tag>Personal</tag>
       </tags>
   </entry>
   <entry>
@@ -10249,6 +10001,254 @@
       </categories>
       <tags>
         <tag>DDIA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Career development</title>
+    <url>/2022/12/23/Career-development/</url>
+    <content><![CDATA[<h3 id="3-Career-Killers-for-Software-Engineers"><a href="#3-Career-Killers-for-Software-Engineers" class="headerlink" title="3 Career Killers for Software Engineers"></a>3 Career Killers for Software Engineers</h3><ol>
+<li><p>Not thinking clearly about staying or leaving</p>
+<ul>
+<li>Considerations: 1. Manager 2. Pay</li>
+<li>Sure, that hop could increase your compensation but you could be leaving a good team and moving to something worse.</li>
+<li>If you’re in a bad environment, don’t believe promises but watch the management’s actions to see if they’re actually dealing with the root problem.</li>
+<li>Ultimately, if you’re in a good spot, don’t throw it all away. You’ll only recognize your golden ages from hindsight.</li>
+</ul>
+</li>
+<li><p>Preferring Output Over Impact</p>
+<ul>
+<li>Finding task that differentiate yourself.</li>
+<li>Finding a meaningful refactor that prevents future bugs is better than routinely integrating package updates.<br> Great to have a nose for outsized impact.</li>
+</ul>
+</li>
+<li><p>Get Your Money Right</p>
+<p> Time in the market is better than timing in the market.</p>
+</li>
+</ol>
+<p><a href="https://www.youtube.com/watch?v=uX719LQBLXw">LINK</a></p>
+<h3 id="Three-Things-Preventing-Your-Promotion-to-Senior-Engineer"><a href="#Three-Things-Preventing-Your-Promotion-to-Senior-Engineer" class="headerlink" title="Three Things Preventing Your Promotion to Senior Engineer"></a>Three Things Preventing Your Promotion to Senior Engineer</h3><h4 id="Universal-Trait"><a href="#Universal-Trait" class="headerlink" title="Universal Trait"></a>Universal Trait</h4><ol>
+<li><p>Technically deep and delivers</p>
+</li>
+<li><p>Rejects hyperbolic discounting</p>
+</li>
+<li><p>Expert time manager</p>
+</li>
+<li><p>By growing others nearby</p>
+</li>
+</ol>
+<h4 id="Pitfall"><a href="#Pitfall" class="headerlink" title="Pitfall"></a>Pitfall</h4><ol>
+<li><p>Over-indexes on delivery and tech depth</p>
+</li>
+<li><p>conflates leadership with management</p>
+</li>
+<li><p>Unsustainable time management</p>
+</li>
+</ol>
+<p><a href="https://www.youtube.com/watch?v=4i5iFlP01mQ">LINK</a></p>
+]]></content>
+      <categories>
+        <category>Excerpt</category>
+      </categories>
+      <tags>
+        <tag>Career</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to become a SDM</title>
+    <url>/2022/12/02/How-to-become-a-SDM/</url>
+    <content><![CDATA[<h3 id="SDM-and-time-management"><a href="#SDM-and-time-management" class="headerlink" title="SDM and time management"></a>SDM and time management</h3><p>工作的本质是时间管理，任务优先级管理和目标管理。我们可以将具体工程实现抽象成上面一般概念，从而形成方法论：一件事到底怎么做就可以做成？能够做好manager，自己的生活也不会过得差，也大概率能管理好自己一生。其实对于技术出身尤其是很多 STEM 的PhD，都有非常好潜质去做一个好的manager，就是因为PhD不仅仅是学术技能的训练，关键也是怎么把事情做好的训练。</p>
+<p>如果说Team Leader 不仅仅需要关注自己实际工作对于项目的推进，还需要指导和帮助下属设定和完成目标，那么好的manager就是后者工作方向上更进一步：在已经洞察工作方法论的基础上设定一个能够摸得着，但需要一定努力的，同时又能尽可能地体现出团队整体工作价值的目标。</p>
+<p>在资源能够合理支持的情况，manager对于工作的态度永远都是“多多益善”。这也就是我们通常说的赋能（empower)。这些支持工作包括识别手下的人物性格特征（比方说充满才华，桀骜不驯），创造安定的工作环境（人事变动平稳可预期），工作目标分配得当（下面case A 就适合independent contributor先进行攻略），有效的监督和辅导（反馈的技巧）。</p>
+<p><a href="https://www.zhihu.com/question/509427117/answer/2689826912">https://www.zhihu.com/question/509427117/answer/2689826912</a></p>
+<h3 id="How-to-become-a-SDM"><a href="#How-to-become-a-SDM" class="headerlink" title="How to become a SDM"></a>How to become a SDM</h3><h4 id="首先确定自己为什么要当M。"><a href="#首先确定自己为什么要当M。" class="headerlink" title="首先确定自己为什么要当M。"></a>首先确定自己为什么要当M。</h4><p>这是非常重要的一步。M和IC是两种完全不同的工作。对于IC而言，每天的工作是比较清晰的：遇到问题解决问题，需要些code写code。基本上技术之外的事情可以不太管。</p>
+<p>但对于M而言，你可能打交道最多的是“人”。具体的工作内容差不多是这样的：每个Q的工作计划和资源调配、工作产出的跟踪、跨部门沟通解决冲突矛盾、绩效评估、reorg等等</p>
+<p>那么既然拿着一样的薪水，为什么要从IC到M呢？我自己的原因是这样的。我是比较Impact driven的。现在的软件工业是团队作战，那么如果要取得更大的成就，就需要团队的力量。我更喜欢的是带领一个团队去完成更大的事情，而不是自己一个人来解决小而精美的问题。所以其实理由还是比较简单直接的。</p>
+<p>每个人的理由可能不同，但一定要明确理由。（后面FAQ我可以多说两句）</p>
+<h4 id="找坑"><a href="#找坑" class="headerlink" title="找坑"></a>找坑</h4><p>每个公司的汇报线都是金字塔形的，也就是说M的位置比IC的数量肯定是要少一个数量级左右的。如果你想走这条路，肯定是要找到需要manager的地方。要么是这个地方快速发展，短期内需要招很多人，要么是这个地方正好有一个manager走了。</p>
+<p>你以为这种情况下你就有机会了？其实不尽然，我们马上就能看到这个事儿的“二十二条军规”了：</p>
+<ul>
+<li>大部分公开招聘manager的场合，都要求候选人已经有management经验。</li>
+<li>即使你有management能力，别人也不会轻易信任你，把团队交给你。</li>
+</ul>
+<p>简单的说就是，一个不靠谱的manager对团队的负面影响过大。大家都会谨慎谨慎再谨慎。所以这条路是很难走的</p>
+<p>那怎么办？其实最好的方式就是：在一个你已经熟悉的团队里面，培养周围人对你的信任，并主动要求成为manager。（我也是走的这条路，会比较顺）</p>
+<h4 id="坐稳"><a href="#坐稳" class="headerlink" title="坐稳"></a>坐稳</h4><p>前面说了如何变成一个manager，但实际情况是很多M在成为M后又后悔，返回到了IC的序列中。简单的说就是好的IC未必是好的M。我这里提几点吧：</p>
+<ul>
+<li>克制自己上手写代码的冲动。M通常会议较多，你下手通常只会拖累团队，不会带来啥正面的效果。</li>
+<li>多花时间和人交流，而不是机器。M对付的是人，不仅仅是上+下，还有横向的合作。纵横交错的关系网才能让你的工作变得更顺畅。</li>
+<li>遇事果断，该做就做，不管是reorg还是招人开人。犹豫是manager最需要避免的东西。</li>
+</ul>
+<p><a href="https://www.zhihu.com/question/509427117/answer/2692601966">https://www.zhihu.com/question/509427117/answer/2692601966</a></p>
+]]></content>
+      <categories>
+        <category>Excerpt</category>
+      </categories>
+      <tags>
+        <tag>Career</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to leetcode</title>
+    <url>/2022/12/20/How-to-leetcode/</url>
+    <content><![CDATA[<h3 id="The-motivation"><a href="#The-motivation" class="headerlink" title="The motivation"></a>The motivation</h3><p>A good software developer doesn’t necessarily need to be a good IOer, but in general a good IOer is more likely to be a good software developer. This logic makes coding more and more important in tech interview.</p>
+<h3 id="The-daily-routine"><a href="#The-daily-routine" class="headerlink" title="The daily routine"></a>The daily routine</h3><p>Now I need to review first, review 3 days per day until I can catch the current date. Only do new exercise when I need to refresh the calendar of memoCard.</p>
+<p>After that, do 2 days exercise per day. Until I can catch the current date.</p>
+<p>After that, 2 new problems daily during workday(preferably in the morning). Then do the revision whenever possible.</p>
+<h3 id="The-environment"><a href="#The-environment" class="headerlink" title="The environment"></a>The environment</h3><p>I am currently using leetcode website.</p>
+<h3 id="How-to-leetcode"><a href="#How-to-leetcode" class="headerlink" title="How to leetcode"></a>How to leetcode</h3><p><a href="https://zhuanlan.zhihu.com/p/492026165">论如何 4 个月高效刷满 500 题并形成长期记忆</a></p>
+<ol>
+<li><p>始终保持匀速前进，既不松懈倦怠，亦不急于求成</p>
+</li>
+<li><p>定时归纳总结, 按类训练</p>
+</li>
+<li><p>深度理解人的记忆规律，高频率高效复习</p>
+</li>
+<li><p>拥抱孤独，过滤外界杂音，平稳心态</p>
+</li>
+</ol>
+<h3 id="The-order-to-solve-problems"><a href="#The-order-to-solve-problems" class="headerlink" title="The order to solve problems"></a>The order to solve problems</h3><ol>
+<li><p>Go through <a href="https://labuladong.github.io/algo/">LABULADONG 的算法网站</a> once first.</p>
+</li>
+<li><p>The <a href="https://leetcode.com/explore/featured/">Explore</a> is a great place next. Finish all courses.</p>
+</li>
+<li><p>Use the daily problem and study plan tool</p>
+</li>
+</ol>
+<h3 id="The-steps-to-tackle-one-problem"><a href="#The-steps-to-tackle-one-problem" class="headerlink" title="The steps to tackle one problem"></a>The steps to tackle one problem</h3><p>If not idea at all, just check the comments. No need to wait for 5, 10 minutes</p>
+<h3 id="Advance"><a href="#Advance" class="headerlink" title="Advance"></a>Advance</h3><ul>
+<li>Weekly contest, then codeforce</li>
+<li>Watch this <a href="https://www.youtube.com/@BackToBackSWE/videos">video series</a> to learn how to speak the story</li>
+</ul>
+<h2 id="Current-leetcode-blog"><a href="#Current-leetcode-blog" class="headerlink" title="Current leetcode blog"></a>Current leetcode blog</h2><p><a href="https://labuladong.online/algo/problem-set/binary-tree-traverse-2/">用「遍历」思维解题 II</a></p>
+<h2 id="Last-problem-solved"><a href="#Last-problem-solved" class="headerlink" title="Last problem solved"></a>Last problem solved</h2><p>New page.</p>
+<p><del><a href="https://leetcode.com/problems/network-delay-time/">743. Network Delay Time</a></del></p>
+<h2 id="The-problems-not-solved"><a href="#The-problems-not-solved" class="headerlink" title="The problems not solved"></a>The problems not solved</h2><p>1696 and 1425 in <a href="https://appktavsiei5995.pc.xiaoe-tech.com/p/t_pc/course_pc_detail/image_text/i_62a692efe4b01a48520b9b9b?product_id=p_627cd0eae4b0cedf38b0ef74&content_app_id=&type=8&parent_pro_id=p_62654124e4b09dda125f9a8d">【强化练习】单调队列的通用实现及经典习题</a></p>
+<p>Weekly contest 393 t3, t4</p>
+<p>Weekly Contest 394 t3, t4</p>
+<p>Biweekly Contest 129 t4</p>
+<p>Weekly Contest 395 t4</p>
+<p>Weekly Contest 396 t4</p>
+<h2 id="The-problems-not-recorded"><a href="#The-problems-not-recorded" class="headerlink" title="The problems not recorded"></a>The problems not recorded</h2><p>Contest 393, 394, 129, 395, 396</p>
+<h2 id="The-best-way-to-record-the-progression"><a href="#The-best-way-to-record-the-progression" class="headerlink" title="The best way to record the progression"></a>The best way to record the progression</h2><p>Screenshot the next day’s list</p>
+<p>New question date: 2024-01-17</p>
+<h2 id="The-problems-not-noted"><a href="#The-problems-not-noted" class="headerlink" title="The problems not noted"></a>The problems not noted</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find <span class="built_in">source</span>/_posts/ -name <span class="string">&quot;[0-9]*&quot;</span> |  xargs grep -L <span class="string">&quot;Hints&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="The-problems-not-tagged"><a href="#The-problems-not-tagged" class="headerlink" title="The problems not tagged"></a>The problems not tagged</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find <span class="built_in">source</span>/_posts/ -name <span class="string">&quot;[0-9]*&quot;</span> | xargs grep -A 1 <span class="string">&quot;tags&quot;</span> | grep -e <span class="string">&quot;---&quot;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Thoughts</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>How to overcome procrastination</title>
+    <url>/2022/12/02/How-to-overcome-procrastination/</url>
+    <content><![CDATA[<h3 id="What"><a href="#What" class="headerlink" title="What"></a>What</h3><p>Procrastination is when we avoid a task we said we would do, for no good reason, despite expecting our behavior to bring negative consequences.</p>
+<h3 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h3><p>Many people procrastinate because they care too much.</p>
+<p>Procrastinators often report a high fear of failure, putting things off because they’re afarid their work won’t live up to their high standards.</p>
+<h3 id="Effect"><a href="#Effect" class="headerlink" title="Effect"></a>Effect</h3><p>Frequent procrastinators are likely to suffer from anxiety and depression, ongoing feelings of shame, higher stress levels and physical ailments associated with high stress.</p>
+<h3 id="How"><a href="#How" class="headerlink" title="How"></a>How</h3><p>To short-circuit this stress response, we need to address and reduce these negative emotions.</p>
+<ol>
+<li>breaking a task into smaller elements</li>
+<li>journaling about why it’s stressing you out</li>
+<li>try removing nearby distractions that make it easy to impulsively procrastinate</li>
+<li>forgiving yourself, and making a plan to do better next time</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Thoughts</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>How to manage time</title>
+    <url>/2022/12/23/How-to-manage-time/</url>
+    <content><![CDATA[<h3 id="How-I-Have-Time-For-Everything"><a href="#How-I-Have-Time-For-Everything" class="headerlink" title="How I Have Time For Everything"></a>How I Have Time For Everything</h3><ol>
+<li><p>Focus Completely For 2-4 Hours Every Day</p>
+</li>
+<li><p>Do One Thing At A Time</p>
+</li>
+<li><p>Permanently Declutter Your Schedule</p>
+</li>
+</ol>
+<p><a href="https://www.youtube.com/watch?v=c3pzcV9yi24">LINK</a></p>
+]]></content>
+      <categories>
+        <category>Excerpt</category>
+      </categories>
+      <tags>
+        <tag>Career</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to setup personal VPN</title>
+    <url>/2023/04/21/How-to-setup-personal-VPN/</url>
+    <content><![CDATA[<p>Most ideas and actions are from this doc <a href="https://github.com/haoel/haoel.github.io">科学上网</a></p>
+<h2 id="1-Domain"><a href="#1-Domain" class="headerlink" title="1. Domain"></a>1. Domain</h2><p>Since I am going to use gost server, it requires one domain. I purchased one domain at goDaddy.com, it costs $5 per year.</p>
+<h2 id="2-VPC-related"><a href="#2-VPC-related" class="headerlink" title="2. VPC related"></a>2. VPC related</h2><p>I am using AWS LightSail, couple reasons:</p>
+<ol>
+<li>It’s cheap and first 3 months usage is free</li>
+<li>It’s easy to setup, like DNS related stuff</li>
+</ol>
+<h3 id="2-1-Create-instance"><a href="#2-1-Create-instance" class="headerlink" title="2.1 Create instance"></a>2.1 Create instance</h3><p>I would very like to use one instance from HKG, but now LightSail is not available in HKG, so i launched one instance in NRT.</p>
+<h3 id="2-2-Assign-static-IP-address"><a href="#2-2-Assign-static-IP-address" class="headerlink" title="2.2 Assign static IP address"></a>2.2 Assign static IP address</h3><p>Under the networking tab, create one static IP address and assign it to the instance. Also, enable 443 port from outside.</p>
+<h3 id="2-3-Create-domain"><a href="#2-3-Create-domain" class="headerlink" title="2.3 Create domain"></a>2.3 Create domain</h3><p>Under the DNS tab, create a DNS. After creation, go to goDaddy control console and change the name server to use the name servers for this DNS.</p>
+<h3 id="2-4-Gost-setup"><a href="#2-4-Gost-setup" class="headerlink" title="2.4 Gost setup"></a>2.4 Gost setup</h3><p>Login the instance. Git clone haoel’s repo, then run the install script under &#x2F;scripts folder.</p>
+<h2 id="3-Client"><a href="#3-Client" class="headerlink" title="3. Client"></a>3. Client</h2><h3 id="3-1-Chrome"><a href="#3-1-Chrome" class="headerlink" title="3.1 Chrome"></a>3.1 Chrome</h3><p>I would recommend switchyOmega extension for Chrome, just fill in the host, the user and password then the work is done.</p>
+<h3 id="3-2-Github"><a href="#3-2-Github" class="headerlink" title="3.2 Github"></a>3.2 Github</h3><p>To use proxy for other programs, we need to launch a gost client on the machine. It’s recommended to use docker.</p>
+<ol>
+<li>Install docker</li>
+<li>Run docker for different services<ol>
+<li><p>Shadowsocks</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -p 1984:1984 --name gost-ss --restart=always -d ginuerzh/gost -L=ss://aes-128-gcm:password@:1984 -F <span class="string">&#x27;https://user:password@host:443&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Socks5 for github</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -p 1080:1080 --name gost-socks --restart=always -d ginuerzh/gost -L=socks5://:1080 -F <span class="string">&#x27;https://user:password@host:443&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p> Then change the ssh config file for github access</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">    Hostname github.com</span><br><span class="line">    ProxyCommand nc -x localhost:1085 %h %p</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<h3 id="3-3-IOS"><a href="#3-3-IOS" class="headerlink" title="3.3 IOS"></a>3.3 IOS</h3><p>Download Shadowrocket, and setup the proxy.</p>
+]]></content>
+      <tags>
+        <tag>Tech</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to write a design doc/ORR</title>
+    <url>/2022/12/02/How-to-write-a-design-doc-ORR/</url>
+    <content><![CDATA[<h3 id="The-problem"><a href="#The-problem" class="headerlink" title="The problem"></a>The problem</h3><p>It can take 2~3 weeks for me to finish one design doc&#x2F;ORR. When there’s a need to write such a doc, I would postphone the work as late as possible. And when there’s no way to push it off, I wouldn’t start the work until the last evening + morning. Such behaviour damages my mental health and also the doc quality.</p>
+<h3 id="How-to-do-better-next-time"><a href="#How-to-do-better-next-time" class="headerlink" title="How to do better next time"></a>How to do better next time</h3><ul>
+<li>Setup the key stakeholder review day, internal review day early, so i can schedule work backwards</li>
+<li>Find some training from internal source, if there’s any, can use 1~2 days for this</li>
+<li>Find some example, can use half day for this</li>
+<li>Start to write, even just copying the example</li>
+<li>Break the tasks into smaller pieces. Start to lay out the architecture, so i can fill in each section later</li>
+<li>Setup a goal: what I must finish within today</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Thoughts</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Learning from STJE failure</title>
+    <url>/2023/04/21/Learning-from-STJE-failure/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, these decrypted content cannot be verified, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="44ac31c326231c787d39257cc111686badaea6adf6a952f65ac01d226d4f0c2e">85fbf07caa70baa1ae613fbbfb8d9d937b53c3e801c535e726658d7bccc84a014e14ed5c6dbaf5a5f44cc85918254ec9f194a44b60d3705387e2f552a4bbbd34df96d182282490edd6c9875520f7517b332a4e1f06db8b8f901764752a14bfd5302702680baafadf7fc3d9df90a9c4b6ad19c2a79959de63aa32930830e7dba5703f86d00751e1d7e6991b4d7d209643eb0e2e6d337c0c9f7100a1857375793052d49205b372c8cc8f88029699f945f79527b93280f6ca0a3c0e80fbc89f19891fc7df40080081527ecbf395eedfedc37e56663443ed09178d5939eb4d9261ec591105663838bf7b4b9aae16accfecc393f60b614ecfefc90593410cfcdc2bef463600579a4907290d86ea0e09c7fb529e4ff4df077abde8fb8718641cd7c2180b65ff457ef23c70196297ca10b30abc4a7f881a9ae5ce6f693128c8f63836ed93dd71c8cc346ff7b4aa7d7fafce1a44b3cddc44b4b50efd0306261c6061e3e1bd558262166cbbc0e21238989f0df119aedc3c3c82c7abd7967766781d239ee82a0269b709bdadb2d3ac5e2e54fecdde954e2d42f8a584841b6dec1f68508b7568c14a283634375b7f6c3ec9aef17070c571e707a0904d56441c62a9d9b12e278a6d91c9d0b411a1377ad7f515a4c11f8c26c3c81c24ffcb441f1e1ff6fd75309f6f9aa5c912fee77849768aa77041fda43878989cee5a657db6fe8c1fc2394d1b310f2b65acfd5a7d656bbca9e0b59de1440d46d1c5ee7ab07aef8997b2bd8e1c49e757559331d11214f74bb9a1fb0eaebc82b13e6fd3af93cf2764a438c6669474ededd1220314a98ab0b33978d258926fc11a7343015ee271b18c861bd8539b8be010251137ab9944f34f0515553f5a2e38a2fe3cd9b2f55b06726990afb2b4df9d2b4470004341199564dbf70c1f7d8d395e47121a501913f5ed8685fcb4403ba0c2e5942e0992d5f4b27f082899af5cb5ef63c8dadbbcabd7ffd37b156e426f027673e9009d20819e9bd02932f3ef53185509f7f8f3d5b9681e514b764c6447bc382c51b9e7caa728668ba119d838e51776ab1ea8c0cdf81b61f75d47d25db4168fe6c257cf49a35bbf2aecb9df7cb07146ba6011715524c9fcf9e77eee098de7f1d726591052ca3636d1910392d3b2e02be9b2e08a5ffb075d4a36cb5ea93a7d5994eb2cfcaa56425612f593993a2243e36a64722b4107a0176fce59452f725b5caff31ff11dbc2b938c337f0b4b3b3525039706bcece60f66963edaa022bc166d5abd7299dda0ffe5659afb5c306b8c15c44b2f8828c8cc2897a8659935c6eced09622d6322637c901eeaa3c0</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <tags>
+        <tag>Career</tag>
+        <tag>Personal</tag>
       </tags>
   </entry>
   <entry>

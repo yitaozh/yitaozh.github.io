@@ -101,6 +101,8 @@ public:
             head->prev = node;
             node->next = head;
             head = head->prev;
+            tail->next = head;
+            head->prev = tail;
         }
         return true;
     }
@@ -118,6 +120,8 @@ public:
             tail->next = node;
             node->prev = tail;
             tail = tail->next;
+            tail->next = head;
+            head->prev = tail;
         }
         return true;
     }

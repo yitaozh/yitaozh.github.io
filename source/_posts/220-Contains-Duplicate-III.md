@@ -59,6 +59,7 @@ Explanation: After trying all the possible pairs (i, j), we cannot satisfy the t
 
 * sliding window
 * use map's lower_bound function
+* it's not comparing max and min of a sub array, so don't use monotonic queue
 
 ## Solution
 

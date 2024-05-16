@@ -315,6 +315,42 @@
       </tags>
   </entry>
   <entry>
+    <title>1071. Greatest Common Divisor of Strings</title>
+    <url>/2023/02/01/1071-Greatest-Common-Divisor-of-Strings/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/greatest-common-divisor-of-strings/">1071. Greatest Common Divisor of Strings</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/math/">Math</a>, <a href="https://leetcode.com/tag/string/">String</a></p>
+<p>For two strings <code>s</code> and <code>t</code>, we say “<code>t</code> divides <code>s</code>“ if and only if <code>s = t + ... + t</code> (i.e., <code>t</code> is concatenated with itself one or more times).</p>
+<p>Given two strings <code>str1</code> and <code>str2</code>, return <em>the largest string</em> <code>x</code> <em>such that</em> <code>x</code> <em>divides both</em> <code>str1</code> <em>and</em> <code>str2</code>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: str1 = &quot;ABCABC&quot;, str2 = &quot;ABC&quot;</span><br><span class="line">Output: &quot;ABC&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: str1 = &quot;ABABAB&quot;, str2 = &quot;ABAB&quot;</span><br><span class="line">Output: &quot;AB&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: str1 = &quot;LEET&quot;, str2 = &quot;CODE&quot;</span><br><span class="line">Output: &quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= str1.length, str2.length &lt;= 1000</code></li>
+<li><code>str1</code> and <code>str2</code> consist of English uppercase letters.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>Think about it methmatically, like str1 is k subStrings and str2 is l subStrings</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">gcdOfStrings</span><span class="params">(string str1, string str2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (str1 + str2 != str2 + str1) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> gcdLength = <span class="built_in">gcd</span>(str1.<span class="built_in">size</span>(), str2.<span class="built_in">size</span>());</span><br><span class="line">        <span class="keyword">return</span> str1.<span class="built_in">substr</span>(<span class="number">0</span>, gcdLength);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Math</tag>
+        <tag>String</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>106. Construct Binary Tree from Inorder and Postorder Traversal</title>
     <url>/2023/08/22/106-Construct-Binary-Tree-from-Inorder-and-Postorder-Traversal/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/">106. Construct Binary Tree from Inorder and Postorder Traversal</a></p>
@@ -356,39 +392,40 @@
       </tags>
   </entry>
   <entry>
-    <title>1071. Greatest Common Divisor of Strings</title>
-    <url>/2023/02/01/1071-Greatest-Common-Divisor-of-Strings/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/greatest-common-divisor-of-strings/">1071. Greatest Common Divisor of Strings</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/math/">Math</a>, <a href="https://leetcode.com/tag/string/">String</a></p>
-<p>For two strings <code>s</code> and <code>t</code>, we say “<code>t</code> divides <code>s</code>“ if and only if <code>s = t + ... + t</code> (i.e., <code>t</code> is concatenated with itself one or more times).</p>
-<p>Given two strings <code>str1</code> and <code>str2</code>, return <em>the largest string</em> <code>x</code> <em>such that</em> <code>x</code> <em>divides both</em> <code>str1</code> <em>and</em> <code>str2</code>.</p>
+    <title>1109. Corporate Flight Bookings</title>
+    <url>/2023/01/23/1109-Corporate-Flight-Bookings/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/corporate-flight-bookings/">1109. Corporate Flight Bookings</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/array/">Array</a>, <a href="https://leetcode.com/tag/prefix-sum/">Prefix Sum</a></p>
+<p>There are <code>n</code> flights that are labeled from <code>1</code> to <code>n</code>.</p>
+<p>You are given an array of flight bookings <code>bookings</code>, where bookings[i] &#x3D; [first<sub>i</sub>, last<sub>i</sub>, seats<sub>i</sub>] represents a booking for flights first<sub>i</sub> through last<sub>i</sub> (<strong>inclusive</strong>) with seats<sub>i</sub> seats reserved for <strong>each flight</strong> in the range.</p>
+<p>Return <em>an array</em> <code>answer</code> <em>of length</em> <code>n</code><em>, where</em> <code>answer[i]</code> <em>is the total number of seats reserved for flight</em> <code>i</code>.</p>
 <p><strong>Example 1:</strong></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: str1 = &quot;ABCABC&quot;, str2 = &quot;ABC&quot;</span><br><span class="line">Output: &quot;ABC&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: bookings = [[1,2,10],[2,3,20],[2,5,25]], n = 5</span><br><span class="line">Output: [10,55,45,25,25]</span><br><span class="line">Explanation:</span><br><span class="line">Flight labels:        1   2   3   4   5</span><br><span class="line">Booking 1 reserved:  10  10</span><br><span class="line">Booking 2 reserved:      20  20</span><br><span class="line">Booking 3 reserved:      25  25  25  25</span><br><span class="line">Total seats:         10  55  45  25  25</span><br><span class="line">Hence, answer = [10,55,45,25,25]</span><br></pre></td></tr></table></figure>
 
 <p><strong>Example 2:</strong></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: str1 = &quot;ABABAB&quot;, str2 = &quot;ABAB&quot;</span><br><span class="line">Output: &quot;AB&quot;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input: str1 = &quot;LEET&quot;, str2 = &quot;CODE&quot;</span><br><span class="line">Output: &quot;&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: bookings = [[1,2,10],[2,2,15]], n = 2</span><br><span class="line">Output: [10,25]</span><br><span class="line">Explanation:</span><br><span class="line">Flight labels:        1   2</span><br><span class="line">Booking 1 reserved:  10  10</span><br><span class="line">Booking 2 reserved:      15</span><br><span class="line">Total seats:         10  25</span><br><span class="line">Hence, answer = [10,25]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p><strong>Constraints:</strong></p>
 <ul>
-<li><code>1 &lt;= str1.length, str2.length &lt;= 1000</code></li>
-<li><code>str1</code> and <code>str2</code> consist of English uppercase letters.</li>
+<li>1 &lt;&#x3D; n &lt;&#x3D; 2 * 10<sup>4</sup></li>
+<li>1 &lt;&#x3D; bookings.length &lt;&#x3D; 2 * 10<sup>4</sup></li>
+<li><code>bookings[i].length == 3</code></li>
+<li>1 &lt;&#x3D; first<sub>i</sub> &lt;&#x3D; last<sub>i</sub> &lt;&#x3D; n</li>
+<li>1 &lt;&#x3D; seats<sub>i</sub> &lt;&#x3D; 10<sup>4</sup></li>
 </ul>
 <h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Think about it methmatically, like str1 is k subStrings and str2 is l subStrings</li>
+<li>Use the diff array</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">gcdOfStrings</span><span class="params">(string str1, string str2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (str1 + str2 != str2 + str1) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> gcdLength = <span class="built_in">gcd</span>(str1.<span class="built_in">size</span>(), str2.<span class="built_in">size</span>());</span><br><span class="line">        <span class="keyword">return</span> str1.<span class="built_in">substr</span>(<span class="number">0</span>, gcdLength);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">corpFlightBookings</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; bookings, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">diffs</span><span class="params">(n, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (vector&lt;<span class="type">int</span>&gt; booking : bookings) &#123;</span><br><span class="line">            <span class="type">int</span> start = booking[<span class="number">0</span>] - <span class="number">1</span>, end = booking[<span class="number">1</span>] - <span class="number">1</span>, diff = booking[<span class="number">2</span>];</span><br><span class="line">            diffs[start] += diff;</span><br><span class="line">            <span class="keyword">if</span> (end + <span class="number">1</span> &lt; n) &#123;</span><br><span class="line">                diffs[end + <span class="number">1</span>] -= diff;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        res.<span class="built_in">push_back</span>(diffs[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">            res.<span class="built_in">push_back</span>(res[i - <span class="number">1</span>] + diffs[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>Math</tag>
-        <tag>String</tag>
+        <tag>Array</tag>
+        <tag>Prefix Sum</tag>
       </tags>
   </entry>
   <entry>
@@ -429,43 +466,6 @@
         <tag>Sorting</tag>
         <tag>Heap (Priority Queue)</tag>
         <tag>Simulation</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>1109. Corporate Flight Bookings</title>
-    <url>/2023/01/23/1109-Corporate-Flight-Bookings/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/corporate-flight-bookings/">1109. Corporate Flight Bookings</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/array/">Array</a>, <a href="https://leetcode.com/tag/prefix-sum/">Prefix Sum</a></p>
-<p>There are <code>n</code> flights that are labeled from <code>1</code> to <code>n</code>.</p>
-<p>You are given an array of flight bookings <code>bookings</code>, where bookings[i] &#x3D; [first<sub>i</sub>, last<sub>i</sub>, seats<sub>i</sub>] represents a booking for flights first<sub>i</sub> through last<sub>i</sub> (<strong>inclusive</strong>) with seats<sub>i</sub> seats reserved for <strong>each flight</strong> in the range.</p>
-<p>Return <em>an array</em> <code>answer</code> <em>of length</em> <code>n</code><em>, where</em> <code>answer[i]</code> <em>is the total number of seats reserved for flight</em> <code>i</code>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: bookings = [[1,2,10],[2,3,20],[2,5,25]], n = 5</span><br><span class="line">Output: [10,55,45,25,25]</span><br><span class="line">Explanation:</span><br><span class="line">Flight labels:        1   2   3   4   5</span><br><span class="line">Booking 1 reserved:  10  10</span><br><span class="line">Booking 2 reserved:      20  20</span><br><span class="line">Booking 3 reserved:      25  25  25  25</span><br><span class="line">Total seats:         10  55  45  25  25</span><br><span class="line">Hence, answer = [10,55,45,25,25]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: bookings = [[1,2,10],[2,2,15]], n = 2</span><br><span class="line">Output: [10,25]</span><br><span class="line">Explanation:</span><br><span class="line">Flight labels:        1   2</span><br><span class="line">Booking 1 reserved:  10  10</span><br><span class="line">Booking 2 reserved:      15</span><br><span class="line">Total seats:         10  25</span><br><span class="line">Hence, answer = [10,25]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>1 &lt;&#x3D; n &lt;&#x3D; 2 * 10<sup>4</sup></li>
-<li>1 &lt;&#x3D; bookings.length &lt;&#x3D; 2 * 10<sup>4</sup></li>
-<li><code>bookings[i].length == 3</code></li>
-<li>1 &lt;&#x3D; first<sub>i</sub> &lt;&#x3D; last<sub>i</sub> &lt;&#x3D; n</li>
-<li>1 &lt;&#x3D; seats<sub>i</sub> &lt;&#x3D; 10<sup>4</sup></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Use the diff array</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">corpFlightBookings</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; bookings, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">diffs</span><span class="params">(n, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (vector&lt;<span class="type">int</span>&gt; booking : bookings) &#123;</span><br><span class="line">            <span class="type">int</span> start = booking[<span class="number">0</span>] - <span class="number">1</span>, end = booking[<span class="number">1</span>] - <span class="number">1</span>, diff = booking[<span class="number">2</span>];</span><br><span class="line">            diffs[start] += diff;</span><br><span class="line">            <span class="keyword">if</span> (end + <span class="number">1</span> &lt; n) &#123;</span><br><span class="line">                diffs[end + <span class="number">1</span>] -= diff;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        res.<span class="built_in">push_back</span>(diffs[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">            res.<span class="built_in">push_back</span>(res[i - <span class="number">1</span>] + diffs[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Prefix Sum</tag>
       </tags>
   </entry>
   <entry>
@@ -760,46 +760,6 @@
       </tags>
   </entry>
   <entry>
-    <title>1314. Matrix Block Sum</title>
-    <url>/2023/11/12/1314-Matrix-Block-Sum/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/matrix-block-sum/">1314. Matrix Block Sum</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/matrix//">Matrix</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/prefix-sum//">Prefix Sum</a></p>
-<p>Given a <code>m x n</code> matrix <code>mat</code> and an integer <code>k</code>, return <em>a matrix</em> <code>answer</code> <em>where each</em> <code>answer[i][j]</code> <em>is the sum of all elements</em> <code>mat[r][c]</code> <em>for</em>:</p>
-<ul>
-<li><code>i - k &lt;= r &lt;= i + k,</code></li>
-<li><code>j - k &lt;= c &lt;= j + k</code>, and</li>
-<li><code>(r, c)</code> is a valid position in the matrix.</li>
-</ul>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: mat = [[1,2,3],[4,5,6],[7,8,9]], k = 1</span><br><span class="line">Output: [[12,21,16],[27,45,33],[24,39,28]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: mat = [[1,2,3],[4,5,6],[7,8,9]], k = 2</span><br><span class="line">Output: [[45,45,45],[45,45,45],[45,45,45]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>m == mat.length</code></li>
-<li><code>n == mat[i].length</code></li>
-<li><code>1 &lt;= m, n, k &lt;= 100</code></li>
-<li><code>1 &lt;= mat[i][j] &lt;= 100</code></li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>matrix preSum</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">matrixBlockSum</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; mat, <span class="type">int</span> k) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">preSum</span>(mat.<span class="built_in">size</span>() + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(mat[<span class="number">0</span>].<span class="built_in">size</span>() + <span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; mat.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; mat[<span class="number">0</span>].<span class="built_in">size</span>(); j++) &#123;</span><br><span class="line">                preSum[i + <span class="number">1</span>][j + <span class="number">1</span>] = preSum[i][j + <span class="number">1</span>] + preSum[i + <span class="number">1</span>][j] - preSum[i][j] + mat[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">res</span>(mat.<span class="built_in">size</span>(), <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(mat[<span class="number">0</span>].<span class="built_in">size</span>(), <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; mat.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; mat[<span class="number">0</span>].<span class="built_in">size</span>(); j++) &#123;</span><br><span class="line">                <span class="type">int</span> up = <span class="built_in">max</span>(<span class="number">0</span>, i - k);</span><br><span class="line">                <span class="type">int</span> down = <span class="built_in">min</span>(i + k + <span class="number">1</span>, (<span class="type">int</span>)mat.<span class="built_in">size</span>());</span><br><span class="line">                <span class="type">int</span> left = <span class="built_in">max</span>(<span class="number">0</span>, j - k);</span><br><span class="line">                <span class="type">int</span> right = <span class="built_in">min</span>(j + k + <span class="number">1</span>, (<span class="type">int</span>)mat[<span class="number">0</span>].<span class="built_in">size</span>());</span><br><span class="line">                res[i][j] = preSum[down][right] - preSum[down][left] - preSum[up][right] + preSum[up][left];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Prefix Sum</tag>
-        <tag>Matrix</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>138. Copy List with Random Pointer</title>
     <url>/2023/12/18/138-Copy-List-with-Random-Pointer/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/copy-list-with-random-pointer/">138. Copy List with Random Pointer</a></p>
@@ -845,6 +805,46 @@
       <tags>
         <tag>Hash Table</tag>
         <tag>Linked List</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>1314. Matrix Block Sum</title>
+    <url>/2023/11/12/1314-Matrix-Block-Sum/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/matrix-block-sum/">1314. Matrix Block Sum</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/matrix//">Matrix</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/prefix-sum//">Prefix Sum</a></p>
+<p>Given a <code>m x n</code> matrix <code>mat</code> and an integer <code>k</code>, return <em>a matrix</em> <code>answer</code> <em>where each</em> <code>answer[i][j]</code> <em>is the sum of all elements</em> <code>mat[r][c]</code> <em>for</em>:</p>
+<ul>
+<li><code>i - k &lt;= r &lt;= i + k,</code></li>
+<li><code>j - k &lt;= c &lt;= j + k</code>, and</li>
+<li><code>(r, c)</code> is a valid position in the matrix.</li>
+</ul>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: mat = [[1,2,3],[4,5,6],[7,8,9]], k = 1</span><br><span class="line">Output: [[12,21,16],[27,45,33],[24,39,28]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: mat = [[1,2,3],[4,5,6],[7,8,9]], k = 2</span><br><span class="line">Output: [[45,45,45],[45,45,45],[45,45,45]]</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>m == mat.length</code></li>
+<li><code>n == mat[i].length</code></li>
+<li><code>1 &lt;= m, n, k &lt;= 100</code></li>
+<li><code>1 &lt;= mat[i][j] &lt;= 100</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>matrix preSum</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">matrixBlockSum</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; mat, <span class="type">int</span> k) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">preSum</span>(mat.<span class="built_in">size</span>() + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(mat[<span class="number">0</span>].<span class="built_in">size</span>() + <span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; mat.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; mat[<span class="number">0</span>].<span class="built_in">size</span>(); j++) &#123;</span><br><span class="line">                preSum[i + <span class="number">1</span>][j + <span class="number">1</span>] = preSum[i][j + <span class="number">1</span>] + preSum[i + <span class="number">1</span>][j] - preSum[i][j] + mat[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">res</span>(mat.<span class="built_in">size</span>(), <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(mat[<span class="number">0</span>].<span class="built_in">size</span>(), <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; mat.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; mat[<span class="number">0</span>].<span class="built_in">size</span>(); j++) &#123;</span><br><span class="line">                <span class="type">int</span> up = <span class="built_in">max</span>(<span class="number">0</span>, i - k);</span><br><span class="line">                <span class="type">int</span> down = <span class="built_in">min</span>(i + k + <span class="number">1</span>, (<span class="type">int</span>)mat.<span class="built_in">size</span>());</span><br><span class="line">                <span class="type">int</span> left = <span class="built_in">max</span>(<span class="number">0</span>, j - k);</span><br><span class="line">                <span class="type">int</span> right = <span class="built_in">min</span>(j + k + <span class="number">1</span>, (<span class="type">int</span>)mat[<span class="number">0</span>].<span class="built_in">size</span>());</span><br><span class="line">                res[i][j] = preSum[down][right] - preSum[down][left] - preSum[up][right] + preSum[up][left];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Prefix Sum</tag>
+        <tag>Matrix</tag>
       </tags>
   </entry>
   <entry>
@@ -3069,6 +3069,48 @@
       </tags>
   </entry>
   <entry>
+    <title>236. Lowest Common Ancestor of a Binary Tree</title>
+    <url>/2023/08/28/236-Lowest-Common-Ancestor-of-a-Binary-Tree/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/">236. Lowest Common Ancestor of a Binary Tree</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/tree//">Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//">Binary Tree</a></p>
+<p>Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.</p>
+<p>According to the <a href="https://en.wikipedia.org/wiki/Lowest_common_ancestor">definition of LCA on Wikipedia</a>: “The lowest common ancestor is defined between two nodes <code>p</code> and <code>q</code> as the lowest node in <code>T</code> that has both <code>p</code> and <code>q</code> as descendants (where we allow <strong>a node to be a descendant of itself</strong>).”</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The LCA of nodes 5 and 1 is 3.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4</span><br><span class="line">Output: 5</span><br><span class="line">Explanation: The LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [1,2], p = 1, q = 2</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is in the range [2, 10<sup>5</sup>].</li>
+<li>-10<sup>9</sup> &lt;&#x3D; Node.val &lt;&#x3D; 10<sup>9</sup></li>
+<li>All <code>Node.val</code> are <strong>unique</strong>.</li>
+<li><code>p != q</code></li>
+<li><code>p</code> and <code>q</code> will exist in the tree.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>think about what we are going to do with each node</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode* root, TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (root-&gt;val == p-&gt;val || root-&gt;val == q-&gt;val) &#123;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        TreeNode* left = <span class="built_in">lowestCommonAncestor</span>(root-&gt;left, p, q);</span><br><span class="line">        TreeNode* right = <span class="built_in">lowestCommonAncestor</span>(root-&gt;right, p, q);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (left &amp;&amp; right) <span class="keyword">return</span> root;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> left ? left : right; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Tree</tag>
+        <tag>Depth-First Search</tag>
+        <tag>Binary Tree</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>235. Lowest Common Ancestor of a Binary Search Tree</title>
     <url>/2023/08/29/235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/">235. Lowest Common Ancestor of a Binary Search Tree</a></p>
@@ -3109,48 +3151,6 @@
         <tag>Depth-First Search</tag>
         <tag>Binary Tree</tag>
         <tag>Binary Search Tree</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>236. Lowest Common Ancestor of a Binary Tree</title>
-    <url>/2023/08/28/236-Lowest-Common-Ancestor-of-a-Binary-Tree/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/">236. Lowest Common Ancestor of a Binary Tree</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Medium</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/tree//">Tree</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/depth-first-search//">Depth-First Search</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/binary-tree//">Binary Tree</a></p>
-<p>Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.</p>
-<p>According to the <a href="https://en.wikipedia.org/wiki/Lowest_common_ancestor">definition of LCA on Wikipedia</a>: “The lowest common ancestor is defined between two nodes <code>p</code> and <code>q</code> as the lowest node in <code>T</code> that has both <code>p</code> and <code>q</code> as descendants (where we allow <strong>a node to be a descendant of itself</strong>).”</p>
-<p><strong>Example 1:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The LCA of nodes 5 and 1 is 3.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4</span><br><span class="line">Output: 5</span><br><span class="line">Explanation: The LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: root = [1,2], p = 1, q = 2</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li>The number of nodes in the tree is in the range [2, 10<sup>5</sup>].</li>
-<li>-10<sup>9</sup> &lt;&#x3D; Node.val &lt;&#x3D; 10<sup>9</sup></li>
-<li>All <code>Node.val</code> are <strong>unique</strong>.</li>
-<li><code>p != q</code></li>
-<li><code>p</code> and <code>q</code> will exist in the tree.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>think about what we are going to do with each node</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode* root, TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (root-&gt;val == p-&gt;val || root-&gt;val == q-&gt;val) &#123;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        TreeNode* left = <span class="built_in">lowestCommonAncestor</span>(root-&gt;left, p, q);</span><br><span class="line">        TreeNode* right = <span class="built_in">lowestCommonAncestor</span>(root-&gt;right, p, q);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (left &amp;&amp; right) <span class="keyword">return</span> root;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> left ? left : right; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Tree</tag>
-        <tag>Depth-First Search</tag>
-        <tag>Binary Tree</tag>
       </tags>
   </entry>
   <entry>
@@ -4088,41 +4088,6 @@
       </tags>
   </entry>
   <entry>
-    <title>3106. Lexicographically Smallest String After Operations With Constraint</title>
-    <url>/2024/05/08/3106-Lexicographically-Smallest-String-After-Operations-With-Constraint/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/lexicographically-smallest-string-after-operations-with-constraint/description/">3106. Lexicographically Smallest String After Operations With Constraint</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given a string <code>s</code> and an integer <code>k</code>.</p>
-<p>Define a function <code>distance(s1, s2)</code> between two strings <code>s1</code> and <code>s2</code> of the same length <code>n</code> as:</p>
-<ul>
-<li>The <strong>sum</strong>  of the <strong>minimum distance</strong>  between <code>s1[i]</code> and <code>s2[i]</code> when the characters from <code>&#39;a&#39;</code> to <code>&#39;z&#39;</code> are placed in a <strong>cyclic</strong>  order, for all <code>i</code> in the range <code>[0, n - 1]</code>.</li>
-</ul>
-<p>For example, <code>distance(&quot;ab&quot;, &quot;cd&quot;) == 4</code>, and <code>distance(&quot;a&quot;, &quot;z&quot;) == 1</code>.</p>
-<p>You can <strong>change</strong>  any letter of <code>s</code> to <strong>any</strong>  other lowercase English letter, <strong>any</strong>  number of times.</p>
-<p>Return a string denoting the <strong>lexicographically smallest</strong>  string <code>t</code> you can get after some changes, such that <code>distance(s, t) &lt;= k</code>.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;zbbz&quot;</span>, k = 3</span><br><span class="line"></span><br><span class="line">Output: <span class="string">&quot;aaaz&quot;</span></span><br><span class="line"></span><br><span class="line">Explanation:</span><br><span class="line"></span><br><span class="line">Change `s` to `<span class="string">&quot;aaaz&quot;</span>`. The distance between `<span class="string">&quot;zbbz&quot;</span>` and `<span class="string">&quot;aaaz&quot;</span>` is equal to `k = 3`.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;xaxcd&quot;</span>, k = 4</span><br><span class="line"></span><br><span class="line">Output: <span class="string">&quot;aawcd&quot;</span></span><br><span class="line"></span><br><span class="line">Explanation:</span><br><span class="line"></span><br><span class="line">The distance between <span class="string">&quot;xaxcd&quot;</span> and <span class="string">&quot;aawcd&quot;</span> is equal to k = 4.</span><br></pre></td></tr></table></figure>
-
-<p><strong>Example 3:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;lol&quot;</span>, k = 0</span><br><span class="line"></span><br><span class="line">Output: <span class="string">&quot;lol&quot;</span></span><br><span class="line"></span><br><span class="line">Explanation:</span><br><span class="line"></span><br><span class="line">It<span class="string">&#x27;s impossible to change any character as `k = 0`.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">**Constraints:**</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">- `1 &lt;= s.length &lt;= 100`</span></span><br><span class="line"><span class="string">- `0 &lt;= k &lt;= 2000`</span></span><br><span class="line"><span class="string">- `s` consists only of lowercase English letters.</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>change as many letters to ‘a’ first, then append the remaining</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">getSmallestString</span><span class="params">(string s, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> idx = <span class="number">0</span>;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="keyword">while</span> (idx &lt; s.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="type">char</span> c = s[idx];</span><br><span class="line">            <span class="type">bool</span> forward = <span class="literal">true</span>;</span><br><span class="line">            <span class="type">int</span> distance = <span class="built_in">min</span>(c - <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;z&#x27;</span> - c + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span> (k &gt;= distance) &#123;</span><br><span class="line">                res += <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">                k -= distance;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                res += c - k;</span><br><span class="line">                k = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            idx++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>String</tag>
-        <tag>Greedy</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>3107. Minimum Operations to Make Median of Array Equal to K</title>
     <url>/2024/05/08/3107-Minimum-Operations-to-Make-Median-of-Array-Equal-to-K/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/minimum-operations-to-make-median-of-array-equal-to-k/description/">3107. Minimum Operations to Make Median of Array Equal to K</a></p>
@@ -4156,6 +4121,41 @@
       <tags>
         <tag>Array</tag>
         <tag>Sorting</tag>
+        <tag>Greedy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3106. Lexicographically Smallest String After Operations With Constraint</title>
+    <url>/2024/05/08/3106-Lexicographically-Smallest-String-After-Operations-With-Constraint/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/lexicographically-smallest-string-after-operations-with-constraint/description/">3106. Lexicographically Smallest String After Operations With Constraint</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given a string <code>s</code> and an integer <code>k</code>.</p>
+<p>Define a function <code>distance(s1, s2)</code> between two strings <code>s1</code> and <code>s2</code> of the same length <code>n</code> as:</p>
+<ul>
+<li>The <strong>sum</strong>  of the <strong>minimum distance</strong>  between <code>s1[i]</code> and <code>s2[i]</code> when the characters from <code>&#39;a&#39;</code> to <code>&#39;z&#39;</code> are placed in a <strong>cyclic</strong>  order, for all <code>i</code> in the range <code>[0, n - 1]</code>.</li>
+</ul>
+<p>For example, <code>distance(&quot;ab&quot;, &quot;cd&quot;) == 4</code>, and <code>distance(&quot;a&quot;, &quot;z&quot;) == 1</code>.</p>
+<p>You can <strong>change</strong>  any letter of <code>s</code> to <strong>any</strong>  other lowercase English letter, <strong>any</strong>  number of times.</p>
+<p>Return a string denoting the <strong>lexicographically smallest</strong>  string <code>t</code> you can get after some changes, such that <code>distance(s, t) &lt;= k</code>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;zbbz&quot;</span>, k = 3</span><br><span class="line"></span><br><span class="line">Output: <span class="string">&quot;aaaz&quot;</span></span><br><span class="line"></span><br><span class="line">Explanation:</span><br><span class="line"></span><br><span class="line">Change `s` to `<span class="string">&quot;aaaz&quot;</span>`. The distance between `<span class="string">&quot;zbbz&quot;</span>` and `<span class="string">&quot;aaaz&quot;</span>` is equal to `k = 3`.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;xaxcd&quot;</span>, k = 4</span><br><span class="line"></span><br><span class="line">Output: <span class="string">&quot;aawcd&quot;</span></span><br><span class="line"></span><br><span class="line">Explanation:</span><br><span class="line"></span><br><span class="line">The distance between <span class="string">&quot;xaxcd&quot;</span> and <span class="string">&quot;aawcd&quot;</span> is equal to k = 4.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 3:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: s = <span class="string">&quot;lol&quot;</span>, k = 0</span><br><span class="line"></span><br><span class="line">Output: <span class="string">&quot;lol&quot;</span></span><br><span class="line"></span><br><span class="line">Explanation:</span><br><span class="line"></span><br><span class="line">It<span class="string">&#x27;s impossible to change any character as `k = 0`.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">**Constraints:**</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">- `1 &lt;= s.length &lt;= 100`</span></span><br><span class="line"><span class="string">- `0 &lt;= k &lt;= 2000`</span></span><br><span class="line"><span class="string">- `s` consists only of lowercase English letters.</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>change as many letters to ‘a’ first, then append the remaining</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">getSmallestString</span><span class="params">(string s, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> idx = <span class="number">0</span>;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="keyword">while</span> (idx &lt; s.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="type">char</span> c = s[idx];</span><br><span class="line">            <span class="type">bool</span> forward = <span class="literal">true</span>;</span><br><span class="line">            <span class="type">int</span> distance = <span class="built_in">min</span>(c - <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;z&#x27;</span> - c + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span> (k &gt;= distance) &#123;</span><br><span class="line">                res += <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">                k -= distance;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                res += c - k;</span><br><span class="line">                k = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            idx++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>String</tag>
         <tag>Greedy</tag>
       </tags>
   </entry>
@@ -4546,6 +4546,60 @@
       <tags>
         <tag>Hash Table</tag>
         <tag>String</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3122. Minimum Number of Operations to Satisfy Conditions</title>
+    <url>/2024/05/16/3122-Minimum-Number-of-Operations-to-Satisfy-Conditions/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/minimum-number-of-operations-to-satisfy-conditions/description/">3122. Minimum Number of Operations to Satisfy Conditions</a></p>
+<p>You are given a 2D matrix <code>grid</code> of size <code>m x n</code>. In one <strong>operation</strong> , you can change the value of <strong>any</strong>  cell to <strong>any</strong>  non-negative number. You need to perform some <strong>operations</strong>  such that each cell <code>grid[i][j]</code> is:</p>
+<ul>
+<li>Equal to the cell below it, i.e. <code>grid[i][j] == grid[i + 1][j]</code> (if it exists).</li>
+<li>Different from the cell to its right, i.e. <code>grid[i][j] != grid[i][j + 1]</code> (if it exists).</li>
+</ul>
+<p>Return the <strong>minimum</strong>  number of operations needed.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: grid = [[1,0,2],[1,0,2]]</span><br><span class="line"></span><br><span class="line">Output: 0</span><br></pre></td></tr></table></figure>
+
+<p>Explanation:</p>
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2024/04/15/examplechanged.png" style="width: 254px; height: 186px; padding: 10px; background: rgb(255, 255, 255); border-radius: 0.5rem; --darkreader-inline-bgimage: initial; --darkreader-inline-bgcolor: #242729;" data-darkreader-inline-bgimage="" data-darkreader-inline-bgcolor=""></strong></p>
+<p>All the cells in the matrix already satisfy the properties.</p>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: grid = [[1,1,1],[0,0,0]]</span><br><span class="line"></span><br><span class="line">Output: 3</span><br></pre></td></tr></table></figure>
+
+<p>Explanation:</p>
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2024/03/27/example21.png" style="width: 254px; height: 186px; padding: 10px; background: rgb(255, 255, 255); border-radius: 0.5rem; --darkreader-inline-bgimage: initial; --darkreader-inline-bgcolor: #242729;" data-darkreader-inline-bgimage="" data-darkreader-inline-bgcolor=""></strong></p>
+<p>The matrix becomes <code>[[1,0,1],[1,0,1]]</code> which satisfies the properties, by doing these 3 operations:</p>
+<ul>
+<li>Change <code>grid[1][0]</code> to 1.</li>
+<li>Change <code>grid[0][1]</code> to 0.</li>
+<li>Change <code>grid[1][2]</code> to 1.</li>
+</ul>
+<p><strong>Example 3:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input: grid = [[1],[2],[3]]</span><br><span class="line"></span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
+
+<p>Explanation:</p>
+<img alt="" src="https://assets.leetcode.com/uploads/2024/03/31/changed.png" style="width: 86px; height: 277px; padding: 10px; background: rgb(255, 255, 255); border-radius: 0.5rem; --darkreader-inline-bgimage: initial; --darkreader-inline-bgcolor: #242729;" data-darkreader-inline-bgimage="" data-darkreader-inline-bgcolor="">
+
+<p>There is a single column. We can change the value to 1 in each cell using 2 operations.</p>
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= n, m &lt;= 1000</code></li>
+<li><code>0 &lt;= grid[i][j] &lt;= 9</code></li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>we can use the previous column’s color, and the best sol + second_best sol to get the current column’s best sol and second_best sol</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minimumOperations</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> m = grid.<span class="built_in">size</span>(), n = grid[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> f0 = <span class="number">0</span>, f1 = <span class="number">0</span>, pre = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">count</span><span class="params">(<span class="number">10</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">                count[grid[i][j]]++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// count[0] = 1</span></span><br><span class="line">            <span class="comment">// count[1] = 1</span></span><br><span class="line">            <span class="type">int</span> min1 = INT_MAX, min2 = INT_MAX, curMin = <span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">                count[i] = m - count[i] + (i == pre ? f1 : f0);</span><br><span class="line">                <span class="keyword">if</span> (count[i] &lt; min1) &#123;</span><br><span class="line">                    min2 = min1;</span><br><span class="line">                    min1 = count[i];</span><br><span class="line">                    curMin = i;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (count[i] &lt; min2) &#123;</span><br><span class="line">                    min2 = count[i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            f0 = min1; f1 = min2; pre = curMin;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> f0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Dynamic Programming</tag>
+        <tag>Matrix</tag>
       </tags>
   </entry>
   <entry>
@@ -5016,43 +5070,6 @@
       </tags>
   </entry>
   <entry>
-    <title>346. Moving Average from Data Stream</title>
-    <url>/2023/12/14/346-Moving-Average-from-Data-Stream/</url>
-    <content><![CDATA[<p><a href="https://leetcode.com/problems/moving-average-from-data-stream/">346. Moving Average from Data Stream</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/design//">Design</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/queue//">Queue</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/data-stream//">Data Stream</a></p>
-<p>Given a stream of integers and a window size, calculate the moving average of all integers in the sliding window.</p>
-<p>Implement the <code>MovingAverage</code> class:</p>
-<ul>
-<li><code>MovingAverage(int size)</code> Initializes the object with the size of the window <code>size</code>.</li>
-<li><code>double next(int val)</code> Returns the moving average of the last <code>size</code> values of the stream.</li>
-</ul>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input</span><br><span class="line">[<span class="string">&quot;MovingAverage&quot;</span>, <span class="string">&quot;next&quot;</span>, <span class="string">&quot;next&quot;</span>, <span class="string">&quot;next&quot;</span>, <span class="string">&quot;next&quot;</span>]</span><br><span class="line">[[3], [1], [10], [3], [5]]</span><br><span class="line">Output</span><br><span class="line">[null, 1.0, 5.5, 4.66667, 6.0]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">MovingAverage movingAverage = new MovingAverage(3);</span><br><span class="line">movingAverage.next(1); // <span class="built_in">return</span> 1.0 = 1 / 1</span><br><span class="line">movingAverage.next(10); // <span class="built_in">return</span> 5.5 = (1 + 10) / 2</span><br><span class="line">movingAverage.next(3); // <span class="built_in">return</span> 4.66667 = (1 + 10 + 3) / 3</span><br><span class="line">movingAverage.next(5); // <span class="built_in">return</span> 6.0 = (10 + 3 + 5) / 3</span><br></pre></td></tr></table></figure>
-
-<p><strong>Constraints:</strong></p>
-<ul>
-<li><code>1 &lt;= size &lt;= 1000</code></li>
-<li>-10<sup>5</sup> &lt;&#x3D; val &lt;&#x3D; 10<sup>5</sup></li>
-<li>At most 10<sup>4</sup> calls will be made to <code>next</code>.</li>
-</ul>
-<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>queue</li>
-</ul>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MovingAverage</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> size_;</span><br><span class="line">    <span class="type">double</span> sum_;</span><br><span class="line">    queue&lt;<span class="type">int</span>&gt; q;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">MovingAverage</span>(<span class="type">int</span> size) &#123;</span><br><span class="line">        size_ = size;</span><br><span class="line">        sum_ = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">next</span><span class="params">(<span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        sum_ += val;</span><br><span class="line">        q.<span class="built_in">push</span>(val);</span><br><span class="line">        <span class="keyword">if</span> (q.<span class="built_in">size</span>() &gt; size_) &#123;</span><br><span class="line">            sum_ -= q.<span class="built_in">front</span>();</span><br><span class="line">            q.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum_ / q.<span class="built_in">size</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MovingAverage object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MovingAverage* obj = new MovingAverage(size);</span></span><br><span class="line"><span class="comment"> * double param_1 = obj-&gt;next(val);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Leetcode</category>
-      </categories>
-      <tags>
-        <tag>Array</tag>
-        <tag>Design</tag>
-        <tag>Queue</tag>
-        <tag>Data Stream</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>347. Top K Frequent Elements</title>
     <url>/2023/11/06/347-Top-K-Frequent-Elements/</url>
     <content><![CDATA[<p><a href="https://leetcode.com/problems/top-k-frequent-elements/">347. Top K Frequent Elements</a></p>
@@ -5091,6 +5108,43 @@
         <tag>Counting</tag>
         <tag>Quickselect</tag>
         <tag>Bucket Sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>346. Moving Average from Data Stream</title>
+    <url>/2023/12/14/346-Moving-Average-from-Data-Stream/</url>
+    <content><![CDATA[<p><a href="https://leetcode.com/problems/moving-average-from-data-stream/">346. Moving Average from Data Stream</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
+<p>Related Topics: <a href="https://leetcode.com/tag/https://leetcode.com/tag/array//">Array</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/design//">Design</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/queue//">Queue</a>, <a href="https://leetcode.com/tag/https://leetcode.com/tag/data-stream//">Data Stream</a></p>
+<p>Given a stream of integers and a window size, calculate the moving average of all integers in the sliding window.</p>
+<p>Implement the <code>MovingAverage</code> class:</p>
+<ul>
+<li><code>MovingAverage(int size)</code> Initializes the object with the size of the window <code>size</code>.</li>
+<li><code>double next(int val)</code> Returns the moving average of the last <code>size</code> values of the stream.</li>
+</ul>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Input</span><br><span class="line">[<span class="string">&quot;MovingAverage&quot;</span>, <span class="string">&quot;next&quot;</span>, <span class="string">&quot;next&quot;</span>, <span class="string">&quot;next&quot;</span>, <span class="string">&quot;next&quot;</span>]</span><br><span class="line">[[3], [1], [10], [3], [5]]</span><br><span class="line">Output</span><br><span class="line">[null, 1.0, 5.5, 4.66667, 6.0]</span><br><span class="line"></span><br><span class="line">Explanation</span><br><span class="line">MovingAverage movingAverage = new MovingAverage(3);</span><br><span class="line">movingAverage.next(1); // <span class="built_in">return</span> 1.0 = 1 / 1</span><br><span class="line">movingAverage.next(10); // <span class="built_in">return</span> 5.5 = (1 + 10) / 2</span><br><span class="line">movingAverage.next(3); // <span class="built_in">return</span> 4.66667 = (1 + 10 + 3) / 3</span><br><span class="line">movingAverage.next(5); // <span class="built_in">return</span> 6.0 = (10 + 3 + 5) / 3</span><br></pre></td></tr></table></figure>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= size &lt;= 1000</code></li>
+<li>-10<sup>5</sup> &lt;&#x3D; val &lt;&#x3D; 10<sup>5</sup></li>
+<li>At most 10<sup>4</sup> calls will be made to <code>next</code>.</li>
+</ul>
+<h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>queue</li>
+</ul>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MovingAverage</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> size_;</span><br><span class="line">    <span class="type">double</span> sum_;</span><br><span class="line">    queue&lt;<span class="type">int</span>&gt; q;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">MovingAverage</span>(<span class="type">int</span> size) &#123;</span><br><span class="line">        size_ = size;</span><br><span class="line">        sum_ = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">next</span><span class="params">(<span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        sum_ += val;</span><br><span class="line">        q.<span class="built_in">push</span>(val);</span><br><span class="line">        <span class="keyword">if</span> (q.<span class="built_in">size</span>() &gt; size_) &#123;</span><br><span class="line">            sum_ -= q.<span class="built_in">front</span>();</span><br><span class="line">            q.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum_ / q.<span class="built_in">size</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MovingAverage object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MovingAverage* obj = new MovingAverage(size);</span></span><br><span class="line"><span class="comment"> * double param_1 = obj-&gt;next(val);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Design</tag>
+        <tag>Queue</tag>
+        <tag>Data Stream</tag>
       </tags>
   </entry>
   <entry>
@@ -8884,25 +8938,6 @@
       </tags>
   </entry>
   <entry>
-    <title>How to overcome procrastination</title>
-    <url>/2022/12/02/How-to-overcome-procrastination/</url>
-    <content><![CDATA[<h3 id="What"><a href="#What" class="headerlink" title="What"></a>What</h3><p>Procrastination is when we avoid a task we said we would do, for no good reason, despite expecting our behavior to bring negative consequences.</p>
-<h3 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h3><p>Many people procrastinate because they care too much.</p>
-<p>Procrastinators often report a high fear of failure, putting things off because they’re afarid their work won’t live up to their high standards.</p>
-<h3 id="Effect"><a href="#Effect" class="headerlink" title="Effect"></a>Effect</h3><p>Frequent procrastinators are likely to suffer from anxiety and depression, ongoing feelings of shame, higher stress levels and physical ailments associated with high stress.</p>
-<h3 id="How"><a href="#How" class="headerlink" title="How"></a>How</h3><p>To short-circuit this stress response, we need to address and reduce these negative emotions.</p>
-<ol>
-<li>breaking a task into smaller elements</li>
-<li>journaling about why it’s stressing you out</li>
-<li>try removing nearby distractions that make it easy to impulsively procrastinate</li>
-<li>forgiving yourself, and making a plan to do better next time</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Thoughts</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Designing Data-Intensive Applications</title>
     <url>/2023/01/05/Designing-Data-Intensive-Applications/</url>
     <content><![CDATA[<p><a href="https://www.goodreads.com/book/show/23463279-designing-data-intensive-applications">Designing Data-Intensive Applications</a></p>
@@ -10393,6 +10428,25 @@
       </tags>
   </entry>
   <entry>
+    <title>How to overcome procrastination</title>
+    <url>/2022/12/02/How-to-overcome-procrastination/</url>
+    <content><![CDATA[<h3 id="What"><a href="#What" class="headerlink" title="What"></a>What</h3><p>Procrastination is when we avoid a task we said we would do, for no good reason, despite expecting our behavior to bring negative consequences.</p>
+<h3 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h3><p>Many people procrastinate because they care too much.</p>
+<p>Procrastinators often report a high fear of failure, putting things off because they’re afarid their work won’t live up to their high standards.</p>
+<h3 id="Effect"><a href="#Effect" class="headerlink" title="Effect"></a>Effect</h3><p>Frequent procrastinators are likely to suffer from anxiety and depression, ongoing feelings of shame, higher stress levels and physical ailments associated with high stress.</p>
+<h3 id="How"><a href="#How" class="headerlink" title="How"></a>How</h3><p>To short-circuit this stress response, we need to address and reduce these negative emotions.</p>
+<ol>
+<li>breaking a task into smaller elements</li>
+<li>journaling about why it’s stressing you out</li>
+<li>try removing nearby distractions that make it easy to impulsively procrastinate</li>
+<li>forgiving yourself, and making a plan to do better next time</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Thoughts</category>
+      </categories>
+  </entry>
+  <entry>
     <title>How to setup personal VPN</title>
     <url>/2023/04/21/How-to-setup-personal-VPN/</url>
     <content><![CDATA[<p>Most ideas and actions are from this doc <a href="https://github.com/haoel/haoel.github.io">科学上网</a></p>
@@ -11662,53 +11716,6 @@ Your browser does not support the audio element.
       </tags>
   </entry>
   <entry>
-    <title>Learnship 13 - 2023/10/31</title>
-    <url>/2023/10/31/Learnship-13-2023-10-31/</url>
-    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-13-Closing-A-Presentation"><a href="#Business-Language-Coaching-Session-13-Closing-A-Presentation" class="headerlink" title="Business Language Coaching - Session 13 - Closing A Presentation"></a>Business Language Coaching - Session 13 - Closing A Presentation</h2><ul>
-<li>review your presentation</li>
-<li>compare some different communicative strategies for closing a presentation</li>
-</ul>
-<h3 id="Impromptu-presentation-practice"><a href="#Impromptu-presentation-practice" class="headerlink" title="Impromptu presentation practice"></a>Impromptu presentation practice</h3><p>Topic: Consumers are becoming increasingly aware of how their choices impact the environment</p>
-<ul>
-<li>having said that</li>
-<li>as it so happens</li>
-<li>generally speaking</li>
-</ul>
-<h3 id="Opening-and-closing"><a href="#Opening-and-closing" class="headerlink" title="Opening and closing"></a>Opening and closing</h3><blockquote>
-<p>Try to make your last line or two truly eloquent, meaningful, touching, accurate and wise. Always memorize your last few lines. This is the time to deliver straight to them: eye to eye, person to person. Try to leave them with a thought that will continue to provide an echo after you stop. - Sonya Hamlin, Sonya Hamlin Communications</p>
-</blockquote>
-<p>Many of the techniques you can use to open a presentation will also work well to close one. But this is your last chance to get your message across. How far do you agree with what Harvard Law School presentations coach Sonya Hamlin has to say about closing a talk?</p>
-<h4 id="Listen-to-the-closing-moments-of-four-presentations-and-number-the-techniques-in-the-order-you-hear-them"><a href="#Listen-to-the-closing-moments-of-four-presentations-and-number-the-techniques-in-the-order-you-hear-them" class="headerlink" title="Listen to the closing moments of four presentations and number the techniques in the order you hear them."></a>Listen to the closing moments of four presentations and number the techniques in the order you hear them.</h4><audio controls>
-  <source src="/audio/session13_1.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-
-<p>[x] call for action</p>
-<p>Extract 1: Ladies and gentlemen, to take this project to the next stage we need your total commitment to the ideas behind it. But we need more than that. We need you to go back to your divisions and units and project teams and become champions for this new initiative, to spread the word and build confidence in the new direction we are about to take. Without you and your people we cannot make this strategy work. Without your actions, it’s all just words. We’re counting on you to make this happen … Thank you very much.</p>
-<p>[x] dramatic summary</p>
-<p>Extract 2: OK, I’m going to break off in a moment. So let’s take a look back at what we’ve spoken about this morning. We’ve looked at the five ways a product can fail. First, we looked at extension failures - trying to stretch your brand too far, as Harley Davidson did when it tried to make perfume! We also looked at PR failures and the R.J. Reynolds Joe Camel campaign, marketing cigarettes to young people. Then we looked at cultural failures and KFC in Hong Kong. We moved on to look at people failures at Planet Hollywood and Fashion Café. Finally, we looked at failures of ideas. And it is from these that we can learn the biggest lesson. The list of failed product ideas is almost endless. Kellogg’s Cereal Mates, Pepsi AM, the Barbie computer, Clairol’s ‘Touch of Yoghurt’ shampoo - all jokes in their respective industries. But behind each of these spectacular failures was the basis for a brilliant idea. To create future successes we have only to revisit the failures of the past … Thanks very much.</p>
-<p>[x] heart-felt message</p>
-<p>Extract 3: You know, I’ve been where you are now. I’ve sat in a six-by-six cubicle with a list of cold leads and telephone just waiting for me to pick it up and start calling. But in my day it was easier. I can remember when it was just a question of going out there and getting the business. It took dedication, indestructible self-confidence and a lot of hard work, but the business was there to be had. Today, you have to create the business. So, if you take just one thing from this talk today, take this. I used to be a salesman - and a very good one. But you’re more than that. You’re entrepreneurs, creating business each and every day. For you, the challenges and the opportunities are so much greater. Enjoy the risks you have to take, for with greater risks come greater rewards … Thank you very much.</p>
-<p>[x] famous wise words</p>
-<p>Extract 4: It was Ricardo Semler, the Brazilian CEO and author of the bestselling <em>Maverick!</em>, who said: ‘Democracy has yet to penetrate the workplace.’ He said:’There are companies which are prepared to change the way they work. They realize that nothing can be based on what used to be, that there is a better way. But 99% of companies are not ready. They are caught in a kind of industrial Jurassic Park.’ Well said. There are enough dinosaurs in this industry of ours already. If we want to be part of the one percent, we have to evolve. And today’s talk has been about how to speed up our evolution … Thank you.</p>
-<h2 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h2><ul>
-<li>preference towards* the two seasons</li>
-<li>a peninsula</li>
-<li>it’s pretty much enough</li>
-<li>men are more overpowering*&#x2F;women are overpowered</li>
-<li>to sort the garbage into</li>
-<li>global warming</li>
-<li>switch to using clean energy</li>
-<li>to get* people’s attention</li>
-<li>to have people in the palm of your hands</li>
-<li>eloquent</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Learnship</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Learnship 14 - 2023/11/02</title>
     <url>/2023/11/02/Learnship-14-2023-11-02/</url>
     <content><![CDATA[<h2 id="Business-Language-Coaching-Session-14-Closing-A-Presentation-2"><a href="#Business-Language-Coaching-Session-14-Closing-A-Presentation-2" class="headerlink" title="Business Language Coaching - Session 14 - Closing A Presentation (2)"></a>Business Language Coaching - Session 14 - Closing A Presentation (2)</h2><ul>
@@ -11760,6 +11767,53 @@ Your browser does not support the audio element.
 <li>at fault: responsible for</li>
 <li>I have done* the categorizing</li>
 <li>so, I’m looking forwarding to updating you …</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Learnship</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Learnship 13 - 2023/10/31</title>
+    <url>/2023/10/31/Learnship-13-2023-10-31/</url>
+    <content><![CDATA[<h2 id="Business-Language-Coaching-Session-13-Closing-A-Presentation"><a href="#Business-Language-Coaching-Session-13-Closing-A-Presentation" class="headerlink" title="Business Language Coaching - Session 13 - Closing A Presentation"></a>Business Language Coaching - Session 13 - Closing A Presentation</h2><ul>
+<li>review your presentation</li>
+<li>compare some different communicative strategies for closing a presentation</li>
+</ul>
+<h3 id="Impromptu-presentation-practice"><a href="#Impromptu-presentation-practice" class="headerlink" title="Impromptu presentation practice"></a>Impromptu presentation practice</h3><p>Topic: Consumers are becoming increasingly aware of how their choices impact the environment</p>
+<ul>
+<li>having said that</li>
+<li>as it so happens</li>
+<li>generally speaking</li>
+</ul>
+<h3 id="Opening-and-closing"><a href="#Opening-and-closing" class="headerlink" title="Opening and closing"></a>Opening and closing</h3><blockquote>
+<p>Try to make your last line or two truly eloquent, meaningful, touching, accurate and wise. Always memorize your last few lines. This is the time to deliver straight to them: eye to eye, person to person. Try to leave them with a thought that will continue to provide an echo after you stop. - Sonya Hamlin, Sonya Hamlin Communications</p>
+</blockquote>
+<p>Many of the techniques you can use to open a presentation will also work well to close one. But this is your last chance to get your message across. How far do you agree with what Harvard Law School presentations coach Sonya Hamlin has to say about closing a talk?</p>
+<h4 id="Listen-to-the-closing-moments-of-four-presentations-and-number-the-techniques-in-the-order-you-hear-them"><a href="#Listen-to-the-closing-moments-of-four-presentations-and-number-the-techniques-in-the-order-you-hear-them" class="headerlink" title="Listen to the closing moments of four presentations and number the techniques in the order you hear them."></a>Listen to the closing moments of four presentations and number the techniques in the order you hear them.</h4><audio controls>
+  <source src="/audio/session13_1.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<p>[x] call for action</p>
+<p>Extract 1: Ladies and gentlemen, to take this project to the next stage we need your total commitment to the ideas behind it. But we need more than that. We need you to go back to your divisions and units and project teams and become champions for this new initiative, to spread the word and build confidence in the new direction we are about to take. Without you and your people we cannot make this strategy work. Without your actions, it’s all just words. We’re counting on you to make this happen … Thank you very much.</p>
+<p>[x] dramatic summary</p>
+<p>Extract 2: OK, I’m going to break off in a moment. So let’s take a look back at what we’ve spoken about this morning. We’ve looked at the five ways a product can fail. First, we looked at extension failures - trying to stretch your brand too far, as Harley Davidson did when it tried to make perfume! We also looked at PR failures and the R.J. Reynolds Joe Camel campaign, marketing cigarettes to young people. Then we looked at cultural failures and KFC in Hong Kong. We moved on to look at people failures at Planet Hollywood and Fashion Café. Finally, we looked at failures of ideas. And it is from these that we can learn the biggest lesson. The list of failed product ideas is almost endless. Kellogg’s Cereal Mates, Pepsi AM, the Barbie computer, Clairol’s ‘Touch of Yoghurt’ shampoo - all jokes in their respective industries. But behind each of these spectacular failures was the basis for a brilliant idea. To create future successes we have only to revisit the failures of the past … Thanks very much.</p>
+<p>[x] heart-felt message</p>
+<p>Extract 3: You know, I’ve been where you are now. I’ve sat in a six-by-six cubicle with a list of cold leads and telephone just waiting for me to pick it up and start calling. But in my day it was easier. I can remember when it was just a question of going out there and getting the business. It took dedication, indestructible self-confidence and a lot of hard work, but the business was there to be had. Today, you have to create the business. So, if you take just one thing from this talk today, take this. I used to be a salesman - and a very good one. But you’re more than that. You’re entrepreneurs, creating business each and every day. For you, the challenges and the opportunities are so much greater. Enjoy the risks you have to take, for with greater risks come greater rewards … Thank you very much.</p>
+<p>[x] famous wise words</p>
+<p>Extract 4: It was Ricardo Semler, the Brazilian CEO and author of the bestselling <em>Maverick!</em>, who said: ‘Democracy has yet to penetrate the workplace.’ He said:’There are companies which are prepared to change the way they work. They realize that nothing can be based on what used to be, that there is a better way. But 99% of companies are not ready. They are caught in a kind of industrial Jurassic Park.’ Well said. There are enough dinosaurs in this industry of ours already. If we want to be part of the one percent, we have to evolve. And today’s talk has been about how to speed up our evolution … Thank you.</p>
+<h2 id="Vocabulary-Notes"><a href="#Vocabulary-Notes" class="headerlink" title="Vocabulary&#x2F;Notes"></a>Vocabulary&#x2F;Notes</h2><ul>
+<li>preference towards* the two seasons</li>
+<li>a peninsula</li>
+<li>it’s pretty much enough</li>
+<li>men are more overpowering*&#x2F;women are overpowered</li>
+<li>to sort the garbage into</li>
+<li>global warming</li>
+<li>switch to using clean energy</li>
+<li>to get* people’s attention</li>
+<li>to have people in the palm of your hands</li>
+<li>eloquent</li>
 </ul>
 ]]></content>
       <tags>

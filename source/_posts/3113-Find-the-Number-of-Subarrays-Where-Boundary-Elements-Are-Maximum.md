@@ -90,21 +90,22 @@ Language: **C++**
 class Solution {
 public:
     long long numberOfSubarrays(vector<int>& nums) {
-        long long res = 0;
-        stack<int> s;
-        map<int, int> m;
-        for (int i = nums.size() - 1; i >= 0; i--) {
-            while (!s.empty() && s.top() < nums[i]) {
-                int val = s.top();
-                m[val] = 0;
-                s.pop();
+        long long res = nums.size();
+        int left = 0, right = 0;
+        deque<pair<int, int>> maxQ;
+        while (right < nums.size()) {
+            while (!maxQ.empty() && nums[right] > maxQ.back().first) {
+                maxQ.pop_back();
             }
-            if (!s.empty() && s.top() == nums[i]) {
-                res += m[nums[i]];
+            if (!maxQ.empty() && maxQ.back().first == nums[right]) {
+                auto duo = maxQ.back();
+                maxQ.pop_back();
+                res += duo.second;
+                maxQ.push_back({duo.first, duo.second + 1});
+            } else {
+                maxQ.push_back({nums[right], 1});
             }
-            m[nums[i]]++;
-            res++;
-            s.push(nums[i]);
+            right++;
         }
         return res;
     }

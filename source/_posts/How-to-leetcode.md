@@ -63,19 +63,19 @@ New page.
 
 1696 and 1425 in [【强化练习】单调队列的通用实现及经典习题](https://appktavsiei5995.pc.xiaoe-tech.com/p/t_pc/course_pc_detail/image_text/i_62a692efe4b01a48520b9b9b?product_id=p_627cd0eae4b0cedf38b0ef74&content_app_id=&type=8&parent_pro_id=p_62654124e4b09dda125f9a8d)
 
-Weekly Contest 395 t4
+Biweekly Contest 130
 
-Weekly Contest 396 t4
+Weekly Contest 397
 
 ## The problems not recorded
 
-Contest 395, 396
+Contest 130, 397
 
 ## The best way to record the progression
 
 Screenshot the next day's list
 
-New question date: 2024-01-17
+New question date: 2024-02-02
 
 ## The problems not noted
 

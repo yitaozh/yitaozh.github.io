@@ -63,7 +63,7 @@ All the possible stable binary arrays are `[0,0,1,0,1,1]`, `[0,0,1,1,0,1]`, `[0,
 
 ## Hints/Notes
 
-- need to find how to the O(1) state transition equation for dp
+- need to find the O(1) state transition equation for dp
 
 ## Solution
 

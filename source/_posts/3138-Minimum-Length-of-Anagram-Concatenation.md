@@ -10,62 +10,40 @@ tags:
 
 [3138. Minimum Length of Anagram Concatenation](https://leetcode.com/problems/minimum-length-of-anagram-concatenation/description/)
 
-A word is considered **valid**  if:
+You are given a string `s`, which is known to be a concatenation of **anagrams**  of some string `t`.
 
-- It contains a **minimum**  of 3 characters.
-- It contains only digits (0-9), and English letters (uppercase and lowercase).
-- It includes **at least**  one **vowel** .
-- It includes **at least**  one **consonant** .
+Return the **minimum**  possible length of the string `t`.
 
-You are given a string `word`.
-
-Return `true` if `word` is valid, otherwise, return `false`.
-
-**Notes:**
-
-- `'a'`, `'e'`, `'i'`, `'o'`, `'u'`, and their uppercases are **vowels** .
-- A **consonant**  is an English letter that is not a vowel.
+An **anagram**  is formed by rearranging the letters of a string. For example, "aab", "aba", and, "baa" are anagrams of "aab".
 
 **Example 1:**
 
 ```bash
-Input: word = "234Adas"
+Input: s = "abba"
 
-Output: true
+Output: 2
 
 Explanation:
 
-This word satisfies the conditions.
+One possible string `t` could be `"ba"`.
 ```
 
 **Example 2:**
 
 ```bash
-Input: word = "b3"
+Input: s = "cdef"
 
-Output: false
-
-Explanation:
-
-The length of this word is fewer than 3, and does not have a vowel.
-```
-
-**Example 3:**
-
-```bash
-Input: word = "a3$e"
-
-Output: false
+Output: 4
 
 Explanation:
 
-This word contains a `'$'` character and does not have a consonant.
+One possible string `t` could be `"cdef"`, notice that `t` can be equal to `s`.
 ```
 
 **Constraints:**
 
-- `1 <= word.length <= 20`
-- `word` consists of English uppercase and lowercase letters, digits, `'@'`, `'#'`, and `'$'`.
+- `1 <= s.length <= 10^5`
+- `s` consist only of lowercase English letters.
 
 ## Hints/Notes
 

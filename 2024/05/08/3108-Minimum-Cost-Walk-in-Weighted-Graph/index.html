@@ -26,14 +26,17 @@
 <meta property="og:site_name" content="Echo&#39;s Home">
 <meta property="og:description" content="3108. Minimum Cost Walk in Weighted Graph DescriptionThere is an undirected weighted graph with n vertices labeled from 0 to n - 1.">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://assets.leetcode.com/uploads/2024/01/31/q4_example1-1.png">
+<meta property="og:image" content="https://assets.leetcode.com/uploads/2024/01/31/q4_example2e.png">
 <meta property="article:published_time" content="2024-05-08T13:28:08.000Z">
-<meta property="article:modified_time" content="2024-05-17T16:02:51.321Z">
+<meta property="article:modified_time" content="2024-05-17T16:59:47.871Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="Array">
 <meta property="article:tag" content="Union Find">
 <meta property="article:tag" content="Graph">
 <meta property="article:tag" content="Bit Manipulation">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://assets.leetcode.com/uploads/2024/01/31/q4_example1-1.png">
 
 
 <link rel="canonical" href="https://yitaozh.github.io/2024/05/08/3108-Minimum-Cost-Walk-in-Weighted-Graph/">
@@ -249,7 +252,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-05-17 16:02:51" itemprop="dateModified" datetime="2024-05-17T16:02:51+00:00">2024-05-17</time>
+      <time title="Modified: 2024-05-17 16:59:47" itemprop="dateModified" datetime="2024-05-17T16:59:47+00:00">2024-05-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -274,15 +277,24 @@
 <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>There is an undirected weighted graph with <code>n</code> vertices labeled from <code>0</code> to <code>n - 1</code>.</p>
 <p>You are given the integer <code>n</code> and an array <code>edges</code>, where <code>edges[i] = [ui, vi, wi]</code> indicates that there is an edge between vertices <code>ui</code> and <code>vi</code> with a weight of <code>wi</code>.</p>
 <p>A walk on a graph is a sequence of vertices and edges. The walk starts and ends with a vertex, and each edge connects the vertex that comes before it and the vertex that comes after it. It’s important to note that a walk may visit the same edge or vertex more than once.</p>
-<p>The <strong>cost</strong>  of a walk starting at node <code>u</code> and ending at node <code>v</code> is defined as the bitwise <code>AND</code> of the weights of the edges traversed during the walk. In other words, if the sequence of edge weights encountered during the walk is <code>w0, w1, w2, ..., wk</code>, then the cost is calculated as <code>w0 &amp;amp; w1 &amp;amp; w2 &amp;amp; ... &amp;amp; wk</code>, where <code>&amp;amp;</code> denotes the bitwise <code>AND</code> operator.</p>
+<p>The <strong>cost</strong>  of a walk starting at node <code>u</code> and ending at node <code>v</code> is defined as the bitwise <code>AND</code> of the weights of the edges traversed during the walk. In other words, if the sequence of edge weights encountered during the walk is <code>w0, w1, w2, ..., wk</code>, then the cost is calculated as <code>w0 &amp; w1 &amp; w2 &amp; ... &amp; wk</code>, where <code>&amp;;</code> denotes the bitwise <code>AND</code> operator.</p>
 <p>You are also given a 2D array <code>query</code>, where <code>query[i] = [si, ti]</code>. For each query, you need to find the minimum cost of the walk starting at vertex <code>si</code> and ending at vertex <code>ti</code>. If there exists no such walk, the answer is <code>-1</code>.</p>
 <p>Return the array <code>answer</code>, where <code>answer[i]</code> denotes the <strong>minimum</strong>  cost of a walk for query <code>i</code>.</p>
 <p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Input: n = 5, edges = [[0,1,7],[1,3,7],[1,2,1]], query = [[0,3],[3,4]]</span><br><span class="line"></span><br><span class="line">Output: [1,-1]</span><br><span class="line"></span><br><span class="line">Explanation:</span><br><span class="line">&lt;img alt=<span class="string">&quot;&quot;</span> src=<span class="string">&quot;https://assets.leetcode.com/uploads/2024/01/31/q4_example1-1.png&quot;</span> style=<span class="string">&quot;padding: 10px; background: rgb(255, 255, 255); border-radius: 0.5rem; width: 351px; height: 141px; --darkreader-inline-bgimage: initial; --darkreader-inline-bgcolor: #242729;&quot;</span> data-darkreader-inline-bgimage=<span class="string">&quot;&quot;</span> data-darkreader-inline-bgcolor=<span class="string">&quot;&quot;</span>&gt;</span><br><span class="line">To achieve the cost of 1 <span class="keyword">in</span> the first query, we need to move on the following edges: `0-&gt;1` (weight 7), `1-&gt;2` (weight 1), `2-&gt;1` (weight 1), `1-&gt;3` (weight 7).</span><br><span class="line"></span><br><span class="line">In the second query, there is no walk between nodes 3 and 4, so the answer is -1.</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: n = 5, edges = [[0,1,7],[1,3,7],[1,2,1]], query = [[0,3],[3,4]]</span><br><span class="line"></span><br><span class="line">Output: [1,-1]</span><br></pre></td></tr></table></figure>
 
+<p>Explanation:</p>
+<img alt="" src="https://assets.leetcode.com/uploads/2024/01/31/q4_example1-1.png" style="padding: 10px; background: rgb(255, 255, 255); border-radius: 0.5rem; width: 351px; height: 141px; --darkreader-inline-bgimage: initial; --darkreader-inline-bgcolor: #242729;" data-darkreader-inline-bgimage="" data-darkreader-inline-bgcolor="">
+
+<p>To achieve the cost of 1 in the first query, we need to move on the following edges: <code>0-&gt;1</code> (weight 7), <code>1-&gt;2</code> (weight 1), <code>2-&gt;1</code> (weight 1), <code>1-&gt;3</code> (weight 7).</p>
+<p>In the second query, there is no walk between nodes 3 and 4, so the answer is -1.</p>
 <p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Input: n = 3, edges = [[0,2,7],[0,1,15],[1,2,6],[1,2,1]], query = [[1,2]]</span><br><span class="line"></span><br><span class="line">Output: [0]</span><br><span class="line"></span><br><span class="line">Explanation:</span><br><span class="line">&lt;img alt=<span class="string">&quot;&quot;</span> src=<span class="string">&quot;https://assets.leetcode.com/uploads/2024/01/31/q4_example2e.png&quot;</span> style=<span class="string">&quot;padding: 10px; background: rgb(255, 255, 255); border-radius: 0.5rem; width: 211px; height: 181px; --darkreader-inline-bgimage: initial; --darkreader-inline-bgcolor: #242729;&quot;</span> data-darkreader-inline-bgimage=<span class="string">&quot;&quot;</span> data-darkreader-inline-bgcolor=<span class="string">&quot;&quot;</span>&gt;</span><br><span class="line">To achieve the cost of 0 <span class="keyword">in</span> the first query, we need to move on the following edges: `1-&gt;2` (weight 1), `2-&gt;1` (weight 6), `1-&gt;2` (weight 1).</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: n = 3, edges = [[0,2,7],[0,1,15],[1,2,6],[1,2,1]], query = [[1,2]]</span><br><span class="line"></span><br><span class="line">Output: [0]</span><br></pre></td></tr></table></figure>
 
+<p>Explanation:</p>
+<img alt="" src="https://assets.leetcode.com/uploads/2024/01/31/q4_example2e.png" style="padding: 10px; background: rgb(255, 255, 255); border-radius: 0.5rem; width: 211px; height: 181px; --darkreader-inline-bgimage: initial; --darkreader-inline-bgcolor: #242729;" data-darkreader-inline-bgimage="" data-darkreader-inline-bgcolor="">
+
+<p>To achieve the cost of 0 in the first query, we need to move on the following edges: <code>1-&gt;2</code> (weight 1), <code>2-&gt;1</code> (weight 6), <code>1-&gt;2</code> (weight 1).</p>
 <p><strong>Constraints:</strong></p>
 <ul>
 <li><code>2 &lt;= n &lt;= 10^5</code></li>

@@ -65,11 +65,17 @@ New page.
 
 Biweekly Contest 130 t4: 3145
 
+## The problems not recorded
+
+Weekly Contest 397
+
+Weekly Contest 398
+
 ## The best way to record the progression
 
 Screenshot the next day's list
 
-New question date: 2024-02-02
+New question date: 2024-02-08
 
 ## The problems not noted
 

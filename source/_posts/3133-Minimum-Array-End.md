@@ -52,38 +52,15 @@ Language: **C++**
 class Solution {
 public:
     long long minEnd(int n, int x) {
-        if (n == 1) {
-            return x;
-        }
+        long long res = x;
+        int index = 0;
         n--;
-        vector<int> binaryN;
-        vector<int> binaryX;
-        while (n != 0) {
-            int res = n % 2;
+        while (n) {
+            while (index < 32 && x & (1 << index)) {
+                index++;
+            }
+            res |= ((long)n % 2) << index++;
             n /= 2;
-            binaryN.push_back(res);
-        }
-        while (x != 0) {
-            int res = x % 2;
-            x /= 2;
-            binaryX.push_back(res);
-        }
-        int xIndex = 0;
-        for (int i = 0; i < binaryN.size(); i++) {
-            while (xIndex < binaryX.size() && binaryX[xIndex] == 1) {
-                xIndex++;
-            }
-            if (xIndex == binaryX.size()) {
-                binaryX.push_back(binaryN[i]);
-            } else {
-                binaryX[xIndex] = binaryN[i];
-            }
-            xIndex++;
-        }
-        long long res = 0, cur = 1;
-        for (int i = 0; i < binaryX.size(); i++) {
-            res = res + binaryX[i] * cur;
-            cur *= 2;
         }
         return res;
     }

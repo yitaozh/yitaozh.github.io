@@ -52,7 +52,8 @@ After removing elements at indices `[0,3]` and adding 2, `nums1` becomes `[7,7]`
 
 ## Hints/Notes
 
-- N/A
+- Weekly contest 395
+- we can only check the 3 minium values of nums1
 
 ## Solution
 

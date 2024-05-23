@@ -85,7 +85,7 @@ The image above shows one possible placement of rectangles to cover the points:
 
 ## Hints/Notes
 
-- Greedy
+- N/A
 
 ## Solution
 

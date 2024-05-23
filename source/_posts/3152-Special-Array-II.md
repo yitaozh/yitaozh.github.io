@@ -3,6 +3,9 @@ title: 3152. Special Array II
 categories: Leetcode
 date: 2024-05-23 11:39:03
 tags:
+    - Array
+    - Binary Search
+    - Prefix Sum
 ---
 
 [3152. Special Array II](https://leetcode.com/problems/special-array-ii/description/)

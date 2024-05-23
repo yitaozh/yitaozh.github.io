@@ -53,7 +53,8 @@ Explanation: We start at the cell `(0, 0)`, and we perform one move: `(0, 0)` to
 
 ## Hints/Notes
 
-- N/A
+- Weekly contest 397
+- Calculate prevMin is like 2D preSum
 
 ## Solution
 
@@ -63,38 +64,16 @@ Language: **C++**
 class Solution {
 public:
     int maxScore(vector<vector<int>>& grid) {
-        priority_queue<vector<int>> pq;
-        int m = grid.size(), n = grid[0].size();
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                pq.push({grid[i][j], i, j});
+        vector<vector<int>> minNum(grid.size() + 1, vector<int>(grid[0].size() + 1, INT_MAX));
+        int res = INT_MIN;
+        for (int i = 0; i < grid.size(); i++) {
+            for (int j = 0; j < grid[0].size(); j++) {
+                int prevMin = min(minNum[i][j + 1], minNum[i + 1][j]);
+                res = max(res, grid[i][j] - prevMin);
+                minNum[i + 1][j + 1] = min(grid[i][j], prevMin);
             }
         }
-        vector<vector<int>> res(m, vector<int>(n, 0));
-        vector<vector<bool>> visited(m, vector<bool>(n, false));
-        int count = m * n;
-        int ret = INT_MIN;
-        while (!pq.empty() && count > 0) {
-            auto tri = pq.top();
-            pq.pop();
-            int val = tri[0];
-            int x = tri[1];
-            int y = tri[2];
-            if (visited[x][y]) {
-                continue;
-            }
-            for (int i = 0; i <= x; i++) {
-                for (int j = 0; j <= y; j++) {
-                    if (!visited[i][j] && !(x == i && y == j)) {
-                        res[i][j] = grid[x][y] - grid[i][j];
-                        ret = max(ret, res[i][j]);
-                        visited[i][j] = true;
-                        count--;
-                    }
-                }
-            }
-        }
-        return ret;
+        return res;
     }
 };
 ```

@@ -57,7 +57,7 @@ If not idea at all, just check the comments. No need to wait for 5, 10 minutes
 
 New page.
 
-~~[743. Network Delay Time](https://leetcode.com/problems/network-delay-time/)~~
+[623. Add One Row to Tree](https://leetcode.com/problems/add-one-row-to-tree/description/)
 
 ## The problems not solved
 
@@ -73,7 +73,7 @@ None
 
 Screenshot the next day's list
 
-New question date: 2024-02-14
+New question date: 2024-02-18
 
 ## The problems not noted
 

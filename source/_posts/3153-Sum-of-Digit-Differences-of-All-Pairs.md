@@ -61,17 +61,13 @@ Language: **C++**
 class Solution {
 public:
     long long sumDigitDifferences(vector<int>& nums) {
-        vector<vector<int>> bits(10, vector<int>(10, -1));
+        vector<vector<int>> bits(10, vector<int>(10, 0));
         int index;
         for (int num : nums) {
             index = 0;
             while (num != 0) {
                 int val = num % 10;
-                if (bits[index][val] == -1) {
-                    bits[index][val] = 1;
-                } else {
-                    bits[index][val]++;
-                }
+                bits[index][val]++;
                 num /= 10;
                 index++;
             }
@@ -79,9 +75,8 @@ public:
         long long sum = 0;
         for (int i = 0; i < index; i++) {
             for (int j = 0; j < 10; j++) {
-                if (bits[i][j] == -1) continue;
+                if (bits[i][j] == 0) continue;
                 for (int k = j + 1; k < 10; k++) {
-                    if (bits[i][k] == -1) continue;
                     sum += bits[i][j] * bits[i][k];
                 }
             }

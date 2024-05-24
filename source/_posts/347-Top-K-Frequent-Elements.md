@@ -55,27 +55,27 @@ Output: [1]
 Language: **C++**
 
 ```C++
-class Solution {
+class Solution {
 public:
-    vector<int> topKFrequent(vector<int>& nums, int k) {
-        map<int, int> m;
-        for (int num : nums) {
-            m[num]++;
-        }
-        priority_queue<vector<int>, vector<vector<int>>, less<vector<int>>> pq;
-        for (auto it : m) {
-            int num = it.first;
-            int freq = it.second;
-            pq.push({freq, num});
-        }
-        vector<int> res;
-        while (k > 0 && !pq.empty()) {
-            auto pair = pq.top();
-            pq.pop();
-            res.push_back(pair[1]);
-            k--;
-        }
-        return res;
-    }
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        map<int, int> m;
+        for (int num : nums) {
+            m[num]++;
+        }
+        priority_queue<vector<int>> pq;
+        for (auto it : m) {
+            int num = it.first;
+            int freq = it.second;
+            pq.push({freq, num});
+        }
+        vector<int> res;
+        while (k > 0 && !pq.empty()) {
+            auto pair = pq.top();
+            pq.pop();
+            res.push_back(pair[1]);
+            k--;
+        }
+        return res;
+    }
 };
 ```

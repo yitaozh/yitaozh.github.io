@@ -67,15 +67,13 @@ Biweekly Contest 130 t4: 3145
 
 ## The problems not recorded
 
-Weekly Contest 397
-
-Weekly Contest 398
+None
 
 ## The best way to record the progression
 
 Screenshot the next day's list
 
-New question date: 2024-02-08
+New question date: 2024-02-14
 
 ## The problems not noted
 

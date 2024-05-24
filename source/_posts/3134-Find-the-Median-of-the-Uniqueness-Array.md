@@ -9,39 +9,56 @@ tags:
     - Sliding Window
 ---
 
-[3134. Find the Median of the Uniqueness Array](https://leetcode.com/problems/find-the-median-of-the-uniqueness-array/description/)
+# [3134. Find the Median of the Uniqueness Array](https://leetcode.com/problems/find-the-median-of-the-uniqueness-array/description/)
 
-You are given two integers `n` and `x`. You have to construct an array of **positive**  integers `nums` of size `n` where for every `0 <= i < n - 1`, `nums[i + 1]` is **greater than**  `nums[i]`, and the result of the bitwise `AND` operation between all elements of `nums` is `x`.
+You are given an integer array `nums`. The **uniqueness array**  of `nums` is the sorted array that contains the number of distinct elements of all the subarrays of `nums`. In other words, it is a sorted array consisting of `distinct(nums[i..j])`, for all `0 <= i <= j < nums.length`.
 
-Return the **minimum**  possible value of `nums[n - 1]`.
+Here, `distinct(nums[i..j])` denotes the number of distinct elements in the subarray that starts at index `i` and ends at index `j`.
+
+Return the **median**  of the **uniqueness array**  of `nums`.
+
+**Note**  that the **median**  of an array is defined as the middle element of the array when it is sorted in non-decreasing order. If there are two choices for a median, the **smaller**  of the two values is taken.
 
 **Example 1:**
 
 ```bash
-Input: n = 3, x = 4
+Input: nums = [1,2,3]
 
-Output: 6
+Output: 1
 
 Explanation:
 
-`nums` can be `[4,5,6]` and its last element is 6.
+The uniqueness array of `nums` is `[distinct(nums[0..0]), distinct(nums[1..1]), distinct(nums[2..2]), distinct(nums[0..1]), distinct(nums[1..2]), distinct(nums[0..2])]` which is equal to `[1, 1, 1, 2, 2, 3]`. The uniqueness array has a median of 1. Therefore, the answer is 1.
 ```
 
 **Example 2:**
 
 ```bash
-Input: n = 2, x = 7
+Input: nums = [3,4,3,4,5]
 
-Output: 15
+Output: 2
 
 Explanation:
 
-`nums` can be `[7,15]` and its last element is 15.
+The uniqueness array of `nums` is `[1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3]`. The uniqueness array has a median of 2. Therefore, the answer is 2.
+```
+
+**Example 3:**
+
+```bash
+Input: nums = [4,3,5,4]
+
+Output: 2
+
+Explanation:
+
+The uniqueness array of `nums` is `[1, 1, 1, 1, 2, 2, 2, 3, 3, 3]`. The uniqueness array has a median of 2. Therefore, the answer is 2.
 ```
 
 **Constraints:**
 
-- `1 <= n, x <= 10^8`
+- `1 <= nums.length <= 10^5`
+- `1 <= nums[i] <= 10^5`
 
 ## Hints/Notes
 
@@ -54,8 +71,6 @@ Language: **C++**
 ```C++
 class Solution {
 public:
-    map<int, int> m;
-
     int medianOfUniquenessArray(vector<int>& nums) {
         unordered_set<int> s;
         for (int num : nums) {
@@ -75,9 +90,6 @@ public:
     }
 
     long check(int numUnique, vector<int>& nums) {
-        if (m.contains(numUnique)) {
-            return m[numUnique];
-        }
         int left = 0, right = 0;
         long res = 0;
         unordered_map<int, int> m;
@@ -92,7 +104,6 @@ public:
             }
             res += right - left;
         }
-        m[numUnique] = res;
         return res;
     }
 };

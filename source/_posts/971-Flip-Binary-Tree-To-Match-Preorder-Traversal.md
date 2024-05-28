@@ -29,14 +29,17 @@ Explanation: It is impossible to flip the nodes such that the pre-order traversa
 ```
 
 **Example 2:**
+
 <img alt="" src="https://assets.leetcode.com/uploads/2019/01/02/1219-02.png" style="width: 150px; height: 142px;">
 
 ```bash
 Input: root = [1,2,3], voyage = [1,3,2]
 Output: [1]
-Explanation: Flipping node 1 swaps nodes 2 and 3, so the pre-order traversal matches voyage.```
+Explanation: Flipping node 1 swaps nodes 2 and 3, so the pre-order traversal matches voyage.
+```
 
 **Example 3:**
+
 <img alt="" src="https://assets.leetcode.com/uploads/2019/01/02/1219-02.png" style="width: 150px; height: 142px;">
 
 ```bash

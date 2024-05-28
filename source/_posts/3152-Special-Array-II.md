@@ -60,11 +60,14 @@ Language: **C++**
 ```C++
 class Solution {
 public:
-    vector<bool> isArraySpecial(vector<int>& nums, vector<vector<int>>& queries) {
-        set<int> notSpecial;
+    vector<bool> isArraySpecial(vector<int>& nums,
+                                vector<vector<int>>& queries) {
+        vector<int> preSum(nums.size(), 0);
         for (int i = 0; i < nums.size() - 1; i++) {
-            if (!((nums[i] % 2) ^ (nums[i + 1] % 2))) {
-                notSpecial.insert(i);
+            if ((nums[i] % 2) ^ (nums[i + 1] % 2)) {
+                preSum[i + 1] = preSum[i];
+            } else {
+                preSum[i + 1] = preSum[i] + 1;
             }
         }
         vector<bool> res;
@@ -75,8 +78,7 @@ public:
                 res.push_back(true);
                 continue;
             }
-            auto it = notSpecial.lower_bound(from);
-            if (it != notSpecial.end() && *it < to) {
+            if (preSum[to] > preSum[from]) {
                 res.push_back(false);
             } else {
                 res.push_back(true);

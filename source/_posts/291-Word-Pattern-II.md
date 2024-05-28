@@ -46,6 +46,7 @@ Output: false
 
 ## Hints/Notes
 
+- dynamic programming
 - DCC 5/24/2024
 
 ## Solution

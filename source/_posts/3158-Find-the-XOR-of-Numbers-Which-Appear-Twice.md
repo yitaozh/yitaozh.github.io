@@ -58,7 +58,7 @@ Numbers 1 and 2 appeared twice. `1 XOR 2 == 3`.
 
 ## Hints/Notes
 
-- N/A
+- Biweekly Contest 131
 
 ## Solution
 

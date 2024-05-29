@@ -73,15 +73,9 @@ public:
             m[num]++;
         }
         int res = 0;
-        bool set = false;
         for (auto it : m) {
             if (it.second == 2) {
-                if (!set) {
-                    set = true;
-                    res = it.first;
-                } else {
-                    res ^= it.first;
-                }
+                res ^= it.first;
             }
         }
         return res;

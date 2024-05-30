@@ -8,7 +8,6 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
-                "-DTEST",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],

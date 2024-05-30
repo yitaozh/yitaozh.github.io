@@ -15,7 +15,7 @@
 #include <fstream>
 
 using namespace std;
-// #define TEST
+#define TEST
 
 #ifdef TEST
 string dir = "./";
@@ -82,7 +82,7 @@ public:
             if (l == r) {
                 cout << "case: " << i << " pass" << endl;
             } else if (l != r) {
-                cout << "case: " << i << "wrong " << "output[" << l << "], while expect[" << r << "]" << endl;
+                cout << "case: " << i << " wrong " << "output[" << l << "], while expect[" << r << "]" << endl;
                 continue;
             }
         }
@@ -94,9 +94,10 @@ static Prepare pre;
 static Check check;
 
 void solve(vector<int>& nums) {
-    long pos_size = 0, pos_res = 0;
+    long long pos_size = 0, pos_res = 0;
     for (int i = 0; i < nums.size(); ) {
         if (nums[i] < 0) {
+            i++;
             continue;
         }
         int tmp = INT_MIN;
@@ -115,9 +116,10 @@ void solve(vector<int>& nums) {
         }
     }
 
-    long neg_size = 0, neg_res = 0;
+    long long neg_size = 0, neg_res = 0;
     for (int i = 0; i < nums.size(); ) {
         if (nums[i] > 0) {
+            i++;
             continue;
         }
         int tmp = INT_MIN;
@@ -146,12 +148,9 @@ void solve(vector<int>& nums) {
 }
 
 int main() {
-    // ios_base::sync_with_stdio(0);
-    // cin.tie(0); cout.tie(0);
     int tc;
     in >> tc;
     for (int t = 1; t <= tc; t++) {
-        out << "Case #" << t << ": ";
         int size;
         in >> size;
         vector<int> nums;

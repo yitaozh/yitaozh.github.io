@@ -176,7 +176,7 @@ public:
             if (l == r) {
                 cout << "case: " << i << " pass" << endl;
             } else if (l != r) {
-                cout << "case: " << i << "wrong " << "output[" << l << "], while expect[" << r << "]" << endl;
+                cout << "case: " << i << " wrong " << "output[" << l << "], while expect[" << r << "]" << endl;
                 continue;
             }
         }
@@ -196,11 +196,14 @@ void solve(int m, int n) {
 }
 
 int main() {
-    // need rewrite input
-    int m, n;
-    while (in >> m >> n) {
-        solve(m, n);
+    int tc;
+    in >> tc;
+    for (int t = 1; t <= tc; t++) {
+        int size;
+        in >> size;
+        solve(size);
     }
+    return 0;
 }
 ```
 

@@ -8,40 +8,49 @@ tags:
 
 [3163. String Compression III](https://leetcode.com/problems/string-compression-iii/description/)
 
-You are given 2 integer arrays `nums1` and `nums2` of lengths `n` and `m` respectively. You are also given a **positive**  integer `k`.
+Given a string `word`, compress it using the following algorithm:
 
-A pair `(i, j)` is called **good**  if `nums1[i]` is divisible by `nums2[j] * k` (`0 <= i <= n - 1`, `0 <= j <= m - 1`).
+- Begin with an empty string `comp`. While `word` is **not**  empty, use the following operation:
 
-Return the total number of **good**  pairs.
+- Remove a maximum length prefix of `word` made of a single character `c` repeating **at most**  9 times.
+- Append the length of the prefix followed by `c` to `comp`.
+
+Return the string `comp`.
 
 **Example 1:**
 
 ```bash
-Input: nums1 = [1,3,4], nums2 = [1,3,4], k = 1
+Input: word = "abcde"
 
-Output: 5
+Output: "1a1b1c1d1e"
 
 Explanation:
-The 5 good pairs are `(0, 0)`, `(1, 0)`, `(1, 1)`, `(2, 0)`, and `(2, 2)`.
+
+Initially, `comp = ""`. Apply the operation 5 times, choosing `"a"`, `"b"`, `"c"`, `"d"`, and `"e"` as the prefix in each operation.
+
+For each prefix, append `"1"` followed by the character to `comp`.
 ```
 
 **Example 2:**
 
 ```bash
-Input: nums1 = [1,2,4,12], nums2 = [2,4], k = 3
+Input: word = "aaaaaaaaaaaaaabb"
 
-Output: 2
+Output: "9a5a2b"
 
 Explanation:
 
-The 2 good pairs are `(3, 0)` and `(3, 1)`.
+Initially, `comp = ""`. Apply the operation 3 times, choosing `"aaaaaaaaa"`, `"aaaaa"`, and `"bb"` as the prefix in each operation.
+
+- For prefix `"aaaaaaaaa"`, append `"9"` followed by `"a"` to `comp`.
+- For prefix `"aaaaa"`, append `"5"` followed by `"a"` to `comp`.
+- For prefix `"bb"`, append `"2"` followed by `"b"` to `comp`.
 ```
 
 **Constraints:**
 
-- `1 <= n, m <= 50`
-- `1 <= nums1[i], nums2[j] <= 50`
-- `1 <= k <= 50`
+- `1 <= word.length <= 2 * 10^5`
+- `word` consists only of lowercase English letters.
 
 ## Hints/Notes
 

@@ -90,45 +90,114 @@ find source/_posts/ -name "[0-9]*" | xargs grep -A 1 "tags" | grep -e "---"
 ## C++ template
 
 ```C++
-#include <bits/stdc++.h>
+#include <iostream>
+#include <utility>
+#include <string>
+#include <cstring>
+#include <vector>
+#include <map>
+#include <set>
+#include <stack>
+#include <queue>
+#include <unordered_map>
+#include <unordered_set>
+#include <algorithm>
+#include <numeric>
+
+#include <fstream>
 
 using namespace std;
+//#define TEST
 
-template<typename A, typename B> ostream& operator<<(ostream &os, const pair<A, B> &p) { return os << '(' << p.first << ", " << p.second << ')'; }
-template<typename T_container, typename T = typename enable_if<!is_same<T_container, string>::value, typename T_container::value_type>::type> ostream& operator<<(ostream &os, const T_container &v) { os << '{'; string sep; for (const T &x : v) os << sep << x, sep = ", "; return os << '}'; }
-void dbg_out() { cerr << endl; }
-template<typename Head, typename... Tail> void dbg_out(Head H, Tail... T) { cerr << ' ' << H; dbg_out(T...); }
-#ifdef LOCAL
-#define dbg(...) cerr << "(" << #__VA_ARGS__ << "):", dbg_out(__VA_ARGS__)
+#ifdef TEST
+string dir = "./";
+string inputFile = dir + "input.txt";
+string outputFile = dir + "output.txt";
+string expectFile = dir + "expect.txt";
+
+ifstream in(inputFile);
+ofstream out(outputFile);
+
+ifstream output(outputFile);
+ifstream expect(expectFile);
 #else
-#define dbg(...)
+istream &in = cin;
+ostream &out = cout;
 #endif
 
-#define ar array
-#define ll long long
-#define ld long double
-#define sza(x) ((int)x.size())
-#define all(a) (a).begin(), (a).end()
+string emptyStr = "nullptr";
 
-const int MAX_N = 1e5 + 5;
-const ll MOD = 1e9 + 7;
-const ll INF = 1e9;
-const ld EPS = 1e-9;
+class Prepare {
+public:
+    Prepare() {
+        prepare();
+    }
 
+    static void prepare() {
+#ifdef TEST
+        if (!in.is_open()) {
+            cout << "empty input file" << endl;
+            exit(-1);
+        }
+        if (!expect.is_open()) {
+            cout << "empty expect file" << endl;
+            exit(-1);
+        }
+#endif
+    }
+};
 
+class Check {
+public:
+    ~Check() {
+        // compare
+#ifdef TEST
+          for (int i = 1; !output.eof(); ++i) {
+            if (output.eof()) {
+                break;
+            }
+            string l, r;
+            getline(output, l);
+            getline(expect, r);
+            while (!l.empty() && l.back() == ' ') {
+                l.pop_back();
+            }
+            while (!r.empty() && r.back() == ' ') {
+                r.pop_back();
+            }
+            if (l.empty() && r.empty()) {
+                break;
+            }
+            if (l == emptyStr) {
+                break;
+            }
+            if (l == r) {
+                cout << "case: " << i << " pass" << endl;
+            } else if (l != r) {
+                cout << "case: " << i << "wrong " << "output[" << l << "], while expect[" << r << "]" << endl;
+                continue;
+            }
+        }
+#endif
+    }
+};
 
-void solve() {
+static Prepare pre;
+static Check check;
 
+void solve(int m, int n) {
+    if (m % 2 == 0 || n % 2 == 0) {
+        out << m * n / 2 << endl;
+        return;
+    }
+    out << (n - 1) / 2 * m + m / 2 << endl;
 }
 
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0); cout.tie(0);
-    int tc = 1;
-    // cin >> tc;
-    for (int t = 1; t <= tc; t++) {
-        // cout << "Case #" << t << ": ";
-        solve();
+    // need rewrite input
+    int m, n;
+    while (in >> m >> n) {
+        solve(m, n);
     }
 }
 ```

@@ -87,7 +87,9 @@ find source/_posts/ -name "[0-9]*" |  xargs grep -L "Hints"
 find source/_posts/ -name "[0-9]*" | xargs grep -A 1 "tags" | grep -e "---"
 ```
 
-## C++ template
+## Codeforce
+
+### C++ template
 
 ```C++
 #include <iostream>
@@ -200,4 +202,15 @@ int main() {
         solve(m, n);
     }
 }
+```
+
+### To compare and run the test
+
+```bash
+touch input.txt
+touch expect.txt
+```
+
+```bash
+g++ main.cpp -std=c++17 -DTEST
 ```

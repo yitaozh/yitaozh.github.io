@@ -27,7 +27,7 @@
 <meta property="og:description" content="3163. String Compression III You are given 2 integer arrays nums1 and nums2 of lengths n and m respectively. You are also given a positive  integer k. A pair (i, j) is called good  if nums1[i] is divi">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-05-29T11:31:21.000Z">
-<meta property="article:modified_time" content="2024-05-29T20:20:04.314Z">
+<meta property="article:modified_time" content="2024-05-30T16:24:12.043Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="String">
 <meta name="twitter:card" content="summary">
@@ -238,9 +238,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-05-29 11:31:21 / Modified: 20:20:04" itemprop="dateCreated datePublished" datetime="2024-05-29T11:31:21+00:00">2024-05-29</time>
+      <time title="Created: 2024-05-29 11:31:21" itemprop="dateCreated datePublished" datetime="2024-05-29T11:31:21+00:00">2024-05-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-05-30 16:24:12" itemprop="dateModified" datetime="2024-05-30T16:24:12+00:00">2024-05-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -278,7 +284,7 @@
 <li><code>1 &lt;= k &lt;= 50</code></li>
 </ul>
 <h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>N&#x2F;A</li>
+<li>Weekly Contest 399</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">compressedString</span><span class="params">(string word)</span> </span>&#123;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="type">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (index != word.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="type">char</span> c = word[index];</span><br><span class="line">            <span class="type">int</span> i = index;</span><br><span class="line">            <span class="keyword">for</span> (; i &lt; <span class="built_in">min</span>(index + <span class="number">9</span>, (<span class="type">int</span>)word.<span class="built_in">size</span>()); i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (word[i] != c) &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            res += <span class="built_in">to_string</span>(i - index) + c;</span><br><span class="line">            index = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>

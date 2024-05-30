@@ -95,7 +95,7 @@ public:
     }
 
     void flip(TreeNode* root, vector<int>& voyage) {
-        if (!root || index == voyage.size() - 1) {
+        if (!root || index == voyage.size() || !possible) {
             return;
         }
         if (root->val != voyage[index]) {

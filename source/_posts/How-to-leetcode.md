@@ -51,13 +51,13 @@ If not idea at all, just check the comments. No need to wait for 5, 10 minutes
 
 ## Current leetcode blog
 
-[用「遍历」思维解题 II](https://labuladong.online/algo/problem-set/binary-tree-traverse-2/)
+[【强化练习】用「遍历」思维解题 III](https://labuladong.online/algo/problem-set/binary-tree-traverse-3/)
 
 ## Last problem solved
 
-~~New page.~~
+New page.
 
-[623. Add One Row to Tree](https://leetcode.com/problems/add-one-row-to-tree/description/)
+~~[623. Add One Row to Tree](https://leetcode.com/problems/add-one-row-to-tree/description/)~~
 
 ## The problems not solved
 
@@ -73,7 +73,7 @@ None
 
 Screenshot the next day's list
 
-New question date: 2024-02-24
+New question date: 2024-03-07
 
 ## The problems not noted
 

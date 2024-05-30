@@ -46,7 +46,7 @@ The 2 good pairs are `(3, 0)` and `(3, 1)`.
 
 ## Hints/Notes
 
-- N/A
+- Weekly Contest 399
 
 ## Solution
 

@@ -10,6 +10,8 @@ tags:
 
 [Alternating Subsequence](https://codeforces.com/problemset/problem/1343/C)
 
+## Description
+
 输入 T(≤1e4) 表示 T 组数据。所有数据的 n 之和 ≤2e5。
 每组数据输入 n(1≤n≤2e5) 和长为 n 的数组 a(-1e9≤a[i]≤1e9 且 a[i]≠0)。
 

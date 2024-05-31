@@ -70,10 +70,11 @@ menu:
   archives: /archives/ || fa fa-archive
   # about: /about/ || fa fa-user
 
-copy_button:
-  enable: true
-  show_result: true
-  style: mac
+codeblock:
+  copy_button:
+    enable: true
+    # show_result: true
+    style: mac
 
 # Local search
 # Dependencies: https://github.com/next-theme/hexo-generator-searchdb

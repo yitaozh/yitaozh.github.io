@@ -49,45 +49,43 @@ If not idea at all, just check the comments. No need to wait for 5, 10 minutes
 * Weekly contest, then codeforce
 * Watch this [video series](https://www.youtube.com/@BackToBackSWE/videos) to learn how to speak the story
 
-## Current leetcode blog
+### Current leetcode blog
 
 [【强化练习】用「遍历」思维解题 III](https://labuladong.online/algo/problem-set/binary-tree-traverse-3/)
 
-## Last problem solved
+### Last problem solved
 
 New page.
 
 ~~[623. Add One Row to Tree](https://leetcode.com/problems/add-one-row-to-tree/description/)~~
 
-## The problems not solved
+### The problems not solved
 
 1696 and 1425 in [【强化练习】单调队列的通用实现及经典习题](https://appktavsiei5995.pc.xiaoe-tech.com/p/t_pc/course_pc_detail/image_text/i_62a692efe4b01a48520b9b9b?product_id=p_627cd0eae4b0cedf38b0ef74&content_app_id=&type=8&parent_pro_id=p_62654124e4b09dda125f9a8d)
 
 Biweekly Contest 130 t4: 3145
 
-## The problems not recorded
+### The problems not recorded
 
 None
 
-## The best way to record the progression
+### The best way to record the progression
 
 Screenshot the next day's list
 
 New question date: 2024-03-07
 
-## The problems not noted
+### The problems not noted
 
 ```bash
 find source/_posts/ -name "[0-9]*" |  xargs grep -L "Hints"
 ```
 
-## The problems not tagged
+### The problems not tagged
 
 ```bash
 find source/_posts/ -name "[0-9]*" | xargs grep -A 1 "tags" | grep -e "---"
 ```
-
-## Codeforce
 
 ### C++ template
 

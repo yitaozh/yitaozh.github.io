@@ -10,6 +10,8 @@ tags:
 
 [734. Sentence Similarity](https://leetcode.com/problems/sentence-similarity/)
 
+## Description
+
 We can represent a sentence as an array of words, for example, the sentence `"I am happy with leetcode"` can be represented as `arr = ["I","am",happy","with","leetcode"]`.
 
 Given two sentences `sentence1` and `sentence2` each represented as a string array and given an array of string pairs `similarPairs` where similarPairs[i] = [x<sub>i</sub>, y<sub>i</sub>] indicates that the two words x<sub>i</sub> and y<sub>i</sub> are similar.

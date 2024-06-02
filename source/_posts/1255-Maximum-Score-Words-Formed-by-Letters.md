@@ -13,6 +13,8 @@ tags:
 
 [1255. Maximum Score Words Formed by Letters](https://leetcode.com/problems/maximum-score-words-formed-by-letters/description/?envType=daily-question&envId=2024-05-24)
 
+## Description
+
 Given a list of `words`, list of single`letters` (might be repeating)and `score`of every character.
 
 Return the maximum score of **any**  valid set of words formed by using the given letters (`words[i]` cannot be used twoor more times).

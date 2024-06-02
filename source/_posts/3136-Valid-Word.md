@@ -8,6 +8,8 @@ tags:
 
 [3136. Valid Word](https://leetcode.com/problems/valid-word/description/)
 
+## Description
+
 A word is considered **valid**  if:
 
 - It contains a **minimum**  of 3 characters.

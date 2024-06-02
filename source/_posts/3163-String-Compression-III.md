@@ -8,6 +8,8 @@ tags:
 
 [3163. String Compression III](https://leetcode.com/problems/string-compression-iii/description/)
 
+## Description
+
 Given a string `word`, compress it using the following algorithm:
 
 - Begin with an empty string `comp`. While `word` is **not**  empty, use the following operation:

@@ -8,6 +8,8 @@ tags:
 
 [3151. Special Array I](https://leetcode.com/problems/special-array-i/description/)
 
+## Description
+
 An array is considered **special**  if every pair of its adjacent elements contains two numbers with different parity.
 
 You are given an array of integers `nums`. Return `true` if `nums` is a **special**  array, otherwise, return `false`.

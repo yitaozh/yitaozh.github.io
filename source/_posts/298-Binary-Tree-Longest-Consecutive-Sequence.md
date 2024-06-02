@@ -10,6 +10,8 @@ tags:
 
 [298. Binary Tree Longest Consecutive Sequence](https://leetcode.com/problems/binary-tree-longest-consecutive-sequence/description/)
 
+## Description
+
 Given the `root` of a binary tree, return the length of the longest **consecutive sequence path** .
 
 A **consecutive sequence path**  is a path where the values **increase by one**  along the path.

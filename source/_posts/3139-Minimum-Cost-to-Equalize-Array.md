@@ -10,6 +10,8 @@ tags:
 
 [3139. Minimum Cost to Equalize Array](https://leetcode.com/problems/minimum-cost-to-equalize-array/description/)
 
+## Description
+
 You are given an integer array `nums` and two integers `cost1` and `cost2`. You are allowed to perform **either**  of the following operations **any**  number of times:
 
 - Choose an index `i` from `nums` and **increase**  `nums[i]` by `1` for a cost of `cost1`.

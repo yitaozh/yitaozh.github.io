@@ -12,6 +12,8 @@ tags:
 
 [3143. Maximum Points Inside the Square](https://leetcode.com/problems/maximum-points-inside-the-square/description/)
 
+## Description
+
 You are given a 2D array `points` and a string `s` where, `points[i]` represents the coordinates of point `i`, and `s[i]` represents the **tag**  of point `i`.
 
 A **valid**  square is a square centered at the origin `(0, 0)`, has edges parallel to the axes, and **does not**  contain two points with the same tag.

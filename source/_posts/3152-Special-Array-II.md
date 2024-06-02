@@ -10,6 +10,8 @@ tags:
 
 [3152. Special Array II](https://leetcode.com/problems/special-array-ii/description/)
 
+## Description
+
 An array is considered **special**  if every pair of its adjacent elements contains two numbers with different parity.
 
 You are given an array of integer `nums` and a 2D integer matrix `queries`, where for queries[i] = [from<sub>i</sub>, to<sub>i</sub>] your task is to check that subarray nums[from<sub>i</sub>..to<sub>i</sub>] is **special**  or not.

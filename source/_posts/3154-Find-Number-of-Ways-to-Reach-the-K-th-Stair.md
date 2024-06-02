@@ -12,6 +12,8 @@ tags:
 
 [3154. Find Number of Ways to Reach the K-th Stair](https://leetcode.com/problems/find-number-of-ways-to-reach-the-k-th-stair/description/)
 
+## Description
+
 You are given a **non-negative**  integer `k`. There exists a staircase with an infinite number of stairs, with the **lowest**  stair numbered 0.
 
 Alice has an integer `jump`, with an initial value of 0. She starts on stair 1 and wants to reach stair `k` using **any**  number of **operations** . If she is on stair `i`, in one **operation**  she can:

@@ -10,6 +10,8 @@ tags:
 
 [971. Flip Binary Tree To Match Preorder Traversal](https://leetcode.com/problems/flip-binary-tree-to-match-preorder-traversal/description/)
 
+## Description
+
 You are given the `root` of a binary tree with `n` nodes, where each node is uniquely assigned a value from `1` to `n`. You are also given a sequence of `n` values `voyage`, which is the **desired**  <a href="https://en.wikipedia.org/wiki/Tree_traversal#Pre-order" target="_blank">**pre-order traversal** </a> of the binary tree.
 
 Any node in the binary tree can be **flipped**  by swapping its left and right subtrees. For example, flipping node 1 will have the following effect:

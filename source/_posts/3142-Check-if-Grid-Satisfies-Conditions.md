@@ -9,6 +9,8 @@ tags:
 
 [3142. Check if Grid Satisfies Conditions](https://leetcode.com/problems/check-if-grid-satisfies-conditions/description/)
 
+## Description
+
 You are given a 2D matrix `grid` of size `m x n`. You need to check if each cell `grid[i][j]` is:
 
 - Equal to the cell below it, i.e. `grid[i][j] == grid[i + 1][j]` (if it exists).

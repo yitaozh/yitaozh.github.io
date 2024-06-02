@@ -10,6 +10,8 @@ tags:
 
 [291. Word Pattern II](https://leetcode.com/problems/word-pattern-ii/description/?envType=weekly-question&envId=2024-05-22)
 
+## Description
+
 Given a `pattern` and a string `s`, return `true` if `s` **matches**  the `pattern`.
 
 A string `s` <b>matches</b> a `pattern` if there is some **bijective mapping**  of single characters to **non-empty**  strings such that if each character in `pattern` is replaced by the string it maps to, then the resulting string is `s`. A **bijective mapping**  means that no two characters map to the same string, and no character maps to two different strings.

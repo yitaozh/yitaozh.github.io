@@ -9,6 +9,8 @@ tags:
 
 [3159. Find Occurrences of an Element in an Array](https://leetcode.com/problems/find-occurrences-of-an-element-in-an-array/description/)
 
+## Description
+
 You are given an integer array `nums`, an integer array `queries`, and an integer `x`.
 
 For each `queries[i]`, you need to find the index of the `queries[i]^th` occurrence of `x` in the `nums` array. If there are fewer than `queries[i]` occurrences of `x`, the answer should be -1 for that query.

@@ -11,6 +11,8 @@ tags:
 
 [3153. Sum of Digit Differences of All Pairs](https://leetcode.com/problems/sum-of-digit-differences-of-all-pairs/description/)
 
+## Description
+
 You are given an array `nums` consisting of **positive**  integers where all integers have the **same**  number of digits.
 
 The **digit difference**  between two integers is the count of different digits that are in the **same**  position in the two integers.

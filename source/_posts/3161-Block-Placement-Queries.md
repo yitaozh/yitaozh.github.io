@@ -11,6 +11,8 @@ tags:
 
 [3161. Block Placement Queries](https://leetcode.com/problems/block-placement-queries/description/)
 
+## Description
+
 There exists an infinite number line, with its origin at 0 and extending towards the **positive**  x-axis.
 
 You are given a 2D array `queries`, which contains two types of queries:

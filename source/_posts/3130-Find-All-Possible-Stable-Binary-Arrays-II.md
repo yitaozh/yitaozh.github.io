@@ -9,6 +9,8 @@ tags:
 
 [3130. Find All Possible Stable Binary Arrays II](https://leetcode.com/problems/find-all-possible-stable-binary-arrays-ii/description/)
 
+## Description
+
 You are given 3 positive integers `zero`, `one`, and `limit`.
 
 A binary array `arr` is called **stable**  if:

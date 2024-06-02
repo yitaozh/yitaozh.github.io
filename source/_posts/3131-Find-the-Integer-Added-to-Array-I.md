@@ -8,6 +8,8 @@ tags:
 
 [3131. Find the Integer Added to Array I](https://leetcode.com/problems/find-the-integer-added-to-array-i/description/)
 
+## Description
+
 You are given two arrays of equal length, `nums1` and `nums2`.
 
 Each element in `nums1` has been increased (or decreased in the case of negative) by an integer, represented by the variable `x`.

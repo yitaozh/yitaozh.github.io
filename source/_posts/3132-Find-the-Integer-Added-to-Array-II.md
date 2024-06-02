@@ -11,6 +11,8 @@ tags:
 
 [3132. Find the Integer Added to Array II](https://leetcode.com/problems/find-the-integer-added-to-array-ii/description/)
 
+## Description
+
 You are given two integer arrays `nums1` and `nums2`.
 
 From `nums1` two elements have been removed, and all other elements have been increased (or decreased in the case of negative) by an integer, represented by the variable `x`.

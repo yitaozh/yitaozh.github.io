@@ -10,6 +10,8 @@ tags:
 
 [3137. Minimum Number of Operations to Make Word K-Periodic](https://leetcode.com/problems/minimum-number-of-operations-to-make-word-k-periodic/description/)
 
+## Description
+
 You are given a string `word` of size `n`, and an integer `k` such that `k` divides `n`.
 
 In one operation, you can pick any two indices `i` and `j`, that are divisible by `k`, then replace the substring of length `k` starting at `i` with the substring of length `k` starting at `j`. That is, replace the substring `word[i..i + k - 1]` with the substring `word[j..j + k - 1]`.

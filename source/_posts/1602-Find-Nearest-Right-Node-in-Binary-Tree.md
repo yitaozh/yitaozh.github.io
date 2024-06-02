@@ -8,7 +8,9 @@ tags:
     - Binary Tree
 ---
 
-# [1602. Find Nearest Right Node in Binary Tree](https://leetcode.com/problems/find-nearest-right-node-in-binary-tree/description/)
+[1602. Find Nearest Right Node in Binary Tree](https://leetcode.com/problems/find-nearest-right-node-in-binary-tree/description/)
+
+## Description
 
 Given the `root` of a binary tree and a node `u` in the tree, return the **nearest**  node on the **same level**  that is to the **right**  of `u`, or return `null` if `u` is the rightmost node in its level.
 

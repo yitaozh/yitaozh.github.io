@@ -12,6 +12,8 @@ tags:
 
 [3128. Right Triangles](https://leetcode.com/problems/right-triangles/description/)
 
+## Description
+
 You are given a 2D boolean matrix `grid`.
 
 Return an integer that is the number of **right triangles**  that can be made with the 3 elements of `grid` such that **all**  of them have a value of 1.

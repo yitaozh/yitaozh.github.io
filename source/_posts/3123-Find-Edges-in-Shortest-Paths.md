@@ -12,6 +12,8 @@ tags:
 
 [3123. Find Edges in Shortest Paths](https://leetcode.com/problems/find-edges-in-shortest-paths/description/)
 
+## Description
+
 You are given an undirected weighted graph of `n` nodes numbered from 0 to `n - 1`. The graph consists of `m` edges represented by a 2D array `edges`, where edges[i] = [a<sub>i</sub>, b<sub>i</sub>, w<sub>i</sub>] indicates that there is an edge between nodes a<sub>i</sub> and b<sub>i</sub> with weight w<sub>i</sub>.
 
 Consider all the shortest paths from node 0 to node `n - 1` in the graph. You need to find a **boolean**  array `answer` where `answer[i]` is `true` if the edge `edges[i]` is part of **at least**  one shortest path. Otherwise, `answer[i]` is `false`.

@@ -10,6 +10,8 @@ tags:
 
 [3138. Minimum Length of Anagram Concatenation](https://leetcode.com/problems/minimum-length-of-anagram-concatenation/description/)
 
+## Description
+
 You are given a string `s`, which is known to be a concatenation of **anagrams**  of some string `t`.
 
 Return the **minimum**  possible length of the string `t`.

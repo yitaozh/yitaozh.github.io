@@ -9,6 +9,8 @@ tags:
 
 [370. Range Addition](https://leetcode.com/problems/range-addition/)
 
+## Description
+
 You are given an integer `length` and an array `updates` where `updates[i] = [startIdx<sub>i</sub>, endIdx<sub>i</sub>, inc<sub>i</sub>]`.
 
 You have an array `arr` of length `length` with all zeros, and you have some operation to apply on `arr`. In the `i^th` operation, you should increment all the elements `arr[startIdx<sub>i</sub>], arr[startIdx<sub>i</sub> + 1], ..., arr[endIdx<sub>i</sub>]` by `inc<sub>i</sub>`.

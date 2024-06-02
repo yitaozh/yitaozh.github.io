@@ -10,6 +10,8 @@ tags:
 
 [3127. Make a Square with the Same Color](https://leetcode.com/problems/make-a-square-with-the-same-color/description/)
 
+## Description
+
 You are given a 2D matrix `grid` of size `3 x 3` consisting only of characters `'B'` and `'W'`. Character `'W'` represents the white color, and character `'B'` represents the black color.
 
 Your task is to change the color of **at most one**  cell so that the matrix has a `2 x 2` square where all cells are of the same color.

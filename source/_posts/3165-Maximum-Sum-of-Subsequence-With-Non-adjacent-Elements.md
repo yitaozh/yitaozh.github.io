@@ -13,7 +13,7 @@ tags:
 
 ## Description
 
-You are given an array `nums` consisting of integers. You are also given a 2D array `queries`, where `queries[i] = [pos<sub>i</sub>, x<sub>i</sub>]`.
+You are given an array `nums` consisting of integers. You are also given a 2D array `queries`, where queries[i] = [pos<sub>i</sub>, x<sub>i</sub>].
 
 For query `i`, we first set nums[pos<sub>i</sub>] equal to x<sub>i</sub>, then we calculate the answer to query `i` which is the **maximum**  sum of a subsequence of `nums` where **no two adjacent elements are selected** .
 

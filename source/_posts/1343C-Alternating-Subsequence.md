@@ -8,7 +8,7 @@ tags:
     - Two Pointers
 ---
 
-[Alternating Subsequence](https://codeforces.com/problemset/problem/1343/C)
+[C. Alternating Subsequence](https://codeforces.com/problemset/problem/1343/C)
 
 ## Description
 

@@ -5,11 +5,11 @@ categories: Leetcode
 tags:
 ---
 
-TODO Remove the # before the problem number
+Second, paste the title here, and remove the # at the beginning
 
 ## Description
 
-Paste here
+First, paste here
 
 ## Hints/Notes
 

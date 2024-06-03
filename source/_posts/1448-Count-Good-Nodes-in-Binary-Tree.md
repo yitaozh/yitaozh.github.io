@@ -13,7 +13,7 @@ tags:
 
 ## Description
 
-Given a binary tree `root`, a node X in the tree is named**good**  if in the path from root to X there are no nodes with a value greater than X.
+Given a binary tree `root`, a node X in the tree is named **good** if in the path from root to X there are no nodes with a value greater than X.
 
 Return the number of **good**  nodes in the binary tree.
 
@@ -91,10 +91,10 @@ public:
         if (!root) {
             return;
         }
-        min = max(root->val, min);
         if (root->val >= min) {
             res++;
         }
+        min = max(root->val, min);
         traverse(root->left, min);
         traverse(root->right, min);
     }

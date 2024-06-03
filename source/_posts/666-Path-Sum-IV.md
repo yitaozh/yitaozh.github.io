@@ -3,6 +3,11 @@ title: 666. Path Sum IV
 categories: Leetcode
 date: 2024-06-03 01:06:58
 tags:
+    - Array
+    - Hash Table
+    - Tree
+    - Depth-First Search
+    - Binary Tree
 ---
 
 [666. Path Sum IV](https://leetcode.com/problems/path-sum-iv/description/)

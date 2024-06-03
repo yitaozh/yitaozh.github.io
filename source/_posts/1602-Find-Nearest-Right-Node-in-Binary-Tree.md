@@ -43,7 +43,7 @@ Explanation: There are no nodes to the right of 2.
 
 ## Hints/Notes
 
-- N/A
+- use targetDepth as a proxy to show the node has been found
 
 ## Solution
 

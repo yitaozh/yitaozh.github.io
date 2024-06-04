@@ -26,7 +26,7 @@ tags:
 
 ## Hints/Notes
 
-- binary search
+- binary search and preSum
 
 ## Solution
 

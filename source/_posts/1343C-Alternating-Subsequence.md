@@ -3,9 +3,9 @@ title: 1343C. Alternating Subsequence
 categories: Leetcode
 date: 2024-05-29 00:00:03
 tags:
-    - dp
-    - Greedy
-    - Two Pointers
+  - dp
+  - Greedy
+  - Two Pointers
 ---
 
 [C. Alternating Subsequence](https://codeforces.com/problemset/problem/1343/C)
@@ -20,7 +20,7 @@ tags:
 1. 子序列是交替的（相邻元素一正一负）。
 2. 在满足 1 的前提下，子序列尽量长。
 3. 在满足 2 的前提下，子序列元素和尽量大。
-输出元素和的最大值。
+   输出元素和的最大值。
 
 注：子序列不一定连续。
 

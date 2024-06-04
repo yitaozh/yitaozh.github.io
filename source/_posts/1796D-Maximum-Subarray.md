@@ -3,10 +3,10 @@ title: 1796D. Maximum Subarray
 categories: Leetcode
 date: 2024-06-02 17:12:33
 tags:
-    - data structures
-    - dp
-    - greedy
-    - two pointers
+  - data structures
+  - dp
+  - greedy
+  - two pointers
 ---
 
 [D. Maximum Subarray](https://codeforces.com/problemset/problem/1796/D)

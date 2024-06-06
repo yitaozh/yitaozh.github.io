@@ -51,13 +51,13 @@ If not idea at all, just check the comments. No need to wait for 5, 10 minutes
 
 ### Current leetcode blog
 
-[【强化练习】用「遍历」思维解题 III](https://labuladong.online/algo/problem-set/binary-tree-traverse-3/)
+[【强化练习】用「分解问题」思维解题 I](https://labuladong.online/algo/problem-set/binary-tree-divide-1/)
 
 ### Last problem solved
 
 ~~New page.~~
 
-[572. Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree/description/)
+[331. 验证二叉树的前序序列化](https://leetcode.com/problems/verify-preorder-serialization-of-a-binary-tree/)
 
 ### The problems not solved
 
@@ -73,7 +73,7 @@ None
 
 Screenshot the next day's list
 
-New question date: 2024-03-17
+New question date: 2024-03-25
 
 ### The problems not noted
 

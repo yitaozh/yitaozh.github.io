@@ -57,7 +57,7 @@ If not idea at all, just check the comments. No need to wait for 5, 10 minutes
 
 ~~New page.~~
 
-[331. 验证二叉树的前序序列化](https://leetcode.com/problems/verify-preorder-serialization-of-a-binary-tree/)
+[1490. 克隆 N 叉树](https://leetcode.com/problems/clone-n-ary-tree/)
 
 ### The problems not solved
 
@@ -73,7 +73,7 @@ None
 
 Screenshot the next day's list
 
-New question date: 2024-03-25
+New question date: 2024-04-01
 
 ### The problems not noted
 

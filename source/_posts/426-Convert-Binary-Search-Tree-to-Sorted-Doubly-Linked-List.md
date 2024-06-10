@@ -28,13 +28,17 @@ We want to do the transformation **in place** . After the transformation, the le
 
 ```bash
 Input: root = [4,2,5,1,3]
+```
 
 <img src="https://assets.leetcode.com/uploads/2018/10/12/bstdllreturndll.png" style="width: 100%; max-width: 450px;">
+
+```bash
 Output: [1,2,3,4,5]
 
 Explanation: The figure below shows the transformed BST. The solid line indicates the successor relationship, while the dashed line means the predecessor relationship.
-<img src="https://assets.leetcode.com/uploads/2018/10/12/bstdllreturnbst.png" style="width: 100%; max-width: 450px;">
 ```
+
+<img src="https://assets.leetcode.com/uploads/2018/10/12/bstdllreturnbst.png" style="width: 100%; max-width: 450px;">
 
 **Example 2:**
 

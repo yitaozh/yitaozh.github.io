@@ -196,7 +196,7 @@ void solve(int m, int n) {
 int main() {
     int tc;
     in >> tc;
-    for (int t = 1; t <= tc; t++) {
+    for (int i = 0; i < tc; i++) {
         int size;
         in >> size;
         solve(size);

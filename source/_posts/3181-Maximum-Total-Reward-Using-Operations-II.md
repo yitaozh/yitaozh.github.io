@@ -1,13 +1,14 @@
 ---
-title: 3180. Maximum Total Reward Using Operations I
+title: 3181. Maximum Total Reward Using Operations II
 categories: Leetcode
-date: 2024-06-14 14:09:50
+date: 2024-06-14 14:11:26
 tags:
     - Array
     - Dynamic Programming
+    - Bit Manipulation
 ---
 
-[3180. Maximum Total Reward Using Operations I](https://leetcode.com/problems/maximum-total-reward-using-operations-i/description/)
+[3181. Maximum Total Reward Using Operations II](https://leetcode.com/problems/maximum-total-reward-using-operations-ii/description/)
 
 ## Description
 
@@ -46,13 +47,13 @@ Mark the indices 0, 2, and 1 in order. The total reward will then be 11, which i
 
 **Constraints:**
 
-- `1 <= rewardValues.length <= 2000`
-- `1 <= rewardValues[i] <= 2000`
+- `1 <= rewardValues.length <= 5 * 10^4`
+- `1 <= rewardValues[i] <= 5 * 10^4`
 
 ## Hints/Notes
 
 - Weekly Contest 401
-- dp
+- bitset
 
 ## Solution
 
@@ -61,34 +62,20 @@ Language: **C++**
 ```C++
 class Solution {
 public:
-    int ans = INT_MIN;
-    map<int, int> m;
-
     int maxTotalReward(vector<int>& rewardValues) {
         set<int> s(rewardValues.begin(), rewardValues.end());
-        traverse(0, s);
-        return ans;
-    }
-
-    int traverse(int curValue, set<int>& s) {
-        if (s.lower_bound(curValue + 1) == s.end()) {
-            ans = max(ans, curValue);
-            return 0;
+        bitset<100000> b{1};
+        int max = 0;
+        for (int num : s) {
+            b |= b << (100000 - num) >> (100000 - num) << num;
+            max = num;
         }
-
-        if (m.contains(curValue)) {
-            return m[curValue];
-        }
-
-        int res = 0;
-        for (auto it = s.lower_bound(curValue); it != s.end(); it++) {
-            if (*it == curValue) {
-                continue;
+        for (int i = 2 * max - 1; i >= 0; i--) {
+            if (b.test(i)) {
+                return i;
             }
-            res = max(res, traverse(curValue + *it, s));
         }
-        m[curValue] = res;
-        return res;
+        return 0;
     }
 };
 ```

@@ -73,7 +73,7 @@ None
 
 Screenshot the next day's list
 
-New question date: 2024-04-01
+New question date: 2024-04-11
 
 ### The problems not noted
 
@@ -88,6 +88,52 @@ find source/_posts/ -name "[0-9]*" | xargs grep -A 1 "tags" | grep -e "---"
 ```
 
 ### C++ template
+
+For online GDB
+
+```C++
+#include <iostream>
+#include <utility>
+#include <string>
+#include <cstring>
+#include <vector>
+#include <map>
+#include <set>
+#include <stack>
+#include <queue>
+#include <unordered_map>
+#include <unordered_set>
+#include <algorithm>
+#include <numeric>
+
+#include <fstream>
+
+using namespace std;
+
+istream &in = cin;
+ostream &out = cout;
+
+void solve(int m, int n) {
+    if (m % 2 == 0 || n % 2 == 0) {
+        out << m * n / 2 << endl;
+        return;
+    }
+    out << (n - 1) / 2 * m + m / 2 << endl;
+}
+
+int main() {
+    int tc;
+    in >> tc;
+    for (int i = 0; i < tc; i++) {
+        int size;
+        in >> size;
+        solve(size);
+    }
+    return 0;
+}
+```
+
+For local debugging:
 
 ```C++
 #include <iostream>

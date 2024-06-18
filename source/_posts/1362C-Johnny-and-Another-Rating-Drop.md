@@ -3,6 +3,9 @@ title: 1362C. Johnny and Another Rating Drop
 categories: Leetcode
 date: 2024-06-17 23:31:40
 tags:
+    - bitmasks
+    - greedy
+    - math
 ---
 
 [C. Johnny and Another Rating Drop](https://codeforces.com/problemset/problem/1362/C)

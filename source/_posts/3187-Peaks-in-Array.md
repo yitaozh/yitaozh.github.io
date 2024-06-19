@@ -70,6 +70,7 @@ Third query: The second 4 is a peak in the `[4,1,4,2,1]`.
 ## Hints/Notes
 
 - segment tree
+- Weekly Contest 402
 
 ## Solution
 

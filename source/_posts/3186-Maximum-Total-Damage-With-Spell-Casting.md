@@ -57,7 +57,7 @@ The maximum possible damage of 13 is produced by casting spells 1, 2, 3 with dam
 
 ## Hints/Notes
 
-- N/A
+- Weekly Contest 402
 
 ## Solution
 

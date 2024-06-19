@@ -49,7 +49,7 @@ The pairs of indices that form a complete day are `(0, 1)`, `(0, 2)`, and `(1, 2
 
 ## Hints/Notes
 
-- N/A
+- Weekly Contest 402
 
 ## Solution
 

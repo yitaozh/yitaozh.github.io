@@ -64,25 +64,20 @@ Language: **C++**
 class Solution {
 public:
     string clearDigits(string s) {
-        stack<int> nonDigits;
-        set<int> toBeRemoved;
-        for (int i = 0; i < s.size(); i++) {
-            char c = s[i];
-            if (s[i] >= '0' && s[i] <= '9' && !nonDigits.empty()) {
-                int tmp = nonDigits.top();
-                nonDigits.pop();
-                toBeRemoved.insert(tmp);
-                toBeRemoved.insert(i);
+        stack<char> str;
+        for (char c : s) {
+            if (c >= '0' && c <= '9') {
+                str.pop();
             } else {
-                nonDigits.push(i);
+                str.push(c);
             }
         }
         string res;
-        for (int i = 0; i < s.size(); i++) {
-            if (!toBeRemoved.contains(i)) {
-                res.push_back(s[i]);
-            }
+        while (!str.empty()) {
+            res.push_back(str.top());
+            str.pop();
         }
+        reverse(res.begin(), res.end());
         return res;
     }
 };

@@ -51,7 +51,7 @@ Explanation:
 
 We can do the following operation:
 
-- Choose the index `i = 1`. The resulting array will be `nums = [1,**1** ,**1** ,**1** ]`.
+- Choose the index `i = 1`. The resulting array will be nums = [1,**1** ,**1** ,**1** ].
 
 **Constraints:**
 

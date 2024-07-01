@@ -70,16 +70,10 @@ Language: **C++**
 class Solution {
 public:
     int minOperations(vector<int>& nums) {
-        int size = nums.size(), sum = 0, numOps = 0, cur = 0;
-        for (int i = 0; i < nums.size(); i++) {
-            sum += nums[i];
-        }
+        int size = nums.size(), numOps = 0, cur = 0;
 
         for (int i = 0; i < nums.size(); i++) {
             if (nums[i] == cur) {
-                // the number of items follwoing i is (size - 1 - i)
-                // within the numbers following i, there are (sum) 1s
-                sum = (size - 1 - i) - sum;
                 numOps++;
                 cur ^= 1;
             }

@@ -61,19 +61,16 @@ Language: **C++**
 ```C++
 class Solution {
 public:
-    int ans = INT_MIN;
     map<int, int> m;
 
     int maxTotalReward(vector<int>& rewardValues) {
         set<int> s(rewardValues.begin(), rewardValues.end());
-        traverse(0, s);
-        return ans;
+        return traverse(0, s);
     }
 
     int traverse(int curValue, set<int>& s) {
         if (s.lower_bound(curValue + 1) == s.end()) {
-            ans = max(ans, curValue);
-            return 0;
+            return curValue;
         }
 
         if (m.contains(curValue)) {
@@ -81,10 +78,7 @@ public:
         }
 
         int res = 0;
-        for (auto it = s.lower_bound(curValue); it != s.end(); it++) {
-            if (*it == curValue) {
-                continue;
-            }
+        for (auto it = s.lower_bound(curValue + 1); it != s.end(); it++) {
             res = max(res, traverse(curValue + *it, s));
         }
         m[curValue] = res;

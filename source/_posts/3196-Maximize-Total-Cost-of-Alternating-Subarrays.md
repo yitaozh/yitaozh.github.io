@@ -100,23 +100,23 @@ public:
         return res;
     }
 
-    long long traverse(int curIndex, bool pickCur, vector<int>& nums) {
+    long long traverse(int curIndex, bool first, vector<int>& nums) {
         if (curIndex >= dp.size()) {
             return 0;
         }
-        if (dp[curIndex][pickCur] != LLONG_MIN) {
-            return dp[curIndex][pickCur];
+        if (dp[curIndex][first] != LLONG_MIN) {
+            return dp[curIndex][first];
         }
 
-        long long res = pickCur ? nums[curIndex] : -nums[curIndex];
+        long long res = first ? nums[curIndex] : -nums[curIndex];
 
-        if (pickCur) {
+        if (first) {
             res = res + max(traverse(curIndex + 1, true, nums),
                             traverse(curIndex + 1, false, nums));
         } else {
             res = res + traverse(curIndex + 1, true, nums);
         }
-        dp[curIndex][pickCur] = res;
+        dp[curIndex][first] = res;
         return res;
     }
 };

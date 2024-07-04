@@ -92,18 +92,18 @@ public:
     long long numberOfSubarrays(vector<int>& nums) {
         long long res = nums.size();
         int left = 0, right = 0;
-        deque<pair<int, int>> maxQ;
+        deque<pair<int, long>> q;
         while (right < nums.size()) {
-            while (!maxQ.empty() && nums[right] > maxQ.back().first) {
-                maxQ.pop_back();
+            while (!q.empty() && nums[right] > q.back().first) {
+                q.pop_back();
             }
-            if (!maxQ.empty() && maxQ.back().first == nums[right]) {
-                auto duo = maxQ.back();
-                maxQ.pop_back();
-                res += duo.second;
-                maxQ.push_back({duo.first, duo.second + 1});
+            if (!q.empty() && nums[right] == q.back().first) {
+                long count = q.back().second;
+                q.pop_back();
+                res += count;
+                q.push_back({nums[right], count + 1});
             } else {
-                maxQ.push_back({nums[right], 1});
+                q.push_back({nums[right], 1});
             }
             right++;
         }

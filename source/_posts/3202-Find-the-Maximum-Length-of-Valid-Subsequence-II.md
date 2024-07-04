@@ -51,7 +51,7 @@ The longest valid subsequence is `[1, 4, 1, 4]`.
 
 ## Hints/Notes
 
-- N/A
+- Weekly Contest 404
 
 ## Solution
 

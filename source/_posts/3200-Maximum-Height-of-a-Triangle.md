@@ -71,7 +71,7 @@ The only possible arrangement is shown above.
 
 ## Hints/Notes
 
-- N/A
+- Weekly Contest 404
 
 ## Solution
 

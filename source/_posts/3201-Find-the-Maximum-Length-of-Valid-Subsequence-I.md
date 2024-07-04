@@ -64,7 +64,7 @@ The longest valid subsequence is `[1, 3]`.
 
 ## Hints/Notes
 
-- N/A
+- Weekly Contest 404
 
 ## Solution
 

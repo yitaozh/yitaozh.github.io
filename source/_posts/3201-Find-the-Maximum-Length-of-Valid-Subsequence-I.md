@@ -74,32 +74,17 @@ Language: **C++**
 class Solution {
 public:
     int maximumLength(vector<int>& nums) {
-        int alleven = 0, evenFirst = 0, allodd = 0, oddFirst = 0;
-        bool record1 = true, record2 = false;
+        int allEven = 0, allOdd = 0, prevEven = 0, prevOdd = 0;
         for (int num : nums) {
             if (num % 2 == 0) {
-                alleven++;
-                if (record1) {
-                    evenFirst++;
-                    record1 = false;
-                }
-                if (record2) {
-                    oddFirst++;
-                    record2 = false;
-                }
+                allEven++;
+                prevEven = prevOdd + 1;
             } else {
-                allodd++;
-                if (!record1) {
-                    evenFirst++;
-                    record1 = true;
-                }
-                if (!record2) {
-                    oddFirst++;
-                    record2 = true;
-                }
+                allOdd++;
+                prevOdd = prevEven + 1;
             }
         }
-        return max(alleven, max(allodd, max(evenFirst, oddFirst)));
+        return max(allEven, max(allOdd, max(prevEven, prevOdd)));
     }
 };
 ```

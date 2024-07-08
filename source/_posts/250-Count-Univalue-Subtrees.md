@@ -79,11 +79,6 @@ public:
             return INT_MIN;
         }
 
-        if (!root->left && !root->right) {
-            res++;
-            return root->val;
-        }
-
         int left = root->left ? traverse(root->left) : root->val;
         int right = root->right ? traverse(root->right) : root->val;
 

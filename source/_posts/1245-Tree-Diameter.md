@@ -44,8 +44,8 @@ Explanation: The longest path of the tree is the path 3 - 2 - 1 - 4 - 5.
 
 - `n == edges.length + 1`
 - `1 <= n <= 10^4`
-- `0 <= a<sub>i</sub>, b<sub>i</sub> < n`
-- `a<sub>i</sub> != b<sub>i</sub>`
+- 0 <= a<sub>i</sub>, b<sub>i</sub> < n
+- a<sub>i</sub> != b<sub>i</sub>
 
 ## Hints/Notes
 

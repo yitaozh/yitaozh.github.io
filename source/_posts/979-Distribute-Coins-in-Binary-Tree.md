@@ -75,13 +75,13 @@ public:
         return ans;
     }
 
-    int traverse(TreeNode* root, int depth) {
+    int traverse(TreeNode* root) {
         if (!root) {
             return 0;
         }
 
-        int l = traverse(root->left, depth + 1);
-        int r = traverse(root->right, depth + 1);
+        int l = traverse(root->left);
+        int r = traverse(root->right);
 
         int rem = l + r + root->val - 1;
         ans += abs(rem);

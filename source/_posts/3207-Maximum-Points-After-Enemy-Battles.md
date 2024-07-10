@@ -69,7 +69,7 @@ Performing the first operation 5 times on enemy 0 results in the maximum number 
 
 ## Hints/Notes
 
-- N/A
+- Biweekly Contest 134
 
 ## Solution
 

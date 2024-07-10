@@ -59,6 +59,7 @@ Subarrays having an `AND` value of 2 are: `[1,<b>2</b>,3]`, `[1,**2,3** ]`.
 ## Hints/Notes
 
 - logTrick
+- Biweekly Contest 134
 
 ## Solution
 

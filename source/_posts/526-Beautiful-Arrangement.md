@@ -26,14 +26,19 @@ Given an integer `n`, return the **number**  of the **beautiful arrangements**  
 ```bash
 Input: n = 2
 Output: 2
-<b>Explanation:</b>
-The first beautiful arrangement is [1,2]:
-    - perm[1] = 1 is divisible by i = 1
-    - perm[2] = 2 is divisible by i = 2
-The second beautiful arrangement is [2,1]:
-    - perm[1] = 2 is divisible by i = 1
-    - i = 2 is divisible by perm[2] = 1
 ```
+
+Explanation:
+
+The first beautiful arrangement is [1,2]:
+
+- perm[1] = 1 is divisible by i = 1
+- perm[2] = 2 is divisible by i = 2
+
+The second beautiful arrangement is [2,1]:
+
+- perm[1] = 2 is divisible by i = 1
+- i = 2 is divisible by perm[2] = 1
 
 **Example 2:**
 

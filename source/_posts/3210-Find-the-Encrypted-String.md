@@ -51,7 +51,7 @@ As all the characters are the same, the encrypted string will also be the same.
 
 ## Hints/Notes
 
--
+- Weekly Contest 405
 
 ## Solution
 

@@ -61,7 +61,7 @@ No submatrix has at least one `'X'`.
 
 ## Hints/Notes
 
-- N/A
+- Weekly Contest 405
 
 ## Solution
 

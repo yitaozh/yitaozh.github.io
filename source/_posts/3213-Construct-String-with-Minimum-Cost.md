@@ -65,6 +65,7 @@ It is impossible to make `s` equal to `target`, so we return -1.
 ## Hints/Notes
 
 - Trie
+- Weekly Contest 405
 
 ## Solution
 

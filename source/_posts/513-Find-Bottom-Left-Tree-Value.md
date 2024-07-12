@@ -9,7 +9,7 @@ tags:
     - Binary Tree
 ---
 
-# [513. Find Bottom Left Tree Value](https://leetcode.com/problems/find-bottom-left-tree-value/description/)
+[513. Find Bottom Left Tree Value](https://leetcode.com/problems/find-bottom-left-tree-value/description/)
 
 ## Description
 

@@ -51,13 +51,13 @@ If not idea at all, just check the comments. No need to wait for 5, 10 minutes
 
 ### Current leetcode blog
 
-[【强化练习】运用层序遍历解题 II](https://labuladong.online/algo/problem-set/binary-tree-level-2/)
+[【强化练习】二叉搜索树经典例题 II](https://labuladong.online/algo/problem-set/bst2/)
 
 ### Last problem solved
 
-New page.
+~~New page.~~
 
-~~[366. 寻找二叉树的叶子节点](https://leetcode.com/problems/find-leaves-of-binary-tree/)~~
+~~[449. 序列化和反序列化二叉搜索树](https://leetcode.com/problems/serialize-and-deserialize-bst/)~~
 
 ### The problems not solved
 

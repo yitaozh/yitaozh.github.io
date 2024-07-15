@@ -13,7 +13,7 @@ tags:
 
 ## Description
 
-Given an array of integers `nums` and an integer `k`, return the number of <div aria-expanded="false" data-headlessui-state="" id="headlessui-popover-button-:rj:">subarrays<div style="position: fixed; z-index: 40; inset: 0px auto auto 0px; transform: translate(503px, 214px);"> of `nums` where the bitwise `AND` of the elements of the subarray equals `k`.
+Given an array of integers `nums` and an integer `k`, return the number of subarrays of `nums` where the bitwise `AND` of the elements of the subarray equals `k`.
 
 **Example 1:**
 

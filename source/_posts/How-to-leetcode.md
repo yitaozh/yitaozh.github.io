@@ -57,7 +57,7 @@ If not idea at all, just check the comments. No need to wait for 5, 10 minutes
 
 ~~New page.~~
 
-~~[449. 序列化和反序列化二叉搜索树](https://leetcode.com/problems/serialize-and-deserialize-bst/)~~
+[449. 序列化和反序列化二叉搜索树](https://leetcode.com/problems/serialize-and-deserialize-bst/)
 
 ### The problems not solved
 
@@ -72,8 +72,6 @@ None
 ### The best way to record the progression
 
 Screenshot the next day's list
-
-New question date: 2024-04-11
 
 ### The problems not noted
 

@@ -21,13 +21,13 @@ You can perform **either**  of the following operations **zero** or multiple tim
 
 - Choose an **unmarked**  enemy, `i`, such that `currentEnergy >= enemyEnergies[i]`. By choosing this option:
 
-- You gain 1 point.
-- Your energy is reduced by the enemy's energy, i.e. `currentEnergy = currentEnergy - enemyEnergies[i]`.
+  - You gain 1 point.
+  - Your energy is reduced by the enemy's energy, i.e. `currentEnergy = currentEnergy - enemyEnergies[i]`.
 
 - If you have **at least**  1 point, you can choose an **unmarked**  enemy, `i`. By choosing this option:
 
-- Your energy increases by the enemy's energy, i.e. `currentEnergy = currentEnergy + enemyEnergies[i]`.
-- The enemy `i` is **marked** .
+  - Your energy increases by the enemy's energy, i.e. `currentEnergy = currentEnergy + enemyEnergies[i]`.
+  - The enemy `i` is **marked** .
 
 Return an integer denoting the **maximum**  points you can get in the end by optimally performing operations.
 

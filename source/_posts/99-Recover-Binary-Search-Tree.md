@@ -44,7 +44,7 @@ Explanation: 2 cannot be in the right subtree of 3 because 2 < 3. Swapping 2 and
 
 ## Hints/Notes
 
-- N/A
+- first offending value and last offending value
 
 ## Solution
 

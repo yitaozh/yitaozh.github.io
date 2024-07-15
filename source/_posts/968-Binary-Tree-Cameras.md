@@ -98,11 +98,12 @@ public:
             return 1;
         }
 
-        if (l == 1 || r == 1) {
-            return -1;
-        }
-
-        return 0;
+        // the above conditions have ensured that there's
+        // at least one 1 in l and r
+        return -1;
+        // if (l == 1 || r == 1) {
+        //     return -1;
+        // }
     }
 };
 ```

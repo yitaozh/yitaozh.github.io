@@ -51,13 +51,13 @@ If not idea at all, just check the comments. No need to wait for 5, 10 minutes
 
 ### Current leetcode blog
 
-[【强化练习】二叉搜索树经典例题 II](https://labuladong.online/algo/problem-set/bst2/)
+[经典动态规划：最长公共子序列](https://labuladong.online/algo/dynamic-programming/longest-common-subsequence/)
 
 ### Last problem solved
 
-~~New page.~~
+New page.
 
-[449. 序列化和反序列化二叉搜索树](https://leetcode.com/problems/serialize-and-deserialize-bst/)
+~~[449. 序列化和反序列化二叉搜索树](https://leetcode.com/problems/serialize-and-deserialize-bst/)~~
 
 ### The problems not solved
 

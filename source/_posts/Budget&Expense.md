@@ -4,7 +4,7 @@ date: 2022-11-20 22:54:23
 tags: Finance
 ---
 
-## The accouting process
+## The accounting process
 
 ### When
 
@@ -23,7 +23,7 @@ Use the first and second week to submit reimbursements, do the bookkeeping on th
 1. Remove the Credit Card Payments
 1. Remove the Loan accounts
 1. Filter the records by account first
-1. Check each account, modify the catagory and mark the transactions as verfied
+1. Check each account, modify the category and mark the transactions as verified
 1. Copy the reverse ~ Balance columns from one previous month's table
 1. List single item takes more than $10,000
 
@@ -36,7 +36,7 @@ Use the first and second week to submit reimbursements, do the bookkeeping on th
 1. Remove the zeroes from sum column
 1. Open the same file to the right window, make it narrow
 1. Add new value to and remove old value from the multi layer pie chart for spending and income
-1. Ask chatgpt to generate the detailed catagory data
+1. Ask chatgpt to generate the detailed category data
 
     ```bash
     对

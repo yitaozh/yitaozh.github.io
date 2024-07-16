@@ -55,9 +55,9 @@ If not idea at all, just check the comments. No need to wait for 5, 10 minutes
 
 ### Last problem solved
 
-New page.
+~~New page.~~
 
-~~[449. 序列化和反序列化二叉搜索树](https://leetcode.com/problems/serialize-and-deserialize-bst/)~~
+[1143. Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
 
 ### The problems not solved
 

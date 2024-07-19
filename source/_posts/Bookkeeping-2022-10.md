@@ -398,3 +398,70 @@ hidden: true
     ]
 };
 {% endecharts %}
+
+#### Balance
+
+{% echarts %}
+{
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data: ['Income', 'Spending'],
+    },
+    xAxis: {
+        type : 'category',
+        data: ['2021/11','2021/12','2022/01','2022/02','2022/03','2022/04','2022/05','2022/06','2022/07','2022/08','2022/09','2022/10']
+    },
+    yAxis: {
+        type : 'value'
+    },
+    grid: {
+        bottom: 100
+    },
+    series: [
+        {
+            name: 'Income',
+            type: 'bar',
+            stack: 'one',
+            emphasis: {
+                itemStyle: {
+                    shadowBlur: 10,
+                    shadowColor: 'rgba(0,0,0,0.3)'
+                }
+            },
+            label: {
+                normal: {
+                    show: true,
+                    position: 'top',
+                    formatter: function(params) {
+                        let val=0;
+                        this.option.series.forEach(s => {
+                            val+=s.data[params.dataIndex];
+                        } );
+                        return parseFloat(val).toFixed(2);
+                    },
+                    fontWeight: "bold",
+                    textBorderColor: "black", // 文字本身的描边颜色。
+                    textBorderWidth: 0.4, // 文字本身的描边宽度。
+                }
+            },
+            data: [5926.72, 7559.13, 4741.41, 3391.79, 6290.52, 6873.05, 4986.17, 7885.96, 7885.94, 8024.04, 4086.16, 2861.14],
+        },
+        {
+            name: 'Spending',
+            type: 'bar',
+            stack: 'one',
+            emphasis: {
+                itemStyle: {
+                    shadowBlur: 10,
+                    shadowColor: 'rgba(0,0,0,0.3)'
+                }
+            },
+            data: [-4060.23, -5849.35, -10813.67, -9461.6, -9660.85, -7394.25, -6371.19, -5101.51, -2750.7, -4076.17, -2573.21, -3822.76],
+        }
+    ]
+};
+{% endecharts %}
+
+Last 12 months' balance: -1423.46

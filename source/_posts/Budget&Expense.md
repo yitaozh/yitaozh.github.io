@@ -67,7 +67,7 @@ Use the first and second week to submit reimbursements, do the bookkeeping on th
 | China Ecommerce       | Shopping        |
 | Electronics           | Shopping        |
 | Office                | Shopping        |
-| Marriage              | Shopping        |
+| Luxury                | Shopping        |
 | Entertainment         | Shopping        |
 | Electricity           | Utilities       |
 | Gas                   | Utilities       |
@@ -81,7 +81,7 @@ Use the first and second week to submit reimbursements, do the bookkeeping on th
 | Mortgage              | Mortgage & Rent |
 | HOA                   | Mortgage & Rent |
 | Air                   | Travel          |
-| Ride Share/Car rental | Travel          |
+| Ride Share/Car Rental | Travel          |
 | Hotel                 | Travel          |
 | Ticket                | Travel          |
 | Souvenir              | Travel          |

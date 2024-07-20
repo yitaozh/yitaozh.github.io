@@ -27,7 +27,7 @@
 <meta property="og:description" content="OverviewIncome   Category Sum    Paycheck 4655.02   Spending   Category Sum Section Sum    Restaurants 146.47 Food 932.43   Cake &amp; Bread 80.1 Food    Bubble Tea 273.6 Food    Groceries 432.26 Food">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-07-14T14:56:50.000Z">
-<meta property="article:modified_time" content="2024-07-20T04:36:14.324Z">
+<meta property="article:modified_time" content="2024-07-20T22:21:55.156Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="Finance">
 <meta name="twitter:card" content="summary">
@@ -246,7 +246,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-07-20 04:36:14" itemprop="dateModified" datetime="2024-07-20T04:36:14+00:00">2024-07-20</time>
+      <time title="Modified: 2024-07-20 22:21:55" itemprop="dateModified" datetime="2024-07-20T22:21:55+00:00">2024-07-20</time>
     </span>
 
   
@@ -426,11 +426,11 @@
 <td>49,900</td>
 </tr>
 </tbody></table>
-<h2 id="Chart"><a href="#Chart" class="headerlink" title="Chart"></a>Chart</h2><h3 id="Detailed-Spending"><a href="#Detailed-Spending" class="headerlink" title="Detailed Spending"></a>Detailed Spending</h3><div id="echarts1708" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<h2 id="Chart"><a href="#Chart" class="headerlink" title="Chart"></a>Chart</h2><h3 id="Detailed-Spending"><a href="#Detailed-Spending" class="headerlink" title="Detailed Spending"></a>Detailed Spending</h3><div id="echarts8123" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts1708'));
+        var myChart = echarts.init(document.getElementById('echarts8123'));
         // 指定图表的配置项和数据
         var option = {
     tooltip: {
@@ -552,11 +552,11 @@
         myChart.setOption(option);
 </script>
 
-<h3 id="Spending-Trend"><a href="#Spending-Trend" class="headerlink" title="Spending Trend"></a>Spending Trend</h3><h4 id="Trend-of-all-categories"><a href="#Trend-of-all-categories" class="headerlink" title="Trend of all categories"></a>Trend of all categories</h4><div id="echarts6588" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<h3 id="Spending-Trend"><a href="#Spending-Trend" class="headerlink" title="Spending Trend"></a>Spending Trend</h3><h4 id="Trend-of-all-categories"><a href="#Trend-of-all-categories" class="headerlink" title="Trend of all categories"></a>Trend of all categories</h4><div id="echarts6506" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts6588'));
+        var myChart = echarts.init(document.getElementById('echarts6506'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -691,11 +691,11 @@
         myChart.setOption(option);
 </script>
 
-<h4 id="Detailed-analysis"><a href="#Detailed-analysis" class="headerlink" title="Detailed analysis"></a>Detailed analysis</h4><div id="echarts9798" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<h4 id="Detailed-analysis"><a href="#Detailed-analysis" class="headerlink" title="Detailed analysis"></a>Detailed analysis</h4><div id="echarts9151" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts9798'));
+        var myChart = echarts.init(document.getElementById('echarts9151'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -787,11 +787,11 @@
         myChart.setOption(option);
 </script>
 
-<h4 id="Balance-1"><a href="#Balance-1" class="headerlink" title="Balance"></a>Balance</h4><div id="echarts5769" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<h4 id="Balance-1"><a href="#Balance-1" class="headerlink" title="Balance"></a>Balance</h4><div id="echarts5805" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts5769'));
+        var myChart = echarts.init(document.getElementById('echarts5805'));
         // 指定图表的配置项和数据
         var option = {
     tooltip: {
@@ -824,17 +824,7 @@
             label: {
                 normal: {
                     show: true,
-                    position: 'top',
-                    formatter: function(params) {
-                        let val=0;
-                        this.option.series.forEach(s => {
-                            val+=s.data[params.dataIndex];
-                        } );
-                        return parseFloat(val).toFixed(2);
-                    },
-                    fontWeight: "bold",
-                    textBorderColor: "black", // 文字本身的描边颜色。
-                    textBorderWidth: 0.4, // 文字本身的描边宽度。
+                    position: 'insideTop'
                 }
             },
             data: [7885.94, 8024.04, 4086.16, 2861.14, 5134.02, 8023.04, 5104.74, 5151.82, 7332.06, 4841.42, 4896.49, 4655.02],
@@ -849,8 +839,64 @@
                     shadowColor: 'rgba(0,0,0,0.3)'
                 }
             },
+            label: {
+                normal: {
+                    show: true,
+                    position: 'insideBottom'
+                }
+            },
             data: [-2750.7, -4076.17, -2573.21, -3822.76, -5992.06, -10379.6, -4722.2, -4485.24, -7094.3, -2914.84, -6268.9, -5009.1],
         }
+    ]
+};
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+</script>
+
+<div id="echarts3945" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('echarts3945'));
+        // 指定图表的配置项和数据
+        var option = {
+    tooltip: {
+        trigger: 'axis',
+    },
+    legend: {
+        data: ['Balance']
+    },
+    xAxis: [
+        {
+            type: 'category',
+            data: ['2022/07','2022/08','2022/09','2022/10','2022/11','2022/12','2023/01','2023/02','2023/03','2023/04','2023/05','2023/06']
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value'
+        }
+    ],
+    grid: {
+        bottom: 100
+    },
+    series: [
+        {
+            name: 'Balance',
+            type: 'bar',
+            stack: 'Total',
+            areaStyle: {},
+            emphasis: {
+                focus: 'series'
+            },
+            label: {
+                normal: {
+                    show: true,
+                    position: 'top'
+                }
+            },
+            data: [5135.24, 3947.87, 1512.95, -961.62, -858.04, -2356.56, 382.54, 666.58, 237.76, 1926.58, -1372.41, -354.08]
+        },
     ]
 };
         // 使用刚指定的配置项和数据显示图表。

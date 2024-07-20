@@ -434,17 +434,7 @@ hidden: true
             label: {
                 normal: {
                     show: true,
-                    position: 'top',
-                    formatter: function(params) {
-                        let val=0;
-                        this.option.series.forEach(s => {
-                            val+=s.data[params.dataIndex];
-                        } );
-                        return parseFloat(val).toFixed(2);
-                    },
-                    fontWeight: "bold",
-                    textBorderColor: "black", // 文字本身的描边颜色。
-                    textBorderWidth: 0.4, // 文字本身的描边宽度。
+                    position: 'insideTop'
                 }
             },
             data: [7885.94, 8024.04, 4086.16, 2861.14, 5134.02, 8023.04, 5104.74, 5151.82, 7332.06, 4841.42, 4896.49, 4655.02],
@@ -459,8 +449,57 @@ hidden: true
                     shadowColor: 'rgba(0,0,0,0.3)'
                 }
             },
+            label: {
+                normal: {
+                    show: true,
+                    position: 'insideBottom'
+                }
+            },
             data: [-2750.7, -4076.17, -2573.21, -3822.76, -5992.06, -10379.6, -4722.2, -4485.24, -7094.3, -2914.84, -6268.9, -5009.1],
         }
+    ]
+};
+{% endecharts %}
+
+{% echarts %}
+{
+    tooltip: {
+        trigger: 'axis',
+    },
+    legend: {
+        data: ['Balance']
+    },
+    xAxis: [
+        {
+            type: 'category',
+            data: ['2022/07','2022/08','2022/09','2022/10','2022/11','2022/12','2023/01','2023/02','2023/03','2023/04','2023/05','2023/06']
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value'
+        }
+    ],
+    grid: {
+        bottom: 100
+    },
+    series: [
+        {
+            name: 'Balance',
+            type: 'bar',
+            stack: 'Total',
+            areaStyle: {},
+            emphasis: {
+                focus: 'series'
+            },
+            label: {
+                normal: {
+                    show: true,
+                    position: 'top'
+                }
+            },
+            data: [5135.24, 3947.87, 1512.95, -961.62, -858.04, -2356.56, 382.54, 666.58, 237.76, 1926.58, -1372.41, -354.08]
+        },
     ]
 };
 {% endecharts %}

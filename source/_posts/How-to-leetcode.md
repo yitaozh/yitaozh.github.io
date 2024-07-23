@@ -51,13 +51,13 @@ If not idea at all, just check the comments. No need to wait for 5, 10 minutes
 
 ### Current leetcode blog
 
-[经典动态规划：最长公共子序列](https://labuladong.online/algo/dynamic-programming/longest-common-subsequence/)
+[动态规划之子序列问题解题模板](https://labuladong.online/algo/dynamic-programming/subsequence-problem/)
 
 ### Last problem solved
 
 ~~New page.~~
 
-[1143. Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
+[516. Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/)
 
 ### The problems not solved
 

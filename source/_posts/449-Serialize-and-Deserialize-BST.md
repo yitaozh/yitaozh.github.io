@@ -89,13 +89,13 @@ public:
             data.erase(0, pos + 1);
         }
         nums.push_back(stoi(data));
-        for (int num : nums) {
-            cout << num << " ";
-        }
         return build(nums, 0, nums.size() - 1);
     }
 
     TreeNode* build(vector<int>& nums, int start, int end) {
+        if (start > end) {
+            return nullptr;
+        }
         TreeNode* root = new TreeNode(nums[start]);
         if (start == end) {
             return root;
@@ -103,12 +103,8 @@ public:
         int i;
         for (i = start; i <= end && nums[i] <= root->val; i++) {
         }
-        if (i > start + 1) {
-            root->left = build(nums, start + 1, i - 1);
-        }
-        if (i <= end) {
-            root->right = build(nums, i, end);
-        }
+        root->left = build(nums, start + 1, i - 1);
+        root->right = build(nums, i, end);
         return root;
     }
 };

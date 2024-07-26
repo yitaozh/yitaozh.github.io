@@ -51,13 +51,13 @@ If not idea at all, just check the comments. No need to wait for 5, 10 minutes
 
 ### Current leetcode blog
 
-[动态规划之子序列问题解题模板](https://labuladong.online/algo/dynamic-programming/subsequence-problem/)
+[经典动态规划：子集背包问题](https://labuladong.online/algo/dynamic-programming/knapsack2/)
 
 ### Last problem solved
 
-~~New page.~~
+New page.
 
-[516. Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/)
+~~[516. Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/)~~
 
 ### The problems not solved
 

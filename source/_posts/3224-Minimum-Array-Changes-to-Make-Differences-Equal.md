@@ -33,8 +33,8 @@ Output: 2
 Explanation:
 We can perform the following changes:
 
-- Replace `nums[1]` by 2. The resulting array is `nums = [1,**2** ,1,2,4,3]`.
-- Replace `nums[3]` by 3. The resulting array is `nums = [1,2,1,**3** ,4,3]`.
+- Replace `nums[1]` by 2. The resulting array is nums = [1,**2**,1,2,4,3].
+- Replace `nums[3]` by 3. The resulting array is nums = [1,2,1,**3**,4,3].
 
 The integer `X` will be 2.
 
@@ -49,8 +49,8 @@ Output: 2
 Explanation:
 We can perform the following operations:
 
-- Replace `nums[3]` by 0. The resulting array is `nums = [0,1,2,**0** ,3,6,5,4]`.
-- Replace `nums[4]` by 4. The resulting array is `nums = [0,1,2,0,**4** ,6,5,4]`.
+- Replace `nums[3]` by 0. The resulting array is nums = [0,1,2,**0**,3,6,5,4].
+- Replace `nums[4]` by 4. The resulting array is nums = [0,1,2,0,**4**,6,5,4].
 
 The integer `X` will be 4.
 

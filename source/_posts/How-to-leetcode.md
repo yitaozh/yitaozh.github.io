@@ -51,7 +51,7 @@ If not idea at all, just check the comments. No need to wait for 5, 10 minutes
 
 ### Current leetcode blog
 
-[目标和问题：背包问题的变体](https://labuladong.online/algo/dynamic-programming/target-sum/)
+[动态规划帮我通关了《辐射4》](https://labuladong.online/algo/dynamic-programming/freedom-trail/)
 
 ### Last problem solved
 

@@ -69,6 +69,8 @@ Biweekly Contest 135 t4: 3225
 
 Weekly Contest 408 t4: 3235
 
+Weekly Contest 409 t4: 3245
+
 ### The problems not recorded
 
 None

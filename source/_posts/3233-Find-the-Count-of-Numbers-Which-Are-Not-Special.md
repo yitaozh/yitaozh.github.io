@@ -8,7 +8,7 @@ tags:
     - Number Theory
 ---
 
-# [3233. Find the Count of Numbers Which Are Not Special](https://leetcode.com/problems/find-the-count-of-numbers-which-are-not-special/description/)
+[3233. Find the Count of Numbers Which Are Not Special](https://leetcode.com/problems/find-the-count-of-numbers-which-are-not-special/description/)
 
 ## Description
 

@@ -16,34 +16,52 @@ hidden: true
 
 ### U.S. time
 
+### RTO
+
 | Schedule                  | Start     | End       | Comment           |
 | :------------------------ | :-------- | :-------- | :---------------- |
-| A-SOUL*                   | 00:00     | 01:00     |                   |
-| Reading*                  | 01:00     | 01:30     |                   |
-| Sleep*                    | 01:30     | 08:00     |                   |
-| Get up + Breakfast*       | 08:00     | 08:35     | Kettle            |
-| BaiCiZhan/Packing*        | 08:35     | 08:45     |                   |
-| Life Misc/Commuting*      | 08:45     | 09:45     |                   |
+| Anime*                    | 00:00     | 01:30     |                   |
+| Reading*                  | 01:30     | 02:00     |                   |
+| Sleep                     | 02:00     | 08:30     |                   |
+| Get up + Breakfast        | 08:30     | 09:00     |                   |
+| BaiCiZhan + Commuting     | 09:00     | 09:45     |                   |
 | Planning*                 | 09:45     | 10:00     |                   |
 | Stand-up                  | 10:00     | 10:30     |                   |
-| DDIA*                     | 10:30     | 11:30     |                   |
-| Work*                     | 11:30     | 13:30     | # Wake up Awei    |
-| Lunch/Back*               | 13:30     | 14:30     |                   |
-| Work                      | 14:30     | 17:30     |                   |
-| DDIA/Leetcode*            | 17:30     | 18:45     |                   |
-| Run + Shower*             | 18:45     | 20:30     |                   |
-| Leetcode*                 | 20:30     | ?         |                   |
-| Entertainment             | ?         | 00:00     |                   |
+| Work                      | 10:30     | 12:30     |                   |
+| Back + Lunch*             | 12:30     | 14:00     |                   |
+| Leetcode*                 | 14:00     | 17:30     |                   |
+| Rest + Duolingo*          | 17:30     | 18:10     |                   |
+| Run + Shower*             | 18:10     | 19:30     |                   |
+| Leetcode(Review)*         | 19:30     | 22:00     |                   |
+| Game                      | 22:00     | 00:00     |                   |
+
+### WFH
+
+| Schedule                  | Start     | End       | Comment           |
+| :------------------------ | :-------- | :-------- | :---------------- |
+| Anime*                    | 00:00     | 01:30     |                   |
+| Reading*                  | 01:30     | 02:00     |                   |
+| Sleep                     | 02:00     | 08:30     |                   |
+| Get up + Breakfast        | 08:30     | 09:00     |                   |
+| BaiCiZhan + Planning*     | 09:00     | 09:15     |                   |
+| Work                      | 09:15     | 10:00     |                   |
+| Stand-up                  | 10:00     | 10:30     |                   |
+| Work                      | 10:30     | 12:30     |                   |
+| Lunch*                    | 12:30     | 14:00     |                   |
+| Leetcode*                 | 14:00     | 17:30     |                   |
+| Rest + Duolingo*          | 17:30     | 18:10     |                   |
+| Run + Shower*             | 18:10     | 19:30     |                   |
+| Leetcode(Review)*         | 19:30     | 22:00     |                   |
+| Game                      | 22:00     | 00:00     |                   |
 
 ### Stat (U.S.)
 
-| Category      | time      |
-| :--------     | :-------- |
-| Work          | 5.5 Hours |
-| Leetcode      | 2   Hours |
-| Tech Reading  | 1.5 Hour  |
+| Category      | time          |
+| :--------     | :--------     |
+| Work          | 2/2.5 Hours   |
+| Growth        | 6   Hours     |
 
-### China time
+### China time(Not used for now)
 
 | Schedule                  | Start     | End       | Comment           |
 | :------------------------ | :-------- | :-------- | :---------------- |
@@ -57,19 +75,44 @@ hidden: true
 
 ## Weekend
 
+### Saturday
+
 | Schedule                  | Start     | End       | Comment           |
 | :------------------------ | :-------- | :-------- | :---------------- |
-| A-SOUL*                   | 00:00     | 02:30     |                   |
+| Game                      | 00:00     | 01:00     |                   |
+| Anime*                    | 01:00     | 02:30     |                   |
 | Reading*                  | 02:30     | 03:00     |                   |
-| Sleep*                    | 03:00     | 10:00     |                   |
-| Get up + Breakfast*       | 10:00     | 10:45     | Kettle            |
-| BaiCiZhan*                | 10:45     | 11:00     |                   |
-| DDIA*                     | 11:00     | ?         | 20 pages          |
-| Lunch                     | ?         | ? + 1 Hour|                   |
-| Entertainment             | ?         | 18:45     |                   |
-| Run + Shower*             | 18:45     | 20:30     |                   |
-| Leetcode*                 | 20:30     | ?         |                   |
-| Entertainment             | ?         | 23:30     |                   |
+| Sleep                     | 03:00     | 10:00     |                   |
+| Get up + Breakfast        | 10:00     | 10:30     |                   |
+| Contest/Leetcode          | 10:30     | 12:00     |                   |
+| Lunch*                    | 12:00     | 14:00     |                   |
+| Leetcode*                 | 14:00     | 17:30     |                   |
+| Rest + Duolingo*          | 17:30     | 18:10     |                   |
+| Run + Shower*             | 18:10     | 19:30     |                   |
+| Game                      | 19:30     | 22:30     |                   |
+| Contest                   | 22:30     | 00:00     |                   |
+
+### Sunday
+
+| Schedule                  | Start     | End       | Comment           |
+| :------------------------ | :-------- | :-------- | :---------------- |
+| Game                      | 00:00     | 01:00     |                   |
+| Anime*                    | 01:00     | 02:30     |                   |
+| Reading*                  | 02:30     | 03:00     |                   |
+| Sleep                     | 03:00     | 10:00     |                   |
+| Get up + Breakfast        | 10:00     | 10:30     |                   |
+| Contest/Leetcode          | 10:30     | 12:00     |                   |
+| Lunch*                    | 12:00     | 14:00     |                   |
+| Leetcode*                 | 14:00     | 17:30     |                   |
+| Rest + Duolingo*          | 17:30     | 18:10     |                   |
+| Run + Shower*             | 18:10     | 19:30     |                   |
+| Game                      | 19:30     | 00:00     |                   |
+
+Notes：
+
+* The current schedule should work for leetcode catch up, need to change when working on 6.824
+* Should check if I should add A-Soul into the list
+* One dota2 per day is enough
 
 ## The lists to be populated
 

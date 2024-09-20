@@ -35,10 +35,9 @@ I am currently using leetcode website.
 ### The order to solve problems
 
 1. Go through [LABULADONG 的算法网站](https://labuladong.github.io/algo/) once first.
-
-2. The [Explore](https://leetcode.com/explore/featured/) is a great place next. Finish all courses.
-
-3. Use the daily problem and study plan tool
+1. [灵神题单](https://github.com/EndlessCheng/codeforces-go/blob/master/leetcode/SOLUTIONS.md)
+1. The [Explore](https://leetcode.com/explore/featured/) is a great place next. Finish all courses.
+1. Use the daily problem and study plan tool
 
 ### The steps to tackle one problem
 

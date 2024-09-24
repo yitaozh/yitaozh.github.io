@@ -11,6 +11,7 @@ hidden: true
 * Always do the most important thing first
 * The item with star(*) mark requires alarm
 * Go to study when learning/working
+* Keep tiny things out of Afternoon/Evening(like Duolingo)
 
 ## Weekday
 
@@ -27,12 +28,13 @@ hidden: true
 | BaiCiZhan + Commuting     | 09:00     | 09:45     |                   |
 | Planning*                 | 09:45     | 10:00     |                   |
 | Stand-up                  | 10:00     | 10:30     |                   |
-| Work                      | 10:30     | 12:30     |                   |
+| Duolingo + Leetcode*      | 10:30     | ?         |                   |
+| Work                      | ?         | 12:30     |                   |
 | Back + Lunch*             | 12:30     | 14:00     |                   |
-| Leetcode*                 | 14:00     | 17:30     |                   |
-| Rest + Duolingo*          | 17:30     | 18:10     |                   |
-| Run + Shower*             | 18:10     | 19:30     |                   |
-| Leetcode(Review)*         | 19:30     | 22:00     |                   |
+| Leetcode*                 | 14:00     | 18:00     |                   |
+| Entertainment + Rest*     | 18:00     | 19:00     |                   |
+| Run + Shower*             | 19:00     | 20:30     |                   |
+| Leetcode(Review)*         | 20:30     | 22:00     |                   |
 | Game                      | 22:00     | 00:00     |                   |
 
 ### WFH
@@ -43,15 +45,15 @@ hidden: true
 | Reading*                  | 01:30     | 02:00     |                   |
 | Sleep                     | 02:00     | 08:30     |                   |
 | Get up + Breakfast        | 08:30     | 09:00     |                   |
-| BaiCiZhan + Planning*     | 09:00     | 09:15     |                   |
-| Work                      | 09:15     | 10:00     |                   |
+| Duolingo + Leetcode*      | 09:00     | 09:45     |                   |
+| BaiCiZhan + Planning*     | 09:45     | 10:00     |                   |
 | Stand-up                  | 10:00     | 10:30     |                   |
 | Work                      | 10:30     | 12:30     |                   |
 | Lunch*                    | 12:30     | 14:00     |                   |
-| Leetcode*                 | 14:00     | 17:30     |                   |
-| Rest + Duolingo*          | 17:30     | 18:10     |                   |
-| Run + Shower*             | 18:10     | 19:30     |                   |
-| Leetcode(Review)*         | 19:30     | 22:00     |                   |
+| Leetcode*                 | 14:00     | 18:00     |                   |
+| Entertainment + Rest*     | 18:00     | 19:00     |                   |
+| Run + Shower*             | 19:00     | 20:30     |                   |
+| Leetcode(Review)*         | 20:30     | 22:00     |                   |
 | Game                      | 22:00     | 00:00     |                   |
 
 ### Stat (U.S.)
@@ -84,12 +86,12 @@ hidden: true
 | Reading*                  | 02:30     | 03:00     |                   |
 | Sleep                     | 03:00     | 10:00     |                   |
 | Get up + Breakfast        | 10:00     | 10:30     |                   |
-| Contest/Leetcode          | 10:30     | 12:00     |                   |
-| Lunch*                    | 12:00     | 14:00     |                   |
-| Leetcode*                 | 14:00     | 17:30     |                   |
-| Rest + Duolingo*          | 17:30     | 18:10     |                   |
-| Run + Shower*             | 18:10     | 19:30     |                   |
-| Game                      | 19:30     | 22:30     |                   |
+| Duolingo + Leetcode*      | 10:30     | 12:00     |                   |
+| Lunch*                    | 12:30     | 14:00     |                   |
+| Leetcode*                 | 14:00     | 18:00     |                   |
+| Rest                      | 18:00     | 19:00     |                   |
+| Run + Shower*             | 19:00     | 20:30     |                   |
+| Game                      | 20:30     | 22:30     |                   |
 | Contest                   | 22:30     | 00:00     |                   |
 
 ### Sunday
@@ -101,18 +103,20 @@ hidden: true
 | Reading*                  | 02:30     | 03:00     |                   |
 | Sleep                     | 03:00     | 10:00     |                   |
 | Get up + Breakfast        | 10:00     | 10:30     |                   |
-| Contest/Leetcode          | 10:30     | 12:00     |                   |
-| Lunch*                    | 12:00     | 14:00     |                   |
-| Leetcode*                 | 14:00     | 17:30     |                   |
-| Rest + Duolingo*          | 17:30     | 18:10     |                   |
-| Run + Shower*             | 18:10     | 19:30     |                   |
-| Game                      | 19:30     | 00:00     |                   |
+| Leetcode*                 | 10:30     | 12:00     |                   |
+| Lunch*                    | 12:30     | 14:00     |                   |
+| Leetcode*                 | 14:00     | 18:00     |                   |
+| Rest                      | 18:00     | 19:00     |                   |
+| Run + Shower*             | 19:00     | 20:30     |                   |
+| Game                      | 20:30     | 00:00     |                   |
 
 Notes：
 
 * The current schedule should work for leetcode catch up, need to change when working on 6.824
 * Should check if I should add A-Soul into the list
 * One dota2 per day is enough
+* Do at least 3 days review in the morning
+* Agile desk works better
 
 ## The lists to be populated
 

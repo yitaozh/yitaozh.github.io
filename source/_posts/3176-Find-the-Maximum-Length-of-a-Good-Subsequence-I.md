@@ -22,11 +22,11 @@ Return the **maximum**  possible length of a **good** subsequence of `nums`.
 Input: nums = [1,2,1,1,3], k = 2
 
 Output: 4
+```
 
 Explanation:
 
-The maximum length subsequence is `[1,2,1,1,3]`.
-```
+The maximum length subsequence is [**1**,**2**,**1**,**1**,3].
 
 **Example 2:**
 
@@ -34,11 +34,11 @@ The maximum length subsequence is `[1,2,1,1,3]`.
 Input: nums = [1,2,3,4,5,1], k = 0
 
 Output: 2
+```
 
 Explanation:
 
-The maximum length subsequence is `[1,2,3,4,5,1]`.
-```
+The maximum length subsequence is [**1**,2,3,4,5,**1**].
 
 **Constraints:**
 

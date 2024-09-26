@@ -8,7 +8,7 @@ tags:
     - Matrix
 ---
 
-# [174. Dungeon Game](https://leetcode.com/problems/dungeon-game/description/)
+[174. Dungeon Game](https://leetcode.com/problems/dungeon-game/description/)
 
 ## Description
 

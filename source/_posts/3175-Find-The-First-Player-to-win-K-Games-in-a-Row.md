@@ -92,7 +92,6 @@ public:
         if (k >= skills.size()) {
             return index;
         }
-        set<int> s;
         maxNum = skills[0];
         int maxIndex = 0;
         for (int i = 1; i < skills.size(); i++) {

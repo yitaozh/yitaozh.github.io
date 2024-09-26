@@ -50,7 +50,7 @@ Explanation: There is no such common subsequence, so the result is 0.
 
 ## Hints/Notes
 
-- N/A
+- dp
 
 ## Solution
 

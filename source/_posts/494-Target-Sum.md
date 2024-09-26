@@ -73,7 +73,7 @@ public:
         vector<vector<int>> dp(nums.size() + 1, vector<int>(res + 1, 0));
         dp[0][0] = 1;
         // the meaning of dp[i][j]: with the first 0 ~ i items, how many ways we
-        // can form j to get to dp[i][j], we need dp[i][j - nums[i]] anmd dp[i -
+        // can form j to get to dp[i][j], we need dp[i][j - nums[i]] and dp[i -
         // 1][j] when i = 0, the only way to form j is then nums[0] == j
         for (int i = 1; i <= nums.size(); i++) {
             for (int j = 0; j <= res; j++) {

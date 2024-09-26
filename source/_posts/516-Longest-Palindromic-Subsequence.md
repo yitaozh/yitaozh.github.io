@@ -38,7 +38,8 @@ Explanation: One possible longest palindromic subsequence is "bb".
 
 ## Hints/Notes
 
-- N/A
+- dp
+- note: subsequence not substring
 
 ## Solution
 

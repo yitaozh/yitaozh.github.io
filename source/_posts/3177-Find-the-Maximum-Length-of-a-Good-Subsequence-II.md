@@ -55,12 +55,44 @@ The maximum length subsequence is `[1,2,3,4,5,1]`.
 
 Language: **C++**
 
+simpler implementation:
+
+```C++
+class Solution {
+public:
+    int maximumLength(vector<int>& nums, int k) {
+        // the definition of dp:
+        // dp[i][j] marks the longest sequence ending with i, with at most k mismatches
+        // state transition:
+        //  dp[i][j] can be transitioned with dp[i][j] + 1
+        //  dp[i][j] can be transitioned from mx[i - 1] + 1
+        map<int, vector<int>> dp;
+        vector<int> mx(k + 1, 0); // the mx, the m1, the m2
+        for (int num : nums) {
+            if (!dp.contains(num)) {
+                dp[num] = vector<int>(k + 1, 0);
+            }
+            for (int i = k; i >= 0; i--) {
+                dp[num][i]++;
+                if (i) {
+                    dp[num][i] = max(dp[num][i], mx[i - 1]+ 1);
+                }
+                if (dp[num][i] > mx[i]) {
+                    mx[i] = dp[num][i];
+                }
+            }
+        }
+        return mx[k];
+    }
+};
+```
+
 ```C++
 class Solution {
 public:
     int maximumLength(vector<int>& nums, int k) {
         // dp[num][k]: the longest subsequence ending with num and with k
-        // non-equal neighbors 
+        // non-equal neighbors
         // how to update dp[num][k]:
         //  dp[num][k] = dp[num][k - 1] + 1
         map<int, vector<int>> m;

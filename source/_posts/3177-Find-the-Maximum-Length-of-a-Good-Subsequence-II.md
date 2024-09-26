@@ -60,8 +60,9 @@ class Solution {
 public:
     int maximumLength(vector<int>& nums, int k) {
         // dp[num][k]: the longest subsequence ending with num and with k
-        // non-equal neighbors how to update dp[num][k] dp[num][k] = dp[num][k -
-        // 1] + 1 dp[num][k]
+        // non-equal neighbors 
+        // how to update dp[num][k]:
+        //  dp[num][k] = dp[num][k - 1] + 1
         map<int, vector<int>> m;
         // the numbers in mx: mx1, mx2, mn
         vector<array<int, 3>> mx(k + 1, array<int, 3>());

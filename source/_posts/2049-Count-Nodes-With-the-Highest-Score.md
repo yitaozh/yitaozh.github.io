@@ -59,7 +59,7 @@ The highest score is 2, and two nodes (node 0 and node 1) have the highest score
 
 ## Hints/Notes
 
-- N/A
+- bottom up binary tree traverse
 
 ## Solution
 

@@ -67,6 +67,7 @@ No node has value 5.
 
 ## Hints/Notes
 
+- Linked list
 - Weekly Contest 406
 
 ## Solution

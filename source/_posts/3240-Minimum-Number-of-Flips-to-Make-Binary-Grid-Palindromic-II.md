@@ -91,7 +91,11 @@ public:
         // for the middle row and middle col, we sum
         // 1. the number of 1s when the numbers are the same
         // 2. the number of diff
-        // if the number of 1s
+        // 
+        // 1. if the number of 1s is divisible by 4, then we only
+        // need to add diff
+        // 2. if the number of 1s divide 4 == 2, then if we have diff
+        // we can use 1 pair of diff, otherwise, we need diff + 2
         int count = 0, diff = 0;
         if (m % 2) {
             for (int i = 0; i < n / 2; i++) {

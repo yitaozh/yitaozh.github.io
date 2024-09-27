@@ -73,6 +73,40 @@ No node has value 5.
 
 Language: **C++**
 
+Solution 1:
+
+```C++
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* modifiedList(vector<int>& nums, ListNode* head) {
+        set<int> s(nums.begin(), nums.end());
+        ListNode dummy(0);
+        ListNode* p = &dummy;
+        while (head) {
+            if (!s.contains(head->val)) {
+                p->next = head;
+                p = p->next;
+            }
+            head = head->next;
+        }
+        p->next = nullptr;
+        return dummy.next;
+    }
+};
+```
+
+Solution 2:
+
 ```C++
 /**
  * Definition for singly-linked list.

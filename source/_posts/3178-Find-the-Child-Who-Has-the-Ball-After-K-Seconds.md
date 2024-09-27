@@ -25,10 +25,6 @@ Input: n = 3, k = 5
 Output: 1
 ```
 
-Explanation:
-
-<table><tbody><tr><th>Time elapsed</th><th>Children</th></tr><tr><td>`0`</td><td>`[0, 1, 2]`</td></tr><tr><td>`1`</td><td>`[0, 1, 2]`</td></tr><tr><td>`2`</td><td>`[0, 1, 2]`</td></tr><tr><td>`3`</td><td>`[0, 1, 2]`</td></tr><tr><td>`4`</td><td>`[0, 1, 2]`</td></tr><tr><td>`5`</td><td>`[0, 1, 2]`</td></tr></tbody></table>
-
 **Example 2:**
 
 ```bash
@@ -37,10 +33,6 @@ Input: n = 5, k = 6
 Output: 2
 ```
 
-Explanation:
-
-<table><tbody><tr><th>Time elapsed</th><th>Children</th></tr><tr><td>`0`</td><td>`[0, 1, 2, 3, 4]`</td></tr><tr><td>`1`</td><td>`[0, 1, 2, 3, 4]`</td></tr><tr><td>`2`</td><td>`[0, 1, 2, 3, 4]`</td></tr><tr><td>`3`</td><td>`[0, 1, 2, 3, 4]`</td></tr><tr><td>`4`</td><td>`[0, 1, 2, 3, 4]`</td></tr><tr><td>`5`</td><td>`[0, 1, 2, 3, 4]`</td></tr><tr><td>`6`</td><td>`[0, 1, 2, 3, 4]`</td></tr></tbody></table>
-
 **Example 3:**
 
 ```bash
@@ -48,10 +40,6 @@ Input: n = 4, k = 2
 
 Output: 2
 ```
-
-Explanation:
-
-<table><tbody><tr><th>Time elapsed</th><th>Children</th></tr><tr><td>`0`</td><td>`[0, 1, 2, 3]`</td></tr><tr><td>`1`</td><td>`[0, 1, 2, 3]`</td></tr><tr><td>`2`</td><td>`[0, 1, 2, 3]`</td></tr></tbody></table>
 
 **Constraints:**
 

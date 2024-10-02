@@ -60,7 +60,8 @@ Language: **C++**
 class Solution {
 public:
     // the meaning of dp[i][j]:
-    //  the number need at i,j to make the knight survive
+    //  the number need at i,j to make the knight survive,
+    //  not only in this cell but also in the later cells
     vector<vector<int>> dp;
     int m, n;
 

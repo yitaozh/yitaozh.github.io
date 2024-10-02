@@ -72,15 +72,22 @@ class Solution {
 public:
     long long minimumOperations(vector<int>& nums, vector<int>& target) {
         vector<int> gap;
+        // first we get the gap array
+        // from the question, it would be {1, 1, 1, 2}
         for (int i = 0; i < nums.size(); i++) {
             gap.push_back(target[i] - nums[i]);
         }
+        // then, we get the diff array of the difference array
+        // it would be {1, 0, 0, 1}
         vector<int> diff;
         diff.push_back(gap[0]);
         for (int i = 1; i < nums.size(); i++) {
             diff.push_back(gap[i] - gap[i - 1]);
         }
         int cur = 0;
+        // the diff array's default effect is to the end of the array
+        // but since we can apply the change to any subArray, we get free
+        // add/minus from previous minus/add
         long long res = 0;
         for (int i = 0; i < diff.size(); i++) {
             if ((cur >= 0 && diff[i] >= 0) || (cur <= 0 && diff[i] <= 0)) {

@@ -33,10 +33,10 @@ Explanation:
 
 We can perform the following operations:
 
-- Choose index `i = 0`. The resulting string is `s = "**001** 1101"`.
-- Choose index `i = 4`. The resulting string is `s = "0011**01** 1"`.
-- Choose index `i = 3`. The resulting string is `s = "001**01** 11"`.
-- Choose index `i = 2`. The resulting string is `s = "00**01** 111"`.
+- Choose index `i = 0`. The resulting string is s = "**001** 1101".
+- Choose index `i = 4`. The resulting string is s = "0011**01** 1".
+- Choose index `i = 3`. The resulting string is s = "001**01** 11".
+- Choose index `i = 2`. The resulting string is s = "00**01** 111".
 
 **Example 2:**
 

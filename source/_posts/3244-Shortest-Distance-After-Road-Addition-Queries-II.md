@@ -91,12 +91,14 @@ public:
                                              vector<vector<int>>& queries) {
         nodes.resize(n - 1, 0);
         for (int i = 0; i < nodes.size(); i++) {
+            // use node[i] to mark the edge between i and i + 1
             nodes[i] = i;
         }
         vector<int> res;
         int count = n - 1;
         for (auto q : queries) {
             int l = find(q[0]), r = find(q[1] - 1);
+            // merge all the way from l, l + 1, ... r - 1 -> r
             while (l != r) {
                 merge(l, r);
                 count--;

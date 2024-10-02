@@ -41,7 +41,7 @@ Output: [1,1,8,8]
 
 ## Hints/Notes
 
-- N/A
+- get two sorted array first
 
 ## Solution
 

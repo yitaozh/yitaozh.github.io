@@ -3,6 +3,9 @@ title: 2061. Number of Spaces Cleaning Robot Cleaned
 categories: Leetcode
 date: 2024-05-24 16:22:45
 tags:
+    - Array
+    - Matrix
+    - Simulation
 ---
 
 [2061. Number of Spaces Cleaning Robot Cleaned](https://leetcode.com/problems/number-of-spaces-cleaning-robot-cleaned/description/?envType=weekly-question&envId=2024-05-15)

@@ -71,6 +71,7 @@ After the addition of the road from 0 to 2, the length of the shortest path rema
 
 ## Hints/Notes
 
+- BFS for each query
 - Weekly Contest 409
 
 ## Solution

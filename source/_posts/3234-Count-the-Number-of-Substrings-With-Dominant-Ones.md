@@ -71,35 +71,36 @@ public:
                 zeros.push_back(i);
             }
         }
-        int total1 = s.size() - zeros.size();
+        int totalOne = s.size() - zeros.size();
+        int zeroIdx = 0, res = 0;
         zeros.push_back(s.size());
-        int res = 0, zeroIdx = 0;
+        // start from 0, we want to calculate the number of dominant substring
+        // with l as subString left index
         for (int left = 0; left < s.size(); left++) {
-            // 1, 1, 0, 0, 1, 0, 1
-            // at start zeroIdx = 0, cnt0 = 0, zeros[i] = 2, cnt1 = 2
-            for (int i = zeroIdx; i < zeros.size() - 1; i++) {
-                int cnt0 = i - zeroIdx + 1;
-                if (cnt0 * cnt0 > total1) {
+            // the meaning of the inner for loop:
+            //  we calculate the number of zero and one up to jth zero(included)
+            //  then we check the if the numZero and numOne fits the need
+            //  if it fits, then all 1s following the jth zero, but before the (j+1)th zero works
+            //  if it doesn't fit, then we need 1 from the next segment
+            for (int j = zeroIdx; j < zeros.size() - 1; j++) {
+                int numZero = j - zeroIdx + 1;
+                if (numZero * numZero > totalOne) {
                     break;
                 }
-                int cnt1 = zeros[i] - left - (i - zeroIdx);
-                int p = zeros[i], q = zeros[i + 1];
-                // cnt0 is the number of 0 from left to ith zero
-                // cnt1 is the number of 1 from left to ith zero
-                if (cnt0 * cnt0 <= cnt1) {
-                    // in this case, all following p, p + 1 ... q - 1 is
-                    // suitable
+                int numOne = zeros[j] + 1 - left - numZero;
+                int p = zeros[j], q = zeros[j + 1];
+                if (numZero * numZero <= numOne) {
                     res += q - p;
                 } else {
-                    // in this case, we need 1 from the next segment
-                    res += max(q - p - (cnt0 * cnt0 - cnt1), 0);
+                    res += max(0, q - p + numOne - numZero * numZero);
                 }
             }
             if (s[left] == '0') {
                 zeroIdx++;
             } else {
+                // from l to the left of first 0, all strings are valid
                 res += zeros[zeroIdx] - left;
-                total1--;
+                totalOne--;
             }
         }
         return res;

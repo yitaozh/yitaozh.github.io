@@ -67,7 +67,8 @@ Language: **C++**
 class Solution {
 public:
     int maxLevelSum(TreeNode* root) {
-        map<int, int> m;
+        int maxVal = INT_MIN;
+        int minLvl = -1;
         queue<TreeNode*> q;
         if (root)
             q.push(root);
@@ -83,12 +84,13 @@ public:
                 if (cur->right)
                     q.push(cur->right);
             }
-            if (!m.contains(sum)) {
-                m[sum] = level;
+            if (sum > maxVal) {
+                maxVal = sum;
+                minLvl = level;
             }
             level++;
         }
-        return m.rbegin()->second;
+        return minLvl;
     }
 };
 ```

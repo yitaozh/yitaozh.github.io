@@ -25,11 +25,11 @@ Output: 3
 Explanation:
 As shown below, there are 3 ways you can generate "rabbit" from s.
 
-**rabb** b**it**
+**rabb** b **it**
 
-**ra** b**bbit**
+**ra** b **bbit**
 
-**rab** b**bit**
+**rab** b **bit**
 
 **Example 2:**
 
@@ -41,15 +41,15 @@ Output: 5
 Explanation:
 As shown below, there are 5 ways you can generate "bag" from s.
 
-**ba** b**g** bag
+**ba** b **g** bag
 
-**ba** bgba**g**
+**ba** bgba **g**
 
-**b** abgb**ag**
+**b** abgb **ag**
 
-ba**b** gb**ag**
+ba **b** gb **ag**
 
-babg**bag**
+babg **bag**
 
 **Constraints:**
 
@@ -58,7 +58,7 @@ babg**bag**
 
 ## Hints/Notes
 
-- N/A
+- dp
 
 ## Solution
 

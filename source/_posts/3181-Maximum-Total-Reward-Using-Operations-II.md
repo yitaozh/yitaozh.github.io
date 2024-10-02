@@ -64,6 +64,8 @@ class Solution {
 public:
     int maxTotalReward(vector<int>& rewardValues) {
         set<int> s(rewardValues.begin(), rewardValues.end());
+        // we use bit to mark if one number can be achieved
+        // bitset = 1 -> bit[0] = 1 -> 0 can be achieved
         bitset<100000> b{1};
         int max = 0;
         for (int num : s) {

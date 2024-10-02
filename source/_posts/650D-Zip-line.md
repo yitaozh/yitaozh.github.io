@@ -32,6 +32,8 @@ void solve(vector<int>& heights, map<int, vector<pair<int, int>>> queries, int m
     vector<int> pre;
     vector<int> LIS;
     vector<int> res(m, 0);
+    // do a pre and post order LIS search, in each case,
+    // add the order of the queried index to res array
     for (int i = 0; i < heights.size(); i++) {
         if (queries.contains(i)) {
             for (auto indexHeightPair : queries[i]) {
@@ -77,6 +79,7 @@ void solve(vector<int>& heights, map<int, vector<pair<int, int>>> queries, int m
     map<int, vector<int>> numOfPre;
     unordered_set<int> indexOfLongest;
     for (int i = 0; i < heights.size(); i++) {
+        // if i is in the longest LIS array
         if (pre[i] + post[i] - 1 == longest) {
             numOfPre[pre[i]].push_back(i);
             indexOfLongest.insert(i);
@@ -91,6 +94,7 @@ void solve(vector<int>& heights, map<int, vector<pair<int, int>>> queries, int m
             if (!indexOfLongest.contains(i)) {
                 res[idx] = max(res[idx], longest);
             } else {
+                // if the height[i] is in all LIS
                 if (numOfPre[pre[i]].size() > 1) {
                     res[idx] = max(res[idx], longest);
                 } else {

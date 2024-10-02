@@ -110,7 +110,20 @@ public:
         nodes.resize(n, vector<int>());
         res.resize(n, 0);
         build(edges);
+        // what we get from dfs?
+        //  after dfs, for each of the node in the graph
+        //  we get {mx, mx2, mv}:
+        //      mx: the time to mark the node's children
+        //      mv: to mark the node's children, mv taking longest time
+        //      mx2: the time to mark the node's children other than mv
         dfs(0, -1);
+        // now how to reroot?
+        //  for the root, we can just use mx
+        //  for the nodes not root:
+        //      the mx value can come either from downstream or upstream
+        //      for downstream, the value is fixed at mx
+        //      for upstream, the value can be either from upper, or from
+        //      another branch of the parent node
         reroot(0, -1, 0);
         return res;
     }

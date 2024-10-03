@@ -66,13 +66,9 @@ Biweekly Contest 130 t4: 3145 2900
 
 Biweekly Contest 135 t4: 3225 3100
 
-Weekly Contest 408 t4: 3235 2300
-
 Weekly Contest 409 t4: 3245 3100
 
 ### The problems not recorded
-
-Next questions to tackle: 3235
 
 Biweekly contest 137 t3, t4
 

@@ -72,8 +72,6 @@ Weekly Contest 409 t4: 3245 3100
 
 ### The problems not recorded
 
-Check the leetcode submission: 514, 787 and 10
-
 Next questions to tackle: 3235
 
 Biweekly contest 137 t3, t4

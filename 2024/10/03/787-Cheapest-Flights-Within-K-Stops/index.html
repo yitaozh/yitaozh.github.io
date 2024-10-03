@@ -19,22 +19,22 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yitaozh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12,"author":"Echo Joy"},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="787. Cheapest Flights Within K Stops DescriptionThere are n cities connected by some number of flights. You are given an array flights where flights[i] &#x3D; [from&lt;sub&gt;i&lt;&#x2F;sub&gt;, to&lt;sub&gt;i&amp;">
+    <meta name="description" content="787. Cheapest Flights Within K Stops DescriptionThere are n cities connected by some number of flights. You are given an array flights where flights[i] &#x3D; [fromi, toi, pricei] indicates that there">
 <meta property="og:type" content="article">
 <meta property="og:title" content="787. Cheapest Flights Within K Stops">
 <meta property="og:url" content="https://yitaozh.github.io/2024/10/03/787-Cheapest-Flights-Within-K-Stops/index.html">
 <meta property="og:site_name" content="Echo&#39;s Home">
-<meta property="og:description" content="787. Cheapest Flights Within K Stops DescriptionThere are n cities connected by some number of flights. You are given an array flights where flights[i] &#x3D; [from&lt;sub&gt;i&lt;&#x2F;sub&gt;, to&lt;sub&gt;i&amp;">
+<meta property="og:description" content="787. Cheapest Flights Within K Stops DescriptionThere are n cities connected by some number of flights. You are given an array flights where flights[i] &#x3D; [fromi, toi, pricei] indicates that there">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2022/03/18/cheapest-flights-within-k-stops-3drawio.png">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2022/03/18/cheapest-flights-within-k-stops-1drawio.png">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2022/03/18/cheapest-flights-within-k-stops-2drawio.png">
 <meta property="article:published_time" content="2024-10-03T10:56:33.000Z">
-<meta property="article:modified_time" content="2024-10-03T15:12:35.856Z">
+<meta property="article:modified_time" content="2024-10-03T15:15:00.652Z">
 <meta property="article:author" content="Echo Joy">
+<meta property="article:tag" content="Dynamic Programming">
 <meta property="article:tag" content="Depth-First Search">
 <meta property="article:tag" content="Breadth-First Search">
-<meta property="article:tag" content="Dynamic Programming">
 <meta property="article:tag" content="Heap (Priority Queue)">
 <meta property="article:tag" content="Graph">
 <meta property="article:tag" content="Shortest Path">
@@ -249,7 +249,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-10-03 10:56:33 / Modified: 15:12:35" itemprop="dateCreated datePublished" datetime="2024-10-03T10:56:33+00:00">2024-10-03</time>
+      <time title="Created: 2024-10-03 10:56:33 / Modified: 15:15:00" itemprop="dateCreated datePublished" datetime="2024-10-03T10:56:33+00:00">2024-10-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -271,7 +271,7 @@
     
     
     <div class="post-body" itemprop="articleBody"><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/cheapest-flights-within-k-stops/description/">787. Cheapest Flights Within K Stops</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>There are <code>n</code> cities connected by some number of flights. You are given an array <code>flights</code> where <code>flights[i] = [from&lt;sub&gt;i&lt;/sub&gt;, to&lt;sub&gt;i&lt;/sub&gt;, price&lt;sub&gt;i&lt;/sub&gt;]</code> indicates that there is a flight from city <code>from&lt;sub&gt;i&lt;/sub&gt;</code> to city <code>to&lt;sub&gt;i&lt;/sub&gt;</code> with cost <code>price&lt;sub&gt;i&lt;/sub&gt;</code>.</p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>There are <code>n</code> cities connected by some number of flights. You are given an array <code>flights</code> where flights[i] &#x3D; [from<sub>i</sub>, to<sub>i</sub>, price<sub>i</sub>] indicates that there is a flight from city from<sub>i</sub> to city to<sub>i</sub> with cost price<sub>i</sub>.</p>
 <p>You are also given three integers <code>src</code>, <code>dst</code>, and <code>k</code>, return <strong>the cheapest price</strong>  from <code>src</code> to <code>dst</code> with at most <code>k</code> stops. If there is no such route, return <code>-1</code>.</p>
 <p><strong>Example 1:</strong></p>
 <img alt="" src="https://assets.leetcode.com/uploads/2022/03/18/cheapest-flights-within-k-stops-3drawio.png" style="width: 332px; height: 392px;">
@@ -293,9 +293,9 @@
 <li><code>1 &lt;= n &lt;= 100</code></li>
 <li><code>0 &lt;= flights.length &lt;= (n * (n - 1) / 2)</code></li>
 <li><code>flights[i].length == 3</code></li>
-<li><code>0 &lt;= from&lt;sub&gt;i&lt;/sub&gt;, to&lt;sub&gt;i&lt;/sub&gt; &lt; n</code></li>
-<li><code>from&lt;sub&gt;i&lt;/sub&gt; != to&lt;sub&gt;i&lt;/sub&gt;</code></li>
-<li><code>1 &lt;= price&lt;sub&gt;i&lt;/sub&gt; &lt;= 10^4</code></li>
+<li>0 &lt;&#x3D; from<sub>i</sub>, to<sub>i</sub> &lt; n</li>
+<li>from<sub>i</sub> !&#x3D; to<sub>i</sub></li>
+<li>1 &lt;&#x3D; price<sub>i</sub> &lt;&#x3D; 10^4</li>
 <li>There will not be any multiple flights between two cities.</li>
 <li><code>0 &lt;= src, dst, k &lt; n</code></li>
 <li><code>src != dst</code></li>
@@ -314,9 +314,9 @@
 
     <footer class="post-footer">
           <div class="post-tags">
+              <a href="/tags/Dynamic-Programming/" rel="tag"># Dynamic Programming</a>
               <a href="/tags/Depth-First-Search/" rel="tag"># Depth-First Search</a>
               <a href="/tags/Breadth-First-Search/" rel="tag"># Breadth-First Search</a>
-              <a href="/tags/Dynamic-Programming/" rel="tag"># Dynamic Programming</a>
               <a href="/tags/Heap-Priority-Queue/" rel="tag"># Heap (Priority Queue)</a>
               <a href="/tags/Graph/" rel="tag"># Graph</a>
               <a href="/tags/Shortest-Path/" rel="tag"># Shortest Path</a>

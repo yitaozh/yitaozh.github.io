@@ -93,15 +93,17 @@ public:
         }
         int idx = key_[keyIdx] - 'a';
         auto nextIt = indexes[idx].lower_bound(ringIdx);
-        if (nextIt == indexes[idx].end()) nextIt = indexes[idx].begin();
+        if (nextIt == indexes[idx].end())
+            nextIt = indexes[idx].begin();
         std::set<int>::iterator prev;
         if (nextIt == indexes[idx].begin()) {
             prev = std::prev(indexes[idx].end(), 1);
         } else {
             prev = std::prev(nextIt, 1);
         }
-        int res = min((*nextIt + n - ringIdx) % n + 1 + traverse(*nextIt, keyIdx + 1),
-                    (ringIdx + n - *prev) % n + 1 + traverse(*prev, keyIdx + 1));
+        int res =
+            min((*nextIt + n - ringIdx) % n + 1 + traverse(*nextIt, keyIdx + 1),
+                (ringIdx + n - *prev) % n + 1 + traverse(*prev, keyIdx + 1));
         dp[ringIdx][keyIdx] = res;
         return res;
     }

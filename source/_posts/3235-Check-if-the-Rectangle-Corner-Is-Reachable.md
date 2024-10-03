@@ -15,7 +15,7 @@ tags:
 
 ## Description
 
-You are given two positive integers `xCorner` and `yCorner`, and a 2D array `circles`, where `circles[i] = [x<sub>i</sub>, y<sub>i</sub>, r<sub>i</sub>]` denotes a circle with center at `(x<sub>i</sub>, y<sub>i</sub>)` and radius `r<sub>i</sub>`.
+You are given two positive integers `xCorner` and `yCorner`, and a 2D array `circles`, where circles[i] = [x<sub>i</sub>, y<sub>i</sub>, r<sub>i</sub>] denotes a circle with center at (x<sub>i</sub>, y<sub>i</sub>) and radius r<sub>i</sub>.
 
 There is a rectangle in the coordinate plane with its bottom left corner at the origin and top right corner at the coordinate `(xCorner, yCorner)`. You need to check whether there is a path from the bottom left corner to the top right corner such that the **entire path**  lies inside the rectangle, **does not**  touch or lie inside **any**  circle, and touches the rectangle **only**  at the two corners.
 
@@ -80,7 +80,7 @@ Explanation:
 - `3 <= xCorner, yCorner <= 10^9`
 - `1 <= circles.length <= 1000`
 - `circles[i].length == 3`
-- `1 <= x<sub>i</sub>, y<sub>i</sub>, r<sub>i</sub> <= 10^9`
+- 1 <= x<sub>i</sub>, y<sub>i</sub>, r<sub>i</sub> <= 10^9
 
 ## Hints/Notes
 

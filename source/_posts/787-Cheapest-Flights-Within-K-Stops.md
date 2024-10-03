@@ -15,7 +15,7 @@ tags:
 
 ## Description
 
-There are `n` cities connected by some number of flights. You are given an array `flights` where `flights[i] = [from<sub>i</sub>, to<sub>i</sub>, price<sub>i</sub>]` indicates that there is a flight from city `from<sub>i</sub>` to city `to<sub>i</sub>` with cost `price<sub>i</sub>`.
+There are `n` cities connected by some number of flights. You are given an array `flights` where flights[i] = [from<sub>i</sub>, to<sub>i</sub>, price<sub>i</sub>] indicates that there is a flight from city from<sub>i</sub> to city to<sub>i</sub> with cost price<sub>i</sub>.
 
 You are also given three integers `src`, `dst`, and `k`, return **the cheapest price**  from `src` to `dst` with at most `k` stops. If there is no such route, return `-1`.
 
@@ -61,9 +61,9 @@ The optimal path with no stops from city 0 to 2 is marked in red and has cost 50
 - `1 <= n <= 100`
 - `0 <= flights.length <= (n * (n - 1) / 2)`
 - `flights[i].length == 3`
-- `0 <= from<sub>i</sub>, to<sub>i</sub> < n`
-- `from<sub>i</sub> != to<sub>i</sub>`
-- `1 <= price<sub>i</sub> <= 10^4`
+- 0 <= from<sub>i</sub>, to<sub>i</sub> < n
+- from<sub>i</sub> != to<sub>i</sub>
+- 1 <= price<sub>i</sub> <= 10^4
 - There will not be any multiple flights between two cities.
 - `0 <= src, dst, k < n`
 - `src != dst`

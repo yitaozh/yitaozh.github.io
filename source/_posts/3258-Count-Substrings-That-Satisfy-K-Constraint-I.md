@@ -65,6 +65,7 @@ All substrings of `s` satisfy the k-constraint.
 ## Hints/Notes
 
 - sliding window
+- Weekly Contest 411
 
 ## Solution
 

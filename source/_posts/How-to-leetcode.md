@@ -70,9 +70,7 @@ Weekly Contest 409 t4: 3245 3100 pre-requisite: BIT
 
 ### The problems not recorded
 
-Biweekly contest 137 t3, t4
-
-Weekly contest 411 all questions
+N/A
 
 ### The best way to record the progression
 

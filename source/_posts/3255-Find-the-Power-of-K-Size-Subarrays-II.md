@@ -3,6 +3,8 @@ title: 3255. Find the Power of K-Size Subarrays II
 categories: Leetcode
 date: 2024-10-03 11:10:47
 tags:
+    - Array
+    - Sliding Window
 ---
 
 [3254. Find the Power of K-Size Subarrays I](https://leetcode.com/problems/find-the-power-of-k-size-subarrays-i/description/)

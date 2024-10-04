@@ -66,7 +66,7 @@ Biweekly Contest 130 t4: 3145 2900
 
 Biweekly Contest 135 t4: 3225 3100
 
-Weekly Contest 409 t4: 3245 3100
+Weekly Contest 409 t4: 3245 3100 pre-requisite: BIT
 
 ### The problems not recorded
 

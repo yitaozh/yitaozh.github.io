@@ -55,7 +55,10 @@ public:
             dp[i][i] = 1;
         }
         int res = 1;
-        for (int i = n - 1; i >= 0; i--) {
+        // because for the state transition
+        //  dp[i][j] requires value at i + 1 and/or j - 1
+        //  so the i is iterated reversely
+        for (int i = n - 1; i >= 0; i- -) {
             for (int j = i + 1; j < n; j++) {
                 if (s[i] == s[j]) {
                     dp[i][j] = dp[i + 1][j - 1] + 2;

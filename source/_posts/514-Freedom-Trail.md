@@ -63,6 +63,9 @@ Language: **C++**
 class Solution {
 public:
     vector<set<int>> indexes;
+    // the meaning of dp[i][j]: when we are currently at i on the ring,
+    // and we are going to match jth character in key, the minimum steps
+    // to finish the game
     vector<vector<int>> dp;
     string key_;
     string ring_;

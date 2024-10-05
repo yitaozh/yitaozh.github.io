@@ -79,6 +79,16 @@ public:
         int n = nums.size();
         dp.resize(n, vector<int>(1001, 0));
         vector<long> preSum(1002, 0);
+        // at index i, assume the number is j, the transition is:
+        // at i + 1, the arr1 value k must be >= j,
+        // at i + 1, the arr2 value nums[i + 1] - k must be <= nums[i] - j
+        // and the arr2 value must be >= 0
+        // i.e 1. nums[i + 1] - k <= nums[i] - j
+        //     => k >= nums[i + 1] - nums[i] + j
+        //     2. nums[i + 1] - k >= 0
+        //     => k <= nums[i + 1]
+        // now, going back to the definition of dp[index][arr1]
+        // dp[index + 1][arr1] = 
         for (int i = nums.size() - 1; i >= 0; i--) {
             for (int j = 0; j <= nums[i]; j++) {
                 if (i == nums.size() - 1) {
@@ -86,15 +96,6 @@ public:
                     continue;
                 }
                 long long res = 0;
-                // at index i, assume the number is j, the transition is:
-                // at i + 1, the arr1 value k must be >= j,
-                // i.e. k >= j
-                // at i + 1, the arr2 value nums[i + 1] - k must be <= nums[i] -
-                // j and the arr2 value must be >= 0 i.e 1. nums[i + 1] - k <=
-                // nums[i] - j
-                //     => k >= nums[i + 1] - nums[i] + j
-                //     2. nums[i + 1] - k >= 0
-                //     => k <= nums[i + 1]
                 int start = max(j, nums[i + 1] - nums[i] + j);
                 int end = nums[i + 1];
                 dp[i][j] =

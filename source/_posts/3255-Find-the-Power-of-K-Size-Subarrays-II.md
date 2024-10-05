@@ -64,6 +64,7 @@ Output: [-1,3,-1,3,-1]
 
 ## Hints/Notes
 
+- Sliding window
 - Biweekly Contest 137
 
 ## Solution
@@ -74,23 +75,22 @@ Language: **C++**
 class Solution {
 public:
     vector<int> resultsArray(vector<int>& nums, int k) {
-        int prev = 0, tmp = 0, right = 0;
+        int prev = 0, curLen = 0, right = 0;
         vector<int> res;
         while (right < nums.size()) {
             if (prev == -1 || (prev == nums[right] - 1)) {
-                tmp++;
+                curLen++;
             } else {
-                tmp = 0;
+                curLen = 0;
             }
-            prev = nums[right];
             if (right >= k - 1) {
-                if (tmp >= k - 1) {
-                    res.push_back(prev);
+                if (curLen >= k - 1) {
+                    res.push_back(nums[right]);
                 } else {
                     res.push_back(-1);
                 }
             }
-            right++;
+            prev = nums[right++];
         }
         return res;
     }

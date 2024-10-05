@@ -63,6 +63,8 @@ Language: **C++**
 class Solution {
 public:
     string s_, p_;
+    // the meaning of dp[i][j]: is it possible to match
+    // when we are at index i in s and index j in p
     vector<vector<int>> dp;
 
     bool isMatch(string s, string p) {
@@ -81,9 +83,11 @@ public:
             return false;
         }
         if (idx1 == s_.size()) {
-            if (idx2 + 1 >= p_.size() || p_[idx2 + 1] != '*') {
+            // it means we cannot match an empty string
+            if (idx2 == p_.size() - 1 || p_[idx2 + 1] != '*') {
                 return false;
             } else {
+                // try to match an empty string
                 return traverse(idx1, idx2 + 2);
             }
         }
@@ -99,12 +103,15 @@ public:
             return false;
         }
         bool res = false;
-        // the next item is not *
+        // the next item is not *, which means either the character
+        // at idx1 and idx2 match or p_[idx2] = '.'
         if (idx2 == p_.size() - 1 || p_[idx2 + 1] != '*') {
             res = traverse(idx1 + 1, idx2 + 1);
+        // it's a empty string match, i.e. any character with * is empty
         } else if (s_[idx1] != p_[idx2] && p_[idx2] != '.') {
             res = traverse(idx1, idx2 + 2);
         } else {
+            // we need to decide how many characters to match with *
             char c = s_[idx1];
             res = traverse(idx1, idx2 + 2);
             for (int i = idx1; i < s_.size() && (s_[i] == c || p_[idx2] == '.');

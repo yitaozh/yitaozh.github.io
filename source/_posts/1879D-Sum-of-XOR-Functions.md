@@ -50,9 +50,9 @@ using namespace std;
 istream &in = cin;
 ostream &out = cout;
 
-// use one number pxor to mark all xor
-// for one xor value, assume it has 30 bits, one the ith bits
-// if the bit is 1, we should check all previous 0 occurances << i
+// use one number x to mark all xor
+// for one xor value, assume it has 30 bits, on the ith bit
+// if the bit is 1, we need to know all previous 0 occurrences << i
 // the question is how to get the r - l
 // so we need two array, one for the count of 0/1 at bit i
 // one for the sum of index at bit i
@@ -72,6 +72,11 @@ int main() {
         x ^= num;
         for (int j = 0; j < 30; j++) {
             int bit = (x >> j) & 1;
+            // take this as an example
+            //  for one index, it's always zero, suddenly for the ith number,
+            //  its bit at this index is 1. It means all the previous subArray
+            //  can be counted against, and we need to calculate the number of
+            //  0s, along with the total of their index
             res = (res + ((count[j][1 - bit] * i - sum[j][1 - bit]) % 998244353 << j) % 998244353) % 998244353;
             sum[j][bit] += i;
             count[j][bit]++;

@@ -67,7 +67,7 @@ Language: **C++**
 class Solution {
 public:
     int size_;
-    vector<long long> res;
+    vector<long long> dp;
 
     long long maximumTotalDamage(vector<int>& power) {
         sort(power.begin(), power.end());
@@ -81,7 +81,7 @@ public:
             pairs.push_back({power[i], count});
         }
         size_ = pairs.size();
-        res.resize(size_, LLONG_MIN);
+        dp.resize(size_, LLONG_MIN);
         long long ans = dfs(0, pairs);
         return ans;
     }
@@ -90,8 +90,8 @@ public:
         if (curIndex == size_) {
             return 0;
         }
-        if (res[curIndex] != LLONG_MIN) {
-            return res[curIndex];
+        if (dp[curIndex] != LLONG_MIN) {
+            return dp[curIndex];
         }
         long long val = pairs[curIndex].first;
 
@@ -104,12 +104,12 @@ public:
 
         if (curIndex == pairs.size() - 1 ||
             (pairs[curIndex + 1].first - pairs[curIndex].first > 2)) {
-            res[curIndex] = firstRes;
+            dp[curIndex] = firstRes;
             return firstRes;
         }
         long long secondRes = dfs(curIndex + 1, pairs);
-        res[curIndex] = max(firstRes, secondRes);
-        return res[curIndex];
+        dp[curIndex] = max(firstRes, secondRes);
+        return dp[curIndex];
     }
 };
 ```

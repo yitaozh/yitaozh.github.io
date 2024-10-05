@@ -75,3 +75,41 @@ public:
     }
 };
 ```
+
+The other dp approach:
+
+```C++
+class Solution {
+public:
+    string word1_, word2_;
+    vector<vector<int>> dp;
+
+    int minDistance(string word1, string word2) {
+        word1_ = word1;
+        word2_ = word2;
+        dp.resize(word1.size(), vector<int>(word2.size(), -1));
+        int l = traverse(0, 0);
+        return l;
+    }
+
+    int traverse(int i, int j) {
+        if (i == word1_.size()) {
+            return word2_.size() - j;
+        }
+        if (j == word2_.size()) {
+            return word1_.size() - i;
+        }
+        if (dp[i][j] != -1) {
+            return dp[i][j];
+        }
+        int res = 0;
+        if (word1_[i] == word2_[j]) {
+            res = traverse(i + 1, j + 1);
+        } else {
+            res = min(1 + traverse(i, j + 1), 1 + traverse(i + 1, j));
+        }
+        dp[i][j] = res;
+        return res;
+    }
+};
+```

@@ -81,6 +81,8 @@ class Solution {
 public:
     vector<vector<pair<int, int>>> graph;
     int dst_;
+    // the meaning of dp[i][j]: when we are at i, and there are j stops left,
+    // the minium cost to get to dst_
     vector<vector<int>> dp;
 
     int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst,

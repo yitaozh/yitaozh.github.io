@@ -101,10 +101,8 @@ public:
     void findParent() {
         TreeNode* cur = q.front();
         while (cur->left && cur->right) {
-            if (cur->left)
-                q.push(cur->left);
-            if (cur->right)
-                q.push(cur->right);
+            q.push(cur->left);
+            q.push(cur->right);
             q.pop();
             cur = q.front();
         }

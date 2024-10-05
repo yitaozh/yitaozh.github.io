@@ -80,7 +80,8 @@ public:
             // the meaning of the inner for loop:
             //  we calculate the number of zero and one up to jth zero(included)
             //  then we check the if the numZero and numOne fits the need
-            //  if it fits, then all 1s following the jth zero, but before the (j+1)th zero works
+            //  if it fits, then all indexes starting from the jth zero,
+            //  but before the (j+1)th zero works
             //  if it doesn't fit, then we need 1 from the next segment
             for (int j = zeroIdx; j < zeros.size() - 1; j++) {
                 int numZero = j - zeroIdx + 1;

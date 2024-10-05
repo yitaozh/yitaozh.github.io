@@ -68,7 +68,7 @@ public:
         // else
         //  => dp[i][j] = min(dp[i][j - 1], dp[i + 1][j]) + 1
         // the direction: when calculating s[i][j], we need
-        // the value at bottom and left
+        // the dp value with bigger i and smaller j
         for (int i = n - 1; i >= 0; i--) {
             for (int j = i + 1; j < n; j++) {
                 if (s[i] == s[j]) {

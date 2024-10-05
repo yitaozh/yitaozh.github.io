@@ -92,6 +92,9 @@ public:
                 }
             }
             distance++;
+            if (distance > k) {
+                break;
+            }
         }
         return res;
     }

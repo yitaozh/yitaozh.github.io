@@ -65,12 +65,8 @@ public:
                     dp[j] = true;
                     continue;
                 }
-                if (!i) {
-                    dp[j] = nums[i] == j;
-                } else {
-                    if (j >= nums[i]) {
-                        dp[j] = dp[j] || dp[j - nums[i]];
-                    }
+                if (j >= nums[i]) {
+                    dp[j] = dp[j] || dp[j - nums[i]];
                 }
             }
         }

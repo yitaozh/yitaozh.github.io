@@ -27,6 +27,8 @@
 if [ -f "${HOME}/.bashrc" ] ; then
   source "${HOME}/.bashrc"
 fi
+# put this line in .bash_profile under the home directory
+PATH="$PATH:./node_modules/.bin"
 
 # Set PATH so it includes user's private bin if it exists
 # if [ -d "${HOME}/bin" ] ; then
@@ -45,3 +47,4 @@ fi
 
 alias glog='git log -n 10 --graph --pretty='\''%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'''
 alias glb='git branch && glog'
+

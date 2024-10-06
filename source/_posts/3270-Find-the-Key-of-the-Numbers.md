@@ -21,10 +21,11 @@ Return the `key` of the three numbers **without**  leading zeros (if any).
 
 **Example 1:**
 
-<div class="example-block">
+```bash
 Input: num1 = 1, num2 = 10, num3 = 1000
 
 Output: 0
+```
 
 Explanation:
 
@@ -39,17 +40,19 @@ Hence, the `key` is `"0000"`, i.e. 0.
 
 **Example 2:**
 
-<div class="example-block">
+```bash
 Input: num1 = 987, num2 = 879, num3 = 798
 
 Output: 777
+```
 
 **Example 3:**
 
-<div class="example-block">
+```bash
 Input: num1 = 1, num2 = 2, num3 = 3
 
 Output: 1
+```
 
 **Constraints:**
 
@@ -57,7 +60,7 @@ Output: 1
 
 ## Hints/Notes
 
-- N/A
+- Biweekly Contest 138
 
 ## Solution
 

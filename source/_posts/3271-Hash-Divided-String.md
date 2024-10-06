@@ -60,7 +60,7 @@ The only substring: `"mxz"`, `12 + 23 + 25 = 60`, `60 % 26 = 8`, `result[0] = 'i
 
 ## Hints/Notes
 
-- N/A
+- Biweekly Contest 138
 
 ## Solution
 

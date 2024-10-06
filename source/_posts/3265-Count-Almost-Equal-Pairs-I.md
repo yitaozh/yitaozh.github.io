@@ -70,7 +70,7 @@ We cannot swap any two digits of 123 or 231 to reach the other.
 
 ## Hints/Notes
 
-- N/A
+- Weekly Contest 412
 
 ## Solution
 

@@ -56,6 +56,7 @@ Explanation:
 ## Hints/Notes
 
 - priority queue
+- Weekly Contest 412
 
 ## Solution
 

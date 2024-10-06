@@ -56,6 +56,7 @@ Explanation:
 
 - find the cycle
 - fast power
+- Weekly Contest 412
 
 ## Solution
 

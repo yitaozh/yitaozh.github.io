@@ -67,6 +67,7 @@ The almost equal pairs of elements are:
 ## Hints/Notes
 
 - brutal force
+- Weekly Contest 412
 
 ## Solution
 

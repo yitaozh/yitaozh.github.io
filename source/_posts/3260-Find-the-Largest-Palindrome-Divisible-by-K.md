@@ -74,6 +74,8 @@ Language: **C++**
 ```C++
 class Solution {
 public:
+    // the meaning of dp[i][j]: when we are at index i, with % k equal to j,
+    // can we continue to form the number to be divisible by k
     vector<vector<int>> dp;
     vector<int> div, res;
     int n_, k_, h_;

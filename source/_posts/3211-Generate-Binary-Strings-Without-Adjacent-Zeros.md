@@ -48,6 +48,7 @@ The valid strings of length 1 are: `"0"` and `"1"`.
 
 ## Hints/Notes
 
+- dp
 - Weekly Contest 405
 
 ## Solution

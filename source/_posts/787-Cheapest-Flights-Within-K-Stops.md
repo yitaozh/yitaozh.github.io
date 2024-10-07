@@ -96,11 +96,11 @@ public:
     }
 
     int traverse(int src, int k) {
-        if (k < 0) {
-            return INT_MAX;
-        }
         if (src == dst_) {
             return 0;
+        }
+        if (k <= 0) {
+            return INT_MAX;
         }
         if (dp[src][k] != -1) {
             return dp[src][k];

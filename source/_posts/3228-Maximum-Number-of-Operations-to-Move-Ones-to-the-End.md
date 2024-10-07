@@ -53,6 +53,7 @@ Output: 0
 
 ## Hints/Notes
 
+- Move 1s from left to right
 - Weekly Contest 407
 
 ## Solution

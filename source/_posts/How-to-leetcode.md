@@ -71,6 +71,7 @@ Weekly Contest 409 t4: 3245 3100 pre-requisite: BIT
 ### The problems pending rewrite
 
 LC 3187
+CF 1237D
 
 ### The problems not recorded
 

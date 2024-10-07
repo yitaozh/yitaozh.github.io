@@ -61,7 +61,6 @@ Language: **C++**
 ```C++
 class Solution {
 public:
-    bool found = false;
     vector<int> res;
     map<int, vector<int>> m;
 
@@ -76,22 +75,8 @@ public:
                 m[pp].push_back(p);
             }
         }
-        findProcess(root, kill);
+        traverse(kill);
         return res;
-    }
-
-    void findProcess(int root, int kill) {
-        if (root == kill) {
-            traverse(root);
-            found = true;
-            return;
-        }
-        if (found) {
-            return;
-        }
-        for (int child : m[root]) {
-            findProcess(child, kill);
-        }
     }
 
     void traverse(int root) {

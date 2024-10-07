@@ -91,7 +91,7 @@ public:
         // for the middle row and middle col, we sum
         // 1. the number of 1s when the numbers are the same
         // 2. the number of diff
-        // 
+        //
         // 1. if the number of 1s is divisible by 4, then we only
         // need to add diff
         // 2. if the number of 1s divide 4 == 2, then if we have diff
@@ -122,7 +122,7 @@ public:
             if (diff > 0) {
                 res += diff;
             } else {
-                res += diff + 2;
+                res += 2;
             }
         }
         return res;

@@ -94,12 +94,12 @@ public:
                 break;
             }
         }
-        cout << s << " " << val << " " << s[start + 1] << " " << s[i - 1]
-             << endl;
+        // s[start] = '(', s[i] = ')'
         root->left = str2tree(s.substr(start + 1, i - (start + 1)));
         if (i == s.size() - 1) {
             return root;
         }
+        // i + 2 since we need to skip the ')' and '('
         root->right = str2tree(s.substr(i + 2, s.size() - 1 - (i + 2)));
         return root;
     }

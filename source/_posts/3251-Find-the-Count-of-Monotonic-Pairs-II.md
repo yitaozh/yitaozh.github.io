@@ -87,8 +87,9 @@ public:
         //     => k >= nums[i + 1] - nums[i] + j
         //     2. nums[i + 1] - k >= 0
         //     => k <= nums[i + 1]
-        // now, going back to the definition of dp[index][arr1]
-        // dp[index + 1][arr1] = 
+        // so the state transition of dp[i][j]
+        //  dp[i][j] =
+        //    sum(dp[i + 1][k]) for nums[i + 1] - nums[i] + j < k < nums[i + 1]
         for (int i = nums.size() - 1; i >= 0; i--) {
             for (int j = 0; j <= nums[i]; j++) {
                 if (i == nums.size() - 1) {
@@ -96,13 +97,14 @@ public:
                     continue;
                 }
                 long long res = 0;
-                int start = max(j, nums[i + 1] - nums[i] + j);
+                int start = max(nums[i + 1] - nums[i], 0) + j;
                 int end = nums[i + 1];
                 dp[i][j] =
                     end >= start
                         ? ((preSum[end + 1] - preSum[start]) % MOD + MOD) % MOD
                         : 0;
             }
+            // dimension compression
             for (int j = 0; j < dp[i].size(); j++) {
                 preSum[j + 1] = (preSum[j] + dp[i][j]) % MOD;
             }

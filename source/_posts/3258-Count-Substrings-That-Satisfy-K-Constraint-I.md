@@ -77,6 +77,7 @@ public:
     int countKConstraintSubstrings(string s, int k) {
         int res = 0, left = 0;
         vector<int> count(2, 0);
+        // the meaning of sliding window: all the valid substring ending with s[right]
         for (int right = 0; right < s.size(); right++) {
             int val = s[right] - '0';
             count[val % 2]++;

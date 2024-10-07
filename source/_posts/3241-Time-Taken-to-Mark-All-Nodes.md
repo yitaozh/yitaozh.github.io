@@ -114,8 +114,8 @@ public:
         //  after dfs, for each of the node in the graph
         //  we get {mx, mx2, mv}:
         //      mx: the time to mark the node's children
-        //      mv: to mark the node's children, mv taking longest time
         //      mx2: the time to mark the node's children other than mv
+        //      mv: the child which takes mx to mark
         dfs(0, -1);
         // now how to reroot?
         //  for the root, we can just use mx

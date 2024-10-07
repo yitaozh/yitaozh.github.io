@@ -55,6 +55,7 @@ To gain an energy boost of 7:
 
 ## Hints/Notes
 
+- dp
 - Weekly Contest 411
 
 ## Solution

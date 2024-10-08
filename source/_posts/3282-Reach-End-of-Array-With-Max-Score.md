@@ -50,7 +50,7 @@ Jump directly to the last index. The final score is `4 * 4 = 16`.
 
 ## Hints/Notes
 
-- N/A
+- Weekly Contest 414
 
 ## Solution
 

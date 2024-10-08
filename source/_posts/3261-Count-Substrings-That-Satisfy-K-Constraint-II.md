@@ -14,53 +14,50 @@ tags:
 
 ## Description
 
-You are given two **positive**  integers `n` and `k`.
+You are given a **binary**  string `s` and an integer `k`.
 
-An integer `x` is called **k-palindromic**  if:
+You are also given a 2D integer array `queries`, where queries[i] = [l<sub>i</sub>, r<sub>i</sub>].
 
-- `x` is a palindrome.
-- `x` is divisible by `k`.
+A **binary string**  satisfies the **k-constraint**  if **either**  of the following conditions holds:
 
-Return the **largest**  integer having `n` digits (as a string) that is **k-palindromic** .
+- The number of `0`'s in the string is at most `k`.
+- The number of `1`'s in the string is at most `k`.
 
-**Note**  that the integer must **not**  have leading zeros.
+Return an integer array `answer`, where `answer[i]` is the number of substrings of s[l<sub>i</sub>..r<sub>i</sub>] that satisfy the **k-constraint** .
 
 **Example 1:**
 
 ```bash
-Input: n = 3, k = 5
+Input: s = "0001111", k = 2, queries = [[0,6]]
 
-Output: "595"
+Output: [26]
 ```
 
 Explanation:
 
-595 is the largest k-palindromic integer with 3 digits.
+For the query `[0, 6]`, all substrings of `s[0..6] = "0001111"` satisfy the k-constraint except for the substrings `s[0..5] = "000111"` and `s[0..6] = "0001111"`.
 
 **Example 2:**
 
 ```bash
-Input: n = 1, k = 4
+Input: s = "010101", k = 1, queries = [[0,5],[1,4],[2,3]]
 
-Output: "8"
+Output: [15,9,3]
 ```
 
 Explanation:
 
-4 and 8 are the only k-palindromic integers with 1 digit.
-
-**Example 3:**
-
-```bash
-Input: n = 5, k = 6
-
-Output: "89898"
-```
+The substrings of `s` with a length greater than 3 do not satisfy the k-constraint.
 
 **Constraints:**
 
-- `1 <= n <= 10^5`
-- `1 <= k <= 9`
+- `1 <= s.length <= 10^5`
+- `s[i]` is either `'0'` or `'1'`.
+- `1 <= k <= s.length`
+- `1 <= queries.length <= 10^5`
+- queries[i] == [l<sub>i</sub>, r<sub>i</sub>]
+- 0 <= l<sub>i</sub> <= r<sub>i</sub> < s.length
+- All queries are distinct.
 
 ## Hints/Notes
 
@@ -89,17 +86,17 @@ public:
             }
             leftIdx.push_back(left);
         }
+        // the meaning of preSum[i]: starting from 0, how many valid substrings until index i
         vector<long long> preSum;
         preSum.push_back(0);
         for (int i = 0; i < s.size(); i++) {
-            cout << leftIdx[i] << endl;
             preSum.push_back(preSum.back() + i - leftIdx[i] + 1);
         }
         vector<long long> res;
         for (auto q : queries) {
             // what's the remaining question here:
-            //  we need to find the index i between l and r such that left[i] >
-            //  l
+            //  we need to find the index i between l and r such that leftIdx[i] > l
+            //  special case: if leftIdx[r] is <= l, then all substrings are valid
             int l = q[0], r = q[1];
             while (l <= r) {
                 int mid = (r - l) / 2 + l;
@@ -109,7 +106,9 @@ public:
                     l = mid + 1;
                 }
             }
-            // now l points to the boundary
+            // now l points to the boundary, on the left side of the boundary,
+            // the i has leftIdx[i] < l, so all substrings are valid, on the right side
+            // we can use the preSum to calculate
             long first = l - q[0];
             long long tmp =
                 (first + 1) * first / 2 + preSum[q[1] + 1] - preSum[l];

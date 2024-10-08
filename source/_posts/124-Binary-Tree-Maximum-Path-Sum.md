@@ -84,9 +84,9 @@ public:
         int left = traverse(root->left);
         int right = traverse(root->right);
 
-        ans += max(left, right);
-
         res = max(res, root->val + left + right);
+
+        ans += max(left, right);
 
         return max(0, ans);
     }

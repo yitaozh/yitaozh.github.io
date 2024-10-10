@@ -73,6 +73,13 @@ public:
         }
 
         int left = root->left->val, right = root->right->val;
+        // the child's val is the minimum of the child tree
+        // 1. if the child->val == root->val, then no need to dig further
+        // 2. if the child->val != root->val, it indicates that there can be
+        //    value larger than child->val
+        // if the return value is -1:
+        //     1. either the node doesn't have children
+        //     2. all its children have the same value
         if (left == root->val) {
             left = findSecondMinimumValue(root->left);
         }

@@ -119,3 +119,47 @@ public:
     }
 };
 ```
+
+Another approach(BFS):
+
+```C++
+class Solution {
+public:
+    vector<vector<pair<int, int>>> graph;
+    vector<int> costs;
+
+    int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst,
+                          int k) {
+        graph.resize(n, vector<pair<int, int>>());
+        costs.resize(n, INT_MAX);
+        buildGraph(flights);
+        queue<vector<int>> q;
+        q.push({src, 0});
+        while (!q.empty() && k >= 0) {
+            int sz = q.size();
+            for (int i = 0; i < sz; i++) {
+                auto u = q.front();
+                q.pop();
+                for (auto p : graph[u[0]]) {
+                    int v = p.first, price = p.second;;
+                    if (price + u[1] < costs[v]) {
+                        costs[v] = price + u[1];
+                        q.push({v, costs[v]});
+                    }
+                }
+            }
+            k--;
+        }
+        return costs[dst] == INT_MAX ? -1 : costs[dst];
+    }
+
+    void buildGraph(vector<vector<int>>& flights) {
+        for (auto flight : flights) {
+            int from = flight[0];
+            int to = flight[1];
+            int price = flight[2];
+            graph[from].push_back({to, price});
+        }
+    }
+};
+```

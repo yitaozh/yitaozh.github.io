@@ -74,27 +74,22 @@ Language: **C++**
 ```C++
 class Solution {
 public:
-    // the meaning of dp[i][j]: when we are at index i, with % k equal to j,
-    // can we continue to form the number to be divisible by k
     vector<vector<int>> dp;
-    vector<int> div, res;
+    vector<int> div;
     int n_, k_, h_;
+    string res;
     string largestPalindrome(int n, int k) {
         h_ = (n + 1) / 2;
         n_ = n;
         k_ = k;
         dp.resize(h_, vector<int>(k, -1));
         div.resize(n, 1);
-        res.resize(n, -1);
+        res = string(n, '0');
         for (int i = 1; i < n; i++) {
             div[i] = div[i - 1] * 10 % k;
         }
         dfs(0, 0);
-        string s;
-        for (int i = 0; i < res.size(); i++) {
-            s.push_back(res[i] + '0');
-        }
-        return s;
+        return res;
     }
 
     bool dfs(int i, int j) {
@@ -113,8 +108,8 @@ public:
                 j2 = (j2 + k * div[i] + k * div[n_ - 1 - i]) % k_;
             }
             if (dfs(i + 1, j2)) {
-                res[i] = k;
-                res[n_ - 1 - i] = k;
+                res[i] = k + '0';
+                res[n_ - 1 - i] = k + '0';
                 ans = true;
                 break;
             }

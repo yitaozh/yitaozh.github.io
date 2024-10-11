@@ -7,7 +7,7 @@ tags:
     - Sliding Window
 ---
 
-[3254. Find the Power of K-Size Subarrays I](https://leetcode.com/problems/find-the-power-of-k-size-subarrays-i/description/)
+[3255. Find the Power of K-Size Subarrays II](https://leetcode.com/problems/find-the-power-of-k-size-subarrays-ii/)
 
 ## Description
 
@@ -65,6 +65,7 @@ Output: [-1,3,-1,3,-1]
 ## Hints/Notes
 
 - Sliding window
+- The same as 3254
 - Biweekly Contest 137
 
 ## Solution

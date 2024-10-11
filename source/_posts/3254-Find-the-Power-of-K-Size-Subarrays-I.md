@@ -64,6 +64,8 @@ Output: [-1,3,-1,3,-1]
 
 ## Hints/Notes
 
+- Sliding window
+- The same as 3255
 - Biweekly Contest 137
 
 ## Solution

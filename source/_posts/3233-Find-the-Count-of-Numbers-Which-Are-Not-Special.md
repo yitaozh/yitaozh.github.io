@@ -51,6 +51,7 @@ The special numbers in the range `[4, 16]` are 4 and 9.
 
 ## Hints/Notes
 
+- only value that's square of prime number satisfies the need
 - Weekly Contest 408
 
 ## Solution

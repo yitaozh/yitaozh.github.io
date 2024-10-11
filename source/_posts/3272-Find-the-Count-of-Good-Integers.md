@@ -68,6 +68,7 @@ Output: 2468
 
 ## Hints/Notes
 
+- Combinatorics
 - Biweekly Contest 138
 
 ## Solution
@@ -102,6 +103,9 @@ public:
             if (wholeNum % k) {
                 continue;
             }
+            // by the end of a valid iteration, we have calculated all the
+            // combinator of digits in whole, so if a later number has the
+            // same digit set, we can skip
             long minVal = reordered(whole);
             if (visited.contains(minVal)) {
                 continue;
@@ -112,7 +116,10 @@ public:
             }
             // at this time, we are sure that this number is palindromic
             // now we want to know how many combinations we can get
+            // the first digit cannot be 0, while the following bits can
+            // be any number
             int num = (n - count[0]) * fac[n - 1];
+            // for each digits(0 ~ 9), their own permutation should be divided
             for (int j = 0; j < 10; j++) {
                 num /= fac[count[j]];
             }

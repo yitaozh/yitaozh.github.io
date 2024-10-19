@@ -22,6 +22,18 @@ What I want to achieve in the 6 weeks?
 
 ## The current progress
 
+* I have 3 more contest to review
+* I can do one contest per day, with 6 reviews per day
+
+## The overall plan
+
+1. Work on leetcode contests, then Meta questions
+2. Work on MIT 6.824, one unit per day
+    * Use the previous evening for the Preparation
+    * Main work time: afternoon
+
+### Previous
+
 * Today is 9/19/2024
 * The review is at 7/31, which means I have 50 days to review
 * The recorded problem is at 8/11, which means I have 39 days to add new problem

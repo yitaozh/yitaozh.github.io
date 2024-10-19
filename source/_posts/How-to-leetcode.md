@@ -41,7 +41,7 @@ I am currently using leetcode website.
 
 ### The steps to tackle one problem
 
-If not idea at all, just check the comments. No need to wait for 5, 10 minutes
+* If no idea at all, just check the hints. No need to wait for 5, 10 minutes
 
 ### Advance
 

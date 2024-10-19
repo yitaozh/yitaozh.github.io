@@ -73,7 +73,7 @@ Output: -1
 
 ## Hints/Notes
 
-- the `sum(words[i].length) <= 105` indicates that we can use prefix match
+- the `sum(words[i].length) <= 1e5` indicates that we can use prefix match
 - polynomial hashing function, implement a class for it
 - Weekly Contest 415
 

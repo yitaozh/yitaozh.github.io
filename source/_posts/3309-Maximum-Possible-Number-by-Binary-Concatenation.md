@@ -50,6 +50,7 @@ Concatenate the numbers in the order `[2, 8, 16]` to get the result `"1010001000
 ## Hints/Notes
 
 - bit manipulation
+- Weekly Contest 418
 
 ## Solution
 

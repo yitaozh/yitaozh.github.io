@@ -10,4 +10,6 @@ tags:
 
 ## Question
 
-What's inverted indices?
+3.3 Fault Tolerance
+
+However, the output for a different reduce task R2 may correspond to the output for R2 produced by a different sequential execution of the non-deterministic program.

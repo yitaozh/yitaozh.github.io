@@ -50,13 +50,11 @@ I am currently using leetcode website.
 
 ### Current leetcode blog
 
-[动态规划帮我通关了《辐射4》](https://labuladong.online/algo/dynamic-programming/freedom-trail/)
+[经典动态规划：高楼扔鸡蛋](https://labuladong.online/algo/dynamic-programming/egg-drop/)
 
 ### Last problem solved
 
 New page.
-
-~~[516. Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/)~~
 
 ### The problems not solved
 

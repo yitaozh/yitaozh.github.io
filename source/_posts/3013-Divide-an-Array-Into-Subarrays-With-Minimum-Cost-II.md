@@ -62,7 +62,7 @@ It can be shown that there is no possible way to divide nums into 3 subarrays at
 
 ## Hints/Notes
 
-- use 2 sets
+- use 2 sorted lists
 
 ## Solution
 

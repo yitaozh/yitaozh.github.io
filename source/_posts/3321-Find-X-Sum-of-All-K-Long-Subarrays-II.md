@@ -60,7 +60,7 @@ Since `k == x`, `answer[i]` is equal to the sum of the subarray `nums[i..i + k -
 
 ## Hints/Notes
 
-- sliding window with 2 sets
+- sliding window with 2 sorted lists
 
 ## Solution
 

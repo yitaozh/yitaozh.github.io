@@ -52,6 +52,7 @@ All substrings are valid because every character appears at least once.
 ## Hints/Notes
 
 - sliding window
+- Weekly Contest 420
 
 ## Solution
 

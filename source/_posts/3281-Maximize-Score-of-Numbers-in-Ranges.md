@@ -51,6 +51,7 @@ The maximum possible score can be obtained by choosing integers: 2, 7, 13, and 1
 
 ## Hints/Notes
 
+- Binary search
 - Weekly Contest 414
 
 ## Solution
@@ -60,35 +61,34 @@ Language: **C++**
 ```C++
 class Solution {
 public:
+    int d_;
+
     int maxPossibleScore(vector<int>& start, int d) {
         sort(start.begin(), start.end());
         int n = start.size();
-        int l = start[0], r = start[n - 1] + d;
-        int tmp_res = (r - l) / (n - 1);
-        for (int i = 0; i < n - 1; i++) {
-            int left = start[i], right = start[i + 1] + d;
-            tmp_res = min(tmp_res, right - left);
-        }
-        for (int res = tmp_res; res >= 0; res--) {
-            int left = start[0];
-            bool found = true;
-            for (int i = 1; i < n; i++) {
-                int end = start[i] + d;
-                if (left + res > end) {
-                    found = false;
-                    break;
-                }
-                if (left + res <= start[i]) {
-                    left = start[i];
-                } else {
-                    left += res;
-                }
-            }
-            if (found) {
-                return res;
+        long max_range;
+        d_ = d;
+        int left = 0, right = (start[n - 1] + d - start[0]) / (n - 1) + 1;
+        while (left + 1 < right) {
+            int mid = (right - left) / 2 + left;
+            if (valid(mid, start)) {
+                left = mid;
+            } else {
+                right = mid;
             }
         }
-        return 0;
+        return left;
+    }
+
+    bool valid(int range, vector<int>& start) {
+        long pre = start[0];
+        for (int i = 1; i < start.size(); i++) {
+            if (pre + range > start[i] + d_) {
+                return false;
+            }
+            pre = max((long)start[i], pre + range);
+        }
+        return true;
     }
 };
 ```

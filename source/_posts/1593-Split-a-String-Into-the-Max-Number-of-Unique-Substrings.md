@@ -58,7 +58,7 @@ It is impossible to split the string any further.
 
 ## Hints/Notes
 
-- set
+- back tracking
 
 ## Solution
 

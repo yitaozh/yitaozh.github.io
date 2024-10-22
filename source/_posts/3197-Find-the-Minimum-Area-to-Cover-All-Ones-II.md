@@ -88,6 +88,7 @@ public:
         int res = INT_MAX;
         int m = grid.size(), n = grid[0].size();
         if (m >= 3) {
+            // 3 horizontal rectangle
             for (int i = 1; i < m; i++) {
                 for (int j = i + 1; j < m; j++) {
                     int area1 = minimumArea(grid, 0, i, 0, n);
@@ -100,6 +101,7 @@ public:
         if (m >= 2 && n >= 2) {
             for (int i = 1; i < m; i++) {
                 for (int j = 1; j < n; j++) {
+                    // one rectangle above, and 2 below
                     int area1 = minimumArea(grid, 0, i, 0, n);
                     int area2 = minimumArea(grid, i, m, 0, j);
                     int area3 = minimumArea(grid, i, m, j, n);
@@ -107,6 +109,7 @@ public:
                 }
 
                 for (int j = 1; j < n; j++) {
+                    // one rectangle below, and 2 above
                     int area1 = minimumArea(grid, i, m, 0, n);
                     int area2 = minimumArea(grid, 0, i, 0, j);
                     int area3 = minimumArea(grid, 0, i, j, n);

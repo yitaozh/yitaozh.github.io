@@ -126,7 +126,11 @@ public:
         for (int i = 1; i <= max_stages; i++) {
             // first, choose i stages from x stages
             long long cur = combinations[i];
+            // with i stages, there can be y_base score combinations
             cur = cur * y_base % MOD;
+            // finally, to put n people on i stages, and every stage
+            // must have at one people, there are s[i] combinations
+            // multiplied by fac[i] since stages are different
             cur = (cur * s[i] % MOD) * fac[i] % MOD;
             res = (res + cur) % MOD;
             y_base = y_base * y % MOD;

@@ -85,6 +85,7 @@ Explanation:
 ## Hints/Notes
 
 - array has better performance than vector, when accessing the same data block many times
+- state compression dp
 - Weekly Contest 414
 
 ## Solution

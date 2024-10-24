@@ -49,7 +49,7 @@ Explanation: The longest path of the tree is the path 3 - 2 - 1 - 4 - 5.
 
 ## Hints/Notes
 
-- N/A
+- binary tree, tree dp
 
 ## Solution
 
@@ -60,30 +60,24 @@ class Solution {
 public:
     int res = 0;
     vector<vector<int>> graph;
-    vector<bool> visited;
 
     int treeDiameter(vector<vector<int>>& edges) {
         if (edges.empty()) {
             return 0;
         }
         graph.resize(edges.size() + 1, vector<int>());
-        visited.resize(edges.size() + 1, false);
         build(edges);
-        traverse(0);
+        traverse(0, -1);
         return res;
     }
 
-    int traverse(int root) {
-        if (visited[root]) {
-            return -1;
-        }
-        visited[root] = true;
+    int traverse(int root, int prev) {
         int mx = 0, mx2 = 0;
         for (int u : graph[root]) {
-            if (visited[u]) {
+            if (u == prev) {
                 continue;
             }
-            int depth = traverse(u) + 1;
+            int depth = traverse(u, root) + 1;
             if (depth > mx) {
                 mx2 = mx;
                 mx = depth;

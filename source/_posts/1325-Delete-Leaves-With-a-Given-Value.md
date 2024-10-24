@@ -53,7 +53,7 @@ Explanation: Leaf nodes in green with value (target = 2) are removed at each ste
 
 ## Hints/Notes
 
-- N/A
+- binary tree
 
 ## Solution
 

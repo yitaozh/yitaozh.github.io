@@ -75,6 +75,7 @@ public:
         return res;
     }
 
+    // the return pair: the length of longest increasing/decreasing sequence at root
     pair<int, int> traverse(TreeNode* root) {
         if (!root) {
             return {0, 0};

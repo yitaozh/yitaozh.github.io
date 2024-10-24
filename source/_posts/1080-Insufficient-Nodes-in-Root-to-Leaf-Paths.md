@@ -53,7 +53,7 @@ Output: [1,null,-3,4]
 
 ## Hints/Notes
 
--
+- binary tree
 
 ## Solution
 

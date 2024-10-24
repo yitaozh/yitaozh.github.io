@@ -73,7 +73,7 @@ class Solution {
 public:
     // so, we need to pick nums[0], with another k - 1 numbers
     // the best choice is pick the minimum k - 1 numbers
-    // but we have the contraint that ik-1 - i1 <= dist
+    // but we have the constraint that ik-1 - i1 <= dist
     // i1 = len(subArray1), so ik-1 <= dist + len(subArray1)
     long long minimumCost(vector<int>& nums, int k, int dist) {
         long long cur = nums[0], res = LLONG_MAX;
@@ -95,7 +95,6 @@ public:
                     cur -= tmp;
                     mi.erase(it);
                     mx.insert(tmp);
-                    1
                 }
                 right++;
             }

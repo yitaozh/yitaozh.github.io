@@ -65,6 +65,7 @@ The substrings with every vowel and one consonant are:
 ## Hints/Notes
 
 - the **exactly** sliding window
+- translate exactly to (at least k + 1) - (at least k)
 - Weekly Contest 417
 
 ## Solution

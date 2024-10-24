@@ -47,7 +47,7 @@ Explanation: From the left child of the root, we move two coins to the root [tak
 
 ## Hints/Notes
 
-- N/A
+- binary tree
 
 ## Solution
 
@@ -83,6 +83,9 @@ public:
         int l = traverse(root->left);
         int r = traverse(root->right);
 
+        // try to understand this bottom up, so we return the excess
+        // coins back to parent, and rem here is the number of coins
+        // we need to transfer away
         int rem = l + r + root->val - 1;
         ans += abs(rem);
         return rem;

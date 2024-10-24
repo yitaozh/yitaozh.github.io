@@ -73,7 +73,7 @@ public:
     }
 
     // the meaning of the return value:
-    // 1. -1: the node doesn't exist, i.e. nullptr
+    // 1. -1: the node doesn't exist, or it's lit by its children
     // 2. 0: the node is leaf
     // 3. 1: the node has one camera
     int setCamera(TreeNode* root, bool hasParent, int depth) {

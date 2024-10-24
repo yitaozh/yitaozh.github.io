@@ -48,7 +48,7 @@ Explanation: Inserting 5 characters the string becomes "leetcodocteel".
 
 ## Hints/Notes
 
-- `dp[i][j]` remarks the number of changes needed to make i~j palindrome
+- digit dp
 
 ## Solution
 

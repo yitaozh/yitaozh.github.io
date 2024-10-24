@@ -63,6 +63,7 @@ We can obtain a tree of diameter 5 by connecting node 0 from the first tree with
 
 ## Hints/Notes
 
+- Tree dp
 - Weekly Contest 404
 
 ## Solution

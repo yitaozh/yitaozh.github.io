@@ -59,12 +59,9 @@ public:
         //  dp[i][j] = dp[i - 1][j] || dp[i - 1][j - nums[i]]
         // compress dimension:
         //  dp[i][j] only requires data from dp[i - 1][j] and dp[i - 1][j - nums[i]]
+        dp[0] = true;
         for (int i = 0; i < nums.size(); i++) {
             for (int j = sum / 2; j >= 0; j--) {
-                if (!j) {
-                    dp[j] = true;
-                    continue;
-                }
                 if (j >= nums[i]) {
                     dp[j] = dp[j] || dp[j - nums[i]];
                 }

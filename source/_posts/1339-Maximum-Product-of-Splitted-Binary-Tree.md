@@ -45,7 +45,7 @@ Explanation: Remove the red edge and get 2 binary trees with sum 15 and 6.Their 
 
 ## Hints/Notes
 
-- N/A
+- binary tree
 
 ## Solution
 

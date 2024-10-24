@@ -44,7 +44,7 @@ Explanation: The shown image shows that the longest path of the same value (i.e.
 
 ## Hints/Notes
 
-- N/A
+- binary tree
 
 ## Solution
 

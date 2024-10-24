@@ -81,6 +81,7 @@ Any path that does not go through the cell `(1, 1)` is unsafe since your health 
 ## Hints/Notes
 
 - BFS
+- Prioritize the safe cells
 - Biweekly Contest 139
 
 ## Solution

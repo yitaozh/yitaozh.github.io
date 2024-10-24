@@ -93,11 +93,10 @@ public:
         }
         long long res = 0;
         int arr2 = nums[index] - arr1;
-        for (int i = arr1; i <= nums[index + 1]; i++) {
-            if (nums[index + 1] - i <= arr2 && nums[index + 1] - i >= 0) {
-                res += traverse(index + 1, i, nums);
-                res %= 1000000007;
-            }
+        for (int i = max(arr1, nums[index + 1] - arr2); i <= nums[index + 1];
+            i++) {
+            res += traverse(index + 1, i, nums);
+            res %= 1000000007;
         }
         dp[index][arr1] = (int)res;
         return res;

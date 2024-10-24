@@ -56,6 +56,7 @@ Explanation:
 
 ## Hints/Notes
 
+- bit manipulation, lowbit of t = t & -t
 - Biweekly Contest 141
 
 ## Solution
@@ -66,28 +67,15 @@ Language: **C++**
 class Solution {
 public:
     vector<int> minBitwiseArray(vector<int>& nums) {
-        vector<int> powers;
-        int cur = 1;
-        for (int i = 0; i < 30; i++) {
-            powers.push_back(cur);
-            cur *= 2;
-        }
         vector<int> res;
         for (int num : nums) {
             if ((num & 1) == 0) {
                 res.push_back(-1);
-                continue;
+            } else {
+                int tmp = ~num;
+                tmp &= -tmp;
+                res.push_back(num ^ (tmp >> 1));
             }
-            int i = 0, rem = 1, tmp_num = num;
-            while (rem) {
-                rem = tmp_num % 2;
-                tmp_num /= 2;
-                if (!rem) {
-                    break;
-                }
-                i++;
-            }
-            res.push_back(powers[i - 1] - 1 + num / powers[i] * powers[i]);
         }
         return res;
     }

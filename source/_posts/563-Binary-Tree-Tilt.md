@@ -63,7 +63,7 @@ Output: 9
 
 ## Hints/Notes
 
-- N/A
+- binary tree
 
 ## Solution
 

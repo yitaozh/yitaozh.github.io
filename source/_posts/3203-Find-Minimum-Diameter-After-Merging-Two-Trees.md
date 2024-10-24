@@ -55,10 +55,10 @@ We can obtain a tree of diameter 5 by connecting node 0 from the first tree with
 - `edges1.length == n - 1`
 - `edges2.length == m - 1`
 - `edges1[i].length == edges2[i].length == 2`
-- `edges1[i] = [a<sub>i</sub>, b<sub>i</sub>]`
-- `0 <= a<sub>i</sub>, b<sub>i</sub> < n`
-- `edges2[i] = [u<sub>i</sub>, v<sub>i</sub>]`
-- `0 <= u<sub>i</sub>, v<sub>i</sub> < m`
+- edges1[i] = [a<sub>i</sub>, b<sub>i</sub>]
+- 0 <= a<sub>i</sub>, b<sub>i</sub> < n
+- edges2[i] = [u<sub>i</sub>, v<sub>i</sub>]
+- 0 <= u<sub>i</sub>, v<sub>i</sub> < m
 - The input is generated such that `edges1` and `edges2` represent valid trees.
 
 ## Hints/Notes
@@ -129,6 +129,59 @@ public:
             }
         }
         return d;
+    }
+};
+```
+
+Another approach: Tree DP
+
+```C++
+class Solution {
+public:
+    int res;
+
+    int minimumDiameterAfterMerge(vector<vector<int>>& edges1, vector<vector<int>>& edges2) {
+        int selfD1, selfD2;
+        int d1 = diameter(edges1);
+        int d2 = diameter(edges2);
+        // cout << d1 << " " << d2 << " " << endl;
+        return max((d1 + 1) / 2 + (d2 + 1) / 2 + 1, max(d1, d2));
+    }
+
+    int diameter(vector<vector<int>>& edges) {
+        if (edges.empty()) {
+            return 0;
+        }
+        int size = edges.size() + 1;
+        vector<vector<int>> tree(size, vector<int>());
+        for (auto edge : edges) {
+            int u = edge[0];
+            int v = edge[1];
+            tree[u].push_back(v);
+            tree[v].push_back(u);
+        }
+        res = 0;
+        dfs(0, -1, tree);
+        return res;
+    }
+
+
+
+    int dfs(int cur, int prev, vector<vector<int>>& tree) {
+        int mx1 = 0, mx2 = 0;
+        for (int v : tree[cur]) {
+            if (v != prev) {
+                int tmp = dfs(v, cur, tree);
+                if (tmp > mx1) {
+                    mx2 = mx1;
+                    mx1 = tmp;
+                } else if (tmp > mx2) {
+                    mx2 = tmp;
+                }
+            }
+        }
+        res = max(res, mx1 + mx2);
+        return max(mx1, mx2) + 1;
     }
 };
 ```

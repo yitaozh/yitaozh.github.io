@@ -113,12 +113,12 @@ public:
     }
 
     int dfs(int idx1, int idx2, set<int>& targets) {
-        // all pattern matched, no more deletion
+        // all pattern matched, all deletions afterwards can be applied
         if (idx2 == pattern_.size()) {
             auto it = targets.lower_bound(idx1);
             return distance(it, targets.end());
         }
-        // we cannot match the pattern, return INT_MIN as a sign of failure
+        // we cannot match the pattern, return -n as a sign of failure
         if (idx1 == source_.size()) {
             return -targets.size();
         }

@@ -71,6 +71,7 @@ Explanation:
 
 ## Hints/Notes
 
+- jigsaw puzzle
 - Weekly Contest 418
 
 ## Solution

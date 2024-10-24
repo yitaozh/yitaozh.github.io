@@ -125,9 +125,9 @@ public:
     }
 
     void cut(int u) {
-        visited[u] = true;
         for (int v : graph[u]) {
             if (!visited[v]) {
+                visited[v] = true;
                 q.push(v);
             }
         }

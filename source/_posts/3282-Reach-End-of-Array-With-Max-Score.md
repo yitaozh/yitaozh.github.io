@@ -50,6 +50,7 @@ Jump directly to the last index. The final score is `4 * 4 = 16`.
 
 ## Hints/Notes
 
+- Draw the metric, it's the sum of rectangles
 - Weekly Contest 414
 
 ## Solution

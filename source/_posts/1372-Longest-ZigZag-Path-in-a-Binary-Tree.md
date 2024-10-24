@@ -60,7 +60,7 @@ Output: 0
 
 ## Hints/Notes
 
-- N/A
+- binary tree
 
 ## Solution
 

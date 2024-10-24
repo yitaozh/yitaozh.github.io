@@ -75,9 +75,10 @@ public:
         int res = INT_MAX;
         if (s1[i] == s2[j]) {
             res = min(res, traverse(s1, s2, i + 1, j + 1));
+        } else {
+            res = min(res, s1[i] + traverse(s1, s2, i + 1, j));
+            res = min(res, s2[j] + traverse(s1, s2, i, j + 1));
         }
-        res = min(res, s1[i] + traverse(s1, s2, i + 1, j));
-        res = min(res, s2[j] + traverse(s1, s2, i, j + 1));
         dp[i][j] = res;
         return res;
     }

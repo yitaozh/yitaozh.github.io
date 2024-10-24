@@ -69,9 +69,9 @@ All methods are suspicious. We can remove them.
 - `1 <= n <= 10^5`
 - `0 <= k <= n - 1`
 - `0 <= invocations.length <= 2 * 10^5`
-- `invocations[i] == [a<sub>i</sub>, b<sub>i</sub>]`
-- `0 <= a<sub>i</sub>, b<sub>i</sub> <= n - 1`
-- `a<sub>i</sub> != b<sub>i</sub>`
+- invocations[i] == [a<sub>i</sub>, b<sub>i</sub>]
+- 0 <= a<sub>i</sub>, b<sub>i</sub> <= n - 1
+- a<sub>i</sub> != b<sub>i</sub>
 - `invocations[i] != invocations[j]`
 
 ## Hints/Notes
@@ -87,63 +87,40 @@ Language: **C++**
 class Solution {
 public:
     vector<vector<int>> graph;
-    vector<vector<int>> reverse;
-    vector<bool> visited;
-    vector<bool> visited2;
-    vector<int> degree;
+    set<int> suspicious;
     int k_;
 
     vector<int> remainingMethods(int n, int k,
                                  vector<vector<int>>& invocations) {
         k_ = k;
         graph.resize(n, vector<int>());
-        reverse.resize(n, vector<int>());
-        visited.resize(n, false);
-        visited2.resize(n, false);
-        degree.resize(n, 0);
         buildGraph(invocations);
         dfs(k);
-        for (int i = 0; i < n; i++) {
-            if (degree[i] > 0)
-                rdfs(i);
-        }
         vector<int> res;
         for (int i = 0; i < n; i++) {
-            if (degree[i] <= 0 && visited[i]) {
-                continue;
-            }
             res.push_back(i);
+        }
+        for (auto invocation : invocations) {
+            int from = invocation[0], to = invocation[1];
+            if (!suspicious.contains(from) && suspicious.contains(to)) {
+                return res;
+            }
+        }
+        res.clear();
+        for (int i = 0; i < n; i++) {
+            if (!suspicious.contains(i)) {
+                res.push_back(i);
+            }
         }
         return res;
     }
 
-    void rdfs(int u) {
-        if (visited2[u]) {
-            return;
-        }
-        visited2[u] = true;
-        for (int v : reverse[u]) {
-            if (degree[v] <= 0) {
-                degree[v]++;
-                rdfs(v);
-            }
-        }
-        for (int v : graph[u]) {
-            if (degree[v] <= 0) {
-                degree[v]++;
-                rdfs(v);
-            }
-        }
-    }
-
     void dfs(int u) {
-        if (visited[u]) {
-            return;
-        }
-        visited[u] = true;
+        suspicious.insert(u);
         for (int v : graph[u]) {
-            degree[v]--;
-            dfs(v);
+            if (!suspicious.contains(v)) {
+                dfs(v);
+            }
         }
     }
 
@@ -151,8 +128,6 @@ public:
         for (auto invocation : invocations) {
             int from = invocation[0], to = invocation[1];
             graph[from].push_back(to);
-            reverse[to].push_back(from);
-            degree[to]++;
         }
     }
 };

@@ -46,7 +46,7 @@ Output: 1.00000
 
 ## Hints/Notes
 
-- N/A
+- binary tree
 
 ## Solution
 

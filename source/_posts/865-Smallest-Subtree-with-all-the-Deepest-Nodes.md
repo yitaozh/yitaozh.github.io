@@ -60,7 +60,7 @@ Explanation: The deepest node in the tree is 2, the valid subtrees are the subtr
 
 ## Hints/Notes
 
-- N/A
+- binary tree
 
 ## Solution
 

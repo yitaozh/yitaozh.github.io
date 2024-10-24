@@ -83,6 +83,8 @@ public:
         while (!pq.empty()) {
             int tmp = pq.top();
             pq.pop();
+            // if the next height limit is less than current height limit(curH)
+            // then we decrease the curH to it
             if (tmp <= curH) {
                 curH = tmp;
             }

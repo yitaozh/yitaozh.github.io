@@ -74,13 +74,6 @@ public:
     // F vs. E: F win
     // W vs. F: w win
     // E vs. W: E win
-    // the problem means, besides the draw games,
-    // bob wins more times than alice, considering the number of draw
-    // if 0 draw: total match n,
-    //  the number of win: 1 -> n / 2 + 1, nC1 + nC2 + ... + nC(n/2 + 1)
-    //  the problem here is: bob cannot summon the same creation consecutively
-    //  so how to filter out those combinations
-    // if 1 draw: total match n - 1, we need to assign the draw nC1
     int n_, MOD;
     string s_;
     vector<vector<array<int, 3>>> dp;

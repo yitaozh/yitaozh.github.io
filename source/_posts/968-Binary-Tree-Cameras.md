@@ -44,7 +44,7 @@ Explanation: At least two cameras are needed to monitor all nodes of the tree. T
 
 ## Hints/Notes
 
-- N/A
+- binary tree
 
 ## Solution
 

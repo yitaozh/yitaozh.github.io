@@ -111,6 +111,13 @@ public:
         for (int i = 1; i <= maxVal; i++) {
             preSum.push_back(preSum.back() + gcd_count[i]);
         }
+        // for the second example, the gcd_count looks like
+        // 0, 3, 2, 0, 1
+        // the preSum looks like
+        // 0, 1, 2, 3, 4
+        // 0, 3, 5, 5, 6
+        // for queries [5,3,1,0]
+        // we are finding the right most value that can suit the need
         vector<int> res;
         for (auto q : queries) {
             int l = 0, r = preSum.size();

@@ -43,7 +43,7 @@ Explanation: The node with value 7 isn't as far left as possible.
 
 ## Hints/Notes
 
-- N/A
+- binary tree
 
 ## Solution
 

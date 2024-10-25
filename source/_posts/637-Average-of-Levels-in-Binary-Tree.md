@@ -42,7 +42,7 @@ Output: [3.00000,14.50000,11.00000]
 
 ## Hints/Notes
 
-- N/A
+- binary tree
 
 ## Solution
 

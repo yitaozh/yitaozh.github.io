@@ -58,7 +58,7 @@ Explanation: The maximum width exists in the second level with length 2 (3,2).
 
 ## Hints/Notes
 
-- N/A
+- binary tree
 
 ## Solution
 

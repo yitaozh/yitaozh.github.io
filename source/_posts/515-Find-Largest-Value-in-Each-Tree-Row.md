@@ -37,7 +37,7 @@ Output: [1,3]
 
 ## Hints/Notes
 
-- N/A
+- binary tree
 
 ## Solution
 

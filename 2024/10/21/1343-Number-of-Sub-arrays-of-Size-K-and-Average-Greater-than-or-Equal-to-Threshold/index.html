@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yitaozh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12,"author":"Echo Joy"},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="1343. Number of Sub-arrays of Size K and Average Greater than or Equal to ThresholdDescriptionGiven an array of integers arr and two integers k and threshold, return the number of sub-arrays of size k">
+    <meta name="description" content="1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold DescriptionGiven an array of integers arr and two integers k and threshold, return the number of sub-arrays of size">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold">
 <meta property="og:url" content="https://yitaozh.github.io/2024/10/21/1343-Number-of-Sub-arrays-of-Size-K-and-Average-Greater-than-or-Equal-to-Threshold/index.html">
 <meta property="og:site_name" content="Echo&#39;s Home">
-<meta property="og:description" content="1343. Number of Sub-arrays of Size K and Average Greater than or Equal to ThresholdDescriptionGiven an array of integers arr and two integers k and threshold, return the number of sub-arrays of size k">
+<meta property="og:description" content="1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold DescriptionGiven an array of integers arr and two integers k and threshold, return the number of sub-arrays of size">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-10-21T17:55:13.000Z">
-<meta property="article:modified_time" content="2024-10-25T18:38:12.289Z">
+<meta property="article:modified_time" content="2024-10-25T18:39:06.852Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="Array">
 <meta property="article:tag" content="Sliding Window">
@@ -140,7 +140,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1343-Number-of-Sub-arrays-of-Size-K-and-Average-Greater-than-or-Equal-to-Threshold"><span class="nav-number">1.</span> <span class="nav-text">1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hints-Notes"><span class="nav-number">1.2.</span> <span class="nav-text">Hints&#x2F;Notes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">1.3.</span> <span class="nav-text">Solution</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hints-Notes"><span class="nav-number">2.</span> <span class="nav-text">Hints&#x2F;Notes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">3.</span> <span class="nav-text">Solution</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -247,7 +247,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-10-25 18:38:12" itemprop="dateModified" datetime="2024-10-25T18:38:12+00:00">2024-10-25</time>
+      <time title="Modified: 2024-10-25 18:39:06" itemprop="dateModified" datetime="2024-10-25T18:39:06+00:00">2024-10-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -268,7 +268,8 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="1343-Number-of-Sub-arrays-of-Size-K-and-Average-Greater-than-or-Equal-to-Threshold"><a href="#1343-Number-of-Sub-arrays-of-Size-K-and-Average-Greater-than-or-Equal-to-Threshold" class="headerlink" title="1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/description/">1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an array of integers <code>arr</code> and two integers <code>k</code> and <code>threshold</code>, return the number of sub-arrays of size <code>k</code> and average greater than or equal to <code>threshold</code>.</p>
+    <div class="post-body" itemprop="articleBody"><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/description/">1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an array of integers <code>arr</code> and two integers <code>k</code> and <code>threshold</code>, return the number of sub-arrays of size <code>k</code> and average greater than or equal to <code>threshold</code>.</p>
 <p><strong>Example 1:</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: arr = [2,2,2,2,5,5,5,8], k = 3, threshold = 4</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: Sub-arrays [2,5,5],[5,5,5] and [5,5,8] have averages 4, 5 and 6 respectively. All other sub-arrays of size 3 have averages less than 4 (the threshold).</span><br></pre></td></tr></table></figure>
 

@@ -65,6 +65,7 @@ Explanation:
 
 ## Hints/Notes
 
+- draw the grid
 - Biweekly Contest 136
 
 ## Solution

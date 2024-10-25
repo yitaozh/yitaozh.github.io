@@ -67,6 +67,7 @@ Output: 684
 
 ## Hints/Notes
 
+- Stirling number of the second kind
 - Biweekly Contest 141
 
 ## Solution

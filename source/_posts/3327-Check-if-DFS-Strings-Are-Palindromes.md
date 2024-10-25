@@ -124,18 +124,12 @@ public:
             }
             halfLen[i] = len;
         }
-        // cout << manacher << endl;
-        // for (int i = 0; i < halfLen.size(); i++) {
-        //     cout << halfLen[i] << " ";
-        // }
-        // cout << endl;
         vector<bool> res(n);
         for (int i = 0; i < n; i++) {
             auto duo = ranges[i];
             int l = duo.first * 2 + 2;
             int r = duo.second * 2 + 2;
-            // cout << i << ": " << duo.first << " " << duo.second << endl;
-            res[i] = halfLen[(l + r) / 2] > duo.second - duo.first;
+            res[i] = halfLen[(l + r) / 2] > (r - l) / 2;
         }
         return res;
     }

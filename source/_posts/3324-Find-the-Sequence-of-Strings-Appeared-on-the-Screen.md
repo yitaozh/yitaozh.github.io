@@ -69,13 +69,10 @@ public:
         vector<string> res;
         string cur;
         for (char c : target) {
-            string tmp;
             for (char d = 'a'; d <= c; d++) {
-                tmp = cur;
-                tmp += d;
-                res.push_back(tmp);
+                res.push_back(cur + d);
             }
-            cur = tmp;
+            cur.push_back(c);
         }
         return res;
     }

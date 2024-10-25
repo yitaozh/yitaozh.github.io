@@ -62,6 +62,7 @@ Bob can beat Alice by making one of the following sequences of moves: `"FWFWF"`,
 ## Hints/Notes
 
 - dp
+- the array<int, n> stl must be initialized explicitly
 - Weekly Contest 419
 
 ## Solution

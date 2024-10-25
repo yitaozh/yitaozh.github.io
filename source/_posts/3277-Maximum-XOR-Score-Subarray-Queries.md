@@ -56,8 +56,8 @@ Explanation:
 - `0 <= nums[i] <= 2^31 - 1`
 - `1 <= q == queries.length <= 10^5`
 - `queries[i].length == 2`
-- `queries[i] = [l<sub>i</sub>, r<sub>i</sub>]`
-- `0 <= l<sub>i</sub> <= r<sub>i</sub> <= n - 1`
+- queries[i] = [l<sub>i</sub>, r<sub>i</sub>]
+- 0 <= l<sub>i</sub> <= r<sub>i</sub> <= n - 1
 
 ## Hints/Notes
 

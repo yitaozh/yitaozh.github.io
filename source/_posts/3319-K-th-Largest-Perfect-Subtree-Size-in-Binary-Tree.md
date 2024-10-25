@@ -109,11 +109,7 @@ public:
 
     int traverse(TreeNode* root) {
         if (!root) {
-            return -1;
-        }
-        if (!root->left && !root->right) {
-            pq.push(1);
-            return 1;
+            return 0;
         }
         int left = traverse(root->left);
         int right = traverse(root->right);

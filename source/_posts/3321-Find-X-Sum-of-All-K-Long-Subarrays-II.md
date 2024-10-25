@@ -61,6 +61,7 @@ Since `k == x`, `answer[i]` is equal to the sum of the subarray `nums[i..i + k -
 ## Hints/Notes
 
 - sliding window with 2 sorted lists
+- pair in cpp can be compared
 
 ## Solution
 
@@ -69,23 +70,24 @@ Language: **C++**
 ```C++
 class Solution {
 public:
-    // we need a mapping here
     vector<long long> findXSum(vector<int>& nums, int k, int x) {
-        set<pair<long long, long long>> mx, mi;
-        unordered_map<long long, long long> m;
+        set<pair<int, long long>> mx, mi;
+        unordered_map<int, int> m;
         vector<long long> res;
         int n = nums.size(), left = 0, right = 0;
         long long cur = 0;
         for (int i = 0; i <= n - k; i++) {
-            pair<long long, long long> p;
+            pair<int, long long> p;
             while (right < i + k) {
                 int r = nums[right];
                 if (m[r] > 0) {
                     p = make_pair(m[r], r);
                     if (mx.contains(p)) {
                         cur -= p.first * p.second;
+                        mx.erase(p);
+                    } else {
+                        mi.erase(p);
                     }
-                    mx.erase(p); mi.erase(p);
                     p.first++;
                 } else {
                     p = make_pair(1, r);
@@ -102,13 +104,6 @@ public:
                 mi.insert(p);
                 cur -= p.first * p.second;
             }
-            // cout << "From " << i << " to " << i + k - 1 << endl;
-            // for (auto it = mx.begin(); it != mx.end(); it++) {
-            //     cout << it->first << " " << it->second << endl;
-            // }
-            // for (auto it = mi.begin(); it != mi.end(); it++) {
-            //     cout << it->first << " " << it->second << endl;
-            // }
             res.push_back(cur);
             int l = nums[i];
             p = make_pair(m[l], l);
@@ -123,7 +118,7 @@ public:
             if (m[l] > 0) {
                 mi.insert(p);
             }
-            while (mx.size() < x && !mi.empty()) {
+            if (mx.size() < x && !mi.empty()) {
                 auto it = prev(mi.end());
                 p = *it;
                 mi.erase(it);

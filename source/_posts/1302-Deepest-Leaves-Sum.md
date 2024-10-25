@@ -38,7 +38,7 @@ Output: 19
 
 ## Hints/Notes
 
-- N/A
+- binary tree
 
 ## Solution
 

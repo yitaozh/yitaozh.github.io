@@ -66,7 +66,7 @@ Explanation: Node values in the level 1 should be even integers.
 
 ## Hints/Notes
 
-- N/A
+- binary tree
 
 ## Solution
 

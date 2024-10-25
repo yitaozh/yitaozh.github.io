@@ -54,7 +54,7 @@ cBTInserter.get_root(); // return [1, 2, 3, 4]
 
 ## Hints/Notes
 
-- N/A
+- binary tree
 
 ## Solution
 

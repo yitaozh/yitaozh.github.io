@@ -71,6 +71,7 @@ All nodes except node 9 are good.
 
 ## Hints/Notes
 
+- binary tree
 - Weekly Contest 410
 
 ## Solution

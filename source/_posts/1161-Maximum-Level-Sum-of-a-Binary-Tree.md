@@ -45,7 +45,7 @@ Output: 2
 
 ## Hints/Notes
 
-- N/A
+- binary tree
 
 ## Solution
 

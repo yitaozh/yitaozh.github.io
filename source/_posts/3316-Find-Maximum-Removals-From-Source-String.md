@@ -119,6 +119,7 @@ public:
             return distance(it, targets.end());
         }
         // we cannot match the pattern, return -n as a sign of failure
+        // any value larger or equal to target size works here
         if (idx1 == source_.size()) {
             return -targets.size();
         }

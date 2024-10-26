@@ -20,7 +20,8 @@ When writing the new doc, all items from the old doc should be copied, the ones 
 
 ## Retro
 
-- I think the planning works great, I should always have planning for every hour. Working on one thing longer than one hour is detrimental to efficiency, the planning cannot be more than 1 hour.
+- I think the planning works great, I should always have planning for every hour.
+- Working on one thing longer than one hour is detrimental to efficiency. So, the planning cannot be more than 1 hour and work and learning should be intervaled.
 
 ## My current concerns
 

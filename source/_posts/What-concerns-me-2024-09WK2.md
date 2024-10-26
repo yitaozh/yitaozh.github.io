@@ -1,5 +1,6 @@
 ---
 title: What concerns me? 2024/09WK2
+date: 2024-09-09 18:15:25
 tags: Personal
 hidden: true
 ---

@@ -52,7 +52,7 @@ Output: [1]
 
 ## Hints/Notes
 
-- N/A
+- dfs
 
 ## Solution
 

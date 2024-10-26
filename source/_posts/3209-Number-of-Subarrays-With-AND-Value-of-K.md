@@ -37,7 +37,7 @@ Output: 3
 
 Explanation:
 
-Subarrays having an `AND` value of 1 are: `[**1** ,1,2]`, `[1,**1** ,2]`, `[**1,1** ,2]`.
+Subarrays having an `AND` value of 1 are: [**1** ,1,2], [1,**1** ,2], [**1,1** ,2].
 
 **Example 3:**
 
@@ -49,7 +49,7 @@ Output: 2
 
 Explanation:
 
-Subarrays having an `AND` value of 2 are: `[1,<b>2</b>,3]`, `[1,**2,3** ]`.
+Subarrays having an `AND` value of 2 are: [1,<b>2</b>,3], [1,**2,3** ].
 
 **Constraints:**
 

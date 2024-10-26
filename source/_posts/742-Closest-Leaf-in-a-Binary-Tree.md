@@ -56,7 +56,7 @@ Explanation: The leaf node with value 3 (and not the leaf node with value 6) is 
 
 ## Hints/Notes
 
-- N/A
+- binary tree
 
 ## Solution
 

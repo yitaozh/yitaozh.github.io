@@ -80,6 +80,7 @@ Explanation:
 
 ## Hints/Notes
 
+- sliding window
 - Biweekly Contest 134
 
 ## Solution

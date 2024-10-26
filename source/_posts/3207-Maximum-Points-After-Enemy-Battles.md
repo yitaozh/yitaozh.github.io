@@ -69,6 +69,7 @@ Performing the first operation 5 times on enemy 0 results in the maximum number 
 
 ## Hints/Notes
 
+- Greedy
 - Biweekly Contest 134
 
 ## Solution

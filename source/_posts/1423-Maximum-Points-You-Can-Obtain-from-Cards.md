@@ -62,13 +62,11 @@ Language: **C++**
 class Solution {
 public:
     int maxScore(vector<int>& cardPoints, int k) {
-        int res = 0, cur = 0, right = 0, n = cardPoints.size();
+        int res = 0, cur = 0, n = cardPoints.size(), right = n - k;
         while (right < n + k) {
             cur += cardPoints[right % n];
-            if (right >= k - 1) {
-                if (right >= n - 1) {
-                    res = max(res, cur);
-                }
+            if (right >= n - 1) {
+                res = max(res, cur);
                 cur -= cardPoints[(right - k + 1) % n];
             }
             right++;

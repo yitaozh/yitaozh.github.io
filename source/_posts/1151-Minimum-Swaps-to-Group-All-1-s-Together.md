@@ -7,11 +7,11 @@ tags:
     - Sliding Window
 ---
 
-[1151. Minimu Swaps to Group All 1's Together](https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together/description/)
+[1151. Minimum Swaps to Group All 1's Together](https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together/description/)
 
 ## Description
 
-Given abinary array `data`, returnthe minimum number of swaps required to group all `1`’s present in the array together in **any place**  in the array.
+Given a binary array `data`, return the minimum number of swaps required to group all `1`’s present in the array together in **any place**  in the array.
 
 **Example 1:**
 

@@ -76,6 +76,7 @@ class Solution {
 public:
     // the meaning of dp[i][j]: when we are handling the ith digit
     // (also n - 1 - i), with remainder = j, can we form the number successfully
+    // why we can use this dp state? because only the digit and reminder matter, not what we have filled in
     vector<vector<int>> dp;
     vector<int> div;
     int n_, k_, h_;

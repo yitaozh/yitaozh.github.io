@@ -85,7 +85,7 @@ public:
         k--;
         int count = 0;
         // 64 - __builtin_clz(k) is the number of bits of k,
-        // if k < 2^m, we don't need to care about operations [m, n)
+        // if k < 2^m, we don't need to care about operations [2^m, n)
         // if k == 0, we still need one iteration, while __builtin_clz() doesn't accept 0
         n = k ? min(64 - __builtin_clz(k), n) : 1;
         while (n > 0) {

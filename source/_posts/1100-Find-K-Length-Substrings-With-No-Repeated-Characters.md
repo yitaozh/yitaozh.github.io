@@ -48,22 +48,19 @@ Language: **C++**
 class Solution {
 public:
     int numKLenSubstrNoRepeats(string s, int k) {
-        int n = s.size(), right = 0, repeated = 0, res = 0;
+        int n = s.size(), right = 0, res = 0;
         unordered_map<int, int> m;
         while (right < n) {
             char c = s[right];
             m[c]++;
-            if (m[c] == 2) {
-                repeated++;
-            }
             if (right >= k - 1) {
-                if (!repeated) {
+                if (m.size() == k) {
                     res++;
                 }
                 char l = s[right - k + 1];
                 m[l]--;
-                if (m[l] == 1) {
-                    repeated--;
+                if (m[l] == 0) {
+                    m.erase(l);
                 }
             }
             right++;

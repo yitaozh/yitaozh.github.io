@@ -50,7 +50,7 @@ Output: [-4,2,6,3,1,5,7]
 
 ## Hints/Notes
 
-- N/A
+- binary tree
 
 ## Solution
 

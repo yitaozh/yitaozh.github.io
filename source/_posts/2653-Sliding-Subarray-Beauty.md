@@ -48,7 +48,7 @@ For `[-4, -5]`, the 2^nd smallest negative integer is -4.
 ```bash
 Input: nums = [-3,1,2,-3,0,-3], k = 2, x = 1
 Output: [-3,0,-3,-3,-3]
-Explanation: There are 5 subarrays with size k = 2**.**
+Explanation: There are 5 subarrays with size k = 2.
 For `[-3, 1]`, the 1^st smallest negative integer is -3.
 For `[1, 2]`, there is no negative integer so the beauty is 0.
 For `[2, -3]`, the 1^st smallest negative integer is -3.
@@ -66,7 +66,7 @@ For `[0, -3]`, the 1^st smallest negative integer is -3.
 
 ## Hints/Notes
 
-- sliding window
+- sliding window with 2 sets
 
 ## Solution
 

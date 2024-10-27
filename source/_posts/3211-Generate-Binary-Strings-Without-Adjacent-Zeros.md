@@ -48,7 +48,7 @@ The valid strings of length 1 are: `"0"` and `"1"`.
 
 ## Hints/Notes
 
-- dp
+- dfs
 - Weekly Contest 405
 
 ## Solution
@@ -64,24 +64,26 @@ public:
     vector<string> validStrings(int n) {
         n_ = n;
         string cur;
-        traverse(0, true, cur);
+        traverse(0, cur);
         return res;
     }
 
-    void traverse(int index, int prevOne, string& cur) {
+    void traverse(int index, string& cur) {
         if (index == n_) {
             res.push_back(cur);
             return;
         }
 
+        bool prevOne = !index || cur[index - 1] == '1';
+
         if (prevOne) {
             cur += "0";
-            traverse(index + 1, false, cur);
+            traverse(index + 1, cur);
             cur.pop_back();
         }
 
         cur += "1";
-        traverse(index + 1, true, cur);
+        traverse(index + 1, cur);
         cur.pop_back();
     }
 };

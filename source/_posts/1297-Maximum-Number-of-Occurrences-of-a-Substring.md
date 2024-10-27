@@ -44,6 +44,7 @@ Explanation: Substring "aaa" occur 2 times in the string. It can overlap.
 ## Hints/Notes
 
 - sliding window
+- because every larger subString must contains smaller subString, we should only care about the subStrings with minSize
 
 ## Solution
 

@@ -15,6 +15,8 @@ Use the first and second week to submit reimbursements, do the bookkeeping on th
 #### Excel processing
 
 1. Dump the record from Mint to nyuzyt/Personal file/Transactions cvs file
+    * post credit karma's acquisition of mint, use [creditkarma_export_transactions](https://github.com/mmrobins/creditkarma_export_transactions) to download the transactions. Read the instruction.
+    * remove the previous record files first
 1. Insert a line in overall sheet prior to the previous record, then `insert the copied cells`
 1. Copy the cvs tables content, without the header
 1. Create a new sheet for this month alone

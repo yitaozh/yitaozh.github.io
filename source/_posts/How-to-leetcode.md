@@ -99,6 +99,43 @@ String algorithms:
 * Z algorithm is to calculate the longest common prefix.
 * Manacher is to calculate the longest palindrome at each index.
 
+String hash template:
+
+```C++
+class Solution {
+public:
+    struct HashObj {
+        const int MOD = 1'070'777'777;
+        vector<__int128> P, H;
+        template<typename Container> HashObj(Container &s, const int BASE) {
+            int n = s.size();
+            P.resize(n + 1); H.resize(n + 1);
+            P[0] = 1; H[0] = 0;
+            for (int i = 1; i <= n; i++) {
+                P[i] = P[i - 1] * BASE % MOD;
+            }
+            // hash(s) = s[0] * base^(n-1) + s[1] * base^(n-2) + ... + s[n-2] * base + s[n-1]
+            for (int i = 1; i <= n; i++) {
+                H[i] = (H[i - 1] * BASE + s[i - 1]) % MOD;
+            }
+        }
+
+        long long query(int l, int r) {
+            if (l > r) return 0;
+            return (H[r + 1] - H[l] * P[r - l + 1] % MOD + MOD) % MOD;
+        }
+    };
+
+    int main(string target) {
+        mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+        const int BASE = uniform_int_distribution<>(8e8, 9e8)(rng);
+        HashObj t(target, BASE);
+        ...
+        return 0;
+    }
+}
+```
+
 ### C++ template
 
 For online GDB

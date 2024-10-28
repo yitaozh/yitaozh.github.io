@@ -91,6 +91,14 @@ find source/_posts/ -name "[0-9]*" |  xargs grep -L "Hints"
 find source/_posts/ -name "[0-9]*" | xargs grep -A 1 "tags" | grep -e "---"
 ```
 
+### Notes
+
+String algorithms:
+
+* KMP is to calculate the prefix array, it can be used to calculated the occurrence of pattern in text
+* Z algorithm is to calculate the longest common prefix.
+* Manacher is to calculate the longest palindrome at each index.
+
 ### C++ template
 
 For online GDB

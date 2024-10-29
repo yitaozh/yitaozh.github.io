@@ -45,20 +45,11 @@ Output: false
 
 * Sliding window
 
-```C++
-class Solution {
-public:
-    bool checkInclusion(string s1, string s2) {
-        return false;
-    }
-}
-```
-
 ### Details
 
 * Compile a map to record needing characters first
 * Sliding window, use a map to record in window characters, use a variable(valid) to record
-number of characters satisfy the occurance requirement
+number of characters satisfy the occurrence requirement
 
 ## Solution
 

@@ -81,6 +81,7 @@ public:
                 // if cur_head != next_head, then no need to change cur
                 if (cur_head == next_head) {
                     cur = n - 1 - cur;
+                    // I forget this step the first time
                     prev ^= 1;
                 }
             }

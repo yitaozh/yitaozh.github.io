@@ -45,7 +45,7 @@ Output: [3,2,null,1]
 
 ## Hints/Notes
 
-- N/A
+- binary search tree
 
 ## Solution
 

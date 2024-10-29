@@ -45,7 +45,7 @@ Explanation: There is no in-order successor of the current node, so the answer i
 
 ## Hints/Notes
 
-- N/A
+- binary search tree
 
 ## Solution
 

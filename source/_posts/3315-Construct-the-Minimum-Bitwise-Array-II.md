@@ -56,6 +56,7 @@ Explanation:
 
 ## Hints/Notes
 
+- find the rightmost 0's index, make the 1 at its right to 0
 - bit manipulation, lowbit of t = t & -t
 - Biweekly Contest 141
 

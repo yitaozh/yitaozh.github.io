@@ -44,7 +44,7 @@ Explanation: 2 cannot be in the right subtree of 3 because 2 < 3. Swapping 2 and
 
 ## Hints/Notes
 
-- first offending value and last offending value
+- the two pointers can be set in the same round(together)
 
 ## Solution
 

@@ -57,7 +57,9 @@ Explanation: There is no in-order successor of the current node, so the answer i
 
 ## Hints/Notes
 
-- N/A
+- binary search tree
+- if the node has right children, then it's the leftmost node of the right children
+- otherwise, it's the node's first parent, which has the node as left branch
 
 ## Solution
 

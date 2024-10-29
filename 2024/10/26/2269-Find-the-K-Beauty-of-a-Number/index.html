@@ -27,7 +27,7 @@
 <meta property="og:description" content="2269. Find the K-Beauty of a Number DescriptionThe k-beauty  of an integer num is defined as the number of substrings  of num when it is read as a string that meet the following conditions:">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-10-26T21:03:45.000Z">
-<meta property="article:modified_time" content="2024-10-29T02:29:05.629Z">
+<meta property="article:modified_time" content="2024-10-29T02:34:39.831Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="String">
 <meta property="article:tag" content="Sliding Window">
@@ -248,7 +248,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-10-29 02:29:05" itemprop="dateModified" datetime="2024-10-29T02:29:05+00:00">2024-10-29</time>
+      <time title="Modified: 2024-10-29 02:34:39" itemprop="dateModified" datetime="2024-10-29T02:34:39+00:00">2024-10-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -283,11 +283,24 @@
 </ul>
 <p>A <strong>substring</strong>  is a contiguous sequence of characters in a string.</p>
 <p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input: num = 240, k = 2</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: The following are the substrings of num of length k:</span><br><span class="line">- <span class="string">&quot;24&quot;</span> from <span class="string">&quot;**24** 0&quot;</span>: 24 is a divisor of 240.</span><br><span class="line">- <span class="string">&quot;40&quot;</span> from <span class="string">&quot;2**40** &quot;</span>: 40 is a divisor of 240.</span><br><span class="line">Therefore, the k-beauty is 2.</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: num = 240, k = 2</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
 
+<p>Explanation: The following are the substrings of num of length k:</p>
+<ul>
+<li>“24” from “<strong>24</strong> 0”: 24 is a divisor of 240.</li>
+<li>“40” from “2 <strong>40</strong> “: 40 is a divisor of 240.<br>Therefore, the k-beauty is 2.</li>
+</ul>
 <p><strong>Example 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Input: num = 430043, k = 2</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: The following are the substrings of num of length k:</span><br><span class="line">- &quot;43&quot; from &quot;**43** 0043&quot;: 43 is a divisor of 430043.</span><br><span class="line">- &quot;30&quot; from &quot;4**30** 043&quot;: 30 is not a divisor of 430043.</span><br><span class="line">- &quot;00&quot; from &quot;43**00** 43&quot;: 0 is not a divisor of 430043.</span><br><span class="line">- &quot;04&quot; from &quot;430**04** 3&quot;: 4 is not a divisor of 430043.</span><br><span class="line">- &quot;43&quot; from &quot;4300**43** &quot;: 43 is a divisor of 430043.</span><br><span class="line">Therefore, the k-beauty is 2.</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: num = 430043, k = 2</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
 
+<p>Explanation: The following are the substrings of num of length k:</p>
+<ul>
+<li>“43” from “ <strong>43</strong> 0043”: 43 is a divisor of 430043.</li>
+<li>“30” from “4 <strong>30</strong> 043”: 30 is not a divisor of 430043.</li>
+<li>“00” from “43 <strong>00</strong> 43”: 0 is not a divisor of 430043.</li>
+<li>“04” from “430 <strong>04</strong> 3”: 4 is not a divisor of 430043.</li>
+<li>“43” from “4300 <strong>43</strong> “: 43 is a divisor of 430043.<br>Therefore, the k-beauty is 2.</li>
+</ul>
 <p><strong>Constraints:</strong></p>
 <ul>
 <li><code>1 &lt;= num &lt;= 10^9</code></li>

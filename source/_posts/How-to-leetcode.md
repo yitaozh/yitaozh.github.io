@@ -99,6 +99,20 @@ String algorithms:
 * Z algorithm is to calculate the longest common prefix.
 * Manacher is to calculate the longest palindrome at each index.
 
+How to iterate a map(C++20)
+
+```C++
+for (auto& (k, v)) {
+
+}
+```
+
+sort(C++20)
+
+```C++
+ranges::sort(nums)
+```
+
 String hash template:
 
 ```C++

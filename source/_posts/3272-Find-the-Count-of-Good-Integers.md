@@ -75,6 +75,48 @@ Output: 2468
 
 Language: **C++**
 
+cleaner solution with string
+
+```C++
+class Solution {
+public:
+    long long countGoodIntegers(int n, int k) {
+        vector<int> fac = {1};
+        for (int i = 1; i <= n; i++) {
+            int prev = fac.back();
+            fac.push_back(prev * i);
+        }
+        int start = (int)pow(10, (n - 1) / 2);
+        unordered_set<string> visited;
+        long long res = 0;
+        for (int i = start; i < start * 10; i++) {
+            string s = to_string(i);
+            s += string(s.rbegin() + n % 2, s.rend());
+            if (stol(s) % k) {
+                continue;
+            }
+            ranges::sort(s);
+            if (visited.contains(s)) {
+                continue;
+            }
+            visited.insert(s);
+            int count[10] = {0};
+            for (int j = 0; j < s.size(); j++) {
+                count[s[j] - '0']++;
+            }
+            // at this time, we are sure that this number is palindromic
+            // now we want to know how many combinations we can get
+            int num = (n - count[0]) * fac[n - 1];
+            for (int j = 0; j < 10; j++) {
+                num /= fac[count[j]];
+            }
+            res += num;
+        }
+        return res;
+    }
+};
+```
+
 ```C++
 class Solution {
 public:

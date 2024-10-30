@@ -42,7 +42,7 @@ Output: [[1],[]]
 
 ## Hints/Notes
 
-- N/A
+- binary search tree
 
 ## Solution
 

@@ -62,7 +62,7 @@ To use proxy for other programs, we need to launch a gost client on the machine.
         ```bash
         Host github.com
             Hostname github.com
-            ProxyCommand nc -x localhost:1085 %h %p
+            ProxyCommand nc -x localhost:1080 %h %p
         ```
 
 ### 3.3 IOS

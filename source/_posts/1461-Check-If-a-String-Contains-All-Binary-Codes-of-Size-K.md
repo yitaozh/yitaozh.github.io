@@ -3,6 +3,11 @@ title: 1461. Check If a String Contains All Binary Codes of Size K
 categories: Leetcode
 date: 2024-10-24 23:51:13
 tags:
+    - Hash Table
+    - String
+    - Bit Manipulation
+    - Rolling Hash
+    - Hash Function
 ---
 
 [1461. Check If a String Contains All Binary Codes of Size K](https://leetcode.com/problems/check-if-a-string-contains-all-binary-codes-of-size-k/description/)
@@ -54,17 +59,16 @@ class Solution {
 public:
     bool hasAllCodes(string s, int k) {
         unordered_set<int> nums;
-        int n = s.size();
-        int left = n - 1, cur = 0, digits = 0;
-        while (left >= 0) {
-            cur += (s[left] - '0') << digits;
-            digits++;
-            if (digits >= k) {
+        int n = s.size(), numbits = sizeof(int);
+        int right = 0, cur = 0, digits = 0;
+        while (right < n) {
+            cur += s[right] - '0';
+            if (right >= k - 1) {
                 nums.insert(cur);
-                cur >>= 1;
-                digits--;
+                cur &= (1 << k - 1) - 1;
             }
-            left--;
+            cur <<= 1;
+            right++;
         }
         return nums.size() == (2 << k - 1);
     }

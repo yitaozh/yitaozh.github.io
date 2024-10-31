@@ -53,6 +53,7 @@ We return 0 because no subarrays meet the conditions.
 ## Hints/Notes
 
 - sliding window
+- [0x3F's solution](https://leetcode.cn/problems/maximum-sum-of-distinct-subarrays-with-length-k/solutions/1951940/hua-dong-chuang-kou-by-endlesscheng-m0gm/), the same
 
 ## Solution
 

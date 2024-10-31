@@ -51,6 +51,7 @@ Explanation: The complete substrings where each character appears exactly three 
 
 - sliding window
 - iterate over the number of characters
+- [0x3F's solution](https://leetcode.cn/problems/count-complete-substrings/solutions/2551743/bao-li-hua-chuang-mei-ju-chuang-kou-nei-31j5m/)
 
 ## Solution
 

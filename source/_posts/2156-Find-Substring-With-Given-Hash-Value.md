@@ -67,10 +67,9 @@ class Solution {
 public:
     string subStrHash(string s, int power, int modulo, int k, int hashValue) {
         int n = s.size();
-        vector<long> pow(k);
-        pow[0]= 1;
+        long pow= 1;
         for (int i = 1; i < k; i++) {
-            pow[i] = pow[i - 1] * power % modulo;
+            pow = pow * power % modulo;
         }
         int left = n - 1;
         long cur = 0;
@@ -82,7 +81,7 @@ public:
                     res = s.substr(left, k);
                 }
                 int r = s[left + k - 1] - 'a' + 1;
-                cur = ((cur - r * pow[k - 1]) % modulo + modulo) % modulo;
+                cur = ((cur - r * pow) % modulo + modulo) % modulo;
             }
             left--;
         }

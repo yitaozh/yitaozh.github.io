@@ -52,7 +52,8 @@ Output: [1,1,0,1,1,null,1]
 
 ## Hints/Notes
 
-- N/A
+- binary tree
+- No solution from 0x3F
 
 ## Solution
 

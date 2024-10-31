@@ -62,6 +62,7 @@ Since `k == x`, `answer[i]` is equal to the sum of the subarray `nums[i..i + k -
 
 - sliding window with 2 sorted lists
 - pair in cpp can be compared
+- [0x3F's solution](https://leetcode.cn/problems/find-x-sum-of-all-k-long-subarrays-ii/solutions/2948867/liang-ge-you-xu-ji-he-wei-hu-qian-x-da-p-2rcz/)
 
 ## Solution
 

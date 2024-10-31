@@ -59,6 +59,7 @@ There are 3 unique flavors, so return 3.
 ## Hints/Notes
 
 - sliding window
+- premium
 
 ## Solution
 

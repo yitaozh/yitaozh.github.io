@@ -66,10 +66,36 @@ Explanation:
 
 - priority queue
 - Weekly Contest 413
+- [0x3F's solution](https://leetcode.cn/problems/k-th-nearest-obstacle-queries/solutions/2900061/zui-da-dui-wei-hu-qian-k-xiao-pythonjava-h15x/)
 
 ## Solution
 
 Language: **C++**
+
+faster approach
+
+```C++
+class Solution {
+public:
+    vector<int> resultsArray(vector<vector<int>>& queries, int k) {
+        priority_queue<int> pq;
+        int n = queries.size();
+        vector<int> res(n, -1);
+        for (int i = 0; i < n; i++) {
+            auto& q = queries[i];
+            int x = abs(q[0]), y = abs(q[1]);
+            pq.push(x + y);
+            if (pq.size() > k) {
+                pq.pop();
+            }
+            if (pq.size() == k) {
+                res[i] = pq.top();
+            }
+        }
+        return res;
+    }
+};
+```
 
 ```C++
 class Solution {

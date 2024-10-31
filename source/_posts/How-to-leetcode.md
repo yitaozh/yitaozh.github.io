@@ -99,6 +99,11 @@ String algorithms:
 * Z algorithm is to calculate the longest common prefix.
 * Manacher is to calculate the longest palindrome at each index.
 
+General notes
+
+* reference is much faster due to no copy and initialization
+* initialize the array if possible
+
 How to iterate a map(C++20)
 
 ```C++

@@ -68,6 +68,81 @@ Since `k == x`, `answer[i]` is equal to the sum of the subarray `nums[i..i + k -
 
 Language: **C++**
 
+Cleaner solution with lambda functions
+
+```C++
+class Solution {
+public:
+    vector<long long> findXSum(vector<int>& nums, int k, int x) {
+        using pii = pair<int, int>;
+        set<pii> mx, mi;
+        unordered_map<int, int> m;
+        vector<long long> res;
+        int n = nums.size(), left = 0, right = 0;
+        long long cur = 0;
+        auto add = [&](int x) {
+            pii p = {m[x], x};
+            if (!p.first) {
+                return;
+            }
+            if (!mx.empty() && p > *mx.begin()) {
+                cur += (long long)p.first * p.second;
+                mx.insert(p);
+            } else {
+                mi.insert(p);
+            }
+        };
+        auto del = [&](int x) {
+            pii p = {m[x], x};
+            if (!p.first) {
+                return;
+            }
+            if (mx.contains(p)) {
+                cur -= (long long)p.first * p.second;
+                mx.erase(p);
+            } else {
+                mi.erase(p);
+            }
+        };
+        auto mx2mi = [&] {
+            auto p = *mx.begin();
+            cur -= (long long)p.first * p.second;
+            mx.erase(p);
+            mi.insert(p);
+        };
+        auto mi2mx = [&] {
+            auto p = *mi.rbegin();
+            cur += (long long)p.first * p.second;
+            mx.insert(p);
+            mi.erase(p);
+        };
+        for (int i = 0; i < n; i++) {
+            int r = nums[i];
+            del(r);
+            m[r]++;
+            add(r);
+
+            int left = i - k + 1;
+            if (left < 0) {
+                continue;
+            }
+            while (mx.size() > x) {
+                mx2mi();
+            }
+            while (!mi.empty() && mx.size() < x) {
+                mi2mx();
+            }
+            res.push_back(cur);
+            int l = nums[left];
+            del(l);
+            m[l]--;
+            add(l);
+        }
+        return res;
+    }
+};
+```
+
 ```C++
 class Solution {
 public:

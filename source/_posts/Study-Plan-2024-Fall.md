@@ -22,10 +22,21 @@ What I want to achieve in the 6 weeks?
 
 ## The current progress
 
+* I have 2 contests to record
+* I have 4 contests to work on
+
+### The overall plan
+
+1. Work on one contest per day, starting from Nov 19. Finish all the contest by this Friday
+2. Review 2 days daily
+3. Start working on MIT 6.824 from this Sunday
+
+### Previous(Oct 19th)
+
 * I have 3 more contest to review
 * I can do one contest per day, with 6 reviews per day
 
-## The overall plan
+#### The overall plan
 
 1. Work on leetcode contests, then Meta questions
 2. Work on MIT 6.824, one unit per day
@@ -40,16 +51,16 @@ What I want to achieve in the 6 weeks?
 * I think the maximum capacity is to review 6 days per day, which gives me 10 days to catch up.
 * Then at the same time, do 6 new problems every day
 
-## The overall plan
+#### The overall plan
 
-### 9/19 ~ 9/28(10 days):
+**9/19 ~ 9/28(10 days):**
 
 Weekday: 6 new problems + 6 days review
 Weekend: 6 days review + work on previous contest
 
 If there's spare time, work on the website implementation
 
-### 9/28 ~ 10/29(31 days):
+**9/28 ~ 10/29(31 days):**
 
 Work on MIT 6.824
 

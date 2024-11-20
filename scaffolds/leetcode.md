@@ -13,7 +13,7 @@ First, paste here
 
 ## Hints/Notes
 
-- 20XX/XX/XX
+- 2024/XX/XX
 - [0x3F's solution]
 
 ## Solution

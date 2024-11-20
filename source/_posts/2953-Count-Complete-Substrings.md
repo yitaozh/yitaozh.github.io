@@ -49,13 +49,62 @@ Explanation: The complete substrings where each character appears exactly three 
 
 ## Hints/Notes
 
+- 2024/10/29
 - sliding window
 - iterate over the number of characters
+- use string_view to avoid copy
 - [0x3F's solution](https://leetcode.cn/problems/count-complete-substrings/solutions/2551743/bao-li-hua-chuang-mei-ju-chuang-kou-nei-31j5m/)
 
 ## Solution
 
 Language: **C++**
+
+Group Round Robin Algorithm
+
+```C++
+class Solution {
+public:
+    int countCompleteSubstrings(string word, int k) {
+        int n = word.size();
+        int res = 0;
+        string_view w(word);
+        for (int i = 0; i < n; ) {
+            int start = i;
+            for (i++; i < n && abs(w[i] - w[i - 1]) <= 2; i++) {}
+            res += countSub(w.substr(start, i - start), k);
+        }
+        return res;
+    }
+
+    int countSub(string_view s, int k) {
+        int n = s.size();
+        int res = 0;
+        for (int i = 1; i <= 26 && i * k <= n; i++) {
+            int right = 0, valid = 0;
+            int count[26] = {0};
+            while (right < n) {
+                int r = s[right] - 'a';
+                count[r]++;
+                if (count[r] == k) {
+                    valid++;
+                }
+                if (right >= i * k - 1) {
+                    if (valid == i) {
+                        res++;
+                    }
+                    int l = s[right - i * k + 1] - 'a';
+                    if (count[l] == k) {
+                        valid--;
+                    }
+                    count[l]--;
+                }
+                right++;
+            }
+        }
+        return res;
+    }
+};
+```
 
 ```C++
 class Solution {

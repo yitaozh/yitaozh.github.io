@@ -66,6 +66,8 @@ Biweekly Contest 135 t4: 3225 3100
 
 Weekly Contest 409 t4: 3245 3100 pre-requisite: BIT
 
+Biweekly Contest 143 t3: 3348 3200
+
 ### The problems pending rewrite
 
 LC 3187
@@ -107,7 +109,7 @@ General notes
 How to iterate a map(C++20)
 
 ```C++
-for (auto& (k, v)) {
+for (auto&[k, v] : m) {
 
 }
 ```

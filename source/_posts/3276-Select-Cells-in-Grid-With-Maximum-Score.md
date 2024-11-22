@@ -61,11 +61,66 @@ We can select the cells with values 7 and 8 that are colored above.
 ## Hints/Notes
 
 - state compression dp
+- bit manipulation
+- [0x3F's solution](https://leetcode.cn/problems/select-cells-in-grid-with-maximum-score/solution/zhi-yu-zhuang-ya-dppythonjavacgo-by-endl-x27y/)(checked, didn't check iteration since recursion works better)
 - Weekly Contest 413
 
 ## Solution
 
 Language: **C++**
+
+Better approach with bit manipulation:
+
+```C++
+class Solution {
+public:
+    // the meaning of dp[i][j]:
+    //  with maxVal of i, and we can choose from the rows
+    //  not marked by j, what's the maximum value we can get
+    vector<vector<int>> dp;
+    vector<int> nums;
+    map<int, int> valToRow;
+
+    int maxScore(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                int x = grid[i][j];
+                valToRow[x] |= 1 << i;
+            }
+        }
+        for (auto&[num, _] : valToRow) {
+            nums.push_back(num);
+        }
+        ranges::sort(nums);
+        int size = nums.size();
+        dp.resize(size, vector<int>(2 << m, -1));
+        int res = dfs(size - 1, 0);
+        return res;
+    }
+
+    int dfs(int idx, int k) {
+        if (idx < 0) {
+            return 0;
+        }
+        if (dp[idx][k] != -1) {
+            return dp[idx][k];
+        }
+        int res = 0, x = nums[idx];
+        for (int i = valToRow[x], bit; i; i ^= bit) {
+            bit = i & -i;
+            if (!(k & bit)) {
+                res = max(res, dfs(idx - 1, k | bit) + x);
+            }
+        }
+        if (!res) {
+            res = dfs(idx - 1, k);
+        }
+        dp[idx][k] = res;
+        return res;
+    }
+};
+```
 
 ```C++
 class Solution {

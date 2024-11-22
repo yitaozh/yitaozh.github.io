@@ -59,6 +59,7 @@ Thus, the minimum number of swaps required is 0.
 ## Hints/Notes
 
 - sliding window
+- No solution from 0x3F
 
 ## Solution
 

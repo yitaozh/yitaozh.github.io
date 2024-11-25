@@ -120,7 +120,9 @@ sort(C++20)
 ranges::sort(nums)
 ```
 
-String hash template:
+### Templates:
+
+String hash:
 
 ```C++
 class Solution {
@@ -156,6 +158,14 @@ public:
     }
 }
 ```
+
+BIT/Fenwick tree:
+
+Check LC 307
+
+Segment tree:
+
+Check lc 3187
 
 ### C++ template
 

@@ -57,8 +57,11 @@ After the 1^st query, `nums = [-5,-1]` and the maximum sum of a subsequence with
 
 ## Hints/Notes
 
-- Weekly Contest 399
+- 2024/03/02
 - Segment Tree
+- if a problem can be solved with divide and conquer, then the modified version to change value can be solved with segment tree
+- [0x3F's solution](https://leetcode.cn/problems/maximum-sum-of-subsequence-with-non-adjacent-elements/solution/fen-zhi-si-xiang-xian-duan-shu-pythonjav-xnhz/)
+- Weekly Contest 399
 
 ## Solution
 
@@ -67,6 +70,11 @@ Language: **C++**
 ```C++
 class Solution {
 public:
+    // the 4 values in the array:
+    //  1. max if don't use first and last element
+    //  2. max if don't use the first element, but use the last element
+    //  3. max if use the first element, but don't use the last element
+    //  4. max if use both the first and last element
     vector<array<unsigned, 4>> t;
 
     int maximumSumSubsequence(vector<int>& nums, vector<vector<int>>& queries) {
@@ -107,7 +115,7 @@ public:
     }
 
     void maintain(int o) {
-        auto &a = t[o * 2], b = t[o * 2 + 1];
+        auto &a = t[o * 2], &b = t[o * 2 + 1];
         t[o] = {
             // 0: 00, 1: 01
             // 2: 10, 3: 11

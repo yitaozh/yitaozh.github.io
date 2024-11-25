@@ -56,6 +56,8 @@ Initially, `comp = ""`. Apply the operation 3 times, choosing `"aaaaaaaaa"`, `"a
 
 ## Hints/Notes
 
+- 2024/02/29
+- [0x3F's solution](https://leetcode.cn/problems/string-compression-iii/solutions/2790666/mo-ni-pythonjavacgo-by-endlesscheng-3hk7/)
 - Weekly Contest 399
 
 ## Solution

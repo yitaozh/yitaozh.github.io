@@ -48,6 +48,8 @@ The 2 good pairs are `(3, 0)` and `(3, 1)`.
 
 ## Hints/Notes
 
+- 2024/03/01
+- [0x3F's solution](https://leetcode.cn/problems/find-the-number-of-good-pairs-ii/solutions/2790631/tong-ji-yin-zi-ge-shu-pythonjavacgo-by-e-bl3o/)
 - Weekly Contest 399
 
 ## Solution

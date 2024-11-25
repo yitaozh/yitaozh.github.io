@@ -57,6 +57,8 @@ The maximum possible damage of 13 is produced by casting spells 1, 2, 3 with dam
 
 ## Hints/Notes
 
+- 2024/04/16
+- [0x3F's solution](https://leetcode.cn/problems/maximum-total-damage-with-spell-casting/solution/tao-lu-da-jia-jie-she-pythonjavacgo-by-e-p9b5/)
 - Weekly Contest 402
 
 ## Solution

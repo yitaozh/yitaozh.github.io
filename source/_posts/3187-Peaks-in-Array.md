@@ -69,7 +69,10 @@ Third query: The second 4 is a peak in the `[4,1,4,2,1]`.
 
 ## Hints/Notes
 
+- 2024/04/17
 - segment tree
+- Binary index tree(Fenwick tree)
+- [0x3F's solution](https://leetcode.cn/problems/peaks-in-array/solution/shu-zhuang-shu-zu-pythonjavacgo-by-endle-tj0w/)
 - Weekly Contest 402
 
 ## Solution

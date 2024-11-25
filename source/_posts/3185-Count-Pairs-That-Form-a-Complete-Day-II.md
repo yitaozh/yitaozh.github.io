@@ -45,6 +45,8 @@ Explanation: The pairs of indices that form a complete day are `(0, 1)`, `(0, 2)
 
 ## Hints/Notes
 
+- 2024/04/15
+- [0x3F's solution](https://leetcode.cn/problems/count-pairs-that-form-a-complete-day-ii/solution/tao-lu-mei-ju-you-wei-hu-zuo-pythonjavac-3vhv/)
 - Weekly Contest 402
 
 ## Solution

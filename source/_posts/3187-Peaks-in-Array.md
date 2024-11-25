@@ -72,12 +72,84 @@ Third query: The second 4 is a peak in the `[4,1,4,2,1]`.
 - 2024/04/17
 - segment tree
 - Binary index tree(Fenwick tree)
-- [0x3F's solution](https://leetcode.cn/problems/peaks-in-array/solution/shu-zhuang-shu-zu-pythonjavacgo-by-endle-tj0w/)
+- [0x3F's solution](https://leetcode.cn/problems/peaks-in-array/solution/shu-zhuang-shu-zu-pythonjavacgo-by-endle-tj0w/)(checked)
 - Weekly Contest 402
 
 ## Solution
 
 Language: **C++**
+
+Fenwick tree solution:
+
+```C++
+class Solution {
+public:
+    struct Fenwick {
+        vector<int> f;
+
+        Fenwick(int n) : f(n) {
+
+        }
+
+        void update(int i, int val) {
+            for (; i < f.size(); i += i & -i) {
+                f[i] += val;
+            }
+        }
+
+        int pre(int i) {
+            int sum = 0;
+            for (; i > 0; i -= i & -i) {
+                sum += f[i];
+            }
+            return sum;
+        }
+
+        int rangeSum(int l, int r) {
+            if (l >= r) {
+                return 0;
+            }
+            // because the first and last element of the subarray cannot be a peak as well
+            // so the preSum can only reduce l + 1(so l isn't counted) from r(which is the element prior to r)
+            return pre(r) - pre(l + 1);
+        }
+    };
+
+    vector<int> countOfPeaks(vector<int>& nums, vector<vector<int>>& queries) {
+        int n = nums.size();
+        Fenwick f(n + 1);
+        auto update = [&](int i, int val) {
+            if (i <= 0 || i >= n - 1) {
+                return;
+            }
+            if (nums[i] > nums[i - 1] && nums[i] > nums[i + 1]) {
+                f.update(i + 1, val);
+            }
+        };
+        for (int i = 0; i < n; i++) {
+            update(i, 1);
+        }
+        vector<int> res;
+        for (auto q : queries) {
+            int type = q[0];
+            if (type == 1) {
+                int l = q[1], r = q[2];
+                res.push_back(f.rangeSum(l, r));
+            } else {
+                int idx = q[1], val = q[2];
+                for (int i = idx - 1; i <= idx + 1; i++) {
+                    update(i, -1);
+                }
+                nums[idx] = val;
+                for (int i = idx - 1; i <= idx + 1; i++) {
+                    update(i, 1);
+                }
+            }
+        }
+        return res;
+    }
+};
+```
 
 ```C++
 class Solution {

@@ -70,7 +70,6 @@ Biweekly Contest 143 t3: 3348 3200
 
 ### The problems pending rewrite
 
-LC 3187
 CF 1237D
 
 ### The problems not recorded
@@ -171,7 +170,7 @@ Check LC 307
 
 Segment tree:
 
-Check lc 3187
+Check lc 3165
 
 ### C++ template
 

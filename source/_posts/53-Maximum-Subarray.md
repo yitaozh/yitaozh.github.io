@@ -48,6 +48,7 @@ Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
 ## Hints/Notes
 
 - sliding window
+- segment tree
 
 ## Solution
 
@@ -66,6 +67,42 @@ public:
             }
         }
         return res;
+    }
+};
+```
+
+Segment tree:
+
+```C++
+class Solution {
+public:
+    vector<array<int, 4>> t;
+
+    int maxSubArray(vector<int>& nums) {
+        int n = nums.size();
+        t.resize(2 << (32 - __builtin_clz(n)));
+        build(nums, 1, 0, n - 1);
+        int res = t[1][0];
+        return res;
+    }
+
+    void build(vector<int>& nums, int o, int l, int r) {
+        if (l == r) {
+            t[o][0] = t[o][1] = t[o][2] = t[o][3] = nums[l];
+            return;
+        }
+        int m = (l + r) / 2;
+        build(nums, o * 2, l, m);
+        build(nums, o * 2 + 1, m + 1, r);
+        maintain(nums, o, l, r);
+    }
+
+    void maintain(vector<int>& nums, int o, int l, int r) {
+        auto &o1 = t[o * 2], &o2 = t[o * 2 + 1];
+        t[o][0] = max(o1[1] + o2[2], max(o1[0], o2[0]));
+        t[o][1] = max(o1[1] + o2[3], o2[1]);
+        t[o][2] = max(o1[3] + o2[2], o1[2]);
+        t[o][3] = o1[3] + o2[3];
     }
 };
 ```

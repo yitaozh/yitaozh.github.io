@@ -49,7 +49,7 @@ The 2 good pairs are `(3, 0)` and `(3, 1)`.
 ## Hints/Notes
 
 - 2024/03/01
-- [0x3F's solution](https://leetcode.cn/problems/find-the-number-of-good-pairs-ii/solutions/2790631/tong-ji-yin-zi-ge-shu-pythonjavacgo-by-e-bl3o/)
+- [0x3F's solution](https://leetcode.cn/problems/find-the-number-of-good-pairs-ii/solutions/2790631/tong-ji-yin-zi-ge-shu-pythonjavacgo-by-e-bl3o/)(checked)
 - Weekly Contest 399
 
 ## Solution
@@ -60,36 +60,31 @@ Language: **C++**
 class Solution {
 public:
     long long numberOfPairs(vector<int>& nums1, vector<int>& nums2, int k) {
-        vector<int> candidates;
-        unordered_map<int, int> m;
-        unordered_map<int, int> nums2map;
-        for (int i = 0; i < nums1.size(); i++) {
-            if (nums1[i] % k == 0) {
-                candidates.push_back(nums1[i] / k);
-                m[nums1[i] / k]++;
+        // since nums1[i] needs to be divisible by k, just divide the nums1 by k and record
+        // the numbers in candidates
+        unordered_map<int, int> m1, m2;
+        for (auto& num1 : nums1) {
+            if (num1 % k == 0) {
+                m1[num1 / k]++;
             }
         }
-        sort(candidates.begin(), candidates.end());
-        sort(nums2.begin(), nums2.end());
+        if (m1.empty()) {
+            return 0;
+        }
+        for (auto& num2 : nums2) {
+            m2[num2]++;
+        }
+        int mx = ranges::max_element(m1)->first;
         long long res = 0;
-        if (candidates.empty()) {
-            return res;
-        }
-        for (int num2 : nums2) {
-            if (nums2map.contains(num2)) {
-                res += nums2map[num2];
-                continue;
-            }
-            long index = 1;
-            int cur = 0;
-            while (index * num2 <= candidates.back()) {
-                if (m.contains(index * num2)) {
-                    res += m[index * num2];
-                    cur += m[index * num2];
+        for (auto& [num2, count] : m2) {
+            long long cur = 0;
+            for (int i = 1; i * num2 <= mx; i++) {
+                int val = i * num2;
+                if (m1.contains(val)) {
+                    cur += m1[val];
                 }
-                index++;
             }
-            nums2map[num2] = cur;
+            res += cur * count;
         }
         return res;
     }

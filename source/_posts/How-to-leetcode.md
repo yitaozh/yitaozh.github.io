@@ -120,6 +120,12 @@ sort(C++20)
 ranges::sort(nums)
 ```
 
+get max element(C++20)
+
+```C++
+ranges::max_element(vector/map)
+```
+
 ### Templates:
 
 String hash:

@@ -15,6 +15,7 @@ First, paste here
 
 - 2024/XX/XX
 - [0x3F's solution]
+- Weekly/Biweekly Contest XXX
 
 ## Solution
 

@@ -48,7 +48,7 @@ Explanation: Inserting 5 characters the string becomes "leetcodocteel".
 
 ## Hints/Notes
 
-- digit dp
+- range dp
 
 ## Solution
 

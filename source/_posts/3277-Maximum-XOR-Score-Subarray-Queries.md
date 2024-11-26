@@ -61,7 +61,7 @@ Explanation:
 
 ## Hints/Notes
 
-- digit dp
+- range dp
 - [0x3F's solution](https://leetcode.cn/problems/maximum-xor-score-subarray-queries/solution/qu-jian-dp-tao-qu-jian-dppythonjavacgo-b-w4be/)
 - Weekly Contest 413
 

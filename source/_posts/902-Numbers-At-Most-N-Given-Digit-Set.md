@@ -91,8 +91,8 @@ public:
         }
         int res = isNum ? 0 : dfs(index + 1, false, false);
         int up = isLimit ? s[index] - '0' : 9;
-        // if we start from 0 here when isNum is false, we are taking
-        // 0 as a value answer
+        // num can have leading zeroes but cannot have zero between
+        // use isNum to capture this
         for (auto& d : st){
             if (d > up) {
                 break;

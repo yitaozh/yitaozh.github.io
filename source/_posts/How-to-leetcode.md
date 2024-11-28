@@ -164,13 +164,11 @@ public:
 }
 ```
 
-BIT/Fenwick tree:
+BIT/Fenwick tree: LC 307
 
-Check LC 307
+Segment tree: lc 3165
 
-Segment tree:
-
-Check lc 3165
+Digit dp: lc 2376
 
 ### C++ template
 

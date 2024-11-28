@@ -6,7 +6,7 @@ tags:
     - Dynamic Programming
 ---
 
-# [600. Non-negative Integers without Consecutive Ones](https://leetcode.com/problems/non-negative-integers-without-consecutive-ones/description/)
+[600. Non-negative Integers without Consecutive Ones](https://leetcode.com/problems/non-negative-integers-without-consecutive-ones/description/)
 
 ## Description
 
@@ -77,6 +77,8 @@ public:
         if (!isLimit && dp[index][prev] != -1) {
             return dp[index][prev];
         }
+        // if there's other constraint on the digit, only modify the for loop
+        // condition, don't modify up here
         int up = isLimit ? n_ >> (m - index) & 1 : 1;
         int res = 0;
         for (int i = 0; i <= up; i++) {

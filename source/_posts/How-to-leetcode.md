@@ -170,6 +170,8 @@ Segment tree: lc 3165
 
 Digit dp: lc 2376
 
+Digit dp with lower bound and is_num: 1067
+
 ### C++ template
 
 For online GDB

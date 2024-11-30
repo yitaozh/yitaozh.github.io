@@ -60,7 +60,7 @@ public:
         if (index == s.size()) {
             return 1;
         }
-        if (dp[index][mask] != -1) {
+        if (is_num && dp[index][mask] != -1) {
             return dp[index][mask];
         }
         int res = is_num ? 0 : dfs(index + 1, mask, false);
@@ -69,7 +69,9 @@ public:
                 res += dfs(index + 1, mask | (1 << i), true);
             }
         }
-        dp[index][mask] = res;
+        if (is_num) {
+            dp[index][mask] = res;
+        }
         return res;
     }
 };

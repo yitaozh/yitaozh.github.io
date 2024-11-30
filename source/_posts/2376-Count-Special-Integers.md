@@ -67,24 +67,24 @@ public:
         return res;
     }
 
-    int dfs(int index, int mask, bool isLimit, bool isNum) {
+    int dfs(int index, int mask, bool isLimit, bool is_num) {
         if (index == s.size()) {
-            return isNum;
+            return is_num;
         }
-        if (!isLimit && isNum && dp[index][mask] != -1) {
+        if (!isLimit && is_num && dp[index][mask] != -1) {
             return dp[index][mask];
         }
-        int res = isNum ? 0 : dfs(index + 1, mask, false, false);
+        int res = is_num ? 0 : dfs(index + 1, mask, false, false);
         int up = isLimit ? s[index] - '0' : 9;
         // if we start from 0 here when isNum is false, we are taking
         // 0 as a value answer
-        for (int i = 1 - isNum; i <= up; i++) {
+        for (int i = 1 - is_num; i <= up; i++) {
             if ((mask >> i & 1) == 0) {
                 res += dfs(index + 1, mask | (1 << i), isLimit && i == up, true);
             }
         }
         // check status during read and write memo both
-        if (!isLimit && isNum) {
+        if (!isLimit && is_num) {
             dp[index][mask] = res;
         }
         return res;

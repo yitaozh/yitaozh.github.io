@@ -73,7 +73,7 @@ There are no possible valid selections.
 - 2024/11/27
 - preSum
 - [0x3F's solution](https://leetcode.cn/problems/make-array-elements-equal-to-zero/solutions/2991515/on-qian-hou-zhui-fen-jie-jian-ji-xie-fa-an2kt/)
-- Weekly/Biweekly Contest 424
+- Weekly Contest 424
 
 ## Solution
 

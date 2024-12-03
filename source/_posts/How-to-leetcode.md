@@ -68,6 +68,8 @@ Weekly Contest 409 t4: 3245 3100 pre-requisite: BIT
 
 Biweekly Contest 143 t3: 3348 3200
 
+Weekly Contest 424 t4: 3357 3000
+
 ### The problems pending rewrite
 
 CF 1237D

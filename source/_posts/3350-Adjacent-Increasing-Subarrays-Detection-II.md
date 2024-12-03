@@ -56,8 +56,8 @@ Explanation:
 ## Hints/Notes
 
 - 2024/11/24
-- [0x3F's solution](https://leetcode.cn/problems/adjacent-increasing-subarrays-detection-ii/solutions/2983500/on-yi-ci-bian-li-jian-ji-xie-fa-pythonja-ye0a/)
-- Weekly/Biweekly Contest 423
+- [0x3F's solution](https://leetcode.cn/problems/adjacent-increasing-subarrays-detection-ii/solutions/2983500/on-yi-ci-bian-li-jian-ji-xie-fa-pythonja-ye0a/)(checked)
+- Weekly Contest 423
 
 ## Solution
 

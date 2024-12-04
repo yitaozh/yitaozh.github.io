@@ -70,7 +70,7 @@ The following changes will happen at the same time:
 
 - 2024/10/31
 - Use array as map is faster
-- [0x3F's solution](https://leetcode.cn/problems/find-subtree-sizes-after-changes/solution/liang-ci-dfszi-ding-xiang-xia-zi-di-xian-k4zj/)
+- [0x3F's solution](https://leetcode.cn/problems/find-subtree-sizes-after-changes/solution/liang-ci-dfszi-ding-xiang-xia-zi-di-xian-k4zj/)(checked)
 - Biweekly Contest 142
 
 ## Solution
@@ -82,45 +82,31 @@ class Solution {
 public:
     vector<unordered_set<int>> tree;
     array<int, 26> m;
-    string s_;
     vector<int> res;
 
     vector<int> findSubtreeSizes(vector<int>& parent, string s) {
-        int n = s.size(); s_ = s;
-        for (int i = 0; i < 26; i++) {
-            m[i] = -1;
-        }
+        int n = s.size();
+        fill(m.begin(), m.end(), -1);
         tree.resize(n);
         res.resize(n, 0);
-        buildTree(parent);
-        dfs(0, parent);
+        for (int i = 1; i < n; i++) {
+            int p = parent[i];
+            tree[p].insert(i);
+        }
+        dfs(0, parent, s);
         return res;
     }
 
-    int dfs(int idx, vector<int>& parent) {
-        int c = s_[idx] - 'a', prev = m[c];
+    void dfs(int idx, vector<int>& parent, string& s) {
+        int c = s[idx] - 'a', prev = m[c];
         m[c] = idx;
-        int sum = 1;
+        res[idx] += 1;
         for (int child : tree[idx]) {
-            sum += dfs(child, parent);
+            dfs(child, parent, s);
+            int anc = m[s[child] - 'a'];
+            res[anc < 0 ? idx : anc] += res[child];
         }
-        res[idx] += sum;
         m[c] = prev;
-        if (prev != -1) {
-            res[prev] += res[idx];
-            return 0;
-        }
-        return res[idx];
-    }
-
-    void buildTree(vector<int>& parent) {
-        int n = parent.size();
-        for (int i = 0; i < parent.size(); i++) {
-            if (parent[i] != -1)  {
-                int p = parent[i];
-                tree[p].insert(i);
-            }
-        }
     }
 };
 ```

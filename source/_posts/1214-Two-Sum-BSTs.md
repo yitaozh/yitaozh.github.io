@@ -44,7 +44,8 @@ Output: false
 
 ## Hints/Notes
 
-- N/A
+- first get the sorted array, then 2sum
+- premium
 
 ## Solution
 

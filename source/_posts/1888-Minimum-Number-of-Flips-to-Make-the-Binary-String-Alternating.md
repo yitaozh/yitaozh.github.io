@@ -57,6 +57,7 @@ Explanation: Use the second operation on the second element to make s = "1010".
 ## Hints/Notes
 
 - sliding window
+- [0x3F's solution](https://leetcode.cn/problems/minimum-number-of-flips-to-make-the-binary-string-alternating/solutions/815298/cong-qian-wang-hou-pi-pei-cong-hou-wang-uiq6a/)(didn't understand)
 
 ## Solution
 

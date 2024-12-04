@@ -62,7 +62,7 @@ Explanation:
 ## Hints/Notes
 
 - range dp
-- [0x3F's solution](https://leetcode.cn/problems/maximum-xor-score-subarray-queries/solution/qu-jian-dp-tao-qu-jian-dppythonjavacgo-b-w4be/)
+- [0x3F's solution](https://leetcode.cn/problems/maximum-xor-score-subarray-queries/solution/qu-jian-dp-tao-qu-jian-dppythonjavacgo-b-w4be/)(checked)
 - Weekly Contest 413
 
 ## Solution
@@ -72,15 +72,17 @@ Language: **C++**
 ```C++
 class Solution {
 public:
-    // the meaning of dp[i][j]: the maximum xor score of all subarrays between [i, j]
+    // the meaning of dp[i][j]: the maximum xor score of all subarrays between
+    // [i, j]
     vector<vector<int>> dp;
-    // the meaning of score[i][j]: the value of xor score of subarray [i, i + 1, ..., j]
-    // the state transition:
+    // the meaning of score[i][j]: the value of xor score of subarray [i, i + 1,
+    // ..., j] the state transition:
     //  score[i][j] = score[i + 1][j] ^ score[i][j - 1]
     //  to calculate (i, j), we need larger i and smaller j
     vector<vector<int>> score;
 
-    vector<int> maximumSubarrayXor(vector<int>& nums, vector<vector<int>>& queries) {
+    vector<int> maximumSubarrayXor(vector<int>& nums,
+                                   vector<vector<int>>& queries) {
         int n = nums.size();
         dp.resize(n, vector<int>(n, -1));
         score.resize(n, vector<int>(n, -1));
@@ -88,30 +90,18 @@ public:
             score[i][i] = nums[i];
         }
         for (int i = n - 1; i >= 0; i--) {
+            score[i][i] = nums[i];
+            dp[i][i] = score[i][i];
             for (int j = i + 1; j < n; j++) {
                 score[i][j] = score[i + 1][j] ^ score[i][j - 1];
+                dp[i][j] = max({score[i][j], dp[i + 1][j], dp[i][j - 1]});
             }
         }
-        dfs(0, n - 1);
         vector<int> res;
         for (auto q : queries) {
             int i = q[0], j = q[1];
             res.push_back(dp[i][j]);
         }
-        return res;
-    }
-
-    int dfs(int i, int j) {
-        if (i == j) {
-            dp[i][j] = score[i][j];
-            return score[i][j];
-        }
-        if (dp[i][j] != -1) {
-            return dp[i][j];
-        }
-        int res = score[i][j];
-        res = max(res, max(dfs(i + 1, j), dfs(i, j - 1)));
-        dp[i][j] = res;
         return res;
     }
 };

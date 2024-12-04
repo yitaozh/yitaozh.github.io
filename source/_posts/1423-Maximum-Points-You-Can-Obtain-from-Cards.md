@@ -52,7 +52,9 @@ Explanation: You have to take all the cards. Your score is the sum of points of 
 
 ## Hints/Notes
 
+- 2024/10/16
 - sliding window
+- [0x3F's solution](https://leetcode.cn/problems/maximum-points-you-can-obtain-from-cards/solutions/2551432/liang-chong-fang-fa-ni-xiang-si-wei-zhen-e3gb/)(checked)
 
 ## Solution
 

@@ -47,7 +47,9 @@ Output: [1,null,3]
 
 ## Hints/Notes
 
-- N/A
+- 2024/07/03
+- binary search tree
+- No solution from 0x3F
 
 ## Solution
 

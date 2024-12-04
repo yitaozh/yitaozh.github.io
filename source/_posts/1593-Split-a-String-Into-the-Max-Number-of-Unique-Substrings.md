@@ -58,7 +58,9 @@ It is impossible to split the string any further.
 
 ## Hints/Notes
 
+- 2024/10/01
 - back tracking
+- No solution from 0x3F
 
 ## Solution
 

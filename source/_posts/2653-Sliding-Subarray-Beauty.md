@@ -66,11 +66,43 @@ For `[0, -3]`, the 1^st smallest negative integer is -3.
 
 ## Hints/Notes
 
+- 2024/10/18
 - sliding window with 2 sets
+- [0x3F's solution](https://leetcode.cn/problems/sliding-subarray-beauty/solutions/2241294/hua-dong-chuang-kou-bao-li-mei-ju-by-end-9mvl/)
 
 ## Solution
 
 Language: **C++**
+
+Because the range of nums array is small, so we can just iterate every possible negative value
+
+```C++
+class Solution {
+public:
+    vector<int> getSubarrayBeauty(vector<int>& nums, int k, int x) {
+        const int BIAS = 50;
+        vector<int> count(BIAS * 2 + 1, 0);
+        int right = 0, n = nums.size();
+        vector<int> res(n - k + 1, 0);
+        while (right < n) {
+            count[nums[right] + 50]++;
+            if (right >= k - 1) {
+                int left = x;
+                for (int i = -50; i < 0; i++) {
+                    left -= count[i + 50];
+                    if (left <= 0) {
+                        res[right - k + 1] = i;
+                        break;
+                    }
+                }
+                count[nums[right - k + 1] + BIAS]--;
+            }
+            right++;
+        }
+        return res;
+    }
+};
+```
 
 ```C++
 class Solution {

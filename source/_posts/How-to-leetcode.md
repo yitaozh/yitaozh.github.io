@@ -127,6 +127,14 @@ get max element(C++20)
 ranges::max_element(vector/map)
 ```
 
+make decimal binary
+
+```C++
+// s is string of a decimal num
+string res = bitset<32>(stoi(s)).to_string();
+return res.substr(res.find('1'));
+```
+
 ### Templates:
 
 String hash:

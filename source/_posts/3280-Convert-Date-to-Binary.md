@@ -49,11 +49,30 @@ Explanation:
 
 ## Hints/Notes
 
+- 2024/09/03
+- decimal to binary
 - Weekly Contest 414
 
 ## Solution
 
 Language: **C++**
+
+A more elegant way to make decimal number binary
+
+```C++
+class Solution {
+public:
+    string convertDateToBinary(string date) {
+        string res = convertDate(date.substr(0, 4)) + "-" + convertDate(date.substr(5, 2)) + "-" + convertDate(date.substr(8, 2));
+        return res;
+    }
+
+    string convertDate(string s) {
+        string res = bitset<32>(stoi(s)).to_string();
+        return res.substr(res.find('1'));
+    }
+};
+```
 
 ```C++
 class Solution {

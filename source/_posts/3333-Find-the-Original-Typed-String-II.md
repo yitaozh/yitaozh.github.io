@@ -62,7 +62,7 @@ Output: 8
 
 - 2024/11/02
 - dp with preSum
-- [0x3F's solution](https://leetcode.cn/problems/find-the-original-typed-string-ii/solutions/2966856/zheng-nan-ze-fan-qian-zhui-he-you-hua-dp-5mi9/)
+- [0x3F's solution](https://leetcode.cn/problems/find-the-original-typed-string-ii/solutions/2966856/zheng-nan-ze-fan-qian-zhui-he-you-hua-dp-5mi9/)(checked)
 - Biweekly Contest 142
 
 ## Solution

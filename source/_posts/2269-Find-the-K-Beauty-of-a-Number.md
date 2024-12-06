@@ -62,7 +62,9 @@ Therefore, the k-beauty is 2.
 
 ## Hints/Notes
 
+- 2024/10/26
 - sliding window
+- No solution from 0x3F
 
 ## Solution
 

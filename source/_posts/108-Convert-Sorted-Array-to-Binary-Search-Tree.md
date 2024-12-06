@@ -47,7 +47,9 @@ Explanation: [1,null,3] and [3,1] are both height-balanced BSTs.
 
 ## Hints/Notes
 
-- N/A
+- 2024/07/05
+- binary search tree
+- No solution from 0x3F
 
 ## Solution
 

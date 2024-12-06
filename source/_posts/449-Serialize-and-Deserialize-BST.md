@@ -44,7 +44,9 @@ Output: []
 
 ## Hints/Notes
 
-- N/A
+- 2024/07/06
+- binary search tree
+- No solution from 0x3F
 
 ## Solution
 

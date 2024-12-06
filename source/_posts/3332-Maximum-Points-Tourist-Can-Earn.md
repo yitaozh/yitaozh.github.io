@@ -61,7 +61,7 @@ The tourist earns the maximum number of points by starting in city 1, staying in
 
 - 2024/11/01
 - dp
-- [0x3F's solution](https://leetcode.cn/problems/maximum-points-tourist-can-earn/solutions/2966805/jiao-ni-yi-bu-bu-si-kao-dpcong-ji-yi-hua-vro4/)
+- [0x3F's solution](https://leetcode.cn/problems/maximum-points-tourist-can-earn/solutions/2966805/jiao-ni-yi-bu-bu-si-kao-dpcong-ji-yi-hua-vro4/)(checked)
 - Biweekly Contest 142
 
 ## Solution

@@ -64,7 +64,9 @@ bSTIterator.hasNext(); // return False
 
 ## Hints/Notes
 
-- N/A
+- 2024/07/08
+- stack
+- No solution from 0x3F
 
 ## Solution
 

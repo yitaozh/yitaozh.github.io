@@ -70,7 +70,9 @@ Explanation:
 
 ## Hints/Notes
 
+- 2024/10/05
 - sliding window
+- No solution from 0x3F
 
 ## Solution
 

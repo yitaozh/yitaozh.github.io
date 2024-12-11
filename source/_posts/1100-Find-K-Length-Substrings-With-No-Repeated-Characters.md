@@ -38,7 +38,9 @@ Explanation: Notice k can be larger than the length of s. In this case, it is no
 
 ## Hints/Notes
 
+- 2024/10/20
 - sliding window
+- premium
 
 ## Solution
 
@@ -48,19 +50,22 @@ Language: **C++**
 class Solution {
 public:
     int numKLenSubstrNoRepeats(string s, int k) {
-        int n = s.size(), right = 0, res = 0;
-        unordered_map<int, int> m;
+        int n = s.size(), right = 0, res = 0, valid = 0;
+        vector<int> m(26, 0);
         while (right < n) {
             char c = s[right];
-            m[c]++;
+            m[c - 'a']++;
+            if (m[c - 'a'] == 1) {
+                valid++;
+            }
             if (right >= k - 1) {
-                if (m.size() == k) {
+                if (valid == k) {
                     res++;
                 }
                 char l = s[right - k + 1];
-                m[l]--;
-                if (m[l] == 0) {
-                    m.erase(l);
+                m[l - 'a']--;
+                if (m[l - 'a'] == 0) {
+                    valid--;
                 }
             }
             right++;

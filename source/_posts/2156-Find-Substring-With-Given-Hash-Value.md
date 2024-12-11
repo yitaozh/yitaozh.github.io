@@ -55,9 +55,10 @@ Note that "bxz" also has a hash of 32 but it appears later than "fbx".
 
 ## Hints/Notes
 
+- 2024/10/28
 - sliding window
 - string hash
-- [0x3F's solution](https://leetcode.cn/problems/find-substring-with-given-hash-value/solutions/1239542/dao-xu-hua-dong-chuang-kou-o1-kong-jian-xpgkp/)
+- [0x3F's solution](https://leetcode.cn/problems/find-substring-with-given-hash-value/solutions/1239542/dao-xu-hua-dong-chuang-kou-o1-kong-jian-xpgkp/)(checked)
 
 ## Solution
 

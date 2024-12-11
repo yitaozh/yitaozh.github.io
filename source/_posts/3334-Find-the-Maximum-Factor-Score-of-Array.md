@@ -60,12 +60,40 @@ Output: 9
 ## Hints/Notes
 
 - 2024/11/03
-- [0x3F's solution]( https://leetcode.cn/problems/find-the-maximum-factor-score-of-array/solution/fei-bao-li-zuo-fa-qian-hou-zhui-fen-jie-27f8y/)
+- prefix and suffix
+- [0x3F's solution]( https://leetcode.cn/problems/find-the-maximum-factor-score-of-array/solution/fei-bao-li-zuo-fa-qian-hou-zhui-fen-jie-27f8y/)(checked)
 - Weekly Contest 421
 
 ## Solution
 
 Language: **C++**
+
+Prefix and suffix:
+
+```C++
+class Solution {
+public:
+    long long maxScore(vector<int>& nums) {
+        int n = nums.size();
+        vector<long long> suflcm(n + 1, 1);
+        vector<long long> sufgcd(n + 1, 0);
+        for (int i = n - 1; i >= 0; i--) {
+            suflcm[i] = lcm(suflcm[i + 1], nums[i]);
+            sufgcd[i] = gcd(sufgcd[i + 1], nums[i]);
+        }
+        long long res = suflcm[0] * sufgcd[0];
+        long long l = 1, g = 0;
+        for (int i = 0; i < n; i++) {
+            res = max(res, lcm(l, suflcm[i + 1]) * gcd(g, sufgcd[i + 1]));
+            l = lcm(nums[i], l);
+            g = gcd(nums[i], g);
+        }
+        return res;
+    }
+};
+```
+
+Force brutal:
 
 ```C++
 class Solution {

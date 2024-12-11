@@ -64,7 +64,9 @@ calories[2] + calories[3] < lower so 1 point is lost.
 
 ## Hints/Notes
 
+- 2024/10/19
 - sliding window
+- premium
 
 ## Solution
 

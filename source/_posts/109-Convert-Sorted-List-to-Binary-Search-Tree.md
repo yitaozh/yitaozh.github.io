@@ -40,7 +40,9 @@ Output: []
 
 ## Hints/Notes
 
-- N/A
+- 2024/07/07
+- linked list and binary search tree
+- No solution from 0x3F
 
 ## Solution
 

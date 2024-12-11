@@ -68,8 +68,10 @@ The substring starting at 12 is `"thefoobar"`. It is the concatenation of `["the
 
 ## Hints/Notes
 
+- 2024/10/27
 - string hash
 - sliding window
+- No solution from 0x3F
 
 ## Solution
 

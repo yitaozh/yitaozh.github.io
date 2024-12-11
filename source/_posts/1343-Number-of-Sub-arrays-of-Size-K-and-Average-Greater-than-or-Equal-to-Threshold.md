@@ -40,7 +40,9 @@ Explanation: The first 6 sub-arrays of size 3 have averages greater than 5. Note
 
 ## Hints/Notes
 
+- 2024/10/04
 - sliding window
+- No solution from 0x3F
 
 ## Solution
 

@@ -51,7 +51,9 @@ The maximum possible score can be obtained by choosing integers: 2, 7, 13, and 1
 
 ## Hints/Notes
 
+- 2024/09/04
 - Binary search
+- [0x3F's solution](https://leetcode.cn/problems/maximize-score-of-numbers-in-ranges/solutions/2908931/er-fen-da-an-zui-da-hua-zui-xiao-zhi-pyt-twe2/)(checked)
 - Weekly Contest 414
 
 ## Solution

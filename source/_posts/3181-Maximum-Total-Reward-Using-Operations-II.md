@@ -52,8 +52,10 @@ Mark the indices 0, 2, and 1 in order. The total reward will then be 11, which i
 
 ## Hints/Notes
 
-- Weekly Contest 401
+- 2024/04/09
 - bitset
+- [0x3F's solution](https://leetcode.cn/problems/maximum-total-reward-using-operations-ii/solutions/2805413/bitset-you-hua-0-1-bei-bao-by-endlessche-m1xn/)(checked)
+- Weekly Contest 401
 
 ## Solution
 
@@ -64,15 +66,12 @@ class Solution {
 public:
     int maxTotalReward(vector<int>& rewardValues) {
         set<int> s(rewardValues.begin(), rewardValues.end());
-        // we use bit to mark if one number can be achieved
-        // bitset = 1 -> bit[0] = 1 -> 0 can be achieved
         bitset<100000> b{1};
-        int max = 0;
         for (int num : s) {
             b |= b << (100000 - num) >> (100000 - num) << num;
-            max = num;
         }
-        for (int i = 2 * max - 1; i >= 0; i--) {
+        int mx = *ranges::max_element(s);
+        for (int i = 2 * mx - 1; i >= 0; i--) {
             if (b.test(i)) {
                 return i;
             }

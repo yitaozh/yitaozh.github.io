@@ -84,8 +84,10 @@ Explanation:
 
 ## Hints/Notes
 
+- 2024/09/06
 - array has better performance than vector, when accessing the same data block many times
 - state compression dp
+- [0x3F's solution](https://leetcode.cn/problems/maximum-number-of-moves-to-kill-all-pawns/solutions/2909069/pai-lie-xing-zhuang-ya-dpxiang-lin-xiang-q49q/)(checked)
 - Weekly Contest 414
 
 ## Solution

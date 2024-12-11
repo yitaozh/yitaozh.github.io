@@ -100,10 +100,12 @@ public:
         // j is the remaining length [0, k - 1]
         vector<vector<int>> dp(len + 1, vector<int>(k, -1));
         for (int i = 0; i < k; i++) {
+            // the initialization: we reached the index == len
+            // the return value is 1
             dp[len][i] = 1;
             preSum[i + 1] = (preSum[i] + 1) % MOD;
         }
-        // maxI = min(lens[idx],rem - (len - idx - 1));
+        // maxI = min(lens[idx], rem - (len - idx - 1));
         // dp[i][j] = dp[i + 1][j - 1] + dp[i + 1][j - 2] + ... + dp[i + 1][j - maxI]
         // so if we have a preSum, it would be preSum[j - 1] - preSum[j - maxI - 1]
         for (int i = len - 1; i >= 0; i--) {

@@ -50,7 +50,9 @@ Jump directly to the last index. The final score is `4 * 4 = 16`.
 
 ## Hints/Notes
 
+- 2024/09/05
 - Draw the metric, it's the sum of rectangles
+- [0x3F's solution](https://leetcode.cn/problems/reach-end-of-array-with-max-score/solutions/2908950/yi-tu-miao-dong-tan-xin-pythonjavacgo-by-tfua/)(checked)
 - Weekly Contest 414
 
 ## Solution

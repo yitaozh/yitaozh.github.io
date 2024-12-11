@@ -80,8 +80,10 @@ Any path that does not go through the cell `(1, 1)` is unsafe since your health 
 
 ## Hints/Notes
 
+- 2024/09/07
 - BFS
 - Prioritize the safe cells
+- [0x3F's solution](https://leetcode.cn/problems/find-a-safe-walk-through-a-grid/solutions/2917627/0-1-bfs-xian-xing-zuo-fa-pythonjavacgo-b-zlzq/)(checked)
 - Biweekly Contest 139
 
 ## Solution

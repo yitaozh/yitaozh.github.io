@@ -52,7 +52,9 @@ Therefore, we return 0.
 
 ## Hints/Notes
 
+- 2024/10/06
 - sliding window
+- [0x3F's solution](https://leetcode.cn/problems/minimum-recolors-to-get-k-consecutive-black-blocks/solutions/1763639/on-hua-dong-chuang-kou-by-endlesscheng-s4fx/)(checked)
 
 ## Solution
 

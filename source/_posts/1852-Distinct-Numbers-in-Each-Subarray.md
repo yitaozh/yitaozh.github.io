@@ -48,7 +48,9 @@ Explanation: The number of distinct elements in each subarray goes as follows:
 
 ## Hints/Notes
 
+- 2024/10/21
 - sliding window
+- premium
 
 ## Solution
 

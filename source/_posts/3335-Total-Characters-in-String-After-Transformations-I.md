@@ -82,6 +82,7 @@ Explanation:
 ## Hints/Notes
 
 - 2024/11/04
+- simulation
 - [0x3F's solution](https://leetcode.cn/problems/total-characters-in-string-after-transformations-i/solutions/2967041/zhuang-tai-ji-dp-ju-zhen-kuai-su-mi-you-6rmqh/)
 - Weekly Contest 421
 

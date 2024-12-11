@@ -17,7 +17,10 @@ First, go through each blog, then collect the information
 
 ## Plan
 
-Assume i start the application on XX/XX, plan each day's work
+Assume i start the application on 2025/01/20, plan each day's work. **It's a total of 40 days**
+
+* Finish the review by 12/15/2024, then 4~6 problems per day
+* Do 6.824, DDIA and Alex Xu in order, i think i should do 2 Alex Xu per day
 
 ## Coding
 

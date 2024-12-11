@@ -41,7 +41,9 @@ Output: [1,1,8,8]
 
 ## Hints/Notes
 
+- 2024/07-08
 - get two sorted array first
+- no solution fromm 0x3F
 
 ## Solution
 

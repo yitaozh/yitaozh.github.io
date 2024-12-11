@@ -15,9 +15,13 @@ Collect information on how to prepare for the following 3 categories
 
 First, go through each blog, then collect the information
 
+## Plan
+
+Assume i start the application on XX/XX, plan each day's work
+
 ## Coding
 
-1. Finish the review by end of 12/8
+1. Finish the review by end of 12/15
 1. Work on leetcode 150, 6 questions per day
 
 ## System design

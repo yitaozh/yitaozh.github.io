@@ -135,6 +135,12 @@ string res = bitset<32>(stoi(s)).to_string();
 return res.substr(res.find('1'));
 ```
 
+binary search(C++20)
+
+```C++
+ranges::lower_bound(vector, val);
+```
+
 ### Templates:
 
 String hash:

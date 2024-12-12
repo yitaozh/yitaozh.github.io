@@ -56,6 +56,8 @@ Output: ["a","b","c","d","e","f","g","h","ha","hb","hc","hd","he"]
 
 ## Hints/Notes
 
+- 2024/10/08
+- simulation
 - Weekly Contest 420
 
 ## Solution

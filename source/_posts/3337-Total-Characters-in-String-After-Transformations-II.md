@@ -84,6 +84,8 @@ Explanation:
 ## Hints/Notes
 
 - 2024/11/06
+- matrix calculation
+- matrix fast pow
 - [0x3F's solution](https://leetcode.cn/problems/total-characters-in-string-after-transformations-ii/solution/ju-zhen-kuai-su-mi-you-hua-dppythonjavac-cd2j/)
 - Weekly Contest 421
 
@@ -115,7 +117,7 @@ public:
 
         long long res = 0;
         for (int i = 0; i < SIZE; i++) {
-            res = (res + accumulate(m[i].begin(), m[i].end(), 0L) * digits[i]) %
+            res = (res + reduce(m[i].begin(), m[i].end(), 0L) * digits[i]) %
                   MOD;
         }
         return res;

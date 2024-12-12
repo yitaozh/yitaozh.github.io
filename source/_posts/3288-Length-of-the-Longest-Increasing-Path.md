@@ -57,12 +57,46 @@ Explanation:
 
 ## Hints/Notes
 
+- 2024/09/08
 - LIS
+- [0x3F's solution](https://leetcode.cn/problems/length-of-the-longest-increasing-path/solutions/2917590/pai-xu-lispythonjavacgo-by-endlesscheng-803g/)(checked)
 - Biweekly Contest 139
 
 ## Solution
 
 Language: **C++**
+
+Cleaner solution:
+
+```C++
+class Solution {
+public:
+    int maxPathLength(vector<vector<int>>& coordinates, int k) {
+        int n = coordinates.size();
+        auto cmp = [](vector<int>& lhs, vector<int>& rhs) {
+            if (lhs[0] != rhs[0]) {
+                return lhs[0] < rhs[0];
+            }
+            return lhs[1] > rhs[1];
+        };
+        vector<int> y_coordinates;
+        int kx = coordinates[k][0], ky = coordinates[k][1];
+        sort(coordinates.begin(), coordinates.end(), cmp);
+        for (int i = 0; i < n; i++) {
+            int x = coordinates[i][0], y = coordinates[i][1];
+            if ((x < kx && y < ky) || (x > kx && y > ky)) {
+                auto it = ranges::lower_bound(y_coordinates, y);
+                if (it == y_coordinates.end()) {
+                    y_coordinates.push_back(y);
+                } else {
+                    *it = y;
+                }
+            }
+        }
+        return y_coordinates.size() + 1;
+    }
+};
+```
 
 ```C++
 class Solution {

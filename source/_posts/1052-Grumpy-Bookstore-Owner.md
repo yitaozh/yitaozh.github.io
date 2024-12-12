@@ -52,7 +52,9 @@ Output: 1
 
 ## Hints/Notes
 
+- 2024/10/12
 - sliding window
+- [0x3F's solution](https://leetcode.cn/problems/maximum-subarray/solutions/2533977/qian-zhui-he-zuo-fa-ben-zhi-shi-mai-mai-abu71/)
 
 ## Solution
 
@@ -62,28 +64,17 @@ Language: **C++**
 class Solution {
 public:
     int maxSatisfied(vector<int>& customers, vector<int>& grumpy, int minutes) {
-        int n = customers.size(), sum = 0;
-        for (int i = 0; i < n; i++) {
-            if (grumpy[i]) {
-                customers[i] *= -1;
-            }
-        }
-        int positiveSum = 0, negativeSum = 0, right = 0, negativeMax = 0;
+        int n = customers.size(), right = 0, max_s1 = 0;
+        int sum[2]{};
         while (right < n) {
-            if (customers[right] >= 0) {
-                positiveSum += customers[right];
-            } else {
-                negativeSum -= customers[right];
-            }
+            sum[grumpy[right]] += customers[right];
             if (right >= minutes - 1) {
-                negativeMax = max(negativeMax, negativeSum);
-                if (customers[right - minutes + 1] < 0) {
-                    negativeSum += customers[right - minutes + 1];
-                }
+                max_s1 = max(max_s1, sum[1]);
+                sum[1] -= grumpy[right - minutes + 1] ? customers[right - minutes + 1] : 0;
             }
             right++;
         }
-        return positiveSum + negativeMax;
+        return sum[0] + max_s1;
     }
 };
 ```

@@ -47,62 +47,43 @@ Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
 
 ## Hints/Notes
 
-- sliding window
-- segment tree
+- 2024/07/14
+- dp or preSum
+- [0x3F's solution](https://leetcode.cn/problems/maximum-subarray/solutions/2533977/qian-zhui-he-zuo-fa-ben-zhi-shi-mai-mai-abu71/)(checked)
 
 ## Solution
 
 Language: **C++**
 
+preSum:
+
 ```C++
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
-        int res = INT_MIN, left = 0, right = 0, cur = 0;
-        while (right < nums.size()) {
-            cur += nums[right++];
-            res = max(res, cur);
-            while (cur < 0) {
-                cur -= nums[left++];
-            }
+        int preSum = 0, min_presum = 0, res = INT_MIN;
+        for (auto& num : nums) {
+            preSum += num;
+            res = max(res, preSum - min_presum);
+            min_presum = min(preSum, min_presum);
         }
         return res;
     }
 };
 ```
 
-Segment tree:
+dp:
 
 ```C++
 class Solution {
 public:
-    vector<array<int, 4>> t;
-
     int maxSubArray(vector<int>& nums) {
-        int n = nums.size();
-        t.resize(2 << (32 - __builtin_clz(n)));
-        build(nums, 1, 0, n - 1);
-        int res = t[1][0];
-        return res;
-    }
-
-    void build(vector<int>& nums, int o, int l, int r) {
-        if (l == r) {
-            t[o][0] = t[o][1] = t[o][2] = t[o][3] = nums[l];
-            return;
+        vector<int> dp(nums.size());
+        dp[0] = nums[0];
+        for (int i = 1; i < nums.size(); i++) {
+            dp[i] = max(0, dp[i - 1]) + nums[i];
         }
-        int m = (l + r) / 2;
-        build(nums, o * 2, l, m);
-        build(nums, o * 2 + 1, m + 1, r);
-        maintain(nums, o, l, r);
-    }
-
-    void maintain(vector<int>& nums, int o, int l, int r) {
-        auto &o1 = t[o * 2], &o2 = t[o * 2 + 1];
-        t[o][0] = max(o1[1] + o2[2], max(o1[0], o2[0]));
-        t[o][1] = max(o1[1] + o2[3], o2[1]);
-        t[o][2] = max(o1[3] + o2[2], o1[2]);
-        t[o][3] = o1[3] + o2[3];
+        return ranges::max(dp);
     }
 };
 ```

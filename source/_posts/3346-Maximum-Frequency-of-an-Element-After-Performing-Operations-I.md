@@ -62,32 +62,31 @@ We can achieve a maximum frequency of two by:
 ## Hints/Notes
 
 - 2024/11/10
-- [0x3F's solution](https://leetcode.cn/problems/maximum-frequency-of-an-element-after-performing-operations-i/solution/liang-chong-fang-fa-chai-fen-hua-dong-ch-spm9/)
+- [0x3F's solution](https://leetcode.cn/problems/maximum-frequency-of-an-element-after-performing-operations-i/solution/liang-chong-fang-fa-chai-fen-hua-dong-ch-spm9/)(checked)
 - Biweekly Contest 143
 
 ## Solution
 
 Language: **C++**
 
+diff array:
+
 ```C++
 class Solution {
 public:
     int maxFrequency(vector<int>& nums, int k, int numOperations) {
-        unordered_map<int, int> m;
-        int mi = INT_MAX, mx = INT_MIN;
+        map<int, int> count;
+        map<int, int> diff;
         for (int num : nums) {
-            m[num]++;
-            mi = min(num, mi);
-            mx = max(num, mx);
+            count[num]++;
+            diff[num];
+            diff[num - k] += 1;
+            diff[num + k + 1] -= 1;
         }
-        int right = mi, cur = 0, res = 0;
-        for (int i = mi; i <= mx; i++) {
-            while (right <= min(i + k, mx)) {
-                cur += m[right];
-                right++;
-            }
-            res = max(res, m[i] + min(cur - m[i], numOperations));
-            cur -= m[i - k];
+        int res = 0, cur = 0;
+        for (auto it = diff.begin(); it != diff.end(); it++) {
+            cur += it->second;
+            res = max(res, count[it->first] + min(numOperations, cur - count[it->first]));
         }
         return res;
     }

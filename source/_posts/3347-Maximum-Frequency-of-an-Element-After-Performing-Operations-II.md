@@ -63,12 +63,36 @@ We can achieve a maximum frequency of two by:
 
 - 2024/11/11
 - diff array or sliding window
-- [0x3F's solution]( https://leetcode.cn/problems/maximum-frequency-of-an-element-after-performing-operations-ii/solution/liang-chong-fang-fa-chai-fen-hua-dong-ch-7buy/)
+- [0x3F's solution]( https://leetcode.cn/problems/maximum-frequency-of-an-element-after-performing-operations-ii/solution/liang-chong-fang-fa-chai-fen-hua-dong-ch-7buy/)(checked)
 - Biweekly Contest 143
 
 ## Solution
 
 Language: **C++**
+
+diff array:
+
+```C++
+class Solution {
+public:
+    int maxFrequency(vector<int>& nums, int k, int numOperations) {
+        map<int, int> count;
+        map<int, int> diff;
+        for (int num : nums) {
+            count[num]++;
+            diff[num];
+            diff[num - k] += 1;
+            diff[num + k + 1] -= 1;
+        }
+        int res = 0, cur = 0;
+        for (auto it = diff.begin(); it != diff.end(); it++) {
+            cur += it->second;
+            res = max(res, count[it->first] + min(numOperations, cur - count[it->first]));
+        }
+        return res;
+    }
+};
+```
 
 sliding window:
 
@@ -110,30 +134,6 @@ public:
             right++;
         }
         return min(res, numOperations);
-    }
-};
-```
-
-diff array:
-
-```C++
-class Solution {
-public:
-    int maxFrequency(vector<int>& nums, int k, int numOperations) {
-        map<int, int> count;
-        map<int, int> diff;
-        for (int num : nums) {
-            count[num]++;
-            diff[num];
-            diff[num - k] += 1;
-            diff[num + k + 1] -= 1;
-        }
-        int res = 0, cur = 0;
-        for (auto it = diff.begin(); it != diff.end(); it++) {
-            cur += it->second;
-            res = max(res, count[it->first] + min(numOperations, cur - count[it->first]));
-        }
-        return res;
     }
 };
 ```

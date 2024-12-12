@@ -49,7 +49,9 @@ We can choose the indices 0, 1, 3, and 4. The score will be `(-1) * (-5) + 4 * (
 
 ## Hints/Notes
 
+- 2024/09/10
 - dp
+- [0x3F's solution](https://leetcode.cn/problems/maximum-multiplication-score/solutions/2917840/jiao-ni-yi-bu-bu-si-kao-dpcong-ji-yi-hua-9ul8/)(checked)
 - Weekly Contest 415
 
 ## Solution

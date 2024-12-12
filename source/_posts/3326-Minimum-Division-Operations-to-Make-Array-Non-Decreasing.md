@@ -58,7 +58,9 @@ Output: 0
 
 ## Hints/Notes
 
+- 2024/10/10
 - greedy
+- [0x3F's solution](https://leetcode.cn/problems/minimum-division-operations-to-make-array-non-decreasing/solutions/2957768/yu-chu-li-lpf-cong-you-dao-zuo-tan-xin-p-k3gt/)(checked)
 - Weekly Contest 420
 
 ## Solution
@@ -71,13 +73,10 @@ public:
     unordered_map<int, int> max_divisor;
 
     int minOperations(vector<int>& nums) {
-        for (int num : nums) {
-            findMax(num);
-        }
         int n = nums.size(), res = 0;
         for (int i = n - 2; i >= 0; i--) {
             if (nums[i] > nums[i + 1]) {
-                nums[i] /= max_divisor[nums[i]];
+                nums[i] /= findMax(nums[i]);
                 res++;
                 if (nums[i] > nums[i + 1]) {
                     return -1;
@@ -87,12 +86,9 @@ public:
         return res;
     }
 
-    void findMax(int num) {
+    int findMax(int num) {
         if (max_divisor.contains(num)) {
-            return;
-        }
-        if (num == 1) {
-            max_divisor[1] = -1;
+            return max_divisor[num];
         }
         max_divisor[num] = 1;
         for (int i = 2; i * i <= num; i++) {
@@ -100,6 +96,7 @@ public:
                 max_divisor[num] = max(max_divisor[num], max(i, num / i));
             }
         }
+        return max_divisor[num];
     }
 };
 ```

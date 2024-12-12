@@ -53,7 +53,9 @@ Output: []
 
 ## Hints/Notes
 
-- N/A
+- 2024/07/12
+- backtracking
+- No solution from 0x3F
 
 ## Solution
 
@@ -80,9 +82,8 @@ public:
 
     void traverse(int index) {
         if (index == s_.size()) {
-            cur.pop_back();
             res.push_back(cur);
-            cur.push_back(' ');
+            return;
         }
         for (int i = minLen; i <= maxLen; i++) {
             if (i + index > s_.size()) {
@@ -90,12 +91,12 @@ public:
             }
             string tmp = s_.substr(index, i);
             if (words.contains(tmp)) {
-                cur += tmp + " ";
-                traverse(index + i);
-                int len = tmp.size();
-                for (int k = 0; k <= len; k++) {
-                    cur.pop_back();
+                if (i + index < s_.size()) {
+                    tmp.push_back(' ');
                 }
+                cur += tmp;
+                traverse(index + i);
+                cur.erase(cur.size() - tmp.size());
             }
         }
     }

@@ -27,7 +27,7 @@
 <meta property="og:description" content="1151. Minimum Swaps to Group All 1’s Together DescriptionGiven a binary array data, return the minimum number of swaps required to group all 1’s present in the array together in any place  in the arra">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-10-25T21:28:47.000Z">
-<meta property="article:modified_time" content="2024-12-11T22:49:18.902Z">
+<meta property="article:modified_time" content="2024-12-12T03:48:01.337Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="Array">
 <meta property="article:tag" content="Sliding Window">
@@ -247,7 +247,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-12-11 22:49:18" itemprop="dateModified" datetime="2024-12-11T22:49:18+00:00">2024-12-11</time>
+      <time title="Modified: 2024-12-12 03:48:01" itemprop="dateModified" datetime="2024-12-12T03:48:01+00:00">2024-12-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -285,7 +285,9 @@
 <li><code>data[i]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 <h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>2024&#x2F;10&#x2F;22</li>
 <li>sliding window</li>
+<li>premium</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minSwaps</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; data)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = data.<span class="built_in">size</span>(), right = <span class="number">0</span>, k = <span class="number">0</span>, mx = <span class="number">0</span>, cur = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> d : data) &#123;</span><br><span class="line">            k += d;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; n) &#123;</span><br><span class="line">            <span class="type">int</span> r = data[right];</span><br><span class="line">            cur += r;</span><br><span class="line">            <span class="keyword">if</span> (right &gt;= k - <span class="number">1</span>) &#123;</span><br><span class="line">                mx = <span class="built_in">max</span>(mx, cur);</span><br><span class="line">                cur -= data[right - k + <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            right++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> k - mx;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>

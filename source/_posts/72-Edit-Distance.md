@@ -50,7 +50,9 @@ exection -> execution (insert 'u')
 
 ## Hints/Notes
 
+- 2024/07/14
 - dp
+- [0x3F's solution](https://leetcode.cn/problems/edit-distance/solutions/2133222/jiao-ni-yi-bu-bu-si-kao-dong-tai-gui-hua-uo5q/)(checked)
 
 ## Solution
 

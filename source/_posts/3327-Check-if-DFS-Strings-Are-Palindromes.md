@@ -77,7 +77,9 @@ Every call on `dfs(x)` results in a palindrome string.
 
 ## Hints/Notes
 
+- 2024/10/11
 - Manacher's algorithm
+- [0x3F's solution](https://leetcode.cn/problems/check-if-dfs-strings-are-palindromes/solutions/2957704/mo-ban-dfs-shi-jian-chuo-manacher-suan-f-ttu6/)(checked)
 - Weekly Contest 420
 
 ## Solution

@@ -73,8 +73,9 @@ Output: -1
 
 ## Hints/Notes
 
+- 2024/09/11
 - the `sum(words[i].length) <= 1e5` indicates that we can use prefix match
-- polynomial hashing function, implement a class for it
+- [0x3F's solution](https://leetcode.cn/problems/minimum-number-of-valid-strings-to-form-target-ii/solutions/2917929/ac-zi-dong-ji-pythonjavacgo-by-endlessch-hcqk/)(checked)
 - Weekly Contest 415
 
 ## Solution

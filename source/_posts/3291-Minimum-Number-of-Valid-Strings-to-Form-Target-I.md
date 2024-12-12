@@ -74,7 +74,9 @@ Output: -1
 
 ## Hints/Notes
 
-- Trie + dp
+- 2024/09/11
+- Trie + backtracking
+- [0x3F's solution](https://leetcode.cn/problems/minimum-number-of-valid-strings-to-form-target-i/solutions/2917933/ac-zi-dong-ji-you-hua-dppythonjavacgo-by-49jt/)(checked)
 - Weekly Contest 415
 
 ## Solution

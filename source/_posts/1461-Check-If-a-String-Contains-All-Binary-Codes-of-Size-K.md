@@ -48,11 +48,36 @@ Explanation: The binary code "00" is of length 2 and does not exist in the array
 
 ## Hints/Notes
 
+- 2024/10/13
 - sliding window
+- No solution from 0x3F
 
 ## Solution
 
 Language: **C++**
+
+Easier solution
+
+```C++
+class Solution {
+public:
+    bool hasAllCodes(string s, int k) {
+        unordered_set<int> nums;
+        int n = s.size(), numbits = sizeof(int);
+        int right = 0, digits = 0;
+        string cur;
+        while (right < n) {
+            cur.push_back(s[right]);
+            if (right >= k - 1) {
+                nums.insert(bitset<32>(cur).to_ulong());
+                cur.erase(cur.begin());
+            }
+            right++;
+        }
+        return nums.size() == (2 << k - 1);
+    }
+};
+```
 
 ```C++
 class Solution {

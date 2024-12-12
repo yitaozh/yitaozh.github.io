@@ -82,7 +82,9 @@ There is only one worker in this example, so the answer is `workerTimes[0] + wor
 
 ## Hints/Notes
 
+- 2024/09/13
 - priority queue
+- [0x3F's solution](https://leetcode.cn/problems/minimum-number-of-seconds-to-make-mountain-height-zero/solutions/2925848/er-fen-da-an-pythonjavacgo-by-endlessche-myg4/)(checked)
 - Weekly Contest 416
 
 ## Solution

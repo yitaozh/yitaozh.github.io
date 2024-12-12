@@ -52,7 +52,9 @@ The subsequence `[4, 5, 6, 7]` has the maximum value of `(4 OR 5) XOR (6 OR 7) =
 
 ## Hints/Notes
 
+- 2024/09/07
 - forwarding dp
+- [0x3F's solution](https://leetcode.cn/problems/find-the-maximum-sequence-value-of-array/solutions/2917604/qian-hou-zhui-fen-jie-er-wei-0-1-bei-bao-8icz/)
 - Biweekly Contest 139
 
 ## Solution

@@ -44,7 +44,9 @@ Explanation: The falling path with a minimum sum is shown.
 
 ## Hints/Notes
 
-- N/A
+- 2024/07/09
+- dp
+- [0x3F's solution](https://leetcode.cn/problems/minimum-falling-path-sum/solutions/2341851/cong-di-gui-dao-di-tui-jiao-ni-yi-bu-bu-2cwkb/)(checked, we can save some space with a array of size n + 2)
 
 ## Solution
 

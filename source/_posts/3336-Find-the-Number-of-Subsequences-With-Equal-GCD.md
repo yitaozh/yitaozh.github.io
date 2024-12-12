@@ -78,7 +78,8 @@ Output: 50
 ## Hints/Notes
 
 - 2024/11/05
-- [0x3F's solution](https://leetcode.cn/problems/find-the-number-of-subsequences-with-equal-gcd/solution/duo-wei-dppythonjavacgo-by-endlesscheng-5pk3/)
+- multi dimensional dp
+- [0x3F's solution](https://leetcode.cn/problems/find-the-number-of-subsequences-with-equal-gcd/solution/duo-wei-dppythonjavacgo-by-endlesscheng-5pk3/)(checked)
 - Weekly Contest 421
 
 ## Solution

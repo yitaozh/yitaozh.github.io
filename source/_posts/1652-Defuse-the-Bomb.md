@@ -56,7 +56,9 @@ Explanation: The decrypted code is [3+9, 2+3, 4+2, 9+4]. Notice that the numbers
 
 ## Hints/Notes
 
+- 2024/10/07
 - sliding window
+- [0x3F's solution](https://leetcode.cn/problems/defuse-the-bomb/solutions/2765762/on-ding-chang-hua-dong-chuang-kou-python-y2py/)(checked)
 
 ## Solution
 

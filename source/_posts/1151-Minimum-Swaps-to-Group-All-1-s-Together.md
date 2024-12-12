@@ -48,7 +48,9 @@ Explanation: One possible solution that uses 3 swaps is [0,0,0,0,0,1,1,1,1,1,1].
 
 ## Hints/Notes
 
+- 2024/10/22
 - sliding window
+- premium
 
 ## Solution
 

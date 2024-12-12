@@ -71,7 +71,7 @@ Output: 3
 
 - 2024/11/07
 - Dijkstra
-- [0x3F's solution](https://leetcode.cn/problems/find-minimum-time-to-reach-last-room-i/solution/dijkstra-zui-duan-lu-pythonjavacgo-by-en-7nj3/)
+- [0x3F's solution](https://leetcode.cn/problems/find-minimum-time-to-reach-last-room-i/solution/dijkstra-zui-duan-lu-pythonjavacgo-by-en-7nj3/)(checked)
 - Weekly Contest 422
 
 ## Solution

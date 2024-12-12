@@ -141,6 +141,13 @@ binary search(C++20)
 ranges::lower_bound(vector, val);
 ```
 
+get min/max length of a vector of strings(C++20)
+
+```C++
+minLen = ranges::min(wordDict, {}, &string::length).length();
+maxLen = ranges::max(wordDict, {}, &string::length).length();
+```
+
 ### Templates:
 
 String hash:

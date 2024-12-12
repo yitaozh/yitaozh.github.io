@@ -72,7 +72,8 @@ Output: 4
 
 - 2024/11/08
 - Dijkstra
-- [0x3F's solution](https://leetcode.cn/problems/find-minimum-time-to-reach-last-room-ii/solution/dijkstra-zui-duan-lu-pythonjavacgo-by-en-alms/)
+- we don't need a new variable compared to 3341, cause we can infer if cost is 1 or 2 from (x + y)
+- [0x3F's solution](https://leetcode.cn/problems/find-minimum-time-to-reach-last-room-ii/solution/dijkstra-zui-duan-lu-pythonjavacgo-by-en-alms/)(checked)
 - Weekly Contest 422
 
 ## Solution
@@ -90,24 +91,25 @@ public:
         dp.resize(n, vector<int>(m, INT_MAX / 2));
         priority_queue<vector<int>, vector<vector<int>>, greater<vector<int>>>
             pq;
-        pq.push({0, 0, 0, 1});
+        pq.push({0, 0, 0});
         while (!pq.empty()) {
             auto v = pq.top();
             pq.pop();
-            int t = v[0], x = v[1], y = v[2], move = v[3];
+            int t = v[0], x = v[1], y = v[2];
             if (dp[x][y] < t) {
                 continue;
             }
             if (x == n - 1 && y == m - 1) {
                 return t;
             }
+            int move = (x + y) % 2 + 1;
             for (auto dir : DIRs) {
                 int x1 = x + dir[0], y1 = y + dir[1];
                 if (x1 >= 0 && x1 < n && y1 >= 0 && y1 < m) {
-                    int t1 = max(moveTime[x1][y1], t) + (2 - move % 2);
+                    int t1 = max(moveTime[x1][y1], t) + move;
                     if (t1 < dp[x1][y1]) {
                         dp[x1][y1] = t1;
-                        pq.push({t1, x1, y1, (move + 1) % 2});
+                        pq.push({t1, x1, y1});
                     }
                 }
             }

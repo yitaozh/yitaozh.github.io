@@ -53,7 +53,9 @@ Output: false
 
 ## Hints/Notes
 
-- N/A
+- 2024/07/11
+- dp
+- [0x3F's solution](https://leetcode.cn/problems/word-break/solutions/2968135/jiao-ni-yi-bu-bu-si-kao-dpcong-ji-yi-hua-chrs/)(checked)
 
 ## Solution
 

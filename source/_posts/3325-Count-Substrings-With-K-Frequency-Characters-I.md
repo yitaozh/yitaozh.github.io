@@ -51,12 +51,35 @@ All substrings are valid because every character appears at least once.
 
 ## Hints/Notes
 
+- 2024/10/09
 - sliding window
+- [0x3F's solution](https://leetcode.cn/problems/count-substrings-with-k-frequency-characters-i/solutions/2957691/on-hua-dong-chuang-kou-pythonjavacgo-by-1xgqm/)(checked)
 - Weekly Contest 420
 
 ## Solution
 
 Language: **C++**
+
+Cleaner solutino
+
+```C++
+class Solution {
+public:
+    int numberOfSubstrings(string s, int k) {
+        int left = 0, res = 0;
+        int count[26]{};
+        for (char& c : s) {
+            count[c - 'a']++;
+            while (count[c - 'a'] >= k) {
+                char l = s[left++];
+                count[l - 'a']--;
+            }
+            res += left;
+        }
+        return res;
+    }
+};
+```
 
 ```C++
 class Solution {

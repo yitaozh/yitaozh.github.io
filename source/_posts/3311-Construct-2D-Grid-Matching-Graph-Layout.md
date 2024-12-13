@@ -13,7 +13,7 @@ tags:
 
 ## Description
 
-You are given a 2D integer array `edges` representing an **undirected**  graph having `n` nodes, where `edges[i] = [u<sub>i</sub>, v<sub>i</sub>]` denotes an edge between nodes `u<sub>i</sub>` and `v<sub>i</sub>`.
+You are given a 2D integer array `edges` representing an **undirected**  graph having `n` nodes, where edges[i] = [u<sub>i</sub>, v<sub>i</sub>] denotes an edge between nodes u<sub>i</sub> and v<sub>i</sub>.
 
 Construct a 2D grid that satisfies these conditions:
 
@@ -71,7 +71,9 @@ Explanation:
 
 ## Hints/Notes
 
+- 2024/09/22
 - jigsaw puzzle
+- [0x3F's solution](https://leetcode.cn/problems/construct-2d-grid-matching-graph-layout/solutions/2940537/fen-lei-tao-lun-zhu-xing-gou-zao-by-endl-v3x0/)(checked)
 - Weekly Contest 418
 
 ## Solution

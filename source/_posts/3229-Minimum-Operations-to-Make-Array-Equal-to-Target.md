@@ -60,7 +60,9 @@ We will perform the following operations to make `nums` equal to `target`:
 
 ## Hints/Notes
 
+- 2024/07/24
 - diff array
+- [0x3F's solution](https://leetcode.cn/problems/minimum-operations-to-make-array-equal-to-target/solutions/2851722/chai-fen-shu-zu-fen-lei-tao-lun-pythonja-f8lo/)(checked)
 - Weekly Contest 407
 
 ## Solution

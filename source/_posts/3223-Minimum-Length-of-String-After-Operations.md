@@ -54,7 +54,10 @@ We cannot perform any operations, so we return the length of the original string
 
 ## Hints/Notes
 
--Biweekly Contest 135
+- 2024/07/25
+- brain teaser
+- [0x3F's solution](https://leetcode.cn/problems/minimum-length-of-string-after-operations/solutions/2851449/tong-ji-zi-mu-chu-xian-ci-shu-fen-qi-ou-tyeho/)(checked)
+- Biweekly Contest 135
 
 ## Solution
 

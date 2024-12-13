@@ -46,18 +46,18 @@ Language: **C++**
 ```C++
 class Solution {
 public:
-    string s;
+    int n;
     vector<vector<int>> dp;
 
     int countNumbersWithUniqueDigits(int n) {
-        s = string(n, '9');
-        dp.resize(s.size(), vector<int>(1024, -1));
+        this->n = n;
+        dp.resize(n, vector<int>(1024, -1));
         int res = dfs(0, 0, false);
         return res;
     }
 
     int dfs(int index, int mask, bool is_num) {
-        if (index == s.size()) {
+        if (index == n) {
             return 1;
         }
         if (is_num && dp[index][mask] != -1) {

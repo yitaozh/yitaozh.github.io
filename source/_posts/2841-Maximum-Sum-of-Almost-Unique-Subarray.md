@@ -52,7 +52,9 @@ Explanation: There are no subarrays of size `k = 3` that contain at least `m = 3
 
 ## Hints/Notes
 
+- 2024/10/14
 - sliding window
+- [0x3F's solution](https://leetcode.cn/problems/maximum-sum-of-almost-unique-subarray/solutions/2424847/hua-dong-chuang-kou-fu-ti-dan-pythonjava-2vd6/)(checked)
 
 ## Solution
 

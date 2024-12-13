@@ -86,7 +86,7 @@ Explanation:
 - 2024/11/06
 - matrix calculation
 - matrix fast pow
-- [0x3F's solution](https://leetcode.cn/problems/total-characters-in-string-after-transformations-ii/solution/ju-zhen-kuai-su-mi-you-hua-dppythonjavac-cd2j/)
+- [0x3F's solution](https://leetcode.cn/problems/total-characters-in-string-after-transformations-ii/solution/ju-zhen-kuai-su-mi-you-hua-dppythonjavac-cd2j/)(checked)
 - Weekly Contest 421
 
 ## Solution

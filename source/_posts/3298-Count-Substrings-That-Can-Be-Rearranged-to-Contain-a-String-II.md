@@ -60,9 +60,11 @@ Output: 0
 
 ## Hints/Notes
 
+- 2024/09/14
 - sliding window
 - t3 is the same question with less number
-- Weekly Contest 416
+- [0x3F's solution](https://leetcode.cn/problems/count-substrings-that-can-be-rearranged-to-contain-a-string-ii/solutions/2925828/on-hua-dong-chuang-kou-qiu-ge-shu-python-0x7a/)(checked)
+- Weekly Contest 416 T4
 
 ## Solution
 
@@ -72,34 +74,31 @@ Language: **C++**
 class Solution {
 public:
     long long validSubstringCount(string word1, string word2) {
-        unordered_map<int, int> target;
+        vector<int> target(26, 0);
         for (int i = 0; i < word2.size(); i++) {
-            target[word2[i]]++;
+            target[word2[i] - 'a']++;
         }
         int left = 0, right = 0, valid = 0;
+        for (int i = 0; i < target.size(); i++) {
+            valid += target[i] > 0 ? 1 : 0;
+        }
         long long res = 0;
-        unordered_map<int, int> cur;
         while (right < word1.size()) {
             char c = word1[right];
-            if (target.contains(c)) {
-                cur[c]++;
-                if (cur[c] == target[c]) {
+            target[c - 'a']--;
+            if (0 == target[c - 'a']) {
+                valid--;
+            }
+            while (valid == 0) {
+                char l = word1[left++];
+                if (0 == target[l - 'a']) {
                     valid++;
                 }
-            }
-            int prev_l = left;
-            while (left <= right && valid == target.size()) {
-                char l = word1[left++];
-                if (target.contains(l)) {
-                    cur[l]--;
-                    if (cur[l] < target[l]) {
-                        valid--;
-                    }
-                }
+                target[l - 'a']++;
             }
             // so, for subString with left index in [prev_l, left),
             // they can have substring with right index from right all the way to the end
-            res += (left - prev_l) * (word1.size() - right);
+            res += left;
             right++;
         }
         return res;

@@ -56,7 +56,7 @@ numArray.sumRange(0, 2); // return 1 + 2 + 5 = 8
 
 - 2024/11/12
 - Binary index tree(Fenwick tree)
-- [0x3F's solution](https://leetcode.cn/problems/range-sum-query-mutable/solutions/2524481/dai-ni-fa-ming-shu-zhuang-shu-zu-fu-shu-lyfll/)
+- [0x3F's solution](https://leetcode.cn/problems/range-sum-query-mutable/solutions/2524481/dai-ni-fa-ming-shu-zhuang-shu-zu-fu-shu-lyfll/)(checked)
 
 ## Solution
 

@@ -50,7 +50,9 @@ Explanation: There is no such common subsequence, so the result is 0.
 
 ## Hints/Notes
 
+- 2024/07/16
 - dp
+- [0x3F's solution](https://leetcode.cn/problems/longest-common-subsequence/solutions/2133188/jiao-ni-yi-bu-bu-si-kao-dong-tai-gui-hua-lbz5/)(checked)
 
 ## Solution
 

@@ -49,12 +49,35 @@ Concatenate the numbers in the order `[2, 8, 16]` to get the result `"1010001000
 
 ## Hints/Notes
 
+- 2024/09/20
 - bit manipulation
+- [0x3F's solution](https://leetcode.cn/problems/maximum-possible-number-by-binary-concatenation/solutions/2940489/fei-bao-li-zuo-fa-onlogn-pai-xu-pythonja-540j/)(checked)
 - Weekly Contest 418
 
 ## Solution
 
 Language: **C++**
+
+nlogn solution:
+
+```C++
+class Solution {
+public:
+    int maxGoodNumber(vector<int>& nums) {
+        ranges::sort(nums, [](int a, int b) {
+            int len_a = __lg(a) + 1;
+            int len_b = __lg(b) + 1;
+            return (a << len_b | b) > (b << len_a | a);
+        });
+
+        int ans = 0;
+        for (int x : nums) {
+            ans = ans << (__lg(x) + 1) | x;
+        }
+        return ans;
+    }
+};
+```
 
 ```C++
 class Solution {

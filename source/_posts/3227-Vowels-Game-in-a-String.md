@@ -61,6 +61,9 @@ There is no valid play for Alice in her first turn, so Alice loses the game.
 
 ## Hints/Notes
 
+- 2024/07/22
+- brain teaser
+- [0x3F's solution](https://leetcode.cn/problems/vowels-game-in-a-string/solutions/2851733/nao-jin-ji-zhuan-wan-pythonjavacgo-by-en-4dp0/)
 - Weekly Contest 407
 
 ## Solution

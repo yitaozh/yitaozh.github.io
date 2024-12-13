@@ -76,7 +76,9 @@ All methods are suspicious. We can remove them.
 
 ## Hints/Notes
 
+- 2024/09/21
 - dfs
+- [0x3F's solution](https://leetcode.cn/problems/remove-methods-from-project/solutions/2940460/liang-ci-dfspythonjavacgo-by-endlesschen-cjat/)(checked)
 - Weekly Contest 418
 
 ## Solution
@@ -96,17 +98,15 @@ public:
         graph.resize(n, vector<int>());
         buildGraph(invocations);
         dfs(k);
-        vector<int> res;
-        for (int i = 0; i < n; i++) {
-            res.push_back(i);
-        }
         for (auto invocation : invocations) {
             int from = invocation[0], to = invocation[1];
             if (!suspicious.contains(from) && suspicious.contains(to)) {
+                vector<int> res(n);
+                iota(res.begin(), res.end(), 0);
                 return res;
             }
         }
-        res.clear();
+        vector<int> res;
         for (int i = 0; i < n; i++) {
             if (!suspicious.contains(i)) {
                 res.push_back(i);

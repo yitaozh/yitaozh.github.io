@@ -53,7 +53,9 @@ Output: 0
 
 ## Hints/Notes
 
+- 2024/07/23
 - Move 1s from left to right
+- [0x3F's solution](https://leetcode.cn/problems/maximum-number-of-operations-to-move-ones-to-the-end/solutions/2851730/du-che-pythonjavacgo-by-endlesscheng-tllv/)(checked)
 - Weekly Contest 407
 
 ## Solution

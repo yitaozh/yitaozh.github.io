@@ -43,8 +43,8 @@ Output: [2,3]
 
 Explanation:
 
-- 1^st query updates s = "ab**a** zz". The longest substring consisting of one repeating character is "zz" with length 2.
-- 2^nd query updates s = "a**a** azz". The longest substring consisting of one repeating character is "aaa" with length 3.
+- 1^st query updates s = "ab**a**zz". The longest substring consisting of one repeating character is "zz" with length 2.
+- 2^nd query updates s = "a**a**azz". The longest substring consisting of one repeating character is "aaa" with length 3.
 Thus, we return [2,3].
 
 **Constraints:**

@@ -68,19 +68,20 @@ public:
             return is_num ? count : 0;
         }
 
+        if (!limit_low && !limit_high && is_num && dp[index][count] != -1) {
+            return dp[index][count];
+        }
+
         int res = 0;
         if (!is_num && lowStr[index] -'0' == 0)
             res += dfs(index + 1, count, true, false, false);
 
-        if (!limit_low && !limit_high && dp[index][count] != -1) {
-            return dp[index][count];
-        }
         int lo = limit_low ? lowStr[index] - '0' : 0;
         int hi = limit_high ? highStr[index] - '0' : 9;
         for (int i = max(lo, 1 - is_num); i <= hi; i++) {
             res += dfs(index + 1, count + (i == d), limit_low && i == lo, limit_high && i == hi, true);
         }
-        if (!limit_low && !limit_high) {
+        if (!limit_low && !limit_high && is_num) {
             dp[index][count] = res;
         }
         return res;

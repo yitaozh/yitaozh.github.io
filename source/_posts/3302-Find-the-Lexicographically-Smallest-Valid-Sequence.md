@@ -85,8 +85,10 @@ Output: [0,1]
 
 ## Hints/Notes
 
+- 2024/09/16
 - two pointers
-- Biweekly Contest 140
+- [0x3F's solution](https://leetcode.cn/problems/find-the-lexicographically-smallest-valid-sequence/solutions/2934051/qian-hou-zhui-fen-jie-zi-xu-lie-pi-pei-t-le8d/)(checked)
+- Biweekly Contest 140 T3
 
 ## Solution
 

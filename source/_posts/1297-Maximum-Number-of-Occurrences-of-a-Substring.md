@@ -43,6 +43,7 @@ Explanation: Substring "aaa" occur 2 times in the string. It can overlap.
 
 ## Hints/Notes
 
+- 2024/10/16
 - sliding window
 - because every larger subString must contains smaller subString, we should only care about the subStrings with minSize
 - can use string_view but there's no need

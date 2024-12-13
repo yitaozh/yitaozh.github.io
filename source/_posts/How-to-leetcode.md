@@ -99,8 +99,8 @@ find source/_posts/ -name "[0-9]*" | xargs grep -A 1 "tags" | grep -e "---"
 String algorithms:
 
 * KMP is to calculate the prefix array, it can be used to calculated the occurrence of pattern in text
-* Z algorithm is to calculate the longest common prefix.
-* Manacher is to calculate the longest palindrome at each index.
+* Z algorithm is to calculate the longest common prefix. example: lc 3303
+* Manacher is to calculate the longest palindrome at each index. example: lc 3327
 
 General notes
 

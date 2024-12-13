@@ -38,8 +38,10 @@ Explanation: One possible longest palindromic subsequence is "bb".
 
 ## Hints/Notes
 
+- 2024/07/19
 - range dp
 - note: subsequence not substring
+- [0x3F's solution](https://leetcode.cn/problems/longest-palindromic-subsequence/solutions/2203001/shi-pin-jiao-ni-yi-bu-bu-si-kao-dong-tai-kgkg/)(checked)
 
 ## Solution
 
@@ -58,7 +60,7 @@ public:
         // because for the state transition
         //  dp[i][j] requires value at i + 1 and/or j - 1
         //  so the i is iterated reversely
-        for (int i = n - 1; i >= 0; i- -) {
+        for (int i = n - 1; i >= 0; i--) {
             for (int j = i + 1; j < n; j++) {
                 if (s[i] == s[j]) {
                     dp[i][j] = dp[i + 1][j - 1] + 2;

@@ -67,8 +67,11 @@ Output: 0
 
 ## Hints/Notes
 
+- 2024/09/17
 - z algorithm
+- [0x3F's solution](https://leetcode.cn/problems/find-the-occurrence-of-first-almost-equal-substring/solutions/2934098/qian-hou-zhui-fen-jie-z-shu-zu-pythonjav-0est/)(checked)
 - Biweekly Contest 140
+- Not suitable for interview
 
 ## Solution
 

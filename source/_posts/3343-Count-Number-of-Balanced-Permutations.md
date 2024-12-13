@@ -69,6 +69,7 @@ Explanation:
 - 2024/11/09
 - [0x3F's solution](https://leetcode.cn/problems/count-number-of-balanced-permutations/solution/duo-zhong-ji-pai-lie-shu-ji-shu-dppython-42ky/)
 - Weekly Contest 422
+- Not suitable for interview
 
 ## Solution
 

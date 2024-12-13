@@ -67,7 +67,9 @@ No node has value 5.
 
 ## Hints/Notes
 
+- 2024/07/20
 - Linked list
+- [0x3F's solution](https://leetcode.cn/problems/delete-nodes-from-linked-list-present-in-array/solutions/2843071/shao-bing-jie-dian-yi-ci-bian-li-pythonj-imre/)(checked)
 - Weekly Contest 406
 
 ## Solution

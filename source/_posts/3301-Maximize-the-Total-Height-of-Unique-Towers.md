@@ -64,12 +64,34 @@ It's impossible to assign positive heights to each index so that no two towers h
 
 ## Hints/Notes
 
+- 2024/09/15
 - sorting or priority_queue
+- [0x3F's solution](https://leetcode.cn/problems/maximize-the-total-height-of-unique-towers/solutions/2934060/cong-zui-da-yuan-su-kai-shi-tan-xin-pyth-s0t9/)(checked)
 - Biweekly Contest 140
 
 ## Solution
 
 Language: **C++**
+
+Sorting
+
+```C++
+class Solution {
+public:
+    long long maximumTotalSum(vector<int>& maximumHeight) {
+        ranges::sort(maximumHeight, greater());
+        for (int i = 1; i < maximumHeight.size(); i++) {
+            maximumHeight[i] = min(maximumHeight[i], maximumHeight[i - 1] - 1);
+            if (maximumHeight[i] <= 0) {
+                return -1;
+            }
+        }
+        return reduce(maximumHeight.begin(), maximumHeight.end(), 0LL);
+    }
+};
+```
+
+priority queue:
 
 ```C++
 class Solution {

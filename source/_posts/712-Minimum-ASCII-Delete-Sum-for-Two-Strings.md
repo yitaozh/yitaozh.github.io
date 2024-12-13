@@ -42,7 +42,9 @@ If instead we turned both strings into "lee" or "eet", we would get answers of 4
 
 ## Hints/Notes
 
+- 2024/07/18
 - dp
+- No solution from 0x3F
 
 ## Solution
 

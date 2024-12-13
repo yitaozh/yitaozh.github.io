@@ -27,7 +27,7 @@
 <meta property="og:description" content="3309. Maximum Possible Number by Binary Concatenation DescriptionYou are given an array of integers nums of size 3.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-10-19T16:18:10.000Z">
-<meta property="article:modified_time" content="2024-12-13T22:03:51.567Z">
+<meta property="article:modified_time" content="2024-12-13T22:23:49.004Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="Array">
 <meta property="article:tag" content="Bit Manipulation">
@@ -248,7 +248,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-12-13 22:03:51" itemprop="dateModified" datetime="2024-12-13T22:03:51+00:00">2024-12-13</time>
+      <time title="Modified: 2024-12-13 22:23:49" itemprop="dateModified" datetime="2024-12-13T22:23:49+00:00">2024-12-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -289,10 +289,15 @@
 <li><code>1 &lt;= nums[i] &lt;= 127</code></li>
 </ul>
 <h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>2024&#x2F;09&#x2F;20</li>
 <li>bit manipulation</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-possible-number-by-binary-concatenation/solutions/2940489/fei-bao-li-zuo-fa-onlogn-pai-xu-pythonja-540j/">0x3F’s solution</a>(checked)</li>
 <li>Weekly Contest 418</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<p>nlogn solution:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxGoodNumber</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        ranges::<span class="built_in">sort</span>(nums, [](<span class="type">int</span> a, <span class="type">int</span> b) &#123;</span><br><span class="line">            <span class="type">int</span> len_a = __lg(a) + <span class="number">1</span>;</span><br><span class="line">            <span class="type">int</span> len_b = __lg(b) + <span class="number">1</span>;</span><br><span class="line">            <span class="built_in">return</span> (a &lt;&lt; len_b | b) &gt; (b &lt;&lt; len_a | a);</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> x : nums) &#123;</span><br><span class="line">            ans = ans &lt;&lt; (__lg(x) + <span class="number">1</span>) | x;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxGoodNumber</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; nums.<span class="built_in">size</span>(); j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (j == i) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="type">int</span> k = <span class="number">3</span> - i - j;</span><br><span class="line">                <span class="type">int</span> bit1 = <span class="number">32</span> - __builtin_clz(nums[j]),</span><br><span class="line">                    bit2 = <span class="number">32</span> - __builtin_clz(nums[k]);</span><br><span class="line">                <span class="type">int</span> tmp =</span><br><span class="line">                    (nums[i] &lt;&lt; (bit1 + bit2)) + (nums[j] &lt;&lt; bit2) + nums[k];</span><br><span class="line">                res = <span class="built_in">max</span>(tmp, res);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
     </div>

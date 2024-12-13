@@ -75,7 +75,9 @@ The total cost is `7 + 4 + 4 = 15`.
 
 ## Hints/Notes
 
+- 2024/07/21
 - Greedy
+- [0x3F's solution](https://leetcode.cn/problems/minimum-cost-for-cutting-cake-ii/solutions/2843063/tan-xin-ji-qi-zheng-ming-jiao-huan-lun-z-ivtn/)(checked)
 - Weekly Contest 406
 
 ## Solution

@@ -67,12 +67,38 @@ Initially, `word == "a"`. Alice performs the four operations as follows:
 
 ## Hints/Notes
 
+- 2024/09/19
 - bit manipulation
+- [0x3F's solution](https://leetcode.cn/problems/find-the-k-th-character-in-string-game-ii/solutions/2934284/liang-chong-zuo-fa-di-gui-die-dai-python-5f6z/)(checked)
 - Weekly Contest 417
 
 ## Solution
 
 Language: **C++**
+
+Cleaner solution
+
+```C++
+class Solution {
+public:
+    char kthCharacter(long long k, vector<int>& operations) {
+        k--;
+        int n = __lg(k), count = 0;
+        while (n >= 0) {
+            // check the nth digit of k
+            int digit = (long long)(k >> (n)) & 1;
+            // if digit is 0, then it's in the first half, else second half
+            //  1. if it's in the first half, then operation[n - 1] wouldn't matter
+            //  2. if it's in the second half, then we need to record one
+            if (digit) {
+                count += operations[n];
+            }
+            n--;
+        }
+        return (count % 26) + 'a';
+    }
+};
+```
 
 ```C++
 class Solution {

@@ -54,6 +54,7 @@ Explanation:
 ## Hints/Notes
 
 - 2024/11/25
+- dp
 - [0x3F's solution](https://leetcode.cn/problems/sum-of-good-subsequences/solutions/2983496/te-shu-zi-xu-lie-dppythonjavacgo-by-endl-vv7e/)(checked)
 - Weekly Contest 423
 

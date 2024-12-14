@@ -70,7 +70,9 @@ The sizes of the perfect binary subtrees in non-increasing order are `[1, 1]`. T
 
 ## Hints/Notes
 
+- 2024/09/27
 - priority queue
+- [0x3F's solution](https://leetcode.cn/problems/k-th-largest-perfect-subtree-size-in-binary-tree/solutions/2948931/you-di-you-gui-de-er-cha-shu-dfspythonja-qy5j/)(checked)
 - Weekly Contest 419
 
 ## Solution

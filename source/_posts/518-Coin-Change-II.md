@@ -55,7 +55,9 @@ Output: 1
 
 ## Hints/Notes
 
+- 2024/07/29
 - dp
+- [0x3F's solution](https://leetcode.cn/problems/coin-change-ii/solutions/2706227/shi-pin-wan-quan-bei-bao-cong-ji-yi-hua-o3ew0/)(checked)
 
 ## Solution
 

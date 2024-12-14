@@ -88,7 +88,10 @@ We can remove `source[2]` and `source[3]` in two operations.
 
 ## Hints/Notes
 
-- Biweekly Contest 141
+- 2024/09/25
+- dp
+- [0x3F's solution](https://leetcode.cn/problems/find-maximum-removals-from-source-string/solutions/2948631/jiao-ni-yi-bu-bu-si-kao-dpcong-ji-yi-hua-h94l/)(checked)
+- Biweekly Contest 141 T3
 
 ## Solution
 
@@ -107,7 +110,7 @@ public:
         int m = source.size(), n = pattern.size();
         set<int> targets(targetIndices.begin(), targetIndices.end());
         source_ = source; pattern_ = pattern;
-        dp.resize(m, vector<int>(n, INT_MIN));
+        dp.resize(m, vector<int>(n, -1));
         int res = dfs(0, 0, targets);
         return res;
     }
@@ -115,15 +118,14 @@ public:
     int dfs(int idx1, int idx2, set<int>& targets) {
         // all pattern matched, all deletions afterwards can be applied
         if (idx2 == pattern_.size()) {
-            auto it = targets.lower_bound(idx1);
-            return distance(it, targets.end());
+            return distance(targets.lower_bound(idx1), targets.end());
         }
-        // we cannot match the pattern, return -n as a sign of failure
+        // we cannot match the pattern, return INT_MIN as a sign of failure
         // any value larger or equal to target size works here
         if (idx1 == source_.size()) {
-            return -targets.size();
+            return INT_MIN;
         }
-        if (dp[idx1][idx2] != INT_MIN) {
+        if (dp[idx1][idx2] != -1) {
             return dp[idx1][idx2];
         }
         int res = 0;

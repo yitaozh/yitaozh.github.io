@@ -55,7 +55,7 @@ As shown in the table below, `9` is the greatest cheap number.
 
 - 2024/11/23
 - Binary search + digit dp
-- [0x3F's solution](https://leetcode.cn/problems/maximum-number-that-sum-of-the-prices-is-less-than-or-equal-to-k/solutions/2603673/er-fen-da-an-shu-wei-dpwei-yun-suan-pyth-tkir/)
+- [0x3F's solution](https://leetcode.cn/problems/maximum-number-that-sum-of-the-prices-is-less-than-or-equal-to-k/solutions/2603673/er-fen-da-an-shu-wei-dpwei-yun-suan-pyth-tkir/)(checked)
 - Weekly Contest 380
 
 ## Solution

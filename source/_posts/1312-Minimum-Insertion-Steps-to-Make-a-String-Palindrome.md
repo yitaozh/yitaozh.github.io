@@ -48,7 +48,9 @@ Explanation: Inserting 5 characters the string becomes "leetcodocteel".
 
 ## Hints/Notes
 
+- 2024/07/27
 - range dp
+- No solution from 0x3F
 
 ## Solution
 

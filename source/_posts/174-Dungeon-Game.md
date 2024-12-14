@@ -50,7 +50,9 @@ Output: 1
 
 ## Hints/Notes
 
+- 2024/08/01
 - dp
+- No solution from 0x3F
 
 ## Solution
 

@@ -62,7 +62,9 @@ It can be shown that there is no possible way to divide nums into 3 subarrays at
 
 ## Hints/Notes
 
+- 2024/09/29
 - use 2 sorted lists
+- [0x3F's solution](https://leetcode.cn/problems/divide-an-array-into-subarrays-with-minimum-cost-ii/solutions/2614067/liang-ge-you-xu-ji-he-wei-hu-qian-k-1-xi-zdzx/)(checked)
 
 ## Solution
 

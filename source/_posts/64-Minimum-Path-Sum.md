@@ -42,7 +42,9 @@ Output: 12
 
 ## Hints/Notes
 
+- 2024/07/31
 - dp
+- No solution from 0x3F
 
 ## Solution
 

@@ -55,6 +55,9 @@ Since there are 21 substrings total and 5 of them have non-dominant ones, it fol
 
 ## Hints/Notes
 
+- 2024/08/02
+- enumerate on the left index of the subarray
+- [0x3F's solution](https://leetcode.cn/problems/count-the-number-of-substrings-with-dominant-ones/solutions/2860198/mei-ju-zi-chuan-zhong-de-0-de-ge-shu-pyt-c654/)
 - Weekly Contest 408
 
 ## Solution

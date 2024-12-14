@@ -16,7 +16,7 @@ You are given an integer array `nums` of length `n` and a 2D array `queries` whe
 
 Each `queries[i]` represents the following action on `nums`:
 
-- Decrement the value at each index in the range [l<sub>i</sub>, r<sub>i</sub>] in `nums` by **at most**  `val<sub>i</sub>`.
+- Decrement the value at each index in the range [l<sub>i</sub>, r<sub>i</sub>] in `nums` by **at most** val<sub>i</sub>.
 - The amount by which each value is decremented can be chosen **independently**  for each index.
 
 A **Zero Array**  is an array with all its elements equal to 0.

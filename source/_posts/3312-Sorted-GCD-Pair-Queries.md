@@ -76,12 +76,47 @@ Explanation:
 
 ## Hints/Notes
 
+- 2024/09/23
 - combinatorics
+- [0x3F's solution](https://leetcode.cn/problems/sorted-gcd-pair-queries/solutions/2940415/mei-ju-rong-chi-qian-zhui-he-er-fen-pyth-ujis/)(checked)
 - Weekly Contest 418
 
 ## Solution
 
 Language: **C++**
+
+Improvement to code simplicity
+
+```C++
+class Solution {
+public:
+    vector<int> gcdValues(vector<int>& nums, vector<long long>& queries) {
+        int maxVal = ranges::max(nums);
+        vector<long long> gcd_count(maxVal + 1, 0);
+        vector<long long> count(maxVal + 1, 0);
+        for (int i = 0; i < nums.size(); i++) {
+            count[nums[i]]++;
+        }
+        // the state transition
+        // 2, 4, 6, 8 -> n numbers divisible by 2
+        // gcd_count(2) = (n - 1) * n / 2 - gcd_count(4) - gcd_count(6) - ...
+        for (int i = maxVal; i >= 1; i--) {
+            long long cnt = 0;
+            for (int j = i; j <= maxVal; j += i) {
+                cnt += count[j];
+                gcd_count[i] -= gcd_count[j];
+            }
+            gcd_count[i] += (cnt - 1) * cnt / 2;
+        }
+        partial_sum(gcd_count.begin(), gcd_count.end(), gcd_count.begin());
+        vector<int> res;
+        for (auto q : queries) {
+            res.push_back(ranges::upper_bound(gcd_count, q) - gcd_count.begin());
+        }
+        return res;
+    }
+};
+```
 
 ```C++
 class Solution {

@@ -54,7 +54,6 @@ Output: 1
 - 2024/11/21
 - digit dp with is_num
 - [0x3F's solution](https://leetcode.cn/problems/rotated-digits/solutions/1847409/by-endlesscheng-9b96/)(checked)
-- Weekly/Biweekly Contest XXX
 
 ## Solution
 

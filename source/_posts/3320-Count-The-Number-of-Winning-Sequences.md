@@ -61,8 +61,10 @@ Bob can beat Alice by making one of the following sequences of moves: `"FWFWF"`,
 
 ## Hints/Notes
 
+- 2024/09/28
 - dp
 - the array<int, n> stl must be initialized explicitly
+- [0x3F's solution](https://leetcode.cn/problems/count-the-number-of-winning-sequences/solutions/2949448/jiao-ni-yi-bu-bu-si-kao-dpcong-ji-yi-hua-5tsk/)(checked)
 - Weekly Contest 419
 
 ## Solution

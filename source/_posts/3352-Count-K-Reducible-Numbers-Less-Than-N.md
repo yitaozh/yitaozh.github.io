@@ -9,48 +9,63 @@ tags:
     - Combinatorics
 ---
 
-[3352. Count K-Reducible Numbers Less Than N](https://leetcode.com/problems/count-k-reducible-numbers-less-than-n/)
+[3352. Count K-Reducible Numbers Less Than N](https://leetcode.com/problems/count-k-reducible-numbers-less-than-n/description/)
 
 ## Description
 
-You are given an integer array `nums`. A **good** subsequence is defined as a subsequence of `nums` where the absolute difference between any **two**  consecutive elements in the subsequence is **exactly**  1.
+You are given a **binary**  string `s` representing a number `n` in its binary form.
 
-Return the **sum**  of all possible **good subsequences**  of `nums`.
+You are also given an integer `k`.
 
-Since the answer may be very large, return it **modulo**  `10^9 + 7`.
+An integer `x` is called **k-reducible** if performing the following operation **at most**  `k` times reduces it to 1:
 
-**Note** that a subsequence of size 1 is considered good by definition.
+- Replace `x` with the **count**  of set bits in its binary representation.
+
+For example, the binary representation of 6 is `"110"`. Applying the operation once reduces it to 2 (since `"110"` has two set bits). Applying the operation again to 2 (binary `"10"`) reduces it to 1 (since `"10"` has one set bit).
+
+Return an integer denoting the number of positive integers **less**  than `n` that are **k-reducible** .
+
+Since the answer may be too large, return it **modulo**  `10^9 + 7`.
 
 **Example 1:**
 
-```bash
-Input: nums = [1,2,1]
+<div class="example-block">
+Input: s = "111", k = 1
 
-Output: 14
-```
+Output: 3
 
 Explanation:
 
-- Good subsequences are: `[1]`, `[2]`, `[1]`, `[1,2]`, `[2,1]`, `[1,2,1]`.
-- The sum of elements in these subsequences is 14.
+`n = 7`. The 1-reducible integers less than 7 are 1, 2, and 4.
 
 **Example 2:**
 
-```bash
-Input: nums = [3,4,5]
+<div class="example-block">
+Input: s = "1000", k = 2
 
-Output: 40
-```
+Output: 6
 
 Explanation:
 
-- Good subsequences are: `[3]`, `[4]`, `[5]`, `[3,4]`, `[4,5]`, `[3,4,5]`.
-- The sum of elements in these subsequences is 40.
+`n = 8`. The 2-reducible integers less than 8 are 1, 2, 3, 4, 5, and 6.
+
+**Example 3:**
+
+<div class="example-block">
+Input: s = "1", k = 3
+
+Output: 0
+
+Explanation:
+
+There are no positive integers less than `n = 1`, so the answer is 0.
 
 **Constraints:**
 
-- `1 <= nums.length <= 10^5`
-- `0 <= nums[i] <= 10^5`
+- `1 <= s.length <= 800`
+- `s` has no leading zeros.
+- `s` consists only of the characters `'0'` and `'1'`.
+- `1 <= k <= 5`
 
 ## Hints/Notes
 

@@ -49,7 +49,9 @@ Output: 1
 
 ## Hints/Notes
 
+- 2024/07/30
 - dp
+- [0x3F's solution](https://leetcode.cn/problems/target-sum/solutions/2119041/jiao-ni-yi-bu-bu-si-kao-dong-tai-gui-hua-s1cx/)(checked)
 
 ## Solution
 

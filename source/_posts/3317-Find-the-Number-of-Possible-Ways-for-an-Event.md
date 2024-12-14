@@ -67,7 +67,10 @@ Output: 684
 
 ## Hints/Notes
 
+- 2024/09/26
 - Stirling number of the second kind
+- [0x3F's solution](https://leetcode.cn/problems/find-the-number-of-possible-ways-for-an-event/solutions/2948578/zu-he-shu-xue-di-er-lei-si-te-lin-shu-py-e6sv/)(checked)
+- we don't need to calculate the combination, it's actually permutation
 - Biweekly Contest 141
 
 ## Solution
@@ -122,17 +125,18 @@ public:
         for (int i = 1; i <= max_stages; i++) {
             fac[i] = fac[i - 1] * i % MOD;
         }
+        long long perm = 1;
         long long res = 0;
         long long y_base = y;
         for (int i = 1; i <= max_stages; i++) {
             // first, choose i stages from x stages
-            long long cur = combinations[i];
+            perm =  perm * (x + 1 - i) % MOD;
             // with i stages, there can be y_base score combinations
-            cur = cur * y_base % MOD;
+            long long cur = perm * y_base % MOD;
             // finally, to put n people on i stages, and every stage
             // must have at one people, there are s[i] combinations
             // multiplied by fac[i] since stages are different
-            cur = (cur * s[i] % MOD) * fac[i] % MOD;
+            cur = (cur * s[i] % MOD) % MOD;
             res = (res + cur) % MOD;
             y_base = y_base * y % MOD;
         }

@@ -36,20 +36,49 @@ Explanation: The array cannot be partitioned into equal sum subsets.
 
 ## Hints/Notes
 
+- 2024/07/28
 - 0/1 knapsack
+- Memoization Search
+- [0x3F's solution](https://leetcode.cn/problems/partition-equal-subset-sum/solutions/2785266/0-1-bei-bao-cong-ji-yi-hua-sou-suo-dao-d-ev76/)(checked)
 
 ## Solution
 
 Language: **C++**
 
+Memoization search
+
+```C++
+class Solution {
+public:
+    vector<vector<int>> dp;
+
+    bool canPartition(vector<int>& nums) {
+        int sum = reduce(nums.begin(), nums.end()), n = nums.size();
+        if (sum % 2) {
+            return false;
+        }
+        dp.resize(n, vector<int>(sum / 2 + 1, -1));
+        return dfs(0, sum / 2, nums);
+    }
+
+    bool dfs(int index, int target, vector<int>& nums) {
+        if (index == nums.size()) {
+            return target == 0;
+        }
+        if (dp[index][target] != -1) {
+            return dp[index][target];
+        }
+        int& res = dp[index][target];
+        return res = target >= nums[index] && dfs(index + 1, target - nums[index], nums) || dfs(index + 1, target, nums);
+    }
+};
+```
+
 ```C++
 class Solution {
 public:
     bool canPartition(vector<int>& nums) {
-        int sum = 0;
-        for (int& num : nums) {
-            sum += num;
-        }
+        int sum redu
         if (sum % 2) {
             return false;
         }

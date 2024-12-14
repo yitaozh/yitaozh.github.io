@@ -56,8 +56,11 @@ Explanation:
 
 ## Hints/Notes
 
+- 2024/09/24
 - find the rightmost 0's index, make the 1 at its right to 0
-- bit manipulation, lowbit of t = t & -t
+- bit manipulation, lowbit(rightmost 1) of t = t & -t
+- so the right most 0 of t is (~t) & (-(~t))
+- [0x3F's solution](https://leetcode.cn/problems/construct-the-minimum-bitwise-array-ii/solutions/2948584/o1-ji-suan-mei-ge-shu-pythonjavacgo-by-e-6l9l/)(checked)
 - Biweekly Contest 141
 
 ## Solution

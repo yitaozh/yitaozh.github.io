@@ -62,7 +62,9 @@ The integer `X` will be 4.
 
 ## Hints/Notes
 
+- 2024/07/27
 - diff and preSum array
+- [0x3F's solution](https://leetcode.cn/problems/minimum-array-changes-to-make-differences-equal/solutions/2851502/mei-ju-x-fen-lei-tao-lun-pythonjavacgo-b-puh2/)(checked)
 - Biweekly contest 135
 
 ## Solution
@@ -80,6 +82,10 @@ public:
             int diff = abs(nums[i] - nums[n - i - 1]);
             diffs[diff]++;
             int mi = min(nums[i], nums[n - i - 1]), mx = max(nums[i], nums[n - i - 1]);
+            // if we change mi along, then it would be changed to 0, the diff would be mx
+            // if we change mx alone, then, it would be changed to k, the diff would be k - mi
+            // if we want to change only one number to suit the need, then the X would be less than max(mx, k - mi)
+            // if the x is larger than max(mx, k - mi), we need to change twice
             mins[max(mx, k - mi)]++;
         }
         int res = INT_MAX, sum = 0;

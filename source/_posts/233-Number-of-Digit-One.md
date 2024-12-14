@@ -36,7 +36,7 @@ Output: 0
 
 - 2024/11/16
 - digit dp
-- [0x3F's solution](https://leetcode.cn/problems/number-of-digit-one/solutions/1750339/by-endlesscheng-h9ua/)
+- [0x3F's solution](https://leetcode.cn/problems/number-of-digit-one/solutions/1750339/by-endlesscheng-h9ua/)(checked)
 
 ## Solution
 

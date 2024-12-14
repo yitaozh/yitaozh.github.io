@@ -51,12 +51,38 @@ The special numbers in the range `[4, 16]` are 4 and 9.
 
 ## Hints/Notes
 
+- 2024/08/01
 - only value that's square of prime number satisfies the need
+- [0x3F's solution](https://leetcode.cn/problems/find-the-count-of-numbers-which-are-not-special/solutions/2860276/yu-chu-li-zhi-shu-o1hui-da-pythonjavacgo-7xaq/)(checked)
 - Weekly Contest 408
 
 ## Solution
 
 Language: **C++**
+
+Pre-calculate the prime numbers
+
+```C++
+const int MX = 31622;
+int pi[MX + 1];
+
+auto init = [] {
+    for (int i = 2; i <= MX; i++) {
+        if (pi[i] == 0) {
+            pi[i] = pi[i - 1] + 1;
+            for (int j = i * i; j <= MX; j += i) {
+                pi[j] = -1;
+            }
+        } else {
+            pi[i] = pi[i - 1];
+        }
+    }
+    return 0;
+}();
+
+// to calculate the number of prime numbers within l and r
+res = pi[r] - pi[l - 1]
+```
 
 ```C++
 class Solution {

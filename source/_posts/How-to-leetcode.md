@@ -195,6 +195,8 @@ Digit dp: lc 2376
 
 Digit dp with lower bound and is_num: 1067
 
+pre-calculate number of prime numbers: LC 3233
+
 ### C++ template
 
 For online GDB

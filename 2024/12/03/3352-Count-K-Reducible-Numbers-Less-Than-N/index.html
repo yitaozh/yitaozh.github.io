@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yitaozh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12,"author":"Echo Joy"},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="3352. Count K-Reducible Numbers Less Than N DescriptionYou are given an integer array nums. A good subsequence is defined as a subsequence of nums where the absolute difference between any two  consec">
+    <meta name="description" content="3352. Count K-Reducible Numbers Less Than N DescriptionYou are given a binary  string s representing a number n in its binary form.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="3352. Count K-Reducible Numbers Less Than N">
 <meta property="og:url" content="https://yitaozh.github.io/2024/12/03/3352-Count-K-Reducible-Numbers-Less-Than-N/index.html">
 <meta property="og:site_name" content="Echo&#39;s Home">
-<meta property="og:description" content="3352. Count K-Reducible Numbers Less Than N DescriptionYou are given an integer array nums. A good subsequence is defined as a subsequence of nums where the absolute difference between any two  consec">
+<meta property="og:description" content="3352. Count K-Reducible Numbers Less Than N DescriptionYou are given a binary  string s representing a number n in its binary form.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-12-03T17:12:55.000Z">
-<meta property="article:modified_time" content="2024-12-14T22:39:57.567Z">
+<meta property="article:modified_time" content="2024-12-14T22:51:21.927Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="String">
 <meta property="article:tag" content="Dynamic Programming">
@@ -249,7 +249,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-12-14 22:39:57" itemprop="dateModified" datetime="2024-12-14T22:39:57+00:00">2024-12-14</time>
+      <time title="Modified: 2024-12-14 22:51:21" itemprop="dateModified" datetime="2024-12-14T22:51:21+00:00">2024-12-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -270,31 +270,43 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/count-k-reducible-numbers-less-than-n/">3352. Count K-Reducible Numbers Less Than N</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given an integer array <code>nums</code>. A <strong>good</strong> subsequence is defined as a subsequence of <code>nums</code> where the absolute difference between any <strong>two</strong>  consecutive elements in the subsequence is <strong>exactly</strong>  1.</p>
-<p>Return the <strong>sum</strong>  of all possible <strong>good subsequences</strong>  of <code>nums</code>.</p>
-<p>Since the answer may be very large, return it <strong>modulo</strong>  <code>10^9 + 7</code>.</p>
-<p><strong>Note</strong> that a subsequence of size 1 is considered good by definition.</p>
+    <div class="post-body" itemprop="articleBody"><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/count-k-reducible-numbers-less-than-n/description/">3352. Count K-Reducible Numbers Less Than N</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given a <strong>binary</strong>  string <code>s</code> representing a number <code>n</code> in its binary form.</p>
+<p>You are also given an integer <code>k</code>.</p>
+<p>An integer <code>x</code> is called <strong>k-reducible</strong> if performing the following operation <strong>at most</strong>  <code>k</code> times reduces it to 1:</p>
+<ul>
+<li>Replace <code>x</code> with the <strong>count</strong>  of set bits in its binary representation.</li>
+</ul>
+<p>For example, the binary representation of 6 is <code>&quot;110&quot;</code>. Applying the operation once reduces it to 2 (since <code>&quot;110&quot;</code> has two set bits). Applying the operation again to 2 (binary <code>&quot;10&quot;</code>) reduces it to 1 (since <code>&quot;10&quot;</code> has one set bit).</p>
+<p>Return an integer denoting the number of positive integers <strong>less</strong>  than <code>n</code> that are <strong>k-reducible</strong> .</p>
+<p>Since the answer may be too large, return it <strong>modulo</strong>  <code>10^9 + 7</code>.</p>
 <p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [1,2,1]</span><br><span class="line"></span><br><span class="line">Output: 14</span><br></pre></td></tr></table></figure>
+<div class="example-block">
+Input: s = "111", k = 1
 
+<p>Output: 3</p>
 <p>Explanation:</p>
-<ul>
-<li>Good subsequences are: <code>[1]</code>, <code>[2]</code>, <code>[1]</code>, <code>[1,2]</code>, <code>[2,1]</code>, <code>[1,2,1]</code>.</li>
-<li>The sum of elements in these subsequences is 14.</li>
-</ul>
+<p><code>n = 7</code>. The 1-reducible integers less than 7 are 1, 2, and 4.</p>
 <p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [3,4,5]</span><br><span class="line"></span><br><span class="line">Output: 40</span><br></pre></td></tr></table></figure>
+<div class="example-block">
+Input: s = "1000", k = 2
 
+<p>Output: 6</p>
 <p>Explanation:</p>
-<ul>
-<li>Good subsequences are: <code>[3]</code>, <code>[4]</code>, <code>[5]</code>, <code>[3,4]</code>, <code>[4,5]</code>, <code>[3,4,5]</code>.</li>
-<li>The sum of elements in these subsequences is 40.</li>
-</ul>
+<p><code>n = 8</code>. The 2-reducible integers less than 8 are 1, 2, 3, 4, 5, and 6.</p>
+<p><strong>Example 3:</strong></p>
+<div class="example-block">
+Input: s = "1", k = 3
+
+<p>Output: 0</p>
+<p>Explanation:</p>
+<p>There are no positive integers less than <code>n = 1</code>, so the answer is 0.</p>
 <p><strong>Constraints:</strong></p>
 <ul>
-<li><code>1 &lt;= nums.length &lt;= 10^5</code></li>
-<li><code>0 &lt;= nums[i] &lt;= 10^5</code></li>
+<li><code>1 &lt;= s.length &lt;= 800</code></li>
+<li><code>s</code> has no leading zeros.</li>
+<li><code>s</code> consists only of the characters <code>&#39;0&#39;</code> and <code>&#39;1&#39;</code>.</li>
+<li><code>1 &lt;= k &lt;= 5</code></li>
 </ul>
 <h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>2024&#x2F;11&#x2F;26</li>

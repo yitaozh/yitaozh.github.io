@@ -72,7 +72,7 @@ For every `i`, connect node `i` of the first tree with any node of the second tr
 - 2024/12/07
 - tree dfs
 - [0x3F's solution](https://leetcode.cn/problems/maximize-the-number-of-target-nodes-after-connecting-trees-i/solutions/3006334/nao-jin-ji-zhuan-wan-bao-li-mei-ju-pytho-ua6k/)(checked)
-- Weekly/Biweekly Contest 426
+- Weekly Contest 426
 
 ## Solution
 

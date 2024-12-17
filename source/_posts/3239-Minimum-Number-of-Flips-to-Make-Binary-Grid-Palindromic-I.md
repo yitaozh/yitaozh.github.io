@@ -69,6 +69,8 @@ All rows are already palindromic.
 
 ## Hints/Notes
 
+- 2024/08/03
+- [0x3F's solution](https://leetcode.cn/problems/minimum-number-of-flips-to-make-binary-grid-palindromic-i/solutions/2868250/fen-bie-ji-suan-pythonjavacgo-by-endless-771t/)(checked)
 - Biweekly Contest 136
 
 ## Solution

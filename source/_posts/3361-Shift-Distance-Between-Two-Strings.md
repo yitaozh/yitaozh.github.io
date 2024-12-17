@@ -63,12 +63,37 @@ Explanation:
 ## Hints/Notes
 
 - 2024/11/30
-- [0x3F's solution](https://leetcode.cn/problems/shift-distance-between-two-strings/solutions/2998657/qian-zhui-he-on-zuo-fa-pythonjavacgo-by-b4hfx/)
+- preSum
+- [0x3F's solution](https://leetcode.cn/problems/shift-distance-between-two-strings/solutions/2998657/qian-zhui-he-on-zuo-fa-pythonjavacgo-by-b4hfx/)(checked)
 - Biweekly Contest 144
 
 ## Solution
 
 Language: **C++**
+
+O(n) solution
+
+```C++
+class Solution {
+public:
+    long long shiftDistance(string s, string t, vector<int>& nextCost,
+                            vector<int>& previousCost) {
+        const int SIZE = 26;
+        long long next_sum[SIZE * 2 + 1]{}, previous_sum[SIZE * 2 + 1]{};
+        for (int i = 0; i < SIZE * 2; i++) {
+            next_sum[i + 1] = next_sum[i] + nextCost[i % SIZE];
+            previous_sum[i + 1] = previous_sum[i] + previousCost[i % SIZE];
+        }
+        long long res = 0;
+        for (int i = 0; i < s.size(); i++) {
+            int x = s[i] - 'a', y = t[i] - 'a';
+            res += min(next_sum[x < y ? y : y + SIZE] - next_sum[x],
+                       previous_sum[x < y ? x + SIZE + 1 : x + 1] - previous_sum[y + 1]);
+        }
+        return res;
+    }
+};
+```
 
 ```C++
 class Solution {

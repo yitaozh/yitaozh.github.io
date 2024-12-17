@@ -47,6 +47,7 @@ Explanation: "lee", "eet" and "ode" contain 2 vowels.
 
 ## Hints/Notes
 
+- 2024/10/02
 - sliding window
 - [0x3F's solution](https://leetcode.cn/problems/maximum-number-of-vowels-in-a-substring-of-given-length/solutions/2809359/tao-lu-jiao-ni-jie-jue-ding-chang-hua-ch-fzfo/)(checked)
 

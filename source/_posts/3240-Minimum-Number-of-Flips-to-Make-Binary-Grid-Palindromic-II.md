@@ -65,7 +65,9 @@ Explanation:
 
 ## Hints/Notes
 
+- 2024/08/04
 - draw the grid
+- [0x3F's solution](https://leetcode.cn/problems/minimum-number-of-flips-to-make-binary-grid-palindromic-ii/solutions/2868238/fen-lei-tao-lun-pythonjavacgo-by-endless-jl6a/)(checked)
 - Biweekly Contest 136
 
 ## Solution

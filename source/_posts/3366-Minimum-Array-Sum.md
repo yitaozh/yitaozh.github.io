@@ -61,7 +61,8 @@ Explanation:
 ## Hints/Notes
 
 - 2024/12/04
-- [0x3F's solution](https://leetcode.cn/problems/minimum-array-sum/solutions/2998867/jiao-ni-yi-bu-bu-si-kao-dpcong-ji-yi-hua-0pc5/)
+- dp
+- [0x3F's solution](https://leetcode.cn/problems/minimum-array-sum/solutions/2998867/jiao-ni-yi-bu-bu-si-kao-dpcong-ji-yi-hua-0pc5/)(checked)
 - Weekly Contest 425
 
 ## Solution

@@ -71,7 +71,9 @@ After the addition of the road from 0 to 2, the length of the shortest path rema
 
 ## Hints/Notes
 
+- 2024/08/06
 - BFS for each query
+- [0x3F's solution](https://leetcode.cn/problems/shortest-distance-after-road-addition-queries-i/solutions/2869215/liang-chong-fang-fa-bfs-dppythonjavacgo-mgunf/)(checked)
 - Weekly Contest 409
 
 ## Solution

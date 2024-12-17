@@ -72,6 +72,7 @@ Explanation:
 ## Hints/Notes
 
 - 2024/12/03
+- map
 - [0x3F's solution](https://leetcode.cn/problems/rearrange-k-substrings-to-form-target-string/solutions/2998881/pai-xu-pythonjavacgo-by-endlesscheng-wslh/)
 - Weekly Contest 425
 

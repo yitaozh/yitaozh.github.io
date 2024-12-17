@@ -59,7 +59,9 @@ Output: 126
 
 ## Hints/Notes
 
+- 2024/08/09
 - dp
+- [0x3F's solution](https://leetcode.cn/problems/find-the-count-of-monotonic-pairs-i/solutions/2876195/onm-qian-zhui-he-you-hua-dppythonjavacgo-psla/)(the same as t4)
 - Weekly Contest 410
 
 ## Solution

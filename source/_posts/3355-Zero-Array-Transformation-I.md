@@ -69,7 +69,7 @@ Explanation:
 
 - 2024/11/28
 - diff array
-- [0x3F's solution](https://leetcode.cn/problems/zero-array-transformation-i/solutions/2991455/mo-ban-chai-fen-shu-zu-pythonjavacgo-by-i4axs/)
+- [0x3F's solution](https://leetcode.cn/problems/zero-array-transformation-i/solutions/2991455/mo-ban-chai-fen-shu-zu-pythonjavacgo-by-i4axs/)(checked)
 - Weekly Contest 424
 
 ## Solution

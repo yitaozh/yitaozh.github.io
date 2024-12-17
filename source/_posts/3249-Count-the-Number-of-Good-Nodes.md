@@ -71,7 +71,9 @@ All nodes except node 9 are good.
 
 ## Hints/Notes
 
+- 2024/08/08
 - binary tree
+- [0x3F's solution](https://leetcode.cn/problems/count-the-number-of-good-nodes/solutions/2876198/dfs-ji-suan-zi-shu-da-xiao-pythonjavacgo-9atl/)(checked)
 - Weekly Contest 410
 
 ## Solution
@@ -83,49 +85,36 @@ class Solution {
 public:
     int res = 0;
     vector<vector<int>> graph;
-    unordered_map<int, int> m;
-    vector<bool> visited;
 
     int countGoodNodes(vector<vector<int>>& edges) {
         int n = edges.size() + 1;
         graph.resize(n, vector<int>());
-        visited.resize(n, false);
         for (auto& edge : edges) {
             int u = edge[0], v = edge[1];
             graph[u].push_back(v);
             graph[v].push_back(u);
-            m[u]++;
-            m[v]++;
         }
-        traverse(0);
+        traverse(0, -1);
         return res;
     }
 
-    int traverse(int root) {
-        if (m[root] == 0) {
-            res++;
-            return 1;
-        }
-        visited[root] = true;
-        int first = -1, sum = 0;
+    int traverse(int root, int origin) {
+        int sum = 1, size = 0;
         bool valid = true;
         for (auto& u : graph[root]) {
-            if (visited[u]) {
+            if (u == origin) {
                 continue;
             }
-            m[u]--;
-            int cur = traverse(u);
-            if (first == -1) {
-                first = cur;
-            } else if (first != cur) {
+            int tmp = traverse(u, root);
+            if (size && size != tmp) {
                 valid = false;
             }
-            sum += cur;
+            size = tmp;
+            sum += tmp;
         }
         if (valid) {
             res++;
         }
-        sum++;
         return sum;
     }
 };

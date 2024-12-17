@@ -75,7 +75,9 @@ After the addition of the road from 0 to 2, the length of the shortest path rema
 
 ## Hints/Notes
 
+- 2024/08/07
 - Union find
+- [0x3F's solution](https://leetcode.cn/problems/shortest-distance-after-road-addition-queries-ii/solutions/2868558/qu-jian-bing-cha-ji-pythonjavacgo-by-end-a9k7/)(checked)
 - Weekly Contest 409
 
 ## Solution
@@ -90,10 +92,7 @@ public:
     vector<int> shortestDistanceAfterQueries(int n,
                                              vector<vector<int>>& queries) {
         nodes.resize(n - 1, 0);
-        for (int i = 0; i < nodes.size(); i++) {
-            // use node[i] to mark the edge between i and i + 1
-            nodes[i] = i;
-        }
+        iota(nodes.begin(), nodes.end(), 0);
         vector<int> res;
         int count = n - 1;
         for (auto q : queries) {
@@ -112,11 +111,10 @@ public:
     void merge(int l, int r) { nodes[l] = r; }
 
     int find(int node) {
-        while (node != nodes[node]) {
+        if (node != nodes[node]) {
             nodes[node] = find(nodes[node]);
-            node = nodes[node];
         }
-        return node;
+        return nodes[node];
     }
 };
 ```

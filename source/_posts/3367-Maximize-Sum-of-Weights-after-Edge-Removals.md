@@ -12,7 +12,7 @@ tags:
 
 ## Description
 
-There exists an **undirected**  tree with `n` nodes numbered `0` to `n - 1`. You are given a 2D integer array `edges` of length `n - 1`, where `edges[i] = [u<sub>i</sub>, v<sub>i</sub>, w<sub>i</sub>]` indicates that there is an edge between nodes `u<sub>i</sub>` and `v<sub>i</sub>` with weight `w<sub>i</sub>` in the tree.
+There exists an **undirected**  tree with `n` nodes numbered `0` to `n - 1`. You are given a 2D integer array `edges` of length `n - 1`, where edges[i] = [u<sub>i</sub>, v<sub>i</sub>, w<sub>i</sub>] indicates that there is an edge between nodes u<sub>i</sub> and v<sub>i</sub> with weight w<sub>i</sub> in the tree.
 
 Your task is to remove zero or more edges such that:
 

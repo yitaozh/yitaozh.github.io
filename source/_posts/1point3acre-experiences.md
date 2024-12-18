@@ -24,6 +24,14 @@ Assume i start the application on 2025/01/20, plan each day's work. **It's a tot
   * Do 6.824 1 class per day, finish before Jan
   * Do DDIA first 8 chapter, finish before going out to Vermont
   * Do Alex's Xu 2 chapters per day, after coming back from Vermont
+* Work on the behavioral doc next Monday
+  * if have spare time, think about the problems encountered during project development
+  * the projects:
+    * load balancing
+    * latency reduction
+    * cost reduction
+    * throughput increase
+  The high level idea is performance and cost reduction.
 
 ## Coding
 

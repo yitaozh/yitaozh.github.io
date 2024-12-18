@@ -45,6 +45,49 @@ Output: "bb"
 
 Language: **C++**
 
+Manacher's algorithm
+
+```C++
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        string manacher = "^#";
+        for (auto& c : s) {
+            manacher.push_back(c);
+            manacher.push_back('#');
+        }
+        manacher.push_back('$');
+        vector<int> halfLen(manacher.size(), 0);
+        int center = 0, right = 0;
+        for (int i = 1; i < manacher.size() - 1; i++) {
+            int len = 0;
+            if (i < right) {
+                len = min(right - i, halfLen[2 * center - i]);
+            }
+            while (manacher[i + len] == manacher[i - len]) {
+                if (i + len > right) {
+                    right = i + len;
+                    center = i;
+                }
+                len++;
+            }
+            halfLen[i] = len;
+        }
+        int maxLen = 0;
+        string res;
+        for (int i = 1; i < halfLen.size() - 1; i++) {
+            if (halfLen[i] > maxLen) {
+                maxLen = halfLen[i];
+                string tmp = manacher.substr(i - maxLen + 1, maxLen * 2 - 1);
+                tmp.erase(remove(tmp.begin(), tmp.end(), '#'), tmp.end());
+                res = tmp;
+            }
+        }
+        return res;
+    }
+};
+```
+
 ```C++
 class Solution {
 public:

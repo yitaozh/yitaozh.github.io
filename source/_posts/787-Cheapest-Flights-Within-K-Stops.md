@@ -70,7 +70,9 @@ The optimal path with no stops from city 0 to 2 is marked in red and has cost 50
 
 ## Hints/Notes
 
+- 2024/08/13
 - dp
+- No solution from 0x3F
 
 ## Solution
 

@@ -59,8 +59,10 @@ Output: 126
 
 ## Hints/Notes
 
+- 2024/08/11
 - dp
 - preSum
+- [0x3F's solution](https://leetcode.cn/problems/find-the-count-of-monotonic-pairs-ii/solutions/2876190/qian-zhui-he-you-hua-dppythonjavacgo-by-3biek/)(checked)
 - Weekly Contest 410
 
 ## Solution

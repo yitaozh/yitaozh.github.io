@@ -60,7 +60,7 @@ All substrings are valid because every character appears at least once.
 
 Language: **C++**
 
-Cleaner solutino
+Cleaner solution
 
 ```C++
 class Solution {

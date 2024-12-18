@@ -73,7 +73,7 @@ In total they collect `1 + 1 + 1 + 1 = 4` fruits.
 
 - 2024/12/02
 - brain teaser
-- [0x3F's solution](https://leetcode.cn/problems/find-the-maximum-number-of-fruits-collected/solutions/2998667/nao-jin-ji-zhuan-wan-wang-ge-tu-dppython-gjcm/)
+- [0x3F's solution](https://leetcode.cn/problems/find-the-maximum-number-of-fruits-collected/solutions/2998667/nao-jin-ji-zhuan-wan-wang-ge-tu-dppython-gjcm/)(checked)
 - Biweekly Contest 144
 
 ## Solution

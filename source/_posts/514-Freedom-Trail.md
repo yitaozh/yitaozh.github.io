@@ -53,7 +53,9 @@ Output: 13
 
 ## Hints/Notes
 
+- 2024/08/12
 - dp
+- [0x3F's solution](https://leetcode.cn/problems/freedom-trail/solutions/2623534/onm-zuo-fa-cong-ji-yi-hua-sou-suo-dao-di-dnec/)(checked)
 
 ## Solution
 

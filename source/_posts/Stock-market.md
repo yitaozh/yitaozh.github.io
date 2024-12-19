@@ -6,6 +6,10 @@ tags: Finance
 
 ## U.S. stock market predicted by public account
 
+12/18
+
+Buy TSLA when drop to 414, buy dows
+
 The daily report is mostly reflection on the yesterday's market.
 
 8/27 Tuesday

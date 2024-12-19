@@ -64,8 +64,10 @@ Output: [-1,3,-1,3,-1]
 
 ## Hints/Notes
 
+- 2024/08/17
 - Sliding window
 - The same as 3254
+- [0x3F's solution](https://leetcode.cn/problems/find-the-power-of-k-size-subarrays-ii/solutions/2884189/on-jian-ji-xie-fa-pythonjavacgo-by-endle-gtek/)(checked)
 - Biweekly Contest 137
 
 ## Solution

@@ -65,8 +65,10 @@ We can place the rooks in the cells `(0, 2)`, `(1, 1)`, and `(2, 0)` for a sum o
 
 ## Hints/Notes
 
+- 2024/08/18
 - iterate the mid row
 - preSum and suffixSum
+- [0x3F's solution](https://leetcode.cn/problems/maximum-value-sum-by-placing-three-rooks-ii/solutions/2884186/qian-hou-zhui-fen-jie-pythonjavacgo-by-e-gc48/)(checked)
 - Biweekly Contest 137
 
 ## Solution

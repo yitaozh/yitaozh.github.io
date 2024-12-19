@@ -55,7 +55,9 @@ To gain an energy boost of 7:
 
 ## Hints/Notes
 
+- 2024/08/19
 - dp
+- [0x3F's solution](https://leetcode.cn/problems/maximum-energy-boost-from-two-drinks/solutions/2884478/jiao-ni-yi-bu-bu-si-kao-dpcong-ji-yi-hua-iebb/)(checked)
 - Weekly Contest 411
 
 ## Solution

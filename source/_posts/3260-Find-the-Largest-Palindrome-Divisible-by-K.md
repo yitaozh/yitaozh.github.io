@@ -64,7 +64,9 @@ Output: "89898"
 
 ## Hints/Notes
 
+- 2024/08/20
 - dp
+- [0x3F's solution](https://leetcode.cn/problems/find-the-largest-palindrome-divisible-by-k/solutions/2884548/tong-yong-zuo-fa-jian-tu-dfsshu-chu-ju-t-m3pu/)(checked)
 - Weekly Contest 411
 
 ## Solution

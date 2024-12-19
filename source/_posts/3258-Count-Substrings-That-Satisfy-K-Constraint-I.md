@@ -64,7 +64,9 @@ All substrings of `s` satisfy the k-constraint.
 
 ## Hints/Notes
 
+- 2024/08/18
 - sliding window
+- [0x3F's solution](https://leetcode.cn/problems/count-substrings-that-satisfy-k-constraint-i/solutions/2884495/on-hua-dong-chuang-kou-pythonjavacgo-by-keubv/)(checked)
 - Weekly Contest 411
 
 ## Solution

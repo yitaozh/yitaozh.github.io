@@ -53,8 +53,10 @@ Output: [1]
 
 ## Hints/Notes
 
+* 2023/08/01
 * Use 2 pointers to get the Nth from the end first, helper function
 * Use dummy to avoid the nullptr corner case
+* [0x3F's solution](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/solutions/2004057/ru-he-shan-chu-jie-dian-liu-fen-zhong-ga-xpfs/)(checked)
 
 ## Solution
 

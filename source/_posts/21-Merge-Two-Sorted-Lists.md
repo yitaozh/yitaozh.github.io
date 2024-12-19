@@ -54,8 +54,10 @@ Output: [0]
 
 ## Hints/Notes
 
+* 2023/07/31
 * Dummy pointer
 * After one list is exhausted, we can just link the remaining of other list to the new list. The corner case that one list is empty is covered with this handling.
+* [0x3F's solution](https://leetcode.cn/problems/merge-two-sorted-lists/solutions/2373691/liang-chong-fang-fa-die-dai-di-gui-pytho-wf75/)(checked)
 
 ## Solution
 

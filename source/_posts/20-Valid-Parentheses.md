@@ -51,11 +51,41 @@ Output: false
 
 ## Hints/Notes
 
+* 2023/11/29
 * stack
+* [0x3F's solution](https://leetcode.cn/problems/valid-parentheses/solutions/2809539/gua-hao-xiao-xiao-le-san-chong-li-yong-z-2xb3/)
 
 ## Solution
 
 Language: **C++**
+
+Cleaner solution:
+
+```C++
+class Solution {
+public:
+    bool isValid(string s) {
+        unordered_map<char, char> m = {
+            {')', '('},
+            {']', '['},
+            {'}', '{'},
+        };
+        stack<char> stk;
+        for (char c : s) {
+            if (!m.contains(c)) {
+                stk.push(c);
+            } else {
+                if (stk.empty() || stk.top() != m[c]) {
+                    return false;
+                } else {
+                    stk.pop();
+                }
+            }
+        }
+        return stk.empty();
+    }
+};
+```
 
 ```C++
 class Solution {

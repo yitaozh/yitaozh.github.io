@@ -61,7 +61,9 @@ The substrings of `s` with a length greater than 3 do not satisfy the k-constrai
 
 ## Hints/Notes
 
+- 2024/08/21
 - sliding window + preSum + binarySearch
+- [0x3F's solution](https://leetcode.cn/problems/count-substrings-that-satisfy-k-constraint-ii/solutions/2884463/hua-dong-chuang-kou-qian-zhui-he-er-fen-jzo25/)(checked)
 - Weekly Contest 411
 
 ## Solution

@@ -46,7 +46,9 @@ Output: 1
 
 ## Hints/Notes
 
+* 2023/08/15
 * Draw and imagine the diameter
+* [0x3F's solution](https://leetcode.cn/problems/diameter-of-binary-tree/solutions/2227017/shi-pin-che-di-zhang-wo-zhi-jing-dpcong-taqma/)(checked)
 
 ## Solution
 

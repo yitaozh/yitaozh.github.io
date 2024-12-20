@@ -54,7 +54,9 @@ Output: -1
 
 ## Hints/Notes
 
+* 2023/11/19
 * It's very easy to make mistakes on boundary
+* [0x3F's solution](https://leetcode.cn/problems/search-in-rotated-sorted-array/solutions/1987503/by-endlesscheng-auuh/)(checked, but i think my solution is easier to understand)
 
 ## Solution
 

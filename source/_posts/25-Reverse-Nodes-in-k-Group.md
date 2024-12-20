@@ -49,8 +49,10 @@ Output: [3,2,1,4,5]
 
 ## Hints/Notes
 
+* 2023/08/03
 * Check if there are k nodes, otherwise just return head
 * Reverse(head, tail), then apply the function to further nodes
+* [0x3F's solution](https://leetcode.cn/problems/reverse-nodes-in-k-group/solutions/1992228/you-xie-cuo-liao-yi-ge-shi-pin-jiang-tou-plfs/)(checked)
 
 ```C++
 class Solution {

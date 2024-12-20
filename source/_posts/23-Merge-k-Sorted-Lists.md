@@ -63,7 +63,9 @@ Output: []
 
 ## Hints/Notes
 
+* 2023/07/31
 * cpp priority queue
+* [0x3F's solution](https://leetcode.cn/problems/merge-k-sorted-lists/solutions/2384305/liang-chong-fang-fa-zui-xiao-dui-fen-zhi-zbzx/)(checked)
 
 ## Solution
 

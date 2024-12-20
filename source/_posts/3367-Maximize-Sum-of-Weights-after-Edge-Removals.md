@@ -63,7 +63,7 @@ Explanation:
 ## Hints/Notes
 
 - 2024/12/05
-- [0x3F's solution](https://leetcode.cn/problems/maximize-sum-of-weights-after-edge-removals/solutions/2998845/shu-xing-dp-tan-xin-pythonjavacgo-by-end-i3g3/)
+- [0x3F's solution](https://leetcode.cn/problems/maximize-sum-of-weights-after-edge-removals/solutions/2998845/shu-xing-dp-tan-xin-pythonjavacgo-by-end-i3g3/)(checked)
 - Weekly Contest 425
 
 ## Solution

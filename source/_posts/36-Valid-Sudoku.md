@@ -66,7 +66,7 @@ Explanation: Same as Example 1, except with the **5**  in the top left corner be
 
 ## Hints/Notes
 
-- 2024/11/19
+- 2024/12/19
 - The key is to find mapping to box
 - No solution from 0x3F
 

@@ -46,7 +46,9 @@ Output: [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]
 
 ## Hints/Notes
 
+* 2023/08/08
 * Do the diagonal flip first, then reverse each row
+* No solution from 0x3F
 
 ## Solution
 

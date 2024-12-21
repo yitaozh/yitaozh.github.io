@@ -50,11 +50,34 @@ Output: [["a"]]
 
 ## Hints/Notes
 
+* 2023/12/19
 * encode the string, use map to record strings with the same encoding
+* [0x3F's solution](https://leetcode.cn/problems/group-anagrams/solutions/2718519/ha-xi-biao-fen-zu-jian-ji-xie-fa-pythonj-1ukv/)(checked)
 
 ## Solution
 
 Language: **C++**
+
+Cleaner solution:
+
+```C++
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        map<string, vector<string>> m;
+        for (string str : strs) {
+            string sorted_str = str;
+            ranges::sort(sorted_str);
+            m[sorted_str].push_back(str);
+        }
+        vector<vector<string>> res;
+        for (auto& [_, v] : m) {
+            res.push_back(v);
+        }
+        return res;
+    }
+};
+```
 
 ```C++
 class Solution {

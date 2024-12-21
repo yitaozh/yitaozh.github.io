@@ -44,7 +44,7 @@ Output: 9
 - 2024/12/20
 - two pointers
 - work on monotonic stack next time
-- [0x3F's solution](https://leetcode.cn/problems/trapping-rain-water/solutions/1974340/zuo-liao-nbian-huan-bu-hui-yi-ge-shi-pin-ukwm/)
+- [0x3F's solution](https://leetcode.cn/problems/trapping-rain-water/solutions/1974340/zuo-liao-nbian-huan-bu-hui-yi-ge-shi-pin-ukwm/)(checked)
 
 ## Solution
 

@@ -42,11 +42,46 @@ Output: [[1]]
 
 ## Hints/Notes
 
-- N/A
+- 2024/02/08
+- [0x3F's solution](https://leetcode.cn/problems/permutations/solutions/2079585/hui-su-bu-hui-xie-tao-lu-zai-ci-jing-que-6hrh/)(checked)
 
 ## Solution
 
 Language: **C++**
+
+Solution with less time
+
+```C++
+class Solution {
+public:
+    vector<vector<int>> res;
+    vector<bool> onPath;
+    vector<int> path;
+
+    vector<vector<int>> permute(vector<int>& nums) {
+        int n = nums.size();
+        onPath.resize(n, false);
+        path.resize(n, -1);
+        dfs(0, nums);
+        return res;
+    }
+
+    void dfs(int index, vector<int>& nums) {
+        if (index == path.size()) {
+            res.push_back(path);
+            return;
+        }
+        for (int i = 0; i < nums.size(); i++) {
+            if (!onPath[i]) {
+                path[index] = nums[i];
+                onPath[i] = true;
+                dfs(index + 1, nums);
+                onPath[i] = false;
+            }
+        }
+    }
+};
+```
 
 ```C++
 class Solution {

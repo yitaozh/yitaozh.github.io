@@ -45,9 +45,38 @@ Output: [1,2,3,4,8,12,11,10,9,5,6,7]
 
 ## Hints/Notes
 
+* 2023/08/09
 * Traverse all four sides in one iteration
+* [0x3F's solution](https://leetcode.cn/problems/spiral-matrix/solutions/2966229/liang-chong-fang-fa-jian-ji-gao-xiao-pyt-4wzk/)(checked)
 
 ## Solution
+
+cleaner solution
+
+```C++
+class Solution {
+public:
+    static constexpr int DIRs[4][2] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        int m = matrix.size(), n = matrix[0].size();
+        vector<int> res(m * n);
+        int i = 0, j = 0, d = 0;
+        for (int k = 0; k < m * n; k++) {
+            res[k] = matrix[i][j];
+            matrix[i][j] = INT_MAX;
+            int x = i + DIRs[d][0], y = j + DIRs[d][1];
+            if (x < 0 || x >= m || y < 0 || y >= n || matrix[x][y] == INT_MAX) {
+                d = (d + 1) % 4;
+                x = i + DIRs[d][0];
+                y = j + DIRs[d][1];
+            }
+            i = x; j = y;
+        }
+        return res;
+    }
+};
+```
 
 Language: **C++**
 

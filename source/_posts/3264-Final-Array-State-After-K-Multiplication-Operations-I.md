@@ -55,7 +55,9 @@ Explanation:
 
 ## Hints/Notes
 
+- 2024/08/23
 - priority queue
+- [0x3F's solution](https://leetcode.cn/problems/final-array-state-after-k-multiplication-operations-ii/solutions/2892178/zui-xiao-dui-mo-ni-shu-xue-gong-shi-pyth-z4zw/)(checked)
 - Weekly Contest 412
 
 ## Solution

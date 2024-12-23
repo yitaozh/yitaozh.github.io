@@ -28,10 +28,10 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2018/10/22/rainwatertrap.png">
 <meta property="article:published_time" content="2024-12-21T00:45:36.000Z">
-<meta property="article:modified_time" content="2024-12-23T04:02:11.578Z">
+<meta property="article:modified_time" content="2024-12-23T04:57:50.974Z">
 <meta property="article:author" content="Echo Joy">
-<meta property="article:tag" content="Dynamic Programming">
 <meta property="article:tag" content="Array">
+<meta property="article:tag" content="Dynamic Programming">
 <meta property="article:tag" content="Stack">
 <meta property="article:tag" content="Monotonic Stack">
 <meta property="article:tag" content="Two Pointers">
@@ -252,7 +252,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-12-23 04:02:11" itemprop="dateModified" datetime="2024-12-23T04:02:11+00:00">2024-12-23</time>
+      <time title="Modified: 2024-12-23 04:57:50" itemprop="dateModified" datetime="2024-12-23T04:57:50+00:00">2024-12-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -298,6 +298,9 @@
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">trap</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = height.<span class="built_in">size</span>() - <span class="number">1</span>, max_left = <span class="number">0</span>, max_right = <span class="number">0</span>, res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">             max_left = <span class="built_in">max</span>(height[left], max_left);</span><br><span class="line">             max_right = <span class="built_in">max</span>(height[right], max_right);</span><br><span class="line">             <span class="keyword">if</span> (max_left &lt; max_right) &#123;</span><br><span class="line">                res += max_left - height[left];</span><br><span class="line">                left++;</span><br><span class="line">             &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                res += max_right - height[right];</span><br><span class="line">                right--;</span><br><span class="line">             &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+<p>monotonic stack</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">trap</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        stack&lt;<span class="type">int</span>&gt; stk;</span><br><span class="line">        <span class="type">int</span> n = height.<span class="built_in">size</span>(), res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="type">int</span> h = height[i];</span><br><span class="line">            <span class="keyword">while</span> (!stk.<span class="built_in">empty</span>() &amp;&amp; height[stk.<span class="built_in">top</span>()] &lt; h) &#123;</span><br><span class="line">                <span class="type">int</span> bottom = height[stk.<span class="built_in">top</span>()];</span><br><span class="line">                stk.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">if</span> (stk.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="type">int</span> left = stk.<span class="built_in">top</span>();</span><br><span class="line">                res += (<span class="built_in">min</span>(h, height[left]) - bottom) * (i - left - <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            stk.<span class="built_in">push</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -306,8 +309,8 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Dynamic-Programming/" rel="tag"># Dynamic Programming</a>
               <a href="/tags/Array/" rel="tag"># Array</a>
+              <a href="/tags/Dynamic-Programming/" rel="tag"># Dynamic Programming</a>
               <a href="/tags/Stack/" rel="tag"># Stack</a>
               <a href="/tags/Monotonic-Stack/" rel="tag"># Monotonic Stack</a>
               <a href="/tags/Two-Pointers/" rel="tag"># Two Pointers</a>

@@ -70,3 +70,29 @@ public:
     }
 };
 ```
+
+monotonic stack
+
+```C++
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        stack<int> stk;
+        int n = height.size(), res = 0;
+        for (int i = 0; i < n; i++) {
+            int h = height[i];
+            while (!stk.empty() && height[stk.top()] < h) {
+                int bottom = height[stk.top()];
+                stk.pop();
+                if (stk.empty()) {
+                    break;
+                }
+                int left = stk.top();
+                res += (min(h, height[left]) - bottom) * (i - left - 1);
+            }
+            stk.push(i);
+        }
+        return res;
+    }
+};
+```

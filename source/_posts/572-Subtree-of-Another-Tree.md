@@ -45,7 +45,9 @@ Output: false
 
 ## Hints/Notes
 
-- N/A
+- 2024/03/23
+- binary tree
+- [0x3F's solution](https://leetcode.cn/problems/subtree-of-another-tree/solutions/2868217/cong-onm-dao-onpythonjavacgo-by-endlessc-uukp/)(checked)
 
 ## Solution
 

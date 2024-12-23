@@ -47,9 +47,10 @@ Output: false
 
 ### Details
 
+* 2023/08/10
 * Compile a map to record needing characters first
-* Sliding window, use a map to record in window characters, use a variable(valid) to record
-number of characters satisfy the occurrence requirement
+* Sliding window, use a map to record in window characters, use a variable(valid) to record the number of characters satisfy the occurrence requirement
+* No solution from 0x3F
 
 ## Solution
 

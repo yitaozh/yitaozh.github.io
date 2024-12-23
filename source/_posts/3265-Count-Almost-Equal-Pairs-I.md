@@ -70,6 +70,9 @@ We cannot swap any two digits of 123 or 231 to reach the other.
 
 ## Hints/Notes
 
+- 2024/08/24
+- map
+- [0x3F's solution](https://leetcode.cn/problems/count-almost-equal-pairs-i/solutions/2892418/pai-xu-mei-ju-you-wei-hu-zuo-bao-li-jiao-dli7/)(checked)
 - Weekly Contest 412
 
 ## Solution

@@ -52,11 +52,38 @@ Output: false
 
 ## Hints/Notes
 
+* 2023/11/11
 * binary search
+* [0x3F's solution](https://leetcode.cn/problems/search-a-2d-matrix/solutions/2783931/liang-chong-fang-fa-er-fen-cha-zhao-pai-39d74/)(checked)
 
 ## Solution
 
 Language: **C++**
+
+Simpler solution:
+
+```C++
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int m = matrix.size();
+        int n = matrix[0].size();
+        int left = -1, right = m * n;
+        while (left + 1 < right) {
+            int mid = (right - left) / 2 + left;
+            int x = mid / n, y = mid % n;
+            if (matrix[x][y] == target) {
+                return true;
+            } else if (matrix[x][y] > target) {
+                right = mid;
+            } else {
+                left = mid;
+            }
+        }
+        return false;
+    }
+};
+```
 
 ```C++
 class Solution {

@@ -56,8 +56,10 @@ Since the largest window of s only has one 'a', return empty string.
 
 ## Hints/Notes
 
+* 2023/08/09
 * Sliding window, keep taking new elements while trying to shrink the left boundry
 * Use map to record if all required letters are included
+* [0x3F's solution](https://leetcode.cn/problems/minimum-window-substring/solutions/2713911/liang-chong-fang-fa-cong-o52mn-dao-omnfu-3ezz/)(checked)
 
 ## Solution
 

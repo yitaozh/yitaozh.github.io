@@ -60,6 +60,9 @@ Output: 1
 
 ## Hints/Notes
 
+- 2024/08/27
+- digits
+- [0x3F's solution](https://leetcode.cn/problems/find-the-key-of-the-numbers/solutions/2899731/bian-li-shu-wei-bu-yong-zi-fu-chuan-pyth-zbln/)(checked)
 - Biweekly Contest 138
 
 ## Solution

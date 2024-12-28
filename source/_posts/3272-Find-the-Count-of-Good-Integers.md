@@ -68,7 +68,9 @@ Output: 2468
 
 ## Hints/Notes
 
+- 2024/08/29
 - Combinatorics
+- [0x3F's solution](https://leetcode.cn/problems/find-the-count-of-good-integers/solutions/2899725/mei-ju-suo-you-hui-wen-shu-zu-he-shu-xue-3d35/)(checked)
 - Biweekly Contest 138
 
 ## Solution

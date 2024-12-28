@@ -51,8 +51,10 @@ Explanation: The root node's value is 5 but its right child's value is 4.
 
 ## Hints/Notes
 
+* 2023/08/26
 * We need max/min node to decide if one node is valid
 * Because the val is between MIN_INT and MAX_INT, so use a nullptr node is better
+* [0x3F's solution](https://leetcode.cn/problems/validate-binary-search-tree/solutions/2020306/qian-xu-zhong-xu-hou-xu-san-chong-fang-f-yxvh/)(checked)
 
 ## Solution
 

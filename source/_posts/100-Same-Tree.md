@@ -48,7 +48,9 @@ Output: false
 
 ## Hints/Notes
 
-- N/A
+- 2024/04/22
+- binary tree
+- [0x3F's solution](https://leetcode.cn/problems/same-tree/solutions/2015056/ru-he-ling-huo-yun-yong-di-gui-lai-kan-s-empk/)(checked)
 
 ## Solution
 
@@ -70,12 +72,8 @@ Language: **C++**
 class Solution {
 public:
     bool isSameTree(TreeNode* p, TreeNode* q) {
-        if (!p && !q) {
-            return true;
-        }
-
         if (!p || !q) {
-            return false;
+            return p == q;
         }
 
         if (p->val != q->val) {

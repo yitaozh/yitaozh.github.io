@@ -60,6 +60,9 @@ The only substring: `"mxz"`, `12 + 23 + 25 = 60`, `60 % 26 = 8`, `result[0] = 'i
 
 ## Hints/Notes
 
+- 2024/08/28
+- simulation
+- [0x3F's solution](https://leetcode.cn/problems/hash-divided-string/solutions/2899732/mo-ni-pythonjavacgo-by-endlesscheng-1uf2/)(checked)
 - Biweekly Contest 138
 
 ## Solution

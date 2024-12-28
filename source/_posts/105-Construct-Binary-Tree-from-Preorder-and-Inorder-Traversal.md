@@ -48,7 +48,9 @@ Output: [-1]
 
 ## Hints/Notes
 
+* 2023/08/17
 * Draw the tree manually
+* [0x3F's solution](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solutions/2646359/tu-jie-cong-on2-dao-onpythonjavacgojsrus-aob8/)(checked)
 
 ## Solution
 

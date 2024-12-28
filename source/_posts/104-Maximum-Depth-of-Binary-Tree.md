@@ -44,7 +44,9 @@ Output: 2
 
 ## Hints/Notes
 
+* 2023/08/15
 * Think about the tree's left and right
+* [0x3F's solution](https://leetcode.cn/problems/maximum-depth-of-binary-tree/solutions/2010612/kan-wan-zhe-ge-shi-pin-rang-ni-dui-di-gu-44uz/)(checked)
 
 ## Solution
 

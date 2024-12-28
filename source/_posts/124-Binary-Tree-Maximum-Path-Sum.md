@@ -44,7 +44,9 @@ Explanation: The optimal path is 15 -> 20 -> 7 with a path sum of 15 + 20 + 7 = 
 
 ## Hints/Notes
 
-- N/A
+- 2024/04/25
+- binary tree
+- [0x3F's solution](https://leetcode.cn/problems/binary-tree-maximum-path-sum/solutions/2227021/shi-pin-che-di-zhang-wo-zhi-jing-dpcong-n9s91/)(checked)
 
 ## Solution
 

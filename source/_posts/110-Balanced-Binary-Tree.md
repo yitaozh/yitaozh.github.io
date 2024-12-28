@@ -46,7 +46,9 @@ Output: true
 
 ## Hints/Notes
 
-- N/A
+- 2024/05/11
+- binary tree
+- [0x3F's solution](https://leetcode.cn/problems/balanced-binary-tree/solutions/2015068/ru-he-ling-huo-yun-yong-di-gui-lai-kan-s-c3wj/)(checked)
 
 ## Solution
 

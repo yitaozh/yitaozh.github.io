@@ -3,6 +3,10 @@ title: 133. Clone Graph
 categories: Leetcode
 date: 2024-12-29 16:54:52
 tags:
+    - Hash Table
+    - Depth-First Search
+    - Breadth-First Search
+    - Graph
 ---
 
 [133. Clone Graph](https://leetcode.com/problems/clone-graph/description/?envType=problem-list-v2&envId=plakya4j)

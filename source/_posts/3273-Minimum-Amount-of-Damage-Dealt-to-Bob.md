@@ -66,7 +66,9 @@ Output: 320
 
 ## Hints/Notes
 
+- 2024/08/30
 - Math
+- [0x3F's solution](https://leetcode.cn/problems/minimum-amount-of-damage-dealt-to-bob/solutions/2899709/tan-xin-ji-qi-zheng-ming-lin-xiang-jiao-7lnjf/)(checked)
 - Biweekly Contest 138
 
 ## Solution

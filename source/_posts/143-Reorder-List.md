@@ -56,7 +56,9 @@ Output: [1,5,2,4,3]
 
 ## Hints/Notes
 
+* 2023/11/28
 * stack
+* [0x3F's solution](https://leetcode.cn/problems/reorder-list/solutions/1999276/mei-xiang-ming-bai-yi-ge-shi-pin-jiang-t-u66q/)(checked)
 
 ## Solution
 

@@ -64,7 +64,9 @@ Explanation: There is no cycle in the linked list.
 
 ## Hints/Notes
 
+* 2023/08/01
 * Check if fast and slow pointers meet
+* [0x3F's solution](https://leetcode.cn/problems/linked-list-cycle/solutions/1999269/mei-xiang-ming-bai-yi-ge-shi-pin-jiang-t-c4sw/)(checked)
 
 ## Solution
 

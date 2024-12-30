@@ -66,7 +66,9 @@ Explanation: ((10 * (6 / ((9 + 3) * -11))) + 17) + 5
 
 ## Hints/Notes
 
+* 2023/11/30
 * stack
+* No solution from 0x3F
 
 ## Solution
 

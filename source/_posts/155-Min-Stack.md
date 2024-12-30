@@ -56,7 +56,10 @@ minStack.getMin(); // return -2
 
 ## Hints/Notes
 
+* 2023/12/02
 * use a stack to record the min element
+* rewrite with preMin
+* [0x3F's solution](https://leetcode.cn/problems/min-stack/solutions/2974438/ben-zhi-shi-wei-hu-qian-zhui-zui-xiao-zh-x0g8/)(checked)
 
 ## Solution
 

@@ -65,7 +65,9 @@ Output: [[3,null],[3,0],[3,null]]
 
 ## Hints/Notes
 
+* 2023/12/18
 * map
+* [0x3F's solution](https://leetcode.cn/problems/copy-list-with-random-pointer/solutions/2993775/bu-yong-ha-xi-biao-de-zuo-fa-pythonjavac-nzdo/)(checked)
 
 ## Solution
 

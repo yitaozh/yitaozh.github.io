@@ -64,9 +64,10 @@ Explanation:
 
 ## Hints/Notes
 
+- 2024/08/31
 - priority queue
 - Weekly Contest 413
-- [0x3F's solution](https://leetcode.cn/problems/k-th-nearest-obstacle-queries/solutions/2900061/zui-da-dui-wei-hu-qian-k-xiao-pythonjava-h15x/)
+- [0x3F's solution](https://leetcode.cn/problems/k-th-nearest-obstacle-queries/solutions/2900061/zui-da-dui-wei-hu-qian-k-xiao-pythonjava-h15x/)(checked)
 
 ## Solution
 

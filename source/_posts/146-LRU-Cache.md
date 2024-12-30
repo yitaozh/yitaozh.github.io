@@ -58,7 +58,9 @@ lRUCache.get(4);    // return 4
 
 ## Hints/Notes
 
+* 2023/10/03
 * Use list + map to mimic the behavior of linkedHashMap
+* [0x3F's solution](https://leetcode.cn/problems/lru-cache/solutions/2456294/tu-jie-yi-zhang-tu-miao-dong-lrupythonja-czgt/)(checked)
 
 ## Solution
 

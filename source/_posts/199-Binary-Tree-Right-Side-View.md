@@ -44,7 +44,10 @@ Output: []
 
 ## Hints/Notes
 
+- 2023/12/31
 - bfs level traverse the tree
+- rewrite with recursive
+- [0x3F's solution](https://leetcode.cn/problems/binary-tree-right-side-view/solutions/2015061/ru-he-ling-huo-yun-yong-di-gui-lai-kan-s-r1nc/)(checked)
 
 ## Solution
 

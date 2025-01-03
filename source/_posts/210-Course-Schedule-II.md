@@ -58,8 +58,10 @@ Output: [0]
 
 ## Hints/Notes
 
+* 2023/09/01
 * Build the graph first
 * Use postOrder to record the route
+* No solution from 0x3F
 
 ## Solution
 

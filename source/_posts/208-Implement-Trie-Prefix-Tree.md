@@ -53,8 +53,10 @@ trie.search("app");     // return True
 
 ## Hints/Notes
 
+* 2023/10/05
 * Use a bool value to indicate if it's the end of one word
 * If one node has been initialized then we should NOT recreate the node
+* [0x3F's solution](https://leetcode.cn/problems/implement-trie-prefix-tree/solutions/2993894/cong-er-cha-shu-dao-er-shi-liu-cha-shu-p-xsj4/)(checked)
 
 ## Solution
 
@@ -64,12 +66,8 @@ Language: **C++**
 class Trie {
 public:
     struct TrieNode {
-        bool end;
-        vector<TrieNode*> children;
-        TrieNode() {
-            end = false;
-            children = vector<TrieNode*>(26, nullptr);
-        };
+        bool end = false;
+        TrieNode* children[26]{};
     };
     TrieNode* root;
 

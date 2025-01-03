@@ -51,7 +51,7 @@ To take course 1 you should have finished course 0, and to take course 0 you sho
 
 ## Hints/Nodes
 
-* 2025/01/02
+* 2023/09/01
 * Traverse the graph and check if there's a cycle
 * [0x3F's solution](https://leetcode.cn/problems/course-schedule/solutions/2992884/san-se-biao-ji-fa-pythonjavacgojsrust-by-pll7/)(checked)
 

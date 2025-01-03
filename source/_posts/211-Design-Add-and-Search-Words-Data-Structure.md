@@ -55,8 +55,10 @@ wordDictionary.search("b.."); // return True
 
 ## Hints/Notes
 
+* 2023/10/07
 * Trie
 * Need a for loop for wildcard matching, also need a helper function tracking the index
+* No solution from 0x3F
 
 ## Solution
 
@@ -66,12 +68,8 @@ Language: **C++**
 class WordDictionary {
 public:
     struct TrieNode {
-        bool end;
-        vector<TrieNode*> children;
-        TrieNode() {
-            end = false;
-            children = vector<TrieNode*>(26, nullptr);
-        };
+        bool end = false;
+        TrieNode* children[26]{};
     };
 
     TrieNode* root;

@@ -58,7 +58,9 @@ Explanation: The sum of -1 and 0 is -1\. Therefore index1 = 1, index2 = 2\. We r
 
 ## Hints/Notes
 
+* 2023/08/05
 * Two pointers, from start and end
+* [0x3F's solution](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/solutions/1968341/san-shu-zhi-he-bu-hui-xie-xiang-xiang-sh-6wbq/)(checked)
 
 ## Solution
 

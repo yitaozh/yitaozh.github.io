@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2020/08/26/d.png">
 <meta property="article:published_time" content="2023-09-04T00:07:07.000Z">
-<meta property="article:modified_time" content="2025-01-02T21:04:54.157Z">
+<meta property="article:modified_time" content="2025-01-03T04:30:55.400Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="Array">
 <meta property="article:tag" content="Union Find">
@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">620</span>
+          <span class="site-state-item-count">621</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -251,7 +251,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-01-02 21:04:54" itemprop="dateModified" datetime="2025-01-02T21:04:54+00:00">2025-01-02</time>
+      <time title="Modified: 2025-01-03 04:30:55" itemprop="dateModified" datetime="2025-01-03T04:30:55+00:00">2025-01-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -292,10 +292,12 @@
 <li>All pairs (x<sub>i</sub>, y<sub>i</sub>) are distinct.</li>
 </ul>
 <h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
-<li>Kruskal’s algorithm</li>
-<li>Prim’s algorithm</li>
+<li>2023&#x2F;09&#x2F;03</li>
+<li>Kruskal’s algorithm: sort the edges, and check if points of the edge with minimum cost has been connected</li>
+<li>Prim’s algorithm: cut points, keep adding edges and find the edge with minimum cost</li>
 <li>cpp sort performance is worse than priority queue</li>
-<li>Use count(number of separarte items) to return early</li>
+<li>Use count(number of separate items) to return early</li>
+<li>No solution from 0x3F</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
 <p>Kruskal’s algorithm</p>

@@ -60,6 +60,7 @@ We can select the cells with values 7 and 8 that are colored above.
 
 ## Hints/Notes
 
+- 2024/09/01
 - state compression dp
 - bit manipulation
 - [0x3F's solution](https://leetcode.cn/problems/select-cells-in-grid-with-maximum-score/solution/zhi-yu-zhuang-ya-dppythonjavacgo-by-endl-x27y/)(checked, didn't check iteration since recursion works better)

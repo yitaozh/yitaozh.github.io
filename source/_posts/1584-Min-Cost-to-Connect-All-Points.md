@@ -51,10 +51,12 @@ Output: 18
 
 ## Hints/Notes
 
-* Kruskal's algorithm
-* Prim's algorithm
+* 2023/09/03
+* Kruskal's algorithm: sort the edges, and check if points of the edge with minimum cost has been connected
+* Prim's algorithm: cut points, keep adding edges and find the edge with minimum cost
 * cpp sort performance is worse than priority queue
-* Use count(number of separarte items) to return early
+* Use count(number of separate items) to return early
+* No solution from 0x3F
 
 ## Solution
 

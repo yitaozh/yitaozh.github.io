@@ -51,8 +51,10 @@ Output: []
 
 ## Hints/Notes
 
+* 2023/08/02
 * For recursive solution, only think how to handle then end case and how to handle a new tail
-* For iterative solution, use stack
+* Rewrite in iterative
+* [0x3F's solution](https://leetcode.cn/problems/reverse-linked-list/solutions/1992225/you-xie-cuo-liao-yi-ge-shi-pin-jiang-tou-o5zy/)(checked)
 
 ```C++
 class Solution {

@@ -53,7 +53,6 @@ Output: []
 
 * 2023/08/02
 * For recursive solution, only think how to handle then end case and how to handle a new tail
-* Rewrite in iterative
 * [0x3F's solution](https://leetcode.cn/problems/reverse-linked-list/solutions/1992225/you-xie-cuo-liao-yi-ge-shi-pin-jiang-tou-o5zy/)(checked)
 
 ```C++
@@ -66,6 +65,34 @@ public:
 ```
 
 ## Solution
+
+Iterative solution:
+
+```C++
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        ListNode *cur = head, *prev = nullptr;
+        while (cur) {
+            ListNode* nxt = cur->next;
+            cur->next = prev;
+            prev = cur;
+            cur = nxt;
+        }
+        return prev;
+    }
+};
+```
 
 Language: **C++**
 

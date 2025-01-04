@@ -62,6 +62,57 @@ Output: [1,5,2,4,3]
 
 ## Solution
 
+Iterative solution:
+
+```C++
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode *slow = head, *fast = head;
+        while (fast && fast->next) {
+            fast = fast->next->next;
+            slow = slow->next;
+        }
+        return slow;
+    }
+
+    ListNode* reverseList(ListNode* head) {
+        ListNode *cur = head, *prev = nullptr;
+        while (cur) {
+            ListNode* nxt = cur->next;
+            cur->next = prev;
+            prev = cur;
+            cur = nxt;
+        }
+        return prev;
+    }
+
+    void reorderList(ListNode* head) {
+        ListNode* mid = middleNode(head);
+        mid = reverseList(mid);
+        while (mid->next) {
+            ListNode* nxt1 = head->next;
+            ListNode* nxt2 = mid->next;
+            head->next = mid;
+            mid->next = nxt1;
+            head = nxt1;
+            mid = nxt2;
+        }
+    }
+};
+```
+
+
 Language: **C++**
 
 ```C++

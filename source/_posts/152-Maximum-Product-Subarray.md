@@ -40,12 +40,31 @@ Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
 ## Hints/Notes
 
 - 2024/12/30
-- rewrite with dp
+- dp
 - [0x3F's solution](https://leetcode.cn/problems/maximum-product-subarray/solutions/2968916/dong-tai-gui-hua-jian-ji-gao-xiao-python-i778/)(checked)
 
 ## Solution
 
 Language: **C++**
+
+Cleaner solution with dp:
+
+```C++
+class Solution {
+public:
+    int maxProduct(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> maxVal(n), minVal(n);
+        maxVal[0] = minVal[0] = nums[0];
+        for (int i = 1; i < n; i++) {
+            int x = nums[i];
+            maxVal[i] = max({x, maxVal[i - 1] * x, minVal[i - 1] * x});
+            minVal[i] = min({x, maxVal[i - 1] * x, minVal[i - 1] * x});
+        }
+        return ranges::max(maxVal);
+    }
+};
+```
 
 ```C++
 class Solution {

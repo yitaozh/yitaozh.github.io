@@ -58,12 +58,49 @@ minStack.getMin(); // return -2
 
 * 2023/12/02
 * use a stack to record the min element
-* rewrite with preMin
 * [0x3F's solution](https://leetcode.cn/problems/min-stack/solutions/2974438/ben-zhi-shi-wei-hu-qian-zhui-zui-xiao-zh-x0g8/)(checked)
 
 ## Solution
 
 Language: **C++**
+
+Use one stack of pairs
+
+```C++
+class MinStack {
+public:
+    stack<pair<int, int>> stk;
+
+    MinStack() {
+
+    }
+
+    void push(int val) {
+        stk.emplace(val, min(val, getMin()));
+    }
+
+    void pop() {
+        stk.pop();
+    }
+
+    int top() {
+        return stk.top().first;
+    }
+
+    int getMin() {
+        return stk.empty() ? INT_MAX : stk.top().second;
+    }
+};
+
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * MinStack* obj = new MinStack();
+ * obj->push(val);
+ * obj->pop();
+ * int param_3 = obj->top();
+ * int param_4 = obj->getMin();
+ */
+```
 
 ```C++
 class MinStack {

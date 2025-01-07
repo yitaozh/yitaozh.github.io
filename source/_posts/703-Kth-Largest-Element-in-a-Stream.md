@@ -55,7 +55,9 @@ kthLargest.add(4);   // return 8
 
 ## Hints/Notes
 
+* 2023/10/17
 * priority queue
+* No solution from 0x3F
 
 ## Solution
 

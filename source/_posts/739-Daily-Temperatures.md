@@ -46,11 +46,37 @@ Output: [1,1,0]
 
 ## Hints/Notes
 
+* 2023/09/10
 * Monotonic Stack
+* [0x3F's solution](https://leetcode.cn/problems/daily-temperatures/solutions/2470179/shi-pin-jiang-qing-chu-wei-shi-yao-yao-y-k0ks/)(checked)
 
 ## Solution
 
 Language: **C++**
+
+Left to right:
+
+```C++
+class Solution {
+public:
+    vector<int> dailyTemperatures(vector<int>& temperatures) {
+        stack<pair<int, int>> stk;
+        int n = temperatures.size();
+        vector<int> res(n, 0);
+        for (int i = 0; i < n; i++) {
+            while (!stk.empty() && temperatures[i] > stk.top().second) {
+                auto [idx, _] = stk.top();
+                stk.pop();
+                res[idx] = i - idx;
+            }
+            stk.emplace(i, temperatures[i]);
+        }
+        return res;
+    }
+};
+```
+
+Right to left:
 
 ```C++
 class Solution {

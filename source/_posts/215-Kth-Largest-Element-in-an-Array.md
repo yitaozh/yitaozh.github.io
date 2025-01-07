@@ -45,12 +45,46 @@ Output: 4
 
 ## Hints/Notes
 
+* 2023/08/27
 * Priority queue
-* Quick sort
+* Quick select
+* No solution from 0x3F
 
 ## Solution
 
 Language: **C++**
+
+Quick select
+
+```C++
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        return find(nums, nums.size() - k + 1);
+    }
+
+    int find(vector<int>& nums, int k) {
+        int pivot = nums[rand() % nums.size()];
+        vector<int> left, mid, right;
+        for (int num : nums) {
+            if (num < pivot) {
+                left.push_back(num);
+            } else if (num > pivot) {
+                right.push_back(num);
+            } else {
+                mid.push_back(num);
+            }
+        }
+        if (left.size() >= k) {
+            return find(left, k);
+        }
+        if (left.size() + mid.size() < k) {
+            return find(right, k - left.size() - mid.size());
+        }
+        return pivot;
+    }
+};
+```
 
 ```C++
 class Solution {
@@ -65,58 +99,5 @@ public:
         }
         return pq.top();
     }
-};
-```
-
-The quick sort solution(cannot pass the last test case)
-
-```C++
-class Solution {
-public:
-    int findKthLargest(vector<int>& nums, int k) {
-        shuffle(nums);
-        k = nums.size() - k;
-        int low = 0, high = nums.size() - 1;
-        while (low <= high) {
-            int p = partition(nums, low, high);
-            if (p == k) {
-                return nums[p];
-            } else if (p > k) {
-                high = p - 1;
-            } else {
-                low = p + 1;
-            }
-        }
-        return -1;
-    }
-
-    int partition(vector<int>& nums, int low, int high) {
-        int pivot = nums[low];
-        int i = low + 1, j = high;
-        while (i <= j) {
-            while (i < high && nums[i] <= pivot) i++;
-            while (low < j && nums[j] > pivot) j--;
-            if (i >= j) break;
-            swap(nums, i, j);
-        }
-        swap(nums, low, j);
-        // cout << "value of pivot: " << pivot << " index: " << j << " low: " << low << " high: " << high << endl;
-        // for (int num: nums) cout << num; cout << endl;
-        return j;
-    }
-
-    void swap(vector<int>& nums, int i, int j) {
-        int tmp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = tmp;
-    }
-
-    void shuffle(vector<int>& nums) {
-        int size = nums.size();
-        for (int i = 0; i < size; i++) {
-            int rand = i + std::rand() % (size - i);
-            swap(nums, i, rand);
-        }
-    }
 };
 ```

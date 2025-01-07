@@ -44,7 +44,9 @@ Explanation: 2 does not exist in nums so return -1
 
 ## Hints/Notes
 
-* N/A
+* 2023/08/11
+* binary search
+* [0x3F's solution](https://leetcode.cn/problems/binary-search/solutions/2023397/er-fen-cha-zhao-zong-shi-xie-bu-dui-yi-g-eplk/)(checked)
 
 ## Solution
 

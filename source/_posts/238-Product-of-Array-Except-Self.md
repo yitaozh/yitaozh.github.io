@@ -45,11 +45,34 @@ Output: [0,0,9,0,0]
 
 ## Hints/Notes
 
+* 2023/11/05
 * preSum
+* [0x3F's solution](https://leetcode.cn/problems/product-of-array-except-self/solutions/2783788/qian-hou-zhui-fen-jie-fu-ti-dan-pythonja-86r1/)(checked)
 
 ## Solution
 
 Language: **C++**
+
+O(1) space
+
+```C++
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int size = nums.size();
+        vector<int> sufProduct(size, 1);
+        for (int i = size - 2; i >= 0; i--) {
+            sufProduct[i] = sufProduct[i + 1] * nums[i + 1];
+        }
+        int preProduct = 1;
+        for (int i = 0; i < size; i++) {
+            sufProduct[i] = preProduct * sufProduct[i];
+            preProduct *= nums[i];
+        }
+        return sufProduct;
+    }
+};
+```
 
 ```C++
 class Solution {

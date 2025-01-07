@@ -51,6 +51,7 @@ Explanation:
 
 - 2024/09/03
 - decimal to binary
+- [0x3F's solution](https://leetcode.cn/problems/convert-date-to-binary/solutions/2909000/ku-han-shu-jian-ji-xie-fa-pythonjavacgo-ohojk/)(checked)
 - Weekly Contest 414
 
 ## Solution

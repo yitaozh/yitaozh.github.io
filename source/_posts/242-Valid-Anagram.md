@@ -43,7 +43,9 @@ Output: false
 
 ## Hints/Notes
 
-* map
+* 2023/12/18
+* array is faster than map
+* [0x3F's solution](https://leetcode.cn/problems/valid-anagram/solutions/2802865/jian-dan-ti-jian-dan-zuo-pythonjavaccgoj-m89c/)(checked)
 
 ## Solution
 
@@ -53,22 +55,20 @@ Language: **C++**
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-        map<char, int> count;
-        for (char c : s) {
-            count[c]++;
+        int c = 0;
+        array<int, 26> count{};
+        for (char& c : s) {
+            count[c - 'a']++;
         }
         for (char c : t) {
-            count[c]--;
-            if (count[c] < 0) {
+            count[c - 'a']--;
+        }
+        for (int i = 0; i < 26; i++) {
+            if (count[i] != 0) {
                 return false;
             }
         }
-        for (char c : s) {
-            if (count[c] != 0) {
-                return false;
-            }
-        }
-        return true;
+        return count == array<int, 26>{};
     }
 };
 ```

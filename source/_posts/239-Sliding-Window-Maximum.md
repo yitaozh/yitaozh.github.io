@@ -53,33 +53,35 @@ Output: [1]
 
 ## Hints/Notes
 
+* 2023/09/20
 * Monotonic Queue
-* Corner case: we cannot use less than or equal to when pop previous elements, because it can potentially pop out the newly added value
+* it's better to record the index
+* [0x3F's solution](https://leetcode.cn/problems/sliding-window-maximum/solutions/2499715/shi-pin-yi-ge-shi-pin-miao-dong-dan-diao-ezj6/)(checked)
 
 ## Solution
 
 Language: **C++**
 
 ```C++
-class Solution {
+class Solution {
 public:
-    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
-        list<int> window;
-        vector<int> res;
-
-        for (int i = 0; i < nums.size(); i++) {
-            while (!window.empty() && window.back() < nums[i]) {
-                window.pop_back();
-            }
-            window.push_back(nums[i]);
-            if (i >= k - 1) {
-                res.push_back(window.front());
-                if (window.front() == nums[i - k + 1]) {
-                    window.pop_front();
-                }
-            }
-        }
-        return res;
-    }
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+        int right = 0;
+        vector<int> res;
+        deque<int> maxQ;
+        while (right < nums.size()) {
+            while (!maxQ.empty() && nums[maxQ.back()] < nums[right]) {
+                maxQ.pop_back();
+            }
+            maxQ.push_back(right++);
+            if (right >= k) {
+                res.push_back(nums[maxQ.front()]);
+                if (maxQ.front() == right - k) {
+                    maxQ.pop_front();
+                }
+            }
+        }
+        return res;
+    }
 };
 ```

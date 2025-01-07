@@ -57,8 +57,10 @@ Output: -1
 
 ## Hints/Notes
 
+* 2023/09/05
 * Dijkstra algorithm
 * The dijkstra algorithm always try to find the shortest route from the root
+* [0x3F's solution](https://leetcode.cn/problems/network-delay-time/solutions/2668220/liang-chong-dijkstra-xie-fa-fu-ti-dan-py-ooe8/)(checked)
 
 ## Solution
 

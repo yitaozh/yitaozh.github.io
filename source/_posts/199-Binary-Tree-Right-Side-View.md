@@ -46,12 +46,50 @@ Output: []
 
 - 2023/12/31
 - bfs level traverse the tree
-- rewrite with recursive
 - [0x3F's solution](https://leetcode.cn/problems/binary-tree-right-side-view/solutions/2015061/ru-he-ling-huo-yun-yong-di-gui-lai-kan-s-r1nc/)(checked)
 
 ## Solution
 
 Language: **C++**
+
+Recursive solution:
+
+```C++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> res;
+    vector<int> rightSideView(TreeNode* root) {
+        dfs(root, 0);
+        return res;
+    }
+
+    void dfs(TreeNode* root, int depth) {
+        if (!root) {
+            return;
+        }
+        if (res.size() == depth) {
+            res.push_back(root->val);
+        }
+        if (root->right) {
+            dfs(root->right, depth + 1);
+        }
+        if (root->left) {
+            dfs(root->left, depth + 1);
+        }
+    }
+};
+```
 
 ```C++
 /**

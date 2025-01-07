@@ -50,8 +50,10 @@ Output: false
 
 ## Hints/Notes
 
+* 2023/09/03
 * Union find
 * A valid tree doesn't have a cycle, and there's only one component
+* premium
 
 ## Solution
 

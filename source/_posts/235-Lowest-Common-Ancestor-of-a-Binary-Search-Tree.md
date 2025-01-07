@@ -58,11 +58,41 @@ Output: 2
 
 ## Hints/Notes
 
+* 2023/08/29
 * It's binary serach tree, we can use the property of this data structure
+* [0x3F's solution](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/solutions/2023873/zui-jin-gong-gong-zu-xian-yi-ge-shi-pin-8h2zc/)(checked)
 
 ## Solution
 
 Language: **C++**
+
+Cleaner solution
+
+```C++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        int x = root->val;
+        if (x > p->val && x > q->val) {
+            return lowestCommonAncestor(root->left, p, q);
+        }
+        if (x < p->val && x < q->val) {
+            return lowestCommonAncestor(root->right, p, q);
+        }
+        return root;
+    }
+};
+```
 
 ```C++
 /**

@@ -51,7 +51,9 @@ Output: []
 
 ## Hints/Notes
 
-* N/A
+* 2023/08/16
+* binary tree
+* [0x3F's solution](https://leetcode.cn/problems/invert-binary-tree/solutions/2713610/shi-pin-shen-ru-li-jie-di-gui-pythonjava-zhqh/)
 
 ## Solution
 

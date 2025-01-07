@@ -102,9 +102,6 @@ public:
     }
 
     int dfs(int index) {
-        if (index > s.size()) {
-            return 0;
-        }
         if (index == s.size()) {
             return 1;
         }
@@ -118,9 +115,11 @@ public:
             return 0;
         }
         res += dfs(index + 1);
-        int two = stoi(s.substr(index, 2));
-        if (two <= 26) {
-            res += dfs(index + 2);
+        if (index < s.size() - 1) {
+            int two = stoi(s.substr(index, 2));
+            if (two <= 26) {
+                res += dfs(index + 2);
+            }
         }
         return res;
     }

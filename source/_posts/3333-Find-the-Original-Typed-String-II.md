@@ -74,7 +74,7 @@ class Solution {
 public:
     // what we want to calculate here:
     // the number of strings with len < k
-    // the meaning of dp[i][j]: when we are at kth index of len,
+    // the meaning of dp[i][j]: when we are at ith index of len,
     // we have j digits left, how many such strings we can form
     int possibleStringCount(string word, int k) {
         vector<int> lens;
@@ -88,11 +88,11 @@ public:
         }
         int len = lens.size();
         long res = 1;
+        if (len == k) {
+            return res;
+        }
         for (int i = 0; i < len; i++) {
             res = (res * lens[i]) % MOD;
-        }
-        if (len >= k) {
-            return res;
         }
         vector<long> preSum(k + 1, 0);
         // the range of dp[i][j]:
@@ -100,12 +100,10 @@ public:
         // j is the remaining length [0, k - 1]
         vector<vector<int>> dp(len + 1, vector<int>(k, -1));
         for (int i = 0; i < k; i++) {
-            // the initialization: we reached the index == len
-            // the return value is 1
             dp[len][i] = 1;
             preSum[i + 1] = (preSum[i] + 1) % MOD;
         }
-        // maxI = min(lens[idx], rem - (len - idx - 1));
+        // maxI = min(lens[idx],rem - (len - idx - 1));
         // dp[i][j] = dp[i + 1][j - 1] + dp[i + 1][j - 2] + ... + dp[i + 1][j - maxI]
         // so if we have a preSum, it would be preSum[j - 1] - preSum[j - maxI - 1]
         for (int i = len - 1; i >= 0; i--) {
@@ -119,6 +117,67 @@ public:
             }
         }
         return (res - dp[0][k - 1] + MOD) % MOD;
+    }
+};
+```
+
+The recursive solution:
+
+```C++
+class Solution {
+public:
+    // what we want to calculate here:
+    // the number of strings with len < k
+    // the meaning of dp[i][j]: when we are at kth index of len,
+    // we have j digits left, how many such strings we can form
+    vector<vector<int>> dp;
+    vector<int> lens;
+    int MOD = 1e9 + 7, len;
+
+    int possibleStringCount(string word, int k) {
+        dp.resize(k, vector<int>(k, -1));
+        int n = word.size();
+        for (int i = 0; i < n;) {
+            int c = word[i], left = i;
+            while (i < n && word[i] == c) {
+                i++;
+            }
+            lens.push_back(i - left);
+        }
+        len = lens.size();
+        long res = 1;
+        for (int i = 0; i < len; i++) {
+            res = (res * lens[i]) % MOD;
+        }
+        if (len >= k) {
+            return res;
+        }
+        int less = dfs(0, k - 1);
+        return (res - less + MOD) % MOD;
+    }
+
+    int dfs(int idx, int rem) {
+        // it means we reached the end of the lens
+        if (idx == len) {
+            return 1;
+        }
+        // there needs at least one digit for one lens item
+        if (len - idx > rem) {
+            return 0;
+        }
+        if (dp[idx][rem] != -1) {
+            return dp[idx][rem];
+        }
+        // now we are at lens[idx], how many number can we pick at this index?
+        // if we pick at least one digit per index, then we will pick
+        // lens.size() - index number
+        // we can pick from 1 to rem - (lens.size() - index - 1)
+        long long res = 0;
+        for (int i = 1; i <= min(lens[idx],rem - (len - idx - 1)); i++) {
+            res = (res + dfs(idx + 1, rem - i)) % MOD;
+        }
+        dp[idx][rem] = res;
+        return res;1111111
     }
 };
 ```

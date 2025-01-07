@@ -61,6 +61,7 @@ Explanation:
 
 ## Hints/Notes
 
+- 2024/09/02
 - range dp
 - [0x3F's solution](https://leetcode.cn/problems/maximum-xor-score-subarray-queries/solution/qu-jian-dp-tao-qu-jian-dppythonjavacgo-b-w4be/)(checked)
 - Weekly Contest 413

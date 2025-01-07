@@ -60,7 +60,9 @@ medianFinder.findMedian(); // return 2.0
 
 ## Hints/Notes
 
+* 2024/10/29
 * Use two priority queues
+* [0x3F's solution](https://leetcode.cn/problems/find-median-from-data-stream/solutions/3015873/ru-he-zi-ran-yin-ru-da-xiao-dui-jian-ji-4v22k/)(checked)
 
 ## Solution
 

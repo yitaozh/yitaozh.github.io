@@ -56,8 +56,10 @@ twitter.getNewsFeed(1);  // User 1's news feed should return a list with 1 tweet
 
 ## Hints/Notes
 
+* 2023/10/24
 * priority queue + multiple maps
 * the timestamp needs to be recorded separately
+* No solution from 0x3F
 
 ## Solution
 

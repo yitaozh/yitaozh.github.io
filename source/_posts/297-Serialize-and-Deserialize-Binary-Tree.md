@@ -48,9 +48,11 @@ Output: []
 
 ## Hints/Notes
 
+* 2023/08/22
 * preorder done
 * postorder done
 * levelorder tbd
+* No solution from 0x3F
 
 ## Solution
 

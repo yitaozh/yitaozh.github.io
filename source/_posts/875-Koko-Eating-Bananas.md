@@ -52,8 +52,10 @@ Output: 23
 
 ## Hints/Notes
 
+* 2023/08/12
 * Helper function: eating hour, if eat k bananas per hour, how many hours in total would be needed?
-* Make it a binary search for left boundry
+* Make it a binary search for left boundary
+* [0x3F's solution](https://leetcode.cn/problems/koko-eating-bananas/solutions/2710324/er-fen-da-an-fu-ti-dan-pythonjavacgojsru-eb18/)(checked)
 
 ## Solution
 

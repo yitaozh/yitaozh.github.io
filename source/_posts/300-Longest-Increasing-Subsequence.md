@@ -49,11 +49,33 @@ Output: 1
 
 ## Hints/Notes
 
+* 2023/10/27
 * dp
+* [0x3F's solution](https://leetcode.cn/problems/longest-increasing-subsequence/solutions/2147040/jiao-ni-yi-bu-bu-si-kao-dpfu-o1-kong-jia-4zma/)(checked)
 
 ## Solution
 
 Language: **C++**
+
+nlogn solution:
+
+```C++
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        vector<int> res;
+        for (int num : nums) {
+            if (res.empty() || num > res.back()) {
+                res.push_back(num);
+            } else {
+                auto it = ranges::lower_bound(res, num);
+                *it = num;
+            }
+        }
+        return res.size();
+    }
+};
+```
 
 ```C++
 class Solution {

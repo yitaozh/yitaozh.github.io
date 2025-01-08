@@ -46,8 +46,10 @@ There may exists other ways to achieve this answer too.
 
 ## Hints/Notes
 
+* 2023/11/24
 * sliding window
 * need to think more about correctness
+* No solution from 0x3F
 
 ## Solution
 

@@ -48,7 +48,9 @@ Output: [1]
 
 ## Hints/Notes
 
+* 2023/10/18
 * priority queue
+* No solution from 0x3F
 
 ## Solution
 
@@ -58,22 +60,24 @@ Language: **C++**
 class Solution {
 public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
-        map<int, int> m;
+        unordered_map<int, int> m;
         for (int num : nums) {
             m[num]++;
         }
-        priority_queue<vector<int>> pq;
+        priority_queue<vector<int>, vector<vector<int>>, greater<vector<int>>> pq;
         for (auto it : m) {
             int num = it.first;
             int freq = it.second;
             pq.push({freq, num});
+            if (pq.size() > k) {
+                pq.pop();
+            }
         }
         vector<int> res;
-        while (k > 0 && !pq.empty()) {
+        while (!pq.empty()) {
             auto pair = pq.top();
             pq.pop();
             res.push_back(pair[1]);
-            k--;
         }
         return res;
     }

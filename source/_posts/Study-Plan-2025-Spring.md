@@ -26,13 +26,13 @@ I want to finish the preparation mentioned in 1point3acre one by one.
 3. No work on BQ now
 
 LC: day time, preferably morning time
-SD: daily after 10:30 to 1:30 ~ 2:00
+SD: daily after 10:30 to 2:00
 
 ## Detailed plan
 
 ### Coding
 
-1. I should be able to finish the Neetcode 150 by 1/7
+1. I should be able to finish the Neetcode 150 by ~~1/7~~ 1/8
 2. After that, work on the meta 3 months, around 200 left
 
 **When should i start the mock and what's the frequency?**

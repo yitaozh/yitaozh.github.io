@@ -27,7 +27,7 @@
 <meta property="og:description" content="424. Longest Repeating Character Replacement DescriptionDifficulty: Medium">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-12-04T23:03:07.000Z">
-<meta property="article:modified_time" content="2025-01-08T22:19:13.653Z">
+<meta property="article:modified_time" content="2025-01-08T22:27:20.648Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="Hash Table">
 <meta property="article:tag" content="String">
@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">650</span>
+          <span class="site-state-item-count">651</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -248,7 +248,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-01-08 22:19:13" itemprop="dateModified" datetime="2025-01-08T22:19:13+00:00">2025-01-08</time>
+      <time title="Modified: 2025-01-08 22:27:20" itemprop="dateModified" datetime="2025-01-08T22:27:20+00:00">2025-01-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -287,8 +287,10 @@
 <li><code>0 &lt;= k &lt;= s.length</code></li>
 </ul>
 <h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>2023&#x2F;11&#x2F;24</li>
 <li>sliding window</li>
 <li>need to think more about correctness</li>
+<li>No solution from 0x3F</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">characterReplacement</span><span class="params">(string s, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">count</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>, res = <span class="number">0</span>, windowMaxCount = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; s.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            count[s[right] - <span class="string">&#x27;A&#x27;</span>]++;</span><br><span class="line">            windowMaxCount = <span class="built_in">max</span>(windowMaxCount, count[s[right] - <span class="string">&#x27;A&#x27;</span>]);</span><br><span class="line">            <span class="keyword">if</span> (right - left + <span class="number">1</span> - windowMaxCount &gt; k) &#123;</span><br><span class="line">                count[s[left++] - <span class="string">&#x27;A&#x27;</span>]--;</span><br><span class="line">            &#125;</span><br><span class="line">            right++;</span><br><span class="line">            res = <span class="built_in">max</span>(res, right - left);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>

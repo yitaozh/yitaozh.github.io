@@ -52,7 +52,9 @@ Output: 0
 
 ## Hints/Notes
 
+* 2023/10/26
 * dp
+* [0x3F's solution](https://leetcode.cn/problems/coin-change/solutions/2119065/jiao-ni-yi-bu-bu-si-kao-dong-tai-gui-hua-21m5/)(checked)
 
 ## Solution
 

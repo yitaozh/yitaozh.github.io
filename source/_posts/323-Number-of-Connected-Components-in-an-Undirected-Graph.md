@@ -50,9 +50,10 @@ Output: 1
 
 ## Hints/Notes
 
+* 2023/09/02
 * union find
-* if the edge's two nodes are not connected previously, then minus the number of component
-(now they are connected)
+* if the edge's two nodes are not connected previously, then minus the number of component since they are connected now
+* premium
 
 ## Solution
 

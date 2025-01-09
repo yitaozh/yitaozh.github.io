@@ -66,53 +66,47 @@ class Solution {
 public:
     int m, n;
     static constexpr int DIRs[4][2] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+    queue<pair<int, int>> q;
+
 
     void solve(vector<vector<char>>& board) {
         m = board.size(), n = board[0].size();
-        unordered_set<int> visited;
-        queue<pair<int, int>> q;
         for (int j = 0; j < n; j++) {
-            if (board[0][j] == 'O') {
-                q.push({0, j});
-                visited.insert(encode(0, j));
-            }
-            if (board[m - 1][j] == 'O') {
-                q.push({m - 1, j});
-                visited.insert(encode(m - 1, j));
-            }
+            check(0, j, board);
+            check(m - 1, j, board);
         }
         for (int i = 0; i < m; i++) {
-            if (board[i][0] == 'O') {
-                q.push({i, 0});
-                visited.insert(encode(i, 0));
-            }
-            if (board[i][n - 1] == 'O') {
-                q.push({i, n - 1});
-                visited.insert(encode(i, n - 1));
-            }
+            check(i, 0, board);
+            check(i, n - 1, board);
         }
         while (!q.empty()) {
             auto& [x, y] = q.front();
             for (int i = 0; i < 4; i++) {
                 int dx = x + DIRs[i][0], dy = y + DIRs[i][1];
-                if (dx >= 0 && dx < m && dy >= 0 && dy < n && board[dx][dy] == 'O' && !visited.contains(encode(dx, dy))) {
+                if (dx >= 0 && dx < m && dy >= 0 && dy < n && board[dx][dy] == 'O') {
                     q.push({dx, dy});
-                    visited.insert(encode(dx, dy));
+                    board[dx][dy] = 'o';
                 }
             }
             q.pop();
         }
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (board[i][j] == 'O' && !visited.contains(encode(i, j))) {
+                if (board[i][j] == 'O') {
                     board[i][j] = 'X';
+                }
+                if (board[i][j] == 'o') {
+                    board[i][j] = 'O';
                 }
             }
         }
     }
 
-    int encode(int i, int j) {
-        return i * n + j;
+    void check(int i, int j, vector<vector<char>>& board) {
+        if (board[i][j] == 'O') {
+            q.push({i, j});
+            board[i][j] = 'o';
+        }
     }
 };
 ```

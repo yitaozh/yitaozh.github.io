@@ -51,8 +51,8 @@ class Solution {
 public:
     string multiply(string num1, string num2) {
         int m = num1.size(), n = num2.size();
-        reverse(num1.begin(), num1.end());
-        reverse(num2.begin(), num2.end());
+        ranges::reverse(num1);
+        ranges::reverse(num2);
         string num(m + n, '0');
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
@@ -62,7 +62,7 @@ public:
                 num[i + j + 1] += val / 10;
             }
         }
-        reverse(num.begin(), num.end());
+        ranges::reverse(num);
         num.erase(0, num.find_first_not_of('0'));
         return num.empty() ? "0" : num;
     }

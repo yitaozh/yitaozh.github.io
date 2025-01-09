@@ -68,16 +68,16 @@ Language: **C++**
 class Solution {
 public:
     int findMin(vector<int>& nums) {
-        int left = 0, right = nums.size(), end = nums[right - 1];
-        while (left < right) {
+        int left = -1, right = nums.size(), end = nums[right - 1];
+        while (left + 1 < right) {
             int mid = (left + right) / 2;
             if (nums[mid] <= end) {
                 right = mid;
             } else {
-                left = mid + 1;
+                left = mid;
             }
         }
-        return nums[left];
+        return nums[right];
     }
 };
 ```

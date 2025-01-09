@@ -51,6 +51,7 @@ Output: true
 ## Hints/Notes
 
 - 2024/12/30
+- rewrite with stack
 - No solution from 0x3F
 
 ## Solution

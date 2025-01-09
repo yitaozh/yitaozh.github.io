@@ -55,7 +55,8 @@ Output: 3
 ## Hints/Notes
 
 - 2025/01/05
-- mark
+- binary search and count
+- rewrite with fast and slow pointers
 - No solution from 0x3F
 
 ## Solution
@@ -66,14 +67,21 @@ Language: **C++**
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
-        for (int i = 0; i < nums.size(); i++) {
-            int index = abs(nums[i]);
-            if (nums[index] < 0) {
-                return index;
+        int left = 0, right = nums.size();
+        while (left < right) {
+            int mid = (left + right) / 2, count = 0;
+            for (int num : nums) {
+                if (num <= mid) {
+                    count++;
+                }
             }
-            nums[index] *= -1;
+            if (count > mid) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
         }
-        return -1;
+        return left;
     }
 };
 ```

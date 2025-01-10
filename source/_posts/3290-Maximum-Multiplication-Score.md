@@ -85,3 +85,38 @@ public:
     }
 };
 ```
+
+The intuitive way:
+
+```C++
+class Solution {
+public:
+    int m_, n_;
+
+    // the meaning of dp[i][j]: when we are at ith item in a, and jth item in b
+    // the maximum number we can achieve
+    vector<array<long long, 4>> dp;
+    long long maxScore(vector<int>& a, vector<int>& b) {
+        m_ = a.size(), n_ = b.size();
+        dp.resize(n_, array<long long, 4>({INT_MIN, INT_MIN, INT_MIN, INT_MIN}));
+        long long res = dfs(0, 0, a, b);
+        return res;
+    }
+
+    long long dfs(int i, int j, vector<int>& a, vector<int>& b) {
+        if (i == m_ || j == n_) {
+            return 0;
+        }
+        if (dp[j][i] != INT_MIN) {
+            return dp[j][i];
+        }
+        long long res = LLONG_MIN;
+        if (n_ - j > 4 - i) {
+            res = dfs(i, j + 1, a, b);
+        }
+        res = max(res, dfs(i + 1, j + 1, a, b) + (long long)a[i] * b[j]);
+        dp[j][i] = res;
+        return res;
+    }
+};
+```

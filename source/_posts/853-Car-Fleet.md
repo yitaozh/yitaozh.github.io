@@ -95,7 +95,7 @@ public:
         pair<int, double> cur = {0, 0};
         int res = 0;
         for (int i = 0; i < n; i++) {
-            if (cur.first == pairs[i].second || cur.second >= pairs[i].second) {
+            if (cur.second >= pairs[i].second) {
                 continue;
             }
             cur = pairs[i];

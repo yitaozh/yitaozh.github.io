@@ -79,11 +79,9 @@ public:
     }
 
     int findRoot(int root) {
-        int input = root;
-        while (roots[root] != root) {
-            root = roots[root];
+        if (roots[root] != root) {
+            root = findRoot(roots[root]);
         }
-        roots[input] = root;
         return root;
     }
 };

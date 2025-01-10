@@ -68,7 +68,7 @@ Output: 0
 ## Hints/Notes
 
 - 2024/09/17
-- z algorithm
+- z function
 - [0x3F's solution](https://leetcode.cn/problems/find-the-occurrence-of-first-almost-equal-substring/solutions/2934098/qian-hou-zhui-fen-jie-z-shu-zu-pythonjav-0est/)(checked)
 - Biweekly Contest 140
 - Not suitable for interview
@@ -97,6 +97,12 @@ public:
         return z;
     }
 
+
+    // how to use z function:
+    // pattern: size m, string: size: n
+    // make pattern a prefix of string
+    // pass in the string to calc_z
+    // iterate through the returned vector's range[m, n - m]
     int minStartingIndex(string s, string pattern) {
         vector<int> pre = calc_z(pattern + s);
         reverse(s.begin(), s.end()); reverse(pattern.begin(), pattern.end());

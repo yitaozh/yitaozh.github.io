@@ -39,7 +39,9 @@ Output: "bb"
 
 ## Hints/Notes
 
+* 2023/08/05
 * Use a helper function to get the longest palindromic string from one index
+* [0x3F's solution](https://leetcode.cn/problems/longest-palindromic-substring/solutions/2958179/mo-ban-on-manacher-suan-fa-pythonjavacgo-t6cx/)(checked)
 
 ## Solution
 
@@ -57,10 +59,18 @@ public:
             manacher.push_back('#');
         }
         manacher.push_back('$');
-        vector<int> halfLen(manacher.size(), 0);
-        int center = 0, right = 0;
-        for (int i = 1; i < manacher.size() - 1; i++) {
-            int len = 0;
+        // the mapping between manacher and the original string:
+        // a, b
+        // 0, 1
+        // =>
+        // ^, #, a, #, b, #, $
+        // 0, 1, 2, 3, 4, 5, 6
+        // s[i] = t[(i + 1) * 2]
+        // t[i] = s[i / 2 - 1]
+        vector<int> halfLen(manacher.size() - 2, 0);
+        int center = 0, right = 0, max_idx = 0;
+        for (int i = 2; i < halfLen.size(); i++) {
+            int len = 1;
             if (i < right) {
                 len = min(right - i, halfLen[2 * center - i]);
             }
@@ -72,18 +82,15 @@ public:
                 len++;
             }
             halfLen[i] = len;
-        }
-        int maxLen = 0;
-        string res;
-        for (int i = 1; i < halfLen.size() - 1; i++) {
-            if (halfLen[i] > maxLen) {
-                maxLen = halfLen[i];
-                string tmp = manacher.substr(i - maxLen + 1, maxLen * 2 - 1);
-                tmp.erase(remove(tmp.begin(), tmp.end(), '#'), tmp.end());
-                res = tmp;
+            if (len > halfLen[max_idx]) {
+                max_idx = i;
             }
         }
-        return res;
+        int hl = halfLen[max_idx];
+        // in fact we should use hl - 2, because manacher[i + len] != manacher[i - len] and the boundary is '#'
+        // so the range in manacher is [max_idx - hl + 2, max_idx + hl - 2]
+        // the range in origin is [(max_idx - hl) / 2, (max_idx + hl) / 2 - 2];
+        return s.substr((max_idx - hl) / 2, hl - 1);
     }
 };
 ```

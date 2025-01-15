@@ -68,6 +68,7 @@ class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
         int left = 0, right = nums.size();
+        // the result is in (left, right]
         while (left < right) {
             int mid = (left + right) / 2, count = 0;
             for (int num : nums) {
@@ -75,6 +76,7 @@ public:
                     count++;
                 }
             }
+            // it means the result is in (0, mid]
             if (count > mid) {
                 right = mid;
             } else {

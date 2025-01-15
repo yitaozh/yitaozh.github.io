@@ -85,6 +85,41 @@ The maximum area rectangle is formed by the points `[1,3], [1,2], [3,2], [3,3]`,
 
 Language: **C++**
 
+Cleaner solution
+
+```C++
+class Solution {
+public:
+    int maxRectangleArea(vector<vector<int>>& points) {
+        int n = points.size();
+        int res = -1;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                int xa = min(points[i][0], points[j][0]), xb = max(points[i][0], points[j][0]);
+                int ya = min(points[i][1], points[j][1]), yb = max(points[i][1], points[j][1]);
+                auto check = [&]() {
+                    int count = 0;
+                    for (int k = 0; k < n; k++) {
+                        if (points[k][0] < xa || points[k][0] > xb) continue;
+                        if (points[k][1] < ya || points[k][1] > yb) continue;
+                        if ((points[k][0] == xa || points[k][0] == xb) && (points[k][1] == ya || points[k][1] == yb)) {
+                            count++;
+                            continue;
+                        }
+                        return false;
+                    }
+                    return count == 4;
+                };
+                if (check()) {
+                    res = max(res, (xb - xa) * (yb - ya));
+                }
+            }
+        }
+        return res;
+    }
+};
+```
+
 ```C++
 class Solution {
 public:

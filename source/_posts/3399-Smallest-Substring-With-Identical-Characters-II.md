@@ -75,12 +75,15 @@ class Solution {
 public:
     int minLength(string s, int numOps) {
         int left = 1, right = s.size();
+        // the achievable length: [left, right)
         while (left < right) {
             int mid = (left + right) / 2;
-            if (check(mid, s, numOps)) {
-                right = mid;
-            } else {
+            // if check(), it means we can achieve mid size
+            // with number of op <= numOps
+            if (!check(mid, s, numOps)) {
                 left = mid + 1;
+            } else {
+                right = mid;
             }
         }
         return left;

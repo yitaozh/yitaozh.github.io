@@ -56,7 +56,7 @@ It covers 2 white tiles, so we return 2.
 ## Hints/Notes
 
 - 2025/01/13
-- sort
+- sort and sliding window
 - [0x3F's solution](https://leetcode.cn/problems/maximum-white-tiles-covered-by-a-carpet/solutions/1496434/by-endlesscheng-kdy9/)(checked)
 
 ## Solution

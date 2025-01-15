@@ -61,6 +61,27 @@ By adding -1 to `nums[0]` and 1 to `nums[1]`, `nums` changes to `[3, 5, 4, 4]`.
 
 Language: **C++**
 
+Cleaner solution:
+
+```C++
+class Solution {
+public:
+    int maxDistinctElements(vector<int>& nums, int k) {
+        ranges::sort(nums);
+        int ans = 0;
+        int pre = INT_MIN; // 记录每个人左边的人的位置
+        for (int x : nums) {
+            x = clamp(pre + 1, x - k, x + k); // min(max(x - k, pre + 1), x + k)
+            if (x > pre) {
+                ans++;
+                pre = x;
+            }
+        }
+        return ans;
+    }
+};
+```
+
 ```C++
 class Solution {
 public:

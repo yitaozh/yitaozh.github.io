@@ -84,6 +84,7 @@ Output: [""]
 ## Hints/Notes
 
 - 2025/01/04
+- string
 - premium
 
 ## Solution

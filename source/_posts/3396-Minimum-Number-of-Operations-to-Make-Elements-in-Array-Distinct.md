@@ -67,7 +67,7 @@ The array already contains distinct elements. Therefore, the answer is 0.
 ## Hints/Notes
 
 - 2025/01/10
-- reverse iterate
+- set and reverse iterate
 - [0x3F's solution](https://leetcode.cn/problems/minimum-number-of-operations-to-make-elements-in-array-distinct/solutions/3027035/on-yi-ci-bian-li-jian-ji-xie-fa-pythonja-jgox/)(checked)
 - Weekly Contest 429
 

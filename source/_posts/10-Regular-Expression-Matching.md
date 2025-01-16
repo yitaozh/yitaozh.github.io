@@ -53,7 +53,9 @@ Explanation: ".*" means "zero or more (*) of any character (.)".
 
 ## Hints/Notes
 
+- 2024/08/14
 - dp
+- No solution from 0x3F
 
 ## Solution
 

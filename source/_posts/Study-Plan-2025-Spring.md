@@ -15,15 +15,17 @@ This doc presents a day by day plan to ensure the time is not wasted.
 
 I want to finish the preparation mentioned in 1point3acre one by one.
 
-1. For coding, work on 6 new questions per day.
+1. For coding, work on 3 new questions per day.
 2. For SD, do 6.824, DDIA and Alex Xu in order
-3. Work on behavioral doc during work hours
+3. Work on behavioral doc during this week
+
+**Never use night time for leetcode.**
 
 ## The current schedule
 
-1. 6 leetcode problems per day
+1. 3 leetcode problems per day
 2. One 6.824 lecture per day
-3. No work on BQ now
+3. Work on the BQ questions on 1/16, 1/17 and 1/20 work hours
 
 LC: day time, preferably morning time
 SD: daily after 10:30 to 2:00
@@ -32,8 +34,9 @@ SD: daily after 10:30 to 2:00
 
 ### Coding
 
-1. I should be able to finish the Neetcode 150 by ~~1/7~~ 1/8
-2. After that, work on the meta 3 months, around 200 left
+Work on the meta 3 months, around 200 left
+
+~~I should be able to finish the Neetcode 150 by ~~1/7~~ 1/8~~
 
 **When should i start the mock and what's the frequency?**
 

@@ -51,12 +51,45 @@ Output: true
 ## Hints/Notes
 
 - 2024/12/30
-- rewrite with stack
+- stack
 - No solution from 0x3F
 
 ## Solution
 
 Language: **C++**
+
+More intuitive solution with stack
+
+```C++
+class Solution {
+public:
+    bool checkValidString(string s) {
+        stack<int> star, left;
+        for (int i = 0; i < s.size(); i++) {
+            if (s[i] == '(') {
+                left.push(i);
+            } else if (s[i] == '*') {
+                star.push(i);
+            } else {
+                if (!left.empty()) {
+                    left.pop();
+                } else if (!star.empty()) {
+                    star.pop();
+                } else {
+                    return false;
+                }
+            }
+        }
+        while (!left.empty()) {
+            int l = left.top(); left.pop();
+            if (star.empty()) return false;
+            int st = star.top(); star.pop();
+            if (st < l) return false;
+        }
+        return true;
+    }
+};
+```
 
 ```C++
 class Solution {

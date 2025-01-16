@@ -44,7 +44,7 @@ Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 
 ## Hints/Notes
 
-- 2025/01/XX
+- 2025/01/15
 - No solution from 0x3F
 
 ## Solution

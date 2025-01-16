@@ -69,12 +69,13 @@ class Solution {
 public:
     int findMin(vector<int>& nums) {
         int left = -1, right = nums.size(), end = nums[right - 1];
+        // [right, n - 1] is bigger than end
         while (left + 1 < right) {
             int mid = (left + right) / 2;
-            if (nums[mid] <= end) {
-                right = mid;
-            } else {
+            if (nums[mid] > end) {
                 left = mid;
+            } else {
+                right = mid;
             }
         }
         return nums[right];

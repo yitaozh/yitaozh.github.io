@@ -14,60 +14,74 @@ tags:
 
 ## Description
 
-You are given an `m x n` grid. A robot starts at the top-left corner of the grid `(0, 0)` and wants to reach the bottom-right corner `(m - 1, n - 1)`. The robot can move either right or down at any point in time.
+You are given two integers, `n` and `threshold`, as well as a **directed**  weighted graph of `n` nodes numbered from 0 to `n - 1`. The graph is represented by a **2D**  integer array `edges`, where edges[i] = [A<sub>i</sub>, B<sub>i</sub>, W<sub>i</sub>] indicates that there is an edge going from node A<sub>i</sub> to node B<sub>i</sub> with weight W<sub>i</sub>.
 
-The grid contains a value `coins[i][j]` in each cell:
+You have to remove some edges from this graph (possibly **none** ), so that it satisfies the following conditions:
 
-- If `coins[i][j] >= 0`, the robot gains that many coins.
-- If `coins[i][j] < 0`, the robot encounters a robber, and the robber steals the **absolute**  value of `coins[i][j]` coins.
+- Node 0 must be reachable from all other nodes.
+- The **maximum**  edge weight in the resulting graph is **minimized** .
+- Each node has **at most**  `threshold` outgoing edges.
 
-The robot has a special ability to **neutralize robbers**  in at most **2 cells**  on its path, preventing them from stealing coins in those cells.
-
-**Note:**  The robot's total coins can be negative.
-
-Return the **maximum**  profit the robot can gain on the route.
+Return the **minimum**  possible value of the **maximum**  edge weight after removing the necessary edges. If it is impossible for all conditions to be satisfied, return -1.
 
 **Example 1:**
 
 ```bash
-Input: coins = [[0,1,-1],[1,-2,3],[2,-3,4]]
+Input: n = 5, edges = [[1,0,1],[2,0,2],[3,0,1],[4,3,1],[2,1,1]], threshold = 2
 
-Output: 8
+Output: 1
 ```
 
 Explanation:
 
-An optimal path for maximum coins is:
+<img alt="" src="https://assets.leetcode.com/uploads/2024/12/09/s-1.png" style="width: 300px; height: 233px;">
 
-- Start at `(0, 0)` with `0` coins (total coins = `0`).
-- Move to `(0, 1)`, gaining `1` coin (total coins = `0 + 1 = 1`).
-- Move to `(1, 1)`, where there's a robber stealing `2` coins. The robot uses one neutralization here, avoiding the robbery (total coins = `1`).
-- Move to `(1, 2)`, gaining `3` coins (total coins = `1 + 3 = 4`).
-- Move to `(2, 2)`, gaining `4` coins (total coins = `4 + 4 = 8`).
+Remove the edge `2 -> 0`. The maximum weight among the remaining edges is 1.
 
 **Example 2:**
 
 ```bash
-Input: coins = [[10,10,10],[10,10,10]]
+Input: n = 5, edges = [[0,1,1],[0,2,2],[0,3,1],[0,4,1],[1,2,1],[1,4,1]], threshold = 1
 
-Output: 40
+Output: -1
 ```
 
 Explanation:
 
-An optimal path for maximum coins is:
+It is impossible to reach node 0 from node 2.
 
-- Start at `(0, 0)` with `10` coins (total coins = `10`).
-- Move to `(0, 1)`, gaining `10` coins (total coins = `10 + 10 = 20`).
-- Move to `(0, 2)`, gaining another `10` coins (total coins = `20 + 10 = 30`).
-- Move to `(1, 2)`, gaining the final `10` coins (total coins = `30 + 10 = 40`).
+**Example 3:**
+
+```bash
+Input: n = 5, edges = [[1,2,1],[1,3,3],[1,4,5],[2,3,2],[3,4,2],[4,0,1]], threshold = 1
+
+Output: 2
+```
+
+Explanation:
+
+<img alt="" src="https://assets.leetcode.com/uploads/2024/12/09/s2-1.png" style="width: 300px; height: 267px;">
+
+Remove the edges `1 -> 3` and `1 -> 4`. The maximum weight among the remaining edges is 2.
+
+**Example 4:**
+
+```bash
+Input: n = 5, edges = [[1,2,1],[1,3,3],[1,4,5],[2,3,2],[4,0,1]], threshold = 1
+
+Output: -1
+```
 
 **Constraints:**
 
-- `m == coins.length`
-- `n == coins[i].length`
-- `1 <= m, n <= 500`
-- `-1000 <= coins[i][j] <= 1000`
+- `2 <= n <= 10^5`
+- `1 <= threshold <= n - 1`
+- `1 <= edges.length <= min(10^5, n * (n - 1) / 2).`
+- `edges[i].length == 3`
+- 0 <= A<sub>i</sub>, B<sub>i</sub> < n
+- A<sub>i</sub> != B<sub>i</sub>
+- 1 <= W<sub>i</sub> <= 10^6
+- There **may be**  multiple edges between a pair of nodes, but they must have unique weights.
 
 ## Hints/Notes
 

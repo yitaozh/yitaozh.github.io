@@ -51,52 +51,38 @@ Output: [-1,-1]
 
 ## Hints/Notes
 
-* Write different helper function to find left and right boundry
+* 2023/08/12
+* binary search
+* [0x3F's solution](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 
 Language: **C++**
 
 ```C++
-class Solution {
+class Solution {
 public:
-    vector<int> searchRange(vector<int>& nums, int target) {
-        int left_bound = find_left_bound(nums, target);
-        int right_bound = find_right_bound(nums, target);
-        vector<int> res = {left_bound, right_bound}; 
-        return res;
-    }
+    vector<int> searchRange(vector<int>& nums, int target) {
+        int left = findLeft(nums, target);
+        if (left == nums.size() || nums[left] != target) {
+            return {-1, -1};
+        }
+        int right = findLeft(nums, target + 1) - 1;
+        return {left, right};
+    }
 
-    int find_left_bound(vector<int>& nums, int target) {
-        int left = 0, right = nums.size() - 1, res = -1;
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] == target) {
-                res = mid;
-                right = mid - 1;
-            } else if (nums[mid] > target) {
-                right = mid - 1;
-            } else if (nums[mid] < target) {
-                left = mid + 1;
-            }
-        }
-        return res;
-    }
-
-    int find_right_bound(vector<int>& nums, int  target) {
-        int left = 0, right = nums.size() - 1, res = -1;
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] == target) {
-                res = mid;
-                left = mid + 1;
-            } else if (nums[mid] > target) {
-                right = mid - 1;
-            } else if (nums[mid] < target) {
-                left = mid + 1;
-            }
-        }
-        return res;
-    }
+    int findLeft(vector<int>& nums, int target) {
+        // nums[left] < target
+        int left = -1, right = nums.size();
+        while (left + 1 < right) {
+            int mid = (right - left) / 2 + left;
+            if (nums[mid] < target) {
+                left = mid;
+            } else {
+                right = mid;
+            }
+        }
+        return right;
+    }
 };
 ```

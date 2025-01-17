@@ -67,11 +67,30 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 ## Hints/Notes
 
+* 2023/08/04
 * Use 2 pointers, slow and fast
+* [0x3F's solution](https://leetcode.cn/problems/remove-duplicates-from-sorted-array/solutions/2807162/gen-zhao-wo-guo-yi-bian-shi-li-2ni-jiu-m-rvyk/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 
 Language: **C++**
+
+Cleaner solution
+
+```C++
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int k = 1;
+        for (int i = 1; i < nums.size(); i++) {
+            if (nums[i] != nums[i - 1]) {
+                nums[k++] = nums[i];
+            }
+        }
+        return k;
+    }
+};
+```
 
 ```C++
 class Solution {

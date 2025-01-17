@@ -55,23 +55,23 @@ public:
         }
         this->n = n;
         path = string(n * 2, 0);
-        dfs(n, 0);
+        dfs(0, 0);
         return res;
     }
 
     void dfs(int left, int right) {
-        if (left == 0 && right == 0) {
+        if (left == n && right == n) {
             res.push_back(path);
             return;
         }
-        int index = (n - left) * 2 - right;
-        if (left > 0) {
+        int index = left + right;
+        if (left < n) {
             path[index] = '(';
-            dfs(left - 1, right + 1);
+            dfs(left + 1, right);
         }
-        if (right > 0) {
+        if (right < left) {
             path[index] = ')';
-            dfs(left, right - 1);
+            dfs(left, right + 1);
         }
     }
 };

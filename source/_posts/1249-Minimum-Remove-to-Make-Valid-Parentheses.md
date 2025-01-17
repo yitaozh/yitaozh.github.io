@@ -53,7 +53,7 @@ Explanation: An empty string is also valid.
 
 - 2025/01/13
 - stack
-- No solution from 0x3F
+- [Leetcode solution](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 

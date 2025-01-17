@@ -111,7 +111,7 @@ Reading stops at the first non-digit character 'w'.
 
 - 2025/01/15
 - string
-- No solution fromm 0x3F
+- [Leetcode solution](https://leetcode.com/problems/string-to-integer-atoi/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 

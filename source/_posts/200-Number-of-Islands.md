@@ -52,8 +52,8 @@ Output: 3
 ## Hints/Notes
 
 - 2025/01/01
-- bfs
-- No solution from 0x3F
+- dfs
+- [Leetcode solution](https://leetcode.com/problems/number-of-islands/editorial/?envType=problem-list-v2&envId=plakya4j)(checked)
 
 ## Solution
 

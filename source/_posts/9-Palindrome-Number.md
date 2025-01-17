@@ -45,7 +45,7 @@ Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 ## Hints/Notes
 
 - 2025/01/15
-- No solution from 0x3F
+- [Leetcode solution](https://leetcode.com/problems/palindrome-number/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 

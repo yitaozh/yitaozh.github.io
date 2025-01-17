@@ -45,30 +45,29 @@ Bolded numbers were flipped from 0 to 1\. The longest subarray is underlined.
 
 ## Hints/Notes
 
+* 2023/11/23
 * sliding window
+* [0x3F's solution](https://leetcode.cn/problems/max-consecutive-ones-iii/solutions/2126631/hua-dong-chuang-kou-yi-ge-shi-pin-jiang-yowmi/)(checked)
 
 ## Solution
 
 Language: **C++**
 
 ```C++
-class Solution {
+class Solution {
 public:
-    int longestOnes(vector<int>& nums, int k) {
-        int left = 0, right = 0, res = 0, count = 0;
-        while (right < nums.size()) {
-            count += nums[right] == 0 ? 1 : 0;
-            if (count > k) {
-                while (left <= right && count > k) {
-                    if (nums[left++] == 0) {
-                        count--;
-                    }
-                }
-            }
-            res = max(res, right - left + 1);
-            right++;
-        }
-        return res;
-    }
+    int longestOnes(vector<int>& nums, int k) {
+        int left = 0, right = 0, res = 0, count = 0;
+        while (right < nums.size()) {
+            count += nums[right] ^ 1;
+            while (left <= right && count > k) {
+                count -= nums[left] ^ 1;
+                left++;
+            }
+            res = max(res, right - left + 1);
+            right++;
+        }
+        return res;
+    }
 };
 ```

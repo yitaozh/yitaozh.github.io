@@ -54,28 +54,32 @@ Language: **C++**
 ```C++
 class Solution {
 public:
-    bool validWordAbbreviation(string word, string abbr) {
-        int m = word.size(), n = abbr.size(), j = 0;
-        for (int i = 0; i < n; ) {
-            if (isalpha(abbr[i])) {
-                if (j >= word.size() || abbr[i++] != word[j++]) {
+    bool validPalindrome(string s) {
+        int left = 0, right = s.size() - 1;
+        bool deleted = false;
+        while (left < right) {
+            if (s[left] != s[right]) {
+                if (deleted) {
                     return false;
-                }
-            } else {
-                if (abbr[i] == '0') {
-                    return false;
-                }
-                int start = i;
-                while (i < n && isdigit(abbr[i])) {
-                    i++;
-                }
-                j += stoi(abbr.substr(start, i - start));
-                if (j > m) {
-                    return false;
+                } else {
+                    return check(s, left + 1, right) || check(s, left, right - 1);
                 }
             }
+            left++;
+            right--;
         }
-        return j == m;
+        return true;
+    }
+
+    bool check(string s, int left, int right) {
+        while (left < right) {
+            if (s[left] != s[right]) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
     }
 };
 ```

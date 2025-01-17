@@ -67,3 +67,22 @@ public:
     }
 };
 ```
+
+Another solution:
+
+```C++
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        int j;
+        for (j = 0; j < strs[0].size(); j++) {
+            for (auto& str : strs) {
+                if (j == str.size() || strs[0][j] != str[j]) {
+                    return strs[0].substr(0, j);
+                }
+            }
+        }
+        return strs[0];
+    }
+};
+```

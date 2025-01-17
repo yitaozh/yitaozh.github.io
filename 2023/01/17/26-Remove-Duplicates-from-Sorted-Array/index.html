@@ -27,7 +27,7 @@
 <meta property="og:description" content="26. Remove Duplicates from Sorted Array DescriptionDifficulty: Easy">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-01-17T13:28:29.000Z">
-<meta property="article:modified_time" content="2025-01-17T06:02:19.598Z">
+<meta property="article:modified_time" content="2025-01-17T06:10:00.343Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="Array">
 <meta property="article:tag" content="Two Pointers">
@@ -247,7 +247,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-01-17 06:02:19" itemprop="dateModified" datetime="2025-01-17T06:02:19+00:00">2025-01-17</time>
+      <time title="Modified: 2025-01-17 06:10:00" itemprop="dateModified" datetime="2025-01-17T06:10:00+00:00">2025-01-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -293,9 +293,14 @@
 <li><code>nums</code> is sorted in <strong>non-decreasing</strong> order.</li>
 </ul>
 <h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>2023&#x2F;08&#x2F;04</li>
 <li>Use 2 pointers, slow and fast</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/remove-duplicates-from-sorted-array/solutions/2807162/gen-zhao-wo-guo-yi-bian-shi-li-2ni-jiu-m-rvyk/?envType=company&envId=facebook&favoriteSlug=facebook-three-months">0x3F’s solution</a>(checked)</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
+<p>Cleaner solution</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">removeDuplicates</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> k = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] != nums[i - <span class="number">1</span>]) &#123;</span><br><span class="line">                nums[k++] = nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> k;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">removeDuplicates</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> fast = <span class="number">0</span>, slow = <span class="number">0</span>, len = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">while</span> (fast &lt; len) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[fast] != nums[slow]) &#123;</span><br><span class="line">                nums[++slow] = nums[fast];</span><br><span class="line">            &#125;</span><br><span class="line">            fast++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> slow + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
     </div>

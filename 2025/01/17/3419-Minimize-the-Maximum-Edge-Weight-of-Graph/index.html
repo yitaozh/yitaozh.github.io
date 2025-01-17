@@ -19,15 +19,17 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yitaozh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12,"author":"Echo Joy"},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="3419. Minimize the Maximum Edge Weight of Graph DescriptionYou are given an m x n grid. A robot starts at the top-left corner of the grid (0, 0) and wants to reach the bottom-right corner (m - 1, n -">
+    <meta name="description" content="3419. Minimize the Maximum Edge Weight of Graph DescriptionYou are given two integers, n and threshold, as well as a directed  weighted graph of n nodes numbered from 0 to n - 1. The graph is represen">
 <meta property="og:type" content="article">
 <meta property="og:title" content="3419. Minimize the Maximum Edge Weight of Graph">
 <meta property="og:url" content="https://yitaozh.github.io/2025/01/17/3419-Minimize-the-Maximum-Edge-Weight-of-Graph/index.html">
 <meta property="og:site_name" content="Echo&#39;s Home">
-<meta property="og:description" content="3419. Minimize the Maximum Edge Weight of Graph DescriptionYou are given an m x n grid. A robot starts at the top-left corner of the grid (0, 0) and wants to reach the bottom-right corner (m - 1, n -">
+<meta property="og:description" content="3419. Minimize the Maximum Edge Weight of Graph DescriptionYou are given two integers, n and threshold, as well as a directed  weighted graph of n nodes numbered from 0 to n - 1. The graph is represen">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://assets.leetcode.com/uploads/2024/12/09/s-1.png">
+<meta property="og:image" content="https://assets.leetcode.com/uploads/2024/12/09/s2-1.png">
 <meta property="article:published_time" content="2025-01-17T00:13:29.000Z">
-<meta property="article:modified_time" content="2025-01-17T17:26:31.349Z">
+<meta property="article:modified_time" content="2025-01-17T17:36:03.989Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="Depth-First Search">
 <meta property="article:tag" content="Breadth-First Search">
@@ -35,6 +37,7 @@
 <meta property="article:tag" content="Graph">
 <meta property="article:tag" content="Shortest Path">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://assets.leetcode.com/uploads/2024/12/09/s-1.png">
 
 
 <link rel="canonical" href="https://yitaozh.github.io/2025/01/17/3419-Minimize-the-Maximum-Edge-Weight-of-Graph/">
@@ -244,7 +247,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2025-01-17 00:13:29 / Modified: 17:26:31" itemprop="dateCreated datePublished" datetime="2025-01-17T00:13:29+00:00">2025-01-17</time>
+      <time title="Created: 2025-01-17 00:13:29 / Modified: 17:36:03" itemprop="dateCreated datePublished" datetime="2025-01-17T00:13:29+00:00">2025-01-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -266,44 +269,46 @@
     
     
     <div class="post-body" itemprop="articleBody"><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/minimize-the-maximum-edge-weight-of-graph/">3419. Minimize the Maximum Edge Weight of Graph</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given an <code>m x n</code> grid. A robot starts at the top-left corner of the grid <code>(0, 0)</code> and wants to reach the bottom-right corner <code>(m - 1, n - 1)</code>. The robot can move either right or down at any point in time.</p>
-<p>The grid contains a value <code>coins[i][j]</code> in each cell:</p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given two integers, <code>n</code> and <code>threshold</code>, as well as a <strong>directed</strong>  weighted graph of <code>n</code> nodes numbered from 0 to <code>n - 1</code>. The graph is represented by a <strong>2D</strong>  integer array <code>edges</code>, where edges[i] &#x3D; [A<sub>i</sub>, B<sub>i</sub>, W<sub>i</sub>] indicates that there is an edge going from node A<sub>i</sub> to node B<sub>i</sub> with weight W<sub>i</sub>.</p>
+<p>You have to remove some edges from this graph (possibly <strong>none</strong> ), so that it satisfies the following conditions:</p>
 <ul>
-<li>If <code>coins[i][j] &gt;= 0</code>, the robot gains that many coins.</li>
-<li>If <code>coins[i][j] &lt; 0</code>, the robot encounters a robber, and the robber steals the <strong>absolute</strong>  value of <code>coins[i][j]</code> coins.</li>
+<li>Node 0 must be reachable from all other nodes.</li>
+<li>The <strong>maximum</strong>  edge weight in the resulting graph is <strong>minimized</strong> .</li>
+<li>Each node has <strong>at most</strong>  <code>threshold</code> outgoing edges.</li>
 </ul>
-<p>The robot has a special ability to <strong>neutralize robbers</strong>  in at most <strong>2 cells</strong>  on its path, preventing them from stealing coins in those cells.</p>
-<p><strong>Note:</strong>  The robot’s total coins can be negative.</p>
-<p>Return the <strong>maximum</strong>  profit the robot can gain on the route.</p>
+<p>Return the <strong>minimum</strong>  possible value of the <strong>maximum</strong>  edge weight after removing the necessary edges. If it is impossible for all conditions to be satisfied, return -1.</p>
 <p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: coins = [[0,1,-1],[1,-2,3],[2,-3,4]]</span><br><span class="line"></span><br><span class="line">Output: 8</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: n = 5, edges = [[1,0,1],[2,0,2],[3,0,1],[4,3,1],[2,1,1]], threshold = 2</span><br><span class="line"></span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
 
 <p>Explanation:</p>
-<p>An optimal path for maximum coins is:</p>
-<ul>
-<li>Start at <code>(0, 0)</code> with <code>0</code> coins (total coins &#x3D; <code>0</code>).</li>
-<li>Move to <code>(0, 1)</code>, gaining <code>1</code> coin (total coins &#x3D; <code>0 + 1 = 1</code>).</li>
-<li>Move to <code>(1, 1)</code>, where there’s a robber stealing <code>2</code> coins. The robot uses one neutralization here, avoiding the robbery (total coins &#x3D; <code>1</code>).</li>
-<li>Move to <code>(1, 2)</code>, gaining <code>3</code> coins (total coins &#x3D; <code>1 + 3 = 4</code>).</li>
-<li>Move to <code>(2, 2)</code>, gaining <code>4</code> coins (total coins &#x3D; <code>4 + 4 = 8</code>).</li>
-</ul>
+<img alt="" src="https://assets.leetcode.com/uploads/2024/12/09/s-1.png" style="width: 300px; height: 233px;">
+
+<p>Remove the edge <code>2 -&gt; 0</code>. The maximum weight among the remaining edges is 1.</p>
 <p><strong>Example 2:</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: coins = [[10,10,10],[10,10,10]]</span><br><span class="line"></span><br><span class="line">Output: 40</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: n = 5, edges = [[0,1,1],[0,2,2],[0,3,1],[0,4,1],[1,2,1],[1,4,1]], threshold = 1</span><br><span class="line"></span><br><span class="line">Output: -1</span><br></pre></td></tr></table></figure>
 
 <p>Explanation:</p>
-<p>An optimal path for maximum coins is:</p>
-<ul>
-<li>Start at <code>(0, 0)</code> with <code>10</code> coins (total coins &#x3D; <code>10</code>).</li>
-<li>Move to <code>(0, 1)</code>, gaining <code>10</code> coins (total coins &#x3D; <code>10 + 10 = 20</code>).</li>
-<li>Move to <code>(0, 2)</code>, gaining another <code>10</code> coins (total coins &#x3D; <code>20 + 10 = 30</code>).</li>
-<li>Move to <code>(1, 2)</code>, gaining the final <code>10</code> coins (total coins &#x3D; <code>30 + 10 = 40</code>).</li>
-</ul>
+<p>It is impossible to reach node 0 from node 2.</p>
+<p><strong>Example 3:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: n = 5, edges = [[1,2,1],[1,3,3],[1,4,5],[2,3,2],[3,4,2],[4,0,1]], threshold = 1</span><br><span class="line"></span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
+
+<p>Explanation:</p>
+<img alt="" src="https://assets.leetcode.com/uploads/2024/12/09/s2-1.png" style="width: 300px; height: 267px;">
+
+<p>Remove the edges <code>1 -&gt; 3</code> and <code>1 -&gt; 4</code>. The maximum weight among the remaining edges is 2.</p>
+<p><strong>Example 4:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: n = 5, edges = [[1,2,1],[1,3,3],[1,4,5],[2,3,2],[4,0,1]], threshold = 1</span><br><span class="line"></span><br><span class="line">Output: -1</span><br></pre></td></tr></table></figure>
+
 <p><strong>Constraints:</strong></p>
 <ul>
-<li><code>m == coins.length</code></li>
-<li><code>n == coins[i].length</code></li>
-<li><code>1 &lt;= m, n &lt;= 500</code></li>
-<li><code>-1000 &lt;= coins[i][j] &lt;= 1000</code></li>
+<li><code>2 &lt;= n &lt;= 10^5</code></li>
+<li><code>1 &lt;= threshold &lt;= n - 1</code></li>
+<li><code>1 &lt;= edges.length &lt;= min(10^5, n * (n - 1) / 2).</code></li>
+<li><code>edges[i].length == 3</code></li>
+<li>0 &lt;&#x3D; A<sub>i</sub>, B<sub>i</sub> &lt; n</li>
+<li>A<sub>i</sub> !&#x3D; B<sub>i</sub></li>
+<li>1 &lt;&#x3D; W<sub>i</sub> &lt;&#x3D; 10^6</li>
+<li>There <strong>may be</strong>  multiple edges between a pair of nodes, but they must have unique weights.</li>
 </ul>
 <h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>2025&#x2F;01&#x2F;16</li>

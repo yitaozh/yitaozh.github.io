@@ -73,7 +73,9 @@ Note that the solution remains the same since 5 and 6 are in the same location a
 
 ## Hints/Notes
 
-- priority queue
+- 2024/02/22
+- sort
+- [0x3F's solution](https://leetcode.cn/problems/vertical-order-traversal-of-a-binary-tree/solutions/2638913/si-chong-xie-fa-dfsha-xi-biao-shuang-shu-tg6q/)(checked)
 
 ## Solution
 
@@ -94,37 +96,28 @@ Language: **C++**
  */
 class Solution {
 public:
+    map<int, map<int, multiset<int>>> m;
     vector<vector<int>> verticalTraversal(TreeNode* root) {
-        priority_queue<vector<int>, vector<vector<int>>, greater<vector<int>>>
-            pq;
         vector<vector<int>> res;
-        traverse(root, 0, 0, pq);
+        traverse(root, 0, 0);
         int prev = INT_MIN;
-        while (!pq.empty()) {
-            auto tri = pq.top();
-            pq.pop();
-            int index = tri[0];
-            int level = tri[1];
-            int val = tri[2];
-            if (prev != index) {
-                res.push_back({val});
-                prev = index;
-            } else {
-                res[res.size() - 1].push_back(val);
+        for (auto& [_, mp] : m) {
+            vector<int> cur;
+            for (auto& [_, v] : mp) {
+                cur.insert(cur.end(), v.begin(), v.end());
             }
+            res.push_back(cur);
         }
         return res;
     }
 
-    void traverse(TreeNode* root, int index, int level,
-                  priority_queue<vector<int>, vector<vector<int>>,
-                                 greater<vector<int>>>& pq) {
+    void traverse(TreeNode* root, int index, int level) {
         if (!root) {
             return;
         }
-        pq.push({index, level, root->val});
-        traverse(root->left, index - 1, level + 1, pq);
-        traverse(root->right, index + 1, level + 1, pq);
+        m[index][level].insert(root->val);
+        traverse(root->left, index - 1, level + 1);
+        traverse(root->right, index + 1, level + 1);
     }
 };
 ```

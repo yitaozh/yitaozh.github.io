@@ -79,6 +79,30 @@ Explanation:
 
 Language: **C++**
 
+0x3F's solution:
+
+```C++
+class Solution {
+public:
+    vector<int> zigzagTraversal(vector<vector<int>>& grid) {
+        vector<int> res;
+        int m = grid.size(), n = grid[0].size();
+        bool ok = true;
+        for (int i = 0; i < m; i++) {
+            auto& v = grid[i];
+            if (i % 2) ranges::reverse(v);
+            for (auto val : v) {
+                if (ok) {
+                    res.push_back(val);
+                }
+                ok = !ok;
+            }
+        }
+        return res;
+    }
+};
+```
+
 ```C++
 class Solution {
 public:

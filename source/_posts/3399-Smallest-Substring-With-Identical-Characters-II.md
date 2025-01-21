@@ -74,19 +74,20 @@ Language: **C++**
 class Solution {
 public:
     int minLength(string s, int numOps) {
-        int left = 1, right = s.size();
-        // the achievable length: [left, right)
-        while (left < right) {
+        int left = 0, right = s.size();
+        // we can always achieve right len, check(right) is always true
+        // while check left is always false
+        while (left + 1 < right) {
             int mid = (left + right) / 2;
             // if check(), it means we can achieve mid size
             // with number of op <= numOps
             if (!check(mid, s, numOps)) {
-                left = mid + 1;
+                left = mid;
             } else {
                 right = mid;
             }
         }
-        return left;
+        return right;
     }
 
     bool check(int len, string& s, int numOps) {

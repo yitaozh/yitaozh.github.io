@@ -160,6 +160,8 @@ minLen = ranges::min(wordDict, {}, &string::length).length();
 maxLen = ranges::max(wordDict, {}, &string::length).length();
 ```
 
+use `__lg(n) + 1` to get the number of bits of one number
+
 ### Templates:
 
 String hash:

@@ -90,8 +90,8 @@ public:
                     continue;
                 }
                 int k = 3 - i - j;
-                int bit1 = 32 - __builtin_clz(nums[j]),
-                    bit2 = 32 - __builtin_clz(nums[k]);
+                int bit1 = __lg(nums[j]) + 1,
+                    bit2 = __lg(nums[k]) + 1;
                 int tmp =
                     (nums[i] << (bit1 + bit2)) + (nums[j] << bit2) + nums[k];
                 res = max(tmp, res);

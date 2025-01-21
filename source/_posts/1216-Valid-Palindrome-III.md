@@ -69,7 +69,7 @@ public:
         if (s[left] == s[right]) {
             res = dfs(s, left + 1, right - 1);
         } else {
-            res =  min(dfs(s, left, right - 1), dfs(s, left + 1, right)) + 1;
+            res = min(dfs(s, left, right - 1), dfs(s, left + 1, right)) + 1;
         }
         return res;
     }

@@ -72,6 +72,8 @@ Language: **C++**
 ```C++
 class Solution {
 public:
+    // the meaning of dp[i][j]: the max subarray size with nums[i] as the
+    // final number, and the delta is larger or equal to j
     vector<vector<int>> dp;
 
     int longestSubsequence(vector<int>& nums) {

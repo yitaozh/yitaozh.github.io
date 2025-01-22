@@ -56,34 +56,64 @@ Output: 3
 
 - 2025/01/05
 - binary search and count
-- rewrite with fast and slow pointers
+- fast and slow pointers
 - No solution from 0x3F
 
 ## Solution
 
 Language: **C++**
 
+binary search:
+
 ```C++
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
         int left = 0, right = nums.size();
-        // the result is in (left, right]
-        while (left < right) {
-            int mid = (left + right) / 2, count = 0;
-            for (int num : nums) {
-                if (num <= mid) {
-                    count++;
-                }
-            }
-            // it means the result is in (0, mid]
-            if (count > mid) {
+        // the value is within (left, right)
+        // check(right) is always true
+        // check(left) is always false
+        while (left + 1 < right) {
+            int mid = (left + right) / 2;
+            if (check(mid, nums)) {
                 right = mid;
             } else {
-                left = mid + 1;
+                left = mid;
+            }
+
+        }
+        return right;
+    }
+
+    bool check(int mid, vector<int>& nums) {
+        int count = 0;
+        for (int num : nums) {
+            if (num <= mid) {
+                count++;
             }
         }
-        return left;
+        return count > mid;
+    }
+};
+```
+
+two pointers
+
+```C++
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int slow = 0, fast = 0;
+        do {
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        } while (slow != fast);
+        slow = 0;
+        while (slow != fast) {
+            slow = nums[slow];
+            fast = nums[fast];
+        }
+        return slow;
     }
 };
 ```

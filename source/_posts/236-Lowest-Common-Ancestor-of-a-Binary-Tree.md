@@ -57,7 +57,9 @@ Output: 1
 
 ## Hints/Notes
 
+* 2023/08/28
 * think about what we are going to do with each node
+* [0x3F's solution](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/solutions/2023872/fen-lei-tao-lun-luan-ru-ma-yi-ge-shi-pin-2r95/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 

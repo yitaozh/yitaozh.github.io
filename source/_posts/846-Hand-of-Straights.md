@@ -67,10 +67,13 @@ public:
         while (!m.empty()) {
             auto [start, _] = *m.begin();
             for (int i = start; i < groupSize + start; i++) {
-                if (m[i] == 0) {
+                if (!m.contains(i) || m[i] == 0) {
                     return false;
                 }
                 m[i]--;
+                if (m[i] == 0) {
+                    m.erase(i);
+                }
             }
         }
         return true;

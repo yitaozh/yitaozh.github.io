@@ -59,7 +59,7 @@ Output: 2
 ## Hints/Notes
 
 * 2023/08/29
-* It's binary serach tree, we can use the property of this data structure
+* It's binary search tree, we can use the property of this data structure
 * [0x3F's solution](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/solutions/2023873/zui-jin-gong-gong-zu-xian-yi-ge-shi-pin-8h2zc/)(checked)
 
 ## Solution
@@ -91,44 +91,5 @@ public:
         }
         return root;
     }
-};
-```
-
-```C++
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-
-class Solution {
-public:
-    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        int val1 = min(p->val, q->val);
-        int val2 = max(p->val, q->val);
-
-        return find(root, val1, val2);
-    }
-
-    TreeNode* find(TreeNode* root, int val1, int val2) {
-        if (root == nullptr) return root;
-
-        if (root->val == val1 || root->val == val2) {
-            return root;
-        }
-
-        if (root->val > val1 && root->val < val2) {
-            return root;
-        }
-
-        TreeNode* left = find(root->left, val1, val2);
-        TreeNode* right = find(root->right, val1, val2);
-
-        return left ? left : right;
-    }
 };
 ```

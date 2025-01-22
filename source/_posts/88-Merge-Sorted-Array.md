@@ -62,7 +62,9 @@ Note that because m = 0, there are no elements in nums1\. The 0 is only there to
 
 ## Hints/Notes
 
+* 2023/10/31
 * Two pointers
+* [0x3F's solution](https://leetcode.cn/problems/merge-sorted-array/solutions/2385610/dao-xu-shuang-zhi-zhen-wei-shi-yao-dao-x-xxkp/)(checked)
 
 ## Solution
 

@@ -57,7 +57,9 @@ Therefore, sum = 495 + 491 + 40 = `1026`.
 
 ## Hints/Notes
 
+- 2023/12/30
 - traverse the tree
+- [0x3F's solution](https://leetcode.cn/problems/sum-root-to-leaf-numbers/solutions/2730644/jian-ji-xie-fa-pythonjavacgojsrust-by-en-gbu9/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 

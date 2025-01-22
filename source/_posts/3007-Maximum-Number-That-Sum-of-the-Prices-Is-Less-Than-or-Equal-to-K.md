@@ -71,6 +71,7 @@ public:
 
     long long findMaximumNumber(long long k, int x) {
         this->x = x;
+        // there is one elgible number every 2^x numbers
         long long left = 0, right = (k + 1) << x;
         while (left + 1 < right) {
             long long mid = left + (right - left) / 2;

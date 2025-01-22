@@ -57,15 +57,15 @@ Language: **C++**
 class Solution {
 public:
     int firstBadVersion(int n) {
-        int left = 0, right = n;
-        // isBadVersion(left - 1) is always false
-        // isBadVersion(right) is always true
+        int left = 1, right = n;
+        // every version >= right is bad version
+        // every version < left is good version
         while (left < right) {
             int mid = (right - left) / 2 + left;
-            if (!isBadVersion(mid)) {
-                left = mid + 1;
-            } else {
+            if (isBadVersion(mid)) {
                 right = mid;
+            } else {
+                left = mid + 1;
             }
         }
         return left;

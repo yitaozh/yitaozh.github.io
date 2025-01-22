@@ -78,6 +78,10 @@ public:
             } else {
                 int tmp = ~num;
                 tmp &= -tmp;
+                // now tmp is lowbit of (~num)
+                // i.e. the rightmost 0's bit set for num
+                // shift the value right one bit, and xor make the
+                // right bit to 0(previously 1)
                 res.push_back(num ^ (tmp >> 1));
             }
         }

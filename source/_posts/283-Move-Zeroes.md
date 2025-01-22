@@ -42,11 +42,31 @@ Output: [0]
 
 ## Hints/Notes
 
+* 2023/08/04
 * Remove the element first, then set the remaining to zero
+* [0x3F's solution](https://leetcode.cn/problems/move-zeroes/solutions/2969353/kuai-man-zhi-zhen-wei-shi-yao-ke-yi-ba-s-1h8x/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 
 Language: **C++**
+
+Cleaner solution:
+
+```C++
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int idx = 0;
+        for (int& x : nums) {
+            if (x) {
+                swap(nums[idx++], x);
+            }
+        }
+    }
+};
+```
+
+My solution:
 
 ```C++
 class Solution {

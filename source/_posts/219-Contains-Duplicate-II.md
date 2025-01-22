@@ -47,7 +47,9 @@ Output: false
 
 ## Hints/Notes
 
+* 2023/11/25
 * sliding window
+* [0x3F's solution](https://leetcode.cn/problems/contains-duplicate-ii/solutions/3041742/liang-chong-fang-fa-mei-ju-you-wei-hu-zu-kwjf/)(checked)
 
 ## Solution
 

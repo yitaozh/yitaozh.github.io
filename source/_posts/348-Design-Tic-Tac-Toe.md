@@ -106,41 +106,25 @@ public:
     int diag1, diag2, n;
     vector<int> cols;
     vector<int> rows;
-    unordered_set<int> d1, d2;
-    vector<unordered_set<int>> c;
-    vector<unordered_set<int>> r;
     TicTacToe(int n) {
         diag1 = diag2 = 0;
         this->n = n;
         cols.resize(n, 0);
         rows.resize(n, 0);
-        c.resize(n);
-        r.resize(n);
     }
 
     int move(int row, int col, int player) {
+        int curPlayer = (player == 1) ? 1 : -1;
         if (row == col) {
-            d1.insert(player);
-            diag1++;
+            diag1 += curPlayer;
         }
         if (row + col == n - 1) {
-            d2.insert(player);
-            diag2++;
+            diag2 += curPlayer;
         }
-        cols[col]++;
-        rows[row]++;
-        c[col].insert(player);
-        r[row].insert(player);
-        if (diag1 == n && d1.size() == 1) {
-            return player;
-        }
-        if (diag2 == n && d2.size() == 1) {
-            return player;
-        }
-        if (cols[col] == n && c[col].size() == 1) {
-            return player;
-        }
-        if (rows[row] == n && r[row].size() == 1) {
+        cols[col] += curPlayer;
+        rows[row] += curPlayer;
+        if (abs(diag1) == n || abs(diag2) == n ||
+            abs(cols[col]) == n || abs(rows[row]) == n) {
             return player;
         }
         return 0;

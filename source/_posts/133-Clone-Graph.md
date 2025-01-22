@@ -78,7 +78,7 @@ Explanation: This an empty graph, it does not have any nodes.
 
 - 2024/12/29
 - dfs
-- No solution from 0x3F
+- [Leetcode solution](https://leetcode.com/problems/clone-graph/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 

@@ -39,7 +39,9 @@ Output: 1
 
 ## Hints/Notes
 
-- N/A
+- 2024/02/15
+- bst
+- premium
 
 ## Solution
 

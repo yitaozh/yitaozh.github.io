@@ -47,26 +47,28 @@ Explanation: Your function can return either index number 1 where the peak eleme
 
 ## Hints/Notes
 
-* N/A
+* 2023/11/17
+* binary search
+* [0x3F's solution](https://leetcode.cn/problems/find-peak-element/solutions/1987497/by-endlesscheng-9ass/)(checked)
 
 ## Solution
 
 Language: **C++**
 
 ```C++
-class Solution {
+class Solution {
 public:
-    int findPeakElement(vector<int>& nums) {
-        int left = 0, right = nums.size() - 1;
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] > nums[mid + 1]) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return left;
-    }
+    int findPeakElement(vector<int>& nums) {
+        int left = -1, right = nums.size() - 1;
+        while (left + 1 < right) {
+            int mid = (right - left) / 2 + left;
+            if (nums[mid] < nums[mid + 1]) {
+                left = mid;
+            } else {
+                right = mid;
+            }
+        }
+        return right;
+    }
 };
 ```

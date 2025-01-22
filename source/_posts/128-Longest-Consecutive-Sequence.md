@@ -39,7 +39,7 @@ Output: 9
 ## Hints/Notes
 
 - 2024/12/28
-- sort or set
+- set
 - [0x3F's solution](https://leetcode.cn/problems/longest-consecutive-sequence/solutions/3005726/ha-xi-biao-on-zuo-fa-pythonjavacgojsrust-whop/)(checked)
 
 ## Solution
@@ -67,7 +67,7 @@ public:
 };
 ```
 
-Sort solution:
+Sort solution(not correct, O(nlogn) time):
 
 ```C++
 class Solution {

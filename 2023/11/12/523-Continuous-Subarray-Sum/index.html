@@ -27,7 +27,7 @@
 <meta property="og:description" content="523. Continuous Subarray Sum DescriptionDifficulty: Medium">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-11-12T23:59:25.000Z">
-<meta property="article:modified_time" content="2025-01-23T17:21:16.760Z">
+<meta property="article:modified_time" content="2025-01-23T17:23:52.334Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="Array">
 <meta property="article:tag" content="Hash Table">
@@ -249,7 +249,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-01-23 17:21:16" itemprop="dateModified" datetime="2025-01-23T17:21:16+00:00">2025-01-23</time>
+      <time title="Modified: 2025-01-23 17:23:52" itemprop="dateModified" datetime="2025-01-23T17:23:52+00:00">2025-01-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -301,7 +301,9 @@
 <li>1 &lt;&#x3D; k &lt;&#x3D; 2<sup>31</sup> - 1</li>
 </ul>
 <h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>2023&#x2F;11&#x2F;07</li>
 <li>preSum + map</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/continuous-subarray-sum/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months">Leetcode solution</a>(checked)</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">checkSubarraySum</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> size = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">preSum</span><span class="params">(size + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            preSum[i + <span class="number">1</span>] = preSum[i] + nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; m;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= size; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (m.<span class="built_in">count</span>(preSum[i] % k)) &#123;</span><br><span class="line">                <span class="type">int</span> idx = m[preSum[i] % k];</span><br><span class="line">                <span class="keyword">if</span> (i - idx &gt; <span class="number">1</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                m[preSum[i] % k] = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>

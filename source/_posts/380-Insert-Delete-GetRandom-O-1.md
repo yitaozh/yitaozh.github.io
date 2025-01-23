@@ -55,8 +55,10 @@ randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom()
 
 ## Hints/Notes
 
+* 2023/08/13
 * Use array for O(1) random access, map doesn't have O(1) random access, it needs to advance n slots
-* Use a map from val to index to ensure O(1) addition/removal
+* Use a map from val to index to ensure O(1) addition/removal from the end of vector
+* [Leetcode solution](https://leetcode.com/problems/insert-delete-getrandom-o1/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 

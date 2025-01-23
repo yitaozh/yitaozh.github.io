@@ -62,7 +62,9 @@ Output: false
 
 ## Hints/Notes
 
+* 2023/11/07
 * preSum + map
+* [Leetcode solution](https://leetcode.com/problems/continuous-subarray-sum/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 

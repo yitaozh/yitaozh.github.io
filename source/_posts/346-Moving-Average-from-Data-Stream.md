@@ -49,7 +49,9 @@ movingAverage.next(5); // return 6.0 = (10 + 3 + 5) / 3
 
 ## Hints/Notes
 
+* 2023/12/05
 * queue
+* [Leetcode solution](https://leetcode.com/problems/moving-average-from-data-stream/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 

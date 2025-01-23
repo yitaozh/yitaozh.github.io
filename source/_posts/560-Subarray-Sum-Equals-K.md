@@ -42,11 +42,36 @@ Output: 2
 
 ## Hints/Notes
 
+* 2023/11/08
 * preSum + map
+* [0x3F's solution](https://leetcode.cn/problems/subarray-sum-equals-k/solutions/2781031/qian-zhui-he-ha-xi-biao-cong-liang-ci-bi-4mwr/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 
 Language: **C++**
+
+One pass:
+
+```C++
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        unordered_map<long, int> m;
+        m[0] = 1;
+        int res = 0, sum = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            sum += nums[i];
+            if (m.contains(sum - k)) {
+                res += m[sum - k];
+            }
+            m[sum]++;
+        }
+        return res;
+    }
+};
+```
+
+Two pass:
 
 ```C++
 class Solution {

@@ -146,7 +146,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">704</span>
+          <span class="site-state-item-count">705</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -203,6 +203,178 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yitaozh.github.io/2023/01/05/Designing-Data-Intensive-Applications/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Echo Joy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Echo's Home">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Echo's Home">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/01/05/Designing-Data-Intensive-Applications/" class="post-title-link" itemprop="url">Designing Data-Intensive Applications</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-01-05 23:57:45" itemprop="dateCreated datePublished" datetime="2023-01-05T23:57:45+00:00">2023-01-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-01-23 17:49:17" itemprop="dateModified" datetime="2025-01-23T17:49:17+00:00">2025-01-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="noopener" href="https://www.goodreads.com/book/show/23463279-designing-data-intensive-applications">Designing Data-Intensive Applications</a></p>
+<ul>
+<li><a href="#reliable-scalable-and-maintainable-applications">Reliable, scalable, and maintainable applications</a><ul>
+<li><a href="#reliability">Reliability</a></li>
+<li><a href="#scalability">Scalability</a></li>
+<li><a href="#maintainability">Maintainability</a></li>
+</ul>
+</li>
+<li><a href="#data-models-and-query-language">Data models and query language</a><ul>
+<li><a href="#relational-model-vs-document-model">Relational model vs document model</a></li>
+<li><a href="#query-languages-for-data">Query languages for data</a></li>
+<li><a href="#graph-like-data-models">Graph-like data models</a></li>
+</ul>
+</li>
+<li><a href="#storage-and-retrieval">Storage and retrieval</a><ul>
+<li><a href="#data-structures-that-power-up-your-database">Data structures that power up your database</a></li>
+<li><a href="#transaction-processing-or-analytics">Transaction processing or analytics?</a></li>
+<li><a href="#column-oriented-storage">Column-oriented storage</a></li>
+</ul>
+</li>
+<li><a href="#encoding-and-evolution">Encoding and evolution</a><ul>
+<li><a href="#formats-for-encoding-data">Formats for encoding data</a></li>
+<li><a href="#modes-of-dataflow">Modes of dataflow</a></li>
+</ul>
+</li>
+<li><a href="#replication">Replication</a><ul>
+<li><a href="#leaders-and-followers">Leaders and followers</a></li>
+<li><a href="#problems-with-replication-lag">Problems with replication lag</a></li>
+<li><a href="#multi-leader-replication">Multi-leader replication</a></li>
+<li><a href="#leaderless-replication">Leaderless replication</a></li>
+</ul>
+</li>
+<li><a href="#partitioning">Partitioning</a><ul>
+<li><a href="#partitioning-and-replication">Partitioning and replication</a></li>
+<li><a href="#partition-of-key-value-data">Partition of key-value data</a></li>
+<li><a href="#partitioning-and-secondary-indexes">Partitioning and secondary indexes</a></li>
+<li><a href="#rebalancing-partitions">Rebalancing partitions</a></li>
+<li><a href="#request-routing">Request routing</a></li>
+</ul>
+</li>
+<li><a href="#transactions">Transactions</a><ul>
+<li><a href="#the-slippery-concept-of-a-transaction">The slippery concept of a transaction</a></li>
+<li><a href="#weak-isolation-levels">Weak isolation levels</a></li>
+<li><a href="#serializability">Serializability</a></li>
+</ul>
+</li>
+<li><a href="#the-trouble-with-distributed-systems">The trouble with distributed systems</a><ul>
+<li><a href="#faults-and-partial-failures">Faults and partial failures</a></li>
+<li><a href="#unreliable-networks">Unreliable networks</a></li>
+<li><a href="#unreliable-clocks">Unreliable clocks</a></li>
+<li><a href="#knowledge-truth-and-lies">Knowledge, truth and lies</a></li>
+</ul>
+</li>
+<li><a href="#consistency-and-consensus">Consistency and consensus</a><ul>
+<li><a href="#consistency-guarantees">Consistency guarantees</a></li>
+<li><a href="#linearizability">Linearizability</a></li>
+<li><a href="#ordering-guarantees">Ordering guarantees</a></li>
+<li><a href="#distributed-transactions-and-consensus">Distributed transactions and consensus</a></li>
+</ul>
+</li>
+<li><a href="#batch-processing">Batch processing</a><ul>
+<li><a href="#batch-processing-with-unix-tools">Batch processing with Unix tools</a></li>
+<li><a href="#map-reduce-and-distributed-filesystems">Map reduce and distributed filesystems</a></li>
+<li><a href="#beyond-mapreduce">Beyond MapReduce</a></li>
+</ul>
+</li>
+<li><a href="#stream-processing">Stream processing</a><ul>
+<li><a href="#transmitting-event-streams">Transmitting event streams</a></li>
+<li><a href="#databases-and-streams">Databases and streams</a></li>
+<li><a href="#processing-streams">Processing Streams</a></li>
+</ul>
+</li>
+<li><a href="#the-future-of-data-systems">The future of data systems</a><ul>
+<li><a href="#data-integration">Data integration</a></li>
+<li><a href="#unbundling-databases">Unbundling databases</a></li>
+<li><a href="#aiming-for-correctness">Aiming for correctness</a></li>
+<li><a href="#doing-the-right-thing">Doing the right thing</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Reliable-scalable-and-maintainable-applications"><a href="#Reliable-scalable-and-maintainable-applications" class="headerlink" title="Reliable, scalable, and maintainable applications"></a>Reliable, scalable, and maintainable applications</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/01/05/Designing-Data-Intensive-Applications/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://yitaozh.github.io/2023/01/04/92-Reverse-Linked-List-II/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -239,7 +411,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-01-23 17:28:56" itemprop="dateModified" datetime="2025-01-23T17:28:56+00:00">2025-01-23</time>
+      <time title="Modified: 2025-01-23 17:49:17" itemprop="dateModified" datetime="2025-01-23T17:49:17+00:00">2025-01-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -332,7 +504,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-01-23 17:28:56" itemprop="dateModified" datetime="2025-01-23T17:28:56+00:00">2025-01-23</time>
+      <time title="Modified: 2025-01-23 17:49:17" itemprop="dateModified" datetime="2025-01-23T17:49:17+00:00">2025-01-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -425,7 +597,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-01-23 17:28:56" itemprop="dateModified" datetime="2025-01-23T17:28:56+00:00">2025-01-23</time>
+      <time title="Modified: 2025-01-23 17:49:17" itemprop="dateModified" datetime="2025-01-23T17:49:17+00:00">2025-01-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -518,7 +690,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-01-23 17:28:56" itemprop="dateModified" datetime="2025-01-23T17:28:56+00:00">2025-01-23</time>
+      <time title="Modified: 2025-01-23 17:49:17" itemprop="dateModified" datetime="2025-01-23T17:49:17+00:00">2025-01-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -611,7 +783,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-01-23 17:28:56" itemprop="dateModified" datetime="2025-01-23T17:28:56+00:00">2025-01-23</time>
+      <time title="Modified: 2025-01-23 17:49:17" itemprop="dateModified" datetime="2025-01-23T17:49:17+00:00">2025-01-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -704,7 +876,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-01-23 17:28:56" itemprop="dateModified" datetime="2025-01-23T17:28:56+00:00">2025-01-23</time>
+      <time title="Modified: 2025-01-23 17:49:17" itemprop="dateModified" datetime="2025-01-23T17:49:17+00:00">2025-01-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -797,7 +969,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-01-23 17:28:56" itemprop="dateModified" datetime="2025-01-23T17:28:56+00:00">2025-01-23</time>
+      <time title="Modified: 2025-01-23 17:49:17" itemprop="dateModified" datetime="2025-01-23T17:49:17+00:00">2025-01-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -890,7 +1062,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-01-23 17:28:56" itemprop="dateModified" datetime="2025-01-23T17:28:56+00:00">2025-01-23</time>
+      <time title="Modified: 2025-01-23 17:49:17" itemprop="dateModified" datetime="2025-01-23T17:49:17+00:00">2025-01-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -983,7 +1155,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-01-23 17:28:56" itemprop="dateModified" datetime="2025-01-23T17:28:56+00:00">2025-01-23</time>
+      <time title="Modified: 2025-01-23 17:49:17" itemprop="dateModified" datetime="2025-01-23T17:49:17+00:00">2025-01-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1010,99 +1182,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/01/03/86-Partition-List/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yitaozh.github.io/2022/12/29/21-Merge-Two-Sorted-Lists/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Echo Joy">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Echo's Home">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Echo's Home">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/12/29/21-Merge-Two-Sorted-Lists/" class="post-title-link" itemprop="url">21. Merge Two Sorted Lists</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-12-29 17:57:13" itemprop="dateCreated datePublished" datetime="2022-12-29T17:57:13+00:00">2022-12-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-01-23 17:28:56" itemprop="dateModified" datetime="2025-01-23T17:28:56+00:00">2025-01-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/merge-two-sorted-lists/">21. Merge Two Sorted Lists</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Difficulty: <strong>Easy</strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/12/29/21-Merge-Two-Sorted-Lists/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>

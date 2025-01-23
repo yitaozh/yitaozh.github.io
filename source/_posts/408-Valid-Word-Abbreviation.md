@@ -58,7 +58,7 @@ Explanation: The word "apple" cannot be abbreviated as "a2e".
 ## Hints/Notes
 
 - 2025/01/14
-- premium
+- premium and no leetcode solution
 
 ## Solution
 

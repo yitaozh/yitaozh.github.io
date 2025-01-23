@@ -50,7 +50,7 @@ Output: [1]
 
 * 2023/10/18
 * priority queue
-* No solution from 0x3F
+* [Leetcode solution](https://leetcode.com/problems/top-k-frequent-elements/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
 
 ## Solution
 

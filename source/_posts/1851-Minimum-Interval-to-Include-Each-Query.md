@@ -55,7 +55,7 @@ Explanation: The queries are processed as follows:
 ## Hints/Notes
 
 - 2025/01/08
-- priority queue
+- priority queue and offline query
 - [Leetcode's solution](https://leetcode.cn/problems/minimum-interval-to-include-each-query/solutions/755628/bao-han-mei-ge-cha-xun-de-zui-xiao-qu-ji-e21j/)(checked)
 
 ## Solution

@@ -43,7 +43,7 @@ Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
 
 - 2024/12/29
 - dp
-- No solution from 0x3F
+- [Leetcode solution](https://leetcode.com/problems/palindromic-substrings/editorial/?envType=problem-list-v2&envId=plakya4j)(checked)
 
 ## Solution
 

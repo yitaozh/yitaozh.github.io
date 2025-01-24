@@ -49,7 +49,9 @@ Output: [1,2,3,4]
 
 ## Hints/Notes
 
+* 2023/11/16
 * since we need the smaller index, find the left boundary
+* [Leetcode solution](https://leetcode.com/problems/find-k-closest-elements/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 
@@ -61,42 +63,41 @@ public:
     vector<int> findClosestElements(vector<int>& arr, int k, int x) {
         int index = findLeft(arr, x);
         int left = index - 1, right = index;
-        list<int> l;
-        while (l.size() < k) {
+        list<int> res;
+        while (k > 0) {
             if (left < 0) {
-                l.push_back(arr[right++]);
-            } else if (right >= arr.size()) {
-                l.push_front(arr[left--]);
+                res.push_back(arr[right++]);
+            } else if (right == arr.size()) {
+                res.push_front(arr[left--]);
             } else {
                 int ldelta = abs(arr[left] - x);
                 int rdelta = abs(arr[right] - x);
-
-                if (ldelta == rdelta) {
-                    l.push_front(arr[left--]);
-                } else if (ldelta < rdelta) {
-                    l.push_front(arr[left--]);
+                if (ldelta <= rdelta) {
+                    res.push_front(arr[left--]);
                 } else {
-                    l.push_back(arr[right++]);
+                    res.push_back(arr[right++]);
                 }
             }
+            k--;
         }
-        vector<int> res(l.begin(), l.end());
-        return res;
+        return vector<int>(res.begin(), res.end());
     }
 
-    int findLeft(vector<int> &arr, int x) {
+    int findLeft(vector<int>& arr, int x) {
         int left = 0, right = arr.size();
+        // left - 1 < x
+        // right >= x
         while (left < right) {
-            int mid = left + (right - left) / 2;
+            int mid = (right - left) / 2 + left;
             if (arr[mid] == x) {
                 right = mid;
-            } else if (arr[mid] < x) {
-                left = mid + 1;
-            } else {
+            } else if (arr[mid] > x) {
                 right = mid;
+            } else {
+                left = mid + 1;
             }
         }
-        return left;
+        return right;
     }
 };
 ```

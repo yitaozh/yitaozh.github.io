@@ -144,7 +144,7 @@ public:
             string next = p.first; double rate = p.second;
             if (next != from) {
                 double nextVal = rate * curVal;
-                if (!post_day.contains(next) || post_day[next] < nextVal) {
+                if (!post_day.contains(next)) {
                     dfs(next, cur, nextVal, day, post_day);
                 }
             }

@@ -162,6 +162,8 @@ maxLen = ranges::max(wordDict, {}, &string::length).length();
 
 use `__lg(n) + 1` to get the number of bits of one number
 
+Stirling number of the second kind: lc 3317
+
 ### Templates:
 
 String hash:

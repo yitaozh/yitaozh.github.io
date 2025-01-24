@@ -96,20 +96,9 @@ public:
     // this is Stirling number of the second kind
     int numberOfWays(int n, int x, int y) {
         int max_stages = min(n, x), MOD = 1'000'000'007;
-        // C(m, n) = C(m - 1, n - 1) + C(m, n - 1)
-        // now we want to calculate C(1, x) ~ C(max_stages, x)
-        vector<long long> combinations(max_stages + 1, 0);
-        for (int i = 0; i <= x; i++) {
-            for (int j = min(i, max_stages); j >= 0; j--) {
-                if (j) {
-                    combinations[j] = (combinations[j] + combinations[j - 1]) % MOD;
-                } else {
-                    combinations[j] = 1;
-                }
-            }
-        }
         vector<long long> s(max_stages + 1, 0);
         s[0] = 1;
+        // explanation: https://oi-wiki.org/math/combinatorics/stirling/
         // S(n, k) = S(n - 1, k - 1) + k * S(n - 1, k)
         for (int i = 1; i <= n; i++) {
             for (int j = min(i, max_stages); j >= 0; j--) {

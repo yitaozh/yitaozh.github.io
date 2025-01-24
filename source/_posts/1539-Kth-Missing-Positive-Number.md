@@ -57,8 +57,7 @@ O(log(n)) solution:
 class Solution {
 public:
     int findKthPositive(vector<int>& arr, int k) {
-        // for each index of arr, there are arr[idx] - idx - 1 numbers skipped
-        // before this number
+        // for each index of arr, there are arr[idx] - idx - 1 numbers skipped before this number
         // for idx < left, skipped <= k is always true
         int left = 0, right = arr.size() - 1;
         while (left <= right) {

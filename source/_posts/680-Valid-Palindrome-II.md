@@ -45,7 +45,7 @@ Output: false
 
 - 2025/01/14
 - string
-- No solution fromm 0x3F
+- [Leetcode solution](https://leetcode.com/problems/valid-palindrome-ii/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 

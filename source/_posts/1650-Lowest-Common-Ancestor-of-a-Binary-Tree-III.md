@@ -68,7 +68,9 @@ Output: 1
 
 ## Hints/Notes
 
+* 2023/08/30
 * It's actually find the intersection of 2 lists
+* No solution from leetcode
 
 ## Solution
 

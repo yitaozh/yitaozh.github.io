@@ -55,11 +55,77 @@ Output: [1,2,3]
 
 ## Hints/Notes
 
-- N/A
+- 2024/03/26
+- dfs or recursive
+- [Leetcode solution](https://leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 
 Language: **C++**
+
+dfs:
+
+```C++
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    Node* left;
+    Node* right;
+
+    Node() {}
+
+    Node(int _val) {
+        val = _val;
+        left = NULL;
+        right = NULL;
+    }
+
+    Node(int _val, Node* _left, Node* _right) {
+        val = _val;
+        left = _left;
+        right = _right;
+    }
+};
+*/
+
+class Solution {
+public:
+    Node *first, *last;
+
+    void helper(Node* root) {
+        if (root->left) {
+            helper(root->left);
+        }
+
+        if (!first) {
+            first = root;
+        }
+
+        if (last) {
+            last->right = root;
+            root->left = last;
+        }
+        last = root;
+
+        if (root->right) {
+            helper(root->right);
+        }
+    }
+
+    Node* treeToDoublyList(Node* root) {
+        if (!root) {
+            return root;
+        }
+
+        helper(root);
+        first->left = last;
+        last->right = first;
+        return first;
+    }
+};
+```
 
 ```C++
 /*

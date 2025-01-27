@@ -60,17 +60,17 @@ public:
                 for (int j = max(0, i - m + 1); j <= min(i, n - 1); j++) {
                     int x = i - j, y = j;
                     // i - j < m => j > i - m
-                    if (x >= m || y >= n) {
-                        continue;
-                    }
+                    // if (x >= m || y >= n) {
+                    //     continue;
+                    // }
                     res.push_back(mat[x][y]);
                 }
             } else {
                 for (int j = min(i, n - 1); j >= max(0, i - m + 1); j--) {
                     int x = i - j, y = j;
-                    if (x >= m || y >= n) {
-                        continue;
-                    }
+                    // if (x >= m || y >= n) {
+                    //     continue;
+                    // }
                     res.push_back(mat[x][y]);
                 }
             }

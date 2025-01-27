@@ -74,15 +74,44 @@ and so on.
 
 ## Hints/Notes
 
+* 2023/08/12
 * preSum
 * binary search to find the left boundry
 * if the number doesn't exist, we can iterpret the return as
   * where it ought to be in the array
   * the index of value > target
+* [Leetcode solution](https://leetcode.com/problems/random-pick-with-weight/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 
 Language: **C++**
+
+Cleaner solution with built in fuctions
+
+```C++
+class Solution {
+public:
+    vector<int> preSum;
+
+    Solution(vector<int>& w) {
+        int n = w.size();
+        preSum.resize(n);
+        partial_sum(w.begin(), w.end(), preSum.begin());
+    }
+
+    int pickIndex() {
+        int num = rand() % preSum.back() + 1;
+        auto it = lower_bound(preSum.begin(), preSum.end(), num);
+        return distance(preSum.begin(), it);
+    }
+};
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * Solution* obj = new Solution(w);
+ * int param_1 = obj->pickIndex();
+ */
+```
 
 ```C++
 class Solution {

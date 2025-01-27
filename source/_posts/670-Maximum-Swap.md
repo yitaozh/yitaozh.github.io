@@ -39,7 +39,7 @@ Explanation: No swap.
 
 - 2025/01/24
 - greedy
-- [Leetcode solution](https://leetcode.com/problems/maximum-swap/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
+- [0x3F's solution](https://leetcode.cn/problems/maximum-swap/solutions/2614470/yi-ci-bian-li-jian-ji-xie-fa-pythonjavac-c9b1/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 
@@ -51,20 +51,19 @@ public:
     int maximumSwap(int num) {
         string numStr = to_string(num);
         int n = numStr.size();
-        vector<int> nextLarger(n, n - 1);
+        int max_index = n - 1, p = -1, q = -1;
         for (int i = n - 2; i >= 0; i--) {
-            if (numStr[i] > numStr[nextLarger[i + 1]]) {
-                nextLarger[i] = i;
-            } else {
-                nextLarger[i] = nextLarger[i + 1];
+            if (numStr[i] > numStr[max_index]) {
+                max_index = i;
+            } else if (numStr[i] < numStr[max_index]) {
+                p = i;
+                q = max_index;
             }
         }
-        for (int i = 0; i < n - 1; i++) {
-            if (numStr[i] < numStr[nextLarger[i]]) {
-                swap(numStr[i], numStr[nextLarger[i]]);
-                break;
-            }
+        if (p == -1) {
+            return num;
         }
+        swap(numStr[p], numStr[q]);
         return stoi(numStr);
     }
 };

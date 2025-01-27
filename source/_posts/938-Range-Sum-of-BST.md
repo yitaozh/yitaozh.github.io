@@ -44,7 +44,9 @@ Explanation: Nodes 6, 7, and 10 are in the range [6, 10]. 6 + 7 + 10 = 23.
 
 ## Hints/Notes
 
-- N/A
+- 2024/05/08
+- bst
+- [0x3F's solution](https://leetcode.cn/problems/range-sum-of-bst/solutions/2653989/jian-ji-xie-fa-pythonjavacgojsrust-by-en-7jw4/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 
@@ -65,23 +67,22 @@ Language: **C++**
  */
 class Solution {
 public:
-    int res = 0;
-
     int rangeSumBST(TreeNode* root, int low, int high) {
         if (!root) {
             return 0;
         }
+        int res = 0;
 
         if (root->val >= low && root->val <= high) {
             res += root->val;
         }
 
         if (root->val > low) {
-            rangeSumBST(root->left, low, high);
+            res += rangeSumBST(root->left, low, high);
         }
 
         if (root->val < high) {
-            rangeSumBST(root->right, low, high);
+            res += rangeSumBST(root->right, low, high);
         }
 
         return res;

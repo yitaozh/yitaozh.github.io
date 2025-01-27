@@ -53,11 +53,13 @@ Output: [["Ethan","Ethan0@m.co","Ethan4@m.co","Ethan5@m.co"],["Gabe","Gabe0@m.co
 
 - 2025/01/27
 - union find or dfs
-- [0x3F's solution](https://leetcode.cn/problems/accounts-merge/solutions/2844186/ha-xi-biao-dfspythonjavacgojsrust-by-end-z9nh/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
+- [0x3F's solution](https://leetcode.cn/problems/accounts-merge/solutions/2844186/ha-xi-biao-dfspythonjavacgojsrust-by-end-z9nh/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 
 Language: **C++**
+
+Union find:
 
 ```C++
 class Solution {
@@ -111,6 +113,55 @@ public:
             roots[root] = findRoot(roots[root]);
         }
         return roots[root];
+    }
+};
+```
+
+dfs:
+
+```C++
+class Solution {
+public:
+    vector<bool> visited;
+    unordered_map<string, vector<int>> m;
+    unordered_set<string> email_set;
+
+    vector<vector<string>> accountsMerge(vector<vector<string>>& accounts) {
+        int n = accounts.size();
+        visited.resize(n, false);
+        for (int i = 0; i < accounts.size(); i++) {
+            for (int j = 1; j < accounts[i].size(); j++) {
+                m[accounts[i][j]].push_back(i);
+            }
+        }
+        vector<vector<string>> res;
+        for (int i = 0; i < n; i++) {
+            if (visited[i]) {
+                continue;
+            }
+            email_set.clear();
+            dfs(i, accounts);
+            vector<string> cur = {accounts[i][0]};
+            cur.insert(cur.end(), email_set.begin(), email_set.end());
+            ranges::sort(cur.begin() + 1, cur.end());
+            res.push_back(cur);
+        }
+        return res;
+    }
+
+    void dfs(int index, vector<vector<string>>& accounts) {
+        visited[index] = true;
+        unordered_set<int> s;
+        for (int i = 1; i < accounts[index].size(); i++) {
+            string& email = accounts[index][i];
+            email_set.insert(email);
+            for (int j : m[email]) {
+                if (!visited[j]) {
+                    dfs(j, accounts);
+                }
+            }
+        }
+
     }
 };
 ```

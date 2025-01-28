@@ -114,7 +114,9 @@ public:
 
     int countGoodArrays(int n, int m, int k) {
         // there are k indexes with arr[i - 1] = arr[i]
-        // which means, there are n - k different interval with the same number
+        // which means, among a total of n - 1 intervals
+        // there are k different interval with the same number on left and right
+        // and there are n - k - 1 intervals with different number on left and right
         // i.e. we need to put n - k - 1 lines in in n - 1 slots
         // C(n - 1, n - k - 1) * m * (m - 1) ^ (n - k - 1)
         // the C number is fac[n - 1] * inv[n - k - 1] * inv[k]

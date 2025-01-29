@@ -59,6 +59,39 @@ Explanation: The answer [[-2,4],[3,3]] would also be accepted.
 
 Language: **C++**
 
+quick select
+
+```C++
+class Solution {
+public:
+    vector<vector<int>> kClosest(vector<vector<int>>& points, int k) {
+        quick_select(points, k, 0, points.size() - 1);
+        return vector<vector<int>>(points.begin(), points.begin() + k);
+    }
+
+    void quick_select(vector<vector<int>>& points, int k, int left, int right) {
+        int pivot = right, pivotDist = points[pivot][0] * points[pivot][0] + points[pivot][1] * points[pivot][1];
+        int i = left - 1;
+        for (int j = left; j < right; j++) {
+            int dist = points[j][0] * points[j][0] + points[j][1] * points[j][1];
+            if (dist <= pivotDist) {
+                swap(points[++i], points[j]);
+            }
+        }
+        i++;
+        swap(points[i], points[right]);
+        // from left to i, a total of i - left + 1 numbers are <= pivot
+        if (i - left + 1 > k) {
+            quick_select(points, k, left, i - 1);
+        } else if (i - left + 1 < k) {
+            quick_select(points, k - i + left - 1, i + 1, right);
+        }
+    }
+};
+```
+
+priority queue:
+
 ```C++
 class Solution {
 public:

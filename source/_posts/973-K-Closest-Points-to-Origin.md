@@ -53,7 +53,7 @@ Explanation: The answer [[-2,4],[3,3]] would also be accepted.
 
 - 2025/01/08
 - priority queue
-- No solution from 0x3F
+- [Good solution](https://leetcode.cn/problems/k-closest-points-to-origin/solutions/477916/zui-jie-jin-yuan-dian-de-k-ge-dian-by-leetcode-sol/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 

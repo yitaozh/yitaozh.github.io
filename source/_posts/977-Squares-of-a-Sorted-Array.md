@@ -44,7 +44,9 @@ Output: [4,9,9,49,121]
 
 ## Hints/Notes
 
+* 2023/11/01
 * two pointers, start and end of the array
+* [0x3F's solution](https://leetcode.cn/problems/squares-of-a-sorted-array/solutions/2806253/xiang-xiang-shuang-zhi-zhen-cong-da-dao-blda6/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 

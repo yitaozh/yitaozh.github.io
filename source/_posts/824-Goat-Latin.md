@@ -3,6 +3,7 @@ title: 824. Goat Latin
 categories: Leetcode
 date: 2025-01-29 16:19:14
 tags:
+    - String
 ---
 
 [824. Goat Latin](https://leetcode.com/problems/goat-latin/description/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)

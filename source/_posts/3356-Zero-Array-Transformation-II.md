@@ -89,7 +89,8 @@ public:
         int m = queries.size();
         int left = 0, right = m + 1;
         // [left, right), ending point: left = right
-        // for all values >= right the return value is true
+        // for values < left the return value is false
+        // for values >= right the return value is true
         while (left < right) {
             int mid = (left + right) / 2;
             if (check(mid, nums, queries)) {

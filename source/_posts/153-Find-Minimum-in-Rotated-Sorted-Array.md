@@ -68,12 +68,14 @@ Language: **C++**
 class Solution {
 public:
     int findMin(vector<int>& nums) {
-        int left = -1, right = nums.size(), end = nums[right - 1];
-        // [right, n - 1] is bigger than end
-        while (left + 1 < right) {
+        int left = 0, right = nums.size(), end = nums[right - 1];
+        // the checking range: [left, right)
+        // nums[right, n) is always less than end
+        // nums[0, left - 1] is always bigger than end
+        while (left < right) {
             int mid = (left + right) / 2;
             if (nums[mid] > end) {
-                left = mid;
+                left = mid + 1;
             } else {
                 right = mid;
             }

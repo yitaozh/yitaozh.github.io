@@ -71,6 +71,16 @@ public:
         int n = nums.size();
         long long res = 0;
         long long cur = 0;
+        // the question here is: for each element as the rightmost element,
+        // the maximum number in the min(index + 1, k) subarrays
+        // when we take in a new number, we check if it's the biggest number
+        // in the last k numbers:
+        // 1. if it is, then it would be the largest element for all subarrays
+        // sized from 1 to k, push a (val, k) into the stk
+        // 2. if it's not, then idx - prevIdx is the number of subarrays that it
+        // is the largest element
+        // 3. we add the val * num into cur, and we only need to add that value
+        // into the res
         for (int i = 0; i < n; i++) {
             if (!q.empty()) {
                 if (i >= k) {

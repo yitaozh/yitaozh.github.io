@@ -152,6 +152,8 @@ public:
     void dfs(int index, vector<vector<string>>& accounts) {
         visited[index] = true;
         unordered_set<int> s;
+        // start from account[i]'s emails, then for each account containing
+        // this email, we just go through that account as well
         for (int i = 1; i < accounts[index].size(); i++) {
             string& email = accounts[index][i];
             email_set.insert(email);

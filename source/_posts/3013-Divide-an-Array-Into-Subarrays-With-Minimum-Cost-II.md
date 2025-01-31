@@ -84,6 +84,7 @@ public:
         // so the last number we can iterate  is n - k + 1
         multiset<int> mx, mi;
         int right = 1;
+        // we are always trying to find the k - 1 value within the window [i, i + dist]
         for (int i = 1; i <= n - k + 1; i++) {
             // feeding numbers until i + dist
             // now we need to get the minimum k - 1 numbers

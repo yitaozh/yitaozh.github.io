@@ -59,7 +59,7 @@ Output: 1
 
 - 2025/01/06
 - dfs
-- No solution from 0x3F
+- [Leetcode solution](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/editorial/?envType=problem-list-v2&envId=plakya4j)
 
 ## Solution
 

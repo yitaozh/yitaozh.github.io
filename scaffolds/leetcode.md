@@ -13,7 +13,7 @@ First, paste here
 
 ## Hints/Notes
 
-- 2025/01/XX
+- 2025/02/XX
 - [0x3F's solution]
 - Weekly/Biweekly Contest XXX
 

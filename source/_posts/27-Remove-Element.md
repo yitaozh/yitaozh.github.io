@@ -71,7 +71,9 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 ## Hints/Notes
 
+* 2023/08/04
 * 2 pointers
+* [Leetcode solution](https://leetcode.com/problems/remove-element/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
 
 ## Solution
 

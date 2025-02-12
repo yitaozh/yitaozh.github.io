@@ -62,8 +62,10 @@ Output: []
 
 ## Hints/Notes
 
+* 2023/08/16
 * use a queue to solve the problem iteratively
 * use a helper function to solve the problem recursively
+* [Leetcode solution](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
 
 ## Solution
 

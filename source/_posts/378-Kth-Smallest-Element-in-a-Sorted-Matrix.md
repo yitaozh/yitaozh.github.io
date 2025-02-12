@@ -54,7 +54,9 @@ Output: -5
 
 ## Hints/Notes
 
-* Priority queue
+* 2023/10/11
+* Priority queue or binary search
+* [Leetcode solution](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/editorial/)
 
 ## Solution
 

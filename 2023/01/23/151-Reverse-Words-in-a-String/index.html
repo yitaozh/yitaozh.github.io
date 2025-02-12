@@ -27,7 +27,7 @@
 <meta property="og:description" content="151. Reverse Words in a String DescriptionDifficulty: Medium">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-01-23T11:54:35.000Z">
-<meta property="article:modified_time" content="2025-02-12T06:29:21.297Z">
+<meta property="article:modified_time" content="2025-02-12T19:04:15.250Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="String">
 <meta property="article:tag" content="Two Pointers">
@@ -247,7 +247,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-02-12 06:29:21" itemprop="dateModified" datetime="2025-02-12T06:29:21+00:00">2025-02-12</time>
+      <time title="Modified: 2025-02-12 19:04:15" itemprop="dateModified" datetime="2025-02-12T19:04:15+00:00">2025-02-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -292,6 +292,7 @@
 </ul>
 <p><strong>Follow-up:</strong> If the string data type is mutable in your language, can you solve it <strong>in-place</strong> with <code>O(1)</code> extra space?</p>
 <h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
+<li>2023&#x2F;08&#x2F;19</li>
 <li>Reverse the whole string first,  then each word</li>
 <li>The handling of spaces is the key to AC for this problem<ul>
 <li>The space at the end of the string</li>
@@ -299,9 +300,13 @@
 <li>Use a separate index variable to track the return string</li>
 </ul>
 </li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/reverse-words-in-a-string/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months">Leetcode solution</a></li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">reverseWords</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">reverse</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> index = <span class="number">0</span>, len = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s[i] != <span class="string">&#x27; &#x27;</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (index != <span class="number">0</span>) &#123;</span><br><span class="line">                    s[index++] = <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="type">int</span> end = i;</span><br><span class="line">                <span class="keyword">while</span> (s[end] != <span class="string">&#x27; &#x27;</span> &amp;&amp; end &lt; len) &#123;</span><br><span class="line">                    s[index++] = s[end++];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="built_in">reverse</span>(s.<span class="built_in">begin</span>() + index - (end - i), s.<span class="built_in">begin</span>() + index);</span><br><span class="line">                i = end;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        s.<span class="built_in">erase</span>(s.<span class="built_in">begin</span>() + index, s.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>With built_in functions:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">reverseWords</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        s.<span class="built_in">erase</span>(<span class="number">0</span>, s.<span class="built_in">find_first_not_of</span>(<span class="string">&#x27; &#x27;</span>));</span><br><span class="line">        s.<span class="built_in">erase</span>(s.<span class="built_in">find_last_not_of</span>(<span class="string">&#x27; &#x27;</span>) + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="function">istringstream <span class="title">iss</span><span class="params">(s)</span></span>;</span><br><span class="line">        vector&lt;string&gt; words;</span><br><span class="line">        <span class="built_in">copy</span>(<span class="built_in">istream_iterator</span>&lt;string&gt;(iss), <span class="built_in">istream_iterator</span>&lt;string&gt;(), <span class="built_in">back_inserter</span>(words));</span><br><span class="line"></span><br><span class="line">        ranges::<span class="built_in">reverse</span>(words);</span><br><span class="line">        ostringstream oss;</span><br><span class="line">        <span class="built_in">copy</span>(words.<span class="built_in">begin</span>(), words.<span class="built_in">end</span>() - <span class="number">1</span>, <span class="built_in">ostream_iterator</span>&lt;string&gt;(oss, <span class="string">&quot; &quot;</span>));</span><br><span class="line">        oss &lt;&lt; words[words.<span class="built_in">size</span>() - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">return</span> oss.<span class="built_in">str</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
     </div>
 

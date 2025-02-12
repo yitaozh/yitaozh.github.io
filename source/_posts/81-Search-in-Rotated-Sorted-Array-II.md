@@ -48,7 +48,9 @@ Output: false
 
 ## Hints/Notes
 
+* 2023/11/20
 * Shrink the left and right boundary before binary search
+* [0x3F's solution](https://leetcode.cn/problems/search-in-rotated-sorted-array-ii/solutions/3058425/ji-yu-33-ti-de-jian-ji-xie-fa-zhi-xu-zen-uayi/)(hard to understand)
 
 ## Solution
 

@@ -98,7 +98,15 @@ public:
     }
 
     void reorderList(ListNode* head) {
+        // get the pointer to the middle node, e.g. 1, 2, 3, return pointer to 2
         ListNode* mid = middleNode(head);
+        // two cases:
+        // #1:
+        // 1 -> 2
+        // 3 -> 2
+        // #2:
+        // 1 -> 2 -> 3
+        // 4 -> 3
         mid = reverseList(mid);
         while (mid->next) {
             ListNode* nxt1 = head->next;
@@ -111,7 +119,6 @@ public:
     }
 };
 ```
-
 
 Language: **C++**
 

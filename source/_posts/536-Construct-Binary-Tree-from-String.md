@@ -50,7 +50,9 @@ Output: [-4,2,6,3,1,5,7]
 
 ## Hints/Notes
 
+- 2024/06/21
 - binary tree
+- [Leetcode solution](https://leetcode.com/problems/construct-binary-tree-from-string/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 
@@ -102,6 +104,64 @@ public:
         // i + 2 since we need to skip the ')' and '('
         root->right = str2tree(s.substr(i + 2, s.size() - 1 - (i + 2)));
         return root;
+    }
+};
+```
+
+With stack:
+
+```C++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* str2tree(string s) {
+        if (s.empty()) {
+            return nullptr;
+        }
+
+        TreeNode* root = new TreeNode();
+        stack<TreeNode*> stk;
+        stk.push(root);
+
+        for (int index = 0; index < s.size(); index++) {
+            TreeNode* node = stk.top();
+            stk.pop();
+
+            if (isdigit(s[index]) || s[index] == '-') {
+                int sign = 1;
+                if (s[index] == '-') {
+                    sign = -1;
+                    index++;
+                }
+                int cur = 0;
+                while (index < s.size() && isdigit(s[index])) {
+                    cur = cur * 10 + s[index] - '0';
+                    index++;
+                }
+                cur *= sign;
+                node->val = cur;
+                if (index < s.size() && s[index] == '(') {
+                    node->left = new TreeNode();
+                    stk.push(node);
+                    stk.push(node->left);
+                }
+            } else if (s[index] == '(' && node->left) {
+                node->right = new TreeNode();
+                stk.push(node);
+                stk.push(node->right);
+            }
+        }
+        return stk.empty() ? root : stk.top();
     }
 };
 ```

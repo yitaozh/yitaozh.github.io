@@ -56,11 +56,13 @@ Explanation: You need to reduce multiple spaces between two words to a single sp
 
 ## Hints/Notes
 
+* 2023/08/19
 * Reverse the whole string first,  then each word
 * The handling of spaces is the key to AC for this problem
   * The space at the end of the string
   * The extra spaces between the words
   * Use a separate index variable to track the return string
+* [Leetcode solution](https://leetcode.com/problems/reverse-words-in-a-string/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
 
 ## Solution
 
@@ -88,5 +90,27 @@ public:
         s.erase(s.begin() + index, s.end());
         return s;
     }
+};
+```
+
+With built_in functions:
+
+```C++
+class Solution {
+public:
+    string reverseWords(string s) {
+        s.erase(0, s.find_first_not_of(' '));
+        s.erase(s.find_last_not_of(' ') + 1);
+
+        istringstream iss(s);
+        vector<string> words;
+        copy(istream_iterator<string>(iss), istream_iterator<string>(), back_inserter(words));
+
+        ranges::reverse(words);
+        ostringstream oss;
+        copy(words.begin(), words.end() - 1, ostream_iterator<string>(oss, " "));
+        oss << words[words.size() - 1];
+        return oss.str();
+    }
 };
 ```

@@ -44,7 +44,6 @@ Explanation: 7/-3 = -2.33333.. which is truncated to -2.
 
 - 2025/02/06
 - [Leetcode solution](https://leetcode.com/problems/divide-two-integers/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
-- Weekly/Biweekly Contest XXX
 
 ## Solution
 

@@ -55,7 +55,7 @@ Thus, the result should be [1,0].
 
 - 2024/12/22
 - digits
-- No solution from 0x3F
+- [Leetcode solution](https://leetcode.com/problems/plus-one/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 

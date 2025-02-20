@@ -67,14 +67,19 @@ public:
     }
 
     bool isPalindrome(string& s, int l, int r) {
-        while (l < r) {
-            if (s[l] != s[r]) {
-                return false;
-            }
-            l++;
-            r--;
+        if (l >= r) {
+            return true;
         }
-        return true;
+        if (dp[l][r] != -1) {
+            return dp[l][r];
+        }
+        int& res = dp[l][r];
+        if (s[l] != s[r]) {
+            res = 0;
+            return res;
+        }
+        res = isPalindrome(s, l + 1, r - 1);
+        return res;
     }
 };
 ```

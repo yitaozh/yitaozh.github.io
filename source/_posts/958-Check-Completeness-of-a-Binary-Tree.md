@@ -43,7 +43,9 @@ Explanation: The node with value 7 isn't as far left as possible.
 
 ## Hints/Notes
 
+- 2024/06/08
 - binary tree
+- [Leetcode solution](https://leetcode.com/problems/check-completeness-of-a-binary-tree/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 

@@ -46,11 +46,45 @@ Output: false
 
 ## Hints/Notes
 
+* 2023/08/03
 * Find the mid point, reverse the right part then compare
+* [Leetcode solution](https://leetcode.com/problems/palindrome-linked-list/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
 
 ## Solution
 
 Language: **C++**
+
+A better solution:
+
+```C++
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* left;
+
+    bool isPalindrome(ListNode* head) {
+        left = head;
+        return traverse(head);
+    }
+
+    bool traverse(ListNode* right) {
+        if (right == nullptr) return true;
+        bool res = traverse(right->next);
+        res = res && left->val == right->val;
+        left = left->next;
+        return res;
+    }
+};
+```
 
 ```C++
 /**
@@ -99,22 +133,5 @@ public:
         }
         return prev;
     }
-
-    /* Run time O(N), Space O(N) solution
-    ListNode* left;
-
-    bool isPalindrome(ListNode* head) {
-        left = head;
-        return traverse(head);
-    }
-
-    bool traverse(ListNode* right) {
-        if (right == nullptr) return true;
-        bool res = traverse(right->next);
-        res = res && left->val == right->val;
-        left = left->next;
-        return res;
-    }
-    */
 };
 ```

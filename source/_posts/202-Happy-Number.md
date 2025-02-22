@@ -49,7 +49,7 @@ Output: false
 
 - 2025/01/02
 - The important thing is the proof
-- No solution from 0x3F
+- [Leetcode solution](https://leetcode.com/problems/happy-number/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
 
 ## Solution
 

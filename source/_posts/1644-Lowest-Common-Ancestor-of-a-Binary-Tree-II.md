@@ -61,7 +61,9 @@ Explanation: Node 10 does not exist in the tree, so return null.
 
 ## Hints/Notes
 
+* 2023/08/29
 * It's possible that the nodes don't exist, so we need to check every node, so it's postorder traverse
+* [Leetcode solution](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-ii/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
 
 ## Solution
 

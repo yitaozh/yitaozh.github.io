@@ -50,7 +50,9 @@ numArray.sumRange(0, 5); // return (-2) + 0 + 3 + (-5) + 2 + (-1) = -3
 
 ## Hints/Notes
 
+* 2023/08/07
 * preSum
+* [0x3F's solution](https://leetcode.cn/problems/range-sum-query-immutable/solutions/2693498/qian-zhui-he-ji-qi-kuo-zhan-fu-ti-dan-py-vaar/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 

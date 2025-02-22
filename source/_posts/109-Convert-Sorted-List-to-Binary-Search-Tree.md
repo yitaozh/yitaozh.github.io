@@ -42,7 +42,7 @@ Output: []
 
 - 2024/07/07
 - linked list and binary search tree
-- No solution from 0x3F
+- [Leetcode solution](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
 
 ## Solution
 

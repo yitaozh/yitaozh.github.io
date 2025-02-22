@@ -57,7 +57,7 @@ Output: 3
 - 2025/01/05
 - binary search and count
 - fast and slow pointers
-- No solution from 0x3F
+- [Leetcode solution](https://leetcode.com/problems/find-the-duplicate-number/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 

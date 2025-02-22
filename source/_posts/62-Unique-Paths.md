@@ -46,7 +46,7 @@ Explanation: From the top-left corner, there are a total of 3 ways to reach the 
 
 - 2024/12/22
 - dp or combinatorics
-- No solution from 0x3F
+- [Leetcode solution](https://leetcode.com/problems/unique-paths/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 

@@ -38,7 +38,7 @@ Explanation: num1 + num2 = -6, so -6 is returned.
 
 ## Hints/Notes
 
-* N/A
+* Too easy, no solution
 
 ## Solution
 

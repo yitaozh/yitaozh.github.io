@@ -42,7 +42,9 @@ Explanation: The subarray [-1, 2] sums to 1 and is the longest.
 
 ## Hints/Notes
 
+* 2023/11/09
 * preSum + map
+* [Leetcode solution](https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
 
 ## Solution
 

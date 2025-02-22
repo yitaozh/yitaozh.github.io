@@ -52,8 +52,9 @@ Output: [1,1,0,1,1,null,1]
 
 ## Hints/Notes
 
+- 2024/07/02
 - binary tree
-- No solution from 0x3F
+- [Leetcode solution](https://leetcode.com/problems/binary-tree-pruning/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 

@@ -86,6 +86,10 @@ Biweekly Contest 148 t3: 3425 2710
 
 Biweekly Contest 148 t4: 3426 2738
 
+Weekly Contest 434 t3: 3434 2100
+
+Weekly Contest 434 t4: 3435 3100
+
 ### The problems pending rewrite
 
 CF 1237D

@@ -27,7 +27,7 @@
 <meta property="og:description" content="3443. Maximum Manhattan Distance After K Changes DescriptionYou are given a string s consisting of the characters &#39;N&#39;, &#39;S&#39;, &#39;E&#39;, and &#39;W&#39;, where s[i] indicates movements">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-02-23T14:13:20.000Z">
-<meta property="article:modified_time" content="2025-02-23T19:17:33.857Z">
+<meta property="article:modified_time" content="2025-02-26T23:04:49.819Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="Hash Table">
 <meta property="article:tag" content="String">
@@ -155,7 +155,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">753</span>
+          <span class="site-state-item-count">754</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -241,9 +241,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2025-02-23 14:13:20 / Modified: 19:17:33" itemprop="dateCreated datePublished" datetime="2025-02-23T14:13:20+00:00">2025-02-23</time>
+      <time title="Created: 2025-02-23 14:13:20" itemprop="dateCreated datePublished" datetime="2025-02-23T14:13:20+00:00">2025-02-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-02-26 23:04:49" itemprop="dateModified" datetime="2025-02-26T23:04:49+00:00">2025-02-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -298,7 +304,7 @@
 <li>2025&#x2F;02&#x2F;20</li>
 <li>greedy</li>
 <li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/maximum-manhattan-distance-after-k-changes/">0x3F’s solution</a></li>
-<li>weekly contest 435</li>
+<li>Weekly Contest 435</li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxDistance</span><span class="params">(string s, <span class="type">int</span> original_k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> north = <span class="number">0</span>, south = <span class="number">0</span>, east = <span class="number">0</span>, west = <span class="number">0</span>, res = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// make &#x27;N&#x27; and &#x27;W&#x27; +1, and &#x27;S&#x27; and &#x27;E&#x27; -1, check max abs cur</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span>&amp; c : s) &#123;</span><br><span class="line">            <span class="type">int</span> k = original_k;</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">&#x27;N&#x27;</span>) &#123;</span><br><span class="line">                north++;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">&#x27;S&#x27;</span>) &#123;</span><br><span class="line">                south++;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">&#x27;W&#x27;</span>) &#123;</span><br><span class="line">                west++;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">&#x27;E&#x27;</span>) &#123;</span><br><span class="line">                east++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="type">int</span> mx1 = <span class="built_in">max</span>(north, south), mi1 = <span class="built_in">min</span>(north, south);</span><br><span class="line">            <span class="type">int</span> mx2 = <span class="built_in">max</span>(west, east), mi2 = <span class="built_in">min</span>(west, east);</span><br><span class="line">            <span class="keyword">if</span> (k &lt;= mi1) &#123;</span><br><span class="line">                mx1 += k;</span><br><span class="line">                mi1 -= k;</span><br><span class="line">                res = <span class="built_in">max</span>(res, mx1 - mi1 + mx2 - mi2);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                k -= mi1;</span><br><span class="line">                mx1 += mi1;</span><br><span class="line">                k = <span class="built_in">min</span>(k, mi2);</span><br><span class="line">                mx2 += k;</span><br><span class="line">                mi2 -= k;</span><br><span class="line">                res = <span class="built_in">max</span>(res, mx1 + mx2 - mi2);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// cout &lt;&lt; mx1 &lt;&lt; &quot; &quot; &lt;&lt; mi1 &lt;&lt; &quot; &quot; &lt;&lt; mx2 &lt;&lt; &quot; &quot; &lt;&lt; mi2 &lt;&lt; &quot; &quot; &lt;&lt; res &lt;&lt; endl;</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -326,6 +332,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2025/02/26/3439-Reschedule-Meetings-for-Maximum-Free-Time-I/" rel="next" title="3439. Reschedule Meetings for Maximum Free Time I">
+                  3439. Reschedule Meetings for Maximum Free Time I <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>

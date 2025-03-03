@@ -39,7 +39,7 @@ Work on the meta 3 months, around 100 left
 
 ### System design
 
-1. 2/13() ~ 2/18() 6 lectures of 6.824
+1. 2/13 ~ 2/18 6 lectures of 6.824
 2. 2/19 ~ 2/27 9 chapters of DDIA
 3. 2/28 ~ 3/14 29 chapters of Alex's Xu
 4. Starting from 3/14, newgpu + [System design interval](https://www.youtube.com/c/SystemDesignInterview)

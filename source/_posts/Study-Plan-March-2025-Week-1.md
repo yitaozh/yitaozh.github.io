@@ -35,6 +35,8 @@ I want to finish the preparation mentioned in 1point3acre one by one.
 
 ## Action item
 
+Never use the time to do other things(unless scheduled meetings).
+
 1. Sleep before 1:55AM, otherwise the morning time will be wasted
 2. 10:15 ~ 11:30 and 11:45 ~ 13:00 should be leetcode
 3. It would be great if I can work 3 hours in the afternoon:

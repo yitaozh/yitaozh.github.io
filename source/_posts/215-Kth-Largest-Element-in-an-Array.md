@@ -86,6 +86,41 @@ public:
 };
 ```
 
+This constant space complexity quick select would TLE with LC new test case:
+
+```C++
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        return find(nums, 0, nums.size() - 1, k);
+    }
+    // the goal is to
+    int find(vector<int>& nums, int start, int end, int k) {
+        // we need a random number between [start, end]
+        int x = nums[end], i = start;
+        for (int j = start; j < end; j++) {
+            // the num at left should be less than or equal to end
+            if (nums[j] <= x) {
+                swap(nums[j], nums[i++]);
+            }
+        }
+        swap(nums[i], nums[end]);
+        // there are i - start + 1 numbers less than or equal to x
+        // there are end - i numbers larger than x
+        int numLarger = end - i;
+        if (k == numLarger + 1) {
+            return x;
+        }
+        // k is bigger than numLarger + 1, then we need to find it in the left side
+        if (k > numLarger + 1) {
+            return find(nums, start, i - 1, k - numLarger - 1);
+        } else {
+            return find(nums, i + 1, end, k);
+        }
+    }
+};
+```
+
 ```C++
 class Solution {
 public:

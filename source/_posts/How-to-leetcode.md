@@ -112,6 +112,10 @@ Weekly Contest 438 t3: 3463 2400
 
 Weekly Contest 438 t4: 3464 2800
 
+Weekly Contest 439 t3: 3473 2300
+
+Weekly Contest 439 t4: 3474 2500
+
 ### The problems pending rewrite
 
 CF 1237D

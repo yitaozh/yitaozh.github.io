@@ -92,6 +92,10 @@ Weekly Contest 434 t4: 3435 3100
 
 Biweekly Contest 149 t4: 3441 2900
 
+Weekly Contest 435 t3: 3444 2400
+
+Weekly Contest 435 t3: 3445 2700
+
 ### The problems pending rewrite
 
 CF 1237D

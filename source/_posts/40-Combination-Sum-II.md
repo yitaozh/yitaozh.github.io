@@ -52,7 +52,7 @@ Output:
 - 2024/12/19
 - backtracking
 - review together with 3sum
-- No solution from 0x3F
+- [Leetcode solution](https://leetcode.com/problems/combination-sum-ii/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
 
 ## Solution
 

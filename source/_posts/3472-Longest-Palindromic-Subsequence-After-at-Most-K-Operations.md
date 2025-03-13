@@ -56,7 +56,7 @@ The entire string forms a palindrome of length 6.
 
 ## Hints/Notes
 
-- 2025/03/01
+- 2025/03/01 Q1
 - dp
 - [0x3F's solution](https://leetcode.cn/problems/longest-palindromic-subsequence-after-at-most-k-operations/solutions/3591706/qu-jian-dppythonjavacgo-by-endlesscheng-sd78/)
 - Weekly Contest 439

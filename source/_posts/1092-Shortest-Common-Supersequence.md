@@ -7,7 +7,7 @@ tags:
     - Dynamic Programming
 ---
 
-[1092. Shortest Common Supersequence ](https://leetcode.com/problems/shortest-common-supersequence/description/)
+[1092. Shortest Common Supersequence](https://leetcode.com/problems/shortest-common-supersequence/description/)
 
 ## Description
 

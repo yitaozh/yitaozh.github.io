@@ -120,6 +120,8 @@ Weekly Contest 439 t4: 3474 2500
 
 CF 1237D
 
+LC 1060
+
 ### The problems not recorded
 
 N/A

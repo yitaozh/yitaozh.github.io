@@ -44,7 +44,7 @@ Output: []
 
 ## Hints/Notes
 
-- 2025/02/04
+- 2025/02/04 Q1
 - bfs
 - [0x3F's solution](https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/solutions/2049827/bfs-wei-shi-yao-yao-yong-dui-lie-yi-ge-s-xlv3/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
 

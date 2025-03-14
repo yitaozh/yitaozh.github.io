@@ -53,7 +53,7 @@ Explanation: All the integer arrays are [0, 0] except for "bob", which correspon
 
 - 2025/03/13 Q3
 - string
-- No solution
+- No solution from 0x3F or Leetcode
 
 ## Solution
 

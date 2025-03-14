@@ -40,7 +40,7 @@ Output: "aaaaaaaa"
 
 ## Hints/Notes
 
-- 2025/03/05 Q1
+- 2025/03/05 Q2
 - dp
 - [0x3F's solution](https://leetcode.cn/problems/shortest-common-supersequence/solutions/2194615/cong-di-gui-dao-di-tui-jiao-ni-yi-bu-bu-auy8z/)
 

@@ -43,7 +43,7 @@ Output: [2,3,6,7,1,5,4]
 
 ## Hints/Notes
 
-- 2025/02/03
+- 2025/02/03 Q1
 - linked list
 - [Leetcode solution](https://leetcode.com/problems/odd-even-linked-list/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 

@@ -40,7 +40,7 @@ Output: ""
 
 ## Hints/Notes
 
-- 2025/02/05
+- 2025/02/05 Q1
 - priority queue
 - [Leetcode solution](https://leetcode.com/problems/reorganize-string/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 

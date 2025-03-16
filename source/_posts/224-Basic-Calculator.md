@@ -50,7 +50,7 @@ Output: 23
 
 ## Hints/Notes
 
-- 2025/02/07
+- 2025/02/07 Q1
 - stack
 - [Leetcode solution](https://leetcode.com/problems/basic-calculator/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
 

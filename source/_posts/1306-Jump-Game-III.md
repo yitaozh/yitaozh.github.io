@@ -53,7 +53,7 @@ Explanation: There is no way to reach at index 1 with value 0.
 
 ## Hints/Notes
 
-- 2025/02/06 Q2
+- 2025/02/06 Q3
 - dfs
 - [Leetcode solution](https://leetcode.com/problems/jump-game-iii/editorial/?envType=company&envId=snapchat&favoriteSlug=snapchat-more-than-six-months)
 

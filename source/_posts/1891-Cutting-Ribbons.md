@@ -62,7 +62,7 @@ Explanation: You cannot obtain k ribbons of the same positive integer length.
 
 ## Hints/Notes
 
-- 2025/02/09
+- 2025/02/09 Q1
 - binary search
 - [Leetcode solution](https://leetcode.com/problems/cutting-ribbons/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 

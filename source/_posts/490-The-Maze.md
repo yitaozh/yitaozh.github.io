@@ -61,7 +61,7 @@ Output: false
 
 ## Hints/Notes
 
-- 2025/02/08
+- 2025/02/08 Q1
 - DFS
 - [Leetcode solution](https://leetcode.com/problems/the-maze/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 

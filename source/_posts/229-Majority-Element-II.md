@@ -45,7 +45,7 @@ Output: [1,2]
 
 ## Hints/Notes
 
-- 2025/02/11
+- 2025/02/11 Q1
 - Boyer-Moore Voting Algorithm
 - [Leetcode solution](https://leetcode.com/problems/majority-element-ii/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
 

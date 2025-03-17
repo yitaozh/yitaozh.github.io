@@ -50,7 +50,7 @@ Explanation: The 2 and -5 collide resulting in -5. The 10 and -5 collide resulti
 
 ## Hints/Notes
 
-- 2025/02/13
+- 2025/02/13 Q1
 - stack
 - [0x3F's solution](https://leetcode.com/problems/asteroid-collision/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
 

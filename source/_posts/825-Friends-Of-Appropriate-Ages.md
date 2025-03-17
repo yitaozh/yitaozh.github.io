@@ -59,7 +59,7 @@ Explanation: Friend requests are made 110 -> 100, 120 -> 110, 120 -> 100.
 
 ## Hints/Notes
 
-- 2025/02/10
+- 2025/02/10 Q1
 - sliding window
 - [0x3F's solution](https://leetcode.cn/problems/friends-of-appropriate-ages/solutions/2990994/ji-shu-hua-dong-chuang-kou-pythonjavaccg-jfya/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
 - TODO: use count array to improve the efficiency

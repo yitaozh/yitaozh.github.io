@@ -58,7 +58,7 @@ In total, you spent $17 and covered all the days of your travel.
 
 ## Hints/Notes
 
-- 2025/02/14
+- 2025/02/14 Q1
 - dp
 - [0x3F's solution](https://leetcode.cn/problems/minimum-cost-for-tickets/solutions/2936177/jiao-ni-yi-bu-bu-si-kao-dpcong-ji-yi-hua-tkw4/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
 

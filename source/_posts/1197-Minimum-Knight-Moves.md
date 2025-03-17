@@ -41,7 +41,7 @@ Explanation: [0, 0] → [2, 1] → [4, 2] → [3, 4] → [5, 5]
 
 ## Hints/Notes
 
-- 2025/02/12
+- 2025/02/12 Q1
 - bfs
 - [Leetcode solution](https://leetcode.com/problems/minimum-knight-moves/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
 

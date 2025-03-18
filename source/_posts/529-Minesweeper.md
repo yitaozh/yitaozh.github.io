@@ -63,7 +63,7 @@ Output: [["B","1","E","1","B"],["B","1","X","1","B"],["B","1","1","1","B"],["B",
 
 ## Hints/Notes
 
-- 2025/02/18
+- 2025/02/18 Q1
 - dfs/bfs
 - No solution from leetcode or 0x3F
 

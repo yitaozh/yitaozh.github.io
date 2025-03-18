@@ -38,7 +38,7 @@ Output: false
 
 ## Hints/Notes
 
-- 2025/02/16
+- 2025/02/16 Q1
 - array
 - [0x3F's solution](https://leetcode.cn/problems/can-place-flowers/solutions/2463018/ben-ti-zui-jian-dan-xie-fa-pythonjavacgo-6a6k/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
 

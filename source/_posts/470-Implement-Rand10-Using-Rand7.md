@@ -49,7 +49,7 @@ Output: [3,8,10]
 
 ## Hints/Notes
 
-- 2025/02/16 Q2
+- 2025/02/16 Q3
 - math
 - [Leetcode solution](https://leetcode.com/problems/implement-rand10-using-rand7/editorial/?envType=company&envId=linkedin&favoriteSlug=linkedin-six-months)
 

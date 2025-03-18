@@ -55,7 +55,7 @@ Number of valid subsequences (63 - 2 = 61).
 
 ## Hints/Notes
 
-- 2025/02/15
+- 2025/02/15 Q1
 - two pointers
 - [Leetcode solution](https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 

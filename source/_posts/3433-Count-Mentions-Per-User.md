@@ -101,7 +101,7 @@ At timestamp 12, `"HERE"` is mentioned. Because `id0` is still offline, they wil
 
 ## Hints/Notes
 
-- 2025/02/19
+- 2025/02/19 Q1
 - sort
 - [0x3F's solution](https://leetcode.cn/problems/count-mentions-per-user/solutions/3057699/an-zhao-shi-jian-chuo-fen-zu-mo-ni-by-en-w77b/)
 - Weekly Contest 434 t2

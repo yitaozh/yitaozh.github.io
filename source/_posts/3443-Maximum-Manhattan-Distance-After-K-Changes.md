@@ -63,7 +63,7 @@ The maximum Manhattan distance from the origin that can be achieved is 6. Hence,
 
 ## Hints/Notes
 
-- 2025/02/20
+- 2025/02/20 Q1
 - greedy
 - [0x3F's solution](https://leetcode.com/problems/maximum-manhattan-distance-after-k-changes/)
 - Weekly Contest 435

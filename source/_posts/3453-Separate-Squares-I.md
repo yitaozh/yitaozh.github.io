@@ -63,7 +63,7 @@ Since the areas above and below the line are equal, the output is `7/6 = 1.16667
 
 ## Hints/Notes
 
-- 2025/02/25
+- 2025/02/25 Q1
 - diff array
 - [0x3F's solution](https://leetcode.cn/problems/separate-squares-i/solutions/3076424/zheng-shu-er-fen-pythonjavacgo-by-endles-8yn5/)
 - Biweekly Contest 150

@@ -73,7 +73,7 @@ Diagonals with exactly one element are already in order, so no changes are neede
 
 ## Hints/Notes
 
-- 2025/02/23
+- 2025/02/23 Q1
 - sort
 - [0x3F's solution](https://leetcode.cn/problems/sort-matrix-by-diagonals/solutions/3068709/mo-ban-mei-ju-dui-jiao-xian-pythonjavacg-pjxp/)
 - Weekly Contest 436

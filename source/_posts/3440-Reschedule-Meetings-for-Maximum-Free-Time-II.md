@@ -88,7 +88,7 @@ There is no time during the event not occupied by meetings.
 
 ## Hints/Notes
 
-- 2025/02/22
+- 2025/02/22 Q1
 - [0x3F's solution](https://leetcode.cn/problems/reschedule-meetings-for-maximum-free-time-ii/solutions/3061629/wei-hu-qian-san-da-de-kong-wei-mei-ju-fe-xm2f/)
 - Biweekly Contest 149
 

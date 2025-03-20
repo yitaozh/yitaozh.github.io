@@ -55,7 +55,7 @@ Explanation: The groups are "a" and "bbbbbbbbbbbb". This compresses to "ab12".
 
 ## Hints/Notes
 
-- 2025/02/01
+- 2025/02/01 Q2
 - string
 - [Leetcode solution](https://leetcode.com/problems/string-compression/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
 

@@ -40,7 +40,7 @@ Output: false
 
 ## Hints/Notes
 
-- 2025/02/01
+- 2025/02/01 Q3
 - two pointers
 - [Leetcode solution](https://leetcode.com/problems/is-subsequence/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
 

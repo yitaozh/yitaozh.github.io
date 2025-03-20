@@ -40,7 +40,7 @@ Output: "ay"
 
 ## Hints/Notes
 
-- 2025/02/02
+- 2025/02/02 Q3
 - stack
 - [Leetcode solution](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
 

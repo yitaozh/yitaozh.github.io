@@ -38,7 +38,7 @@ Output: "9534330"
 
 ## Hints/Notes
 
-- 2025/02/01
+- 2025/02/01 Q1
 - string
 - [Good solution](https://leetcode.cn/problems/largest-number/solutions/716725/gong-shui-san-xie-noxiang-xin-ke-xue-xi-vn86e/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
 

@@ -35,7 +35,7 @@ Output: [1,2]
 
 ## Hints/Notes
 
-- 2025/02/02
+- 2025/02/02 Q1
 - dfs
 - [Leetcode solution](https://leetcode.com/problems/lexicographical-numbers/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
 

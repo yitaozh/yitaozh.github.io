@@ -72,7 +72,7 @@ Explanation:
 
 ## Hints/Notes
 
-- 2025/02/24
+- 2025/02/24 Q1
 - Harmonic series
 - [0x3F's solution](https://leetcode.cn/problems/assign-elements-to-groups-with-constraints/solutions/3068620/diao-he-ji-shu-mei-ju-yu-chu-li-mei-ge-s-8r67/)(checked)
 - Weekly Contest 436

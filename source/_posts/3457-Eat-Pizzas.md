@@ -59,7 +59,7 @@ The total weight gained after eating all the pizzas is `2 + 1 = 3.`
 
 ## Hints/Notes
 
-- 2025/02/26
+- 2025/02/26 Q1
 - greedy
 - [0x3F's solution](https://leetcode.cn/problems/select-k-disjoint-special-substrings/solutions/3077261/you-xiang-tu-jian-mo-he-bing-qu-jian-bu-sw1lb/)
 - Weekly Contest 437

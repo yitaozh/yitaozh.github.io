@@ -58,7 +58,7 @@ Explanation:
 
 ## Hints/Notes
 
-- 2025/02/27
+- 2025/02/27 Q1
 - sort
 - [0x3F's solution](https://leetcode.cn/problems/maximum-sum-with-at-most-k-elements/solutions/3086172/cong-da-dao-xiao-tan-xin-pythonjavacgo-b-vjt2/)
 - Weekly Contest 438

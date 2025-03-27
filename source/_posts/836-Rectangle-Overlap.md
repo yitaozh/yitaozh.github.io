@@ -1,7 +1,7 @@
 ---
 title: 836. Rectangle Overlap
 categories: Leetcode
-date: 2025-03-14 00:25:07
+date: 2025-03-14 14:17:42
 tags:
     - Math
     - Geometry
@@ -47,8 +47,8 @@ Output: false
 
 ## Hints/Notes
 
-- 2025/03/04 Q1
-- math
+- 2025/02/04 Q3
+- geometry
 - [Leetcode solution](https://leetcode.com/problems/rectangle-overlap/editorial/)
 
 ## Solution

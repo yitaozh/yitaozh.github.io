@@ -49,7 +49,7 @@ Explanation: "HOHHHO", "OHHHHO", "HHOHOH", "HOHHOH", "OHHHOH", "HHOOHH", "HOHOHH
 
 ## Hints/Notes
 
-- 2025/03/18
+- 2025/03/18 Q1
 - multi threading
 - No solution from 0x3F or Leetcode
 

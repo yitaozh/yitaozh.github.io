@@ -64,7 +64,7 @@ Explanation: Fill both jugs. The total amount of water in both jugs is equal to 
 
 ## Hints/Notes
 
-- 2025/03/17
+- 2025/03/17 Q1
 - dfs
 - [Leetcode solution](https://leetcode.cn/problems/water-and-jug-problem/solutions/161010/shui-hu-wen-ti-by-leetcode-solution/)
 

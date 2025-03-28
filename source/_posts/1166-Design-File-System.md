@@ -64,7 +64,7 @@ fileSystem.get("/c"); // return -1 because this path doesn't exist.
 
 ## Hints/Notes
 
-- 2025/03/19
+- 2025/03/19 Q1
 - Trie
 - [Leetcode solution](https://leetcode.com/problems/design-file-system/)
 

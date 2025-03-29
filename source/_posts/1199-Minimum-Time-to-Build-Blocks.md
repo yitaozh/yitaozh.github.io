@@ -57,7 +57,7 @@ The cost is 1 + max(3, 1 + max(1, 2)) = 4.
 
 ## Hints/Notes
 
-- 2025/03/22
+- 2025/03/22 Q1
 - dp
 - [Leetcode solution](https://leetcode.com/problems/minimum-time-to-build-blocks/editorial/)
 

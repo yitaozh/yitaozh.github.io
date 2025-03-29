@@ -50,7 +50,7 @@ Output: 0
 
 ## Hints/Notes
 
-- 2025/03/21
+- 2025/03/21 Q1
 - preMax + sort
 - [Leetcode solution](https://leetcode.com/problems/most-profit-assigning-work/editorial/?envType=company&envId=doordash&favoriteSlug=doordash-six-months)
 

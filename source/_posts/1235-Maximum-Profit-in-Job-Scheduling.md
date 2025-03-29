@@ -58,7 +58,7 @@ Output: 6
 
 ## Hints/Notes
 
-- 2025/03/20
+- 2025/03/20 Q1
 - dp + binary search
 - [Leetcode solution](https://leetcode.com/problems/maximum-profit-in-job-scheduling/editorial/)
 

@@ -43,7 +43,7 @@ Explanation: "2/4" is not a simplified fraction because it can be simplified to 
 
 ## Hints/Notes
 
-- 2025/03/23
+- 2025/03/23 Q1
 - math
 - [Leetcode solution](https://leetcode.cn/problems/simplified-fractions/solutions/1250991/zui-jian-fen-shu-by-leetcode-solution-98zy/)
 

@@ -44,7 +44,7 @@ Output: 4
 
 ## Hints/Notes
 
-- 2025/03/24
+- 2025/03/24 Q1
 - counting
 - [Leetcode solution](https://leetcode.com/problems/count-nice-pairs-in-an-array/editorial/)
 

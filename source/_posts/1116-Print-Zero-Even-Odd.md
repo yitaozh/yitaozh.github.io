@@ -67,14 +67,12 @@ private:
     condition_variable cv;
     int cur, printZero;
     int n;
-    bool finished;
 
 public:
     ZeroEvenOdd(int n) {
         this->n = n;
         this->cur = 1;
         this->printZero = 0;
-        this->finished = false;
     }
 
     // printNumber(x) outputs "x", where x is an integer.
@@ -82,9 +80,9 @@ public:
         while (true) {
             unique_lock<mutex> lock(m);
             cv.wait(lock, [&]{
-                return !printZero || finished;
+                return !printZero || cur > n;
             });
-            if (finished) {
+            if (cur > n) {
                 return;
             }
             printNumber(0);
@@ -97,17 +95,14 @@ public:
         while (true) {
             unique_lock<mutex> lock(m);
             cv.wait(lock, [&]{
-                return (printZero && cur % 2 == 0) || finished;
+                return (printZero && cur % 2 == 0) || cur > n;
             });
-            if (finished) {
+            if (cur > n) {
                 return;
             }
             printNumber(cur);
             cur++;
             printZero ^= 1;
-            if (cur > n) {
-                finished = true;
-            }
             cv.notify_all();
         }
     }
@@ -116,17 +111,14 @@ public:
         while (true) {
             unique_lock<mutex> lock(m);
             cv.wait(lock, [&]{
-                return (printZero && cur % 2) || finished;
+                return (printZero && cur % 2) || cur > n;
             });
-            if (finished) {
+            if (cur > n) {
                 return;
             }
             printNumber(cur);
             cur++;
             printZero ^= 1;
-            if (cur > n) {
-                finished = true;
-            }
             cv.notify_all();
         }
     }

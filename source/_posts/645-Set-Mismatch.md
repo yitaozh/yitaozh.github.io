@@ -40,7 +40,7 @@ Output: [1,2]
 
 ## Hints/Notes
 
-- 2025/03/26
+- 2025/03/26 Q1
 - bit manipulation
 - [Leetcode solution](https://leetcode.com/problems/set-mismatch/editorial/)
 

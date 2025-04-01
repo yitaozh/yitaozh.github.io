@@ -84,6 +84,8 @@ public:
                 for (int i = 0; i < n; i++) {
                     if (!((new_mask >> i) & 1) && c == t[i]) {
                         new_mask |= (1 << i);
+                        // why break here? because the c has been
+                        // used on this bit, need to use next c
                         break;
                     }
                 }

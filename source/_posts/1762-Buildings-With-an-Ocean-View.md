@@ -51,7 +51,7 @@ Explanation: Only building 3 has an ocean view.
 
 - 2025/01/27
 - iteration
-- [Leetcode solution](https://leetcode.com/problems/buildings-with-an-ocean-view/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
+- [Leetcode solution](https://leetcode.com/problems/buildings-with-an-ocean-view/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 

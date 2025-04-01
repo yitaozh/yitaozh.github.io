@@ -69,6 +69,8 @@ public:
             preSum[i] = preSum[i - 1] + nums[i];
         }
         for (int j = 3; j < nums.size() - 3; j++) {
+            // there's no need to check if [0, j) and (j, n - 1]
+            // are the same, because some numbers wouldn't be used
             unordered_set<int> s;
             for (int i = 1; i + 1 < j; i++) {
                 if (preSum[i - 1] == preSum[j - 1] - preSum[i]) {

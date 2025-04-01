@@ -75,6 +75,9 @@ public:
             even->next = odd->next;
             even = even->next;
         }
+        // odd1 -> even1 -> odd2 -> even2
+        // odd1 -> odd2  <- odd
+        // even1 -> even2 <- even
         odd->next = evenHead;
         return head;
     }

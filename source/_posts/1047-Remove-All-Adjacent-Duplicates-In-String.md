@@ -42,7 +42,7 @@ Output: "ay"
 
 - 2025/02/02 Q3
 - stack
-- [Leetcode solution](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)
+- [Leetcode solution](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/editorial/?envType=company&envId=facebook&favoriteSlug=facebook-three-months)(checked)
 
 ## Solution
 
@@ -52,20 +52,14 @@ Language: **C++**
 class Solution {
 public:
     string removeDuplicates(string s) {
-        stack<char> stk;
+        string res;
         for (char& c : s) {
-            if (!stk.empty() && stk.top() == c) {
-                stk.pop();
+            if (!res.empty() && res.back() == c) {
+                res.pop_back();
             } else {
-                stk.push(c);
+                res.push_back(c);
             }
         }
-        string res;
-        while (!stk.empty()) {
-            res.push_back(stk.top());
-            stk.pop();
-        }
-        ranges::reverse(res);
         return res;
     }
 };

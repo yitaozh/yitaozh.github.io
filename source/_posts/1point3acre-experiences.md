@@ -43,8 +43,9 @@ Assume i start the application on 2025/01/20, plan each day's work. **It's a tot
 1. DDIA first 9 chapters
 2. 6.824 17 videos
 3. Alex Xu's 16 + 13 chapters, check the reference
-4. newgpu
+4. [newgpu](https://www.youtube.com/@newgpu-sys-design/videos)
 5. [System design interval](https://www.youtube.com/c/SystemDesignInterview)
+6. [Scott Shi](https://www.youtube.com/@ScottShiCS/playlists)
 
 ## Behavioral question
 

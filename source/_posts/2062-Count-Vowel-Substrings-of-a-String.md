@@ -57,7 +57,7 @@ Explanation: The vowel substrings of word are as follows (underlined):
 
 ## Hints/Notes
 
-- 2025/03/29
+- 2025/03/29 Q1
 - sliding window
 - [Leetcode solution](https://leetcode.cn/problems/count-vowel-substrings-of-a-string/solutions/1101813/tong-ji-zi-fu-chuan-zhong-de-yuan-yin-zi-evp9/)
 

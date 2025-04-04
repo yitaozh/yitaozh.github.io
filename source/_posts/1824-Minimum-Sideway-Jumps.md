@@ -66,7 +66,7 @@ Explanation: The optimal solution is shown by the arrows above. There are 2 side
 
 ## Hints/Notes
 
-- 2025/03/28
+- 2025/03/28 Q1
 - dp
 - [0x3F's solution](https://leetcode.cn/problems/minimum-sideway-jumps/solutions/2071617/cong-0-dao-1-de-0-1-bfspythonjavacgo-by-1m8z4/?envType=company&envId=microsoft&favoriteSlug=microsoft-thirty-days)
 

@@ -66,7 +66,7 @@ version1 has less revisions, which means every missing revision are treated as "
 
 ## Hints/Notes
 
-- 2025/03/31
+- 2025/03/31 Q1
 - string
 - [Leetcode solution](https://leetcode.com/problems/compare-version-numbers/editorial/?envType=company&envId=apple&favoriteSlug=apple-six-months)
 

@@ -52,7 +52,7 @@ Therefore, person #1 only need to give person #0 $4, and all debt is settled.
 
 ## Hints/Notes
 
-- 2025/04/01
+- 2025/04/01 Q1
 - backtracking
 - [Leetcode solution](https://leetcode.com/problems/optimal-account-balancing/editorial)
 

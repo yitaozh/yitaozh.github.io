@@ -63,16 +63,15 @@ Language: **C++**
 class Solution {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {
-        int left = findLeft(nums, target);
-        if (left == nums.size() || nums[left] != target) {
+        int idx = findLeft(nums, target);
+        if (idx == nums.size() || nums[idx] != target) {
             return {-1, -1};
         }
         int right = findLeft(nums, target + 1) - 1;
-        return {left, right};
+        return {idx, right};
     }
 
     int findLeft(vector<int>& nums, int target) {
-        // nums[left] < target
         int left = -1, right = nums.size();
         while (left + 1 < right) {
             int mid = (right - left) / 2 + left;
@@ -82,6 +81,7 @@ public:
                 right = mid;
             }
         }
+        // exiting: left + 1 = right
         return right;
     }
 };

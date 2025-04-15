@@ -100,7 +100,7 @@ public:
         nums[idx] = nums[lastIdx];
         numToIndexes[val].erase(idx);
         numToIndexes[nums[idx]].erase(lastIdx);
-        // the most important if condition!
+        // below is the most important line
         if (idx < lastIdx) {
             numToIndexes[nums[idx]].insert(idx);
         }

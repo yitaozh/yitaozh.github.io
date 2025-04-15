@@ -85,6 +85,9 @@ public:
         return high;
     }
 
+    // count how many products are less than x
+    // use a and b to refer to nums1[i] and nums2[j] below
+    // a * b <= x b <= x / a
     bool isPossible(long long x, vector<int>& nums1, vector<int>& nums2, long long k) {
         int n1 = nums1.size(), n2 = nums2.size();
         long long count = 0;
@@ -95,8 +98,8 @@ public:
                 count += (n2 - idx);
             } else if (nums1[i] > 0) {
                 long long rem = floor((double)x / nums1[i]);
-                int ind = upper_bound(nums2.begin(), nums2.end(), rem) -nums2.begin();
-                count += ind;
+                int idx = upper_bound(nums2.begin(), nums2.end(), rem) -nums2.begin();
+                count += idx;
             } else {
                 if (x >= 0) {
                     count += n2;

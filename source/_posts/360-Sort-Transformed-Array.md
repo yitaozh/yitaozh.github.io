@@ -43,7 +43,9 @@ Output: [-23,-5,1,7]
 
 ## Hints/Notes
 
+* 2023/11/02
 * Two pointers, start and end of the array
+* [Leetcode solution](https://leetcode.com/problems/sort-transformed-array/editorial/?envType=company&envId=linkedin&favoriteSlug=linkedin-three-months)
 
 ## Solution
 

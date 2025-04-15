@@ -47,6 +47,39 @@ Explanation: One possible longest palindromic subsequence is "bb".
 
 Language: **C++**
 
+More intuitive way
+
+```C++
+class Solution {
+public:
+    vector<vector<int>> dp;
+
+    int longestPalindromeSubseq(string s) {
+        int n = s.size();
+        dp.resize(n, vector<int>(n, -1));
+        for (int i = 0; i < n; i++) {
+            dp[i][i] = 1;
+        }
+        return dfs(s, 0, n - 1);
+    }
+
+    int dfs(string& s, int start, int end) {
+        if (start > end) {
+            return 0;
+        }
+        if (dp[start][end] != -1) {
+            return dp[start][end];
+        }
+        if (s[start] == s[end]) {
+            dp[start][end] = 2 + dfs(s, start + 1, end - 1);
+        } else {
+            dp[start][end] = max(dfs(s, start + 1, end), dfs(s, start, end - 1));
+        }
+        return dp[start][end];
+    }
+};
+```
+
 ```C++
 class Solution {
 public:

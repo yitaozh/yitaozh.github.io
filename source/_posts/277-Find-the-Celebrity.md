@@ -56,6 +56,7 @@ Explanation: There is no celebrity.
 
 ## Hints/Notes
 
+* 2024/02/15
 * knows(i,j) == true then i can't be a celerity since a celeb knows nobody
 * knows(i,j) == false then j can't be a celeb since everyone must know the celeb
 

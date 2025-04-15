@@ -63,11 +63,8 @@ Language: **C++**
 class Solution {
 public:
     int bulbSwitch(int n) {
-        if (n <= 1) {
-            return n;
-        }
-        int res = 1;
-        for (int j = 2; j * j <= n; j++) {
+        int res = 0;
+        for (int j = 1; j * j <= n; j++) {
             res++;
         }
         return res;

@@ -46,6 +46,27 @@ Output: 3
 
 Language: **C++**
 
+Better solution:
+
+```C++
+class Solution {
+public:
+    int shortestWordDistance(vector<string>& wordsDict, string word1, string word2) {
+        int prev = -1, n = wordsDict.size(), res = INT_MAX;
+        for (int i = 0; i < n; i++) {
+            auto& word = wordsDict[i];
+            if (word == word1 || word == word2) {
+                if (prev != -1 && (wordsDict[prev] != word || word1 == word2)) {
+                    res = min(res, i - prev);
+                }
+                prev = i;
+            }
+        }
+        return res;
+    }
+};
+```
+
 ```C++
 class Solution {
 public:

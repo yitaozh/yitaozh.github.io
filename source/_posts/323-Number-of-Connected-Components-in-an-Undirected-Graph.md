@@ -60,37 +60,35 @@ Output: 1
 Language: **C++**
 
 ```C++
-class Solution {
+class Solution {
 public:
-    vector<int> parent;
+    vector<int> roots;
 
-    int countComponents(int n, vector<vector<int>>& edges) {
-        parent = vector<int>(n, 0);
-        int num = n;
+    int countComponents(int n, vector<vector<int>>& edges) {
+        roots = vector<int>(n, 0);
 
-        for (int i = 0; i < n; i++) {
-            parent[i] = i;
-        }
+        iota(roots.begin(), roots.end(), 0);
 
-        for (auto pair : edges) {
-            int p = pair[0];
-            int q = pair[1];
-            int rootP = find(p);
-            int rootQ = find(q);
-            if (rootP != rootQ) {
-                parent[rootP] = rootQ;
-                num--;
-            }
-        }
+        int num = n;
+        for (auto pair : edges) {
+            int p = pair[0];
+            int q = pair[1];
+            int rootP = find(p);
+            int rootQ = find(q);
+            if (rootP != rootQ) {
+                roots[rootP] = rootQ;
+                num--;
+            }
+        }
 
-        return num;
-    }
+        return num;
+    }
 
-    int find(int node) {
-        if (parent[node] != node) {
-            parent[node] = find(parent[node]);
-        }
-        return parent[node];
-    }
+    int find(int node) {
+        if (roots[node] != node) {
+            roots[node] = find(roots[node]);
+        }
+        return roots[node];
+    }
 };
 ```

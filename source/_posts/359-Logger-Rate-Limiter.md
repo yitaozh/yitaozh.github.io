@@ -56,6 +56,17 @@ logger.shouldPrintMessage(11, "foo"); // 11 >= 11, return true, next allowed tim
 - design
 - [Leetcode solution](https://leetcode.com/problems/logger-rate-limiter/editorial/)
 
+Step by step improvement:
+
+1. Use a queue of pairs + set, when there's a new request coming in, we
+    remove items from the queue first(also remove item from set), then push
+    the item to the end of the queue. The problem: worst case time complexity
+    is bad due to inline cleanup
+2. Use a unordered_map, so we can just check if the item is in the map. The
+    problem: need a separate job cleaning items
+3. If size requirement comes in, then implement a LRU
+4. If the timestamp is un-ordered, then use a sorted data structure
+
 ## Solution
 
 Language: **C++**

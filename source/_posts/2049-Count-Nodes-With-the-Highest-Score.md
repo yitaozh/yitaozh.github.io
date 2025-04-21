@@ -68,18 +68,16 @@ Language: **C++**
 ```C++
 class Solution {
 public:
-    int total = 0;
-    vector<int> numChild;
+    int n = 0;
     vector<vector<int>> children;
     unordered_map<long, int> m;
     long mx = 0;
 
     int countHighestScoreNodes(vector<int>& parents) {
-        total = parents.size();
-        numChild.resize(total, 0);
-        children.resize(total, vector<int>());
+        n = parents.size();
+        children.resize(n, vector<int>());
         int root = -1;
-        for (int i = 0; i < total; i++) {
+        for (int i = 0; i < n; i++) {
             if (parents[i] == -1) {
                 root = i;
             } else {
@@ -91,17 +89,16 @@ public:
     }
 
     int build(int root) {
-        int cnt = 0;
+        int cnt = 1;
         long mul = 1;
 
         for (int child : children[root]) {
-            int childCnt = build(child) + 1;
+            int childCnt = build(child);
             cnt += childCnt;
-            mul *= ChildCnt;
+            mul *= childCnt;
         }
 
-        numChild[root] = cnt;
-        mul *= max(1, total - cnt - 1);
+        mul *= max(1, n - cnt);
         mx = max(mx, mul);
         m[mul]++;
         return cnt;

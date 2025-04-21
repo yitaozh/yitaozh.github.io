@@ -54,19 +54,19 @@ Language: **C++**
 ```C++
 class Solution {
 public:
-    unordered_set<string> s;
-
     vector<string> simplifiedFractions(int n) {
         if (n == 1) {
             return {};
         }
+        vector<string> res;
         for (int i = 2; i <= n; i++) {
             for (int j = 1; j < i; j++) {
-                int g = gcd(i, j);
-                s.insert(to_string(j / g) + "/" + to_string(i / g));
+                if (gcd(i, j) == 1) {
+                    res.push_back(to_string(j) + "/" + to_string(i));
+                }
             }
         }
-        return vector<string>(s.begin(), s.end());
+        return res;
     }
 };
 ```

@@ -56,6 +56,38 @@ Explanation: Inserting 5 characters the string becomes "leetcodocteel".
 
 Language: **C++**
 
+dfs:
+
+```C++
+class Solution {
+public:
+    vector<vector<int>> dp;
+
+    int minInsertions(string s) {
+        int n = s.size();
+        dp.resize(n, vector<int>(n, -1));
+        return dfs(0, n - 1, s);
+    }
+
+    int dfs(int start, int end, string& s) {
+        if (start >= end) {
+            return 0;
+        }
+        if (dp[start][end] != -1) {
+            return dp[start][end];
+        }
+        int& res = dp[start][end];
+        if (s[start] == s[end]) {
+            res = dfs(start + 1, end - 1, s);
+            return res;
+        } else {
+            res = min(dfs(start + 1, end, s) , dfs(start, end - 1, s)) + 1;
+            return res;
+        }
+    }
+};
+```
+
 ```C++
 class Solution {
 public:

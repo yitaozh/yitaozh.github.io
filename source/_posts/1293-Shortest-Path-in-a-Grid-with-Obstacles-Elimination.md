@@ -98,3 +98,45 @@ public:
     }
 };
 ```
+
+A* algorithm:
+
+```C++
+class Solution {
+public:
+    static constexpr int dirs[4][2] = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
+
+    int shortestPath(vector<vector<int>>& grid, int k) {
+        int m = grid.size(), n = grid[0].size();
+        vector<vector<vector<bool>>> visited(m, vector<vector<bool>>(n, vector<bool>(k + 1, false)));
+        priority_queue<vector<int>, vector<vector<int>>, greater<vector<int>>> pq;
+        pq.push({m + n - 1, 0, 0, k, 0});
+        visited[0][0][k] = true;
+        while (!pq.empty()) {
+            int size = pq.size();
+            for (int i = 0; i < size; i++) {
+                auto v = pq.top();
+                pq.pop();
+                int x = v[1], y = v[2], remain = v[3], step = v[4];
+                if (x == m - 1 && y == n - 1) {
+                    return step;
+                }
+                for (int k = 0; k < 4; k++) {
+                    int dx = x + dirs[k][0], dy = y + dirs[k][1];
+                    if (dx >= 0 && dx < m && dy >= 0 && dy < n) {
+                        if (grid[dx][dy] == 0 && !visited[dx][dy][remain]) {
+                            visited[dx][dy][remain] = true;
+                            pq.push({abs(dx - m + 1) + abs(dy - n + 1) + step + 1, dx, dy, remain, step + 1});
+                        }
+                        if (grid[dx][dy] == 1 && remain > 0 && !visited[dx][dy][remain - 1]) {
+                            visited[dx][dy][remain - 1] = true;
+                            pq.push({abs(dx - m + 1) + abs(dy - n + 1) + step + 1, dx, dy, remain - 1, step + 1});
+                        }
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+};
+```

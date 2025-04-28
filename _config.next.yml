@@ -16,11 +16,11 @@ sidebar:
   position: right
 
 social:
-  GitHub: https://github.com/nyuzyt || fab fa-github
+  GitHub: https://github.com/yitaozh || fab fa-github
   E-Mail: mailto:jstzzyt01@gmail.com || fa fa-envelope
 
 links:
-  Resume: https://nyuzyt.github.io/resume/
+  Leetcode: https://leetcode.com/u/EchoJoy/
 
 font:
   # Use custom fonts families or not.

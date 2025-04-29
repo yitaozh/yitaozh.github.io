@@ -56,14 +56,9 @@ class Solution {
 public:
     bool validPalindrome(string s) {
         int left = 0, right = s.size() - 1;
-        bool deleted = false;
         while (left < right) {
             if (s[left] != s[right]) {
-                if (deleted) {
-                    return false;
-                } else {
-                    return check(s, left + 1, right) || check(s, left, right - 1);
-                }
+                return check(s, left + 1, right) || check(s, left, right - 1);
             }
             left++;
             right--;

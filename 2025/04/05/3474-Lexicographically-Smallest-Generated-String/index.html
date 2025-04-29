@@ -27,7 +27,7 @@
 <meta property="og:description" content="3474. Lexicographically Smallest Generated String DescriptionYou are given two strings, str1 and str2, of lengths n and m, respectively.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-04-05T12:59:36.000Z">
-<meta property="article:modified_time" content="2025-04-29T04:41:07.431Z">
+<meta property="article:modified_time" content="2025-04-29T04:57:47.497Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="String">
 <meta property="article:tag" content="Greedy">
@@ -248,7 +248,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-04-29 04:41:07" itemprop="dateModified" datetime="2025-04-29T04:41:07+00:00">2025-04-29</time>
+      <time title="Modified: 2025-04-29 04:57:47" itemprop="dateModified" datetime="2025-04-29T04:57:47+00:00">2025-04-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -273,10 +273,10 @@
 <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given two strings, <code>str1</code> and <code>str2</code>, of lengths <code>n</code> and <code>m</code>, respectively.</p>
 <p>A string <code>word</code> of length <code>n + m - 1</code> is defined to be <strong>generated</strong>  by <code>str1</code> and <code>str2</code> if it satisfies the following conditions for <strong>each</strong>  index <code>0 &lt;= i &lt;= n - 1</code>:</p>
 <ul>
-<li>If <code>str1[i] == &#39;T&#39;</code>, the <strong><button type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:rp:" data-state="closed" class="">substring</button></strong>  of <code>word</code> with size <code>m</code> starting at index <code>i</code> is <strong>equal</strong>  to <code>str2</code>, i.e., <code>word[i..(i + m - 1)] == str2</code>.</li>
-<li>If <code>str1[i] == &#39;F&#39;</code>, the <strong><button type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:rq:" data-state="closed" class="">substring</button></strong>  of <code>word</code> with size <code>m</code> starting at index <code>i</code> is <strong>not equal</strong>  to <code>str2</code>, i.e., <code>word[i..(i + m - 1)] != str2</code>.</li>
+<li>If <code>str1[i] == &#39;T&#39;</code>, the <strong>substring</strong>  of <code>word</code> with size <code>m</code> starting at index <code>i</code> is <strong>equal</strong>  to <code>str2</code>, i.e., <code>word[i..(i + m - 1)] == str2</code>.</li>
+<li>If <code>str1[i] == &#39;F&#39;</code>, the <strong>substring</strong>  of <code>word</code> with size <code>m</code> starting at index <code>i</code> is <strong>not equal</strong>  to <code>str2</code>, i.e., <code>word[i..(i + m - 1)] != str2</code>.</li>
 </ul>
-<p>Return the <strong><button type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:rr:" data-state="closed" class="">lexicographically smallest</button></strong>  possible string that can be <strong>generated</strong>  by <code>str1</code> and <code>str2</code>. If no string can be generated, return an empty string <code>&quot;&quot;</code>.</p>
+<p>Return the <strong>lexicographically smallest</strong>  possible string that can be <strong>generated</strong>  by <code>str1</code> and <code>str2</code>. If no string can be generated, return an empty string <code>&quot;&quot;</code>.</p>
 <p><strong>Example 1:</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: str1 = <span class="string">&quot;TFTF&quot;</span>, str2 = <span class="string">&quot;ab&quot;</span></span><br><span class="line"></span><br><span class="line">Output: <span class="string">&quot;ababa&quot;</span></span><br></pre></td></tr></table></figure>
 

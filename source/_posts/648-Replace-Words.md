@@ -85,12 +85,7 @@ public:
         string word;
         istringstream iss(sentence);
         string res;
-        do {
-            string word;
-            iss >> word;
-            if (word == "") {
-                break;
-            }
+        while (iss >> word) {
             TrieNode* head = root;
             string newWord;
             for (char c : word) {
@@ -107,7 +102,7 @@ public:
                 }
             }
             res = res == "" ? newWord : res + " " + newWord;
-        } while (iss);
+        };
         return res;
     }
 };

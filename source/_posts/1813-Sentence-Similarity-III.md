@@ -75,6 +75,31 @@ Explanation:
 
 Language: **C++**
 
+Cleaner solution:
+
+```C++
+class Solution {
+public:
+    bool areSentencesSimilar(string sentence1, string sentence2) {
+        istringstream iss1(sentence1), iss2(sentence2);
+        vector<string> words1, words2;
+        string word;
+        while (iss1 >> word) words1.push_back(word);
+        while (iss2 >> word) words2.push_back(word);
+        // let's do the suffix
+        int start = 0, end1 = words1.size() - 1, end2 = words2.size() - 1;
+        if (end1 > end2) return areSentencesSimilar(sentence2, sentence1);
+        while (start <= end1 && words1[start] == words2[start]) {
+            start++;
+        }
+        while (end1 >= 0 && words1[end1] == words2[end2]) {
+            end1--; end2--;
+        }
+        return start > end1;
+    }
+};
+```
+
 ```C++
 class Solution {
 public:

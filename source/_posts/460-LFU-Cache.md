@@ -71,13 +71,87 @@ lfu.get(4);      // return 4
 
 ## Hints/Notes
 
+* 2023/10/03
 * need a map to record all elements with same freq, i.e. a freqToKeys map
 * need a map to record one element's position in the above map's value
 * need rewrite next time
+* [Leetcode solution](https://leetcode.com/problems/lfu-cache/editorial/)
 
 ## Solution
 
 Language: **C++**
+
+Cleaner solution
+
+```C++
+class LFUCache {
+public:
+    int capacity;
+    int min_freq;
+    unordered_map<int, list<pair<int, int>>> freq2kv;
+    unordered_map<int, int> key2freq;
+    unordered_map<int, list<pair<int, int>>::iterator> key2ptr;
+
+    LFUCache(int capacity) : capacity(capacity) {
+        min_freq = 0;
+    }
+
+    void add(int key, int value, int freq) {
+        key2freq[key] = freq;
+        freq2kv[freq].push_back({key, value});
+        key2ptr[key] = --freq2kv[freq].end();
+    }
+
+    int get(int key) {
+        if (!key2ptr.contains(key)) {
+            return -1;
+        }
+        auto it = key2ptr[key];
+        int freq = key2freq[key];
+        int value = it->second;
+        freq2kv[freq].erase(it);
+        if (freq2kv[freq].empty()) {
+            freq2kv.erase(freq);
+            if (min_freq == freq) {
+                min_freq++;
+            }
+        }
+        add(key, value, freq + 1);
+        return value;
+    }
+
+    void put(int key, int value) {
+        if (capacity <= 0) {
+            return;
+        }
+        if (key2freq.contains(key)) {
+            auto it = key2ptr[key];
+            it->second = value;
+            get(key);
+            return;
+        }
+        if (key2freq.size() == capacity) {
+            int toBeRemovedKey = freq2kv[min_freq].front().first;
+            freq2kv[min_freq].pop_front();
+            key2ptr.erase(toBeRemovedKey);
+            key2freq.erase(toBeRemovedKey);
+
+            if (freq2kv[min_freq].empty()) {
+                freq2kv.erase(min_freq);
+            }
+        }
+        min_freq = 1;
+        add(key, value, 1);
+    }
+};
+
+/**
+ * Your LFUCache object will be instantiated and called as such:
+ * LFUCache* obj = new LFUCache(capacity);
+ * int param_1 = obj->get(key);
+ * obj->put(key,value);
+ */
+```
 
 ```C++
 class LFUCache {

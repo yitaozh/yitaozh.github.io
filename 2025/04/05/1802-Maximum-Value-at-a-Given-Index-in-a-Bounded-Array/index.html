@@ -27,7 +27,7 @@
 <meta property="og:description" content="1802. Maximum Value at a Given Index in a Bounded Array DescriptionYou are given three positive integers:n, index, and maxSum. You want to construct an array nums (0-indexed) that satisfies the follow">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-04-05T20:28:29.000Z">
-<meta property="article:modified_time" content="2025-04-29T05:40:30.908Z">
+<meta property="article:modified_time" content="2025-04-29T05:42:43.901Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="Binary Search">
 <meta property="article:tag" content="Greedy">
@@ -247,7 +247,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-04-29 05:40:30" itemprop="dateModified" datetime="2025-04-29T05:40:30+00:00">2025-04-29</time>
+      <time title="Modified: 2025-04-29 05:42:43" itemprop="dateModified" datetime="2025-04-29T05:42:43+00:00">2025-04-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -280,8 +280,9 @@
 <p>Return <code>nums[index]</code> of the constructed array.</p>
 <p>Note that <code>abs(x)</code> equals <code>x</code> if <code>x &gt;= 0</code>, and <code>-x</code> otherwise.</p>
 <p><strong>Example 1:</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: n = 4, index = 2,  maxSum = 6</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: nums = [1,2,**2** ,1] is one array that satisfies all the conditions.</span><br><span class="line">There are no arrays that satisfy all the conditions and have nums[2] == 3, so 2 is the maximum nums[2].</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: n = 4, index = 2,  maxSum = 6</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure>
 
+<p>Explanation: nums &#x3D; [1,2,<strong>2</strong> ,1] is one array that satisfies all the conditions.<br>There are no arrays that satisfy all the conditions and have nums[2] &#x3D;&#x3D; 3, so 2 is the maximum nums[2].</p>
 <p><strong>Example 2:</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: n = 6, index = 1,  maxSum = 10</span><br><span class="line">Output: 3</span><br></pre></td></tr></table></figure>
 

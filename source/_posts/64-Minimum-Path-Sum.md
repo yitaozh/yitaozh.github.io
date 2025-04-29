@@ -44,7 +44,7 @@ Output: 12
 
 - 2024/07/31
 - dp
-- No solution from 0x3F
+- [Leetcode solution](https://leetcode.com/problems/minimum-path-sum/editorial/)
 
 ## Solution
 

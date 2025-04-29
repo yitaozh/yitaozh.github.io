@@ -60,16 +60,16 @@ Left to right:
 class Solution {
 public:
     vector<int> dailyTemperatures(vector<int>& temperatures) {
-        stack<pair<int, int>> stk;
+        stack<int> stk;
         int n = temperatures.size();
         vector<int> res(n, 0);
         for (int i = 0; i < n; i++) {
-            while (!stk.empty() && temperatures[i] > stk.top().second) {
-                auto [idx, _] = stk.top();
+            while (!stk.empty() && temperatures[i] > temperatures[stk.top()]) {
+                auto idx = stk.top();
                 stk.pop();
                 res[idx] = i - idx;
             }
-            stk.emplace(i, temperatures[i]);
+            stk.emplace(i);
         }
         return res;
     }

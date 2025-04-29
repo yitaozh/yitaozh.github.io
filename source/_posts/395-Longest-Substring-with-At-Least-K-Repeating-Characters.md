@@ -45,8 +45,10 @@ Explanation: The longest substring is "ababb", as 'a' is repeated 2 times and 'b
 
 ## Hints/Notes
 
+* 2023/11/27
 * sliding window
 * need to introduce a new parameter distinct count and enumerate on it, without the parameter we don't know how to shrink the subarray
+* [Leetcode solution](https://leetcode.com/problems/longest-substring-with-at-least-k-repeating-characters/editorial/)
 
 ## Solution
 

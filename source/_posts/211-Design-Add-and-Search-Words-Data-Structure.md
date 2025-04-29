@@ -58,7 +58,7 @@ wordDictionary.search("b.."); // return True
 * 2023/10/07
 * Trie
 * Need a for loop for wildcard matching, also need a helper function tracking the index
-* No solution from 0x3F
+* [Leetcode solution](https://leetcode.com/problems/design-add-and-search-words-data-structure/editorial/?envType=company&envId=tiktok&favoriteSlug=tiktok-three-months)
 
 ## Solution
 

@@ -52,14 +52,13 @@ public:
         vector<vector<int>> res;
         ranges::sort(intervals);
         int n = intervals.size();
-        for (int i = 0; i < n; ) {
+        for (int i = 0; i < n; i++) {
             int start = intervals[i][0], end = intervals[i][1];
-            i++;
-            while (i < n && intervals[i][0] <= end) {
-                end = max(end, intervals[i][1]);
-                i++;
+            if (res.empty() || res.back()[1] < start) {
+                res.push_back(intervals[i]);
+            } else {
+                res.back()[1] = max(res.back()[1], end);
             }
-            res.push_back({start, end});
         }
         return res;
     }

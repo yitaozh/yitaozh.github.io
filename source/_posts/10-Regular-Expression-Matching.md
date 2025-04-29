@@ -55,11 +55,47 @@ Explanation: ".*" means "zero or more (*) of any character (.)".
 
 - 2024/08/14
 - dp
-- No solution from 0x3F
+- [Leetcode solution](https://leetcode.com/problems/regular-expression-matching/editorial/)
 
 ## Solution
 
 Language: **C++**
+
+Better solution:
+
+```C++
+class Solution {
+public:
+    string s_, p_;
+    vector<vector<int>> dp;
+
+    bool isMatch(string s, string p) {
+        s_ = s;
+        p_ = p;
+        dp.resize(s.size() + 1, vector<int>(p.size() + 1, -1));
+        bool res = traverse(0, 0);
+        return res;
+    }
+
+    bool traverse(int idx1, int idx2) {
+        if (idx2 == p_.size()) {
+            return idx1 == s_.size();
+        }
+        if (dp[idx1][idx2] != -1) {
+            return dp[idx1][idx2];
+        }
+        bool res = false;
+        bool match_one = (idx1 < s_.size()) && (s_[idx1] == p_[idx2] || p_[idx2] == '.');
+        if (idx2 + 1 < p_.size() && p_[idx2 + 1] == '*') {
+            res = traverse(idx1, idx2 + 2) || (match_one && traverse(idx1 + 1, idx2));
+        } else {
+            res = match_one && traverse(idx1 + 1, idx2 + 1);
+        }
+        dp[idx1][idx2] = res;
+        return res;
+    }
+};
+```
 
 ```C++
 class Solution {

@@ -16,7 +16,7 @@ tags:
 
 You are given an integer `n`. There are `n` rooms numbered from `0` to `n - 1`.
 
-You are given a 2D integer array `meetings` where `meetings[i] = [start<sub>i</sub>, end<sub>i</sub>]` means that a meeting will be held during the **half-closed**  time interval `[start<sub>i</sub>, end<sub>i</sub>)`. All the values of `start<sub>i</sub>` are **unique** .
+You are given a 2D integer array `meetings` where meetings[i] = [start<sub>i</sub>, end<sub>i</sub>] means that a meeting will be held during the **half-closed**  time interval [start<sub>i</sub>, end<sub>i</sub>). All the values of start<sub>i</sub> are **unique** .
 
 Meetings are allocated to rooms in the following manner:
 

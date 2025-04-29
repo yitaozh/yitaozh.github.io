@@ -12,7 +12,7 @@ tags:
 
 ## Description
 
-Given a string `s`, return the length of the longest <button type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:rp:" data-state="closed" class="">substring</button> that contains at most **two distinct characters** .
+Given a string `s`, return the length of the longest substring that contains at most **two distinct characters** .
 
 **Example 1:**
 

@@ -16,10 +16,10 @@ You are given two strings, `str1` and `str2`, of lengths `n` and `m`, respective
 
 A string `word` of length `n + m - 1` is defined to be **generated**  by `str1` and `str2` if it satisfies the following conditions for **each**  index `0 <= i <= n - 1`:
 
-- If `str1[i] == 'T'`, the **<button type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:rp:" data-state="closed" class="">substring</button>**  of `word` with size `m` starting at index `i` is **equal**  to `str2`, i.e., `word[i..(i + m - 1)] == str2`.
-- If `str1[i] == 'F'`, the **<button type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:rq:" data-state="closed" class="">substring</button>**  of `word` with size `m` starting at index `i` is **not equal**  to `str2`, i.e., `word[i..(i + m - 1)] != str2`.
+- If `str1[i] == 'T'`, the **substring**  of `word` with size `m` starting at index `i` is **equal**  to `str2`, i.e., `word[i..(i + m - 1)] == str2`.
+- If `str1[i] == 'F'`, the **substring**  of `word` with size `m` starting at index `i` is **not equal**  to `str2`, i.e., `word[i..(i + m - 1)] != str2`.
 
-Return the **<button type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:rr:" data-state="closed" class="">lexicographically smallest</button>**  possible string that can be **generated**  by `str1` and `str2`. If no string can be generated, return an empty string `""`.
+Return the **lexicographically smallest**  possible string that can be **generated**  by `str1` and `str2`. If no string can be generated, return an empty string `""`.
 
 **Example 1:**
 

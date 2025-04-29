@@ -50,30 +50,32 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 
 ## Hints/Notes
 
+* 2023/08/10
 * Sliding window
+* [Leetcode solution](https://leetcode.com/problems/longest-substring-without-repeating-characters/editorial/)
 
 ## Solution
 
 Language: **C++**
 
 ```C++
-class Solution {
+class Solution {
 public:
-    int lengthOfLongestSubstring(string s) {
-        unordered_map<char, int> window;
-        int res = 0, left = 0, right = 0;
-        while (right < s.size()) {
-            char c = s[right++];
-            window[c]++;
-            while (window[c] > 1) {
-                // We should decrement d here no matter if d
-                // is the same as c
-                char d = s[left++];
-                window[d]--;
-            }
-            res = max(res, right - left);
-        }
-        return res;
-    }
+    int lengthOfLongestSubstring(string s) {
+        int count[256]{};
+        int res = 0, left = 0, right = 0;
+        while (right < s.size()) {
+            int c = s[right++];
+            count[c]++;
+            while (count[c] > 1) {
+                // We should decrement d here no matter if d
+                // is the same as c
+                int d = s[left++];
+                count[d]--;
+            }
+            res = max(res, right - left);
+        }
+        return res;
+    }
 };
 ```

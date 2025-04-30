@@ -12,7 +12,7 @@ tags:
 
 ## Description
 
-You are given a list of airline `tickets` where `tickets[i] = [from<sub>i</sub>, to<sub>i</sub>]` represent the departure and the arrival airports of one flight. Reconstruct the itinerary in order and return it.
+You are given a list of airline `tickets` where tickets[i] = [from<sub>i</sub>, to<sub>i</sub>] represent the departure and the arrival airports of one flight. Reconstruct the itinerary in order and return it.
 
 All of the tickets belong to a man who departs from `"JFK"`, thus, the itinerary must begin with `"JFK"`. If there are multiple valid itineraries, you should return the itinerary that has the smallest lexical order when read as a single string.
 
@@ -52,7 +52,7 @@ Explanation: Another possible reconstruction is ["JFK","SFO","ATL","JFK","ATL","
 
 - 2025/01/06
 - backtracking
-- No solution from 0x3F
+- [Leetcode solution](https://leetcode.cn/problems/reconstruct-itinerary/solutions/389885/zhong-xin-an-pai-xing-cheng-by-leetcode-solution/)
 
 ## Solution
 

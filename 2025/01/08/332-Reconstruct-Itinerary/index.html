@@ -19,17 +19,17 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yitaozh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12,"author":"Echo Joy"},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="332. Reconstruct Itinerary DescriptionYou are given a list of airline tickets where tickets[i] &#x3D; [from&lt;sub&gt;i&lt;&#x2F;sub&gt;, to&lt;sub&gt;i&lt;&#x2F;sub&gt;] represent the departure and the arrival airp">
+    <meta name="description" content="332. Reconstruct Itinerary DescriptionYou are given a list of airline tickets where tickets[i] &#x3D; [fromi, toi] represent the departure and the arrival airports of one flight. Reconstruct the itine">
 <meta property="og:type" content="article">
 <meta property="og:title" content="332. Reconstruct Itinerary">
 <meta property="og:url" content="https://yitaozh.github.io/2025/01/08/332-Reconstruct-Itinerary/index.html">
 <meta property="og:site_name" content="Echo&#39;s Home">
-<meta property="og:description" content="332. Reconstruct Itinerary DescriptionYou are given a list of airline tickets where tickets[i] &#x3D; [from&lt;sub&gt;i&lt;&#x2F;sub&gt;, to&lt;sub&gt;i&lt;&#x2F;sub&gt;] represent the departure and the arrival airp">
+<meta property="og:description" content="332. Reconstruct Itinerary DescriptionYou are given a list of airline tickets where tickets[i] &#x3D; [fromi, toi] represent the departure and the arrival airports of one flight. Reconstruct the itine">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2021/03/14/itinerary1-graph.jpg">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2021/03/14/itinerary2-graph.jpg">
 <meta property="article:published_time" content="2025-01-08T00:52:32.000Z">
-<meta property="article:modified_time" content="2025-04-29T19:45:30.370Z">
+<meta property="article:modified_time" content="2025-04-30T05:18:09.240Z">
 <meta property="article:author" content="Echo Joy">
 <meta property="article:tag" content="Depth-First Search">
 <meta property="article:tag" content="Graph">
@@ -251,7 +251,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-04-29 19:45:30" itemprop="dateModified" datetime="2025-04-29T19:45:30+00:00">2025-04-29</time>
+      <time title="Modified: 2025-04-30 05:18:09" itemprop="dateModified" datetime="2025-04-30T05:18:09+00:00">2025-04-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -273,7 +273,7 @@
     
     
     <div class="post-body" itemprop="articleBody"><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/reconstruct-itinerary/description/?envType=problem-list-v2&envId=plakya4j">332. Reconstruct Itinerary</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given a list of airline <code>tickets</code> where <code>tickets[i] = [from&lt;sub&gt;i&lt;/sub&gt;, to&lt;sub&gt;i&lt;/sub&gt;]</code> represent the departure and the arrival airports of one flight. Reconstruct the itinerary in order and return it.</p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>You are given a list of airline <code>tickets</code> where tickets[i] &#x3D; [from<sub>i</sub>, to<sub>i</sub>] represent the departure and the arrival airports of one flight. Reconstruct the itinerary in order and return it.</p>
 <p>All of the tickets belong to a man who departs from <code>&quot;JFK&quot;</code>, thus, the itinerary must begin with <code>&quot;JFK&quot;</code>. If there are multiple valid itineraries, you should return the itinerary that has the smallest lexical order when read as a single string.</p>
 <ul>
 <li>For example, the itinerary <code>[&quot;JFK&quot;, &quot;LGA&quot;]</code> has a smaller lexical order than <code>[&quot;JFK&quot;, &quot;LGB&quot;]</code>.</li>
@@ -301,7 +301,7 @@
 <h2 id="Hints-Notes"><a href="#Hints-Notes" class="headerlink" title="Hints&#x2F;Notes"></a>Hints&#x2F;Notes</h2><ul>
 <li>2025&#x2F;01&#x2F;06</li>
 <li>backtracking</li>
-<li>No solution from 0x3F</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reconstruct-itinerary/solutions/389885/zhong-xin-an-pai-xing-cheng-by-leetcode-solution/">Leetcode solution</a></li>
 </ul>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Language: <strong>C++</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;string&gt; path;</span><br><span class="line">    map&lt;string, multiset&lt;string&gt;&gt; m;</span><br><span class="line">    <span class="type">int</span> curTicket = <span class="number">0</span>, totalTicket = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">findItinerary</span><span class="params">(vector&lt;vector&lt;string&gt;&gt;&amp; tickets)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; t : tickets) &#123;</span><br><span class="line">            string from = t[<span class="number">0</span>], to = t[<span class="number">1</span>];</span><br><span class="line">            m[from].<span class="built_in">insert</span>(to);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">dfs</span>(<span class="string">&quot;JFK&quot;</span>);</span><br><span class="line">        <span class="built_in">reverse</span>(path.<span class="built_in">begin</span>(), path.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> path;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(string root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (m[root].<span class="built_in">size</span>()) &#123;</span><br><span class="line">            string next = *m[root].<span class="built_in">begin</span>();</span><br><span class="line">            m[root].<span class="built_in">erase</span>(m[root].<span class="built_in">begin</span>());</span><br><span class="line">            <span class="built_in">dfs</span>(next);</span><br><span class="line">        &#125;</span><br><span class="line">        path.<span class="built_in">push_back</span>(root);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>

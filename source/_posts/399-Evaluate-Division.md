@@ -77,7 +77,6 @@ Language: **C++**
 ```C++
 class Solution {
 public:
-    unordered_map<string, string> roots;
     unordered_map<string, unordered_map<string, double>> graph;
     vector<double> calcEquation(vector<vector<string>>& equations, vector<double>& values, vector<vector<string>>& queries) {
         // build the graph and union find roots
@@ -88,53 +87,34 @@ public:
             double val = values[i];
             graph[dividend][divisor] = val;
             graph[divisor][dividend] = 1.0 / val;
-            string root1 = findRoot(dividend), root2 = findRoot(divisor);
-            roots[root1] = root2;
         }
 
         vector<double> res;
+        unordered_set<string> visited;
         for (auto& q : queries) {
             string dividend = q[0], divisor = q[1];
             if (!graph.contains(dividend) || !graph.contains(divisor)) {
                 res.push_back(-1.0);
-            } else if (dividend == divisor) {
-                res.push_back(1.0);
-            } else if (findRoot(dividend) != findRoot(divisor)) {
-                res.push_back(-1.0);
             } else {
-                unordered_set<string> visited;
                 res.push_back(dfs(dividend, divisor, visited));
             }
         }
         return res;
     }
 
-    double dfs(string root, string target, unordered_set<string> visited) {
+    double dfs(string root, string target, unordered_set<string>& visited) {
         if (root == target) {
             return 1.0;
         }
-        if (visited.contains(root)) {
-            return 0;
-        }
         visited.insert(root);
+        double mx = -1.0;
         for (auto [u, v]: graph[root]) {
-            double cur = dfs(u, target, visited);
-            if (cur) {
-                return cur * v;
+            if (!visited.contains(u)) {
+                mx = max(mx, dfs(u, target, visited) * v);
             }
         }
-        return 0;
-    }
-
-    string findRoot(string root) {
-        if (!roots.contains(root)) {
-            roots[root] = root;
-            return root;
-        }
-        if (roots[root] != root) {
-            roots[root] = findRoot(roots[root]);
-        }
-        return roots[root];
+        visited.erase(root);
+        return mx < 0 ? -1 : mx;
     }
 };
 ```

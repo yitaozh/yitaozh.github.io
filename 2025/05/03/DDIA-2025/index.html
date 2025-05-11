@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yitaozh.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12,"author":"Echo Joy"},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="DDIAChapter 1: Reliable, Scalable, and Maintainable ApplicationsA data-intensive application is typically built from standard building blocks. They usually need to:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DDIA - 2025">
+<meta property="og:url" content="https://yitaozh.github.io/2025/05/03/DDIA-2025/index.html">
+<meta property="og:site_name" content="Echo&#39;s Home">
+<meta property="og:description" content="DDIAChapter 1: Reliable, Scalable, and Maintainable ApplicationsA data-intensive application is typically built from standard building blocks. They usually need to:">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-05-03T23:59:47.000Z">
+<meta property="article:modified_time" content="2025-05-11T03:32:11.193Z">
+<meta property="article:author" content="Echo Joy">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://yitaozh.github.io/2025/05/03/DDIA-2025/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://yitaozh.github.io/2025/05/03/DDIA-2025/","path":"2025/05/03/DDIA-2025/","title":"DDIA - 2025"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>DDIA - 2025 | Echo's Home</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Echo's Home</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DDIA"><span class="nav-number">1.</span> <span class="nav-text">DDIA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-1-Reliable-Scalable-and-Maintainable-Applications"><span class="nav-number">1.1.</span> <span class="nav-text">Chapter 1: Reliable, Scalable, and Maintainable Applications</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thinking-about-Data-Systems"><span class="nav-number">1.2.</span> <span class="nav-text">Thinking about Data Systems</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reliability"><span class="nav-number">1.3.</span> <span class="nav-text">Reliability</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hardware-faults"><span class="nav-number">1.3.1.</span> <span class="nav-text">Hardware faults</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Software-Errors"><span class="nav-number">1.3.2.</span> <span class="nav-text">Software Errors</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Human-Errors"><span class="nav-number">1.3.3.</span> <span class="nav-text">Human Errors</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scalability"><span class="nav-number">1.4.</span> <span class="nav-text">Scalability</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Twitter-example"><span class="nav-number">1.4.1.</span> <span class="nav-text">Twitter example</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Describing-performance"><span class="nav-number">1.4.2.</span> <span class="nav-text">Describing performance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Approaches-for-coping-with-load"><span class="nav-number">1.4.3.</span> <span class="nav-text">Approaches for coping with load</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maintainability"><span class="nav-number">1.5.</span> <span class="nav-text">Maintainability</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Operability-making-life-easy-for-operations"><span class="nav-number">1.5.1.</span> <span class="nav-text">Operability: making life easy for operations</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-models-and-query-language"><span class="nav-number">2.</span> <span class="nav-text">Data models and query language</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Relational-model-vs-document-model"><span class="nav-number">2.1.</span> <span class="nav-text">Relational model vs document model</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-network-model"><span class="nav-number">2.1.1.</span> <span class="nav-text">The network model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-relational-model"><span class="nav-number">2.1.2.</span> <span class="nav-text">The relational model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Schema-flexibility"><span class="nav-number">2.1.3.</span> <span class="nav-text">Schema flexibility</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-locality-for-queries"><span class="nav-number">2.1.4.</span> <span class="nav-text">Data locality for queries</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Convergence-of-document-and-relational-databases"><span class="nav-number">2.1.5.</span> <span class="nav-text">Convergence of document and relational databases</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Query-languages-for-data"><span class="nav-number">2.2.</span> <span class="nav-text">Query languages for data</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MapReduce-querying"><span class="nav-number">2.2.1.</span> <span class="nav-text">MapReduce querying</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Graph-like-data-models"><span class="nav-number">2.3.</span> <span class="nav-text">Graph-like data models</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-foundation-Datalog"><span class="nav-number">2.3.1.</span> <span class="nav-text">The foundation: Datalog</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Property-graphs"><span class="nav-number">2.3.2.</span> <span class="nav-text">Property graphs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Triple-stores-and-SPARQL"><span class="nav-number">2.3.3.</span> <span class="nav-text">Triple-stores and SPARQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-SPARQL-query-language"><span class="nav-number">2.3.4.</span> <span class="nav-text">The SPARQL query language</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Echo Joy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">989</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">92</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yitaozh" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yitaozh" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:jstzzyt01@gmail.com" title="E-Mail → mailto:jstzzyt01@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://leetcode.com/u/EchoJoy/" title="https:&#x2F;&#x2F;leetcode.com&#x2F;u&#x2F;EchoJoy&#x2F;" rel="noopener" target="_blank">Leetcode</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://yitaozh.github.io/2025/05/03/DDIA-2025/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Echo Joy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Echo's Home">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="DDIA - 2025 | Echo's Home">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DDIA - 2025
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-05-03 23:59:47" itemprop="dateCreated datePublished" datetime="2025-05-03T23:59:47+00:00">2025-05-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-05-11 03:32:11" itemprop="dateModified" datetime="2025-05-11T03:32:11+00:00">2025-05-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="DDIA"><a href="#DDIA" class="headerlink" title="DDIA"></a>DDIA</h2><h3 id="Chapter-1-Reliable-Scalable-and-Maintainable-Applications"><a href="#Chapter-1-Reliable-Scalable-and-Maintainable-Applications" class="headerlink" title="Chapter 1: Reliable, Scalable, and Maintainable Applications"></a>Chapter 1: Reliable, Scalable, and Maintainable Applications</h3><p>A data-intensive application is typically built from standard building blocks. They usually need to:</p>
+<ul>
+<li>Store data (<em>databases</em>)</li>
+<li>Speed up reads (<em>caches</em>)</li>
+<li>Search data (<em>search indexes</em>)</li>
+<li>Send a message to another process asynchronously (<em>stream processing</em>)</li>
+<li>Periodically crunch data (<em>batch processing</em>)</li>
+</ul>
+<p>The ultimate reason for all the difference databases: different applications have different requirements.</p>
+<h3 id="Thinking-about-Data-Systems"><a href="#Thinking-about-Data-Systems" class="headerlink" title="Thinking about Data Systems"></a>Thinking about Data Systems</h3><p>Note: Kafka and the system we are building is very similar</p>
+<ul>
+<li><strong>Reliability</strong>. To work <em>correctly</em> even in the face of <em>adversity</em>.</li>
+<li><strong>Scalability</strong>. Reasonable ways of dealing with growth.</li>
+<li><strong>Maintainability</strong>. Be able to work on it <em>productively</em>.</li>
+</ul>
+<h3 id="Reliability"><a href="#Reliability" class="headerlink" title="Reliability"></a>Reliability</h3><p><strong>A fault is usually defined as one component of the system deviating from its spec</strong>, whereas <em>failure</em> is when the system as a whole stops providing the required service to the user.</p>
+<p>Note: check the Netflix chaos monkey</p>
+<h4 id="Hardware-faults"><a href="#Hardware-faults" class="headerlink" title="Hardware faults"></a>Hardware faults</h4><p><strong>There is a move towards systems that tolerate the loss of entire machines</strong>. A system that tolerates machine failure can be patched one node at a time, without downtime of the entire system (<em>rolling upgrade</em>).</p>
+<p>Note: talk about the number of instance failure in our system</p>
+<h4 id="Software-Errors"><a href="#Software-Errors" class="headerlink" title="Software Errors"></a>Software Errors</h4><ul>
+<li><strong>Software errors</strong>. It is unlikely that a large number of hardware components will fail at the same time. Software errors are a systematic error within the system, they tend to cause many more system failures than uncorrelated hardware faults.</li>
+</ul>
+<h4 id="Human-Errors"><a href="#Human-Errors" class="headerlink" title="Human Errors"></a>Human Errors</h4><ul>
+<li><strong>Human errors</strong>. Humans are known to be unreliable. Configuration errors by operators are a leading cause of outages. You can make systems more reliable:<ul>
+<li>Minimising the opportunities for error, peg: with admin interfaces that make easy to do the “right thing” and discourage the “wrong thing”.<br>My note: check the name of the script</li>
+<li>Provide fully featured non-production <em>sandbox</em> environments where people can explore and experiment safely.</li>
+<li>Automated testing.</li>
+<li>Quick and easy recovery from human error, fast to rollback configuration changes, roll out new code gradually and tools to recompute data.</li>
+<li>Set up detailed and clear monitoring, such as performance metrics and error rates (<em>telemetry</em>).</li>
+<li>Implement good management practices and training.</li>
+</ul>
+</li>
+</ul>
+<p>Note: me making an availability outage</p>
+<h3 id="Scalability"><a href="#Scalability" class="headerlink" title="Scalability"></a>Scalability</h3><p>This is how do we cope with increased load. We need to succinctly describe the current load on the system; only then we can discuss growth questions.</p>
+<h4 id="Twitter-example"><a href="#Twitter-example" class="headerlink" title="Twitter example"></a>Twitter example</h4><p>Twitter moved to an hybrid of both approaches. Tweets continue to be fanned out to home timelines but a small number of users with a very large number of followers are fetched separately and merged with that user’s home timeline when it is read, like in approach 1.</p>
+<h4 id="Describing-performance"><a href="#Describing-performance" class="headerlink" title="Describing performance"></a>Describing performance</h4><p>Performance numbers:</p>
+<p>Hadoop: throughput<br>Online system: server response time</p>
+<p>Note: how EFS measures performance</p>
+<p>Latency and response time</p>
+<p><strong>Better to use percentiles.</strong></p>
+<p>Tail latency is affecting customer</p>
+<p>Note: how we measure latency</p>
+<p>Percentile in practice</p>
+<p>Always try to run the workload from client side</p>
+<h4 id="Approaches-for-coping-with-load"><a href="#Approaches-for-coping-with-load" class="headerlink" title="Approaches for coping with load"></a>Approaches for coping with load</h4><p>Distributing stateless services across multiple machines is fairly straightforward. Taking stateful data systems from a single node to a distributed setup can introduce a lot of complexity. Until recently it was common wisdom to keep your database on a single node.</p>
+<h3 id="Maintainability"><a href="#Maintainability" class="headerlink" title="Maintainability"></a>Maintainability</h3><ul>
+<li><strong>Operability</strong>. Make it easy for operation teams to keep the system running.</li>
+<li><strong>Simplicity</strong>. Easy for new engineers to understand the system by removing as much complexity as possible.</li>
+<li><strong>Evolvability</strong>. Make it easy for engineers to make changes to the system in the future.</li>
+</ul>
+<h4 id="Operability-making-life-easy-for-operations"><a href="#Operability-making-life-easy-for-operations" class="headerlink" title="Operability: making life easy for operations"></a>Operability: making life easy for operations</h4><p>A good operations team is responsible for</p>
+<ul>
+<li>Monitoring and quickly restoring service if it goes into bad state<br>  Note: lighthouse and tickets</li>
+<li>Tracking down the cause of problems<br>  Note: RCA</li>
+<li>Keeping software and platforms up to date<br>  Note: patching</li>
+<li>Keeping tabs on how different systems affect each other</li>
+<li>Anticipating future problems</li>
+<li>Establishing good practices and tools for development</li>
+<li>Perform complex maintenance tasks, like platform migration</li>
+<li>Maintaining the security of the system</li>
+<li>Defining processes that make operations predictable<br>  Note: Runbook</li>
+<li>Preserving the organisation’s knowledge about the system</li>
+</ul>
+<p>Note: accidental complexity: major part of the problem. How to solve it: abstraction</p>
+<h2 id="Data-models-and-query-language"><a href="#Data-models-and-query-language" class="headerlink" title="Data models and query language"></a>Data models and query language</h2><p>Most applications are built by layering one data model on top of another. Each layer hides the complexity of the layers below by providing a clean data model. These abstractions allow different groups of people to work effectively.</p>
+<h3 id="Relational-model-vs-document-model"><a href="#Relational-model-vs-document-model" class="headerlink" title="Relational model vs document model"></a>Relational model vs document model</h3><p>The roots of relational databases lie in <em>business data processing</em>, <em>transaction processing</em> and <em>batch processing</em>.</p>
+<p>The goal was to hide the implementation details behind a cleaner interface.</p>
+<p><em>Not Only SQL(NOSQL)</em> has a few driving forces:</p>
+<ul>
+<li>Greater scalability</li>
+<li>preference for free and open source software</li>
+<li>Specialized query optimizations</li>
+<li>Desire for a more dynamic and expressive data model</li>
+</ul>
+<h4 id="The-network-model"><a href="#The-network-model" class="headerlink" title="The network model"></a>The network model</h4><p>Standardized by a committee called the Conference on Data Systems Languages (CODASYL) model was a generalization of the hierarchical model. In the tree structure of the hierarchical model, every record has exactly one parent, while in the network model, a record could have multiple parents.</p>
+<p>The links between records are like pointers in a programming language. The only way of accessing a record was to follow a path from a root record called <em>access path</em>.</p>
+<p>A query in CODASYL was performed by moving a cursor through the database by iterating over a list of records. If you didn’t have a path to the data you wanted, you were in a difficult situation as it was difficult to make changes to an application’s data model.</p>
+<h4 id="The-relational-model"><a href="#The-relational-model" class="headerlink" title="The relational model"></a>The relational model</h4><p>By contrast, the relational model was a way to lay out all the data in the open” a relation (table) is simply a collection of tuples (rows), and that’s it.</p>
+<p>The query optimizer automatically decides which parts of the query to execute in which order, and which indexes to use (the access path).</p>
+<p>The relational model thus made it much easier to add new features to applications.</p>
+<p><strong>The main arguments in favour of the document data model are schema flexibility, better performance due to locality, and sometimes closer data structures to the ones used by the applications. The relation model counters by providing better support for joins, and many-to-one and many-to-many relationships.</strong></p>
+<h4 id="Schema-flexibility"><a href="#Schema-flexibility" class="headerlink" title="Schema flexibility"></a>Schema flexibility</h4><p>Most document databases do not enforce any schema on the data in documents. Arbitrary keys and values can be added to a document, when reading, <strong>clients have no guarantees as to what fields the documents may contain.</strong></p>
+<p>Document databases are sometimes called <em>schemaless</em>, but maybe a more appropriate term is <em>schema-on-read</em>, in contrast to <em>schema-on-write</em>.</p>
+<p>Schema-on-read is similar to dynamic (runtime) type checking, whereas schema-on-write is similar to static (compile-time) type checking.</p>
+<h4 id="Data-locality-for-queries"><a href="#Data-locality-for-queries" class="headerlink" title="Data locality for queries"></a>Data locality for queries</h4><p>If your application often needs to access the entire document, there is a performance advantage to this <em>storage locality</em>.</p>
+<p>The database typically needs to load the entire document, even if you access only a small portion of it. On updates, the entire document usually needs to be rewritten, it is recommended that you keep documents fairly small.</p>
+<h4 id="Convergence-of-document-and-relational-databases"><a href="#Convergence-of-document-and-relational-databases" class="headerlink" title="Convergence of document and relational databases"></a>Convergence of document and relational databases</h4><p>PostgreSQL does support JSON documents. RethinkDB supports relational-like joins in its query language and some MongoDB drivers automatically resolve database references. Relational and document databases are becoming more similar over time.</p>
+<h3 id="Query-languages-for-data"><a href="#Query-languages-for-data" class="headerlink" title="Query languages for data"></a>Query languages for data</h3><p>SQL is a <em>declarative</em> query language. In an <em>imperative language</em>, you tell the computer to perform certain operations in order.</p>
+<p>In a declarative query language you just specify the pattern of the data you want, but not <em>how</em> to achieve that goal.</p>
+<p>A declarative query language hides implementation details of the database engine, making it possible for the database system to introduce performance improvements without requiring any changes to queries.</p>
+<h4 id="MapReduce-querying"><a href="#MapReduce-querying" class="headerlink" title="MapReduce querying"></a>MapReduce querying</h4><p><em>MapReduce</em> is a programming model for processing large amounts of data in bulk across many machines, popularised by Google.</p>
+<h3 id="Graph-like-data-models"><a href="#Graph-like-data-models" class="headerlink" title="Graph-like data models"></a>Graph-like data models</h3><p>If many-to-many relationships are very common in your application, it becomes more natural to start modelling your data as a graph.</p>
+<p>A graph consists of <em>vertices</em> (<em>nodes</em> or <em>entities</em>) and <em>edges</em> (<em>relationships</em> or <em>arcs</em>).</p>
+<p>There are several ways of structuring and querying the data. The <em>property graph</em> model (implemented by Neo4j, Titan, and Infinite Graph) and the <em>triple-store</em> model (implemented by Datomic, AllegroGraph, and others). There are also three declarative query languages for graphs: Cypher, SPARQL, and Datalog.</p>
+<h4 id="The-foundation-Datalog"><a href="#The-foundation-Datalog" class="headerlink" title="The foundation: Datalog"></a>The foundation: Datalog</h4><p><em>Datalog</em> provides the foundation that later query languages build upon. Its model is similar to the triple-store model, generalised a bit. Instead of writing a triple (<em>subject</em>, <em>predicate</em>, <em>object</em>), we write as <em>predicate(subject, object)</em>.</p>
+<p>We define <em>rules</em> that tell the database about new predicates and rules can refer to other rules, just like functions can call other functions or recursively call themselves.</p>
+<p>Rules can be combined and reused in different queries. It’s less convenient for simple one-off queries, but it can cope better if your data is complex.</p>
+<h4 id="Property-graphs"><a href="#Property-graphs" class="headerlink" title="Property graphs"></a>Property graphs</h4><p>Add graph here</p>
+<ul>
+<li><em>Cypher</em> is a declarative language for property graphs created by Neo4j</li>
+<li>Graph queries in SQL. In a relational database, you usually know in advance which joins you need in your query. In a graph query, the number if joins is not fixed in advance. In Cypher <code>:WITHIN*0...</code> expresses “follow a <code>WITHIN</code> edge, zero or more times” (like the <code>*</code> operator in a regular expression). This idea of variable-length traversal paths in a query can be expressed using something called <em>recursive common table expressions</em> (the <code>WITH RECURSIVE</code> syntax).</li>
+</ul>
+<h4 id="Triple-stores-and-SPARQL"><a href="#Triple-stores-and-SPARQL" class="headerlink" title="Triple-stores and SPARQL"></a>Triple-stores and SPARQL</h4><p>In a triple-store, all information is stored in the form of very simple three-part statements: <em>subject</em>, <em>predicate</em>, <em>object</em> (peg: <em>Jim</em>, <em>likes</em>, <em>bananas</em>). A triple is equivalent to a vertex in graph.</p>
+<h4 id="The-SPARQL-query-language"><a href="#The-SPARQL-query-language" class="headerlink" title="The SPARQL query language"></a>The SPARQL query language</h4><p><em>SPARQL</em> is a query language for triple-stores using the RDF data model.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/05/03/368-Largest-Divisible-Subset/" rel="prev" title="368. Largest Divisible Subset">
+                  <i class="fa fa-angle-left"></i> 368. Largest Divisible Subset
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Echo Joy</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

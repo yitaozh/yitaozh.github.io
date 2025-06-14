@@ -1,6 +1,6 @@
 ---
-title: Bookkeeping - 2024/11
-date: 2025-06-14 16:41:52
+title: Bookkeeping - 2024/12
+date: 2025-06-14 17:02:19
 tags: Finance
 hidden: true
 ---
@@ -11,42 +11,47 @@ hidden: true
 
 | Category              | Sum     | Section         | Sum     |
 | --------------------- | ------- | --------------- | ------- |
-| Paycheck              | 6844.32 | Income          | 6894.32 |
-| Deposit               | 50      | Income          |         |
+| Paycheck              | 9127.17 | Income          | 9230.67 |
+| Deposit               | 103.5   | Income          |         |
 
 ### Spending
 
 | Category              | Sum     | Section         | Sum     |
 | --------------------- | ------- | --------------- | ------- |
-| Restaurants           | 202     | Food            | 271.3   |
-| Groceries             | 69.3    | Food            |         |
-| Home Improvement      | 196.54  | Shopping        | 214.14  |
+| Restaurants           | 587.11  | Food            | 1590.69 |
+| Cake & Bread          | 189.57  | Food            |         |
+| Bubble Tea            | 288.79  | Food            |         |
+| Groceries             | 525.22  | Food            |         |
+| Dental                | 57.01   | Health          | 63.72   |
+| Pharmacy              | 6.71    | Health          |         |
+| Hair & Skin           | 206.48  | Shopping        | 461     |
+| Home Improvement      | 219.04  | Shopping        |         |
+| China Ecommerce       | 17.88   | Shopping        |         |
 | Entertainment         | 17.6    | Shopping        |         |
-| Electricity           | 79.45   | Utilities       | 252.05  |
-| Gas                   | 52.73   | Utilities       |         |
-| Phone Bill            | 0.3     | Utilities       |         |
-| VPN                   | 5       | Utilities       |         |
+| Electricity           | 52.95   | Utilities       | 253.47  |
+| Gas                   | 107.19  | Utilities       |         |
+| Phone Bill            | 0.6     | Utilities       |         |
+| VPN                   | 4.84    | Utilities       |         |
 | Network               | 35      | Utilities       |         |
-| Supply                | 21.03   | Utilities       |         |
-| Auto                  | 58.54   | Utilities       |         |
+| Supply                | 20      | Utilities       |         |
+| Auto                  | 32.89   | Utilities       |         |
 | Mortgage              | 1573.87 | Mortgage & Rent | 1573.87 |
-| Air                   | 150     | Travel          | 187.73  |
-| Ride Share/Car Rental | 31.73   | Travel          |         |
-| IRA                   | 5850    | Investment      | 5850    |
-| Cash & ATM            | 60      | Misc            | 160     |
-| Annual                | 100     | Misc            |         |
+| Hotel                 | 297.44  | Travel          | 297.44  |
+| Cash & ATM            | 60      | Misc            | 146     |
+| Transfer              | 56      | Misc            |         |
+| Bank Fee              | 30      | Misc            |         |
 
 ### Balance
 
-| Income  | Spending | Balance   |
-| ------- | -------- | --------- |
-| 6894.32 | 8509.09  | \-1614.77 |
+| Income  | Spending | Balance |
+| ------- | -------- | ------- |
+| 9230.67 | 4386.19  | 4844.48 |
 
 ### More than $10,000
 
-| Item          | Type  | Amount |
-| ------------- | ----- | ------ |
-| N/A           | N/A   | N/A    |
+| Item          | Type      | Amount |
+| ------------- | --------- | ------ |
+| Wire          | Income    | 49,990 |
 
 ## Chart
 
@@ -62,10 +67,11 @@ hidden: true
         orient: 'vertical',
         x: 'left',
         data: [
-            "Food", "Shopping", "Utilities", "Mortgage & Rent", "Travel", "Investment", "Misc",
-            "Restaurants", "Groceries", "Home Improvement", "Entertainment", "Electricity",
-            "Gas", "Phone Bill", "VPN", "Network", "Supply", "Auto", "Mortgage", "Air",
-            "Ride Share/Car Rental", "IRA", "Cash & ATM", "Annual"
+            "Food", "Health", "Shopping", "Utilities", "Mortgage & Rent", "Travel", "Misc",
+            "Restaurants", "Cake & Bread", "Bubble Tea", "Groceries", "Dental", "Pharmacy",
+            "Hair & Skin", "Home Improvement", "China Ecommerce", "Entertainment",
+            "Electricity", "Gas", "Phone Bill", "VPN", "Network", "Supply", "Auto",
+            "Mortgage", "Hotel", "Cash & ATM", "Transfer", "Bank Fee"
         ]
     },
     series: [
@@ -87,13 +93,13 @@ hidden: true
                 }
             },
             data:[
-                {value:271.3, name:'Food'},
-                {value:214.14, name:'Shopping'},
-                {value:252.05, name:'Utilities'},
+                {value:1590.69, name:'Food'},
+                {value:63.72, name:'Health'},
+                {value:461, name:'Shopping'},
+                {value:253.47, name:'Utilities'},
                 {value:1573.87, name:'Mortgage & Rent'},
-                {value:187.73, name:'Travel'},
-                {value:5850, name:'Investment'},
-                {value:160, name:'Misc'}
+                {value:297.44, name:'Travel'},
+                {value:146, name:'Misc'}
             ]
         },
         {
@@ -148,23 +154,28 @@ hidden: true
                 },
             },
             data:[
-                { "value": 202, "name": "Restaurants" },
-                { "value": 69.3, "name": "Groceries" },
-                { "value": 196.54, "name": "Home Improvement" },
+                { "value": 587.11, "name": "Restaurants" },
+                { "value": 189.57, "name": "Cake & Bread" },
+                { "value": 288.79, "name": "Bubble Tea" },
+                { "value": 525.22, "name": "Groceries" },
+                { "value": 57.01, "name": "Dental" },
+                { "value": 6.71, "name": "Pharmacy" },
+                { "value": 206.48, "name": "Hair & Skin" },
+                { "value": 219.04, "name": "Home Improvement" },
+                { "value": 17.88, "name": "China Ecommerce" },
                 { "value": 17.6, "name": "Entertainment" },
-                { "value": 79.45, "name": "Electricity" },
-                { "value": 52.73, "name": "Gas" },
-                { "value": 0.3, "name": "Phone Bill" },
-                { "value": 5, "name": "VPN" },
+                { "value": 52.95, "name": "Electricity" },
+                { "value": 107.19, "name": "Gas" },
+                { "value": 0.6, "name": "Phone Bill" },
+                { "value": 4.84, "name": "VPN" },
                 { "value": 35, "name": "Network" },
-                { "value": 21.03, "name": "Supply" },
-                { "value": 58.54, "name": "Auto" },
+                { "value": 20, "name": "Supply" },
+                { "value": 32.89, "name": "Auto" },
                 { "value": 1573.87, "name": "Mortgage" },
-                { "value": 150, "name": "Air" },
-                { "value": 31.73, "name": "Ride Share/Car Rental" },
-                { "value": 5850, "name": "IRA" },
+                { "value": 297.44, "name": "Hotel" },
                 { "value": 60, "name": "Cash & ATM" },
-                { "value": 100, "name": "Annual" }
+                { "value": 56, "name": "Transfer" },
+                { "value": 30, "name": "Bank Fee" }
             ]
         }
     ]
@@ -194,7 +205,7 @@ hidden: true
     },
     yAxis: {
         type: 'category',
-        data: ['2023/12','2024/1','2024/2','2024/3','2024/4','2024/5','2024/6','2024/7','2024/8','2024/9','2024/10','2024/11']
+        data: ['2024/1','2024/2','2024/3','2024/4','2024/5','2024/6','2024/7','2024/8','2024/9','2024/10','2024/11','2024/12']
     },
     series: [
         {
@@ -207,7 +218,7 @@ hidden: true
                     position: 'insideRight'
                 }
             },
-            data: [477.28, 302.13, 0, 751.72, 1324.58, 1372.49, 1569.95, 1773.14, 1257.02, 993.69, 422.35, 271.3]
+            data: [302.13, 0, 751.72, 1324.58, 1372.49, 1569.95, 1773.14, 1257.02, 993.69, 422.35, 271.3, 1590.69]
         },
         {
             name: 'Health',
@@ -219,7 +230,7 @@ hidden: true
                     position: 'insideRight'
                 }
             },
-            data: [0, 67.96, 0, 7.21, 20.74, 0, 0, 0, 135.15, 93.79, 0, 0]
+            data: [67.96, 0, 7.21, 20.74, 0, 0, 0, 135.15, 93.79, 0, 0, 63.72]
         },
         {
             name: 'Shopping',
@@ -231,7 +242,7 @@ hidden: true
                     position: 'insideRight'
                 }
             },
-            data: [3055.76, 72.09, 2231.5, 226.12, 919.23, 602.33, 969.97, 679.74, 2311.23, 84.26, 213.73, 214.14]
+            data: [72.09, 2231.5, 226.12, 919.23, 602.33, 969.97, 679.74, 2311.23, 84.26, 213.73, 214.14, 461]
         },
         {
             name: 'Utilities',
@@ -243,7 +254,7 @@ hidden: true
                     position: 'insideRight'
                 }
             },
-            data: [391.88, 380.43, 1763.79, 324.66, 440.6, 954.16, 326.58, 403.04, 1828.68, 149.44, 300.78, 252.05]
+            data: [380.43, 1763.79, 324.66, 440.6, 954.16, 326.58, 403.04, 1828.68, 149.44, 300.78, 252.05, 253.47]
         },
         {
             name: 'Mortgage & Rent',
@@ -255,7 +266,7 @@ hidden: true
                     position: 'insideRight'
                 }
             },
-            data: [1381.25, 2230.13, 1381.25, 2230.13, 1800.63, 1800.63, 3073.95, 2225.07, 2225.07, 2225.07, 2225.07, 1573.87]
+            data: [2230.13, 1381.25, 2230.13, 1800.63, 1800.63, 3073.95, 2225.07, 2225.07, 2225.07, 2225.07, 1573.87, 1573.87]
         },
         {
             name: 'Travel',
@@ -267,7 +278,7 @@ hidden: true
                     position: 'insideRight'
                 }
             },
-            data: [0, 18.79, 3776.05, 68.65, 18.43, 264.36, 366.38, 4838.74, 1203.15, 472.92, 31.34, 187.73]
+            data: [18.79, 3776.05, 68.65, 18.43, 264.36, 366.38, 4838.74, 1203.15, 472.92, 31.34, 187.73, 297.44]
         },
         {
             name: 'Misc',
@@ -286,7 +297,7 @@ hidden: true
                     }
                 }
             },
-            data: [0, 0, 0, 234, 126.56, 0, 201.84, 165, 5, 0, 99, 160]
+            data: [0, 0, 234, 126.56, 0, 201.84, 165, 5, 0, 99, 160, 146]
         }
     ]
 }
@@ -315,7 +326,7 @@ hidden: true
     xAxis : [
         {
             type : 'category',
-            data: ['2023/07','2023/08','2023/09','2023/10','2023/11','2023/12','2024/04','2024/05','2024/06','2024/07','2024/08','2024/09']
+            data: ['2023/08','2023/09','2023/10','2023/11','2023/12','2024/04','2024/05','2024/06','2024/07','2024/08','2024/09','2024/12']
         }
     ],
     yAxis : [
@@ -327,7 +338,7 @@ hidden: true
         {
             name:'Food',
             type:'bar',
-            data: [1234.85, 1329.06, 1383.72, 1400.12, 908.48, 477.28, 1324.58, 1372.49, 1569.95, 1773.14, 1257.02, 993.69],
+            data: [1329.06, 1383.72, 1400.12, 908.48, 477.28, 1324.58, 1372.49, 1569.95, 1773.14, 1257.02, 993.69, 1590.69],
             markPoint : {
                 data : [
                     {type : 'max', name: '最大值'},
@@ -350,7 +361,7 @@ hidden: true
         {
             name:'Shopping',
             type:'bar',
-            data: [1056.3, 85.26, 816.04, 772.85, 729.09, 3055.76, 919.23, 602.33, 969.97, 679.74, 2311.23, 84.26],
+            data: [85.26, 816.04, 772.85, 729.09, 3055.76, 919.23, 602.33, 969.97, 679.74, 2311.23, 84.26, 461],
             markPoint : {
                 data : [
                     {type : 'max', name: '最大值'},
@@ -366,7 +377,7 @@ hidden: true
         {
             name:'Utilities',
             type:'bar',
-            data: [308.18, 1886.01, 539.88, 473.06, 313.29, 391.88, 440.6, 954.16, 326.58, 403.04, 1828.68, 149.44],
+            data: [1886.01, 539.88, 473.06, 313.29, 391.88, 440.6, 954.16, 326.58, 403.04, 1828.68, 149.44, 253.47],
             markPoint : {
                 data : [
                     {type : 'max', name: '最大值'},
@@ -404,7 +415,7 @@ hidden: true
     },
     xAxis: {
         type : 'category',
-        data: ['2023/12','2024/01','2024/02','2024/03','2024/04','2024/05','2024/06','2024/07','2024/08','2024/09','2024/10','2024/11']
+        data: ['2024/01','2024/02','2024/03','2024/04','2024/05','2024/06','2024/07','2024/08','2024/09','2024/10','2024/11','2024/12']
     },
     yAxis: {
         type : 'value'
@@ -429,7 +440,7 @@ hidden: true
                     position: 'insideTop'
                 }
             },
-            data: [8512.78, 4559.31, 4455.21, 6636.52, 4439.64, 4992.19, 4632.13, 4801.54, 8359.88, 6763.34, 5104.3, 6894.32],
+            data: [4559.31, 4455.21, 6636.52, 4439.64, 4992.19, 4632.13, 4801.54, 8359.88, 6763.34, 5104.3, 6894.32, 9230.67],
         },
         {
             name: 'Spending',
@@ -447,7 +458,7 @@ hidden: true
                     position: 'insideBottom'
                 }
             },
-            data: [-11803.17, -3071.53, -9152.59, -3842.49, -4650.77, -4993.97, -6508.67, -11234.73, -8965.3, -4019.17, -3292.27, -8509.09],
+            data: [-3071.53, -9152.59, -3842.49, -4650.77, -4993.97, -6508.67, -11234.73, -8965.3, -4019.17, -3292.27, -8509.09, -4386.19],
         }
     ]
 };
@@ -464,7 +475,7 @@ hidden: true
     xAxis: [
         {
             type: 'category',
-            data: ['2023/12','2024/01','2024/02','2024/03','2024/04','2024/05','2024/06','2024/07','2024/08','2024/09','2024/10','2024/11']
+            data: ['2024/01','2024/02','2024/03','2024/04','2024/05','2024/06','2024/07','2024/08','2024/09','2024/10','2024/11','2024/12']
         }
     ],
     yAxis: [
@@ -490,10 +501,10 @@ hidden: true
                     position: 'top'
                 }
             },
-            data: [-3290.39, 1487.78, -4697.38, 2794.03, -211.13, -1.78, -1876.54, -6433.19, -605.42, 2744.17, 1812.03, -1614.77]
+            data: [1487.78, -4697.38, 2794.03, -211.13, -1.78, -1876.54, -6433.19, -605.42, 2744.17, 1812.03, -1614.77, 4844.48]
         },
     ]
 };
 {% endecharts %}
 
-Last 12 months' balance(December): N/A
+Last 12 months' balance(December): 70869.05 - 72626.77 = -1757.72

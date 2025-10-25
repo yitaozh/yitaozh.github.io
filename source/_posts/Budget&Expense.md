@@ -80,8 +80,10 @@ Use the first and second week to submit reimbursements, do the bookkeeping on th
 | Supply                | Utilities       |
 | Television            | Utilities       |
 | Auto                  | Utilities       |
+| Transportation        | Utilities       |
 | Mortgage              | Mortgage & Rent |
 | HOA                   | Mortgage & Rent |
+| Rent                  | Mortgage & Rent |
 | Air                   | Travel          |
 | Ride Share/Car Rental | Travel          |
 | Hotel                 | Travel          |
